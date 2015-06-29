@@ -73,23 +73,8 @@ class Af_Feedmod extends Plugin implements IHandler
                     $doc = new DOMDocument();
                     $link = trim($article['link']);
 
-                    if (version_compare(VERSION, '1.7.9', '>=')) {
-                        $html = fetch_file_contents($link);
-                        $content_type = $fetch_last_content_type;
-                    } else {
-                        // fallback to file_get_contents()
-                        $html = file_get_contents($link);
-
-                        // try to fetch charset from HTTP headers
-                        $headers = $http_response_header;
-                        $content_type = false;
-                        foreach ($headers as $h) {
-                            if (substr(strtolower($h), 0, 13) == 'content-type:') {
-                                $content_type = substr($h, 14);
-                                // don't break here to find LATEST (if redirected) entry
-                            }
-                        }
-                    }
+                    $html = fetch_file_contents($link);
+                    $content_type = $fetch_last_content_type;
                     
                     $charset = false;
                     if (!isset($config['force_charset'])) {
@@ -103,18 +88,15 @@ class Af_Feedmod extends Plugin implements IHandler
                     }
     
                     if ($charset && isset($config['force_unicode']) && $config['force_unicode']) {
-                        $html = iconv($charset, 'utf-8', $html);
+                        $html = mb_convert_encoding($html, 'utf-8', $charset);
                         $charset = 'utf-8';
                     }
                     
                     if ($charset) {
                             $html = '<?xml encoding="' . $charset . '">' . $html;
                     }
-                    
-                    
-                        
-                    
 
+                    $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
                     @$doc->loadHTML($html);
 
                     if ($doc) {
@@ -125,25 +107,106 @@ class Af_Feedmod extends Plugin implements IHandler
                         if ($entries->length > 0) $basenode = $entries->item(0);
 
                         if ($basenode) {
-                            // remove nodes from cleanup configuration
-                            if (isset($config['cleanup'])) {
-                                if (!is_array($config['cleanup'])) {
-                                    $config['cleanup'] = array($config['cleanup']);
+
+                            $links = array();
+                            if(isset($config['next_page']) && $config['next_page']){
+                                $next_page_basenode = false;
+                                $next_page_xpath = new DOMXPath($doc);
+                                $next_page_entries = $next_page_xpath->query('(//'.$config['next_page'].')');
+                                if ($next_page_entries->length > 0) {
+                                    $next_page_basenode = $next_page_entries->item(0);
                                 }
-                                foreach ($config['cleanup'] as $cleanup) {
-                                    $nodelist = $xpath->query('//'.$cleanup, $basenode);
-                                    foreach ($nodelist as $node) {
-                                        if ($node instanceof DOMAttr) {
-                                            $node->ownerElement->removeAttributeNode($node);
+
+                                if ($next_page_basenode) {
+                                    if (isset($config['next_page_cleanup'])) {
+                                        if (!is_array($config['next_page_cleanup'])) {
+                                            $config['next_page_cleanup'] = array($config['next_page_cleanup']);
                                         }
-                                        else {
-                                            $node->parentNode->removeChild($node);
+                                        foreach ($config['next_page_cleanup'] as $next_page_cleanup) {
+                                            $next_page_cleanup_nodelist = $xpath->query('//'.$next_page_cleanup, $next_page_basenode);
+                                            foreach ($next_page_cleanup_nodelist as $node) {
+                                                if ($node instanceof DOMAttr) {
+                                                    $node->ownerElement->removeAttributeNode($node);
+                                                } else {
+                                                    $node->parentNode->removeChild($node);
+                                                }
+                                            }
                                         }
+                                    }
+
+                                    $next_page_nodelist = $next_page_basenode->getElementsByTagName('a');
+                                    if($next_page_nodelist->length > 0){
+                                        foreach ($next_page_nodelist as $node) {
+                                            $next_page = $node->getAttribute('href');
+                                            if(strlen($next_page) == 0){
+                                                continue;
+                                            }
+                                            if(substr($next_page, 0, 1) == "?"){
+                                                $next_page = $link.$next_page;
+                                            }
+                                            if(substr($next_page, 0, 1) == "/"){
+                                                $url_item = parse_url($link);
+                                                $next_page = $url_item['scheme'].'://'.$url_item['host'].$next_page;
+                                            }
+                                            if(substr($next_page, 0,4) != "http"){
+                                                $pos = strrpos($link, "/");
+                                                if($pos){
+                                                    $next_page = substr($link, 0, $pos+1).$next_page;
+                                                }
+                                            }
+                                            $links[] = $next_page;
+                                        }
+                                        $links = array_unique($links);
                                     }
                                 }
                             }
+
+                            $this->cleanup($xpath, $basenode, $config['cleanup']);
+                            $this->update_img_tags($basenode, $link);
+
                             $article['content'] = $doc->saveXML($basenode);
                             $article['plugin_data'] = "feedmod,$owner_uid:" . $article['plugin_data'];
+
+                            foreach($links as $url){
+                                $html = fetch_file_contents($url);
+                                $content_type = $fetch_last_content_type;
+
+                                $charset = false;
+                                if (!isset($config['force_charset'])) {
+                                    if ($content_type) {
+                                        preg_match('/charset=(\S+)/', $content_type, $matches);
+                                        if (isset($matches[1]) && !empty($matches[1])) $charset = $matches[1];
+                                    }
+                                } else {
+                                    // use forced charset
+                                    $charset = $config['force_charset'];
+                                }
+                                if ($charset && isset($config['force_unicode']) && $config['force_unicode']) {
+                                    $html = mb_convert_encoding($html, 'utf-8', $charset);
+                                    $charset = 'utf-8';
+                                }
+                                if ($charset) {
+                                        $html = '<?xml encoding="' . $charset . '">' . $html;
+                                }
+                                $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+                                @$doc->loadHTML($html);
+                                if ($doc) {
+                                    $basenode = false;
+                                    $xpath = new DOMXPath($doc);
+                                    $entries = $xpath->query('(//'.$config['xpath'].')');   // find main DIV according to config
+            
+                                    if ($entries->length > 0) {
+                                        $basenode = $entries->item(0);
+                                    }
+
+                                    if ($basenode) {
+                                        $this->cleanup($xpath, $basenode, $config['cleanup']);
+                                        $this->update_img_tags($basenode, $link);
+                                        $article['content'] .= $doc->saveXML($basenode);
+                                    }
+                                }
+            
+                            }
                         }
                     }
                     break;
@@ -157,6 +220,67 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         return $article;
+    }
+
+
+    function cleanup($xpath, $basenode, $config_cleanup){
+        if(!$basenode){
+            return;
+        }
+        if(!isset($config_cleanup)){
+            return;
+        }
+        if (!is_array($config_cleanup)) {
+            $config_cleanup = array($config_cleanup);
+        }
+        foreach ($config_cleanup as $cleanup_item) {
+            if(!$cleanup_item){
+                continue;
+            }
+            $nodelist = $xpath->query('//'.$cleanup_item, $basenode);
+            if(!$nodelist){
+                continue;
+            }
+            foreach ($nodelist as $node) {
+                if ($node instanceof DOMAttr) {
+                    $node->ownerElement->removeAttributeNode($node);
+                } else {
+                    $node->parentNode->removeChild($node);
+                }
+            }
+        }
+    }
+
+    function update_img_tags($basenode, $link){
+        if(!$basenode){
+            return;
+        }
+        $img_list = $basenode->getElementsByTagName('img');
+        if($img_list->length == 0){
+            return;
+        }
+        foreach($img_list as $node){
+            $src = $node->getAttribute('src');
+            if(substr($src,0,1) == "/"){
+                $url_item = parse_url($link);
+                $src = $url_item['scheme'].'://'.$url_item['host'].$src;
+                $node->setAttribute('src', $src);
+            }else if(substr($src, 0,4) != "http"){
+                $pos = strrpos($link, "/");
+                if($pos){
+                    $src = substr($link, 0, $pos+1).$src;
+                    $node->setAttribute('src', $src);
+                }
+            }
+
+            $original = $node->getAttribute('data-original');
+            if(!$original){
+                $original = $node->getAttribute('data-lazy-src');
+            }
+            if ($original) {
+                $node->setAttribute('src', $original);
+            }
+        }
     }
 
     function hook_prefs_tabs($args)
