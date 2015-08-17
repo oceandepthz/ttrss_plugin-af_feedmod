@@ -261,7 +261,11 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         foreach($img_list as $node){
             $src = $node->getAttribute('src');
-            if(substr($src,0,1) == "/"){
+            if(substr($src,0,2) == "//"){
+                $url_item = parse_url($link);
+                $src = $url_item['scheme'].':'.$src;
+                $node->setAttribute('src', $src);
+            }else if(substr($src,0,1) == "/"){
                 $url_item = parse_url($link);
                 $src = $url_item['scheme'].'://'.$url_item['host'].$src;
                 $node->setAttribute('src', $src);
