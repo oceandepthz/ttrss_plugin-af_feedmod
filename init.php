@@ -281,6 +281,9 @@ class Af_Feedmod extends Plugin implements IHandler
             if(!$original){
                 $original = $node->getAttribute('data-lazy-src');
             }
+            if(!$original){
+                $original = $node->getAttribute('data-src');
+            }
             if ($original) {
                 $node->setAttribute('src', $original);
             }
