@@ -46,6 +46,14 @@ class Af_Feedmod extends Plugin implements IHandler
         return true;
     }
 
+    function get_file_json_data(){
+        $data = array();
+        foreach (glob(__DIR__."/json/*.json") as $filename) {
+            $data = array_merge($data, json_decode(file_get_contents($filename),true));
+        }
+        return $data;
+    }
+
     function hook_article_filter($article)
     {
         global $fetch_last_content_type;
@@ -53,6 +61,14 @@ class Af_Feedmod extends Plugin implements IHandler
         $json_conf = $this->host->get($this, 'json_conf');
         $owner_uid = $article['owner_uid'];
         $data = json_decode($json_conf, true);
+/*
+        $data = $this->get_file_json_data();
+        if(is_array($data)){
+            $data = array_merge($data, $file_data);
+        }else{
+            $data = $file_data;
+        }
+*/
 
         if (!is_array($data)) {
             // no valid JSON or no configuration at all
@@ -76,7 +92,6 @@ class Af_Feedmod extends Plugin implements IHandler
 
             $html = $this->get_html($link, $config);
             @$doc->loadHTML($html);
-
             if(!$doc){
                 break;
             }
@@ -132,6 +147,11 @@ class Af_Feedmod extends Plugin implements IHandler
 
     function get_html($url, $config){
         $html = fetch_file_contents($url);
+        if(!$html){
+            sleep(5);
+            $html = fetch_file_contents($url);
+        }
+
         $content_type = $fetch_last_content_type;
 
         $charset = false;
@@ -278,6 +298,9 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             if(!$original){
                 $original = $node->getAttribute('data-src');
+            }
+            if(!$original){
+                $original = $node->getAttribute('data-img-path');
             }
             if ($original) {
                 $node->setAttribute('src', $original);
