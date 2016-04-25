@@ -1,4 +1,5 @@
 <?php
+//date_default_timezone_set('Asia/Tokyo');
 
 class Af_Feedmod extends Plugin implements IHandler
 {
@@ -75,6 +76,8 @@ class Af_Feedmod extends Plugin implements IHandler
             return $article;
         }
 
+        $is_execute = false;
+
         foreach ($data as $urlpart=>$config) {
             if (strpos($article['link'], $urlpart) === false) {
                 continue;   // skip this config if URL not matching
@@ -86,6 +89,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 }
                 break;
             }
+            $is_execute = true;
 
             $doc = new DOMDocument();
             $link = trim($article['link']);
@@ -142,14 +146,35 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             break;   // if we got here, we found the correct entry in $data, do not process more
         }
+        if(!$is_execute){
+            $this->writeLog($article['link']);
+        }
         return $article;
+    }
+
+    function writeLog($url){
+        $exclusionUrlList = json_decode(file_get_contents(dirname(__FILE__).'/exclusion_url_list.json'),true);
+        foreach($exclusionUrlList as $v){
+            if(strpos($url, $v) !== false){
+                return;
+            }
+        }
+        $not_execute_url = parse_url($url);
+        file_put_contents(dirname(__FILE__).'/af_feed_no_entry.txt', date("Y-m-d H:i:s")."\t".$not_execute_url["host"]."\t".$url."\n", FILE_APPEND|LOCK_EX);
     }
 
     function get_html($url, $config){
         $html = fetch_file_contents($url);
         if(!$html){
-            sleep(5);
+            sleep(10);
             $html = fetch_file_contents($url);
+            if(!$html){
+                sleep(30);
+                $html = fetch_file_contents($url);
+            }
+        }
+        if(!$html){
+            return $html;
         }
 
         $content_type = $fetch_last_content_type;
@@ -301,6 +326,12 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             if(!$original){
                 $original = $node->getAttribute('data-img-path');
+            }
+            if(!$original){
+                $original = explode(" ", explode(",", $node->getAttribute('srcset'))[0])[0];
+            }
+            if(!$original){
+                $original = $node->getAttribute('ng-src');
             }
             if ($original) {
                 $node->setAttribute('src', $original);

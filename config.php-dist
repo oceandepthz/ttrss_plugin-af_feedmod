@@ -1,0 +1,8 @@
+<?php
+        define('DB_HOST', '');
+        define('DB_USER', '');
+        define('DB_NAME', '');
+        define('DB_PASS', '');
+        define('DB_PORT', '');
+
+        define('PDO_DSN','pgsql:dbname='.DB_NAME.';host='.DB_HOST.';port='.DB_PORT);
