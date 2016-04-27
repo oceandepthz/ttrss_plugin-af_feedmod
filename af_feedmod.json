@@ -294,11 +294,6 @@
     "xpath": "section[@id='article']/article",
     "cleanup": ["ul[@class='social']","ul[@class='social-bottom']"]
 },
-"readwrite.jp":{
-    "type": "xpath",
-    "xpath": "div[@id='content']",
-    "cleanup": ["div[@class='entryData']","div[@class='categoryIcon']","div[@class='wp_social_bookmarking_light']","ul[@class='relPost']","div[contains(@class, 'fb-comments')]"]
-},
 "dochikushow.blog3.fc2.com":{
     "type": "xpath",
     "xpath": "div[@id='mainBlock']/div[1]/div[@class='mainEntryBase']"
@@ -339,13 +334,6 @@
 "japan.norton.com":{
     "type": "xpath",
     "xpath": "section[@class='post-content']"
-},
-"pssection9.com":{
-    "type": "xpath",
-    "xpath": "section",
-    "cleanup": ["h1"],
-    "force_charset": "utf-8",
-    "force_unicode": true
 },
 "matome.naver.jp":{
     "type": "xpath",
@@ -4813,7 +4801,56 @@
 },
 "www.bloomberg.co.jp":{
     "type": "xpath",
-    "xpath": "ul[@class='article-abstract']|//div[@class='article-body__content']",
+    "xpath": "header/figure[starts-with(@class,'inline-image')]|//ul[@class='article-abstract']|//div[@class='article-body__content']",
     "cleanup": ["bb-ad"]
+},
+"learning.ikeay.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"ubuntuapps.info":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']",
+    "cleanup": ["p[@class='spd_link']","div[starts-with(@class,'ubuntu_') or @id='kanren' or @class='social_button']","script[contains(text(),'apis.google.com/js/platform.js')]"]
+},
+"readwrite.jp":{
+    "type": "xpath",
+    "xpath": "section[@class='entrySet']/div[@class='itemList__p']/img|//div[@class='entrySet__body2']"
+},
+"www.dokusyo-geek-ki.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"makezine.jp/blog":{
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": ["div[@class='top_article' or @class='box_meta']"]
+},
+"www.rbbtoday.com":{
+    "type": "xpath",
+    "xpath": "div[@class='figure-area']/figure[@class='figure']|//span[@class='writer']|//article[starts-with(@class,'arti-body')]"
+},
+"pssection9.com":{
+    "type": "xpath",
+    "xpath": "section",
+    "cleanup": ["h1","div[starts-with(@class,'announcer ')]"]
+},
+"blog.lookout.com":{
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": ["h2","div[@class='by-line-container']"]
+},
+"blog.kaerucloud.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"techblog.raccoon.ne.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+},
+"www.macotakara.jp":{
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'entry ')]",
+    "cleanup": ["iframe[contains(text(),'ad.jp.ap.valuecommerce.com')]","p[@class='entryTag']","div[@id='bannerMain']"]
 }
 }
