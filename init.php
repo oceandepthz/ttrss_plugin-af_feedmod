@@ -89,7 +89,6 @@ class Af_Feedmod extends Plugin implements IHandler
                 }
                 break;
             }
-            $is_execute = true;
 
             $doc = new DOMDocument();
             $link = trim($article['link']);
@@ -108,6 +107,8 @@ class Af_Feedmod extends Plugin implements IHandler
             if ($entries->length == 0) {
                 break;
             }
+
+            $is_execute = true;
             $entrysXML = '';
             foreach ($entries as $entry) {
                 if ($entry) {

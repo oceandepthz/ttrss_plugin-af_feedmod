@@ -4,10 +4,6 @@
     "xpath": "div[@class='article-body-inner']",
     "cleanup": ["script", "ins"]
 },
-"agora-web.jp":{
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']"
-},
 "derorinkuma.com":{
     "type": "xpath",
     "xpath": "div[@class='article']",
@@ -3084,10 +3080,6 @@
     "xpath": "section",
     "cleanup": ["h1", "div[@class='blogbox' or starts-with(@class,'adsense_middle') or @class='facerec']"]
 },
-"blog.livedoor.jp/bluejay01-review":{
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']//div[starts-with(@class,'t_h') or starts-with(@class,'t_b')]|//div[@class='article-body-more']/br|//div[@class='article-body-more']/p"
-},
 "applech2.com":{
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']",
@@ -3336,10 +3328,6 @@
     "type": "xpath",
     "xpath": "div[@class='NewsDetail']",
     "next_page": "div[@class='PageNavi']"
-},
-"nikkan-spa.jp":{
-    "type": "xpath",
-    "xpath": "div[@class='entryDetailBody']/div[@class='entryContent']"
 },
 "camera.one-cut.net":{
     "type": "xpath",
@@ -4693,15 +4681,6 @@
     "xpath": "div[@class='main']",
     "cleanup": ["h2", "p[@class='btn_mail']", "ul[starts-with(@class,'like_bt')]"]
 },
-"creator.levtech.jp/tips":{
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'tipsArticle')]/*[@class='tipsArticle__img' or @class='tipsArticle__txt']"
-},
-"freelance.levtech.jp/guide":{
-    "type": "xpath",
-    "xpath": "div[@class='l-mainColumn']/div[starts-with(@class,'article')]",
-    "cleanup": ["ul[starts-with(@class,'snsCount')]","div[@class='posts']"]
-},
 "jp.ign.com":{
     "type": "xpath",
     "xpath": "div[@id='id_text']",
@@ -4852,5 +4831,134 @@
     "type": "xpath",
     "xpath": "div[starts-with(@class,'entry ')]",
     "cleanup": ["iframe[contains(text(),'ad.jp.ap.valuecommerce.com')]","p[@class='entryTag']","div[@id='bannerMain']"]
+},
+"www.sakura.ad.jp/press":{
+    "type": "xpath",
+    "xpath": "div[@id='main-area']/div[@class='section-block']"
+},
+"www.momijimom.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"www.nakamu.info":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@id='my-footer']"]
+},
+"blog.livedoor.jp/bluejay01-review":{
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": ["iframe[contains(@src,'rcm-fe.amazon-adsystem.com')]"]
+},
+"nikkan-spa.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='entryDetailBody']/div[@class='entryContent']",
+    "cleanup": ["div[@class='post-next-page' or @class='post-pager-box']"],
+    "next_page": "div[@class='post-pager-box']"
+},
+"www.love-wd-yuka.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@id='my-footer']"]
+},
+"www.shiningmaru.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]","ins[@class='adsbygoogle']"]
+},
+"www.xn--n8jvce0l6c.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@class='insentence-adsense']"]
+},
+"creator.levtech.jp/tips":{
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'tipsArticle')]/*[@class='tipsArticle__img' or @class='tipsArticle__txt']"
+},
+"career.levtech.jp/guide":{
+    "type": "xpath",
+    "xpath": "div[@class='article']"
+},
+"freelance.levtech.jp/guide":{
+    "type": "xpath",
+    "xpath": "div[@class='l-mainColumn']/div[starts-with(@class,'article')]",
+    "cleanup": ["ul[starts-with(@class,'snsCount')]","div[@class='posts']"]
+},
+"eng-entrance.com":{
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+},
+"kobit.in":{
+    "type": "xpath",
+    "xpath": "article/div[@class='editor-area' or @class='thumbnail']",
+    "cleanup": ["*[starts-with(@class, 'wp_social_bookmarking_') or contains(text(),'wp_social_bookmarking_')]"]
+},
+"pontablog.pompomponta.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"www.change-makers.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='content-body']//div[@class='content']"
+},
+"www.life-abstract.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@id='my-footer']"]
+},
+"www.makfive.com":{
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": ["div[@id='breadcrumb' or starts-with(@class,'blogbox') or starts-with(@class,'snsshare2') or @class='sns']","h1","p[@class='tagst']","aside"]
+},
+"www.m-forest.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@id='my-footer']"]
+},
+"www.mukaikaze.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"www.obanari.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"www.osusumerank.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["*[contains(@href,'.a8.net') or contains(@src,'.a8.net')]"]
+},
+"btcnews.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["*[starts-with(@class, 'wp_social_bookmarking_') or contains(text(),'wp_social_bookmarking_')]","ul[starts-with(@class,'inner-contents-mailsns') or @class='mysns']","div[@id='padSection' or starts-with(@class,'sharedaddy') or @id='jp-relatedposts']"]
+},
+"agora-web.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='articleContent']"
+},
+"www.jarna.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"blog.btrax.com":{
+    "type": "xpath",
+    "xpath": "div[@id='articleMain' or @class='article-main-thumbnail']",
+    "cleanup": ["div[@id='design-innovation' or @class='social-buttons-bottom' or @id='article-bottom-fb-box' or starts-with(@class,'subscribe-newslette')]"]
+},
+"rabilinth.blog.fc2.com":{
+    "type": "xpath",
+    "xpath": "div[@class='topentry_text']",
+    "cleanup": ["div[@class='fc2_footer']"]
+},
+"www.meg2.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"www.tedium-life.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@class='insentence-adsense' or @id='my-footer']"]
 }
 }
