@@ -1,5 +1,7 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
+//require __DIR__ . "/vendor/autoload.php";
+//use JonnyW\PhantomJs\Client;
 
 class Af_Feedmod extends Plugin implements IHandler
 {
@@ -164,14 +166,35 @@ class Af_Feedmod extends Plugin implements IHandler
         file_put_contents(dirname(__FILE__).'/af_feed_no_entry.txt', date("Y-m-d H:i:s")."\t".$not_execute_url["host"]."\t".$url."\n", FILE_APPEND|LOCK_EX);
     }
 
+    function get_html_pjs($url) : string {
+        require_once('PhantomJsWarpper.php');
+        $pjs = new PhantomJsWarpper();
+        return $pjs->get_html($url);
+    }
+
+    function is_pjs($config) : bool {
+        if(!isset($config['engine'])){
+            return false;
+        }
+        return strtolower($config['engine']) == 'phantomjs';
+    }
+    
+    function get_contents($url, $config){
+        if($this->is_pjs($config)){
+            return $this->get_html_pjs($url);
+        }else{
+            return fetch_file_contents($url);
+        }
+    }
+
     function get_html($url, $config){
-        $html = fetch_file_contents($url);
+        $html = $this->get_contents($url, $config);
         if(!$html){
             sleep(10);
-            $html = fetch_file_contents($url);
+            $html = $this->get_contents($url, $config);
             if(!$html){
                 sleep(30);
-                $html = fetch_file_contents($url);
+                $html = $this->get_contents($url, $config);
             }
         }
         if(!$html){

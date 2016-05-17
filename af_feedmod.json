@@ -4658,10 +4658,6 @@
     "type": "xpath",
     "xpath": "div[starts-with(@class,'entry-content')]"
 },
-"aws.amazon.com/jp/blogs":{
-    "type": "xpath",
-    "xpath": "section[@itemprop='articleBody']"
-},
 "www.fukayoi.com":{
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -4704,11 +4700,6 @@
 "www.triauto.jp/marketblog":{
     "type": "xpath",
     "xpath": "div[@class='postContents']"
-},
-"hajimete-sangokushi.com":{
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'post_content')]",
-    "cleanup": ["ins[@class='adsbygoogle']/.."]
 },
 "jp.gamesindustry.biz":{
     "type": "xpath",
@@ -5173,5 +5164,41 @@
 "www.wakai-ojisan.com":{
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+},
+"hajimete-sangokushi.com":{
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'post_content')]",
+    "cleanup": ["ins[@class='adsbygoogle']/.."],
+    "next_page": "div[@id='post_pagination']"
+},
+"techlog.voyagegroup.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"www.creationline.com/lab":{
+    "type": "xpath",
+    "xpath": "div[@id='entryBlock']"
+},
+"note.golden-lucky.net":{
+    "type": "xpath",
+    "xpath": "div[starts-with(@id,'post-body-')]"
+},
+"blogofmobile.com":{
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": ["h1","div[@class='blog_info']","script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]","ins[@class='adsbygoogle']","*[starts-with(@class, 'wp_social_bookmarking_')]"]
+},
+"aws.amazon.com/jp/blogs":{
+    "type": "xpath",
+    "xpath": "section[@itemprop='articleBody']"
+},
+"aws.amazon.com/jp/solutions":{
+    "type": "xpath",
+    "xpath": "section/div[contains(@class,'content')]"
+},
+"note.mu":{
+    "type": "xpath",
+    "engine" : "phantomjs",
+    "xpath": "div[@class='body-wrapper']"
 }
 }

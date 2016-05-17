@@ -1,2 +1,5 @@
 config.php
 af_feed_no_entry.txt
+/bin
+/vendor
+composer.lock
