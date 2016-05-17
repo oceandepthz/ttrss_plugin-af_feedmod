@@ -1,7 +1,5 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
-//require __DIR__ . "/vendor/autoload.php";
-//use JonnyW\PhantomJs\Client;
 
 class Af_Feedmod extends Plugin implements IHandler
 {

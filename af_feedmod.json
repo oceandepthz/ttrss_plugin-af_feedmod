@@ -5200,5 +5200,18 @@
     "type": "xpath",
     "engine" : "phantomjs",
     "xpath": "div[@class='body-wrapper']"
+},
+"blog.rust-lang.org":{
+    "type": "xpath",
+    "xpath": "article[@class='post-content']"
+},
+"fashion-basics.com":{
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+},
+"www.pilattu.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@id='my-footer']","a[contains(@href,'px.a8.net')]/.."]
 }
 }
