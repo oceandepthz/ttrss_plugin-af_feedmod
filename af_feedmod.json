@@ -410,11 +410,6 @@
     "xpath": "div[@class='blogbody']",
     "cleanup": ["div[@class='titlebody']", "div[@class='amazlet-box']", "div[@id='poweredAdsBy']", "div[contains(@class, 'posted')]", "div[@class='menu']", "div[@id='ad2']"]
 },
-"tabi-labo.com":{
-    "type": "xpath",
-    "xpath": "article/div[@class='entry-content']",
-    "cleanup": ["div[contains(@class, 'snsshare2')]", "div[contains(@class, 'fb-comments')]", "img[@class='mobile_only']", "div[contains(@class, 'page_likebox')]", "div[contains(@class, 'follow_box')]", "div[contains(@class, 'mail_magazine')]", "img[contains(@class, 'recommend_img')]", "div[@class='ad_box']", "div[@class='_popIn_recommend']"]
-},
 "biz-journal.jp":{
     "type": "xpath",
     "xpath": "div[@class='entryBody']",
@@ -612,11 +607,6 @@
     "xpath": "div[@class='article']",
     "next_page": "div[@class='pager']",
     "next_page_cleanup": ["li[@class='current']", "li[@class='nextBtn']"]
-},
-"sports.yahoo.co.jp":{
-    "type": "xpath",
-    "xpath": "div[@class='mod-content']",
-    "next_page": "div[@class='navPage']"
 },
 "labotech.dmm.com":{
     "type": "xpath",
@@ -4450,10 +4440,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
 },
-"blog.livedoor.jp/zombiepigman":{
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']"
-},
 "www.webcyou.com":{
     "type": "xpath",
     "xpath": "div[@class='dtl']",
@@ -4883,10 +4869,6 @@
     "xpath": "div[@class='entry-content']",
     "cleanup": ["div[@class='insentence-adsense' or @id='my-footer']"]
 },
-"dosports.yahoo.co.jp/column":{
-    "type": "xpath",
-    "xpath": "div[@id='modColumnPhoto']//img|//article/section"
-},
 "jbpress.ismedia.jp":{
     "type": "xpath",
     "xpath": "div[@class='article-text']|//div[@id='main-contents']|//div[@class='article']/div[@class='summary' or starts-with(@class,'media-logo')]",
@@ -5213,5 +5195,27 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
     "cleanup": ["div[@id='my-footer']","a[contains(@href,'px.a8.net')]/.."]
+},
+"tabi-labo.com":{
+    "type": "xpath",
+    "xpath": "article/div[@class='entry-content' or @class='post-thumbnail']",
+    "cleanup": ["div[contains(@class, 'snsshare2') or contains(@class, 'fb-comments') or contains(@class, 'page_likebox') or contains(@class, 'follow_box') or contains(@class, 'mail_magazine') or @class='ad_box' or @class='_popIn_recommend' or contains(@class,'ad_box')]", "img[@class='mobile_only' or contains(@class, 'recommend_img')]", "ul[contains(@class,'follow_box')]"]
+},
+"blog.sukecom.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"www.zombiepigman.moe":{
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+},
+"dosports.yahoo.co.jp/column":{
+    "type": "xpath",
+    "xpath": "div[@id='modColumnPhoto']//img|//article/section"
+},
+"sports.yahoo.co.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='mod-content']",
+    "next_page": "div[@class='navPage']"
 }
 }
