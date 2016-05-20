@@ -7,6 +7,7 @@ class PhantomJsWarpper {
         $client = Client::getInstance();
         $client->getEngine()->setPath(__DIR__.'/bin/phantomjs');
         $request = $client->getMessageFactory()->createRequest($url,'GET');
+        $request->setDelay(10);
         $response = $client->getMessageFactory()->createResponse();
         $client->send($request, $response);
         if($response->getStatus() === 200) {

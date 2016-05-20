@@ -395,12 +395,6 @@
     "xpath": "div[@class='entry-content']",
     "cleanup": ["p[@class='entry-date']", "div[@class='left']"]
 },
-"impress.co.jp/docs":{
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'main-contents')]",
-    "cleanup": ["div[@class='tab-wrap']"],
-    "next_page": "ul[@class='number']"
-},
 "news.nicovideo.jp/watch":{
     "type": "xpath",
     "xpath": "section[@id='MainBody']"
@@ -414,13 +408,6 @@
     "type": "xpath",
     "xpath": "div[@class='entryBody']",
     "next_page": "div[@id='pageNav']"
-},
-"japanese.engadget.com":{
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'post-body')]",
-    "cleanup": ["div[@class='aol-share']"],
-    "force_charset": "utf-8",
-    "force_unicode": true
 },
 "www.welluneednt.com":{
     "type": "xpath",
@@ -2757,10 +2744,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
 },
-"blogspot.jp":{
-    "type": "xpath",
-    "xpath": "div[starts-with(@id, 'post-body-')]"
-},
 "wirelesswire.jp":{
     "type": "xpath",
     "xpath": "div[@class='wysiwyg']"
@@ -3164,10 +3147,6 @@
 "developer.aiming-inc.com":{
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-},
-"www.fashionsnap.com":{
-    "type": "xpath",
-    "xpath": "section[@class='body']/p|//section[@class='body']/figure[@class='photo']|//section[@class='body']/div[@class='name']"
 },
 "www.in-activism.com":{
     "type": "xpath",
@@ -3730,18 +3709,6 @@
 "blog.kishikawakatsumi.com":{
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-},
-"dailycult.blogspot.com":{
-    "type": "xpath",
-    "xpath": "div[starts-with(@class, 'post-body')]"
-},
-"applembp.blogspot.com":{
-    "type": "xpath",
-    "xpath": "div[starts-with(@class, 'post-body')]"
-},
-"blogspot.com":{
-    "type": "xpath",
-    "xpath": "div[starts-with(@id, 'post-body-')]"
 },
 "orebibou.com":{
     "type": "xpath",
@@ -5205,10 +5172,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
 },
-"www.zombiepigman.moe":{
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']"
-},
 "dosports.yahoo.co.jp/column":{
     "type": "xpath",
     "xpath": "div[@id='modColumnPhoto']//img|//article/section"
@@ -5217,5 +5180,66 @@
     "type": "xpath",
     "xpath": "div[@class='mod-content']",
     "next_page": "div[@class='navPage']"
+},
+"impress.co.jp/docs":{
+    "type": "xpath",
+    "xpath": "div[contains(@class, 'main-contents') or contains(@class,'outer-links') or contains(@class,'author-info') or contains(@class,'related-links')]",
+    "cleanup": ["div[@class='tab-wrap']"],
+    "next_page": "ul[@class='number']"
+},
+"blog.docker.com":{
+    "type": "xpath",
+    "xpath": "div[contains(@class,'media')]/div[contains(@class,'media-body')]",
+    "cleanup": ["span[@class='social_links']"]
+},
+"idolmaster.jp/blog/":{
+    "type": "xpath",
+    "xpath": "div[@class='entryBody']"
+},
+"kenplatz.nikkeibp.co.jp/atcl/":{
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "next_page": "ul[@class='pager']"
+},
+"regional.rubykaigi.org":{
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+},
+"www.zombiepigman.moe":{
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+},
+"japanese.engadget.com":{
+    "type": "xpath",
+    "xpath": "div[@data-swiftype-name='body']",
+    "cleanup": ["div[@class='post-gallery']"]
+},
+"www.ryosuke-takano.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@class='insentence-adsense' or @id='my-footer']"]
+},
+"blogspot.jp":{
+    "type": "xpath",
+    "engine" : "phantomjs",
+    "xpath": "div[contains(@class, 'post-body')]"
+},
+"blogspot.com":{
+    "type": "xpath",
+    "engine" : "phantomjs",
+    "xpath": "div[contains(@class, 'post-body')]"
+},
+"www.fashionsnap.com":{
+    "type": "xpath",
+    "xpath": "section/div[@id='moreinfo' or contains(@class,'photo')]|//section/span[@itemprop='articleBody']",
+    "cleanup": ["div[contains(@id,'div-gpt-ad-')]","script[contains(text(),'cdn.teads.tv')]"]
+},
+"tech.sideci.com":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"blog.ys2.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
 }
 }
