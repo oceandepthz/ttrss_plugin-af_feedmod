@@ -2998,11 +2998,6 @@
     "xpath": "section",
     "cleanup": ["h1", "div[@class='blogbox' or starts-with(@class,'adsense_middle') or @class='facerec']"]
 },
-"applech2.com":{
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']",
-    "cleanup": ["div[@id='ad_rs' or @id='ad2']"]
-},
 "yugui.jp":{
     "type": "xpath",
     "xpath": "div[starts-with(@id,'article')]"
@@ -5241,5 +5236,46 @@
 "blog.ys2.jp":{
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+},
+"applech2.com":{
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+},
+"blog.mogmet.com":{
+    "type": "xpath",
+    "xpath": "div[@id='entry_body']/article",
+    "cleanup": ["div[@class='pankuzu' or @class='master_post_advert' or @id='entry_footer_ad' or @id='cat_tag']","h1","footer"]
+},
+"career-theory.net":{
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": ["div[@class='rp4wp-related-posts']"]
+},
+"connpass.com":{
+    "type": "xpath",
+    "xpath": "div[contains(@class,'event_detail_area')]"
+},
+"m-ochiai.net":{
+    "type": "xpath",
+    "xpath": "section[@itemprop='articleBody']",
+    "cleanup": ["*[starts-with(@class, 'wp_social_bookmarking_')]"]
+},
+"www.0shiki.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"www.butsuyoku.top":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@class='insentence-adsense' or @id='my-footer']"]
+},
+"www.cloudninja.asia":{
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+},
+"www.kaeln.net":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[contains(@class,'insentence-adsense') or @id='my-footer']","a[contains(@href,'px.a8.net')]/.."]
 }
 }
