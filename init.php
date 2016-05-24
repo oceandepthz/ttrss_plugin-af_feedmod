@@ -355,6 +355,9 @@ class Af_Feedmod extends Plugin implements IHandler
             if(!$original){
                 $original = $node->getAttribute('ng-src');
             }
+            if(!$original){
+                $original = $node->getAttribute('rel:bf_image_src');
+            }
             if ($original) {
                 $node->setAttribute('src', $original);
             }

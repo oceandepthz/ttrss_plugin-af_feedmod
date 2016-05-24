@@ -1548,10 +1548,6 @@
     "type": "xpath",
     "xpath": "div[@class='articleMainImage']|//div[@class='articleBody']/div[@class='bd']|//div[starts-with(@class, 'articleF')]/div[@class='hd']"
 },
-"i-engineer.jp":{
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']|//div[@class='post_image']"
-},
 "www.bbc.com":{
     "type": "xpath",
     "xpath": "div[@property='articleBody']"
@@ -5277,5 +5273,17 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
     "cleanup": ["div[contains(@class,'insentence-adsense') or @id='my-footer']","a[contains(@href,'px.a8.net')]/.."]
+},
+"haken.inte.co.jp":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']|//div[@class='post_image']"
+},
+"www.cyberagent.co.jp/technicalcreator/":{
+    "type": "xpath",
+    "xpath": "div[contains(@class,'Article-body')]"
+},
+"//neue.cc":{
+    "type": "xpath",
+    "xpath": "div[@class='entry_body']"
 }
 }

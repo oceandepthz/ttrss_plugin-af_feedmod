@@ -6,8 +6,8 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-/usr/bin/grep -v $1 /pub/ttrss/plugins/af_feedmod/af_feed_no_entry.txt > /tmp/af_feed_no_entry.tmp.txt
+/usr/bin/grep -v $1 /pub/ttrss/plugins.local/af_feedmod/af_feed_no_entry.txt > /tmp/af_feed_no_entry.tmp.txt
 /usr/bin/chown apache.apache /tmp/af_feed_no_entry.tmp.txt
-/usr/bin/mv /pub/ttrss/plugins/af_feedmod/af_feed_no_entry.txt /pub/ttrss/plugins/af_feedmod/af_feed_no_entry.txt.`/usr/bin/date +%Y%m%d%H%M%S`
-/usr/bin/mv /tmp/af_feed_no_entry.tmp.txt /pub/ttrss/plugins/af_feedmod/af_feed_no_entry.txt
+/usr/bin/mv /pub/ttrss/plugins.local/af_feedmod/af_feed_no_entry.txt /pub/ttrss/plugins.local/af_feedmod/af_feed_no_entry.txt.`/usr/bin/date +%Y%m%d%H%M%S`
+/usr/bin/mv /tmp/af_feed_no_entry.tmp.txt /pub/ttrss/plugins.local/af_feedmod/af_feed_no_entry.txt
 
