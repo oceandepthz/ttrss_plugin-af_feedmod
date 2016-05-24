@@ -4957,11 +4957,6 @@
     "xpath": "header/div/div[starts-with(@class,'txt') or @class='credit']|//main[@id='contents']",
     "cleanup": ["div[starts-with(@id,'data-ad-banner-')]","aside"]
 },
-"wired.jp":{
-    "type": "xpath",
-    "xpath": "article[@class='article-detail']",
-    "cleanup": ["section[@class='article-tag-list']"]
-},
 "best-times.jp":{
     "type": "xpath",
     "xpath": "div[@class='article-body']",
@@ -5196,7 +5191,7 @@
     "type": "xpath",
     "xpath": "div[@class='post-content']"
 },
-"www.zombiepigman.moe":{
+"zombiepigman.moe":{
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
 },
@@ -5212,12 +5207,10 @@
 },
 "blogspot.jp":{
     "type": "xpath",
-    "engine" : "phantomjs",
     "xpath": "div[contains(@class, 'post-body')]"
 },
 "blogspot.com":{
     "type": "xpath",
-    "engine" : "phantomjs",
     "xpath": "div[contains(@class, 'post-body')]"
 },
 "www.fashionsnap.com":{
@@ -5285,5 +5278,36 @@
 "//neue.cc":{
     "type": "xpath",
     "xpath": "div[@class='entry_body']"
+},
+"//www.mm-nankanoffice2.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@id='my-footer']"]
+},
+"//write.kogus.org/":{
+    "type": "xpath",
+    "xpath": "div[@id='contents']"
+},
+"//wired.jp/innovationinsights/":{
+    "type": "xpath",
+    "xpath": "div[starts-with(@id,'column')]"
+},
+"//wired.jp/":{
+    "type": "xpath",
+    "xpath": "article[@class='article-detail']",
+    "cleanup": ["section[@class='article-tag-list']"]
+},
+"//www.jaxa.jp/press/":{
+    "type": "xpath",
+    "xpath": "div[@id='area_content_main']"
+},
+"//dd.hokkaido-np.co.jp/":{
+    "type": "xpath",
+    "xpath": "div[@class='articleBody']",
+    "cleanup": ["p[@class='textLinkFull']"]
+},
+"//hatenacorp.jp/press/release/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
 }
 }

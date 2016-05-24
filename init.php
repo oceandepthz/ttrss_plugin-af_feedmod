@@ -165,6 +165,9 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function get_html_pjs($url) : string {
+
+        file_put_contents(dirname(__FILE__).'/af_feed_phantomjs.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
+
         require_once('PhantomJsWarpper.php');
         $pjs = new PhantomJsWarpper();
         return $pjs->get_html($url);
