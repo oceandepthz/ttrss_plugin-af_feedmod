@@ -5422,5 +5422,13 @@
     "type": "xpath",
     "xpath": "section[@class='post-content']",
     "cleanup": ["div[@class='amazlet-box' or @class='wp_social_bookmarking_light' or @id='wp_rp_first']"]
+},
+"//ashita-office.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='post-thumbnail']/img|//section[@class='post-content']"
+},
+"//blog.stormcat.io/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
 }
 }
