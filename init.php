@@ -325,23 +325,6 @@ class Af_Feedmod extends Plugin implements IHandler
             return;
         }
         foreach($img_list as $node){
-            $src = $node->getAttribute('src');
-            if(substr($src,0,2) == "//"){
-                $url_item = parse_url($link);
-                $src = $url_item['scheme'].':'.$src;
-                $node->setAttribute('src', $src);
-            }else if(substr($src,0,1) == "/"){
-                $url_item = parse_url($link);
-                $src = $url_item['scheme'].'://'.$url_item['host'].$src;
-                $node->setAttribute('src', $src);
-            }else if(substr($src, 0,4) != "http"){
-                $pos = strrpos($link, "/");
-                if($pos){
-                    $src = substr($link, 0, $pos+1).$src;
-                    $node->setAttribute('src', $src);
-                }
-            }
-
             $original = $node->getAttribute('data-original');
             if(!$original){
                 $original = $node->getAttribute('data-lazy-src');
@@ -361,9 +344,30 @@ class Af_Feedmod extends Plugin implements IHandler
             if(!$original){
                 $original = $node->getAttribute('rel:bf_image_src');
             }
+            if(!$original){
+                $original = $node->getAttribute('ajax');
+            }
             if ($original) {
                 $node->setAttribute('src', $original);
             }
+
+            $src = $node->getAttribute('src');
+            if(substr($src,0,2) == "//"){
+                $url_item = parse_url($link);
+                $src = $url_item['scheme'].':'.$src;
+                $node->setAttribute('src', $src);
+            }else if(substr($src,0,1) == "/"){
+                $url_item = parse_url($link);
+                $src = $url_item['scheme'].'://'.$url_item['host'].$src;
+                $node->setAttribute('src', $src);
+            }else if(substr($src, 0,4) != "http"){
+                $pos = strrpos($link, "/");
+                if($pos){
+                    $src = substr($link, 0, $pos+1).$src;
+                    $node->setAttribute('src', $src);
+                }
+            }
+
         }
     }
 

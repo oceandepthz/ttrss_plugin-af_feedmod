@@ -5139,12 +5139,6 @@
     "xpath": "div[@class='mod-content']",
     "next_page": "div[@class='navPage']"
 },
-"impress.co.jp/docs":{
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'main-contents') or contains(@class,'outer-links') or contains(@class,'author-info') or contains(@class,'related-links')]",
-    "cleanup": ["div[@class='tab-wrap']"],
-    "next_page": "ul[@class='number']"
-},
 "blog.docker.com":{
     "type": "xpath",
     "xpath": "div[contains(@class,'media')]/div[contains(@class,'media-body')]",
@@ -5430,5 +5424,38 @@
 "//blog.stormcat.io/":{
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+},
+"//conte-anime.jp/":{
+    "type": "xpath",
+    "xpath": "header/figure[contains(@class,'eyecatch')]/img|//section[contains(@class,'entry-content')]",
+    "cleanup": ["div[contains(@class,'add') or @id='wp_rp_first']"]
+},
+"//www.ipa.go.jp/":{
+    "type": "xpath",
+    "xpath": "div[@id='ipar_main']"
+},
+"//made.livesense.co.jp/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"impress.co.jp/docs/":{
+    "type": "xpath",
+    "xpath": "div[contains(@class, 'main-contents') or @class='article-info' or @class='author-info' or @class='author-detail']|//nav[contains(@class,'links') and contains(@class,'outer')]",
+    "cleanup": ["div[@class='tab-wrap']"],
+    "next_page": "ul[@class='number']"
+},
+"//fladdict.net/blog/":{
+    "type": "xpath",
+    "xpath": "div[@class='excerpt']"
+},
+"//itea40.jp/":{
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": ["script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]","ins[contains(@class,'adsbygoogle')]","div[@id='va-social-buzz']"]
+},
+"//kojima1992.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='single_inside_content']",
+    "cleanup": ["div[@class='wp_social_bookmarking_light' or @id='jp-relatedposts']"]
 }
 }
