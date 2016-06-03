@@ -5457,5 +5457,49 @@
     "type": "xpath",
     "xpath": "div[@class='single_inside_content']",
     "cleanup": ["div[@class='wp_social_bookmarking_light' or @id='jp-relatedposts']"]
+},
+"//dual.nikkei.co.jp/":{
+    "type": "xpath",
+    "xpath": "div[@class='detail_content']",
+    "next_page": "div[@class='pagination']"
+},
+"//phiary.me/":{
+    "type": "xpath",
+    "xpath": "article/section"
+},
+"//workingoversea.com/":{
+    "type": "xpath",
+    "xpath": "article/div",
+    "cleanup": ["div[@id='breadcrumb' or contains(@class,'blogbox') or @class='sns' or contains(@class,'kanren')]","h1","p[@class='tagst']","aside"]
+},
+"//www.cho-gouriteki.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"//www.mizunodayo.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"//www.ponparemall.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"//www.riken.jp/pr/press/":{
+    "type": "xpath",
+    "xpath": "div[@id='main']",
+    "cleanup": ["noscript","div[@id='pageNavi' or @id='ico']","p[@class='pagetop']"]
+},
+"//www.satouwataru.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[@class='insentence-adsense']"]
+},
+"//www.shonenjump.com/p/sp/":{
+    "type": "xpath",
+    "xpath": "div[@class='topImg']|//div[@class='mainCont']/div[contains(@class,'image')]|//p[contains(@class,'textBlock')]"
+},
+"//www.yururimaaruku.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
 }
 }
