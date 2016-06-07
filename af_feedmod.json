@@ -5548,5 +5548,17 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
     "cleanup": ["script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]","ins[contains(@class,'adsbygoogle')]"]
+},
+"//ameblo.jp/wakopi-ff11/":{
+    "type": "xpath",
+    "xpath": "div[@class='skin-entryBody']"
+},
+"//hayato.io/":{
+    "type": "xpath",
+    "xpath": "article"
+},
+"//www.ntt.co.jp/news":{
+    "type": "xpath",
+    "xpath": "div[@id='ContentMainArea']/div[@class='sectionL']"
 }
 }
