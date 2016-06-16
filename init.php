@@ -77,6 +77,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         $is_execute = false;
+        $is_hit_link = false;
 
         foreach ($data as $urlpart=>$config) {
             if (strpos($article['link'], $urlpart) === false) {
@@ -90,8 +91,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 break;
             }
 
+            $is_hit_link = true;
             $doc = new DOMDocument();
-            $link = trim($article['link']);
+            $link = $this->replace_link(trim($article['link']),$config);
 
             $html = $this->get_html($link, $config);
             @$doc->loadHTML($html);
@@ -148,20 +150,40 @@ class Af_Feedmod extends Plugin implements IHandler
             break;   // if we got here, we found the correct entry in $data, do not process more
         }
         if(!$is_execute){
-            $this->writeLog($article['link']);
+            $this->writeLog($article['link'],$is_hit_link);
         }
         return $article;
     }
 
-    function writeLog($url){
+    function writeLog($url,$is_hit_link){
         $exclusionUrlList = json_decode(file_get_contents(dirname(__FILE__).'/exclusion_url_list.json'),true);
         foreach($exclusionUrlList as $v){
             if(strpos($url, $v) !== false){
                 return;
             }
         }
+
+        $suffix = "";
+        if($is_hit_link){
+            $suffix = "xpath";
+        }
+
+        $dt = date("Y-m-d H:i:s");
         $not_execute_url = parse_url($url);
-        file_put_contents(dirname(__FILE__).'/af_feed_no_entry.txt', date("Y-m-d H:i:s")."\t".$not_execute_url["host"]."\t".$url."\n", FILE_APPEND|LOCK_EX);
+        $host = $not_execute_url["host"];
+        file_put_contents(dirname(__FILE__).'/af_feed_no_entry.txt', "$dt\t$host\t$url\t$suffix\n", FILE_APPEND|LOCK_EX);
+    }
+
+    function replace_link($link, $config) : string {
+        if(!isset($config['rep_pattern'])){
+            return $link;
+        }
+        if(preg_match($config['rep_pattern'], $link) !== 1){
+            return $link;
+        }
+        $rep_link = preg_replace($config['rep_pattern'], $config['rep_replacement'], $link);
+        file_put_contents(dirname(__FILE__).'/replace_link.txt', date("Y-m-d H:i:s")."\t$link\t$rep_link\n", FILE_APPEND|LOCK_EX);
+        return $rep_link;
     }
 
     function get_html_pjs($url) : string {
