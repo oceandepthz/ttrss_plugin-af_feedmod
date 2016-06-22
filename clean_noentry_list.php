@@ -12,9 +12,9 @@ $entry_list = array();
 $lines = file($file_full);
 foreach($lines as $line){
   $line_array = explode("\t", $line);
-  if(count($line_array) != 3){
-    continue;
-  }
+//  if(count($line_array) != 3){
+//    continue;
+//  }
 
   $key_hash = hash("sha256", $line_array[2]);
   if(!array_key_exists($key_hash, $entry_list)){
