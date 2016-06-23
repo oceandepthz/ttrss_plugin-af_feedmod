@@ -1030,11 +1030,6 @@
     "type": "xpath",
     "xpath": "article/div[contains(@class, 'photo-writer')]|//article/section[contains(@class, 'article-content')]"
 },
-"lifehacking.jp":{
-    "type": "xpath",
-    "xpath": "p[@class='post-feature-image']|//div[@itemprop='articleBody']",
-    "cleanup": ["ins[@class='adsbygoogle']", "script[contains(@src, 'pagead2.googlesyndication.com')]", "*[starts-with(@class, 'wp_social_bookmarking_')]"]
-},
 "www.continue-is-power.com":{
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -5787,5 +5782,34 @@
     "xpath": "div[@class='post_content' or @class='post_image_normal']",
     "cleanup": ["div[@class='pagesprit']"],
     "next_page": "div[@class='pagesprit']"
+},
+"//mercan.mercari.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"//lifehacking.jp/":{
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content') or contains(@class,'herald-post-thumbnail-single')]",
+    "cleanup": ["div[contains(@class,'herald-ad')]"]
+},
+"//hikkoshi-report.com/":{
+    "type": "xpath",
+    "xpath": "section",
+    "cleanup": ["div[@class='wp_social_bookmarking_light']"]
+},
+"//blog.monoshirin.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+},
+"//www.stay-minimal.com/":{
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": ["div[contains(@class,'insentence-adsense')]"]
+},
+"//gqjapan.jp/":{
+    "type": "xpath",
+    "xpath": "article[@class='article_box' or @class='gallery_box']",
+    "cleanup": ["div[@class='recommend_section']"],
+    "next_page": "div[contains(@class,'pagenation')]"
 }
 }
