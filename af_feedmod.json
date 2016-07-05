@@ -371,16 +371,6 @@
     "force_charset": "utf-8",
     "force_unicode": true
   },
-  "miyearnzzlabo.com": {
-    "type": "xpath",
-    "xpath": "div[@class='article']",
-    "cleanup": [
-      "h1",
-      "div[@id='sns-group-top']",
-      "div[@id='sns-group']",
-      "div[contains(@class, 'ad-space')]"
-    ]
-  },
   "twitter.com": {
     "type": "xpath",
     "xpath": "div[@role='main']"
@@ -1283,10 +1273,6 @@
       "div[@class='entrymore']",
       "div[@id='yad_b']"
     ]
-  },
-  "www.cinra.net": {
-    "type": "xpath",
-    "xpath": "div[@class='bodyBox']"
   },
   "aucfan.com": {
     "type": "xpath",
@@ -3698,13 +3684,6 @@
   "www.ielove.co.jp/column": {
     "type": "xpath",
     "xpath": "div[@id='main_text']"
-  },
-  "commte.net/blog": {
-    "type": "xpath",
-    "xpath": "div[@class='post-excerpt']",
-    "cleanup": [
-      "div[@class='master-post-advert']"
-    ]
   },
   "cookien.com": {
     "type": "xpath",
@@ -6984,10 +6963,6 @@
       "div[@class='insentence-adsense']"
     ]
   },
-  "//www.cinra.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='l-article-body']"
-  },
   "//webya.opdsgn.com/": {
     "type": "xpath",
     "xpath": "div[@class='article_body']",
@@ -7447,5 +7422,94 @@
   "github.com": {
     "type": "xpath",
     "xpath": "article|//div[contains(@class,'release-body')]"
+  },
+  "//www.cinra.net/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='l-article-body']"
+  },
+  "//www.cinra.net/interview/": {
+    "type": "xpath",
+    "xpath": "div[@class='l-inner-contents' or @class='l-special-eyecatch']",
+    "cleanup": [
+      "div[@class='titleListBox']"
+    ],
+    "next_page": "ul[@class='pagination-list']"
+  },
+  "//tsuchimi.net/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='breadcrumb' or @class='sns' or contains(@class,'blogbox') or @class='adsense' or contains(@class,'amazonjs_item') or @id='wp_rp_first']",
+      "h1[@class='entry-title']",
+      "aside",
+      "p[@class='tagst']",
+      "a[contains(@href,'px.a8.net')]"
+    ]
+  },
+  "//miyearnzzlabo.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@id='widget-in-article']"
+    ]
+  },
+  "//yshibata.blog.so-net.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='articles-body']",
+    "cleanup": [
+      "script[contains(@src,'ad2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']",
+      "div[@class='bookmark']"
+    ]
+  },
+  "//ideasity.biz/": {
+    "type": "xpath",
+    "xpath": "div[@class='singlemsg']",
+    "cleanup": [
+      "ins[@class='adsbygoogle']/..",
+      "ul[contains(@class,'socialBt2') or @class='articleShare']"
+    ]
+  },
+  "//havelog.ayumusato.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'article__body')]"
+  },
+  "//www.move-wife.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//social-creator.info/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'article_body_view')]",
+    "cleanup": [
+      "a[contains(@href,'social-creator.info/jobs') or contains(@href,'w.creativevillage.ne.jp/sci/scout_lp')]"
+    ]
+  },
+  "//org-rabo.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//hatena.g.hatena.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']",
+    "cleanup": [
+      "p[contains(@class,'share-button')]"
+    ]
+  },
+  "//elix-tech.github.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//cosplayersokuhou.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//commte.net/blog/": {
+    "type": "xpath",
+    "xpath": "article/section",
+    "cleanup": [
+      "div[@class='ad_label' or @class='more_ad' or contains(@class,'ad_label') or @class='pagenation_ad' or contains(@class,'ad-wrap') or @class='relate-label' or @id='related-entries']",
+      "ul[@id='share']"
+    ]
   }
 }
