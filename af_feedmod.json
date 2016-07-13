@@ -253,14 +253,6 @@
       "div[contains(@class, 'sharedaddy')]"
     ]
   },
-  "gigazine.net": {
-    "type": "xpath",
-    "xpath": "div[@class='cntimage']",
-    "cleanup": [
-      "h1",
-      "h3"
-    ]
-  },
   "www.infoq.com/jp": {
     "type": "xpath",
     "xpath": "div[@class='text_info']//div[@class='text_info']"
@@ -792,10 +784,6 @@
   "labotech.dmm.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "blog.domesoccer.jp": {
-    "type": "xpath",
-    "xpath": "article[@id='post']/section[1]"
   },
   "llabtooflatot.blog102.fc2.com": {
     "type": "xpath",
@@ -5903,10 +5891,6 @@
       "div[@id='padSection' or starts-with(@class,'sharedaddy') or @id='jp-relatedposts']"
     ]
   },
-  "agora-web.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='articleContent']"
-  },
   "www.jarna.jp": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -7182,13 +7166,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.gibe-on.info/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@class='insentence-adsense']"
-    ]
-  },
   "//www.dreamark.tokyo/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -7651,5 +7628,49 @@
   "//animeanime.jp/": {
     "type": "xpath",
     "xpath": "article[contains(@class,'arti-body')]"
+  },
+  "//blog.domesoccer.jp/": {
+    "type": "xpath",
+    "xpath": "article[@id='post']/section[not(@id='comments')]"
+  },
+  "//agora-web.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'articleContent') or contains(@class,'articleTop')]"
+  },
+  "//www.zorazora.site/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//hatena.fut573.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//gigazine.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='cntimage']"
+  },
+  "//urutike.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//labo.hatenastaff.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.gibe-on.info/": {
+    "type": "xpath",
+    "xpath": "div[@id='article']/div[@id='post_image' or contains(@class,'post_content')]"
+  },
+  "//www.ringobiyori.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tech.feedforce.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']"
+  },
+  "//r.gnavi.co.jp/sp/g-mag/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
