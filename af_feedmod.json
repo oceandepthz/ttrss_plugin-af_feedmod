@@ -355,10 +355,6 @@
     "force_charset": "utf-8",
     "force_unicode": true
   },
-  "twitter.com": {
-    "type": "xpath",
-    "xpath": "div[@role='main']"
-  },
   "diamond.jp": {
     "type": "xpath",
     "xpath": "div[@id='main-contents']",
@@ -549,10 +545,6 @@
       "h1[@class='entry-title']",
       "div[@class='blogbox']"
     ]
-  },
-  "jp.techcrunch.com": {
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'article-entry')]"
   },
   "www.footballchannel.jp": {
     "type": "xpath",
@@ -1551,10 +1543,6 @@
   "lifehack2ch.livedoor.biz": {
     "type": "xpath",
     "xpath": "div[@class='main']|//div[@class='mainmore']|//h3[@class='commenthead']|//div[@id='comment']"
-  },
-  "blog.twitter.com": {
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'FieldName-body')]//div[starts-with(@class, 'Field-items-item')]"
   },
   "www.dhbr.net": {
     "type": "xpath",
@@ -3381,10 +3369,6 @@
   "wirelesswire.jp": {
     "type": "xpath",
     "xpath": "div[@class='wysiwyg']"
-  },
-  "ddnavi.com": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'section-text')]"
   },
   "klabgames.tech.blog.jp.klab.com": {
     "type": "xpath",
@@ -6423,10 +6407,6 @@
       "*[starts-with(@class, 'wp_social_bookmarking_')]"
     ]
   },
-  "//blog.twitter.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'FieldName-body')]"
-  },
   "//kosstyle.blog16.fc2.com/": {
     "type": "xpath",
     "xpath": "h2[@class='entry_title']//img|//div[@id='main']/div[@class='entry_table'][1]/div[@class='entry_text']",
@@ -7790,5 +7770,93 @@
   "//www.brother.co.jp/product/printer/sp/": {
     "type": "xpath",
     "xpath": "div[@class='mv']/div[@class='kiji_img']|//div[@class='kiji' or @class='mv_kiji']"
+  },
+  "//www.soumu.go.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='contentsBody']"
+  },
+  "//www.photo4life.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "iframe[contains(@src,'ad.jp.ap.valuecommerce.com')]",
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.bokukoko.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//udemy.benesse.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entrybody')]"
+  },
+  "//terkel.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='MainBody']"
+  },
+  "//tech.cygames.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//blog.twitter.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'FieldName-body')]"
+  },
+  "//twitter.com/": {
+    "type": "xpath",
+    "xpath": "div[@role='main']"
+  },
+  "//ddnavi.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='article_body']"
+  },
+  "//jp.techcrunch.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class, 'article-entry')]"
+  },
+  "//techcrunch.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class, 'article-entry')]"
+  },
+  "//rnyday.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//nelog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'ad-space')]"
+    ]
+  },
+  "//kanasoku.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_body' or @class='entry_more']",
+    "cleanup": [
+      "script[contains(@src,'blogroll.livedoor.net')]"
+    ]
+  },
+  "//hikakujoho.com/manekai/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.a-know.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "ins[@class='adsbygoogle']",
+      "script[contains(@src,'ad2.googlesyndication.co') or contains(text(),'adsbygoogle')]"
+    ]
+  },
+  "//baigie.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
   }
 }
