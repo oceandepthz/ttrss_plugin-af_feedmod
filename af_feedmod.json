@@ -1322,10 +1322,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "www.jalan.net": {
-    "type": "xpath",
-    "xpath": "div[@class='catch_img']|//div[@class='user']|//div[@class='content']"
-  },
   "www.yukihy.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -1594,13 +1590,6 @@
   "tosche.net": {
     "type": "xpath",
     "xpath": "div[@class='entry']/p"
-  },
-  "yusaani.com": {
-    "type": "xpath",
-    "xpath": "section[starts-with(@class, 'entry')]",
-    "cleanup": [
-      "div[starts-with(@class, 'adBan')]"
-    ]
   },
   "www.webdice.jp": {
     "type": "xpath",
@@ -6748,14 +6737,6 @@
       "div[@id='jp-relatedposts']"
     ]
   },
-  "//president.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='article-body']",
-    "cleanup": [
-      "div[@id='next-info']"
-    ],
-    "next_page": "div[@class='mp-ie'][1]"
-  },
   "//hatenacorp.jp/recruit/": {
     "type": "xpath",
     "xpath": "div[@id='interview']",
@@ -7252,13 +7233,6 @@
   "//suumo.jp/town/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//sealdspost.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content' or @class='post-thumbnail']",
-    "cleanup": [
-      "div[contains(@class,'article-social-share')]"
-    ]
   },
   "//press.forkwell.com/post/": {
     "type": "xpath",
@@ -8215,5 +8189,105 @@
   "//blog.livedoor.jp/manamerit/": {
     "type": "xpath",
     "xpath": "div[@class='main' or @class='mainmore']"
+  },
+  "//www.jalan.net/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-main']/p[contains(@class,'main-image')]|//div[contains(@class,'article-post')]",
+    "cleanup": [
+      "div[@class='post-main' or contains(@class,'pagination') or contains(@class,'blk-writer')]",
+      "ul[contains(@class,'list-sns')]",
+      "h2[contains(@class,'hdg-type')]",
+      "iframe[contains(@src,'s8.r-ad.ne.jp')]"
+    ],
+    "next_page": "div[contains(@class,'pagination')]"
+  },
+  "//www.jalan.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='catch_img']|//div[@class='user']|//div[@class='content']"
+  },
+  "//yusaani.com/topics/": {
+    "type": "xpath",
+    "xpath": "section[@class='post' or contains(@class,'cmtBox')]",
+    "cleanup": [
+      "div[starts-with(@class, 'adBan')]"
+    ]
+  },
+  "//www.waka-macha.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense']"
+    ]
+  },
+  "//www.lifefuckers.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.jp.square-enix.com/company/ja/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']"
+  },
+  "//www.gamer.ne.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='newsFullBody']"
+  },
+  "//smaho-kyokasho.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "div[contains(@class,'col-xs-')]",
+      "script[contains(@src,'ad2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']"
+    ]
+  },
+  "//japan.googleblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
+  },
+  "//id.fnshr.info/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-text']"
+  },
+  "//fontfree.me/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog']",
+    "cleanup": [
+      "div[@class='fb-page-board']"
+    ]
+  },
+  "//shinpei.github.io/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//enjosokuhou.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//dearfootball.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']",
+    "cleanup": [
+      "div[@class='share-post' or @class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//president.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "next_page": "div[@class='cts-pagenation'][1]"
+  },
+  "//www.yocheckya.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense' or @id='my-footer']"
+    ]
+  },
+  "//www.picsim-blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//news.kddi.com/kddi/corporate/newsrelease/": {
+    "type": "xpath",
+    "xpath": "div[@class='ind']"
   }
 }
