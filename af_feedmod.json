@@ -724,15 +724,6 @@
       "div[@class='article']"
     ]
   },
-  "www.nikkeibp.co.jp/atcl/column": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[@class='article-title']",
-      "p[contains(@class,'next')]"
-    ],
-    "next_page": "div[@class='article-pagination']"
-  },
   "portal.nifty.com": {
     "type": "xpath",
     "xpath": "div[@id='mainContentsInner']",
@@ -8289,5 +8280,26 @@
   "//news.kddi.com/kddi/corporate/newsrelease/": {
     "type": "xpath",
     "xpath": "div[@class='ind']"
+  },
+  "//www.nikkeibp.co.jp/atcl/column/": {
+    "type": "xpath",
+    "xpath": "article",
+    "next_page": "div[@class='atcl_pager']"
+  },
+  "//www.hoosaku.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//lab.astamuse.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//githubengineering.com/": {
+    "type": "xpath",
+    "xpath": "section[not(@class)]/div[@class='content']"
+  },
+  "//enejoys.jp/contents/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-content']"
   }
 }

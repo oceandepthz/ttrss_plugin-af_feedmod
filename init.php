@@ -286,7 +286,7 @@ class Af_Feedmod extends Plugin implements IHandler
                             continue;
                         }
                         if(substr($next_page, 0, 1) == "?"){
-                            $next_page = $link.$next_page;
+                            $next_page = explode("?", $link)[0].$next_page;
                         }
                         if(substr($next_page, 0, 1) == "/"){
                             $url_item = parse_url($link);
