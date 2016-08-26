@@ -1,6 +1,8 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
 
+ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:48.0) Gecko/20100101 Firefox/48.0');
+
 class Af_Feedmod extends Plugin implements IHandler
 {
     private $host;
