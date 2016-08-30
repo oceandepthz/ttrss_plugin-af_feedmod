@@ -738,15 +738,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-body-text']"
   },
-  "itpro.nikkeibp.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='kiji']",
-    "next_page": "div[@id='naviBottom']",
-    "next_page_cleanup": [
-      "a[@class='now']",
-      "a[@class='tonext']"
-    ]
-  },
   "www.scutum.jp/information/waf_tech_blog": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entryTitle')]"
@@ -2460,13 +2451,6 @@
     "cleanup": [
       "span[starts-with(@id,'kauli_yad_js')]/..",
       "span[@itemprop='keywords']"
-    ]
-  },
-  "sosukeblog.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@id='g_ad']"
     ]
   },
   "blog.hinaloe.net": {
@@ -5739,18 +5723,6 @@
       "div[@class='insentence-adsense' or @id='my-footer']"
     ]
   },
-  "jbpress.ismedia.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='article-text']|//div[@id='main-contents']|//div[@class='article']/div[@class='summary' or starts-with(@class,'media-logo')]",
-    "cleanup": [
-      "div[@class='ad-right']",
-      "div[@class='editors-selectlist']"
-    ],
-    "next_page": "span[@class='pagination']|//div[@id='multipage']",
-    "next_page_cleanup": [
-      "span[@class='page-here']/.."
-    ]
-  },
   "www.dangouwasa.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -8473,5 +8445,98 @@
   "//bazubu.com/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
+  },
+  "//www.zakkiblog.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.yokoiki.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense' or @id='my-footer']"
+    ]
+  },
+  "//www.mofnokikotori.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//webkit.org/blog/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//tech-clips.com/": {
+    "type": "xpath",
+    "xpath": "img[@class='originalPhoto']|//p[@class='description']|//div[@id='originalContents']"
+  },
+  "//so-wh.at/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//originalnews.nico/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleList-subpage-txt']",
+    "cleanup": [
+      "div[@class='next_page_header']"
+    ],
+    "next_page": "div[contains(@class,'pageNav')][1]"
+  },
+  "//ikumouzaimatome.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='comments-list']/h3|//div[@id='comments-list']/ol|//div[@class='article-body']"
+  },
+  "//blog.gachapin-sensei.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//blog.beginning-ai.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//azure.microsoft.com/ja-jp/documentation/articles/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-content')]"
+  },
+  "//azure.microsoft.com/en-us/blog/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "a[contains(@class,'social-share')]"
+    ]
+  },
+  "//jbpress.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-text']|//div[@id='main-contents']|//div[@class='article']/div[@class='summary' or starts-with(@class,'media-logo')]|//figure[@class='keyvisual']|//div[@id='jbpress-container']",
+    "cleanup": [
+      "div[@class='ad-right']",
+      "div[@class='editors-selectlist']"
+    ],
+    "next_page": "span[@class='pagination']|//div[@id='multipage']",
+    "next_page_cleanup": [
+      "span[@class='page-here']/.."
+    ]
+  },
+  "//sosukeblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']",
+    "cleanup": [
+      "div[@class='single_g_ad']"
+    ]
+  },
+  "//itpro.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "next_page": "div[@class='pager']"
+  },
+  "//www.iij.ad.jp/news/pressrelease/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents']",
+    "cleanup": [
+      "ul[@class='social-box']"
+    ]
+  },
+  "//www.tbsradio.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='b-article__body']"
   }
 }
