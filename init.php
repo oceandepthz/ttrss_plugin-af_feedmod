@@ -349,28 +349,20 @@ class Af_Feedmod extends Plugin implements IHandler
             return;
         }
         foreach($img_list as $node){
-            $original = $node->getAttribute('data-original');
-            if(!$original){
-                $original = $node->getAttribute('data-lazy-src');
-            }
-            if(!$original){
-                $original = $node->getAttribute('data-src');
-            }
-            if(!$original){
-                $original = $node->getAttribute('data-img-path');
-            }
-            if(!$original){
-                $original = explode(" ", explode(",", $node->getAttribute('srcset'))[0])[0];
-            }
-            if(!$original){
-                $original = $node->getAttribute('ng-src');
-            }
-            if(!$original){
-                $original = $node->getAttribute('rel:bf_image_src');
-            }
-            if(!$original){
-                $original = $node->getAttribute('ajax');
-            }
+            // update src
+            $original = '';
+            $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-img-path', 'srcset', 
+                'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original'];
+            foreach($attr_list as $item){
+                if(!$node->hasAttribute($item)){
+                    continue;
+                }
+                if($item == 'srcset'){
+                    $original = explode(" ", explode(",", $node->getAttribute('srcset'))[0])[0];    
+                } else {
+                    $original = $node->getAttribute($item);
+                }
+            }       
             if ($original) {
                 $node->setAttribute('src', $original);
             }
