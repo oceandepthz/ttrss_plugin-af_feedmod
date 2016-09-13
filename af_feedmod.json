@@ -3111,14 +3111,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "www.nakahara-lab.net/blog": {
-    "type": "xpath",
-    "xpath": "div[@class='content']",
-    "cleanup": [
-      "h1",
-      "iframe[starts-with(@class,'twitter-share-button')]/.."
-    ]
-  },
   "nulab-inc.com/ja/blog": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -3446,13 +3438,6 @@
   "www.kwappa.net/blog": {
     "type": "xpath",
     "xpath": "div[@class='entry']"
-  },
-  "www.gadget2ch.com": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']",
-    "cleanup": [
-      "dl[@class='article-tags']"
-    ]
   },
   "www.calciomatome.net": {
     "type": "xpath",
@@ -4007,10 +3992,6 @@
   "retty.me": {
     "type": "xpath",
     "xpath": "div[@class='detail_ttl']/div[@class='cfx']|//div[@class='section']"
-  },
-  "blog.serverworks.co.jp/tech": {
-    "type": "xpath",
-    "xpath": "div[@class='entry']"
   },
   "www.north-geek.com": {
     "type": "xpath",
@@ -8719,5 +8700,99 @@
       "script[contains(@src,'ad2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
       "ins[@class='adsbygoogle']"
     ]
+  },
+  "//www.gadget2ch.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//blog.serverworks.co.jp/tech/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry')]"
+  },
+  "//yamakamu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='ad_rs' or @id='ad2']"
+    ]
+  },
+  "//nodejs.org/en/blog/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//itunes.apple.com/app/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'product')]//div[@class='artwork']|//div[@class='center-stack' or @id='title']"
+  },
+  "//fwww7.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'insentense-adsense')]"
+    ]
+  },
+  "//www.usamiblog.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.tawashix.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.room8.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']",
+    "cleanup": [
+      "div[contains(@class,'veu_socialSet')]"
+    ]
+  },
+  "//www.digimonostation.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body' or @class='eyecatch']",
+    "cleanup": [
+      "div[contains(@class,'buy')]"
+    ]
+  },
+  "//www.1919az.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//takashimaeda.jp/nasu-note/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
+  },
+  "//openblog.seesaa.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogbody']/div[@class='text']"
+  },
+  "//blog.mshimfujin.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentense-adsense']"
+    ]
+  },
+  "//www.nakahara-lab.net/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogpage_article_txt']"
+  },
+  "//www.ishikihikui-kei.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//katukawa.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='textBody']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//blog.wadackel.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='post__content']"
+  },
+  "//arxiv.org/abs/": {
+    "type": "xpath",
+    "xpath": "div[@class='leftcolumn']"
   }
 }
