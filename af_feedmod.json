@@ -8794,5 +8794,53 @@
   "//arxiv.org/abs/": {
     "type": "xpath",
     "xpath": "div[@class='leftcolumn']"
+  },
+  "//www.nttdocomo.co.jp/info/news_release/": {
+    "type": "xpath",
+    "xpath": "article[@class='main']"
+  },
+  "//www.empowerments.jp/": {
+    "type": "xpath",
+    "xpath": "section",
+    "cleanup": [
+      "div[@class='ad-space']"
+    ]
+  },
+  "//vrinside.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'post-')]",
+    "cleanup": [
+      "div[@id='breadcrumb' or @class='sns']",
+      "h4[@class='point']",
+      "ul[@class='kanrenkiji']",
+      "aside",
+      "p[@class='tagst']"
+    ]
+  },
+  "//vim-jp.org/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": [
+      "div[@class='sns-badges']"
+    ]
+  },
+  "//onew-web.net/": {
+    "type": "xpath",
+    "xpath": "section",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//necojita.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//developer-blog.finc.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
+  },
+  "//cardloan-girls.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents_in']/div[@class='single_in_image']|//div[@class='content_txt']"
   }
 }
