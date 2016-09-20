@@ -6276,14 +6276,6 @@
       "div[contains(@class,'sm_icon_mini') or @class='bbs_preview']"
     ]
   },
-  "//wedge.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='main-contents']",
-    "cleanup": [
-      "div[@id='next-info' or @id='mp-ie']"
-    ],
-    "next_page": "div[@id='mp-ie']"
-  },
   "//tech.pero.li/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -8842,5 +8834,86 @@
   "//cardloan-girls.jp/": {
     "type": "xpath",
     "xpath": "div[@class='contents_in']/div[@class='single_in_image']|//div[@class='content_txt']"
+  },
+  "//blog.okazuki.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//wedge.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "p[@class='noprovide']"
+    ],
+    "next_page": "div[@class='pagination']"
+  },
+  "//www.osappiro.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.neginegigi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kesa-pasa.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(text(),'google_ad_client')]/.."
+    ]
+  },
+  "//www.ikemenmusuko.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(@src,'ad2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']",
+      "div[@class='insentense-adsense' or @id='my-footer']"
+    ]
+  },
+  "//www.hitorishokudou.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.buzznews.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='theContentWrap-ccc' or @class='post_image']",
+    "cleanup": [
+      "ins[@class='adsbygoogle']/..",
+      "iframe[@id='twitter-widget-0']/.."
+    ]
+  },
+  "//www.akoreb.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentense-adsense' or @class='adsense']"
+    ]
+  },
+  "//time-space.kddi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='detailContentsInner']",
+    "cleanup": [
+      "ul[@class='detailMainSns']"
+    ]
+  },
+  "//officelife.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@id='post_area']/div[@id='article_area' or @class='post_title']"
+  },
+  "//kanemotilevel.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']",
+    "cleanup": [
+      "p[@class='breadcrumb']",
+      "div[@class='ninja_onebutton']"
+    ]
+  },
+  "//bizamurai.com/": {
+    "type": "xpath",
+    "xpath": "article/p[@class='guide']|//article/div[@class='maintext']"
   }
 }
