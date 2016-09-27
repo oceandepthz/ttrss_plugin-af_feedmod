@@ -362,6 +362,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 } else {
                     $original = $node->getAttribute($item);
                 }
+                if($original){
+                    break;
+                }
             }       
             if ($original) {
                 $node->setAttribute('src', $original);

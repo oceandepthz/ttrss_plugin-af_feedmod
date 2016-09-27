@@ -2656,13 +2656,6 @@
     "type": "xpath",
     "xpath": "div[starts-with(@class,'contentsBox')]/div[starts-with(@class,'suppl_body')]|//div[starts-with(@class,'contentsBox')]/h4"
   },
-  "jp.reuters.com": {
-    "type": "xpath",
-    "xpath": "span[@id='articleText']|//div[@id='articleImage']/div/img",
-    "cleanup": [
-      "script"
-    ]
-  },
   "blog.livedoor.jp/chihhylove": {
     "type": "xpath",
     "xpath": "div[@class='main' or @class='mainmore']"
@@ -3084,17 +3077,6 @@
   "www.jinseitanoshi.net": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "www.hotpepper.jp/mesitsu": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
-  "www.hotpepper.jp/magazine": {
-    "type": "xpath",
-    "xpath": "section[starts-with(@id,'bcn_widget')]/p|//article[contains(@class,'entry-content')]",
-    "cleanup": [
-      "*[starts-with(@class, 'hpr_social_bookmarking_')]"
-    ]
   },
   "news.yahoo.co.jp/feature": {
     "type": "xpath",
@@ -8915,5 +8897,71 @@
   "//bizamurai.com/": {
     "type": "xpath",
     "xpath": "article/p[@class='guide']|//article/div[@class='maintext']"
+  },
+  "//www.lili-hack.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//tochikatsu-iroha.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//text.baldanders.info/remark/": {
+    "type": "xpath",
+    "xpath": "article/section"
+  },
+  "//www.hotpepper.jp/mesitsu/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.hotpepper.jp/magazine/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-header-contents']/div[@class='image_area' or @class='description_area']|//div[@class='article-content']",
+    "cleanup": [
+      "ul[@class='snsList']"
+    ]
+  },
+  "//www.soumushou.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.kurashichie.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.ken10blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.eternalcollegest.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.cocoro-quest.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//webmaster-ja.googleblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
+  },
+  "//blog.burntsushi.net/": {
+    "type": "xpath",
+    "xpath": "article[@class='post-content']"
+  },
+  "//www.yagirenta.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'insentence-adsense') or @id='my-footer']"
+    ]
+  },
+  "//jp.reuters.com/": {
+    "type": "xpath",
+    "xpath": "span[@id='articleText']|//div[@id='articleImage']/div/img|//a[@id='']/div[@class='module-slide-media']/img",
+    "next_page": "div[contains(@class,'article-paginate')]"
   }
 }
