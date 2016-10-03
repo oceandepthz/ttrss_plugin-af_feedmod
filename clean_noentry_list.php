@@ -7,6 +7,12 @@ if(count($argv) !=2){
 
 $file_name = $argv[1];
 $file_full = dirname(__FILE__).'/'.$file_name;
+
+if(!file_exists($file_full)){
+  echo "ファイルエラー\n";
+  die;
+}
+
 $entry_list = array();
 
 $lines = file($file_full);
@@ -22,6 +28,7 @@ rename($file_full, $file_full.".".date("YmdHis"));
 foreach($entry_list as $key => $line_array){
   file_put_contents($file_full,implode("\t", $line_array), FILE_APPEND);
 }
-chown($file_full,'apache');
-chgrp($file_full,'apache');
+chown($file_full,'nginx');
+chgrp($file_full,'nginx');
+chmod($file_full, 0666);
 

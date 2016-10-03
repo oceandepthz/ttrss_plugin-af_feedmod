@@ -856,10 +856,6 @@
     ],
     "next_page": "div[@id='linkPages']"
   },
-  "www.astroarts.co.jp/news": {
-    "type": "xpath",
-    "xpath": "div[@id='summary']|//div[@id='NWrelart:Body']|//div[@id='appendix']"
-  },
   "zasshi.news.yahoo.co.jp": {
     "type": "xpath",
     "xpath": "div[@class='articleMain']/div[@class='paragraph']",
@@ -8963,5 +8959,126 @@
     "type": "xpath",
     "xpath": "span[@id='articleText']|//div[@id='articleImage']/div/img|//a[@id='']/div[@class='module-slide-media']/img",
     "next_page": "div[contains(@class,'article-paginate')]"
+  },
+  "//www.astroarts.co.jp/": {
+    "type": "xpath",
+    "xpath": "section[@id='article']/div[@class='summary' or @class='body' or @class='appendix']|//div[@id='main']"
+  },
+  "//www.ffreturn.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tech.kayac.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']"
+  },
+  "//start.jword.jp/magazine/": {
+    "type": "xpath",
+    "xpath": "div[@class='text']",
+    "cleanup": [
+      "ul[contains(@class,'magazine_area') or @class='sns_area' or @class='icon_link_left_blue']",
+      "h2[@class='mb25']"
+    ]
+  },
+  "//manuke.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='master-post-advert' or @id='wp_rp_first']",
+      "ins[@class='adsbygoogle']/../.."
+    ]
+  },
+  "//l-orem.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='contentBody']/address[@class='source']|//div[@id='contentBody']/div[@class='block-text-content' or contains(@class,'summaryWrapper')]"
+  },
+  "//it-trend.jp/labo/": {
+    "type": "xpath",
+    "xpath": "div[@class='contArea']",
+    "cleanup": [
+      "ul[@id='share']"
+    ]
+  },
+  "//it-trend.jp/textmining/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleContents']/div[@class='sectionHead' or @class='sectionBody']"
+  },
+  "//hon.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//cloudplatform.googleblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
+  },
+  "//www.tokaina.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.tellme.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.sekkachi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(@src,'ad2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']"
+    ]
+  },
+  "//www.milkmemo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense']"
+    ]
+  },
+  "//www.kouta-daily.site/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kaasan.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light' or contains(@class,'fb-comments')]",
+      "iframe[contains(@src,'as.ebis.ne.jp')]/../.."
+    ]
+  },
+  "//www.jprime.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "next_page": "div[contains(@class,'pagenation_list')]"
+  },
+  "//www.ikedahayato.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//koteihi-minaoshi.jp/sim/": {
+    "type": "xpath",
+    "xpath": "div[@class='detail_text']/img|//div[@itemprop='description' or @itemprop='articleBody']"
+  },
+  "//code.facebook.com/posts/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'_4cl6')]"
+  },
+  "//blog.upamune.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.hotolab.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.livedoor.jp/hasegawa_yutaka/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
