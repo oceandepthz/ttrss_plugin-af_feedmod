@@ -104,10 +104,6 @@
       "iframe"
     ]
   },
-  "www.taharasoichiro.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "blog.livedoor.jp/katyou_get9": {
     "type": "xpath",
     "xpath": "div[@id='more']"
@@ -9080,5 +9076,42 @@
   "//blog.livedoor.jp/hasegawa_yutaka/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
+  },
+  "//www.plus-blog.sportsnavi.com/socceranalyzer/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "next_page": "div[@id='pagenate']",
+    "next_page_cleanup": "li[@class='current']"
+  },
+  "//www.taharasoichiro.com/cms/": {
+    "type": "xpath",
+    "xpath": "section[@class='entry-content']"
+  },
+  "//parashuto.com/rriver/": {
+    "type": "xpath",
+    "xpath": "section[@class='main-content']",
+    "cleanup": [
+      "ul[@class='share-buttons']",
+      "script[contains(@src,'ad2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']"
+    ]
+  },
+  "//it-koala.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "ul[contains(@class,'bzb-sns-btn')]"
+    ]
+  },
+  "//ask.fm/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'streamItem-singleAnswer')]",
+    "cleanup": [
+      "div[contains(@class,'afm-popover-container')]"
+    ]
+  },
+  "//blog.livedoor.jp/nipotan/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']"
   }
 }
