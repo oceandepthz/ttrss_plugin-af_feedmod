@@ -9113,5 +9113,13 @@
   "//blog.livedoor.jp/nipotan/": {
     "type": "xpath",
     "xpath": "div[@class='main']"
+  },
+  "//www.yoshimatsutakeshi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.net-li.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }

@@ -118,6 +118,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 if ($entry) {
                     $this->cleanup($xpath, $entry, $config['cleanup']);
                     $this->update_img_tags($entry, $link);
+                    $this->update_tags($entry, $link, "a", "href");
+                    $this->update_tags($entry, $link, "iframe", "src");
 
                     $entrysXML .= $doc->saveXML($entry);
                 }
@@ -335,6 +337,34 @@ class Af_Feedmod extends Plugin implements IHandler
                     $node->ownerElement->removeAttributeNode($node);
                 } else {
                     $node->parentNode->removeChild($node);
+                }
+            }
+        }
+    }
+
+    function update_tags($basenode, $link, $tag, $attr){
+        if(!$basenode){
+            return;
+        }
+        $img_list = $basenode->getElementsByTagName($tag);
+        if($img_list->length == 0){
+            return;
+        }
+        foreach($img_list as $node){
+            $src = $node->getAttribute($attr);
+            if(substr($src,0,2) == "//"){
+                $url_item = parse_url($link);
+                $src = $url_item['scheme'].':'.$src;
+                $node->setAttribute($attr, $src);
+            }else if(substr($src,0,1) == "/"){
+                $url_item = parse_url($link);
+                $src = $url_item['scheme'].'://'.$url_item['host'].$src;
+                $node->setAttribute($attr, $src);
+            }else if(substr($src, 0,4) != "http"){
+                $pos = strrpos($link, "/");
+                if($pos){
+                    $src = substr($link, 0, $pos+1).$src;
+                    $node->setAttribute($attr, $src);
                 }
             }
         }
