@@ -9121,5 +9121,34 @@
   "//blog.net-li.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//www.e-aidem.com/ch/listen/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//storialaw.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'fb-page') or @class='social4i']"
+    ]
+  },
+  "//recruit.gmo.jp/engineer/jisedai/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//www.financialpointer.com/jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='post-thumbnail']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//linecorp.com/ja/pr/news/ja/": {
+    "type": "xpath",
+    "xpath": "div[@class='content_area']"
   }
 }
