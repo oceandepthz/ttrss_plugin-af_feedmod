@@ -9120,13 +9120,6 @@
       "div[@class='wp_social_bookmarking_light']"
     ]
   },
-  "//www.financialpointer.com/jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content' or @class='post-thumbnail']",
-    "cleanup": [
-      "div[contains(@class,'addtoany_share_save_container')]"
-    ]
-  },
   "//linecorp.com/ja/pr/news/ja/": {
     "type": "xpath",
     "xpath": "div[@class='content_area']"
@@ -9227,6 +9220,62 @@
     "cleanup": [
       "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
       "ins[contains(@class,'adsbygoogle')]"
+    ]
+  },
+  "//www.financialpointer.com/jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='post-thumbnail']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container') or @class='page-links']"
+    ],
+    "next_page": "div[@class='page-links']"
+  },
+  "//blog.livedoor.jp/staffueno/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//www.server-okite.net/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light' or @class='yarpp-related']"
+    ]
+  },
+  "//www.nimonoism.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='ad-area-ft']"
+    ]
+  },
+  "//wp-e.org/": {
+    "type": "xpath",
+    "xpath": "header/img|//div[@id='stylePost']",
+    "cleanup": [
+      "div[contains(@class,'googleAd') or @id='jp-relatedposts']"
+    ]
+  },
+  "//tofufu.me/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry')]",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light' or contains(@class,'pagination') or @id='wp_rp_first' or @class='pageinfo']"
+    ],
+    "next_page": "div[contains(@class,'pagination')]"
+  },
+  "//staff-blog.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry')]"
+  },
+  "//eigo-koryaku.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//blog.gyakushu.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
     ]
   }
 }
