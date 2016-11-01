@@ -9540,5 +9540,50 @@
       "div[@id='pagination' or @id='article-sns-service' or @id='feed-page' or contains(@class,'article-author')]"
     ],
     "next_page": "div[@id='pagination']"
+  },
+  "//www.mizue338.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'insentence-adsense') or @id='my-footer']"
+    ]
+  },
+  "//www.ex-ma.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//tobalog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='mainbox']",
+    "cleanup": [
+      "div[@class='textwidget' or @class='kizi-under-box']"
+    ]
+  },
+  "//charingress.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@class='mainbox']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[contains(@class,'adsbygoogle')]",
+      "div[@class='va-social-buzz']"
+    ]
+  },
+  "//blog.animereview.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']",
+    "cleanup": [
+      "div[@class='ad']"
+    ]
+  },
+  "//ingressblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']/section",
+    "cleanup": [
+      "div[contains(@class,'su-spoiler')]"
+    ]
+  },
+  "//diet-slimo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']"
   }
 }
