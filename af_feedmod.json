@@ -1095,10 +1095,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class, 'entry-content')]"
   },
-  "nakamorikzs.net": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "www.homarecipe.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -8054,11 +8050,6 @@
       "div[@class='share-post' or @class='wp_social_bookmarking_light']"
     ]
   },
-  "//president.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body']",
-    "next_page": "div[@class='cts-pagenation'][1]"
-  },
   "//www.yocheckya.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -9585,5 +9576,80 @@
   "//diet-slimo.com/": {
     "type": "xpath",
     "xpath": "div[@class='article']"
+  },
+  "//nakamorikzs.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//president.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or @id='main-contents']",
+    "next_page": "div[@class='cts-pagenation'][1]|//div[@id='multipage']"
+  },
+  "//techblog.kayac.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//ykazu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//www.gatsby.website/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.gamehuntblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense']"
+    ]
+  },
+  "//www.chiikunote.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense' or @id='my-footer']"
+    ]
+  },
+  "//www.catlani.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[contains(@class,'adsbygoogle')]"
+    ]
+  },
+  "//tech-magazine.opt.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//sumahoinfo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": [
+      "aside",
+      "div[@id='breadcrumb' or @class='wp_social_bookmarking_light']",
+      "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[contains(@class,'adsbygoogle')]"
+    ]
+  },
+  "//stripe.com/blog/": {
+    "type": "xpath",
+    "xpath": "div/article"
+  },
+  "//ciotan.com/": {
+    "type": "xpath",
+    "xpath": "article[contains(@class,'entry')]",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//blog.clock-up.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
