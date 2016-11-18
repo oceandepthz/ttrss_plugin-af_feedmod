@@ -613,15 +613,6 @@
     "force_charset": "EUC-JP",
     "force_unicode": true
   },
-  "www.soccer-king.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='article']",
-    "cleanup": [
-      "div[@id='_popIn_recommend']/../*[not(@id='ns_txt' or @id='ns_photo')]",
-      "div[@id='ns_magAD']",
-      "div[@id='ns_txt']/a[contains(@href, 'www.soccer-king.jp/news')]"
-    ]
-  },
   "gadget2ch.blog.jp": {
     "type": "xpath",
     "xpath": "div[@class='article-body']",
@@ -4531,10 +4522,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "style.nikkei.com": {
-    "type": "xpath",
-    "xpath": "div[@id='conts']/p[@class='text']|//div[@id='articleImage']|//div[@class='load']/div[not(@class)]"
-  },
   "cyblog.jp": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -5292,10 +5279,6 @@
     "next_page": "div[@class='paginator']",
     "next_page_cleanup": "a[contains(@class,'current')]"
   },
-  "azu.github.io": {
-    "type": "xpath",
-    "xpath": "article[@class='markdown-body']"
-  },
   "newsln.jp": {
     "type": "xpath",
     "xpath": "font[@class='news']/../table[2]//img|//p[@class='article']|//font[@class='news']"
@@ -5835,7 +5818,7 @@
       "div[@class='adsense']/.."
     ]
   },
-  "kotetsu.game-waza.net": {
+  "//kotetsu.game-waza.net/": {
     "type": "xpath",
     "xpath": "div[@class='EntryTextBox']"
   },
@@ -7146,17 +7129,6 @@
   "//chalow.net/": {
     "type": "xpath",
     "xpath": "div[@class='section']"
-  },
-  "//japanese.engadget.com/promo/": {
-    "type": "xpath",
-    "xpath": "div[@id='body']"
-  },
-  "//japanese.engadget.com/": {
-    "type": "xpath",
-    "xpath": "div[@data-swiftype-name='body']",
-    "cleanup": [
-      "div[@class='post-gallery']"
-    ]
   },
   "//developers.mobage.jp/blog/": {
     "type": "xpath",
@@ -9839,6 +9811,63 @@
     ]
   },
   "//blog.shibayan.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//style.nikkei.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='conts']/p[@class='text']|//div[@id='articleImage']|//div[@class='load']/div[not(@class) or @class='text01']"
+  },
+  "//japanese.engadget.com/promo/": {
+    "type": "xpath",
+    "xpath": "div[@id='body']"
+  },
+  "//japanese.engadget.com/": {
+    "type": "xpath",
+    "xpath": "figure/img[contains(@class,'stretch-img')]|//div[contains(@class,'article-text')]"
+  },
+  "//weekly-g.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='cHeader']|//div[@class='contentIn']/section"
+  },
+  "//www.sin-space.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense-top' or @id='my-footer']"
+    ]
+  },
+  "//www.wakatta-blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content' or @id='widget-under-article']"
+  },
+  "//azu.github.io/": {
+    "type": "xpath",
+    "xpath": "article[@class='markdown-body']"
+  },
+  "//www.soccer-king.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents-main__inner']/div[contains(@class,'entryContent') or contains(@class,'articleProfile') or @class='mainVisual']"
+  },
+  "//matomame.jp/user/mixmio/": {
+    "type": "xpath",
+    "xpath": "div[@id='article_contents']",
+    "cleanup": [
+      "div[contains(@class,'ads')]"
+    ]
+  },
+  "//k-kangaeru.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//kaimin-times.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//employment.en-japan.com/engineerhub/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   }
