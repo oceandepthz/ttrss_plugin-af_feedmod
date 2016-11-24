@@ -2687,14 +2687,6 @@
     "type": "xpath",
     "xpath": "div[@class='article__body']"
   },
-  "mag.japaaan.com": {
-    "type": "xpath",
-    "xpath": "div[@class='single-content' or @class='single-thumbnail-image']",
-    "cleanup": [
-      "div[@class='social4in' or @class='ban' or @class='bottom_like' or @class='yarpp-related']",
-      "ul[@class='share_btn']"
-    ]
-  },
   "blog.yusuke.be": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -4802,13 +4794,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "yamasha.net": {
-    "type": "xpath",
-    "xpath": "div[@class='single_content']",
-    "cleanup": [
-      "div[@class='single_in_ads']"
-    ]
-  },
   "techable.jp": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']/p|//div[@class='entry-content']/h2"
@@ -5196,7 +5181,7 @@
     "next_page": "div[@class='paging-box']",
     "next_page_cleanup": "li[@class='current']"
   },
-  "blog.engineer-memo.com": {
+  "//blog.engineer-memo.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -9870,5 +9855,103 @@
   "//employment.en-japan.com/engineerhub/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//necamax.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//mag.japaaan.com/": {
+    "type": "xpath",
+    "xpath": "a[@class='eyecatch']/img|//div[@class='entry_post' or @class='meta']"
+  },
+  "//www.yasuhisay.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.otakuch-blog.xn--tckwe/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.nek654-yurulife.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.klabentertainment.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents']"
+  },
+  "//www.flo-shot.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//fuminners.jp/newsranking/": {
+    "type": "xpath",
+    "xpath": "div[@class='plain-text']"
+  },
+  "//blog.mudatobunka.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.brand-new.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//pomasoku2ch.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='content-area']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']",
+      "script[contains(text(),'1267316') or contains(@src,'spad.i-mobile.co.jp')]"
+    ]
+  },
+  "//yamasha.net/": {
+    "type": "xpath",
+    "xpath": "article[@id='single']",
+    "cleanup": [
+      "div[@class='single-sns' or @class='single_top_ads' or @class='single_in_ads']"
+    ]
+  },
+  "//zen.seesaa.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogbody']/div[@class='text']",
+    "cleanup": [
+      "div[@class='social_buttons']"
+    ]
+  },
+  "//www.tukinasikotonoha.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentense-adsense']"
+    ]
+  },
+  "//www.mbs.jp/news/kansai/": {
+    "type": "xpath",
+    "xpath": "section[@id='article']",
+    "cleanup": [
+      "ul[contains(@class,'btn_sns')]"
+    ]
+  },
+  "//www.gohongi-beauty.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//univ.futurizm.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//tech.a-listers.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']",
+    "cleanup": [
+      "div[@id='jp-post-flair']"
+    ]
+  },
+  "//otakei.otakuma.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='left_col']/div[contains(@class,'post')]/div[not(@class='social-single-area')]"
   }
 }
