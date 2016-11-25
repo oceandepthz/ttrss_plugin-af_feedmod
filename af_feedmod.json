@@ -6653,15 +6653,6 @@
     "type": "xpath",
     "xpath": "section[@class='post-content']"
   },
-  "//damonge.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='excerpt']|//figure[@class='thumbnail']|//section[@class='articleMain']",
-    "cleanup": [
-      "div[@class='item' or @class='shareButton']",
-      "section[@id='bottomAd']",
-      "aside[@class='aroundInfo']"
-    ]
-  },
   "//kantan-shikaku.com/": {
     "type": "xpath",
     "xpath": "div[@class='theContentWrap-ccc']|//header//figure[@class='eyecatch']"
@@ -9953,5 +9944,32 @@
   "//otakei.otakuma.net/": {
     "type": "xpath",
     "xpath": "div[@id='left_col']/div[contains(@class,'post')]/div[not(@class='social-single-area')]"
+  },
+  "//damonge.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='thumbnail']|//div[@class='articleBody']"
+  },
+  "//niccorin.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "div[@class='ninja_onebutton']"
+    ]
+  },
+  "//www.smartaleck.co.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//www.re1life.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.lasnya.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tech.visasq.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='description']"
   }
 }
