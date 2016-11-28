@@ -607,7 +607,7 @@
     ],
     "next_page": "ul[@class='columDetailPageNav']"
   },
-  "www.allgaitamehikaku.jp": {
+  "//www.allgaitamehikaku.jp/": {
     "type": "xpath",
     "xpath": "div[@id='column-box']/div",
     "force_charset": "EUC-JP",
@@ -2944,10 +2944,6 @@
       "ul[@class='mp-share-buttons']"
     ]
   },
-  "www.nishinippon.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='news_item_body']/p"
-  },
   "www.02320.net": {
     "type": "xpath",
     "xpath": "div[@id='articleHeader']/p[@class='annotate']|//div[@id='articleBody']",
@@ -5009,26 +5005,6 @@
   "getnavi.jp": {
     "type": "xpath",
     "xpath": "article//div[starts-with(@class,'entry_body')]"
-  },
-  "www3.nhk.or.jp/news/web_tokushu": {
-    "type": "xpath",
-    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
-  },
-  "www3.nhk.or.jp/news/html": {
-    "type": "xpath",
-    "xpath": "section[@class='detail-no-js']/section[@class='module--content']"
-  },
-  "www3.nhk.or.jp/lnews": {
-    "type": "xpath",
-    "xpath": "div[@id='main']"
-  },
-  "www3.nhk.or.jp/news/business_tokushu": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "noscript",
-      "script"
-    ]
   },
   "blog.shibu.jp": {
     "type": "xpath",
@@ -8634,13 +8610,6 @@
       "div[@class='sns-badges']"
     ]
   },
-  "//onew-web.net/": {
-    "type": "xpath",
-    "xpath": "section",
-    "cleanup": [
-      "div[@class='wp_social_bookmarking_light']"
-    ]
-  },
   "//necojita.com/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
@@ -9971,5 +9940,97 @@
   "//tech.visasq.com/": {
     "type": "xpath",
     "xpath": "div[@id='description']"
+  },
+  "//www3.nhk.or.jp/news/web_tokushu/": {
+    "type": "xpath",
+    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
+  },
+  "//www3.nhk.or.jp/news/html": {
+    "type": "xpath",
+    "xpath": "section[@class='detail-no-js']/section[@class='module--content']"
+  },
+  "//www3.nhk.or.jp/lnews": {
+    "type": "xpath",
+    "xpath": "div[@id='main']"
+  },
+  "//www3.nhk.or.jp/news/business_tokushu": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "noscript",
+      "script"
+    ]
+  },
+  "//onew-web.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//www.nishinippon.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='NP-articleMain']",
+    "cleanup": [
+      "div[@class='NP-articleAd']"
+    ]
+  },
+  "//www.xn--r8jg4dyd3e.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[contains(@class,'adsbygoogle')]"
+    ]
+  },
+  "//www.wegirls.tech/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.toritemi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'insentense-adsense') or @id='ads']"
+    ]
+  },
+  "//www.soo-moomin.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.logosuemo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[contains(@class,'adsbygoogle')]"
+    ]
+  },
+  "//www.kokoro-yuyu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
+      "ins[contains(@class,'adsbygoogle')]",
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.gohang01.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
+    ]
+  },
+  "//taiyoukou-salaryooya.seesaa.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__content']"
+  },
+  "//ouchi-iroha.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
   }
 }
