@@ -683,17 +683,6 @@
       "div[@class='view-all']"
     ]
   },
-  "jp.automaton.am": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[@class='cb-byline']",
-      "div[@class='cb-post-meta']",
-      "footer",
-      "div[@class='social4i']",
-      "div[@id='wp_rp_first']"
-    ]
-  },
   "www.jcer.or.jp/column/otake": {
     "type": "xpath",
     "xpath": "div[@id='otakeArea']",
@@ -10032,5 +10021,70 @@
   "//ouchi-iroha.jp/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
+  },
+  "//moonpower2020.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//mac-tegaki.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents']/div[@class='inner-contents']",
+    "cleanup": [
+      "ins[@class='adsbygoogle']",
+      "script[contains(text(),'adsbygoogle')]",
+      "div[@class='button-group']"
+    ]
+  },
+  "//geinou1.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@class='ad1' or @class='ad2' or @class='af' or @class='bookmark' or @class='article-footer' or contains(@id,'blz_res_') or @class='ninja_onebutton' or @class='ninja-recommend-block']"
+    ]
+  },
+  "//cwhihyou.exblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-main']",
+    "cleanup": [
+      "div[contains(@class,'sm_icon_mini') or contains(@class,'ad-yads_common') or @class='bbs_preview']"
+    ]
+  },
+  "//coreblog.org/ats/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//blog.tokoproject.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.room8.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.8090rock.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(text(),'GoogleAnalyticsObject')]"
+    ]
+  },
+  "//ameblo.jp/sayumimichishige-blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='skin-entryBody']"
+  },
+  "//blog.livedoor.jp/lalha/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']"
+  },
+  "//jp.automaton.am/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@class='cb-byline']",
+      "div[@class='cb-post-meta']",
+      "footer",
+      "div[@class='social4i']",
+      "div[@id='wp_rp_first']"
+    ]
   }
 }
