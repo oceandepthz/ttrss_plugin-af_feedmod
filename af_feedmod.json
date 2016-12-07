@@ -3401,14 +3401,6 @@
     "xpath": "div[@class='thumb' or @class='ynDetailHeading']|//p[@class='ynDetailText']",
     "next_page": "div[@class='ftPager']"
   },
-  "blog.qiita.com": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class, 'article_body')]"
-  },
-  "//qiita.com/": {
-    "type": "xpath",
-    "xpath": "section[contains(@class, 'markdownContent')]|//ul[contains(@class, 'itemsShowHeaderTitle_status')]|//div[@class='js-comments' or @class='tagIcon']"
-  },
   "blogs.yahoo.co.jp": {
     "type": "xpath",
     "xpath": "td[@itemprop='articleBody']"
@@ -4156,14 +4148,6 @@
   "kakuyomu.jp/works": {
     "type": "xpath",
     "xpath": "div[@id='contentMain-inner']"
-  },
-  "beagle-voyage.com": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content')]",
-    "cleanup": [
-      "ins[@class='adsbygoogle']/..",
-      "div[@id='va-social-buzz']"
-    ]
   },
   "blog.ymyzk.com": {
     "type": "xpath",
@@ -7995,10 +7979,6 @@
       "div[@id='continue-sense' or @id='article-bottom-sense']"
     ]
   },
-  "//mag.kakaku.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-edit' or @class='article-credit']"
-  },
   "//journal.anabuki-style.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-thumbnail']|//section[@class='post-content']"
@@ -10085,6 +10065,143 @@
       "footer",
       "div[@class='social4i']",
       "div[@id='wp_rp_first']"
+    ]
+  },
+  "//www.zakkiworkdiary.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.xera.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "iframe[@class='hatena-bookmark-button-frame']",
+      "script[contains(@src,'b.st-hatena.com/js/bookmark_bu')]"
+    ]
+  },
+  "//www.tomotoharu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense' or @id='my-footer']"
+    ]
+  },
+  "//www.papanda-life.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.mamejeff.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.bokurano-music.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense']"
+    ]
+  },
+  "//shimirubon.jp/columns/": {
+    "type": "xpath",
+    "xpath": "div[@class='ng-binding']"
+  },
+  "//kakakumag.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-edit' or @class='article-credit']"
+  },
+  "//blog.qiita.com/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class, 'article_body')]"
+  },
+  "//qiita.com/advent-calendar/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[@class='adventCalendarSection' or contains(@class,'adventCalendarCalendar')]"
+  },
+  "//qiita.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class, 'markdownContent')]|//ul[contains(@class, 'itemsShowHeaderTitle_status')]|//div[@class='js-comments' or @class='tagIcon']"
+  },
+  "//beagle-voyage.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add') or contains(@class,'column-wrap')]"
+    ]
+  },
+  "//www.roll8.xyz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.photo-yatra.tokyo/blog/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//www.irasutoya.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='post']/div[@class='title' or @class='entry']"
+  },
+  "//www.hirolog-ibaraki.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'mofe-disclaimer')]"
+    ]
+  },
+  "//www.fnn-news.com/news/headlines/articles/": {
+    "type": "xpath",
+    "xpath": "div[@class='mainNews']/div[contains(@class,'read')]"
+  },
+  "//www.americakabu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense']"
+    ]
+  },
+  "//www.johsblog.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//developers.cyberagent.co.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tano.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "h1",
+      "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']",
+      "div[@class='ninja_onebutton']"
+    ]
+  },
+  "//ntddk.github.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-entry']"
+  },
+  "//kurashinokyoukasyo.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//jiburi.com/": {
+    "type": "xpath",
+    "xpath": "section/div[@class='textwidget']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']",
+      "div[@class='sns' or @class='more_pr_area']"
+    ]
+  },
+  "//dena.com/jp/press/": {
+    "type": "xpath",
+    "xpath": "div[@class='csr-blogpage-body']"
+  },
+  "//asset-campus-oag.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "ul[contains(@class,'bzb-sns-btn')]"
     ]
   }
 }
