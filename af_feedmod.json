@@ -3123,15 +3123,6 @@
       "span[@class='gleft']"
     ]
   },
-  "karapaia.livedoor.biz": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'entry-body')]",
-    "cleanup": [
-      "ins[@class='adsbygoogle']",
-      "script[contains(text(), 'adsbygoogle') or contains(@src, 'scripts/smartphone.js') or contains(text(), 'rakuten_affiliateId') or contains(@src, 'rakuten_widget.js')]",
-      "iframe[contains(@src, 'm.twitter.com/widgets/tweet_button.') or contains(@src, 'w.facebook.com/plugins/like.php')]"
-    ]
-  },
   "trivialnews.net": {
     "type": "xpath",
     "xpath": "div[@id='the-content']",
@@ -5229,10 +5220,6 @@
   "lowreal.net": {
     "type": "xpath",
     "xpath": "div[@class='content']"
-  },
-  "post.simplie.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='post-content']"
   },
   "blogs.msdn.microsoft.com": {
     "type": "xpath",
@@ -10299,5 +10286,112 @@
     "cleanup": [
       "iframe[contains(@src,'api.unthem.com/cast')]"
     ]
+  },
+  "//karapaia.com/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'entry-body')]",
+    "cleanup": [
+      "ins[@class='adsbygoogle']",
+      "script[contains(text(), 'adsbygoogle') or contains(@src, 'scripts/smartphone.js') or contains(text(), 'rakuten_affiliateId') or contains(@src, 'rakuten_widget.js')]",
+      "iframe[contains(@src, 'm.twitter.com/widgets/tweet_button.') or contains(@src, 'w.facebook.com/plugins/like.php')]",
+      "div[@class='ads-label']"
+    ]
+  },
+  "//www.pixiv.co.jp/press-release/": {
+    "type": "xpath",
+    "xpath": "div[@class='archive-content']|//header[@class='archive-header']"
+  },
+  "//www.megane-shufu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.love-koumuin.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.keikubi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//jvn.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='leftarea']"
+  },
+  "//www.kishikorofreee.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'insentence-adsense') or @id='my-footer']"
+    ]
+  },
+  "//nanapi.com/ja/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'recipe-body')]",
+    "cleanup": [
+      "ul[contains(@class,'ad-list')]"
+    ]
+  },
+  "//blog.kubosho.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//post.simplie.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post-content')]"
+  },
+  "//konkatsusakurako.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//blog.nakagawariko.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.tomochinchin.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']"
+    ]
+  },
+  "//www.sirolog.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']"
+    ]
+  },
+  "//www.nanashiblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.coconoodollblog.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//noraworld.blog/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//koto1.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='mainbox' or @class='st-eyecatch']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light' or contains(@class,'sharedaddy')]",
+      "ul[@class='simple-share']"
+    ]
+  },
+  "//design.syofuso.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blogja.gyazo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
