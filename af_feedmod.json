@@ -7237,7 +7237,8 @@
     "type": "xpath",
     "xpath": "article[@class='article-detail']",
     "cleanup": [
-      "section[@class='article-tag-list']"
+      "section[@class='article-tag-list']",
+      "div[@class='social-area-syncer']"
     ]
   },
   "//gunosy.com/": {
@@ -10393,5 +10394,23 @@
   "//blogja.gyazo.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//panora.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//kanpo-kanpo.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//blog.corkagency.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'cb-entry-content')]",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
   }
 }
