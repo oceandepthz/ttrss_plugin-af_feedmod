@@ -10412,5 +10412,67 @@
     "cleanup": [
       "div[@class='wp_social_bookmarking_light']"
     ]
+  },
+  "//jj-labo.seesaa.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__content']"
+  },
+  "//www.s-kimamaniotalife.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.ruby-lang.org/en/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='content-wrapper']"
+  },
+  "//www.ruby-lang.org/ja/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='content-wrapper']"
+  },
+  "//www.hobonichi-ramen.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentense-adsense']"
+    ]
+  },
+  "//www.colombiacolom.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense' or @id='my-footer']"
+    ]
+  },
+  "//orih.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='container']/section"
+  },
+  "//entertainmentstation.jp/": {
+    "type": "xpath",
+    "xpath": "article[contains(@class,'media-single-padding')]//div[@class='media-content-main' or @class='media-thm']"
+  },
+  "//blog.tmd45.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blackoji.net/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//biomedcircus.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='box_in']"
+  },
+  "//www.gogolem.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
+      "ins[@class='adsbygoogle']"
+    ]
+  },
+  "//esa-pages.io/p/sharing/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-column']"
   }
 }
