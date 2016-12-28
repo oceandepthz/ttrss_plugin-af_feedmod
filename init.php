@@ -1,7 +1,7 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
 
-ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:48.0) Gecko/20100101 Firefox/48.0');
+ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0');
 
 class Af_Feedmod extends Plugin implements IHandler
 {
@@ -256,8 +256,28 @@ class Af_Feedmod extends Plugin implements IHandler
         return $html;
     }
 
+    // number向け
+    function get_np_links_number_bunshun_jp($xpath, $doc, $link){
+        $links = array();
+
+        $numberXpath = new DOMXPath($doc);
+        $numberEntry = $numberXpath->query("(//div[@class='list-pagination-append-02']/span)");
+        if($numberEntry->length === 0){
+            return array();
+        }
+        $numberEntry = $numberEntry->item(0);
+        preg_match('/1\/([0-9]+).*/', $numberEntry->nodeValue, $match);
+        for($i = 2;$i <= $match[1]; $i++){
+            $links[] = $link."?page=".$i;
+        }
+        return $links;
+    }
     function get_np_links($xpath, $doc, $config, $link){
         $links = array();
+
+        if(strpos($link, '//number.bunshun.jp/articles/') !== FALSE){
+            return $this->get_np_links_number_bunshun_jp($xpath, $doc, $link);
+        }
         if(isset($config['next_page']) && $config['next_page']){
             $next_page_basenode = false;
             $next_page_xpath = new DOMXPath($doc);
