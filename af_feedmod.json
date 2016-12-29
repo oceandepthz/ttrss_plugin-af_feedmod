@@ -65,10 +65,6 @@
     "type": "xpath",
     "xpath": "div[@class='post']/div[starts-with(@class, 'entry')]"
   },
-  "www.nikkei.com": {
-    "type": "xpath",
-    "xpath": "div[contains(concat(' ',@class,' '),' cmn-article_text ')]"
-  },
   "sankei.jp.msn.com": {
     "type": "xpath",
     "xpath": "div[@class='NewsTextFull']"
@@ -4970,14 +4966,6 @@
     "cleanup": [
       "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle')]",
       "ins[@class='adsbygoogle']"
-    ]
-  },
-  "blog.otakumode.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "ul[@class='social-button-list']",
-      "script[contains(text(),'fancybox') or contains(text(),'regex.exec(location.search)')]"
     ]
   },
   "www.afpbb.com": {
@@ -10508,5 +10496,40 @@
   "//blog.yuku-t.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//sftt.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content' or @class='catch-image']"
+  },
+  "//www.nikkei.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'cmn-article_text')]",
+    "next_page": "div[@id='JSID_pageNation']"
+  },
+  "//blog.otakumode.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "ul[@class='social-button-list']",
+      "script[contains(text(),'fancybox') or contains(text(),'regex.exec(location.search)')]",
+      "footer",
+      "header",
+      "nav"
+    ]
+  },
+  "//www.tantandaisuki.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.skrninjin.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentence-adsense']"
+    ]
+  },
+  "//dmm-corp.com/press/press-release/": {
+    "type": "xpath",
+    "xpath": "section[@class='p-wp-content']"
   }
 }
