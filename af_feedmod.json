@@ -5280,14 +5280,6 @@
     "type": "xpath",
     "xpath": "div[@class='figure-area']/figure[@class='figure']|//span[@class='writer']|//article[starts-with(@class,'arti-body')]"
   },
-  "pssection9.com": {
-    "type": "xpath",
-    "xpath": "section",
-    "cleanup": [
-      "h1",
-      "div[starts-with(@class,'announcer ')]"
-    ]
-  },
   "blog.lookout.com": {
     "type": "xpath",
     "xpath": "div[@class='post']",
@@ -6482,11 +6474,6 @@
     "type": "xpath",
     "xpath": "div[@class='eye-catch' or @class='post-body' or @class='article-foot']|//ul[@id='post_source']"
   },
-  "//dime.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='effectArea']",
-    "next_page": "div[@class='articlePager']"
-  },
   "//blog.kentarok.org/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -7179,33 +7166,6 @@
     "type": "xpath",
     "xpath": "div[@class='p-article__items']"
   },
-  "//wired.jp/series/super-election/": {
-    "type": "xpath",
-    "xpath": "section[@class='text-body']",
-    "cleanup": [
-      "ul[@class='next-prev-nav']"
-    ]
-  },
-  "//wired.jp/special/": {
-    "type": "xpath",
-    "xpath": "header/div/div[starts-with(@class,'txt') or @class='credit']|//main[@id='contents']",
-    "cleanup": [
-      "div[starts-with(@id,'data-ad-banner-')]",
-      "aside"
-    ]
-  },
-  "//wired.jp/innovationinsights/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@id,'column')]"
-  },
-  "//wired.jp/": {
-    "type": "xpath",
-    "xpath": "article[@class='article-detail']",
-    "cleanup": [
-      "section[@class='article-tag-list']",
-      "div[@class='social-area-syncer']"
-    ]
-  },
   "//gunosy.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'main article_main')]/div[@data-gtm='article_article']"
@@ -7282,10 +7242,6 @@
   "//twitter.com/": {
     "type": "xpath",
     "xpath": "div[@role='main']"
-  },
-  "//ddnavi.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='article_body']"
   },
   "//jp.techcrunch.com/": {
     "type": "xpath",
@@ -7931,41 +7887,6 @@
   "//blog.golang.org/": {
     "type": "xpath",
     "xpath": "div[@class='article']"
-  },
-  "//gihyo.jp/dev/serial/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/admin/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/book/": {
-    "type": "xpath",
-    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
-    "cleanup": [
-      "dl[@class='storeLink01']"
-    ]
-  },
-  "//gihyo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
   },
   "//baigie.me/": {
     "type": "xpath",
@@ -10531,5 +10452,175 @@
   "//dmm-corp.com/press/press-release/": {
     "type": "xpath",
     "xpath": "section[@class='p-wp-content']"
+  },
+  "//dime.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='effectArea']",
+    "next_page": "div[@class='articlePager']",
+    "rep_pattern": "/^http:\\/\\/dime\\.jp\\/genre\\/([0-9]+)\\/$/",
+    "rep_replacement": "http://dime.jp/genre/${1}/1/"
+  },
+  "//ddnavi.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='article_body']",
+    "rep_pattern": "/^http:\\/\\/ddnavi\\.com\\/news\\/([0-9]+)\\/$/",
+    "rep_replacement": "http://ddnavi.com/news/${1}/a/"
+  },
+  "//pssection9.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']/section",
+    "cleanup": [
+      "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
+      "ins[contains(@class,'adsbygoogle')]"
+    ]
+  },
+  "//gihyo.jp/design/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/serial/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/admin/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/book/": {
+    "type": "xpath",
+    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
+    "cleanup": [
+      "dl[@class='storeLink01']"
+    ]
+  },
+  "//gihyo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//wired.jp/series/": {
+    "type": "xpath",
+    "xpath": "section[@class='text-body']",
+    "cleanup": [
+      "ul[@class='next-prev-nav']"
+    ]
+  },
+  "//wired.jp/special/": {
+    "type": "xpath",
+    "xpath": "header/div/div[starts-with(@class,'txt') or @class='credit']|//main[@id='contents']",
+    "cleanup": [
+      "div[starts-with(@id,'data-ad-banner-')]",
+      "aside"
+    ]
+  },
+  "//wired.jp/innovationinsights/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@id,'column')]"
+  },
+  "//wired.jp/": {
+    "type": "xpath",
+    "xpath": "article[@class='article-detail']",
+    "cleanup": [
+      "section[@class='article-tag-list']",
+      "div[@class='social-area-syncer']"
+    ]
+  },
+  "//www.taguchizu.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.shonanboy.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='my-footer']"
+    ]
+  },
+  "//www.security-next.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']",
+    "cleanup": [
+      "div[@class='prtxt']",
+      "a[@class='hatena-bookmark-button']",
+      "iframe[contains(@class,'twitter-share-button')]",
+      "script[contains(text(),'GA_google') or contains(@src,'ads.g.doubleclick.net')]",
+      "div[contains(@id,'_ad_wrapper')]"
+    ]
+  },
+  "//www.naoc2520.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.iii.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.gu-none.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'e-adsense') or @id='my-footer']"
+    ]
+  },
+  "//www.dtp-transit.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='asset-content']"
+  },
+  "//www.amanatusauce.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='insentense-adsense']"
+    ]
+  },
+  "//webdesign-manga.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='kizi']"
+  },
+  "//venezuelainjapanese.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='wpcnt' or @id='jp-post-flair']"
+    ]
+  },
+  "//karaku22.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//uinyan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']",
+    "cleanup": [
+      "div[@class='wp_social_bookmarking_light']"
+    ]
+  },
+  "//takanoridayo.blog.shinobi.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='EntryText']",
+    "cleanup": [
+      "div[@class='ninja_onebutton']",
+      "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
+      "ins[contains(@class,'adsbygoogle')]"
+    ]
   }
 }

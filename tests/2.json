@@ -1,0 +1,7 @@
+{
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "rep_pattern": "/^http:\\/\\/dime\\.jp\\/genre\\/([0-9]+)\\/$/",
+    "rep_replacement": "http://dime.jp/genre/${1}/1/"
+}
+
