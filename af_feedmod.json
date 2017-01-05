@@ -10622,5 +10622,61 @@
       "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
       "ins[contains(@class,'adsbygoogle')]"
     ]
+  },
+  "//reco-photo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@class='row']"
+    ]
+  },
+  "//opensource.googleblog.com/": {
+    "type": "xpath",
+    "engine": "phantomjs",
+    "xpath": "div[@class='post']/h2|//div[@class='post']/div[@class='post-header' or @class='post-body']"
+  },
+  "//ncode.syosetu.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='novel_color']"
+  },
+  "//munesada.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']/section",
+    "cleanup": [
+      "div[@class='sns' or @class='master-post-advert']"
+    ]
+  },
+  "//masatohagiwara.net/": {
+    "type": "xpath",
+    "xpath": "section[@class='main-content']"
+  },
+  "//kanonote.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='sns']"
+    ]
+  },
+  "//emacs.rubikitch.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//complexcat.exblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-main']",
+    "cleanup": [
+      "div[contains(@class,'sm_icon_mini') or @class='bbs_preview']"
+    ]
+  },
+  "//blog.practical-scheme.net/shiro/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']",
+    "cleanup": [
+      "div[@class='entry-navi' or @class='permalink' or @class='comment']"
+    ]
+  },
+  "//ar-con.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='ttl']"
   }
 }
