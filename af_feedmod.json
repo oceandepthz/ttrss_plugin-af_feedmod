@@ -10804,5 +10804,21 @@
   "//ja.wikipedia.org/wiki/": {
     "type": "xpath",
     "xpath": "div[@id='mw-content-text']"
+  },
+  "//iotnews.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//hinemoto1231.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[contains(@class,'eyecatch')]|//section[contains(@class,'entry-content')]"
+  },
+  "//animationbusiness.info/": {
+    "type": "xpath",
+    "xpath": "div[@id='left_col']/div[contains(@class,'post')]"
+  },
+  "//2chcopipe.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
