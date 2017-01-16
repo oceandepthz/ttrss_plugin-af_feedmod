@@ -10760,5 +10760,49 @@
   "//www.anlyznews.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'post-body')]"
+  },
+  "//www.allbsd.org/~hrs/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']"
+  },
+  "//www.2ality.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post-body')]"
+  },
+  "//tech-blog.abeja.asia/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//roboteer-tokyo.com/": {
+    "type": "xpath",
+    "xpath": "div/strong/strong/div[not(@class)]/div[not(@class)]",
+    "next_page": "div[@class='page-numbers']"
+  },
+  "//rand.pepabo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__body']"
+  },
+  "//qleo-media.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//oriver.style/": {
+    "type": "xpath",
+    "xpath": "a[@class='magzilla-popup']/img|//div[@class='entry-content']"
+  },
+  "//mitok.info/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-body')]",
+    "cleanup": [
+      "div[@class='entry_body_ads' or @class='mamahack-fb' or @class='mamahack-tw']"
+    ]
+  },
+  "//june29.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']"
+  },
+  "//ja.wikipedia.org/wiki/": {
+    "type": "xpath",
+    "xpath": "div[@id='mw-content-text']"
   }
 }
