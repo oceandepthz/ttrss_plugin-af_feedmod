@@ -331,10 +331,43 @@ class Af_Feedmod extends Plugin implements IHandler
         return $links;
     }
 
+    function default_cleanup($xpath, $basenode){
+        if(!$basenode){
+            return;
+        }
+
+        $default_cleanup = [
+            "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
+            "ins[contains(@class,'adsbygoogle')]",
+            "div[@class='wp_social_bookmarking_light' or contains(@class,'e-adsense') or @id='my-footer' or @class='ninja_onebutton']"
+        ];
+
+        foreach ($default_cleanup as $cleanup_item) {
+            if(!$cleanup_item){
+                continue;
+            }
+            if(strpos($cleanup_item, "./") !== 0){
+                $cleanup_item = '//'.$cleanup_item;
+            }
+            $nodelist = $xpath->query($cleanup_item, $basenode);
+            if(!$nodelist){
+                continue;
+            }
+            foreach ($nodelist as $node) {
+                if ($node instanceof DOMAttr) {
+                    $node->ownerElement->removeAttributeNode($node);
+                } else {
+                    $node->parentNode->removeChild($node);
+                }
+            }
+        }
+    }
+
     function cleanup($xpath, $basenode, $config_cleanup){
         if(!$basenode){
             return;
         }
+        $this->default_cleanup($xpath, $basenode);
         if(!isset($config_cleanup)){
             return;
         }
