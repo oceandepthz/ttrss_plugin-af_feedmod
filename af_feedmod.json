@@ -2737,13 +2737,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "torounit.com": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']",
-    "cleanup": [
-      "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
-    ]
-  },
   "www.uchuinc.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -3299,14 +3292,6 @@
     "xpath": "div[@class='entry-body']",
     "cleanup": [
       "div[@class='fc2_footer']"
-    ]
-  },
-  "teratail.com/questions": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'boxQuestioner')]/div[starts-with(@class,'boxStat')]|//h2[@class='ttlBestAnswer']|//div[starts-with(@class,'boxItemContentDetail') or starts-with(@class,'boxFollowHover') or starts-with(@class,'boxEditComment')]",
-    "cleanup": [
-      "p[@class='ttlAnswerComment']",
-      "form[@id='CommentDetailForm']"
     ]
   },
   "www.kwappa.net/blog": {
@@ -7810,10 +7795,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//news.kddi.com/kddi/corporate/newsrelease/": {
-    "type": "xpath",
-    "xpath": "div[@class='ind']"
-  },
   "//www.nikkeibp.co.jp/atcl/column/": {
     "type": "xpath",
     "xpath": "article",
@@ -9726,10 +9707,6 @@
     "type": "xpath",
     "xpath": "div[@id='left_col']/div[contains(@class,'post')]/div[not(@class='social-single-area')]"
   },
-  "//damonge.com/": {
-    "type": "xpath",
-    "xpath": "figure[@class='thumbnail']|//div[@class='articleBody']"
-  },
   "//niccorin.com/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']",
@@ -10820,5 +10797,138 @@
   "//2chcopipe.com/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
+  },
+  "//torounit.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
+    "cleanup": [
+      "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
+    ]
+  },
+  "//damonge.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='thumbnail']|//main[@itemprop='articleBody']"
+  },
+  "//teratail.com/questions/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'p-questionHead ') or @class='p-questionContents' or contains(@class,'p-replyBox ')]",
+    "cleanup": [
+      "div[contains(@class,'p-questionContents__actions') or contains(@class,'p-replyActions')]"
+    ]
+  },
+  "//www.yunabe.jp/docs/": {
+    "type": "xpath",
+    "xpath": "div[@class='page-content']",
+    "cleanup": [
+      "div[contains(@class,'fb-like')]/../..",
+      "div[contains(@class,'fb-comments')]"
+    ]
+  },
+  "//www.satiarimama4.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.salary-man.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='ads']"
+    ]
+  },
+  "//www.procrasist.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.otonan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.lazypolarbear.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.cobalog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.azinori.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//weblog.bulknews.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='section-content']"
+  },
+  "//ruka-affiliate.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//ocnis.petit.cc/lime/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'EntryBody')]"
+  },
+  "//www.recordchina.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_body' or contains(@class,'big_photo')]"
+  },
+  "//www.morihi-soc.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']"
+  },
+  "//www.s-itoc.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='contentHeader' or @class='contentBody']"
+  },
+  "//lastoneclick.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//news.kddi.com/kddi/corporate/newsrelease/": {
+    "type": "xpath",
+    "xpath": "div[@class='ind']"
+  },
+  "//scrum.vc/ja/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@class='social4i' or @class='blog-banner-box' or @class='tag-list']",
+      "script[contains(text(),'//scrum.vc/ja/')]"
+    ]
+  },
+  "//hiromaeda.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "form[contains(@class,'mc4wp-form')]"
+    ]
+  },
+  "//fujii-yuji.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']",
+    "cleanup": [
+      "div[contains(@class,'veu_socialSet')]"
+    ]
+  },
+  "//blog.syofuso.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='ads']"
+    ]
+  },
+  "//2inc.org/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='_p-entry__content']",
+    "cleanup": [
+      "div[@class='mw-share-buttons' or @class='c-adsense' or @class='p-products']"
+    ]
+  },
+  "//blog.livedoor.jp/diet2channel/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "iframe[contains(@src,'blog.livedoor.jp/diet2channel/rss')]",
+      "div[@class='mplus' or @class='google-2ad']"
+    ]
   }
 }
