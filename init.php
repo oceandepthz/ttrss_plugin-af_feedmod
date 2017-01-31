@@ -339,7 +339,8 @@ class Af_Feedmod extends Plugin implements IHandler
         $default_cleanup = [
             "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
             "ins[contains(@class,'adsbygoogle')]",
-            "div[@class='wp_social_bookmarking_light' or contains(@class,'e-adsense') or @id='my-footer' or @class='ninja_onebutton']"
+            "div[@class='wp_social_bookmarking_light' or contains(@class,'e-adsense') or @id='my-footer' or @class='ninja_onebutton']",
+            "a[contains(@href,'//px.a8.net/')]"
         ];
 
         foreach ($default_cleanup as $cleanup_item) {

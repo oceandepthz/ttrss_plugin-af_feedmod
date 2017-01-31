@@ -10930,5 +10930,49 @@
       "iframe[contains(@src,'blog.livedoor.jp/diet2channel/rss')]",
       "div[@class='mplus' or @class='google-2ad']"
     ]
+  },
+  "//blog.riywo.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//www.swimixxx.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.nature.com/news/": {
+    "type": "xpath",
+    "xpath": "section[@id='article-body']"
+  },
+  "//www.nature.com/articles/": {
+    "type": "xpath",
+    "xpath": "header|//div[contains(@class,'article-body')]"
+  },
+  "//www.dagasorega-e.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.businessinsider.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-post-content']"
+  },
+  "//shopping-tribe.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='entry-body']"
+  },
+  "//labs.skyland.vc/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//graphicartsunit.tumblr.com/post/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.keiji.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//antiaging.akicomp.com/": {
+    "type": "xpath",
+    "xpath": "article[@class='entry']/div[@class='editable']"
   }
 }
