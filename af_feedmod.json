@@ -10974,5 +10974,33 @@
   "//antiaging.akicomp.com/": {
     "type": "xpath",
     "xpath": "article[@class='entry']/div[@class='editable']"
+  },
+  "//bunshun.jp/articles/": {
+    "type": "xpath",
+    "xpath": "figure/div[contains(@class,'kanban')]/img|//div[@class='article-body' or @class='author-header' or contains(@class,'title-side')]"
+  },
+  "//www.missiondrivenbrand.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.nohana.co.jp/": {
+    "type": "xpath",
+    "xpath": "article[@class='post-content']"
+  },
+  "//blog.chromium.org/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post-content')]"
+  },
+  "//www.plus-blog.sportsnavi.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']"
+  },
+  "//www.j-com.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='article']",
+    "cleanup": [
+      "div[@class='social-area']",
+      "script[contains(@src,'social.js')]"
+    ]
   }
 }
