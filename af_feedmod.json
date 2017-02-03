@@ -11010,5 +11010,25 @@
   "//about.gitlab.com/": {
     "type": "xpath",
     "xpath": "div[@class='content']"
+  },
+  "//www.boardgamepark.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tech.speee.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//persol-tech-s.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='post_image']"
+  },
+  "//last-escape.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//blog.8arrow.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
