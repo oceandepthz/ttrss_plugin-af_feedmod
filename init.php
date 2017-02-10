@@ -322,6 +322,9 @@ class Af_Feedmod extends Plugin implements IHandler
                                 $next_page = substr($link, 0, $pos+1).$next_page;
                             }
                         }
+                        if($link === $next_page){
+                            continue;
+                        }
                         $links[] = $next_page;
                     }
                     $links = array_unique($links);
