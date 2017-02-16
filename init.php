@@ -427,53 +427,65 @@ class Af_Feedmod extends Plugin implements IHandler
         }
     }
 
+    function get_replace_img(DOMNode $node) : string {
+        $url = '';
+        $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-img-path', 'srcset',
+            'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original'];
+        foreach($attr_list as $attr){
+            if(!$node->hasAttribute($attr)){
+                continue;
+            }
+            if($attr == 'srcset'){
+                $url = explode(" ", explode(",", $node->getAttribute('srcset'))[0])[0];
+            } else {
+                $url = $node->getAttribute($attr);
+            }
+            if($url){
+                break;
+            }
+        }
+        return $url;
+    }
+    function update_img_src(DOMNode $node, string $link) : string{
+        $src = $node->getAttribute('src');
+        if(substr($src,0,2) == "//"){
+            $url_item = parse_url($link);
+            $src = $url_item['scheme'].':'.$src;
+        }else if(substr($src,0,1) == "/"){
+            $url_item = parse_url($link);
+            $src = $url_item['scheme'].'://'.$url_item['host'].$src;
+        }else if(substr($src, 0,4) != "http"){
+            $pos = strrpos($link, "/");
+            if($pos){
+                $src = substr($link, 0, $pos+1).$src;
+            }
+        }
+        return $src;
+    }
     function update_img_tags($basenode, $link){
         if(!$basenode){
             return;
         }
+        if($basenode->nodeName == 'img'){
+            $original = $this->get_replace_img($basenode);
+            if ($original) {
+                $basenode->setAttribute('src', $original);
+            }
+            $basenode->setAttribute('src', $this->update_img_src($basenode, $link));
+            return;
+        }
+
         $img_list = $basenode->getElementsByTagName('img');
         if($img_list->length == 0){
             return;
         }
         foreach($img_list as $node){
             // update src
-            $original = '';
-            $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-img-path', 'srcset', 
-                'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original'];
-            foreach($attr_list as $item){
-                if(!$node->hasAttribute($item)){
-                    continue;
-                }
-                if($item == 'srcset'){
-                    $original = explode(" ", explode(",", $node->getAttribute('srcset'))[0])[0];    
-                } else {
-                    $original = $node->getAttribute($item);
-                }
-                if($original){
-                    break;
-                }
-            }       
+            $original = $this->get_replace_img($node);
             if ($original) {
                 $node->setAttribute('src', $original);
             }
-
-            $src = $node->getAttribute('src');
-            if(substr($src,0,2) == "//"){
-                $url_item = parse_url($link);
-                $src = $url_item['scheme'].':'.$src;
-                $node->setAttribute('src', $src);
-            }else if(substr($src,0,1) == "/"){
-                $url_item = parse_url($link);
-                $src = $url_item['scheme'].'://'.$url_item['host'].$src;
-                $node->setAttribute('src', $src);
-            }else if(substr($src, 0,4) != "http"){
-                $pos = strrpos($link, "/");
-                if($pos){
-                    $src = substr($link, 0, $pos+1).$src;
-                    $node->setAttribute('src', $src);
-                }
-            }
-
+            $node->setAttribute('src', $this->update_img_src($node, $link));
         }
     }
 
