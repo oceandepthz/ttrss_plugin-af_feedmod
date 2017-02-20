@@ -829,11 +829,6 @@
       "div[@class='fc2_footer']"
     ]
   },
-  "natgeo.nikkeibp.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='kiji']",
-    "next_page": "div[@class='topPageNav']"
-  },
   "www.yomiuri.co.jp": {
     "type": "xpath",
     "xpath": "article//a[@class='thumbnail']/..|//article/p[@itemprop='articleBody']|//article/div[@class='date-bottom']"
@@ -5522,16 +5517,6 @@
   "//kotetsu.game-waza.net/": {
     "type": "xpath",
     "xpath": "div[@class='EntryTextBox']"
-  },
-  "ushigyu.net": {
-    "type": "xpath",
-    "xpath": "div[@class='entrybody']",
-    "cleanup": [
-      "div[@class='title-under-buttons' or @class='adsense_title_under' or @class='ad-middle' or @class='ad-footer' or @class='bottom-buttons' or @class='for-subscribers' or @id='disqus_thread' or @class='footer-related-entry' or @class='ad-bottom']",
-      "span[@class='footer-category-link']",
-      "script[contains(text(),'disqus_url') or contains(text(),'apis.google.com')]",
-      "iframe[contains(@src,'w.facebook.com/plugins/likebox.p')]"
-    ]
   },
   "response.jp": {
     "type": "xpath",
@@ -10903,5 +10888,107 @@
   "//pokemongolive.com/ja/post/": {
     "type": "xpath",
     "xpath": "div[@class='grid__item--10-cols--gt-md']"
+  },
+  "//www.yutof.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.watto.nagoya/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.otoku-kasegu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//s8a.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='markdown-body']"
+  },
+  "//research.googleblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
+  },
+  "//u-note.me/note/": {
+    "type": "xpath",
+    "xpath": "div[@class='note-show-content-content']"
+  },
+  "//ushigyu.net/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add') or @class='ad-middle' or @class='ad-middle-longreads']"
+    ]
+  },
+  "//natgeo.nikkeibp.co.jp/atcl/web/": {
+    "type": "xpath",
+    "xpath": "p[@class='kanban']/img|//p[@class='bplead']|//div[@class='articleInner']",
+    "cleanup": [
+      "div[@class='topPageNav' or @class='btmPageNav']"
+    ],
+    "next_page": "div[@class='topPageNav']"
+  },
+  "//natgeo.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='kiji']",
+    "next_page": "div[@class='topPageNav']"
+  },
+  "//yossense.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='h1_section']",
+    "cleanup": [
+      "div[@class='entry-header' or @id='hot-articles' or contains(@class,'ad-more') or @class='ad-inside' or contains(@class,'ad-below') or @class='p-entry__push' or @class='p-entry__tw-follow']",
+      "ul[@class='recommend_below']"
+    ]
+  },
+  "//www.utali.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.neoneet.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.minoruharu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kakitaroo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.hatebu.biz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.gurinovation.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.dailyshincho.jp/": {
+    "type": "xpath",
+    "xpath": "p[@class='prof']|//div[@class='wp_txt']"
+  },
+  "//www.busymama.link/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//win-tab.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='kizi']",
+    "cleanup": [
+      "div[@class='blogbox']"
+    ]
+  },
+  "//suffrage-centennial.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//sidatta.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@id,'pc_ad-') or @class='saboxplugin-wrap']"
+    ]
   }
 }
