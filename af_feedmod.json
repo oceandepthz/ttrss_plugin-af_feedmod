@@ -341,15 +341,6 @@
     "force_charset": "utf-8",
     "force_unicode": true
   },
-  "diamond.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='main-contents']",
-    "cleanup": [
-      "div[@id='next-info']",
-      "div[@id='mp-ie']"
-    ],
-    "next_page": "div[@id='mp-ie']"
-  },
   "hatenadiary.jp": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -11174,5 +11165,34 @@
     "cleanup": [
       "ul[contains(@class,'social')]"
     ]
+  },
+  "//diamond.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-body')]",
+    "next_page": "nav[@class='article-nav']"
+  },
+  "//www.shigotoba.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entryarea']"
+  },
+  "//www.ryoanna.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tech.smarthr.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//sp.hazardlab.jp/know/topics/detail/": {
+    "type": "xpath",
+    "xpath": "div[@class='container']/div[contains(@class,'well')]/div[not(@class) and not(@style) and not(@id)]"
+  },
+  "//aws.amazon.com/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/jp/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
   }
 }
