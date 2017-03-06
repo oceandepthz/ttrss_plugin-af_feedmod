@@ -9451,17 +9451,6 @@
     "type": "xpath",
     "xpath": "div[@class='main']"
   },
-  "//jp.automaton.am/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[@class='cb-byline']",
-      "div[@class='cb-post-meta']",
-      "footer",
-      "div[@class='social4i']",
-      "div[@id='wp_rp_first']"
-    ]
-  },
   "//www.zakkiworkdiary.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -11194,5 +11183,60 @@
   "//aws.amazon.com/jp/message/": {
     "type": "xpath",
     "xpath": "main[@role='main']"
+  },
+  "//www.worqlip.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.ogura.blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kigurumi.asia/imake/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'content')]",
+    "cleanup": [
+      "section[@class='social-block']",
+      "script[contains(text(),'google_ad_client')]",
+      "div[@class='ad-block']"
+    ]
+  },
+  "//www.mitsue.co.jp/knowledge/blog/frontend/": {
+    "type": "xpath",
+    "xpath": "div[@id='main_content']"
+  },
+  "//www.apple-life.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.amamiyashion.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//jp.automaton.am/": {
+    "type": "xpath",
+    "xpath": "header[@class='td-post-title']|//div[@class='td-post-content']",
+    "cleanup": [
+      "div[@class='social4i' or contains(@class,'td-a-rec') or contains(@id,'wpdevar_comment_') or contains(@class,'code-block') or contains(@class,'td-g-rec')]"
+    ]
+  },
+  "//surutto-news.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//minnkane.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-thumbnail']|//section[@class='article-body']"
+  },
+  "//media.jinjiseido.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": [
+      "div[@class='links' or @class='mlmaga']"
+    ]
+  },
+  "//entameaffiliate.com/mind/": {
+    "type": "xpath",
+    "xpath": "div[@id='text1']"
   }
 }
