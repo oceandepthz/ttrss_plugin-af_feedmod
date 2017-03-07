@@ -11038,13 +11038,6 @@
     ],
     "next_page": "div[@id='start']"
   },
-  "//thutmose.blog.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']",
-    "cleanup": [
-      "div[@class='article-footer']"
-    ]
-  },
   "//weblog.rubyonrails.org/": {
     "type": "xpath",
     "xpath": "article"
@@ -11238,5 +11231,36 @@
   "//entameaffiliate.com/mind/": {
     "type": "xpath",
     "xpath": "div[@id='text1']"
+  },
+  "//www.thutmosev.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "div[@class='article-footer']"
+    ]
+  },
+  "//www.bokusore.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tomohisaoda.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//jittodesign.org/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//ift.tt/": {
+    "type": "xpath",
+    "xpath": "main[@id='main']"
+  },
+  "//hon.booklog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='post-thumbnail']"
+  },
+  "//book.mynavi.jp/manatee/": {
+    "type": "xpath",
+    "xpath": "article"
   }
 }
