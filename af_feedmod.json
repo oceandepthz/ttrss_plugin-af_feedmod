@@ -1864,10 +1864,6 @@
       "ul[@class='snsModOriginal']"
     ]
   },
-  "srdk.rakuten.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "j-town.net": {
     "type": "xpath",
     "xpath": "div[@class='entry-text-body']",
@@ -6302,10 +6298,6 @@
   "//www.asokata.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//uideal.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']/div[@class='postImage' or @class='entry' or @class='author-info']"
   },
   "//blog.evernote.com/": {
     "type": "xpath",
@@ -11262,5 +11254,33 @@
   "//book.mynavi.jp/manatee/": {
     "type": "xpath",
     "xpath": "article"
+  },
+  "//srdk.rakuten.jp/": {
+    "type": "xpath",
+    "xpath": "header/*[@class='entry-title' or @class='entry-og-description']|//div[@class='entry-content']"
+  },
+  "//uideal.net/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-wordpress-edit-block' or @class='c-detail-heading-module__img']"
+  },
+  "//uideal.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']/div[@class='postImage' or @class='entry' or @class='author-info']"
+  },
+  "//www.pipipipipi5volts.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.oremaru.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tikyuutabi.sakura.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": [
+      "div[@id='breadcrumb']",
+      "aside"
+    ]
   }
 }
