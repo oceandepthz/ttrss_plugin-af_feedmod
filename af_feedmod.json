@@ -11282,5 +11282,13 @@
       "div[@id='breadcrumb']",
       "aside"
     ]
+  },
+  "//developer.smartnews.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//gamedeets.com/": {
+    "type": "xpath",
+    "xpath": "article[@class='article']/p[@class='lead']|//article[@class='article']/div[@class='post']|//article[@class='article']/ul[@class='author']"
   }
 }
