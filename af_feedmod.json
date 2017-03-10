@@ -4069,15 +4069,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-content']"
   },
-  "yakst.com": {
-    "type": "xpath",
-    "xpath": "body/div[@class='container']/div[1]",
-    "cleanup": [
-      "div[@id='boxArea' or @id='disqus_thread']",
-      "script[contains(@src,'ead2.googlesyndication.com') or contains(text(),'adsbygoogle') or contains(text(),'disqus_url')]",
-      "ins[@class='adsbygoogle']"
-    ]
-  },
   "blog.j5ik2o.me": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -11290,5 +11281,29 @@
   "//gamedeets.com/": {
     "type": "xpath",
     "xpath": "article[@class='article']/p[@class='lead']|//article[@class='article']/div[@class='post']|//article[@class='article']/ul[@class='author']"
+  },
+  "//yakst.com/": {
+    "type": "xpath",
+    "xpath": "body/div[@class='container']/div[1]",
+    "cleanup": [
+      "div[@id='boxArea' or @id='disqus_thread']",
+      "script[contains(text(),'disqus_url')]"
+    ]
+  },
+  "//www.taguchikun.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.megamouth.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//saruwakakun.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//www.meti.go.jp/press/": {
+    "type": "xpath",
+    "xpath": "div[@id='MainContentsArea']/div/div[contains(@class,'wrapper')]"
   }
 }
