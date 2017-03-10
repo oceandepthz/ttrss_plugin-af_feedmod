@@ -11305,5 +11305,13 @@
   "//www.meti.go.jp/press/": {
     "type": "xpath",
     "xpath": "div[@id='MainContentsArea']/div/div[contains(@class,'wrapper')]"
+  },
+  "//developers-jp.googleblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
+  },
+  "//cloud.google.com/blog/big-data/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'blog_post')]"
   }
 }
