@@ -11313,5 +11313,32 @@
   "//cloud.google.com/blog/big-data/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'blog_post')]"
+  },
+  "//www.seoteach.xyz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.investravel.link/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//gokoku-559.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts']"
+    ]
+  },
+  "//cloudplatform-jp.googleblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
+  },
+  "//akane.website/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='post-thumbnail']",
+    "cleanup": [
+      "div[@class='social4i' or @id='wp_rp_first']",
+      "iframe[contains(@src,'//www.facebook.com/plugins/page.php')]"
+    ]
   }
 }
