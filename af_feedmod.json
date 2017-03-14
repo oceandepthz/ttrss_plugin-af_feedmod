@@ -9310,10 +9310,6 @@
     "type": "xpath",
     "xpath": "section[@class='detail-no-js']/section[@class='module--content']"
   },
-  "//www3.nhk.or.jp/lnews": {
-    "type": "xpath",
-    "xpath": "div[@id='main']"
-  },
   "//www3.nhk.or.jp/news/business_tokushu": {
     "type": "xpath",
     "xpath": "article",
@@ -11298,10 +11294,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//saruwakakun.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post-content']"
-  },
   "//www.meti.go.jp/press/": {
     "type": "xpath",
     "xpath": "div[@id='MainContentsArea']/div/div[contains(@class,'wrapper')]"
@@ -11340,5 +11332,45 @@
       "div[@class='social4i' or @id='wp_rp_first']",
       "iframe[contains(@src,'//www.facebook.com/plugins/page.php')]"
     ]
+  },
+  "//www3.nhk.or.jp/lnews/": {
+    "type": "xpath",
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//saruwakakun.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content' or @class='maincontents']"
+  },
+  "//www.projectdesign.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='cl_box']"
+  },
+  "//www.careerhigh.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//nikibi-atto.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//king.mineo.jp/magazines/special/": {
+    "type": "xpath",
+    "xpath": "div[@class='mineo-magazine-detail']"
+  },
+  "//hackerslab.aktsk.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//gamers-log.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//d-marketing.yahoo.co.jp/": {
+    "type": "xpath",
+    "xpath": "footer[@class='ArticleFooter']|//div[@class='Caption__text' or @class='ArticleBody']"
+  },
+  "//blog.mizukmb.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']"
   }
 }
