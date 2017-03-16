@@ -4540,10 +4540,6 @@
       "div[@id='sigle_more' or @id='sumaho']"
     ]
   },
-  "www.hahalife0.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "www.misoca.jp/mlist": {
     "type": "xpath",
     "xpath": "div[@class='art_main']"
@@ -7308,13 +7304,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'post_content')]"
   },
-  "//shimz.me/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='post']/section",
-    "cleanup": [
-      "div[@class='sns' or @id='jp-relatedposts']"
-    ]
-  },
   "//money-pentagon.com/setsuna/": {
     "type": "xpath",
     "xpath": "div[@class='article']"
@@ -8531,14 +8520,6 @@
   "//www.akane1033.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//www.nhk.or.jp/shutoken-news/": {
-    "type": "xpath",
-    "xpath": "img[@id='news_image']|//p[@id='news_textbody']"
-  },
-  "//www3.nhk.or.jp/shutoken-news/": {
-    "type": "xpath",
-    "xpath": "img[@id='news_image']|//p[@id='news_textbody']"
   },
   "//thisischinablog.com/": {
     "type": "xpath",
@@ -11372,5 +11353,52 @@
   "//blog.mizukmb.net/": {
     "type": "xpath",
     "xpath": "div[@class='content']"
+  },
+  "//shimz.me/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.nhk.or.jp/shutoken-news/": {
+    "type": "xpath",
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/shutoken-news/": {
+    "type": "xpath",
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www.hahalife0.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//www.wonderland02.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.simple-home.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.mercari.com/jp/info/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
+  },
+  "//www.jn1msd.net/lifeisrun/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@id='widget-in-article']"
+    ]
+  },
+  "//staffblog.cookpad.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//customlife-media.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or contains(@class,'featured-image')]"
+  },
+  "//android-developers.googleblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-outer']/div[contains(@class,'post')]"
   }
 }
