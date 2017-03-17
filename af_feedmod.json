@@ -10885,11 +10885,6 @@
       "ul[contains(@class,'social')]"
     ]
   },
-  "//diamond.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'article-body')]",
-    "next_page": "nav[@class='article-nav']"
-  },
   "//www.shigotoba.net/": {
     "type": "xpath",
     "xpath": "div[@class='entryarea']"
@@ -11177,5 +11172,23 @@
   "//android-developers.googleblog.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-outer']/div[contains(@class,'post')]"
+  },
+  "//diamond.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-body') or @id='main-contents']",
+    "next_page": "nav[@class='article-nav']"
+  },
+  "//mizzy.org/blog/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'content')]"
+  },
+  "//honkaitori.net/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//eventdots.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='column-detail']",
+    "next_page": "div[@class='pager']"
   }
 }
