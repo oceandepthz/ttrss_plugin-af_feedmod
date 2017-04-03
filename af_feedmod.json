@@ -2963,13 +2963,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "tamesue.jp": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'entry-content')]",
-    "cleanup": [
-      "div[starts-with(@class,'ssba')]"
-    ]
-  },
   "lepidum.co.jp/blog": {
     "type": "xpath",
     "xpath": "div[@class='main']"
@@ -11333,5 +11326,98 @@
   "//www.houdoukyoku.jp/": {
     "type": "xpath",
     "xpath": "article[@class='ad']/div[contains(@class,'ad-first-view') or @class='ad-article']"
+  },
+  "//tamesue.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='think-detail__content']"
+  },
+  "//www.xn--u9j447x39aexi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.torausaencho.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.pororoca-egg.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.nych87.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.hazama-log.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.gamezinsei.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.dannadesu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='adbox']"
+    ]
+  },
+  "//www.city-best-life.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.carameltrip.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.bokunoikinuki.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//text.sanographix.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//temita.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//takuti.me/note/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": [
+      "iframe[contains(@class,'twitter-share-button')]"
+    ]
+  },
+  "//shokonoaruie.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-inner']/section",
+    "cleanup": [
+      "div[@class='sa-h2-before' or @class='va-social-buzz']"
+    ]
+  },
+  "//sazanami.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//otapol.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']",
+    "next_page": "div[@id='pageNav']"
+  },
+  "//nobuogohara.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='jp-post-flair']"
+    ]
+  },
+  "//narumi.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//nanairolab.net/": {
+    "type": "xpath",
+    "xpath": "article//figure[@class='eyecatch']|//article//section[contains(@class,'entry-content')]"
   }
 }
