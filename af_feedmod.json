@@ -1101,13 +1101,6 @@
       "div[@class='author']"
     ]
   },
-  "thebridge.jp": {
-    "type": "xpath",
-    "xpath": "article/div[@class='body']",
-    "cleanup": [
-      "div[starts-with(@id, 'div-gpt-ad-')]/.."
-    ]
-  },
   "www.animeanime.biz": {
     "type": "xpath",
     "xpath": "div[@class='post']",
@@ -4826,10 +4819,6 @@
     "xpath": "div[contains(@class, 'vtr')]",
     "next_page": "div[contains(@class, 'pager') and contains(@class, 'pc')]",
     "next_page_cleanup": "li[contains(@class, 'lastChild')]"
-  },
-  "//www.nhk.or.jp/gendai/": {
-    "type": "xpath",
-    "xpath": "div[@class='bodyText']"
   },
   "www.nhk.or.jp/kokusaihoudou": {
     "type": "xpath",
@@ -9672,49 +9661,6 @@
     "type": "xpath",
     "xpath": "div[@class='post']/section"
   },
-  "//gihyo.jp/design/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/serial/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/admin/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/book/": {
-    "type": "xpath",
-    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
-    "cleanup": [
-      "dl[@class='storeLink01']"
-    ]
-  },
-  "//gihyo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
   "//wired.jp/series/": {
     "type": "xpath",
     "xpath": "section[@class='text-body']",
@@ -10946,10 +10892,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//ift.tt/": {
-    "type": "xpath",
-    "xpath": "main[@id='main']"
-  },
   "//hon.booklog.jp/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content' or @class='post-thumbnail']"
@@ -11419,5 +11361,121 @@
   "//nanairolab.net/": {
     "type": "xpath",
     "xpath": "article//figure[@class='eyecatch']|//article//section[contains(@class,'entry-content')]"
+  },
+  "//blog.livedoor.jp/geek_sokuho/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']/a/img[@class='pict']|//div[@class='article-body-inner']/img[@class='pict']|//div[@class='article-body-inner']/br|//div[@class='article-body-inner']/div[not(@id='rss-honbun') and not(@class='article-body-more')]|//div[@class='article-body-more']/div|//div[@class='article-body-more']/br|//div[@class='article-body-more']/b/div"
+  },
+  "//www.nhk.or.jp/gendai/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'bodyText')]"
+  },
+  "//gihyo.jp/design/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/serial/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/admin/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/book/pickup/": {
+    "type": "xpath",
+    "xpath": "div[@id='article' or @id='noticebookLink']",
+    "cleanup": [
+      "div[@class='sectionInfo01']"
+    ]
+  },
+  "//gihyo.jp/book/": {
+    "type": "xpath",
+    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
+    "cleanup": [
+      "dl[@class='storeLink01']"
+    ]
+  },
+  "//gihyo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//thebridge.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']",
+    "cleanup": [
+      "script[contains(text(),'//www.google-analytics.com/analytics.js')]"
+    ]
+  },
+  "//www.zopfco.de/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.tsubasa-note.blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.sasamiler.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.mugilog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.maywadenki.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.makeahappyhome.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.hashicorp.com/blog/": {
+    "type": "xpath",
+    "xpath": "article[@class='blog-post']/div/div/div[contains(@class,'col-md-8')]"
+  },
+  "//www.gitbook.com/book/": {
+    "type": "xpath",
+    "xpath": "div[@class='panel-body']"
+  },
+  "//tech.grooves.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//majisaka.site/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']"
+  },
+  "//magazine.rubyist.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']/div[not(@class)]",
+    "cleanup": [
+      "div[@class='social-buttons']"
+    ]
+  },
+  "//magazine.nimaime.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'post-')]/div[contains(@class,'entry-content')]"
   }
 }
