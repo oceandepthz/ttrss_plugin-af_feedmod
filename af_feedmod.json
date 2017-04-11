@@ -2214,16 +2214,6 @@
       "*[@class='master-post-advert' or starts-with(@class, 'wp_social_bookmarking_')]"
     ]
   },
-  "www.hageatama.org": {
-    "type": "xpath",
-    "xpath": "div[@class='post']",
-    "cleanup": [
-      "div[@id='breadcrumb' or @class='blogbox' or @class='tmkm-amazon-view' or @id='wpjr']",
-      "h1",
-      "p[@class='tagst']",
-      "aside"
-    ]
-  },
   "www.bengo4.com": {
     "type": "xpath",
     "xpath": "div[@id='entryDetailVisual' or @id='entryDetailBodyText']"
@@ -6384,10 +6374,6 @@
     "type": "xpath",
     "xpath": "div[@class='post-body']"
   },
-  "//geeksokuhou.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']/a/img[@class='pict']|//div[@class='article-body-inner']/img[@class='pict']|//div[@class='article-body-inner']/br|//div[@class='article-body-inner']/div[not(@id='rss-honbun') and not(@class='article-body-more')]|//div[@class='article-body-more']/div|//div[@class='article-body-more']/br|//div[@class='article-body-more']/b/div"
-  },
   "//pineplanter.moo.jp/non-it-salaryman/": {
     "type": "xpath",
     "xpath": "div[contains(@id,'post-')]",
@@ -6722,14 +6708,6 @@
     "cleanup": [
       "div[@class='wp_social_bookmarking_light']"
     ]
-  },
-  "//blog.twitter.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'FieldName-body')]"
-  },
-  "//twitter.com/": {
-    "type": "xpath",
-    "xpath": "div[@role='main']"
   },
   "//jp.techcrunch.com/": {
     "type": "xpath",
@@ -9990,10 +9968,6 @@
       "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
     ]
   },
-  "//damonge.com/": {
-    "type": "xpath",
-    "xpath": "figure[@class='thumbnail']|//main[@itemprop='articleBody']"
-  },
   "//teratail.com/questions/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'p-questionHead ') or @class='p-questionContents' or contains(@class,'p-replyBox ')]",
@@ -11362,10 +11336,6 @@
     "type": "xpath",
     "xpath": "article//figure[@class='eyecatch']|//article//section[contains(@class,'entry-content')]"
   },
-  "//blog.livedoor.jp/geek_sokuho/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']/a/img[@class='pict']|//div[@class='article-body-inner']/img[@class='pict']|//div[@class='article-body-inner']/br|//div[@class='article-body-inner']/div[not(@id='rss-honbun') and not(@class='article-body-more')]|//div[@class='article-body-more']/div|//div[@class='article-body-more']/br|//div[@class='article-body-more']/b/div"
-  },
   "//www.nhk.or.jp/gendai/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'bodyText')]"
@@ -11477,5 +11447,64 @@
   "//magazine.nimaime.com/": {
     "type": "xpath",
     "xpath": "div[contains(@id,'post-')]/div[contains(@class,'entry-content')]"
+  },
+  "//damonge.com/": {
+    "type": "xpath",
+    "xpath": "article[@id='single']/figure[@class='thumbnail']|//article[@id='single']/div[@class='main']"
+  },
+  "//geeksokuhou.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//www.hageatama.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.twitter.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'FieldName-body')]"
+  },
+  "//twitter.com/i/moments/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]"
+  },
+  "//twitter.com/": {
+    "type": "xpath",
+    "xpath": "div[@role='main']"
+  },
+  "//www.wakamono-lifeplan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.tukishiro01.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.korino-rossa.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='adbox']"
+    ]
+  },
+  "//www.katagirigirito-ku.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.foxism.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.cdeight.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//webnaut.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'single__content')]"
+  },
+  "//sbfl.net/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
