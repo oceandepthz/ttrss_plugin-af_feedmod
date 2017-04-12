@@ -9146,10 +9146,6 @@
     "type": "xpath",
     "xpath": "div[@class='skin-entryBody']"
   },
-  "//blog.livedoor.jp/lalha/": {
-    "type": "xpath",
-    "xpath": "div[@class='main']"
-  },
   "//www.zakkiworkdiary.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -11506,5 +11502,53 @@
   "//sbfl.net/blog/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//blog.livedoor.jp/lalha/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//www.aile-oooi.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//slack.engineering/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'postArticle-content')]"
+  },
+  "//keiridriven.mjs.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']",
+    "cleanup": [
+      "div[@class='content-social-notitle']"
+    ]
+  },
+  "//kawaiisokuhou.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@class='information']"
+    ]
+  },
+  "//jenkins.io/blog/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']",
+    "cleanup": [
+      "iframe[contains(@class,'twitter-share-button')]"
+    ]
+  },
+  "//i.sonota.biz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//info.medley.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//egamiday3.seesaa.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='text']",
+    "cleanup": [
+      "div[@id='article-ad' or @class='bookmark' or @class='listCategoryArticle']"
+    ]
   }
 }
