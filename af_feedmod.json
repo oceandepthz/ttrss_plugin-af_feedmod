@@ -11550,5 +11550,29 @@
     "cleanup": [
       "div[@id='article-ad' or @class='bookmark' or @class='listCategoryArticle']"
     ]
+  },
+  "//www.ncaq.net/": {
+    "type": "xpath",
+    "xpath": "main/article"
+  },
+  "//digicame-info.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'asset-content')]"
+  },
+  "//dekotech.dekokun.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.wackwack.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.rokuzeudon.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//artifact-jp.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'post-')]"
   }
 }
