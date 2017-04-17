@@ -3716,13 +3716,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry']"
   },
-  "junichi-manga.com": {
-    "type": "xpath",
-    "xpath": "header/figure[starts-with(@class,'eyecatch')]|//section[starts-with(@class,'entry-content')]",
-    "cleanup": [
-      "div[@id='wp_rp_first']"
-    ]
-  },
   "blog.rpgame.xyz": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -11574,5 +11567,89 @@
   "//artifact-jp.com/": {
     "type": "xpath",
     "xpath": "div[contains(@id,'post-')]"
+  },
+  "//xiaolongchakan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='sp-only' or @class='pc-only']"
+    ]
+  },
+  "//www.shinumade.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//junichi-manga.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='breadcrumb' or @class='blogbox' or @class='share']",
+      "aside"
+    ]
+  },
+  "//www.yukigao.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.yomu-kokkai.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.namtyu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kawahanashobo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.creativevillage.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='middle-single-article' or @class='single-post-image']"
+  },
+  "//www.alena-lib.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//welove.expedia.co.jp/destination/": {
+    "type": "xpath",
+    "xpath": "article[contains(@id,'post-')]/div[@class='post-thumbnail-wrapper' or contains(@class,'post-content')]",
+    "cleanup": [
+      "div[@class='social-share-custom']"
+    ]
+  },
+  "//unleash.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ssba')]"
+    ]
+  },
+  "//okane-hosoku.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//teineini.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'ad-space')]"
+    ]
+  },
+  "//pawoo.net/users/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'activity-stream')]"
+  },
+  "//nikibi-no-ato.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//haihinn.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//crowdworks.jp/lp/mm/zaitaku/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-thumbnail']|//section[@class='post-content']"
   }
 }
