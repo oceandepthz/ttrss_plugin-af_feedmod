@@ -11651,5 +11651,13 @@
   "//crowdworks.jp/lp/mm/zaitaku/": {
     "type": "xpath",
     "xpath": "div[@class='post-thumbnail']|//section[@class='post-content']"
+  },
+  "//backpaper0.github.io/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='section' or contains(@class,'postmeta')]"
+  },
+  "//bcp-manual.com/bcp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
   }
 }
