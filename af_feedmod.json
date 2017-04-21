@@ -7294,10 +7294,6 @@
     "type": "xpath",
     "xpath": "div[@class='article']"
   },
-  "//baigie.me/": {
-    "type": "xpath",
-    "xpath": "div[@class='wp_editablearea']"
-  },
   "//www.minnanokaigo.com/news/yamamoto/": {
     "type": "xpath",
     "xpath": "article[@id='special-article']",
@@ -8577,10 +8573,6 @@
   "//diet-slimo.com/": {
     "type": "xpath",
     "xpath": "div[@class='article']"
-  },
-  "//nakamorikzs.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
   },
   "//president.jp/": {
     "type": "xpath",
@@ -9955,13 +9947,6 @@
     "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
     "cleanup": [
       "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
-    ]
-  },
-  "//teratail.com/questions/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'p-questionHead ') or @class='p-questionContents' or contains(@class,'p-replyBox ')]",
-    "cleanup": [
-      "div[contains(@class,'p-questionContents__actions') or contains(@class,'p-replyActions')]"
     ]
   },
   "//www.yunabe.jp/docs/": {
@@ -11659,5 +11644,44 @@
   "//bcp-manual.com/bcp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//baigie.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-content-wp']"
+  },
+  "//nakamorikzs.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'ad-space')]"
+    ]
+  },
+  "//www.sonymobile.co.jp/company/press/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-column']"
+  },
+  "//www.kiraku-life.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//teratail.com/questions/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'p-questionHead ') or @class='p-questionContents' or contains(@class,'p-replyBox ')]",
+    "cleanup": [
+      "div[contains(@class,'p-questionContents__actions') or contains(@class,'p-replyActions')]"
+    ]
+  },
+  "//teratail.com/report/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-article__ttlImg' or @class='p-article__detail']"
+  },
+  "//sinplelove.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='ently_text']",
+    "cleanup": [
+      "div[@class='fc2_footer']",
+      "iframe[@class='hatena-bookmark-button-frame']",
+      "script[contains(@src,'//b.st-hatena.com/js/bookmark_button.js')]"
+    ]
   }
 }
