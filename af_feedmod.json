@@ -973,10 +973,6 @@
       "div[@class='yarpp-related']"
     ]
   },
-  "comicreading.com": {
-    "type": "xpath",
-    "xpath": "div[@class='theContentWrap-ccc']"
-  },
   "coziest.net": {
     "type": "xpath",
     "xpath": "div[@class='entry']",
@@ -2598,14 +2594,6 @@
   "blog.bokuweb.me": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "ironna.jp": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class, 'body')]",
-    "next_page": "ul[@class='pagination']",
-    "next_page_cleanup": [
-      "li[@class='active']"
-    ]
   },
   "www.animate.tv": {
     "type": "xpath",
@@ -5251,13 +5239,6 @@
     "cleanup": [
       "div[contains(@class,'post-meta') or contains(@class,'fancy-posts-title')]",
       "section[contains(@class,'items-grid')]"
-    ]
-  },
-  "wivern.exblog.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='story']",
-    "cleanup": [
-      "div[contains(@class,'sm_icon_mini') or @class='bbs_preview']"
     ]
   },
   "www.yukicoco.net": {
@@ -10340,18 +10321,6 @@
       "iframe[contains(@src,'//rcm-fe.amazon-adsystem.com/')]"
     ]
   },
-  "//www.asahi.com/and_w/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleBody']",
-    "cleanup": [
-      "div[@class='SnsUtilityArea']",
-      "div[@class='RelatedLinkMod']"
-    ]
-  },
   "//www.fukayoi.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -11683,5 +11652,79 @@
       "iframe[@class='hatena-bookmark-button-frame']",
       "script[contains(@src,'//b.st-hatena.com/js/bookmark_button.js')]"
     ]
+  },
+  "//comicreading.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='theContentWrap-ccc']"
+  },
+  "//ironna.jp/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class, 'body')]",
+    "next_page": "ul[@class='pagination']",
+    "next_page_cleanup": [
+      "li[@class='active']"
+    ]
+  },
+  "//wivern.exblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-main']",
+    "cleanup": [
+      "div[contains(@class,'sm_icon_mini') or @class='bbs_preview']"
+    ]
+  },
+  "//www.asahi.com/and_M/": {
+    "type": "xpath",
+    "xpath": "div[@class='Main']/div[@class='LayTypeF']",
+    "cleanup": [
+      "div[@class='AdBlock']"
+    ],
+    "next_page": "np div[@class='ArticlePager']"
+  },
+  "//www.asahi.com/and_w/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleBody']",
+    "cleanup": [
+      "div[@class='SnsUtilityArea']",
+      "div[@class='RelatedLinkMod']"
+    ]
+  },
+  "//www.zabroow.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.tabibito34man.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.pixivision.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='_feature-article-body']"
+  },
+  "//www.masakichivoice.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.ashi-tano.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-text']",
+    "cleanup": [
+      "div[@class='social-button-twitter' or @class='social-button-fb' or @class='va-social-buzz']"
+    ]
+  },
+  "//shonenjumpplus.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//luluepi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//locafra.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry--header']/img[contains(@class,'attachment-post-thumbnail')]|//div[contains(@class,'entry__content')]"
   }
 }
