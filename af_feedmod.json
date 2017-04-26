@@ -11726,5 +11726,64 @@
   "//locafra.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry--header']/img[contains(@class,'attachment-post-thumbnail')]|//div[contains(@class,'entry__content')]"
+  },
+  "//vdata.nikkei.com/newsgraphics/": {
+    "type": "xpath",
+    "xpath": "section[@id='content-start']"
+  },
+  "//the360.life/": {
+    "type": "xpath",
+    "xpath": "div[@class='art-main']",
+    "cleanup": [
+      "li[@class='art-dtl-bookmark' or @class='art-social']",
+      "div[@class='art-reco']"
+    ]
+  },
+  "//mstdn.jp/": {
+    "type": "xpath",
+    "xpath": "body"
+  },
+  "//kaigainohannoublog.blog55.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='ently_body']",
+    "cleanup": [
+      "div[@class='fc2_footer']"
+    ]
+  },
+  "//hnakamur.github.io/blog/": {
+    "type": "xpath",
+    "xpath": "section[@id='content']"
+  },
+  "//full-kaiten.com/note/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//frontier.usachannel.info/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//friends.nico/": {
+    "type": "xpath",
+    "xpath": "body"
+  },
+  "//ex-career.org/": {
+    "type": "xpath",
+    "xpath": "article/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
+  },
+  "//cloud-news.sakura.ad.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.tsub.me/post/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//blog.koba04.com/post/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='row-fluid']"
+  },
+  "//aws.amazon.com/about-aws/whats-new/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
   }
 }
