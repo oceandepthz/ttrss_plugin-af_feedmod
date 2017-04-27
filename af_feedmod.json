@@ -2685,16 +2685,6 @@
       "script[contains(@src, 'ns/top-10/top-10-addcount.js.php')]"
     ]
   },
-  "blog.codecamp.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='post']",
-    "cleanup": [
-      "div[@id='breadcrumb' or @class='blogbox' or @class='sns' or @id='ts-fab-below']",
-      "h1",
-      "p[@class='tagst']",
-      "aside"
-    ]
-  },
   "blog.livedoor.jp/sonots": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
@@ -11785,5 +11775,29 @@
   "//aws.amazon.com/about-aws/whats-new/": {
     "type": "xpath",
     "xpath": "main[@role='main']"
+  },
+  "//blog.codecamp.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-article_eyeCatch' or @class='p-article_lead' or @class='p-article_detail']"
+  },
+  "//yorimichi.airdo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.rsk26.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.haneda-airport-server.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//devblog.thebase.in/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//annburo.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
