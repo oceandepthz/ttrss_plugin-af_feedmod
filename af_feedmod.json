@@ -160,12 +160,6 @@
       "script"
     ]
   },
-  "www.lifehacker.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='txt01']",
-    "force_charset": "utf-8",
-    "force_unicode": true
-  },
   "hatenablog.jp": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -1475,10 +1469,6 @@
       "div[@class='l-ad-article-under']",
       "section[@class='contents_relation']"
     ]
-  },
-  "blog.takus.me": {
-    "type": "xpath",
-    "xpath": "div[@class='article-entry']"
   },
   "waranote.livedoor.biz": {
     "type": "xpath",
@@ -3499,13 +3489,6 @@
     "type": "xpath",
     "xpath": "div[@id='the-content']"
   },
-  "maeharakazuhiro.com": {
-    "type": "xpath",
-    "xpath": "section",
-    "cleanup": [
-      "h1"
-    ]
-  },
   "blog.yutorigoto.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -4132,10 +4115,6 @@
   "ipod.item-get.com": {
     "type": "xpath",
     "xpath": "section[@class='entry']"
-  },
-  "kabumatome.doorblog.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body']"
   },
   "blog.amedama.jp": {
     "type": "xpath",
@@ -4791,10 +4770,6 @@
     "cleanup": [
       "div[@class='sbmk']"
     ]
-  },
-  "www.jiji.com": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'MainInner')]/div/div[starts-with(@class,'ArticleText')]"
   },
   "eetimes.jp/ee/articles": {
     "type": "xpath",
@@ -8492,14 +8467,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry_body']"
   },
-  "//news.denfaminicogamer.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@class='social-btn-wrpper' or @class='top-pagelink' or @class='next_page_header' or @class='bottom-pagelink']"
-    ],
-    "next_page": "div[@class='top-pagelink']"
-  },
   "//webkikaku.co.jp/blog/": {
     "type": "xpath",
     "xpath": "div[@class='main_con_post_txt']"
@@ -11799,5 +11766,33 @@
   "//annburo.blog.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
+  },
+  "//kabumatome.doorblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//news.denfaminicogamer.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "cleanup": [
+      "div[@class='next_page_header']"
+    ],
+    "next_page": "div[contains(@class,'pager') and contains(@class,'upper')]/div[@class='pagerInner']"
+  },
+  "//blog.takus.me/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//maeharakazuhiro.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//www.lifehacker.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='lh-entryDetail-body']/div[@class='lh-entryDetailInner']"
+  },
+  "//www.jiji.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'ArticleText')]"
   }
 }
