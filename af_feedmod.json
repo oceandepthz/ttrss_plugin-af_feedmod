@@ -317,14 +317,6 @@
       "div[@id='sns']"
     ]
   },
-  "j-ron.jp": {
-    "type": "xpath",
-    "xpath": "section[@id='article']/article",
-    "cleanup": [
-      "ul[@class='social']",
-      "ul[@class='social-bottom']"
-    ]
-  },
   "dochikushow.blog3.fc2.com": {
     "type": "xpath",
     "xpath": "div[@id='mainBlock']/div[1]/div[@class='mainEntryBase']"
@@ -11794,5 +11786,29 @@
   "//www.jiji.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'ArticleText')]"
+  },
+  "//j-ron.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-text']"
+  },
+  "//www.wanlovegamer.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.weblogian.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.yamadayoko.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.yuasayo1013.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//yaneuraou.yaneu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
