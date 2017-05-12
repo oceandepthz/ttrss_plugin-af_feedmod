@@ -11810,5 +11810,44 @@
   "//yaneuraou.yaneu.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//www.umablo.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.tiemirin.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.thoughts-make-things.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.suzushin7.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.stellacafe7.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.sapur.info/": {
+    "type": "xpath",
+    "xpath": "article[@id='blogSingle']",
+    "cleanup": [
+      "div[@class='singleBookmarks']"
+    ]
+  },
+  "//www.okeiko-simplelife.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.napiiro.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.myboomda.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
