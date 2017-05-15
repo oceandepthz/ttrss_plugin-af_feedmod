@@ -1994,13 +1994,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "wotopi.jp": {
-    "type": "xpath",
-    "xpath": "header/div/img|//div[@class='main']",
-    "cleanup": [
-      "div[@class='ad-block' or @class='recommended-block' or @class='question-block']"
-    ]
-  },
   "amanoiwato.info": {
     "type": "xpath",
     "xpath": "div[starts-with(@class, 'entry-container')]",
@@ -11085,13 +11078,6 @@
       "iframe[contains(@src,'//blog.hatena.ne.jp/minatoblog/minatoblog.hatenablog.com/subscribe/iframe')]"
     ]
   },
-  "//www.buzzfeed.com/": {
-    "type": "xpath",
-    "xpath": "header|//article[contains(@class,'article')]",
-    "cleanup": [
-      "div[contains(@id,'mod-action-bar-')]"
-    ]
-  },
   "//knowledge.sakura.ad.jp/": {
     "type": "xpath",
     "xpath": "header[@class='entry-header']|//div[@class='entry-content' or @class='entry-author']"
@@ -11849,5 +11835,94 @@
   "//www.myboomda.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//www.buzzfeed.com/": {
+    "type": "xpath",
+    "xpath": "header|//article[contains(@class,'article') or contains(@class,'buzz--list')]",
+    "cleanup": [
+      "div[contains(@id,'mod-action-bar-')]"
+    ]
+  },
+  "//developers.google.com/web/updates/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'devsite-article-body')]",
+    "cleanup": [
+      "div[@id='gplus-comment-container']",
+      "script[contains(@onload,'gapi.comments.render')]"
+    ]
+  },
+  "//wotopi.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']",
+    "cleanup": [
+      "div[@class='pr-area']"
+    ]
+  },
+  "//www.tomoiku.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.monchantoreichan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.mitsu.jp.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.me-tarou.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.mako0625.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.mainichi-kotoba.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post-body') and contains(@class,'entry-content')]"
+  },
+  "//www.ma-corpus.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kuro6.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kotetsu.work/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.keyumino.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.issizzz.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.holstein-ojisan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.hatenko.party/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.gudaguda.work/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.gameojisan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.dream-seed.com/weblog/": {
+    "type": "xpath",
+    "xpath": "div[@id='single-post']",
+    "cleanup": [
+      "div[@class='google_adsense']"
+    ]
   }
 }
