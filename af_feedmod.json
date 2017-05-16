@@ -11924,5 +11924,28 @@
     "cleanup": [
       "div[@class='google_adsense']"
     ]
+  },
+  "//www.dmaniax.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//www.cucumberking.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.cheer-up.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.bunkanews.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='newswtbox']",
+    "cleanup": [
+      "div[@class='social_btn' or @class='ibt_back']"
+    ]
+  },
+  "//www.akiyan.com/blog/": {
+    "type": "xpath",
+    "xpath": "section[@class='content-body']"
   }
 }
