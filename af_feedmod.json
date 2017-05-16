@@ -11947,5 +11947,39 @@
   "//www.akiyan.com/blog/": {
     "type": "xpath",
     "xpath": "section[@class='content-body']"
+  },
+  "//upq.me/jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//unsolublesugar.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'post-')]/div[contains(@class,'entry')]",
+    "cleanup": [
+      "div[@class='single-top-ad']"
+    ]
+  },
+  "//toushi-kyokasho.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "ul[@class='bzb-sns-btn']"
+    ]
+  },
+  "//tatsu-zine.com/books/": {
+    "type": "xpath",
+    "xpath": "img[@class='coversmall']|//section[@id='bookinfo']/*/*[@itemprop='name' or @class='author' or @class='publisher' or @class='price' or @class='description']|//section[@class='doc']",
+    "cleanup": [
+      "div[@id='zenback-widget-loader']",
+      "script[contains(text(),'zenback-widget-js')]"
+    ]
+  },
+  "//style.potepan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='singleContents']",
+    "cleanup": [
+      "div[@class='singlebanner' or @class='contentShare' or @class='contentsUnder' or @class='underRanking']",
+      "a[@class='widebanner']"
+    ]
   }
 }
