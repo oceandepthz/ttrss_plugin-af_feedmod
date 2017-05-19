@@ -3605,10 +3605,6 @@
       "div[@id='jp-post-flair']"
     ]
   },
-  "retty.me": {
-    "type": "xpath",
-    "xpath": "div[@class='detail_ttl']/div[@class='cfx']|//div[@class='section']"
-  },
   "www.north-geek.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -4517,14 +4513,6 @@
     "type": "xpath",
     "xpath": "div[@id='the-content']"
   },
-  "www.seohacks.net": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "ul[starts-with(@class,'socialWidgets')]",
-      "div[@class='author-info' or starts-with(@class,'paginate')]"
-    ]
-  },
   "smoothfoxxx.livedoor.biz": {
     "type": "xpath",
     "xpath": "div[@class='main']"
@@ -5154,10 +5142,6 @@
   "www.hana3.net": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "www.kagoshimaniax.com": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'post_content') or @id='post_image']"
   },
   "www.nurse-diaries.com": {
     "type": "xpath",
@@ -11981,5 +11965,37 @@
       "div[@class='singlebanner' or @class='contentShare' or @class='contentsUnder' or @class='underRanking']",
       "a[@class='widebanner']"
     ]
+  },
+  "//www.kagoshimaniax.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.seohacks.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-wordpress-edit-block' or @class='c-detail-heading-module__img']"
+  },
+  "//engineer.retty.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//retty.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='detail_ttl']/div[@class='cfx']|//div[@class='section']"
+  },
+  "//zucks-magazine.jp/post/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//www.nttdocomo.co.jp/info/notice/page/": {
+    "type": "xpath",
+    "xpath": "article[@class='main']"
+  },
+  "//www.mbsd.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='container']/div[@class='contents']"
+  },
+  "//www.drone-press.jp/drone-practicaluse/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
   }
 }
