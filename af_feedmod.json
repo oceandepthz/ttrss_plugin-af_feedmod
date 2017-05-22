@@ -6906,13 +6906,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.jpcert.or.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='page_base']",
-    "cleanup": [
-      "div[contains(@class,'social_links') or @id='fb']"
-    ]
-  },
   "//readwrite.jp/": {
     "type": "xpath",
     "xpath": "main[@id='main']//div[contains(@class,'item-post')]//img|//div[@class='entry-content']",
@@ -11997,5 +11990,36 @@
   "//www.drone-press.jp/drone-practicaluse/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
+  },
+  "//www.jpcert.or.jp/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//www.sakimura.org/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='breadcrumb']",
+      "aside"
+    ]
+  },
+  "//www.ongakunojouhou.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.okayama-u.ac.jp/tp/": {
+    "type": "xpath",
+    "xpath": "div[@class='column-right']"
+  },
+  "//www.cashing-hikaku.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//studyhacker.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody' or @id='articleHeaderImg']",
+    "cleanup": [
+      "div[@class='article_advertisement']"
+    ]
   }
 }
