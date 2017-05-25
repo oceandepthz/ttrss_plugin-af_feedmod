@@ -8705,14 +8705,6 @@
       "div[@class='header-social']"
     ]
   },
-  "//www.fashionsnap.com/": {
-    "type": "xpath",
-    "xpath": "section/div[@id='moreinfo' or contains(@class,'photo')]|//section/span[@itemprop='articleBody']",
-    "cleanup": [
-      "div[contains(@id,'div-gpt-ad-')]",
-      "script[contains(text(),'cdn.teads.tv')]"
-    ]
-  },
   "//www.mashilog.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -12040,5 +12032,13 @@
   "//nijigenkisei.ldblog.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
+  },
+  "//www.fashionsnap.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'body')]",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-') or @class='header-social']",
+      "script[contains(@src,'.teads.tv/')]"
+    ]
   }
 }
