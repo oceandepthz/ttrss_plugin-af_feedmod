@@ -153,10 +153,69 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             break;   // if we got here, we found the correct entry in $data, do not process more
         }
+
+        // add hatebu comment
+        if(strpos($article['feed']['fetch_url'],'//b.hatena.ne.jp/hotentry/it.rss') !== false ||
+           strpos($article['feed']['fetch_url'],'//feeds.feedburner.com/hatena/b/hotentry') !== false){
+            // create hatena url
+            $is_ssl = strpos($article['link'],'https://') === 0;
+            $url = 'http://b.hatena.ne.jp/entry/';
+            if($is_ssl){
+                $url .= 's/';
+                $url .= str_replace('https://','',$article['link']);
+            }else{
+                $url .= str_replace('http://','',$article['link']);
+            }
+            $html = $this->get_html($url, array());
+            $doc = new DOMDocument();
+            @$doc->loadHTML($html);
+            if($doc){
+                $h_comment = "";
+                $xpath = new DOMXPath($doc);
+
+                $users = 0;
+                $entries = $xpath->query("(//ul[contains(@class,'users')]/li/strong/a/span)");
+                if ($entries->length > 0){
+                  $users = $xpath->evaluate('string()', $entries[0]);    
+                }
+
+                $entries = $xpath->query("(//div[@id='new-bookmarks']/ul[@class='bookmark-list'])");
+                if ($entries->length > 0) {
+                    foreach ($entries as $entry) {
+                        $this->cleanup($xpath, $entry, array("span[contains(@class,'twitter')]","div[@class='user-comment-meta']"));
+                        $h_comment .= $doc->saveXML($entry);
+                    }
+                    if(strlen($h_comment) > 0){
+                        $style = <<<EOD
+<style type='text/css'>
+div.hatebu-comment { 
+    border:solid 2px;
+    padding:10px;
+}
+div.hatebu-comment ul {
+    list-style-type: none;
+    padding-left:1em;
+}
+div.hatebu-comment img.profile-image {
+    width: 16px;
+    height: 16px;
+}
+</style>
+EOD;
+                        $article['content'] .= "<div>${style}<div class='hatebu-comment'><p>hatebu comment (${users}users)</p>${h_comment}</div></div>";
+                    }
+                }
+            }
+        }
+
         if(!$is_execute){
             $this->writeLog($article['link'],$is_hit_link);
         }
         return $article;
+    }
+
+    function __debug($v){
+        file_put_contents(dirname(__FILE__).'/debug.txt', print_r($v, true)."\n", FILE_APPEND|LOCK_EX);
     }
 
     function writeLog($url,$is_hit_link){

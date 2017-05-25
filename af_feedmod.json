@@ -12021,5 +12021,24 @@
     "cleanup": [
       "div[@class='article_advertisement']"
     ]
+  },
+  "//store.line.me/stickershop/product/": {
+    "type": "xpath",
+    "xpath": "section[@id='FnStickerDetail']//div[contains(@class,'DetailInfo') or contains(@class,'DetailView')]",
+    "cleanup": [
+      "ul[contains(@class,'Ul')]"
+    ]
+  },
+  "//sim-mvno.xyz/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//shina-sadame.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
+  },
+  "//nijigenkisei.ldblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
