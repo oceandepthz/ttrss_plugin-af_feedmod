@@ -6732,15 +6732,6 @@
     "xpath": "div[@id='gsArticle']",
     "next_page": "div[starts-with(@class, 'pagenation')]"
   },
-  "//www.advertimes.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-txt']",
-    "cleanup": [
-      "a[@class='lnk-next-wrapper']",
-      "div[@class='page-links' or @class='bk-area']"
-    ],
-    "next_page": "div[@class='page-links']"
-  },
   "//oyasaichan.com/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']",
@@ -12039,6 +12030,77 @@
     "cleanup": [
       "div[contains(@id,'div-gpt-ad-') or @class='header-social']",
       "script[contains(@src,'.teads.tv/')]"
+    ]
+  },
+  "//www.advertimes.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='postContents']"
+  },
+  "//www.yumekichi-blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.toshi-enjoy.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.flopdesign.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//www.dentsu.co.jp/news/release/": {
+    "type": "xpath",
+    "xpath": "div[@id='contentBodyMain']/div[@class='editArea']"
+  },
+  "//www.adhd-tsukiko.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//techblog.sega.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//satoron.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']",
+    "cleanup": [
+      "div[@class='ad']"
+    ]
+  },
+  "//photo.yodobashi.com/": {
+    "type": "xpath",
+    "xpath": "main[@class='row']",
+    "cleanup": [
+      "div[@id='snsButton']"
+    ]
+  },
+  "//netshop.impress.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='node-body-content']",
+    "cleanup": [
+      "div[contains(@class,'field-name-field-bancho-prev-next')]"
+    ]
+  },
+  "//nagasawake.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//memo.yuuk.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//medical.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'summary')]"
+  },
+  "//matometanews.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='articlemain' or @id='articlemainmore' or @id='commentarea']",
+    "cleanup": [
+      "script[contains(text(),'ec1') or contains(text(),'amount')]"
     ]
   }
 }
