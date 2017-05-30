@@ -12102,5 +12102,147 @@
     "cleanup": [
       "script[contains(text(),'ec1') or contains(text(),'amount')]"
     ]
+  },
+  "//magcchi.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='contentsArea']"
+  },
+  "//magazine.manba.co.jp/": {
+    "type": "xpath",
+    "xpath": "img[contains(@class,'eyecatch')]|//div[@class='entry-content']"
+  },
+  "//logics-of-blue.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//lifeworknext.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'ad-space')]"
+    ]
+  },
+  "//lantern.builderscon.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//kurage-official.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eye-catch']|//div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'ad-space')]"
+    ]
+  },
+  "//katsuaki.co/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//huawei-report.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//help.qiita.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']"
+  },
+  "//hanpenblog.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eye-catch']|//div[@id='the-content']"
+  },
+  "//hakuma-2.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='post_image' or contains(@class,'post_content')]"
+  },
+  "//hada-club.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside[@class='bzb-sns-area']"
+    ]
+  },
+  "//gunosiru.gunosy.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//go-tenbai-exp.onamae.jp/tenbai/": {
+    "type": "xpath",
+    "xpath": "header/figure[contains(@class,'eyecatch')]|//article/section[contains(@class,'entry-content')]"
+  },
+  "//www.fuze.dj/": {
+    "type": "xpath",
+    "xpath": "div[@class='fz-entryDetail-body']",
+    "cleanup": [
+      "div[@class='fz-entryDetail-sns']"
+    ]
+  },
+  "//www.fudousansatei-field.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//moretsu.exblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-main']/div/center"
+  },
+  "//funfairfanfare.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'tc-thumbnail')]//img|//section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='yarpp-related']"
+    ]
+  },
+  "//f1-gate.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='contentbody']",
+    "cleanup": [
+      "div[@class='sns']"
+    ]
+  },
+  "//en-ambi.com/featured/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleContent']"
+  },
+  "//ekrits.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//easyramble.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']",
+    "cleanup": [
+      "ul[@class='bread' or @class='relative_article']",
+      "div[@class='mobile-display' or contains(@class,'ad_') or @class='pagination' or @class='below']"
+    ]
+  },
+  "//deaikeiranking.net/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//cryptocurrencymagazine.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry')]",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//coffeewriter.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='text']",
+    "cleanup": [
+      "iframe[contains(@class,'twitter-share-button') or @class='hatena-bookmark-button-frame']",
+      "script[contains(text(),'//platform.twitter.com/widgets.js') or contains(@src,'//b.st-hatena.com/js/bookmark_button.js') or contains(text(),'fb-like')]",
+      "div[contains(@class,'fb-like')]"
+    ]
+  },
+  "//cloudpack.media/": {
+    "type": "xpath",
+    "xpath": "div[@class='content__main']"
+  },
+  "//citrus-net.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'sys-article-content-')]"
+  },
+  "//bustup-tips.com/pickup/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']"
   }
 }
