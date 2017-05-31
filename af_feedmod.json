@@ -12244,5 +12244,89 @@
   "//bustup-tips.com/pickup/": {
     "type": "xpath",
     "xpath": "div[@class='content']"
+  },
+  "//www.onecareer.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='v2-article-show__head-visual-image' or contains(@class,'v2-article-show__body') or @class='v2-writer-profile']",
+    "cleanup": [
+      "div[@class='v2-writer-profile__social']"
+    ]
+  },
+  "//blog.builderscon.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.yux3.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.trendmicro.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'post-')]"
+  },
+  "//blog.okumin.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//mysqlserverteam.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='simplesocialbuttons']"
+    ]
+  },
+  "//blog-kuroneko.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry']",
+    "cleanup": [
+      "dl[@id='fc2relate_entry_thumbnail_area']"
+    ]
+  },
+  "//blog.desire.sh/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='jp-post-flair']"
+    ]
+  },
+  "//bestcarweb.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-image' or @class='post-content']",
+    "cleanup": [
+      "div[@class='page-links']"
+    ],
+    "next_page": "div[@class='page-links']"
+  },
+  "//axia.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content') or contains(@class,'article-author')]"
+  },
+  "//aoshimabooks.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='single_content']"
+  },
+  "//android-smart.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
+  },
+  "//ainow.ai/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//about.yahoo.co.jp/pr/release/": {
+    "type": "xpath",
+    "xpath": "section[@class='press_article']",
+    "cleanup": [
+      "div[@class='common_pagefooter']",
+      "ul[@class='social']"
+    ]
+  },
+  "//1000ch.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='Main']",
+    "cleanup": [
+      "aside[@class='Share']",
+      "nav[@class='Pager']"
+    ]
   }
 }
