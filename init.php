@@ -393,6 +393,22 @@ EOD;
         return $links;
     }
 
+    function update_instagram($xpath, $basenode){
+        if(!$basenode){
+            return;
+        }
+        $query = "(//blockquote[@class='instagram-media'])";
+        $nodelist = $xpath->query($query, $basenode);
+        if(!$nodelist){
+            return;
+        }
+        foreach ($nodelist as $node) {
+            // a tag
+            // kesu
+            // touroku
+        }
+    }
+
     function default_cleanup($xpath, $basenode){
         if(!$basenode){
             return;
