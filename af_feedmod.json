@@ -12535,5 +12535,82 @@
   "//www.sirauoayc-2017.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//www.karelie.net/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'tm-article-content') or @class='tm-article-image']",
+    "cleanup": [
+      "div[@id='zem_rp_first']"
+    ]
+  },
+  "//www.donichi.biz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='boxAds']"
+    ]
+  },
+  "//www.datsumo-collection.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "div[@id='wp_rp_first']"
+    ]
+  },
+  "//www.cyberagent.co.jp/newsinfo/press/detail/": {
+    "type": "xpath",
+    "xpath": "div[@id='main_module']/div[@class='newsDetail']/div[@class='pageTitle' or @class='articleMiddle']"
+  },
+  "//www.cyberagent.co.jp/features/detail/": {
+    "type": "xpath",
+    "xpath": "div[@class='mv_title' or @class='p_area' or @class='photo_area']",
+    "cleanup": [
+      "ul[@class='sns_area']"
+    ]
+  },
+  "//www.cheapna.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'post-body-')]"
+  },
+  "//www.capcom.co.jp/ir/news/html/": {
+    "type": "xpath",
+    "xpath": "div[@class='entryArea']",
+    "cleanup": [
+      "div[contains(@class,'smb_h')]"
+    ]
+  },
+  "//whitening-toothpaste.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "nav"
+    ]
+  },
+  "//tenshoku.wiki/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//rentalhomepage.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']/div[@class='kizi'][1]"
+  },
+  "//portalshit.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']"
+  },
+  "//newsoku.blog/": {
+    "type": "xpath",
+    "xpath": "article/figure[@class='eye-catch']|//article/div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'share_save') or @id='widget-in-article' or contains(@id,'-sb-sbz') or @id='jp-relatedposts']"
+    ]
+  },
+  "//morinogorira.seesaa.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogbody']/div[@class='text']"
+  },
+  "//milieu.ink/interview/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'single-article_body')]/div[contains(@class,'m-editor-style')]"
   }
 }
