@@ -12612,5 +12612,51 @@
   "//milieu.ink/interview/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'single-article_body')]/div[contains(@class,'m-editor-style')]"
+  },
+  "//kokoro.eikou.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//info.cookpad.com/pr/news/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//info.cookpad.com/careers/interview/": {
+    "type": "xpath",
+    "xpath": "div[@class='interview-hero']|//main"
+  },
+  "//ict-enews.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='single_content']"
+  },
+  "//hour-magazine.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='post_image' or contains(@class,'post_content')]"
+  },
+  "//h.hatena.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']//div[@class='entries']/div/div[contains(@class,'entry')]"
+  },
+  "//grapee.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='image' or @class='comment']"
+  },
+  "//gawain.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//gakkimania.jp/freak/": {
+    "type": "xpath",
+    "xpath": "div[@class='article_description_wrapper' or @class='artcile_body']"
+  },
+  "//gagbot.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy')]"
+    ]
   }
 }
