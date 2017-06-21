@@ -7018,18 +7018,6 @@
     "type": "xpath",
     "xpath": "div[@class='article']"
   },
-  "//aws.amazon.com/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@itemprop='articleBody']"
-  },
-  "//aws.amazon.com/jp/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@itemprop='articleBody']"
-  },
-  "//aws.amazon.com/jp/solutions/": {
-    "type": "xpath",
-    "xpath": "section/div[contains(@class,'content')]"
-  },
   "//blog.livedoor.jp/manamerit/": {
     "type": "xpath",
     "xpath": "div[@class='main' or @class='mainmore']"
@@ -10597,14 +10585,6 @@
     "type": "xpath",
     "xpath": "div[@class='container']/div[contains(@class,'well')]/div[not(@class) and not(@style) and not(@id)]"
   },
-  "//aws.amazon.com/message/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
-  "//aws.amazon.com/jp/message/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
   "//www.worqlip.jp/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -11637,10 +11617,6 @@
     "type": "xpath",
     "xpath": "article/div[@class='row-fluid']"
   },
-  "//aws.amazon.com/about-aws/whats-new/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
   "//blog.codecamp.jp/": {
     "type": "xpath",
     "xpath": "div[@class='p-article_eyeCatch' or @class='p-article_lead' or @class='p-article_detail']"
@@ -12657,6 +12633,109 @@
     "xpath": "div[@class='entry-content']",
     "cleanup": [
       "div[contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//kinokoru.jp/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//fudousan-kyokasho.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='entry-thumbnail']|//div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'a-single')]"
+    ]
+  },
+  "//doda.jp/engineer/guide/": {
+    "type": "xpath",
+    "xpath": "div[@id='geek_main' or @id='geek_head' or @class='backprofile']",
+    "next_page": "div[@class='pager']"
+  },
+  "//design.hatenastaff.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//deepage.net/": {
+    "type": "xpath",
+    "xpath": "header/img[@id='thumbnail-image']|//div[@class='post-content']"
+  },
+  "//corriente.top/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']",
+    "cleanup": [
+      "div[@class='sponsored-links' or @class='adbox']"
+    ]
+  },
+  "//blog.zerotoone.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.shinoegg.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.rista.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.nari.life/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.hmp2blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.gururimichi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//bamka.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_body']",
+    "cleanup": [
+      "p[@class='sponsored-link']",
+      "ul[@class='ad-single-mid-pc']",
+      "div[@class='sns-group-footer']"
+    ]
+  },
+  "//aws.amazon.com/releasenotes/": {
+    "type": "xpath",
+    "xpath": "div[@id='yui-main']"
+  },
+  "//aws.amazon.com/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@itemprop='articleBody']"
+  },
+  "//aws.amazon.com/jp/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@itemprop='articleBody']"
+  },
+  "//aws.amazon.com/jp/solutions/": {
+    "type": "xpath",
+    "xpath": "section/div[contains(@class,'content')]"
+  },
+  "//aws.amazon.com/about-aws/whats-new/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/jp/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//arata01.info/": {
+    "type": "xpath",
+    "xpath": "header/figure[contains(@class,'eyecatch')]/img|//section[contains(@class,'entry-content')]"
+  },
+  "//500startups.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'single-blog-content') or @id='post-media']",
+    "cleanup": [
+      "div[@class='social4i']"
     ]
   }
 }
