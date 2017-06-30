@@ -654,15 +654,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entryTitle')]"
   },
-  "codezine.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='article']",
-    "next_page": "div[@class='pager']",
-    "next_page_cleanup": [
-      "li[@class='current']",
-      "li[@class='nextBtn']"
-    ]
-  },
   "labotech.dmm.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -1833,10 +1824,6 @@
     "xpath": "section/span|//section/article|//section/div[@id='author-box']"
   },
   "blog.shibayu36.org": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
-  "www.proof0309.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
@@ -5581,10 +5568,6 @@
   "//ashita-office.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-thumbnail']/img|//section[@class='post-content']"
-  },
-  "//blog.stormcat.io/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
   },
   "//conte-anime.jp/": {
     "type": "xpath",
@@ -12254,10 +12237,6 @@
     "xpath": "div[@class='thumb' or @class='ynDetailHeading']|//p[@class='ynDetailText']",
     "next_page": "div[@class='ftPager']"
   },
-  "//www.advertimes.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='postContents']"
-  },
   "//www.magicbase.xyz/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -12273,13 +12252,6 @@
       "div[contains(@class,'adlist') or @class='page-links']"
     ],
     "next_page": "div[@class='page-links']"
-  },
-  "//goodpatch.com/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-thumbnail']|//section[@class='article-body']",
-    "cleanup": [
-      "aside[@class='share-btn']"
-    ]
   },
   "//designer-draft.jp/articles/": {
     "type": "xpath",
@@ -12687,34 +12659,6 @@
       "div[@class='sns-group-footer']"
     ]
   },
-  "//aws.amazon.com/releasenotes/": {
-    "type": "xpath",
-    "xpath": "div[@id='yui-main']"
-  },
-  "//aws.amazon.com/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@itemprop='articleBody']"
-  },
-  "//aws.amazon.com/jp/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@itemprop='articleBody']"
-  },
-  "//aws.amazon.com/jp/solutions/": {
-    "type": "xpath",
-    "xpath": "section/div[contains(@class,'content')]"
-  },
-  "//aws.amazon.com/about-aws/whats-new/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
-  "//aws.amazon.com/message/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
-  "//aws.amazon.com/jp/message/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
   "//arata01.info/": {
     "type": "xpath",
     "xpath": "header/figure[contains(@class,'eyecatch')]/img|//section[contains(@class,'entry-content')]"
@@ -12746,7 +12690,7 @@
   },
   "//rdsig.yahoo.co.jp/rss/l/bylines/": {
     "type": "xpath",
-    "xpath": "div[@class='articleMainImage']|//div[contains(@class,'articleBody')]/div[@class='bd']|//div[contains(@class, 'ftAuthor')]/div[@class='hd']",
+    "xpath": "div[@class='articleMainImage']|//article//div[contains(@class,'articleBody')]/div[@class='bd']|//footer//div[contains(@class, 'ftAuthor')]/div[@class='hd']",
     "cleanup": [
       "div[contains(@class,'snsButton')]"
     ]
@@ -12818,5 +12762,115 @@
     "cleanup": [
       "div[@class='wpcnt' or @id='jp-post-flair']"
     ]
+  },
+  "//blog.stormcat.io/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//www.advertimes.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-txt']",
+    "cleanup": [
+      "a[@class='lnk-next-wrapper']",
+      "div[@class='page-links' or @class='bk-area']"
+    ],
+    "next_page": "div[@class='page-links']"
+  },
+  "//aws.amazon.com/releasenotes/": {
+    "type": "xpath",
+    "xpath": "div[@id='yui-main']"
+  },
+  "//aws.amazon.com/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
+  },
+  "//aws.amazon.com/jp/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
+  },
+  "//aws.amazon.com/jp/solutions/": {
+    "type": "xpath",
+    "xpath": "section/div[contains(@class,'content')]"
+  },
+  "//aws.amazon.com/about-aws/whats-new/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/jp/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//www.toshiba.co.jp/about/press/": {
+    "type": "xpath",
+    "xpath": "div[@id='titleArea' or @id='articleArea']"
+  },
+  "//www.nhk.or.jp/kokorotabi-blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']",
+    "cleanup": [
+      "p[@class='pageNav']",
+      "span[@class='socialbookmark']",
+      "form"
+    ]
+  },
+  "//www.nasu66.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.hachi32.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//takeshi.top/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//isumi2.jugem.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='jgm_entry_desc_mark']",
+    "cleanup": [
+      "div[@class='service_button' or @id='fb-root']"
+    ]
+  },
+  "//codezine.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']",
+    "next_page": "div[@class='pager']",
+    "next_page_cleanup": [
+      "li[@class='current']",
+      "li[@class='nextBtn']"
+    ]
+  },
+  "//www.proof0309.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//goodpatch.com/blog/": {
+    "type": "xpath",
+    "xpath": "header/figure|//section[contains(@class,'entry-content')]"
+  },
+  "//hajipion.com/": {
+    "type": "xpath",
+    "xpath": "p[@class='single-post-thumbnail']|//section[@class='single-post-content']"
+  },
+  "//www.edge-link.omron.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "p[@class='photo']|//div[@class='entryContent']"
+  },
+  "//www.longamerikastock.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.uuum.co.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='article-eyecatch']|//article[@class='article-entry']",
+    "cleanup": [
+      "div[@class='link_pages']"
+    ],
+    "next_page": "div[@class='link_pages']"
   }
 }
