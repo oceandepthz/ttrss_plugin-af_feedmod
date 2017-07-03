@@ -9441,7 +9441,8 @@
     "type": "xpath",
     "xpath": "section[@class='text-body']",
     "cleanup": [
-      "ul[@class='next-prev-nav']"
+      "ul[@class='next-prev-nav']",
+      "div[@class='social-area-syncer']"
     ]
   },
   "//wired.jp/special/": {
@@ -12872,5 +12873,48 @@
       "div[@class='link_pages']"
     ],
     "next_page": "div[@class='link_pages']"
+  },
+  "//www.n00life.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.nichijo-sanaka.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.tamashii-yusaburuyo.work/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.toei.co.jp/release/": {
+    "type": "xpath",
+    "xpath": "figure[@class='visualWrap01']|//div[@class='detailWrap01']"
+  },
+  "//www.utsu-joso.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//abematimes.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog-article__content']"
+  },
+  "//digmo.infoseek.co.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='page-header']/div[@class='heading-with-thumbnail']|//div[contains(@class,'page-contents')]/div[contains(@id,'page-')]",
+    "cleanup": [
+      "div[@class='lcd-social-buttons']"
+    ]
+  },
+  "//shizu183.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//www.mannerstyle.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.at-s.com/news/article/social/shizuoka/": {
+    "type": "xpath",
+    "xpath": "div[@id='bt_body']"
   }
 }
