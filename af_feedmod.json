@@ -938,14 +938,6 @@
       "div[@class='yarpp-related']"
     ]
   },
-  "coziest.net": {
-    "type": "xpath",
-    "xpath": "div[@class='entry']",
-    "cleanup": [
-      "hr/../script",
-      "div[@id='zenback-widget-loader']"
-    ]
-  },
   "www.kyoto-np.co.jp": {
     "type": "xpath",
     "xpath": "div[@id='news']",
@@ -12916,5 +12908,42 @@
   "//www.at-s.com/news/article/social/shizuoka/": {
     "type": "xpath",
     "xpath": "div[@id='bt_body']"
+  },
+  "//coziest.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//gogotsu.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='entryBody']"
+  },
+  "//rbs.ta36.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@id='widget-in-article']",
+      "iframe[@class='hatena-bookmark-button-frame']",
+      "script[contains(@data-rocketsrc,'//b.st-hatena.com/js/bookmark_button.js')]"
+    ]
+  },
+  "//www.uxirisu.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kooonyaaa.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.fuku39.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//shacho.beproud.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//orekabu.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-inner']"
   }
 }
