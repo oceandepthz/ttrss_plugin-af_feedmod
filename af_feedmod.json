@@ -2564,13 +2564,6 @@
       "iframe[starts-with(@class, 'twitter-share-button')]"
     ]
   },
-  "tsuchinoko.dmmlabs.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "*[starts-with(@class, 'wp_social_bookmarking_')]"
-    ]
-  },
   "workingnews.blog117.fc2.com": {
     "type": "xpath",
     "xpath": "div[@class='mainEntryBase']",
@@ -11088,7 +11081,7 @@
   },
   "//www.nhk.or.jp/gendai/": {
     "type": "xpath",
-    "xpath": "div[contains(@class,'bodyText')]"
+    "xpath": "div[contains(@class,'bodyText') or contains(@class,'person2') or @class='hero__pic']"
   },
   "//gihyo.jp/design/column/": {
     "type": "xpath",
@@ -12945,5 +12938,37 @@
   "//orekabu.jp/": {
     "type": "xpath",
     "xpath": "div[@class='main-inner']"
+  },
+  "//tsuchinoko.dmmlabs.com/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='mainEntityOfPage']"
+  },
+  "//letsencrypt.org/": {
+    "type": "xpath",
+    "xpath": "article[@class='post-content']"
+  },
+  "//www.1nichi1ppo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.already-match.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kotsulog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//chuplus.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'expert-article')]/div[@class='expert-article-image']|//div[contains(@class,'expert-article')]/p"
+  },
+  "//blog.spicelife.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//abicky.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='post__content']"
   }
 }
