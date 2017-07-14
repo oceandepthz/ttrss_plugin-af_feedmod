@@ -6387,13 +6387,6 @@
       "div[@class='article-ad' or @id='va-social-buzz']"
     ]
   },
-  "//www.jimpei.net/": {
-    "type": "xpath",
-    "xpath": "section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'add')]"
-    ]
-  },
   "//www.mag2.com/": {
     "type": "xpath",
     "xpath": "div[@itemprop='articleBody' or @class='featured']",
@@ -9819,10 +9812,6 @@
     "type": "xpath",
     "xpath": "div[@id='the-content']"
   },
-  "//news.kddi.com/kddi/corporate/newsrelease/": {
-    "type": "xpath",
-    "xpath": "div[@class='ind']"
-  },
   "//scrum.vc/ja/": {
     "type": "xpath",
     "xpath": "article",
@@ -12214,15 +12203,6 @@
       "nav[@class='Pager']"
     ]
   },
-  "//headlines.yahoo.co.jp/videonews/nnn": {
-    "type": "xpath",
-    "xpath": "div[@class='yvpControl' or @class='article']"
-  },
-  "//headlines.yahoo.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='thumb' or @class='ynDetailHeading']|//p[@class='ynDetailText']",
-    "next_page": "div[@class='ftPager']"
-  },
   "//www.magicbase.xyz/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -12839,10 +12819,6 @@
     "type": "xpath",
     "xpath": "header/figure|//section[contains(@class,'entry-content')]"
   },
-  "//hajipion.com/": {
-    "type": "xpath",
-    "xpath": "p[@class='single-post-thumbnail']|//section[@class='single-post-content']"
-  },
   "//www.edge-link.omron.co.jp/news/": {
     "type": "xpath",
     "xpath": "p[@class='photo']|//div[@class='entryContent']"
@@ -12970,5 +12946,30 @@
   "//abicky.net/": {
     "type": "xpath",
     "xpath": "div[@class='post__content']"
+  },
+  "//www.jimpei.net/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//news.kddi.com/kddi/corporate/newsrelease/": {
+    "type": "xpath",
+    "xpath": "div[@class='ind']"
+  },
+  "//hajipion.com/": {
+    "type": "xpath",
+    "xpath": "p[@class='article__image']|//section[@class='article__content']"
+  },
+  "//headlines.yahoo.co.jp/videonews/jnn": {
+    "type": "xpath",
+    "xpath": "div[@class='articleMain']"
+  },
+  "//headlines.yahoo.co.jp/videonews/nnn": {
+    "type": "xpath",
+    "xpath": "div[@class='yvpControl' or @class='article']"
+  },
+  "//headlines.yahoo.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='thumb' or @class='ynDetailHeading']|//p[@class='ynDetailText']",
+    "next_page": "div[@class='ftPager']"
   }
 }
