@@ -2355,13 +2355,6 @@
     "type": "xpath",
     "xpath": "article"
   },
-  "blog.livedoor.jp/itsoku": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body']",
-    "cleanup": [
-      "div[@id='ad_rs' or @class='adtitle' or @class='adsmid' or @id='ad2']"
-    ]
-  },
   "toriaezutori.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -6336,10 +6329,6 @@
     "type": "xpath",
     "xpath": "article[contains(@class,'arti-body')]"
   },
-  "//blog.domesoccer.jp/": {
-    "type": "xpath",
-    "xpath": "article[@id='post']/section[not(@id='comments')]"
-  },
   "//agora-web.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'articleContent') or contains(@class,'articleTop')]"
@@ -6367,10 +6356,6 @@
   "//www.gibe-on.info/": {
     "type": "xpath",
     "xpath": "div[@id='article']/div[@id='post_image' or contains(@class,'post_content')]"
-  },
-  "//www.ringobiyori.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
   },
   "//tech.feedforce.jp/": {
     "type": "xpath",
@@ -9694,11 +9679,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//roboteer-tokyo.com/": {
-    "type": "xpath",
-    "xpath": "div/strong/strong/div[not(@class)]/div[not(@class)]",
-    "next_page": "div[@class='page-numbers']"
-  },
   "//rand.pepabo.com/": {
     "type": "xpath",
     "xpath": "div[@class='article__body']"
@@ -11824,10 +11804,6 @@
       "a[@class='widebanner']"
     ]
   },
-  "//www.kagoshimaniax.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//www.seohacks.net/": {
     "type": "xpath",
     "xpath": "div[@class='c-wordpress-edit-block' or @class='c-detail-heading-module__img']"
@@ -12971,5 +12947,181 @@
     "type": "xpath",
     "xpath": "div[@class='thumb' or @class='ynDetailHeading']|//p[@class='ynDetailText']",
     "next_page": "div[@class='ftPager']"
+  },
+  "//www.rikaboo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.music-an.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.munyakosan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.life-alright.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.kurou-sagi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.hassy-blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.d-3.site/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.beginner-writer.xyz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.asunarolife.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='ads']"
+    ]
+  },
+  "//www.adobe.com/jp/news-room/news/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//www.abaretoriatama.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.8noji.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='adsense-code']"
+    ]
+  },
+  "//roboteer-tokyo.com/": {
+    "type": "xpath",
+    "xpath": "div/strong/strong/div[not(@class)]/div[not(@class)]",
+    "next_page": "div[@class='page-numbers']"
+  },
+  "//blog.livedoor.jp/itsoku/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@id='ad_rs' or @class='adtitle' or @class='adsmid' or @id='ad2']"
+    ]
+  },
+  "//www.ringobiyori.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "div[@class='ninja_onebutton']"
+    ]
+  },
+  "//web.sinka0.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//re-engines.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.ymotongpoo.com/works/goblog-ja/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//blog.domesoccer.jp/": {
+    "type": "xpath",
+    "xpath": "article[@id='post']/section[@class='section-article-first']"
+  },
+  "//php-genba.shin1x1.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//news.infoseek.co.jp/article/": {
+    "type": "xpath",
+    "xpath": "div[@class='topic-detail' or @class='topic-detail-title']"
+  },
+  "//murashun.jp/blog/": {
+    "type": "xpath",
+    "xpath": "article/section"
+  },
+  "//mfujin.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "div[@class='cstmreba' or @id='target' or @class='ninja_onebutton']"
+    ]
+  },
+  "//logcamera.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='amazonjs_item' or @class='va-social-buzz']"
+    ]
+  },
+  "//localab.jp/blog/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]|//header/figure[@class='eyecatch']"
+  },
+  "//lightworks-blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']|//figure[@class='entry-thumbnail']"
+  },
+  "//hackernoon.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'postArticle-content')]"
+  },
+  "//fit-jp.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//findy.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "div[@id='quads-ad1' or @class='ad_area_bottom']"
+    ]
+  },
+  "//devtab.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='details_main_box']"
+  },
+  "//circleci.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//www.kagoshimaniax.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='ts-fab-below']"
+    ]
+  },
+  "//blog.sugyan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.kibe.la/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.craftz.dog/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'postArticle-content')]"
+  },
+  "//app-r.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'mh-social-')]"
+    ]
+  },
+  "//blog-ja.sideci.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
