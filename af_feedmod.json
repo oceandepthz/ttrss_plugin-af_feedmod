@@ -1183,10 +1183,6 @@
     "type": "xpath",
     "xpath": "div[@id='article-area']/iframe|//h1/img|//div[@id='article-area']//dd[@class='bodytext']"
   },
-  "blogs.adobe.com": {
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'entry-content')]"
-  },
   "www.aso23.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -10670,10 +10666,6 @@
     "type": "xpath",
     "xpath": "section[@class='content--detail-main']"
   },
-  "//saruwakakun.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post-content' or @class='maincontents']"
-  },
   "//www.projectdesign.jp/": {
     "type": "xpath",
     "xpath": "div[@id='cl_box']"
@@ -13182,5 +13174,28 @@
   "//dailynewsagency.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry']"
+  },
+  "//saruwakakun.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content' or @class='maincontents']"
+  },
+  "//blogs.adobe.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class, 'entry-content')]|//section[contains(@class, 'entry-content')]"
+  },
+  "//www.yokumireba-zassyoku.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//workit.vaio.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='article-mainvis']|//div[@class='article-body' or contains(@class,'article-author')]"
+  },
+  "//railsguides.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainCol' or @id='feature']",
+    "cleanup": [
+      "ol[@class='snsb']"
+    ]
   }
 }
