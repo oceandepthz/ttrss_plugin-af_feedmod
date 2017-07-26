@@ -443,7 +443,7 @@ EOD;
     function append_img_tag($doc, $node, $url){
         $img = $doc->createElement('img','');
         $img->setAttribute('src', $url);
-        $node->appendChild($img);
+        $node->parentNode->insertBefore($img, $node->nextSibling);
     }
 
     function get_pic_links(string $url){
@@ -463,7 +463,7 @@ EOD;
         foreach ($entries as $entry) {
             $urls[] = $xpath->evaluate('string(@content)', $entry);
         }
-        return $urls;
+        return array_unique($urls);
     }
 
     function default_cleanup($xpath, $basenode){
