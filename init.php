@@ -120,6 +120,7 @@ class Af_Feedmod extends Plugin implements IHandler
                     $this->update_img_tags($entry, $link);
                     $this->update_tags($entry, $link, "a", "href");
                     $this->update_tags($entry, $link, "iframe", "src");
+                    $this->update_pic_twitter_com($doc, $xpath, $entry);
 
                     $entrysXML .= $doc->saveXML($entry);
                 }
@@ -145,6 +146,9 @@ class Af_Feedmod extends Plugin implements IHandler
                     if ($entry) {
                         $this->cleanup($xpath, $entry, $config['cleanup']);
                         $this->update_img_tags($entry, $link);
+                        $this->update_tags($entry, $link, "a", "href");
+                        $this->update_tags($entry, $link, "iframe", "src");
+                        $this->update_pic_twitter_com($doc, $xpath, $entry);
 
                         $entrysXML .= $doc->saveXML($entry);
                     }
@@ -407,6 +411,59 @@ EOD;
             // kesu
             // touroku
         }
+    }
+
+    function update_pic_twitter_com($doc, $xpath, $basenode){
+        if(!$basenode){
+            return;
+        }
+        $item = "//a[contains(text(),'pic.twitter.com/')]";
+        $node_list = $xpath->query($item, $basenode);
+        if(!$node_list){
+            return;
+        }
+        foreach ($node_list as $node){
+            if(!$node){
+                continue;
+            }
+            $link = $xpath->evaluate('string(@href)', $node);
+            if(!$link){
+                continue;
+            }
+            $urls = $this->get_pic_links($link);
+            if(!$urls){
+                continue;
+            }
+            foreach($urls as $url){
+                $this->append_img_tag($doc, $node, $url);
+            } 
+        }
+    }
+
+    function append_img_tag($doc, $node, $url){
+        $img = $doc->createElement('img','');
+        $img->setAttribute('src', $url);
+        $node->appendChild($img);
+    }
+
+    function get_pic_links(string $url){
+        $html = $this->get_html($url, array());
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+
+        if(!$doc){
+            return array();
+        }
+        $xpath = new DOMXPath($doc);
+        $entries = $xpath->query("(//meta[@property='og:image'])");
+        if($entries->length == 0) {
+            return array();
+        }
+        $urls = array();
+        foreach ($entries as $entry) {
+            $urls[] = $xpath->evaluate('string(@content)', $entry);
+        }
+        return $urls;
     }
 
     function default_cleanup($xpath, $basenode){
