@@ -902,16 +902,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "eiga.com": {
-    "type": "xpath",
-    "xpath": "div[@class='articleBox']",
-    "cleanup": [
-      "ul[@id='bmksBtm']",
-      "div[@id='newsLink']",
-      "div[@id='fb-cmnt']",
-      "ul[@id='bf']"
-    ]
-  },
   "www.konure.com": {
     "type": "xpath",
     "xpath": "div[contains(@class, 'entry-content')]"
@@ -2247,10 +2237,6 @@
       "a[@class='link-to-home']"
     ]
   },
-  "kousyou.cc": {
-    "type": "xpath",
-    "xpath": "div[@id='the-content']"
-  },
   "ringosya.jp": {
     "type": "xpath",
     "xpath": "div[contains(@class, 'entry-content')]",
@@ -3567,10 +3553,6 @@
   "everyday.mof-mof.co.jp": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "uxmilk.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='text-wrapper' or @class='credit_link' or starts-with(@class,'credit_author')]"
   },
   "harasou.github.io": {
     "type": "xpath",
@@ -8791,14 +8773,6 @@
     "type": "xpath",
     "xpath": "section[@class='detail-no-js']/section[@class='module--content']"
   },
-  "//www3.nhk.or.jp/news/business_tokushu": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "noscript",
-      "script"
-    ]
-  },
   "//onew-web.net/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
@@ -10443,13 +10417,6 @@
     "xpath": "div[@class='single']/div[@class='entry-body' or @class='entry-images']",
     "next_page": "div[@class='single']/div[@class='single_link_pages']"
   },
-  "//www.weblog-tech.nagoya/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@id='dpsp-content-bottom']"
-    ]
-  },
   "//www.wasedachronicle.org/": {
     "type": "xpath",
     "xpath": "div[@id='article_body']/article"
@@ -11352,13 +11319,6 @@
   "//bcp-manual.com/bcp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
-  },
-  "//nakamorikzs.net/": {
-    "type": "xpath",
-    "xpath": "div[@id='the-content']",
-    "cleanup": [
-      "div[contains(@class,'ad-space')]"
-    ]
   },
   "//www.sonymobile.co.jp/company/press/": {
     "type": "xpath",
@@ -13197,5 +13157,86 @@
     "cleanup": [
       "ol[@class='snsb']"
     ]
+  },
+  "//blog.livedoor.jp/aoisakana_rin/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//www3.nhk.or.jp/news/business_tokushu": {
+    "type": "xpath",
+    "xpath": "main[@id='main']/article[contains(@class,'detail-tokushu')]"
+  },
+  "//uxmilk.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']/div[@id='js-articleBody' or contains(@class,'author') or @class='article__credit']"
+  },
+  "//www.weblog-tech.nagoya/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'post-image') or @class='post-content' or @class='post-tags']",
+    "cleanup": [
+      "div[@id='dpsp-content-bottom']"
+    ]
+  },
+  "//tv.eiga.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "header",
+      "p[@class='bookmark']"
+    ]
+  },
+  "//eiga.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBox']",
+    "cleanup": [
+      "ul[@id='bmksBtm']",
+      "div[@id='newsLink']",
+      "div[@id='fb-cmnt']",
+      "ul[@id='bf']"
+    ]
+  },
+  "//yoshoku.themedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog-body__item']"
+  },
+  "//yamanashirei.blog86.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_body']"
+  },
+  "//xn--e--0g4awc3c1451cnh5a.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-body')]"
+  },
+  "//xico.media/tutorials/": {
+    "type": "xpath",
+    "xpath": "figure[@class='base-image']|//article[@class='entry-content']"
+  },
+  "//www.tomiemisato.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.thaislife.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.sakamocchi-diary.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.ok89.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.necoyapa.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//kousyou.cc/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//nakamorikzs.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
