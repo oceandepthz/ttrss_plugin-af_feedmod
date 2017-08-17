@@ -12224,10 +12224,6 @@
       "ol[@class='snsb']"
     ]
   },
-  "//blog.livedoor.jp/aoisakana_rin/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']"
-  },
   "//www3.nhk.or.jp/news/business_tokushu": {
     "type": "xpath",
     "xpath": "main[@id='main']/article[contains(@class,'detail-tokushu')]"
@@ -12369,5 +12365,138 @@
   "//xera.jp/entry/": {
     "type": "xpath",
     "xpath": "div[@id='article']/div[contains(@class,'post_content')]"
+  },
+  "//www.soldi.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='post']"
+  },
+  "//www.nikkan.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='changeArea']/div[@class='txt']",
+    "cleanup": [
+      "div[contains(@class,'articleAd')]"
+    ]
+  },
+  "//www.mugendai-web.jp/": {
+    "type": "xpath",
+    "xpath": "p[@class='main_image']|//div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='sharebutton']"
+    ]
+  },
+  "//www.misokichi.com/chinge/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//www.iwashi.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-inner']"
+  },
+  "//www.brendangregg.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']"
+  },
+  "//wezz-y.com/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "cleanup": [
+      "div[@id='nextPageTitle']",
+      "p[@id='postpage']"
+    ],
+    "next_page": "p[@id='postpage']"
+  },
+  "//spjai.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-thumbnail']|//section[@class='post-content']"
+  },
+  "//mizunome-ru.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "div[@class='va-social-buzz']"
+    ]
+  },
+  "//minamimitsuhiro.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//lifemagazine.yahoo.co.jp/": {
+    "type": "xpath",
+    "xpath": "header/*[@class='modArticleHeader_image' or @class='modArticleHeader_text']|//div[@id='atclmod']",
+    "cleanup": [
+      "div[@id='b_snsmod']"
+    ]
+  },
+  "//kishikorofreee.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  "//kamonohashiperry.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//ichimaruni-design.com/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='p-article__thumb' or @class='p-article__text' or @class='p-content']"
+  },
+  "//findy-code.io/engineer-lab/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']"
+  },
+  "//figona-love.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
+  },
+  "//ff11-beginner-odangotaru.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//creator.game.cyberagent.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'blog__top-image')]|//section[@class='blog__body']"
+  },
+  "//cg-geeks.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//breaking-news.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_content']",
+    "cleanup": [
+      "div[@class='adsense_center']"
+    ]
+  },
+  "//blog.soundcloud.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//beinspiredglobal.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-inner']/div[contains(@class,'wp-caption')]|//div[@class='entry-inner']/section"
+  },
+  "//anonymous-post.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@id,'_ad_')]"
+    ]
+  },
+  "//akiyolife.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'ad-space')]"
+    ]
+  },
+  "//adtech.cyberagent.io/techblog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//blog.livedoor.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
