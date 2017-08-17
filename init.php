@@ -158,6 +158,40 @@ class Af_Feedmod extends Plugin implements IHandler
             break;   // if we got here, we found the correct entry in $data, do not process more
         }
 
+        // hatena contents
+        if($is_hit_link === false){
+            $link = $article['link'];
+            $html = $this->get_html($link, array());
+            if($html){
+                $doc = new DOMDocument();
+                @$doc->loadHTML($html);
+                if($doc){
+                    $xpath = new DOMXPath($doc);
+                    $entries = $xpath->query("(//html[@data-admin-domain='//blog.hatena.ne.jp'])");
+                    if ($entries->length > 0){
+                        $entries = $xpath->query("(//div[@class='entry-content'])");
+                        if ($entries->length > 0){
+                            $entrysXML = '';
+                            foreach ($entries as $entry) {
+                                if ($entry) {
+                                    $this->cleanup($xpath, $entry, array());
+                                    $this->update_img_tags($entry, $link);
+                                    $this->update_tags($entry, $link, "a", "href");
+                                    $this->update_tags($entry, $link, "iframe", "src");
+                                    $this->update_pic_twitter_com($doc, $xpath, $entry);
+
+                                    $entrysXML .= $doc->saveXML($entry);
+                                }
+                            }
+                            $article['content'] = $entrysXML;
+                            $is_hit_link = true;
+                            $is_execute = true;
+                        }
+                    }
+                }
+            }
+        }
+
         // add hatebu comment
         if(strpos($article['feed']['fetch_url'],'//b.hatena.ne.jp/hotentry/it.rss') !== false ||
            strpos($article['feed']['fetch_url'],'//feeds.feedburner.com/hatena/b/hotentry') !== false){
@@ -222,7 +256,7 @@ EOD;
         file_put_contents(dirname(__FILE__).'/debug.txt', print_r($v, true)."\n", FILE_APPEND|LOCK_EX);
     }
 
-    function writeLog($url,$is_hit_link){
+    function writeLog(string $url, bool $is_hit_link) : void {
         $exclusionUrlList = json_decode(file_get_contents(dirname(__FILE__).'/exclusion_url_list.json'),true);
         foreach($exclusionUrlList as $v){
             if(strpos($url, $v) !== false){
@@ -241,7 +275,7 @@ EOD;
         file_put_contents(dirname(__FILE__).'/af_feed_no_entry.txt', "$dt\t$host\t$url\t$suffix\n", FILE_APPEND|LOCK_EX);
     }
 
-    function replace_link($link, $config) : string {
+    function replace_link(string $link, array $config) : string {
         if(!isset($config['rep_pattern'])){
             return $link;
         }
@@ -253,7 +287,7 @@ EOD;
         return $rep_link;
     }
 
-    function get_html_pjs($url) : string {
+    function get_html_pjs(string $url) : string {
 
         file_put_contents(dirname(__FILE__).'/af_feed_phantomjs.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
 
@@ -262,14 +296,14 @@ EOD;
         return $pjs->get_html($url);
     }
 
-    function is_pjs($config) : bool {
+    function is_pjs(array $config) : bool {
         if(!isset($config['engine'])){
             return false;
         }
         return strtolower($config['engine']) == 'phantomjs';
     }
     
-    function get_contents($url, $config){
+    function get_contents(string $url, array $config){
         if($this->is_pjs($config)){
             return $this->get_html_pjs($url);
         }else{
@@ -277,7 +311,7 @@ EOD;
         }
     }
 
-    function get_html($url, $config){
+    function get_html(string $url, array $config){
         $html = $this->get_contents($url, $config);
         if(!$html){
             sleep(10);
