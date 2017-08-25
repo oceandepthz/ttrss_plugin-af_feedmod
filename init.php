@@ -212,15 +212,15 @@ class Af_Feedmod extends Plugin implements IHandler
                 $xpath = new DOMXPath($doc);
 
                 $users = 0;
-                $entries = $xpath->query("(//ul[contains(@class,'users')]/li/strong/a/span)");
+                $entries = $xpath->query("(//div[@class='entry-bookmark']//span[@class='entry-info-users']/a/span)");
                 if ($entries->length > 0){
                   $users = $xpath->evaluate('string()', $entries[0]);    
                 }
 
-                $entries = $xpath->query("(//div[@id='new-bookmarks']/ul[@class='bookmark-list'])");
+                $entries = $xpath->query("(//div[contains(@class,'js-bookmarks') and contains(@class,'js-bookmarks-recent')])");
                 if ($entries->length > 0) {
                     foreach ($entries as $entry) {
-                        $this->cleanup($xpath, $entry, array("span[contains(@class,'twitter')]","div[@class='user-comment-meta']"));
+                        $this->cleanup($xpath, $entry, array("p[@class='entry-comment-meta']","button[contains(@class,'entry-comment-menu')]","ul[contains(@class,'entry-comment-menu-list')]"));
                         $h_comment .= $doc->saveXML($entry);
                     }
                     if(strlen($h_comment) > 0){
@@ -230,13 +230,17 @@ div.hatebu-comment {
     border:solid 2px;
     padding:10px;
 }
-div.hatebu-comment ul {
-    list-style-type: none;
-    padding-left:1em;
-}
-div.hatebu-comment img.profile-image {
+div.hatebu-comment img {
     width: 16px;
     height: 16px;
+}
+div.hatebu-comment ul.entry-comment-tags {
+    display:table;
+    table-layout:fixed;
+    margin:0;
+}
+div.hatebu-comment ul.entry-comment-tags li {
+    display:table-cell;
 }
 </style>
 EOD;
@@ -456,6 +460,7 @@ EOD;
         if(!$node_list){
             return;
         }
+        $add_urls = [];
         foreach ($node_list as $node){
             if(!$node){
                 continue;
@@ -469,6 +474,10 @@ EOD;
                 continue;
             }
             foreach($urls as $url){
+                if(in_array($url, $add_urls) === true){
+                    continue;
+                }
+                $add_urls[] = $url;
                 $this->append_img_tag($doc, $node, $url);
             } 
         }
