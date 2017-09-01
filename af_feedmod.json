@@ -104,7 +104,7 @@
     "type": "xpath",
     "xpath": "div[@id='more']"
   },
-  "www.geekpage.jp/blog": {
+  "//www.geekpage.jp/": {
     "type": "xpath",
     "xpath": "div[@class='main']",
     "cleanup": [
@@ -5995,10 +5995,6 @@
       "aside[starts-with(@class,'ecTry')]"
     ]
   },
-  "//www.gizmodo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']"
-  },
   "//naruhodo-cardloan.com/": {
     "type": "xpath",
     "xpath": "div[@class='main-article']",
@@ -8981,10 +8977,6 @@
   "//www.gogolem.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//esa-pages.io/p/sharing/": {
-    "type": "xpath",
-    "xpath": "div[@class='main-column']"
   },
   "//malliolog.asatoend.net/": {
     "type": "xpath",
@@ -12526,5 +12518,48 @@
     "type": "xpath",
     "engine": "phantomjs",
     "xpath": "div[@class='body-wrapper' or @class='note-cover-img']"
+  },
+  "//hp-work.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-thumb-single' or @class='article-body']"
+  },
+  "//hacks.mozilla.org/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//www.gizmodo.jp/": {
+    "type": "xpath",
+    "xpath": "figure[@class='p-post-thumbnail']|//div[@class='p-post-content']"
+  },
+  "//esa-pages.io/p/sharing/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-column']"
+  },
+  "//www.yogurtgeek.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.platinumgames.co.jp/magazine/": {
+    "type": "xpath",
+    "xpath": "header/figure|//div[contains(@class,'post-content-wrap')]/div[contains(@class,'post-content')]"
+  },
+  "//www.onealite.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-contents']",
+    "cleanup": [
+      "div[@class='ninja_onebutton']"
+    ]
+  },
+  "//www.centsys.jp/column/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www6.nhk.or.jp/anime/topics/": {
+    "type": "xpath",
+    "xpath": "div[@id='detailPane']"
+  },
+  "//wantedlyinc.com/ja/news/entries/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
