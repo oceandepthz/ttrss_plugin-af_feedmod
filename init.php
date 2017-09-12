@@ -106,7 +106,6 @@ class Af_Feedmod extends Plugin implements IHandler
             $xpath = new DOMXPath($doc);
 
             $links = $this->get_np_links($xpath, $doc, $config, $link);
-
             $entries = $xpath->query('(//'.$config['xpath'].')');   // find main DIV according to config
             if ($entries->length == 0) {
                 break;
@@ -116,12 +115,6 @@ class Af_Feedmod extends Plugin implements IHandler
             $entrysXML = '';
             foreach ($entries as $entry) {
                 if ($entry) {
-                    $this->cleanup($xpath, $entry, $config['cleanup']);
-                    $this->update_img_tags($entry, $link);
-                    $this->update_tags($entry, $link, "a", "href");
-                    $this->update_tags($entry, $link, "iframe", "src");
-                    $this->update_pic_twitter_com($doc, $xpath, $entry);
-
                     $entrysXML .= $doc->saveXML($entry);
                 }
             }
@@ -144,12 +137,6 @@ class Af_Feedmod extends Plugin implements IHandler
                 $entrysXML = '';
                 foreach ($entries as $entry) {
                     if ($entry) {
-                        $this->cleanup($xpath, $entry, $config['cleanup']);
-                        $this->update_img_tags($entry, $link);
-                        $this->update_tags($entry, $link, "a", "href");
-                        $this->update_tags($entry, $link, "iframe", "src");
-                        $this->update_pic_twitter_com($doc, $xpath, $entry);
-
                         $entrysXML .= $doc->saveXML($entry);
                     }
                 }
@@ -174,12 +161,6 @@ class Af_Feedmod extends Plugin implements IHandler
                             $entrysXML = '';
                             foreach ($entries as $entry) {
                                 if ($entry) {
-                                    $this->cleanup($xpath, $entry, array());
-                                    $this->update_img_tags($entry, $link);
-                                    $this->update_tags($entry, $link, "a", "href");
-                                    $this->update_tags($entry, $link, "iframe", "src");
-                                    $this->update_pic_twitter_com($doc, $xpath, $entry);
-
                                     $entrysXML .= $doc->saveXML($entry);
                                 }
                             }
@@ -192,9 +173,27 @@ class Af_Feedmod extends Plugin implements IHandler
             }
         }
 
+        if($is_execute){
+            $link = $article['link'];
+            $content = mb_convert_encoding("<div>".$article['content']."</div>", 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+            $doc = new DOMDocument();
+            @$doc->loadHTML($content);
+            if($doc){
+                $xpath = new DOMXPath($doc);
+                $entry = $doc->documentElement;
+                $this->cleanup($xpath, $entry, $config['cleanup']);
+                $this->update_img_tags($entry, $link);
+                $this->update_tags($entry, $link, "a", "href");
+                $this->update_tags($entry, $link, "iframe", "src");
+                $this->update_pic_twitter_com($doc, $xpath, $entry);                
+                $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
+            }
+        }
+
         // add hatebu comment
         if(strpos($article['feed']['fetch_url'],'//b.hatena.ne.jp/hotentry/it.rss') !== false ||
            strpos($article['feed']['fetch_url'],'//feeds.feedburner.com/hatena/b/hotentry') !== false){
+
             // create hatena url
             $is_ssl = strpos($article['link'],'https://') === 0;
             $url = 'http://b.hatena.ne.jp/entry/';
@@ -216,7 +215,6 @@ class Af_Feedmod extends Plugin implements IHandler
                 if ($entries->length > 0){
                   $users = $xpath->evaluate('string()', $entries[0]);    
                 }
-
                 $entries = $xpath->query("(//div[contains(@class,'js-bookmarks') and contains(@class,'js-bookmarks-recent')])");
                 if ($entries->length > 0) {
                     foreach ($entries as $entry) {
@@ -457,7 +455,7 @@ EOD;
         }
         $item = "//a[contains(text(),'pic.twitter.com/')]";
         $node_list = $xpath->query($item, $basenode);
-        if(!$node_list){
+        if(!$node_list || $node_list->length === 0){
             return;
         }
         $add_urls = [];
@@ -481,6 +479,7 @@ EOD;
                 $this->append_img_tag($doc, $node, $url);
             } 
         }
+//        $this->__debug($add_urls);
     }
 
     function append_img_tag($doc, $node, $url){
@@ -529,7 +528,7 @@ EOD;
                 $cleanup_item = '//'.$cleanup_item;
             }
             $nodelist = $xpath->query($cleanup_item, $basenode);
-            if(!$nodelist){
+            if(!$nodelist || $nodelist->length === 0){
                 continue;
             }
             foreach ($nodelist as $node) {
@@ -561,7 +560,7 @@ EOD;
                 $cleanup_item = '//'.$cleanup_item;
             }
             $nodelist = $xpath->query($cleanup_item, $basenode);
-            if(!$nodelist){
+            if(!$nodelist || $nodelist->length === 0){
                 continue;
             }
             foreach ($nodelist as $node) {
