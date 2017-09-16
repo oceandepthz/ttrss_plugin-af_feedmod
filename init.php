@@ -186,6 +186,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_tags($entry, $link, "a", "href");
                 $this->update_tags($entry, $link, "iframe", "src");
                 $this->update_pic_twitter_com($doc, $xpath, $entry);                
+                $this->update_instagram($doc, $xpath, $entry, $link);
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
         }
@@ -433,20 +434,58 @@ EOD;
         return $links;
     }
 
-    function update_instagram($xpath, $basenode){
+    function update_instagram($doc, $xpath, $basenode, $link){
         if(!$basenode){
             return;
         }
         $query = "(//blockquote[@class='instagram-media'])";
         $nodelist = $xpath->query($query, $basenode);
-        if(!$nodelist){
+        if(!$nodelist || $nodelist->length === 0){
             return;
         }
         foreach ($nodelist as $node) {
-            // a tag
-            // kesu
-            // touroku
+            $link_node = $xpath->query("(.//div/p/a)", $node);
+            if(!$link_node || $link_node->length ===0){
+                continue;
+            }
+            $link = $xpath->evaluate('string(@href)',$link_node[0]);
+            if(strpos($link, 'https://www.instagram.com/p/') !== 0){
+                continue;
+            }
+            $img_link = $this->get_instagram_img_url($link);
+            if(!$img_link){
+                continue;
+            }
+            $d_nodes = $xpath->query("(.//div/div/div)", $node);
+            if($d_nodes->length > 0){
+                $d_node = $d_nodes[0];
+                $d_node->parentNode->removeChild($d_node);
+            }
+            $i_nodes = $xpath->query("(.//div/div)", $node);
+            if($i_nodes->length > 0){
+               $i_node = $i_nodes[0];
+               $img = $doc->createElement('img','');
+               $img->setAttribute('src', $img_link);
+               $i_node->appendChild($img);
+               $i_node->setAttribute('style','');
+            }
         }
+    }
+    function get_instagram_img_url(string $url) : string {
+        $html = $this->get_html_pjs($url);
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+        if(!$doc){
+            return "";
+        }
+
+        $xpath = new DOMXPath($doc);
+        $entries = $xpath->query("(//span[@id='react-root']//article/div//img)");
+        if($entries->length == 0) {
+            return "";
+        }
+        $entry = $entries[0];
+        return $xpath->evaluate('string(@src)', $entry);
     }
 
     function update_pic_twitter_com($doc, $xpath, $basenode){
@@ -479,7 +518,6 @@ EOD;
                 $this->append_img_tag($doc, $node, $url);
             } 
         }
-//        $this->__debug($add_urls);
     }
 
     function append_img_tag($doc, $node, $url){
