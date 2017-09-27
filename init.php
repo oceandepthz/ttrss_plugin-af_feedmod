@@ -189,7 +189,15 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_instagram($doc, $xpath, $entry, $link);
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
+
+            //$this->__debug("url:${link} append_css:".$config['append_css']);
+            // add css
+            if(isset($config['append_css']) && $config['append_css']){
+                //$this->__debug("url:${link} append");
+                $article['content'] .= "<style type='text/css'>".$config['append_css']."</style>";
+            }
         }
+        
 
         // add hatebu comment
         if(strpos($article['feed']['fetch_url'],'//b.hatena.ne.jp/hotentry/it.rss') !== false ||
@@ -464,10 +472,20 @@ EOD;
             $i_nodes = $xpath->query("(.//div/div)", $node);
             if($i_nodes->length > 0){
                $i_node = $i_nodes[0];
-               $img = $doc->createElement('img','');
-               $img->setAttribute('src', $img_link);
-               $i_node->appendChild($img);
-               $i_node->setAttribute('style','');
+
+               if(strpos($img_link, ".jpg") !== false){
+                   $img = $doc->createElement('img','');
+                   $img->setAttribute('src', $img_link);
+                   $i_node->appendChild($img);
+                   $i_node->setAttribute('style','');
+               }else if(strpos($img_link, ".mp4") !== false){
+                   $img = $doc->createElement('video','');
+                   $img->setAttribute('src', $img_link);
+                   $img->setAttribute('type', 'video/mp4');
+                   $img->setAttribute('preload','none');
+                   $i_node->appendChild($img);
+                   $i_node->setAttribute('style','');
+               }
             }
         }
     }
@@ -481,11 +499,16 @@ EOD;
 
         $xpath = new DOMXPath($doc);
         $entries = $xpath->query("(//span[@id='react-root']//article/div//img)");
-        if($entries->length == 0) {
-            return "";
+        if($entries->length > 0) {
+            $entry = $entries[0];
+            return $xpath->evaluate('string(@src)', $entry);
         }
-        $entry = $entries[0];
-        return $xpath->evaluate('string(@src)', $entry);
+        $entries = $xpath->query("(//span[@id='react-root']//article/div//video)");
+        if($entries->length > 0) {
+            $entry = $entries[0];
+            return $xpath->evaluate('string(@src)', $entry);
+        }
+        return "";
     }
 
     function update_pic_twitter_com($doc, $xpath, $basenode){
@@ -497,7 +520,6 @@ EOD;
         if(!$node_list || $node_list->length === 0){
             return;
         }
-        $add_urls = [];
         foreach ($node_list as $node){
             if(!$node){
                 continue;
@@ -510,11 +532,7 @@ EOD;
             if(!$urls){
                 continue;
             }
-            foreach($urls as $url){
-                if(in_array($url, $add_urls) === true){
-                    continue;
-                }
-                $add_urls[] = $url;
+            foreach(array_reverse($urls) as $url){
                 $this->append_img_tag($doc, $node, $url);
             } 
         }
@@ -541,7 +559,7 @@ EOD;
         }
         $urls = array();
         foreach ($entries as $entry) {
-            $urls[] = $xpath->evaluate('string(@content)', $entry);
+            $urls[] = str_replace(":large","",$xpath->evaluate('string(@content)', $entry));
         }
         return array_unique($urls);
     }
