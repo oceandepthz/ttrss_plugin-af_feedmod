@@ -135,13 +135,6 @@
     "type": "xpath",
     "xpath": "div[@id='intv_content']"
   },
-  "cakes.mu": {
-    "type": "xpath",
-    "xpath": "div[@class='article-content']",
-    "cleanup": [
-      "div[@id='area_paywall']"
-    ]
-  },
   "review.dospara.co.jp": {
     "type": "xpath",
     "xpath": "div[@class='mm_container']"
@@ -10840,7 +10833,8 @@
     "xpath": "header|//article[contains(@class,'article') or contains(@class,'buzz--list')]",
     "cleanup": [
       "div[contains(@id,'mod-action-bar-')]"
-    ]
+    ],
+    "append_css": "div.subbuzz__media-container{padding-top:0!important;}"
   },
   "//developers.google.com/web/updates/": {
     "type": "xpath",
@@ -12768,5 +12762,34 @@
     "cleanup": [
       "div[contains(@class,'ad-space')]"
     ]
+  },
+  "//cakes.mu/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-content' or @class='article-lead']",
+    "cleanup": [
+      "div[@id='area_paywall']"
+    ]
+  },
+  "//gurutabi.gnavi.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='l-article__main']",
+    "cleanup": [
+      "div[@class='share-btn']"
+    ]
+  },
+  "//ethereum-japan.net/bitcoin/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']",
+    "cleanup": [
+      "iframe[contains(@class,'twitter-follow-button') or contains(@class,'twitter-share-button') or @class='indiesquare_button_frame']"
+    ]
+  },
+  "//ethereum-japan.net/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_content']"
+  },
+  "//dic.nicovideo.jp/a/": {
+    "type": "xpath",
+    "xpath": "div[@id='article']"
   }
 }
