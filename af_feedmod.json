@@ -12791,5 +12791,21 @@
   "//dic.nicovideo.jp/a/": {
     "type": "xpath",
     "xpath": "div[@id='article']"
+  },
+  "//oauth.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//dongri.github.io/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//developer.mozilla.org/": {
+    "type": "xpath",
+    "xpath": "article[@id='wikiArticle']"
+  },
+  "//developer.apple.com/library/content/": {
+    "type": "xpath",
+    "xpath": "article"
   }
 }
