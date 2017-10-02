@@ -190,10 +190,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
 
-            //$this->__debug("url:${link} append_css:".$config['append_css']);
             // add css
             if(isset($config['append_css']) && $config['append_css']){
-                //$this->__debug("url:${link} append");
                 $article['content'] .= "<style type='text/css'>".$config['append_css']."</style>";
             }
         }
@@ -448,12 +446,12 @@ EOD;
         }
         $query = "(//blockquote[@class='instagram-media'])";
         $nodelist = $xpath->query($query, $basenode);
-        if(!$nodelist || $nodelist->length === 0){
+        if($nodelist->length === 0){
             return;
         }
         foreach ($nodelist as $node) {
             $link_node = $xpath->query("(.//div/p/a)", $node);
-            if(!$link_node || $link_node->length ===0){
+            if($link_node->length ===0){
                 continue;
             }
             $link = $xpath->evaluate('string(@href)',$link_node[0]);
