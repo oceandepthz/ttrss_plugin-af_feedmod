@@ -743,10 +743,6 @@
     "type": "xpath",
     "xpath": "div[@class='article']"
   },
-  "//www.nikkansports.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='news']|//dl[starts-with(@class, 'article-photo_main')]/dt"
-  },
   "iphone-mania.jp": {
     "type": "xpath",
     "xpath": "div[@id='single_content']"
@@ -839,11 +835,6 @@
     "cleanup": [
       "//p[@class='writerLinkTtl']/.."
     ]
-  },
-  "dot.asahi.com": {
-    "type": "xpath",
-    "xpath": "div[@class='InfImgBox']//table//img|//p[@class='nTxt1']",
-    "next_page": "ul[@id='pg']"
   },
   "akabeko.me": {
     "type": "xpath",
@@ -4758,14 +4749,6 @@
   "response.jp": {
     "type": "xpath",
     "xpath": "figure|//span[@class='writer']|//main/div/article"
-  },
-  "hosyusokuhou.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-body']",
-    "cleanup": [
-      "div[@id='ad_rs' or @id='spad' or @id='ad2' or @id='admiddle']",
-      "script[contains(@src,'rranking14.ziyu.net/rank.ph')]"
-    ]
   },
   "99designs.jp": {
     "type": "xpath",
@@ -11167,13 +11150,6 @@
       "div[@class='simplesocialbuttons']"
     ]
   },
-  "//blog-kuroneko.com/": {
-    "type": "xpath",
-    "xpath": "article/div[@class='entry']",
-    "cleanup": [
-      "dl[@id='fc2relate_entry_thumbnail_area']"
-    ]
-  },
   "//blog.desire.sh/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -12780,14 +12756,6 @@
     "type": "xpath",
     "xpath": "article"
   },
-  "//thepage.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='art']",
-    "cleanup": [
-      "nav[@class='pagenation']"
-    ],
-    "next_page": "nav[@class='pagenation']"
-  },
   "//news.denfaminicogamer.jp/": {
     "type": "xpath",
     "xpath": "div[@id='articleBody']",
@@ -12938,5 +12906,84 @@
   "//aloerina01.github.io/": {
     "type": "xpath",
     "xpath": "article[@class='post-content']"
+  },
+  "//sedori-go.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@id='wp_rp_first' or contains(@class,'sharedaddy') or contains(@id,'like-post-wrapper-')]"
+    ]
+  },
+  "//code.visualstudio.com/blogs/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]"
+  },
+  "//blog.guts-kaneko.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eye-catch']|//div[@id='the-content']"
+  },
+  "//biancaweb.net/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='social_button']"
+    ]
+  },
+  "//thepage.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='article-body']",
+    "cleanup": [
+      "nav[@class='pagenation']"
+    ],
+    "next_page": "nav[@class='pagenation']"
+  },
+  "//scrapbox.io/": {
+    "type": "xpath",
+    "engine": "phantomjs",
+    "xpath": "div[@id='app-container']//div[@class='page']"
+  },
+  "//qa.atmarkit.co.jp/q/": {
+    "type": "xpath",
+    "xpath": "article[@id='question']//div[@class='main']"
+  },
+  "//www.kaitoy.xyz/": {
+    "type": "xpath",
+    "xpath": "article[@id='post']/div[contains(@class,'eyecatch') or @class='content']"
+  },
+  "//www.nikkansports.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='news']|//dl[starts-with(@class, 'article-photo_main')]/dt",
+    "next_page": "div[@class='article-pagenavi']"
+  },
+  "//dot.asahi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='InfImgBox']//table//img|//p[@class='nTxt1']",
+    "next_page": "ul[@id='pg']"
+  },
+  "//androgamer.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@id='widget-in-article' or contains(@id,'quads-ad')]"
+    ]
+  },
+  "//hosyusokuhou.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='entrybody']"
+  },
+  "//blog-kuroneko.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents']",
+    "cleanup": [
+      "div[@id='share' or @class='fc2_footer']"
+    ]
+  },
+  "//www.stereosound.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='addMainAreaInner']/div[contains(@class,'addDescriptionArea') or @class='addInfoArea' or @class='addTagArea' or @class='addRelatedLinkArea']"
+  },
+  "//www.tepkode.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
   }
 }
