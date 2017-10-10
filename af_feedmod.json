@@ -12985,5 +12985,9 @@
   "//www.tepkode.com/": {
     "type": "xpath",
     "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
+  },
+  "//ameblo.jp/itamaebenichi/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleText']"
   }
 }
