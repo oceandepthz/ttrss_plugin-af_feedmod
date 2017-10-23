@@ -531,9 +531,23 @@ EOD;
                 continue;
             }
             foreach(array_reverse($urls) as $url){
-                $this->append_img_tag($doc, $node, $url);
+                if(strpos($url, 'https://twitter.com/i/videos/') === 0){
+                    $this->append_iframe_tag($doc, $node, $url);
+                } else {
+                    $this->append_img_tag($doc, $node, $url);
+                }
             } 
         }
+    }
+
+
+    function append_iframe_tag($doc, $node, $url){
+        $if = $doc->createElement('iframe','');
+        $if->setAttribute('src', $url);
+        $if->setAttribute('width', '640');
+        $if->setAttribute('height', '480');
+        $if->setAttribute('sandbox', 'allow-scripts');
+        $node->parentNode->insertBefore($if, $node->nextSibling);
     }
 
     function append_img_tag($doc, $node, $url){
@@ -551,6 +565,15 @@ EOD;
             return array();
         }
         $xpath = new DOMXPath($doc);
+
+        // video
+        $entries = $xpath->query("(//meta[@property='og:video:url'])");
+        if($entries->length > 0) {
+            $urls[] = str_replace("?embed_source=facebook", "", $xpath->evaluate('string(@content)', $entries->item(0)));
+            return $urls;
+        }
+
+        // image
         $entries = $xpath->query("(//meta[@property='og:image'])");
         if($entries->length == 0) {
             return array();
