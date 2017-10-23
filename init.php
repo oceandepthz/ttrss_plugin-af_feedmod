@@ -312,15 +312,16 @@ EOD;
         return strtolower($config['engine']) == 'phantomjs';
     }
     
-    function get_contents(string $url, array $config){
+    function get_contents(string $url, array $config) : string {
         if($this->is_pjs($config)){
             return $this->get_html_pjs($url);
         }else{
-            return fetch_file_contents($url);
+            $r = fetch_file_contents($url);
+            return $r ? $r : "";
         }
     }
 
-    function get_html(string $url, array $config){
+    function get_html(string $url, array $config) : string {
         $html = $this->get_contents($url, $config);
         if(!$html){
             sleep(10);
@@ -363,7 +364,7 @@ EOD;
     }
 
     // number向け
-    function get_np_links_number_bunshun_jp($xpath, $doc, $link){
+    function get_np_links_number_bunshun_jp(DOMXPath $xpath, DOMDocument $doc, string $link) : array {
         $links = array();
 
         $numberXpath = new DOMXPath($doc);
@@ -378,7 +379,7 @@ EOD;
         }
         return $links;
     }
-    function get_np_links($xpath, $doc, $config, $link){
+    function get_np_links(DOMXPath $xpath, DOMDocument $doc, array $config, string $link) : array {
         $links = array();
 
         if(strpos($link, '//number.bunshun.jp/articles/') !== FALSE){
@@ -440,7 +441,7 @@ EOD;
         return $links;
     }
 
-    function update_instagram($doc, $xpath, $basenode, $link){
+    function update_instagram(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
         if(!$basenode){
             return;
         }
@@ -509,7 +510,7 @@ EOD;
         return "";
     }
 
-    function update_pic_twitter_com($doc, $xpath, $basenode){
+    function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode) : void {
         if(!$basenode){
             return;
         }
@@ -541,7 +542,7 @@ EOD;
     }
 
 
-    function append_iframe_tag($doc, $node, $url){
+    function append_iframe_tag(DOMDocument $doc, DOMElement $node, string $url) : void {
         $if = $doc->createElement('iframe','');
         $if->setAttribute('src', $url);
         $if->setAttribute('width', '640');
@@ -550,13 +551,13 @@ EOD;
         $node->parentNode->insertBefore($if, $node->nextSibling);
     }
 
-    function append_img_tag($doc, $node, $url){
+    function append_img_tag(DOMDocument $doc, DOMElement $node, string $url) : void {
         $img = $doc->createElement('img','');
         $img->setAttribute('src', $url);
         $node->parentNode->insertBefore($img, $node->nextSibling);
     }
 
-    function get_pic_links(string $url){
+    function get_pic_links(string $url) : array {
         $html = $this->get_html($url, array());
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
@@ -585,7 +586,7 @@ EOD;
         return array_unique($urls);
     }
 
-    function default_cleanup($xpath, $basenode){
+    function default_cleanup(DOMXPath $xpath, DOMElement $basenode) : void {
         if(!$basenode){
             return;
         }
@@ -619,7 +620,7 @@ EOD;
         }
     }
 
-    function cleanup($xpath, $basenode, $config_cleanup){
+    function cleanup(DOMXPath $xpath, DOMElement $basenode, $config_cleanup) : void {
         if(!$basenode){
             return;
         }
@@ -651,7 +652,7 @@ EOD;
         }
     }
 
-    function update_tags($basenode, $link, $tag, $attr){
+    function update_tags(DOMElement $basenode, string $link, string $tag, string $attr) : void {
         if(!$basenode){
             return;
         }
@@ -679,7 +680,7 @@ EOD;
         }
     }
 
-    function get_replace_img(DOMNode $node) : string {
+    function get_replace_img(DOMElement $node) : string {
         $url = '';
         $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-img-path', 'srcset',
             'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original'];
@@ -698,7 +699,7 @@ EOD;
         }
         return $url;
     }
-    function update_img_src(DOMNode $node, string $link) : string{
+    function update_img_src(DOMElement $node, string $link) : string {
         $src = $node->getAttribute('src');
         if(substr($src,0,2) == "//"){
             $url_item = parse_url($link);
@@ -714,7 +715,7 @@ EOD;
         }
         return $src;
     }
-    function update_img_tags($basenode, $link){
+    function update_img_tags(DOMElement $basenode, string $link) : void {
         if(!$basenode){
             return;
         }
