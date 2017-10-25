@@ -2674,10 +2674,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry']"
   },
-  "www.calciomatome.net": {
-    "type": "xpath",
-    "xpath": "div[@class='blogbody']/div[@class='text']/br|//div[@class='blogbody']/div[@class='text']/div[starts-with(@class,'text_frame') or starts-with(@class,'t_h') or starts-with(@class,'t_b')]"
-  },
   "www.blog.milkwalkee.net": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -5420,10 +5416,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//topics.nintendo.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='detail-body-container' or @class='detail-footer-container' or @class='detail-main-img-container']"
-  },
   "//memo.sugyan.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -8156,14 +8148,6 @@
     "type": "xpath",
     "xpath": "div[@id='conts']/p[@class='text']|//div[@id='articleImage']|//div[@class='load']/div[not(@class) or @class='text01']"
   },
-  "//japanese.engadget.com/promo/": {
-    "type": "xpath",
-    "xpath": "div[@id='body']"
-  },
-  "//japanese.engadget.com/": {
-    "type": "xpath",
-    "xpath": "figure/img[contains(@class,'stretch-img')]|//div[contains(@class,'article-text')]"
-  },
   "//weekly-g.jp/": {
     "type": "xpath",
     "xpath": "div[@class='cHeader']|//div[@class='contentIn']/section"
@@ -9499,7 +9483,7 @@
       "div[@class='social-area-syncer']"
     ]
   },
-  "//wallabag.org/en/news/": {
+  "//wallabag.org": {
     "type": "xpath",
     "xpath": "section[@id='post-body']"
   },
@@ -9729,10 +9713,6 @@
   "//www.gurinovation.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//www.dailyshincho.jp/": {
-    "type": "xpath",
-    "xpath": "p[@class='prof']|//div[@class='wp_txt']"
   },
   "//www.busymama.link/": {
     "type": "xpath",
@@ -10372,10 +10352,6 @@
     "cleanup": [
       "iframe[contains(@src,'//blog.hatena.ne.jp/minatoblog/minatoblog.hatenablog.com/subscribe/iframe')]"
     ]
-  },
-  "//knowledge.sakura.ad.jp/": {
-    "type": "xpath",
-    "xpath": "header[@class='entry-header']|//div[@class='entry-content' or @class='entry-author']"
   },
   "//current.ndl.go.jp/": {
     "type": "xpath",
@@ -12989,5 +12965,74 @@
   "//ameblo.jp/itamaebenichi/": {
     "type": "xpath",
     "xpath": "div[@class='articleText']"
+  },
+  "//www.calciomatome.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogbody']/div[@class='text']",
+    "cleanup": [
+      "div[@class='ggl_ad_res1' or @id='rss_with_adres1' or @class='posted' or @class='listCategoryArticle' or @class='hot_rss_title' or @id='hot_rss']",
+      "ul[@id='bookmark2']"
+    ]
+  },
+  "//www.recruit-mp.co.jp/news/release/": {
+    "type": "xpath",
+    "xpath": "div[@class='areaArticle']/section[@class='areaFreeText']|//div[@class='areaArticle']/div[@class='areaAttach']"
+  },
+  "//www.recruit-mp.co.jp/feature/": {
+    "type": "xpath",
+    "xpath": "div[@class='innerSectionContents']/div/div[@class='innerAreaServiceSlogan']|//div[@class='areaArticle']/section[@class='areaFreeText']"
+  },
+  "//www.ipsj.or.jp/dp/contents/publication/": {
+    "type": "xpath",
+    "xpath": "div[@id='articlearea']/div[@class='row']"
+  },
+  "//www.ipsj.or.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='column1']/div[@class='contents']"
+  },
+  "//www.inoue311.com/": {
+    "type": "xpath",
+    "xpath": "article[@class='article']/figure[@class='eye-catch']|//div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'ad-space')]"
+    ]
+  },
+  "//wp.yat-net.com/": {
+    "type": "xpath",
+    "xpath": "article/section[@class='lout-main-contents-postdata']",
+    "cleanup": [
+      "div[contains(@class,'lout-content-ad') or contains(@class,'lout-content-share')]"
+    ]
+  },
+  "//japanese.engadget.com/promo/": {
+    "type": "xpath",
+    "xpath": "div[@id='body']"
+  },
+  "//japanese.engadget.com/": {
+    "type": "xpath",
+    "xpath": "figure/img[contains(@class,'stretch-img')]|//div[contains(@class,'article-text')]",
+    "append_css": "img.stretch-img {width: 500px}"
+  },
+  "//knowledge.sakura.ad.jp/": {
+    "type": "xpath",
+    "xpath": "header[@class='entry-header']|//div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='social-link']"
+    ]
+  },
+  "//www.dailyshincho.jp/": {
+    "type": "xpath",
+    "xpath": "p[@class='prof']|//div[@class='wp_txt']|//main/article[@class='l-contents__article']",
+    "cleanup": [
+      "ul[@class='c-list-sns--sm']"
+    ]
+  },
+  "//topics.nintendo.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='topics-articleHead']/p[@class='topics-articleHead__img']|//div[@class='detail-body-container' or @class='detail-footer-container' or @class='detail-main-img-container']"
+  },
+  "//webtan.impress.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'node-body-content')]"
   }
 }

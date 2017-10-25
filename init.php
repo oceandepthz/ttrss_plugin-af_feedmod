@@ -187,6 +187,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_tags($entry, $link, "iframe", "src");
                 $this->update_pic_twitter_com($doc, $xpath, $entry);                
                 $this->update_instagram($doc, $xpath, $entry, $link);
+                if(strpos($link, '//jp.reuters.com/article/') !== false){
+                    $this->update_jp_reuters_com($doc, $xpath, $entry);
+                }
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
 
@@ -441,6 +444,28 @@ EOD;
         return $links;
     }
 
+    function update_jp_reuters_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode): void {
+        if(!$basenode){
+            return;
+        }
+        $query = "(//div[contains(@class,'LazyImage_image_')])";
+        $nodelist = $xpath->query($query, $basenode);
+        if($nodelist->length === 0){
+            return;
+        }
+        foreach ($nodelist as $node) {
+            $style = $xpath->evaluate('string(@style)', $node);
+            preg_match('/^.*\((.*)\).*$/', $style, $matches);
+            if(!isset($matches[1])){
+                return;
+            }
+            $url = str_replace('&w=20','&w=1280', $matches[1]);
+            if(strlen($url) === 0){
+                return;
+            }
+            $this->append_img_tag($doc, $node, $url);            
+        }
+    }
     function update_instagram(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
         if(!$basenode){
             return;
@@ -567,19 +592,19 @@ EOD;
         }
         $xpath = new DOMXPath($doc);
 
+        $urls = array();
+
         // video
         $entries = $xpath->query("(//meta[@property='og:video:url'])");
         if($entries->length > 0) {
             $urls[] = str_replace("?embed_source=facebook", "", $xpath->evaluate('string(@content)', $entries->item(0)));
-            return $urls;
         }
 
         // image
         $entries = $xpath->query("(//meta[@property='og:image'])");
         if($entries->length == 0) {
-            return array();
+            return $urls;
         }
-        $urls = array();
         foreach ($entries as $entry) {
             $urls[] = str_replace(":large","",$xpath->evaluate('string(@content)', $entry));
         }
