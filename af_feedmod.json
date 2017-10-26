@@ -673,15 +673,6 @@
     "xpath": "div[@id='entryBody']|//div[@class='entryMainPhoto']",
     "next_page": "div[@id='pageNation']"
   },
-  "minecraft-diary.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='ently_text']",
-    "cleanup": [
-      "iframe",
-      "div[@class='fc2_footer']/../script",
-      "div[@class='fc2_footer']"
-    ]
-  },
   "www.yomiuri.co.jp": {
     "type": "xpath",
     "xpath": "article//a[@class='thumbnail']/..|//article/p[@itemprop='articleBody']|//article/div[@class='date-bottom']"
@@ -10208,10 +10199,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body' or contains(@class,'featured-image')]"
   },
-  "//android-developers.googleblog.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post-outer']/div[contains(@class,'post')]"
-  },
   "//diamond.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'article-body') or @id='main-contents']",
@@ -10373,10 +10360,6 @@
     "xpath": "div[@class='entry-content']"
   },
   "//www.ptkabe.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
-  "//www.lifelogweb.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
@@ -11828,14 +11811,6 @@
     ],
     "next_page": "div[@id='linkPages']"
   },
-  "//jbpress.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body' or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
-    "cleanup": [
-      "div[@class='pagination' or @class='next-info' OR @class='ad-right']"
-    ],
-    "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage']|//div[@class='pagination']"
-  },
   "//blog.domesoccer.jp/": {
     "type": "xpath",
     "xpath": "article[@id='post']/section[@class='section-article-first' or @class='section-article-constract']"
@@ -12732,15 +12707,6 @@
     "type": "xpath",
     "xpath": "article"
   },
-  "//news.denfaminicogamer.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='articleBody']",
-    "cleanup": [
-      "div[@class='next_page_header']"
-    ],
-    "next_page": "div[contains(@class,'pager') and contains(@class,'upper')]/div[@class='pagerInner']",
-    "append_css": "a img.size-full {width: 500px!important;}"
-  },
   "//fukugyo-senryaku.com/": {
     "type": "xpath",
     "xpath": "header/p[@class='post-thumbnail']|//section[contains(@class,'entry-content')]"
@@ -13034,5 +13000,35 @@
   "//webtan.impress.co.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'node-body-content')]"
+  },
+  "//jbpress.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
+    "cleanup": [
+      "div[@class='pagination' or @class='next-info' OR @class='ad-right']"
+    ],
+    "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage']|//div[@class='pagination']",
+    "append_css": "video{width:640px!important;height:480px!important;position:static!important;}"
+  },
+  "//www.lifelogweb.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//div[@class='theContentWrap-ccc']"
+  },
+  "//news.denfaminicogamer.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "cleanup": [
+      "div[@class='next_page_header']"
+    ],
+    "next_page": "div[contains(@class,'pager') and contains(@class,'upper')]/div[@class='pagerInner']",
+    "append_css": "img.size-full {width: 500px!important;} div.entry-profile-icon-img img {width:80px!important;height:80px!important;}"
+  },
+  "//minecraft-diary.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-body']/div[@class='contents']"
+  },
+  "//android-developers.googleblog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']"
   }
 }
