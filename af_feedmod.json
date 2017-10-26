@@ -6335,16 +6335,6 @@
       "div[@class='wp_social_bookmarking_light']"
     ]
   },
-  "//builder.japan.zdnet.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='block_article_header']/img[@class='article_header_img']|//div[@id='block_story']",
-    "next_page": "div[@class='pagination']"
-  },
-  "//japan.zdnet.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='article_body']",
-    "next_page": "div[@class='pagination']"
-  },
   "//www.mediologic.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -13030,5 +13020,20 @@
   "//android-developers.googleblog.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-body']"
+  },
+  "//builder.japan.zdnet.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='block_article_header']/img[@class='article_header_img']|//div[@id='block_story']",
+    "next_page": "div[@class='pagination']"
+  },
+  "//japan.zdnet.com/extra/": {
+    "type": "xpath",
+    "xpath": "div[@id='block_story']",
+    "next_page": "div[@class='pagination']"
+  },
+  "//japan.zdnet.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article_body']",
+    "next_page": "div[@class='pagination']"
   }
 }
