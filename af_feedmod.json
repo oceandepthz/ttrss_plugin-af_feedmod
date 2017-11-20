@@ -13390,5 +13390,21 @@
   "//crecatty.jp/": {
     "type": "xpath",
     "xpath": "article[contains(@class,'post')]//div[@class='article-body' or @class='post_eyecatch']"
+  },
+  "//blog.sugawarataku.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogbody']/div[@class='text']"
+  },
+  "//blog.strk.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='section-content']"
+  },
+  "//blog.openbloc.fr/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//blog.onk.ninja/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']"
   }
 }
