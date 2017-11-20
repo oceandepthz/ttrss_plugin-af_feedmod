@@ -13375,5 +13375,20 @@
     "cleanup": [
       "div[@id='article-reaction-actions']"
     ]
+  },
+  "//dev.oro.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_detail_content' or @class='post_detail_heading_thumbnail']"
+  },
+  "//datsuo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside[@class='bzb-sns-area']"
+    ]
+  },
+  "//crecatty.jp/": {
+    "type": "xpath",
+    "xpath": "article[contains(@class,'post')]//div[@class='article-body' or @class='post_eyecatch']"
   }
 }
