@@ -13297,5 +13297,83 @@
       "div[@class='recommend_section']"
     ],
     "next_page": "div[contains(@class,'pagenation')]"
+  },
+  "//www.percona.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div/article/div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='wp-post-navigation' or @id='jp-relatedposts' or @class='row']"
+    ]
+  },
+  "//tech.linkbal.co.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//sakuya-shougainenkin.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside[@class='bzb-sns-area']"
+    ]
+  },
+  "//news4vip.livedoor.biz/": {
+    "type": "xpath",
+    "xpath": "div[@class='ently_body']/div[@id='ently_text' or @class='article-body-more']"
+  },
+  "//lab.hendigi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='st-eyecatch']",
+    "cleanup": [
+      "div[@class='middle-ad']"
+    ]
+  },
+  "//hrog.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//hiro.asks.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='lijeva_rubrika']"
+  },
+  "//handywebdesign.net/": {
+    "type": "xpath",
+    "xpath": "header/figure|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ads_') or @class='add']"
+    ]
+  },
+  "//fullswing.dena.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//frasco.io/": {
+    "type": "xpath",
+    "xpath": "header/div[@class='source']|//article/div[@class='body']"
+  },
+  "//fesoku.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or @class='article-body-more']",
+    "cleanup": [
+      "div[@class='kijinai2']"
+    ]
+  },
+  "//eikaiwa.dmm.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-head')]/img|//article[not(@class)]"
+  },
+  "//earth-memorandum.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//diary.sorah.jp/": {
+    "type": "xpath",
+    "xpath": "article/section"
+  },
+  "//dev.to/": {
+    "type": "xpath",
+    "xpath": "div[@id='article-show-container']",
+    "cleanup": [
+      "div[@id='article-reaction-actions']"
+    ]
   }
 }
