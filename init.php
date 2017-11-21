@@ -1,7 +1,7 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
 
-ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:50.0) Gecko/20100101 Firefox/50.0');
+ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0');
 
 class Af_Feedmod extends Plugin implements IHandler
 {
@@ -185,7 +185,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_img_tags($entry, $link);
                 $this->update_tags($entry, $link, "a", "href");
                 $this->update_tags($entry, $link, "iframe", "src");
-                $this->update_pic_twitter_com($doc, $xpath, $entry);                
+                $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
                 $this->update_instagram($doc, $xpath, $entry, $link);
                 if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
@@ -535,10 +535,17 @@ EOD;
         return "";
     }
 
-    function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode) : void {
+    function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
         if(!$basenode){
             return;
         }
+        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/'];
+        foreach ($exclusion_list as $exclusion){
+            if(strpos($link, $exclusion) !== false){
+                return;
+            }
+        }
+
         $item = "//a[contains(text(),'pic.twitter.com/')]";
         $node_list = $xpath->query($item, $basenode);
         if(!$node_list || $node_list->length === 0){
