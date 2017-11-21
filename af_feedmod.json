@@ -8716,17 +8716,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//togetter.com/special/": {
-    "type": "xpath",
-    "xpath": "div[@id='document']/div[contains(@class,'contents')]"
-  },
-  "//togetter.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='contents_main_wrap']//div[@class='info_thumb']|//div[@class='contents_main_wrap']//div[starts-with(@class, 'list_description_box')]|//div[@class='tweet_box']/ul|//div[@id='comment_box']",
-    "cleanup": [
-      "div[starts-with(@class, 'alert')]"
-    ]
-  },
   "//thesaibase.com/": {
     "type": "xpath",
     "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
@@ -13406,5 +13395,44 @@
   "//blog.onk.ninja/": {
     "type": "xpath",
     "xpath": "div[@id='main']"
+  },
+  "//togetter.com/special/": {
+    "type": "xpath",
+    "xpath": "div[@id='document']/div[contains(@class,'contents')]"
+  },
+  "//togetter.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents_main']/div[@class='info_box']|//div[@class='tweet_box']/ul|//div[@id='comment_box']",
+    "cleanup": [
+      "div[@id='comment_form' or @class='info_head' or @class='status']",
+      "ul[@class='info_action']"
+    ]
+  },
+  "//www.asagei.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//blog.8bit.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry')]"
+  },
+  "//bakera.jp/ebi/topic/": {
+    "type": "xpath",
+    "xpath": "*[@id='main-contents']/*[@class='topic']"
+  },
+  "//arstechnica.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-content')]",
+    "cleanup": [
+      "aside[@id='social-left']"
+    ]
+  },
+  "//aiweeklynews.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//blog.livedoor.jp/kashikou/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
