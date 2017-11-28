@@ -886,10 +886,6 @@
       "h2[@class='related']"
     ]
   },
-  "newsphere.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='txtBox']|//p[@class='nsp_writer']"
-  },
   "jp.techtimes.com": {
     "type": "xpath",
     "xpath": "div[@class='at-body']",
@@ -5289,26 +5285,6 @@
       "div[@class='series-title']",
       "h2"
     ]
-  },
-  "//news.mynavi.jp/series/onnanofushime/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleContent']",
-    "cleanup": [
-      "div[contains(@class, 'btn-nextpage')]"
-    ]
-  },
-  "//news.mynavi.jp/column/svalley/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleContent']",
-    "append_css": "div.center table {width:initial!important;}"
-  },
-  "//news.mynavi.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleContent']",
-    "cleanup": [
-      "div[contains(@class, 'btn-nextpage')]"
-    ],
-    "next_page": "ul[@class='nav']"
   },
   "//hatenacorp.jp/recruit/": {
     "type": "xpath",
@@ -13472,5 +13448,39 @@
   "//q.hatena.ne.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'questioner-header')]/div[@class='f-left' or contains(@class,'questioner-title')]|//div[contains(@class,'question-container')]/div[@id='question-content-container' or contains(@class,'question-information')]|//div[@id='section-body']/div[contains(@class,'section') and contains(@class,'answer')]/div[@class='header' or @id='read_answer_list']|//div[@id='comment-section']"
+  },
+  "//newsphere.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content' or @class='post-auther' or @class='post-feature-img']",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//news.mynavi.jp/article/svalley-": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//news.mynavi.jp/series/onnanofushime/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleContent']",
+    "cleanup": [
+      "div[contains(@class, 'btn-nextpage')]"
+    ]
+  },
+  "//news.mynavi.jp/column/svalley/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleContent']",
+    "append_css": "div.center table {width:initial!important;}"
+  },
+  "//news.mynavi.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleContent']",
+    "cleanup": [
+      "div[contains(@class, 'btn-nextpage')]"
+    ],
+    "next_page": "ul[@class='nav']"
   }
 }
