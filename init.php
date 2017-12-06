@@ -81,6 +81,9 @@ class Af_Feedmod extends Plugin implements IHandler
         $is_execute = false;
         $is_hit_link = false;
 
+        if(strpos($article['link'], '//') === 0){
+            $article['link'] = 'http:'.$article['link'];
+        }
         foreach ($data as $urlpart=>$config) {
             if (strpos($article['link'], $urlpart) === false) {
                 continue;   // skip this config if URL not matching
@@ -330,7 +333,7 @@ EOD;
             sleep(10);
             $html = $this->get_contents($url, $config);
             if(!$html){
-                sleep(30);
+                sleep(60);
                 $html = $this->get_contents($url, $config);
             }
         }
@@ -733,12 +736,15 @@ EOD;
     }
     function update_img_src(DOMElement $node, string $link) : string {
         $src = $node->getAttribute('src');
+        $url_item = parse_url($link);
+        $scheme = $url_item['scheme'];
+        if(!$scheme){
+            $scheme = 'http';
+        }
         if(substr($src,0,2) == "//"){
-            $url_item = parse_url($link);
-            $src = $url_item['scheme'].':'.$src;
+            $src = $scheme.':'.$src;
         }else if(substr($src,0,1) == "/"){
-            $url_item = parse_url($link);
-            $src = $url_item['scheme'].'://'.$url_item['host'].$src;
+            $src = $scheme.'://'.$url_item['host'].$src;
         }else if(substr($src, 0,4) != "http"){
             $pos = strrpos($link, "/");
             if($pos){
