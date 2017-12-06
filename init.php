@@ -185,9 +185,14 @@ class Af_Feedmod extends Plugin implements IHandler
                 $xpath = new DOMXPath($doc);
                 $entry = $doc->documentElement;
                 $this->cleanup($xpath, $entry, $config['cleanup']);
-                $this->update_img_tags($entry, $link);
-                $this->update_tags($entry, $link, "a", "href");
-                $this->update_tags($entry, $link, "iframe", "src");
+
+                $this->update_remote_src($entry, 'img');
+                $this->update_remote_src($entry, 'iframe');
+
+                $this->update_remote_file($entry, $link, "a", "href");
+                $this->update_remote_file($entry, $link, "iframe", "src");
+                $this->update_remote_file($entry, $link, "img", "src");
+
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
                 $this->update_instagram($doc, $xpath, $entry, $link);
                 if(strpos($link, '//jp.reuters.com/article/') !== false){
@@ -576,7 +581,6 @@ EOD;
         }
     }
 
-
     function append_iframe_tag(DOMDocument $doc, DOMElement $node, string $url) : void {
         $if = $doc->createElement('iframe','');
         $if->setAttribute('src', $url);
@@ -686,36 +690,55 @@ EOD;
             }
         }
     }
-
-    function update_tags(DOMElement $basenode, string $link, string $tag, string $attr) : void {
+    function update_remote_src(DOMElement $basenode, string $tag) : void {
         if(!$basenode){
             return;
         }
-        $img_list = $basenode->getElementsByTagName($tag);
-        if($img_list->length == 0){
+        $list = [];
+        if($basenode->nodeName == $tag){
+            $list[] = $basenode;
+        }else{
+            $list = $basenode->getElementsByTagName($tag);
+        }
+        foreach($list as $node){
+            $original = $this->get_replace_src($node);
+            if ($original) {
+                $node->setAttribute('src', $original);
+            }
+        }
+    }
+    function update_remote_file(DOMElement $basenode, string $link, string $tag, string $attr) : void {
+        if(!$basenode){
             return;
         }
-        foreach($img_list as $node){
+        
+        $list = [];
+        if($basenode->nodeName == $tag){
+            $list[] = $basenode;
+        } else {
+            $list = $basenode->getElementsByTagName($tag);
+        }
+        foreach($list as $node){
             $src = $node->getAttribute($attr);
+	        $url_item = parse_url($link);
+	        $scheme = $url_item['scheme'];
+	        if(!$scheme){
+	            $scheme = 'http';
+	        }
             if(substr($src,0,2) == "//"){
-                $url_item = parse_url($link);
-                $src = $url_item['scheme'].':'.$src;
-                $node->setAttribute($attr, $src);
+                $src = $scheme.':'.$src;
             }else if(substr($src,0,1) == "/"){
-                $url_item = parse_url($link);
-                $src = $url_item['scheme'].'://'.$url_item['host'].$src;
-                $node->setAttribute($attr, $src);
+                $src = $scheme.'://'.$url_item['host'].$src;
             }else if(substr($src, 0,4) != "http"){
                 $pos = strrpos($link, "/");
                 if($pos){
                     $src = substr($link, 0, $pos+1).$src;
-                    $node->setAttribute($attr, $src);
                 }
             }
+            $node->setAttribute($attr, $src);
         }
     }
-
-    function get_replace_img(DOMElement $node) : string {
+    function get_replace_src(DOMElement $node) : string {
         $url = '';
         $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-img-path', 'srcset',
             'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original'];
@@ -734,52 +757,6 @@ EOD;
         }
         return $url;
     }
-    function update_img_src(DOMElement $node, string $link) : string {
-        $src = $node->getAttribute('src');
-        $url_item = parse_url($link);
-        $scheme = $url_item['scheme'];
-        if(!$scheme){
-            $scheme = 'http';
-        }
-        if(substr($src,0,2) == "//"){
-            $src = $scheme.':'.$src;
-        }else if(substr($src,0,1) == "/"){
-            $src = $scheme.'://'.$url_item['host'].$src;
-        }else if(substr($src, 0,4) != "http"){
-            $pos = strrpos($link, "/");
-            if($pos){
-                $src = substr($link, 0, $pos+1).$src;
-            }
-        }
-        return $src;
-    }
-    function update_img_tags(DOMElement $basenode, string $link) : void {
-        if(!$basenode){
-            return;
-        }
-        if($basenode->nodeName == 'img'){
-            $original = $this->get_replace_img($basenode);
-            if ($original) {
-                $basenode->setAttribute('src', $original);
-            }
-            $basenode->setAttribute('src', $this->update_img_src($basenode, $link));
-            return;
-        }
-
-        $img_list = $basenode->getElementsByTagName('img');
-        if($img_list->length == 0){
-            return;
-        }
-        foreach($img_list as $node){
-            // update src
-            $original = $this->get_replace_img($node);
-            if ($original) {
-                $node->setAttribute('src', $original);
-            }
-            $node->setAttribute('src', $this->update_img_src($node, $link));
-        }
-    }
-
     function hook_prefs_tabs($args)
     {
         print '<div id="feedmodConfigTab" dojoType="dijit.layout.ContentPane"
