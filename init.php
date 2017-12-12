@@ -308,30 +308,39 @@ EOD;
     }
 
     function get_html_pjs(string $url) : string {
-
         file_put_contents(dirname(__FILE__).'/af_feed_phantomjs.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
-
         require_once('PhantomJsWarpper.php');
         $pjs = new PhantomJsWarpper();
         return $pjs->get_html($url);
     }
-
+    function get_html_chromium(string $url) : string {
+        file_put_contents(dirname(__FILE__).'/af_feed_chromium.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
+        require_once('Chromium.php');
+        $ch = new Chromium();
+        return $ch->get_html($url);
+    }
     function is_pjs(array $config) : bool {
         if(!isset($config['engine'])){
             return false;
         }
         return strtolower($config['engine']) == 'phantomjs';
     }
-    
+    function is_chromium(array $config) : bool {
+        if(!isset($config['engine'])){
+            return false;
+        }
+        return strtolower($config['engine']) == 'chromium';
+    }
     function get_contents(string $url, array $config) : string {
         if($this->is_pjs($config)){
             return $this->get_html_pjs($url);
-        }else{
+        } elseif ($this->is_chromium($config)){
+            return $this->get_html_chromium($url);
+        } else {
             $r = fetch_file_contents($url);
             return $r ? $r : "";
         }
     }
-
     function get_html(string $url, array $config) : string {
         $html = $this->get_contents($url, $config);
         if(!$html){
