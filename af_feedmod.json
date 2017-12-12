@@ -2078,10 +2078,6 @@
     "type": "xpath",
     "xpath": "div[@id='outline-head' or @id='article' or @id='img-article-main']"
   },
-  "ufcpp.net/blog": {
-    "type": "xpath",
-    "xpath": "div[@class='content']"
-  },
   "macaro-ni.jp": {
     "type": "xpath",
     "xpath": "div[@class='articleArea' or @id='summary-icon' or @id='title_desc']"
@@ -11894,10 +11890,6 @@
       "a[contains(@href,'//blog.with2.net/link.php')]"
     ]
   },
-  "//panora.tokyo/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content')]"
-  },
   "//blog.esuteru.com/": {
     "type": "xpath",
     "xpath": "div[@class='article_detail_area']",
@@ -13478,7 +13470,7 @@
   },
   "//qiita.com/": {
     "type": "xpath",
-    "engine": "phantomjs",
+    "engine": "chromium",
     "xpath": "div[@class='it-Header_info' or @class='it-AdcalRibbon' or @class='it-Tags' or contains(@class,'it-AuthorInfo ') or @class='commentList']|//section[@class='it-MdContent']",
     "cleanup": [
       "div[@class='it-AuthorInfo_footer' or contains(@class,'LikeButton ')]"
@@ -13496,5 +13488,20 @@
   "//tech.recruit-mp.co.jp/": {
     "type": "xpath",
     "xpath": "article[@id='article']"
+  },
+  "//ufcpp.net/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']",
+    "cleanup": [
+      "div[@class='ad-container-plain']"
+    ]
+  },
+  "//panora.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//pccore.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-inner']"
   }
 }
