@@ -405,59 +405,72 @@ EOD;
         if(strpos($link, '//number.bunshun.jp/articles/') !== FALSE){
             return $this->get_np_links_number_bunshun_jp($xpath, $doc, $link);
         }
-        if(isset($config['next_page']) && $config['next_page']){
-            $next_page_basenode = false;
-            $next_page_xpath = new DOMXPath($doc);
-            $next_page_entries = $next_page_xpath->query('(//'.$config['next_page'].')');
-            if ($next_page_entries->length > 0) {
-                $next_page_basenode = $next_page_entries->item(0);
-            }
+        if(!isset($config['next_page']) || !$config['next_page']){
+            return array();
+        }
+        $config_next_page = $config['next_page'];
+        if(!$config_next_page){
+            return array();
+        }
 
-            if ($next_page_basenode) {
-                if (isset($config['next_page_cleanup'])) {
-                    if (!is_array($config['next_page_cleanup'])) {
-                        $config['next_page_cleanup'] = array($config['next_page_cleanup']);
+        $next_page_xpath = new DOMXPath($doc);
+        $next_page_entries = $next_page_xpath->query('(//'.$config['next_page'].')');
+        if ($next_page_entries->length === 0){
+            return array();
+        }
+        $next_page_basenode = $next_page_entries->item(0);
+        if (!$next_page_basenode) {
+            return array();
+        }
+
+        if (isset($config['next_page_cleanup'])) {
+            if (!is_array($config['next_page_cleanup'])) {
+                $config['next_page_cleanup'] = array($config['next_page_cleanup']);
+            }
+            foreach ($config['next_page_cleanup'] as $next_page_cleanup) {
+                $next_page_cleanup_nodelist = $xpath->query('//'.$next_page_cleanup, $next_page_basenode);
+                foreach ($next_page_cleanup_nodelist as $node) {
+                    if ($node instanceof DOMAttr) {
+                        $node->ownerElement->removeAttributeNode($node);
+                    } else {
+                        $node->parentNode->removeChild($node);
                     }
-                    foreach ($config['next_page_cleanup'] as $next_page_cleanup) {
-                        $next_page_cleanup_nodelist = $xpath->query('//'.$next_page_cleanup, $next_page_basenode);
-                        foreach ($next_page_cleanup_nodelist as $node) {
-                            if ($node instanceof DOMAttr) {
-                                $node->ownerElement->removeAttributeNode($node);
-                            } else {
-                                $node->parentNode->removeChild($node);
-                            }
-                        }
-                    }
-                }
-                $next_page_nodelist = $next_page_basenode->getElementsByTagName('a');
-                if($next_page_nodelist->length > 0){
-                    foreach ($next_page_nodelist as $node) {
-                        $next_page = $node->getAttribute('href');
-                        if(strlen($next_page) == 0){
-                            continue;
-                        }
-                        if(substr($next_page, 0, 1) == "?"){
-                            $next_page = explode("?", $link)[0].$next_page;
-                        }
-                        if(substr($next_page, 0, 1) == "/"){
-                            $url_item = parse_url($link);
-                            $next_page = $url_item['scheme'].'://'.$url_item['host'].$next_page;
-                        }
-                        if(substr($next_page, 0,4) != "http"){
-                            $pos = strrpos($link, "/");
-                            if($pos){
-                                $next_page = substr($link, 0, $pos+1).$next_page;
-                            }
-                        }
-                        if($link === $next_page){
-                            continue;
-                        }
-                        $links[] = $next_page;
-                    }
-                    $links = array_unique($links);
                 }
             }
         }
+
+        $next_page_nodelist = $next_page_basenode->getElementsByTagName('a');
+        if($next_page_nodelist->length == 0){
+            return array();
+        }
+        foreach ($next_page_nodelist as $node) {
+            $next_page = $node->getAttribute('href');
+            if(strlen($next_page) == 0){
+                continue;
+            }
+            if(substr($next_page, 0, 1) == "#"){
+                continue;
+            }
+            if(substr($next_page, 0, 1) == "?"){
+                $next_page = explode("?", $link)[0].$next_page;
+            }
+            if(substr($next_page, 0, 1) == "/"){
+                $url_item = parse_url($link);
+                $next_page = $url_item['scheme'].'://'.$url_item['host'].$next_page;
+            }
+            if(substr($next_page, 0,4) != "http"){
+                $pos = strrpos($link, "/");
+                if($pos){
+                    $next_page = substr($link, 0, $pos+1).$next_page;
+                }
+            }
+            if($link === $next_page){
+                continue;
+            }
+            $links[] = $next_page;
+        }
+        $links = array_unique($links);
+
         return $links;
     }
 
