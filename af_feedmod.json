@@ -12213,15 +12213,6 @@
     "type": "xpath",
     "xpath": "article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]"
   },
-  "//www.gdm.or.jp/voices/": {
-    "type": "xpath",
-    "xpath": "section/ul[@class='leadArea']|//section/div[@class='articleArea']"
-  },
-  "//www.gdm.or.jp/review/": {
-    "type": "xpath",
-    "xpath": "section/div[contains(@class,'leadText') or @class='articleArea']",
-    "next_page": "div[@class='pagination']"
-  },
   "//numbers2007.blog123.fc2.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry_body']",
@@ -13503,5 +13494,128 @@
   "//pccore.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-inner']"
+  },
+  "//yaneuraou.yaneu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//yaginome.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.switch-science.com/catalog/": {
+    "type": "xpath",
+    "xpath": "div[@id='product']/div[@class='data' OR @class='contents']",
+    "cleanup": [
+      "div[@id='item-sns-buttons']"
+    ]
+  },
+  "//www.sinkan.jp/news/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "header"
+    ]
+  },
+  "//www.ruby.or.jp/ja/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='content-news']"
+  },
+  "//www.ntt-east.co.jp/info/detail/": {
+    "type": "xpath",
+    "xpath": "div[@id='str-main']"
+  },
+  "//www.ntt-east.co.jp/release/detail/": {
+    "type": "xpath",
+    "xpath": "div[@id='str-main']"
+  },
+  "//www.nhk.or.jp/dramatopics-blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.lib.kyushu-u.ac.jp/ja/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']"
+  },
+  "//www.gdm.or.jp/voices/": {
+    "type": "xpath",
+    "xpath": "section/ul[@class='leadArea']|//section/div[@class='articleArea']"
+  },
+  "//www.gdm.or.jp/review/": {
+    "type": "xpath",
+    "xpath": "section/div[contains(@class,'leadText') or @class='articleArea']",
+    "next_page": "div[@class='pagination']"
+  },
+  "//www.gdm.or.jp/pressrelease/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainCont01']//section/*[contains(@class,'leadText') or @class='leadArea' or @class='articleArea']"
+  },
+  "//www.gdm.or.jp/crew/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainCont01']//section/*[contains(@class,'leadText') or @class='leadArea' or @class='articleArea']"
+  },
+  "//www.fukuishimbun.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[contains(@class,'admeasure') or contains(@class,'doublecol-rectangle')]"
+    ]
+  },
+  "//www.fujitsu.com/jp/group/fri/column/": {
+    "type": "xpath",
+    "xpath": "div[@class='maincontents']"
+  },
+  "//uxdaystokyo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//useful-info.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@classm'fb-page')]"
+    ]
+  },
+  "//scan.netsecurity.ne.jp/": {
+    "type": "xpath",
+    "xpath": "main[@class='thm-main']/div[contains(@class,'arti-content')]",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//piro.sakura.ne.jp/latest/blosxom/": {
+    "type": "xpath",
+    "xpath": "div[@id='section-root']/div[@id='section-root-children']/div/div[@class='sec-content']",
+    "cleanup": [
+      "div[@class='share-buttons']"
+    ]
+  },
+  "//peaks.cc/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-project__content' or @class='p-project__flex_main']"
+  },
+  "//panda-usedcar.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or contains(@class,'st-eyecatch')]"
+  },
+  "//otanew.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']/img[@class='pict']|//div[@class='article-body-more']"
+  },
+  "//nhiroki.jp/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//mixi.co.jp/press/": {
+    "type": "xpath",
+    "xpath": "div[@id='contentArea']"
+  },
+  "//logl.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-img-head' or @id='article-outline-block']|//article"
+  },
+  "//ledge.ai/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='eyecatch']"
   }
 }
