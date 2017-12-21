@@ -12193,10 +12193,6 @@
       "div[contains(@id,'thk_ps_widget')]"
     ]
   },
-  "//www.afpbb.com/": {
-    "type": "xpath",
-    "xpath": "article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]"
-  },
   "//numbers2007.blog123.fc2.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry_body']",
@@ -13773,5 +13769,9 @@
     "cleanup": [
       "div[@class='ib-box' or contains(@class,'blogroll-channel-')]"
     ]
+  },
+  "//www.afpbb.com/": {
+    "type": "xpath",
+    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]s"
   }
 }
