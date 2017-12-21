@@ -4793,14 +4793,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "blogspot.jp": {
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'post-body')]"
-  },
-  "blogspot.com": {
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'post-body')]"
-  },
   "tech.sideci.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -8681,10 +8673,6 @@
     "type": "xpath",
     "xpath": "section[@class='p-wp-content']"
   },
-  "//pssection9.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post']/section"
-  },
   "//wired.jp/series/": {
     "type": "xpath",
     "xpath": "section[@class='text-body']",
@@ -9547,10 +9535,6 @@
   "//research.preferred.jp/": {
     "type": "xpath",
     "xpath": "div[@class='postArea']"
-  },
-  "//r25.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-main']"
   },
   "//qooq.jp/": {
     "type": "xpath",
@@ -13732,5 +13716,62 @@
   "//ameblo.jp/wadou708/": {
     "type": "xpath",
     "xpath": "div[@class='articleText']"
+  },
+  "//pssection9.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@id,'quads-ad')]"
+    ]
+  },
+  "//r25.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleContainer']/article/div/img|//div[@class='ArticleContainer']/div/div[@class='ItemList']"
+  },
+  "blogspot.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-outer']"
+  },
+  "blogspot.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-outer']"
+  },
+  "//www7.e-nanwa.co.jp/article/": {
+    "type": "xpath",
+    "xpath": "div[@class='PageHeader']/figure|//article[@class='EntryDetail']"
+  },
+  "//yoshikawaweb.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='share_wrap']"
+    ]
+  },
+  "//www.westjr.co.jp/press/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/*[@id='pressIn' or @id='news-ttl' or @id='news-body']"
+  },
+  "//www.searchengineoptimization.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='ad-article']"
+    ]
+  },
+  "//www.japandesign.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='page-visual']/div[@class='main-img']|//div[@class='inner']/div[@class='page-text']",
+    "next_page": "ul[@class='page-nav-relation']"
+  },
+  "//virtualmoney-pedia.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//tozanchannel.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "div[@class='ib-box' or contains(@class,'blogroll-channel-')]"
+    ]
   }
 }
