@@ -1176,14 +1176,6 @@
     ],
     "next_page": "div[@class='wp-pagenavi-wrapper']"
   },
-  "kai-you.net": {
-    "type": "xpath",
-    "xpath": "div[@class='m-article-text' or @class='m-article-eyecatch']",
-    "cleanup": [
-      "div[@class='l-ad-article-under']",
-      "section[@class='contents_relation']"
-    ]
-  },
   "waranote.livedoor.biz": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']",
@@ -1650,15 +1642,6 @@
     "cleanup": [
       "*[contains(text(), 'as.ebis.ne.jp') or contains(@src, 'as.ebis.ne.jp')]"
     ]
-  },
-  "trafficnews.jp": {
-    "type": "xpath",
-    "xpath": "section[@id='detail']",
-    "cleanup": [
-      "section[@class='article-middle']",
-      "div[@class='single-pagenation']"
-    ],
-    "next_page": "div[@class='single-pagenation']"
   },
   "mirai.doda.jp": {
     "type": "xpath",
@@ -13773,5 +13756,20 @@
   "//www.afpbb.com/": {
     "type": "xpath",
     "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]s"
+  },
+  "//kai-you.net/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'m-article-text-main') or @class='m-article-eyecatch']",
+    "next_page": "div[@class='l-article-pager']"
+  },
+  "//trafficnews.jp/": {
+    "type": "xpath",
+    "xpath": "section[@id='detail']",
+    "cleanup": [
+      "section[@class='article-middle']",
+      "div[@class='single-pagenation' or @class='nextpage']",
+      "nav[@class='pagination']"
+    ],
+    "next_page": "div[@class='single-pagenation']|//nav[@class='pagination']"
   }
 }
