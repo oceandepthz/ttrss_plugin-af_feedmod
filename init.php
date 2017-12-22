@@ -357,33 +357,7 @@ EOD;
             return $html;
         }
 
-/*
-        $content_type = $fetch_last_content_type;
-
-        $charset = false;
-        if (!isset($config['force_charset'])) {
-            if ($content_type) {
-                preg_match('/charset=(\S+)/', $content_type, $matches);
-                if (isset($matches[1]) && !empty($matches[1])) {
-                    $charset = $matches[1];
-                }
-            }
-        } else {
-            // use forced charset
-            $charset = $config['force_charset'];
-        }
-
-        if ($charset && isset($config['force_unicode']) && $config['force_unicode']) {
-            $html = mb_convert_encoding($html, 'utf-8', $charset);
-            $charset = 'utf-8';
-        }
-
-        if ($charset) {
-            $html = '<?xml encoding="' . $charset . '">' . $html;
-        }
-*/
-        $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
-        return $html;
+        return mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
     }
 
     // number向け
@@ -793,6 +767,7 @@ EOD;
     {
         $pluginhost = PluginHost::getInstance();
         $json_conf = $pluginhost->get($this, 'json_conf');
+        //$json_conf = json_encode(json_decode ($json_conf), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES); // decompress
 
         print "<form dojoType=\"dijit.form.Form\">";
 
@@ -832,6 +807,7 @@ function save()
         return false;
     }
 
+    //$json_conf = json_encode(json_decode($json_conf), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES); // compress
     $this->host->set($this, 'json_conf', $json_conf);
     echo __("Configuration saved.");
 }
