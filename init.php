@@ -80,6 +80,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
         $is_execute = false;
         $is_hit_link = false;
+        $hit_urlpart = '';
 
         if(strpos($article['link'], '//') === 0){
             $article['link'] = 'http:'.$article['link'];
@@ -88,6 +89,7 @@ class Af_Feedmod extends Plugin implements IHandler
             if (strpos($article['link'], $urlpart) === false) {
                 continue;   // skip this config if URL not matching
             }
+            $hit_urlpart = $urlpart;
             if (strpos($article['plugin_data'], "feedmod,$owner_uid:") !== false) {
                 // do not process an article more than once
                 if (isset($article['stored']['content'])) {
@@ -267,7 +269,7 @@ EOD;
         }
 
         if(!$is_execute){
-            $this->writeLog($article['link'],$is_hit_link);
+            $this->writeLog($article['link'],$is_hit_link,$hit_urlpart);
         }
         return $article;
     }
@@ -276,7 +278,7 @@ EOD;
         file_put_contents(dirname(__FILE__).'/debug.txt', print_r($v, true)."\n", FILE_APPEND|LOCK_EX);
     }
 
-    function writeLog(string $url, bool $is_hit_link) : void {
+    function writeLog(string $url, bool $is_hit_link, string $hit_urlpart = '') : void {
         $exclusionUrlList = json_decode(file_get_contents(dirname(__FILE__).'/exclusion_url_list.json'),true);
         foreach($exclusionUrlList as $v){
             if(strpos($url, $v) !== false){
@@ -286,7 +288,7 @@ EOD;
 
         $suffix = "";
         if($is_hit_link){
-            $suffix = "xpath";
+            $suffix = "xpath:".$hit_urlpart;
         }
 
         $dt = date("Y-m-d H:i:s");
@@ -355,6 +357,7 @@ EOD;
             return $html;
         }
 
+/*
         $content_type = $fetch_last_content_type;
 
         $charset = false;
@@ -378,7 +381,7 @@ EOD;
         if ($charset) {
             $html = '<?xml encoding="' . $charset . '">' . $html;
         }
-
+*/
         $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
         return $html;
     }
