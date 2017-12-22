@@ -2677,10 +2677,6 @@
       "div[@class='blogbox' or starts-with(@class,'adsense_middle') or @class='facerec']"
     ]
   },
-  "yugui.jp": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@id,'article')]"
-  },
   "ten-snapon.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -4884,33 +4880,6 @@
   "//www.shijo-street-weekend.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//www.newsweekjapan.jp/e-book/": {
-    "type": "xpath",
-    "xpath": "div[@id='magHeadLine']"
-  },
-  "//www.newsweekjapan.jp/stories/world/": {
-    "type": "xpath",
-    "xpath": "div[@class='entryDetailBodyBlock' or @class='entryImage']",
-    "cleanup": [
-      "div[@class='entryPagenate']"
-    ],
-    "next_page": "div[@class='entryPagenate']",
-    "next_page_cleanup": [
-      "li[@class='cont']"
-    ]
-  },
-  "//www.newsweekjapan.jp/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class, 'entryDetailHeadline')]/..",
-    "cleanup": [
-      "div[@class='entryPagenate']",
-      "div[starts-with(@class, 'tackBlock')]"
-    ],
-    "next_page": "div[@class='entryPagenate']",
-    "next_page_cleanup": [
-      "li[@class='cont']"
-    ]
   },
   "//brevis.exblog.jp/": {
     "type": "xpath",
@@ -13771,5 +13740,40 @@
       "nav[@class='pagination']"
     ],
     "next_page": "div[@class='single-pagenation']|//nav[@class='pagination']"
+  },
+  "//www.newsweekjapan.jp/e-book/": {
+    "type": "xpath",
+    "xpath": "div[@id='magHeadLine']"
+  },
+  "//www.newsweekjapan.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
+    "cleanup": [
+      "div[@class='entryPagenate']"
+    ],
+    "next_page": "div[@class='entryPagenate']"
+  },
+  "//theriver.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'-ad-')]"
+    ]
+  },
+  "//tech.raksul.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//shoukai.type.jp/knowhow/interview/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']"
+  },
+  "//shoukai.type.jp/knowhow/feature/": {
+    "type": "xpath",
+    "xpath": "div[@class='leftColumn']/div[contains(@class,'article')]"
+  },
+  "//news.mixi.jp/view_news.pl": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'contents')]/div[@class='article']"
   }
 }
