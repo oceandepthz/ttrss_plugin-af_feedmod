@@ -161,7 +161,7 @@ class Af_Feedmod extends Plugin implements IHandler
                     $xpath = new DOMXPath($doc);
                     $entries = $xpath->query("(//html[@data-admin-domain='//blog.hatena.ne.jp'])");
                     if ($entries->length > 0){
-                        $entries = $xpath->query("(//div[@class='entry-content'])");
+                        $entries = $xpath->query("(//div[contains(@class,'entry-content')])");
                         if ($entries->length > 0){
                             $entrysXML = '';
                             foreach ($entries as $entry) {
@@ -767,6 +767,7 @@ EOD;
     {
         $pluginhost = PluginHost::getInstance();
         $json_conf = $pluginhost->get($this, 'json_conf');
+        //$json_conf = $this->jq_format($json_conf);
         //$json_conf = json_encode(json_decode ($json_conf), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES); // decompress
 
         print "<form dojoType=\"dijit.form.Form\">";
@@ -810,6 +811,24 @@ function save()
     //$json_conf = json_encode(json_decode($json_conf), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES); // compress
     $this->host->set($this, 'json_conf', $json_conf);
     echo __("Configuration saved.");
+}
+
+function jq_format($json) {
+  $descriptorspec = array(
+     0 => array("pipe", "r"),
+     1 => array("pipe", "w"),
+  );
+
+  $process = proc_open('/usr/bin/jq --indent 4 .', $descriptorspec, $pipes);
+
+  if (is_resource($process)) {
+      fwrite($pipes[0], $json);
+      fclose($pipes[0]);
+      $return_value = stream_get_contents($pipes[1]);
+      fclose($pipes[1]);
+      proc_close($process);
+      return $return_value;
+  }
 }
 
 }
