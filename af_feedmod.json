@@ -13771,5 +13771,49 @@
     "cleanup": [
       "div[contains(@id,'quads-ad')]"
     ]
+  },
+  "//zuvuyalink.net/nrjlog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//yory.design/note/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'contents')]/article[not(@class)]"
+  },
+  "//www.zaikei.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='news_des']",
+    "cleanup": [
+      "div[@id='div_twitter_follow_button' or @id='div_facebookpage_like']"
+    ]
+  },
+  "//www.wildml.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//www.shogakukan.co.jp/books/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/section[@class='info01']",
+    "cleanup": [
+      "div[@class='ul_sns01']"
+    ]
+  },
+  "//www.shoeisha.co.jp/book/detail/": {
+    "type": "xpath",
+    "xpath": "div[@class='container']/section|//div[@class='tab-content']",
+    "cleanup": [
+      "div[@class='netshop' or @id='fb-root' or @id='social']"
+    ]
+  },
+  "//www.raspberrypi.org/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.osstech.co.jp/~hamano/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']"
   }
 }
