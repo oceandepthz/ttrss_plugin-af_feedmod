@@ -86,9 +86,22 @@ class Af_Feedmod extends Plugin implements IHandler
             $article['link'] = 'http:'.$article['link'];
         }
         foreach ($data as $urlpart=>$config) {
-            if (strpos($article['link'], $urlpart) === false) {
-                continue;   // skip this config if URL not matching
+            $match_type = 'default';
+            if(isset($config['match_type']) && $config['match_type'] === 'fnmatch'){
+                $match_type = 'fnmatch';
             }
+            if($match_type === 'default'){
+                if(strpos($article['link'], $urlpart) === false) {
+                    continue;
+                }
+            }elseif($match_type === 'fnmatch'){
+                if(fnmatch($urlpart, $article['link']) === false) {
+                    continue;
+                }
+            }else{
+                continue;
+            }
+
             $hit_urlpart = $urlpart;
             if (strpos($article['plugin_data'], "feedmod,$owner_uid:") !== false) {
                 // do not process an article more than once
