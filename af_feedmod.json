@@ -8717,11 +8717,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//block.fm/news/": {
-    "type": "xpath",
-    "engine": "phantomjs",
-    "xpath": "div[@class='news-content']"
-  },
   "//yhara.jp/": {
     "type": "xpath",
     "xpath": "div[@class='post']",
@@ -13815,5 +13810,99 @@
   "//www.osstech.co.jp/~hamano/": {
     "type": "xpath",
     "xpath": "div[@class='post']"
+  },
+  "//block.fm/news/": {
+    "type": "xpath",
+    "engine": "phantomjs",
+    "xpath": "div[contains(@class,'body')]/div[contains(@class,'container')]"
+  },
+  "//www.osaka-u.ac.jp/ja/news/topics/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']//div[@class='moduleCategoryArticle']"
+  },
+  "//www.moneypost.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='recent_entry']",
+    "cleanup": [
+      "div[@class='share-buttons']"
+    ],
+    "next_page": "div[contains(@class,'singlePagenaition')]"
+  },
+  "//www.matolabel.net/": {
+    "type": "xpath",
+    "xpath": "article[@id='entryarea']/section[@id='introtext' or @id='maintext']"
+  },
+  "//www.kyoto-u.ac.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']"
+  },
+  "//www.kayac.com/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__content__box']/section[contains(@class,'article__content__document')]"
+  },
+  "//www.cyberagent.co.jp/news/detail/": {
+    "type": "xpath",
+    "xpath": "div[@class='newsDetail_body']"
+  },
+  "//www.comiket.co.jp/info-": {
+    "type": "xpath",
+    "xpath": "body",
+    "cleanup": [
+      "div[@class='sns']"
+    ]
+  },
+  "//www.city.osaka.lg.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='mol_contents']"
+  },
+  "//www.cinra.net/column/": {
+    "type": "xpath",
+    "xpath": "div[@class='js-inner-main']",
+    "cleanup": [
+      "div[contains(@class,'pagination--bordertop')]"
+    ],
+    "next_page": "div[contains(@class,'pagination--bordertop')]"
+  },
+  "//www.894651.com/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='i-page']"
+  },
+  "//web.kawade.co.jp/bungei/": {
+    "type": "xpath",
+    "xpath": "article/div[@id='postCont']"
+  },
+  "//tsuchiyashutaro.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//tkng.org/b/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tablo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='main_contents']/div[@class='main_block']"
+  },
+  "//support.apple.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']"
+  },
+  "//soundproof-blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//shotahorii.com/diary/": {
+    "type": "xpath",
+    "xpath": "article/img|//div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts']"
+    ]
+  },
+  "//raikumakoto.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
