@@ -1,7 +1,8 @@
 {
     "require": {
         "jonnyw/php-phantomjs" : "4.6.*",
-        "jakoch/phantomjs-installer": "2.1.1-p08"
+        "jakoch/phantomjs-installer": "2.1.1-p08",
+        "j0k3r/graby" : "1.*"
     },
     "config": {
        "bin-dir": "bin"

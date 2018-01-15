@@ -186,6 +186,12 @@ class Af_Feedmod extends Plugin implements IHandler
                             $is_hit_link = true;
                             $is_execute = true;
                         }
+                    } else {
+                        $html_message = $this->get_html_graby($link);
+                        if($html_message){
+                            $article['content'] = $html_message;
+                            $is_execute = true;
+                        }
                     }
                 }
             }
@@ -322,6 +328,11 @@ EOD;
         return $rep_link;
     }
 
+    function get_html_graby(string $url) : string {
+        require_once('GrabyWarpper.php');
+        $graby = new GrabyWarpper();
+        return $graby->get_html($url);
+    }
     function get_html_pjs(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_phantomjs.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
         require_once('PhantomJsWarpper.php');
