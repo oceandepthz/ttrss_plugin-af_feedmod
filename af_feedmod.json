@@ -14031,5 +14031,80 @@
     "cleanup": [
       "div[@class='waku4' or @class='gads1']"
     ]
+  },
+  "//kadenya.news/": {
+    "type": "xpath",
+    "xpath": "section[@class='entry-content']|//footer/div[@class='post-author-box']"
+  },
+  "//jp.cointelegraph.com/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//jlongster.com/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//jitekineko.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-entry']",
+    "cleanup": [
+      "div[contains(@id,'KKADP') or contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//itjinzai-lab.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'topSection') or @class='article']"
+  },
+  "//ipping.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-body']/div[contains(@class,'article-cover-image') or @id='article-introduction']"
+  },
+  "//i.meet-i.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents']/*[@class='img-detail-top' or @class='detail-summaryarea']"
+  },
+  "//ic-root.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='blog-body']",
+    "cleanup": [
+      "div[@class='aside-area']",
+      "aside"
+    ]
+  },
+  "//help.sakura.ad.jp/hc/ja/articles/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article')]/aside[@class='article-aside']|//div[contains(@class,'article')]/article[@class='main-column']"
+  },
+  "//g-yokai.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='asset-content']"
+  },
+  "//gakkenmu.jp/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//este-na.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//dwango.co.jp/pi/ns/": {
+    "type": "xpath",
+    "xpath": "div[@id='pressMain']"
+  },
+  "//coincheck.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-wrapper' or @class='post-thumbnail']"
+  },
+  "//card-life.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//bookwalker.jp/info/": {
+    "type": "xpath",
+    "xpath": "div[@class='sectionIn']"
+  },
+  "//blog.vrai.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogbody']"
   }
 }
