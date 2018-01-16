@@ -163,6 +163,10 @@ class Af_Feedmod extends Plugin implements IHandler
             break;   // if we got here, we found the correct entry in $data, do not process more
         }
 
+        if($is_execute){
+            $article['content'] = $article['content']."<div style='font-size:8px;'>xpath:".$urlpart."</div>";
+        }
+
         // hatena contents
         if($is_hit_link === false){
             $link = $article['link'];
@@ -182,14 +186,14 @@ class Af_Feedmod extends Plugin implements IHandler
                                     $entrysXML .= $doc->saveXML($entry);
                                 }
                             }
-                            $article['content'] = $entrysXML;
+                            $article['content'] = $entrysXML."<div style='font-size:8px;'>hatena</div>";
                             $is_hit_link = true;
                             $is_execute = true;
                         }
                     } else {
                         $html_message = $this->get_html_graby($link);
-                        if($html_message){
-                            $article['content'] = $html_message;
+                        if(strlen($html_message) > strlen($article['content'])){
+                            $article['content'] = $html_message."<div style='font-size:8px;'>graby</div>";
                             $is_execute = true;
                         }
                     }
@@ -298,13 +302,14 @@ EOD;
     }
 
     function writeLog(string $url, bool $is_hit_link, string $hit_urlpart = '') : void {
+/*
         $exclusionUrlList = json_decode(file_get_contents(dirname(__FILE__).'/exclusion_url_list.json'),true);
         foreach($exclusionUrlList as $v){
             if(strpos($url, $v) !== false){
                 return;
             }
         }
-
+*/
         $suffix = "";
         if($is_hit_link){
             $suffix = "xpath:".$hit_urlpart;
@@ -339,6 +344,12 @@ EOD;
         $pjs = new PhantomJsWarpper();
         return $pjs->get_html($url);
     }
+    function get_html_chrome(string $url) : string {
+        file_put_contents(dirname(__FILE__).'/af_feed_chromium.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
+        require_once('Chrome.php');
+        $ch = new Chrome();
+        return $ch->get_html($url);
+    }
     function get_html_chromium(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_chromium.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
         require_once('Chromium.php');
@@ -361,7 +372,7 @@ EOD;
         if($this->is_pjs($config)){
             return $this->get_html_pjs($url);
         } elseif ($this->is_chromium($config)){
-            return $this->get_html_chromium($url);
+            return $this->get_html_chrome($url);
         } else {
             $r = fetch_file_contents($url);
             return $r ? $r : "";
