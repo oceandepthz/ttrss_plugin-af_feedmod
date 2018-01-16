@@ -13981,5 +13981,55 @@
   "//lab.lsd.design/": {
     "type": "xpath",
     "xpath": "div[@class='section-content']"
+  },
+  "//gamewalker.link/": {
+    "type": "xpath",
+    "xpath": "header/div[@class='eyeCatch']|//div[@class='postBody']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//www.gaitame.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBox']"
+  },
+  "srad.jp/story/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='body']|//ul[@id='commentlisting']",
+    "cleanup": [
+      "div[@class='commentSub']"
+    ]
+  },
+  "//www.gaitamesk.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']",
+    "cleanup": [
+      "ul[@id='route']",
+      "li[@class='twitter']",
+      "div[@class='page' or @class='ad-area']"
+    ]
+  },
+  "//jser.info/": {
+    "type": "xpath",
+    "xpath": "article[@class='post-content']"
+  },
+  "//kwsklife.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//kurone43.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//konomanga.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='contentBody']"
+  },
+  "//kemono-friendsch.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='kizi']/div[@class='blogbox']|//div[@class='kizi']/div[@class='pagetext']/div[@class='text_body']",
+    "cleanup": [
+      "div[@class='waku4' or @class='gads1']"
+    ]
   }
 }
