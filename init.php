@@ -302,14 +302,6 @@ EOD;
     }
 
     function writeLog(string $url, bool $is_hit_link, string $hit_urlpart = '') : void {
-/*
-        $exclusionUrlList = json_decode(file_get_contents(dirname(__FILE__).'/exclusion_url_list.json'),true);
-        foreach($exclusionUrlList as $v){
-            if(strpos($url, $v) !== false){
-                return;
-            }
-        }
-*/
         $suffix = "";
         if($is_hit_link){
             $suffix = "xpath:".$hit_urlpart;
@@ -556,7 +548,7 @@ EOD;
         }
     }
     function get_instagram_img_url(string $url) : string {
-        $html = $this->get_html_pjs($url);
+        $html = $this->get_html_chrome($url);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         if(!$doc){
