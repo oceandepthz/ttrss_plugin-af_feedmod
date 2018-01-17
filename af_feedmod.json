@@ -42,14 +42,6 @@
       "span"
     ]
   },
-  "//d.hatena.ne.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='body']/div[1]",
-    "cleanup": [
-      "script",
-      "iframe"
-    ]
-  },
   "//juggly.cn/": {
     "type": "xpath",
     "xpath": "div[@class='the_content']",
@@ -11157,34 +11149,6 @@
     ],
     "next_page": "div[@class='page-links']"
   },
-  "//aws.amazon.com/releasenotes/": {
-    "type": "xpath",
-    "xpath": "div[@id='yui-main']"
-  },
-  "//aws.amazon.com/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
-  },
-  "//aws.amazon.com/jp/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
-  },
-  "//aws.amazon.com/jp/solutions/": {
-    "type": "xpath",
-    "xpath": "section/div[contains(@class,'content')]"
-  },
-  "//aws.amazon.com/about-aws/whats-new/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
-  "//aws.amazon.com/message/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
-  "//aws.amazon.com/jp/message/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
   "//www.toshiba.co.jp/about/press/": {
     "type": "xpath",
     "xpath": "div[@id='titleArea' or @id='articleArea']"
@@ -11800,11 +11764,6 @@
   "//trendnews.yahoo.co.jp/": {
     "type": "xpath",
     "xpath": "div[@class='bodyCont']"
-  },
-  "//note.mu/": {
-    "type": "xpath",
-    "engine": "phantomjs",
-    "xpath": "div[@class='body-wrapper']"
   },
   "//irnote.com/": {
     "type": "xpath",
@@ -14106,5 +14065,107 @@
   "//blog.vrai.jp/": {
     "type": "xpath",
     "xpath": "div[@class='blogbody']"
+  },
+  "//d.hatena.ne.jp/keyword/": {
+    "type": "xpath",
+    "xpath": "header/div[@class='keyword-title']|//div[@class='keyword-body']/div[@class='section' or @class='footnote']"
+  },
+  "//d.hatena.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']/div[1]",
+    "cleanup": [
+      "script",
+      "iframe"
+    ]
+  },
+  "//note.mu/": {
+    "type": "xpath",
+    "engine": "chromium",
+    "xpath": "div[@class='imagenote-viewer' or @class='note-cover-img' or @class='body-wrapper']"
+  },
+  "//blog.haramishio.xyz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='share-this']"
+    ]
+  },
+  "//blog.getbootstrap.com/": {
+    "type": "xpath",
+    "xpath": "body/div[@class='container']",
+    "cleanup": [
+      "iframe[contains(@class,'twitter-follow-button') or contains(@class,'twitter-share-button')]"
+    ]
+  },
+  "//blog.cardina1.red/": {
+    "type": "xpath",
+    "xpath": "xhtml:article"
+  },
+  "//bhb.co.jp/staff-blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//better-than-i-was-yesterday.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//building-up.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='breadcrumb' or @class='sns']",
+      "aside"
+    ]
+  },
+  "//archive.fo/": {
+    "type": "xpath",
+    "xpath": "div[@id='CONTENT']/div/div/div"
+  },
+  "//affi-note.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//aasj.jp/news/watch/": {
+    "type": "xpath",
+    "xpath": "div[@id='diary']/div[contains(@id,'post-')]",
+    "cleanup": [
+      "div[@id='comments']"
+    ]
+  },
+  "//aws.amazon.com/releasenotes/": {
+    "type": "xpath",
+    "xpath": "div[@id='yui-main']"
+  },
+  "//aws.amazon.com/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
+  },
+  "//aws.amazon.com/jp/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
+  },
+  "//aws.amazon.com/jp/solutions/": {
+    "type": "xpath",
+    "xpath": "section/div[contains(@class,'content')]"
+  },
+  "//aws.amazon.com/about-aws/whats-new/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/jp/about-aws/whats-new/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/jp/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//blog.goo.ne.jp/narmuqym/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']"
   }
 }
