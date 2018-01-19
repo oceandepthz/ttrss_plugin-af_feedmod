@@ -190,14 +190,18 @@ class Af_Feedmod extends Plugin implements IHandler
                             $is_hit_link = true;
                             $is_execute = true;
                         }
-                    } else {
-                        $html_message = $this->get_html_graby($link);
-                        if(strlen($html_message) > strlen($article['content'])){
-                            $article['content'] = $html_message."<div style='font-size:8px;'>graby</div>";
-                            $is_execute = true;
-                        }
-                    }
+                    } 
                 }
+            }
+        }
+
+        if(!$is_execute){
+            $this->writeLog($article['link'],$is_hit_link,$hit_urlpart);
+
+            $html_message = $this->get_html_graby($link);
+            if(strlen($html_message) > strlen($article['content'])){
+                $article['content'] = $html_message."<div style='font-size:8px;'>graby</div>";
+                $is_execute = true;
             }
         }
 
@@ -291,9 +295,6 @@ EOD;
             }
         }
 
-        if(!$is_execute){
-            $this->writeLog($article['link'],$is_hit_link,$hit_urlpart);
-        }
         return $article;
     }
 
