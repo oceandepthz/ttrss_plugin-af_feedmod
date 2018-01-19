@@ -167,36 +167,19 @@ class Af_Feedmod extends Plugin implements IHandler
             $article['content'] = $article['content']."<div style='font-size:8px;'>xpath:".$urlpart."</div>";
         }
 
-        // hatena contents
+        // hatena content
         if($is_hit_link === false){
-            $link = $article['link'];
-            $html = $this->get_html($link, array());
-            if($html){
-                $doc = new DOMDocument();
-                @$doc->loadHTML($html);
-                if($doc){
-                    $xpath = new DOMXPath($doc);
-                    $entries = $xpath->query("(//html[@data-admin-domain='//blog.hatena.ne.jp'])");
-                    if ($entries->length > 0){
-                        $entries = $xpath->query("(//div[contains(@class,'entry-content')])");
-                        if ($entries->length > 0){
-                            $entrysXML = '';
-                            foreach ($entries as $entry) {
-                                if ($entry) {
-                                    $entrysXML .= $doc->saveXML($entry);
-                                }
-                            }
-                            $article['content'] = $entrysXML."<div style='font-size:8px;'>hatena</div>";
-                            $is_hit_link = true;
-                            $is_execute = true;
-                        }
-                    } 
-                }
+            $content = $this->get_routine_content($article['link']);
+            if(strlen($content) > 0){
+                $article['content'] = $content;
+                $is_hit_link = true;
+                $is_execute = true;
             }
         }
 
         if(!$is_execute){
-            $this->writeLog($article['link'],$is_hit_link,$hit_urlpart);
+            $link = $article['link'];
+            $this->writeLog($link,$is_hit_link,$hit_urlpart);
 
             $html_message = $this->get_html_graby($link);
             if(strlen($html_message) > strlen($article['content'])){
@@ -300,6 +283,33 @@ EOD;
 
     function __debug($v){
         file_put_contents(dirname(__FILE__).'/debug.txt', print_r($v, true)."\n", FILE_APPEND|LOCK_EX);
+    }
+
+    function get_routine_content(string $url) : string {
+        $html = $this->get_html($url, array());
+        if(!$html){
+            return "";
+        }
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+        if(!$doc){
+            return "";
+        }
+        $xpath = new DOMXPath($doc);
+
+        // hatena
+        $entries = $xpath->query("(//html[@data-admin-domain='//blog.hatena.ne.jp'])");
+        if ($entries->length > 0){
+            $entrysXML = '';
+            foreach ($entries as $entry) {
+                $entrysXML .= $doc->saveXML($entry);
+            }
+            return $entrysXML."<div style='font-size:8px;'>hatena</div>";
+        }
+
+        // etc...
+
+        return "";
     }
 
     function writeLog(string $url, bool $is_hit_link, string $hit_urlpart = '') : void {
