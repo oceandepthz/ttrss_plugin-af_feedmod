@@ -5408,10 +5408,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'blog-post-body')]"
   },
-  "//github.com/": {
-    "type": "xpath",
-    "xpath": "article|//div[contains(@class,'release-body')]"
-  },
   "//www.cinra.net/news/": {
     "type": "xpath",
     "xpath": "div[@class='l-article-body']"
@@ -6970,10 +6966,6 @@
   "//www.cocoro-quest.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//webmaster-ja.googleblog.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post-body']"
   },
   "//blog.burntsushi.net/": {
     "type": "xpath",
@@ -13660,11 +13652,6 @@
       "div[contains(@class,'sponsored')]"
     ]
   },
-  "*//github.com/*/issues/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
   "//nikkan-spa.jp/": {
     "type": "xpath",
     "xpath": "div[@class='post-container']/div[not(@class)]",
@@ -14167,5 +14154,64 @@
   "//blog.goo.ne.jp/narmuqym/": {
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
+  },
+  "*//github.com/*/*/wiki/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='wiki-body']"
+  },
+  "*//github.com/*/issues/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "//github.com/": {
+    "type": "xpath",
+    "xpath": "article|//div[contains(@class,'release-body')]"
+  },
+  "//zoom-blc.com/": {
+    "type": "xpath",
+    "xpath": "header[@class='article-header']/div/img|//div[@class='article-body']"
+  },
+  "//spa-game.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//games.app-liv.jp/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='headline-thumbnail' or @class='lead' or @class='post']"
+  },
+  "//gamayauber1001.wordpress.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='wpcnt' or @id='jp-post-flair']"
+    ]
+  },
+  "//aco-tokyo.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='detailArea' or @id='writerThumb']",
+    "cleanup": [
+      "div[@class='snsBtns']"
+    ]
+  },
+  "//b.hatena.ne.jp/entry/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-info']/*[@class='entry-info-title' or contains(@class,'entry-info-meta')]|//div[contains(@class,'js-bookmarks-recent')]",
+    "cleanup": [
+      "div[contains(@class,'entry-comment-readmore')]",
+      "button[contains(@class,'entry-comment-menu')]",
+      "ul[contains(@class,'entry-comment-menu-list')]"
+    ],
+    "append_css": ".entry-user-icon img{width:32px;height:32px;border-radius:3px;vertical-align:middle;}"
+  },
+  "//webmaster-ja.googleblog.com/": {
+    "type": "xpath",
+    "engine": "chromium",
+    "xpath": "div[@class='post-body']"
+  },
+  "//www.nintendo.co.jp/corporate/release/": {
+    "type": "xpath",
+    "xpath": "div[@id='single_frame']"
   }
 }
