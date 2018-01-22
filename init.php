@@ -112,6 +112,12 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
             $is_hit_link = true;
+
+            if(isset($config['no_fetch']) && $config['no_fetch']){
+                $is_execute = true;
+                break;
+            }
+
             $doc = new DOMDocument();
             $link = $this->replace_link(trim($article['link']),$config);
 
@@ -168,7 +174,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // hatena content
-        if($is_hit_link === false){
+        if(!$is_execute){
             $content = $this->get_routine_content($article['link']);
             if(strlen($content) > 0){
                 $article['content'] = $content;
@@ -300,11 +306,14 @@ EOD;
         // hatena
         $entries = $xpath->query("(//html[@data-admin-domain='//blog.hatena.ne.jp'])");
         if ($entries->length > 0){
-            $entrysXML = '';
-            foreach ($entries as $entry) {
-                $entrysXML .= $doc->saveXML($entry);
+            $entries = $xpath->query("(//div[contains(@class,'entry-content')])");
+            if ($entries->length > 0){
+                $entrysXML = '';
+                foreach ($entries as $entry) {
+                    $entrysXML .= $doc->saveXML($entry);
+                }
+                return $entrysXML."<div style='font-size:8px;'>hatena</div>";
             }
-            return $entrysXML."<div style='font-size:8px;'>hatena</div>";
         }
 
         // etc...
