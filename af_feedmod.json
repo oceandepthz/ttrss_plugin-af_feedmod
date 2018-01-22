@@ -253,7 +253,7 @@
     "type": "xpath",
     "xpath": "div[@class='MdMTMWidgetList01']"
   },
-  "anond.hatelabo.jp": {
+  "//anond.hatelabo.jp/": {
     "type": "xpath",
     "xpath": "div[@class='section' or @class='refererlist']",
     "cleanup": [
@@ -14213,5 +14213,38 @@
   "//www.nintendo.co.jp/corporate/release/": {
     "type": "xpath",
     "xpath": "div[@id='single_frame']"
+  },
+  "//www.tenki.jp/bousai/earthquake/detail-": {
+    "type": "xpath",
+    "xpath": "div[@id='bd-main']",
+    "cleanup": [
+      "p[@id='earthquake_reload' or @id='earthquake_zoom_image_link']",
+      "div[contains(@class,'earthquake_pager') or contains(@class,'social_icon_entries') or contains(@class,'tenki-ad-footer')]"
+    ]
+  },
+  "//www.tenki.jp/forecaster/diary/": {
+    "type": "xpath",
+    "xpath": "div[@id='bd-main']/div[contains(@class,'contentsBox')]",
+    "cleanup": [
+      "div[contains(@class,'social_buttons_') or @class='recent_entry' or contains(@id,'tenki-ad-footer_') or @class='titleBorder' or @class='recent_entries' or contains(@class,'more_link_')]",
+      "img[contains(@src,'//ads.adjust-net.jp/')]",
+      "iframe[contains(@id,'bx-iframe-idsync-')]"
+    ]
+  },
+  "//www.rieti.go.jp/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']",
+    "cleanup": [
+      "div[contains(@class,'btnBox')]"
+    ]
+  },
+  "//www.kurage-bunch.com/manga/": {
+    "type": "xpath",
+    "xpath": "div[@id='manga_area']"
+  },
+  "//www.slideshare.net/": {
+    "type": "xpath",
+    "xpath": "body",
+    "no_fetch": true
   }
 }
