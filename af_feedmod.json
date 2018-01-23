@@ -479,10 +479,6 @@
       "a[contains(@href,'recruit.pixiv.net')]/../.."
     ]
   },
-  "newspicks.com/news": {
-    "type": "xpath",
-    "xpath": "div[@class='container']/div[2]"
-  },
   "isumi.rail.shop-pro.jp": {
     "type": "xpath",
     "xpath": "div[@class='jgm_entry_desc_mark']",
@@ -11793,10 +11789,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//jp.reuters.com/": {
-    "type": "xpath",
-    "xpath": "figure/div/img|//div[contains(@class,'ArticleBody_body_')]"
-  },
   "//kosotatu.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article']"
@@ -13044,26 +13036,6 @@
     "type": "xpath",
     "xpath": "header/div[@class='source']|//article/div[@class='body']|//div[@class='container']/div[@class='body']"
   },
-  "//www.asahi.com/corporate/info/": {
-    "type": "xpath",
-    "xpath": "main"
-  },
-  "//www.asahi.com/and_M/": {
-    "type": "xpath",
-    "xpath": "div[@class='Main']/div[@class='LayTypeF']",
-    "cleanup": [
-      "div[@class='AdBlock']"
-    ],
-    "next_page": "np div[@class='ArticlePager']"
-  },
-  "//www.asahi.com/and_w/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or @class='ArticleText' or @class='RelatedLinkMod']"
-  },
   "//simchange.jp/sim/": {
     "type": "xpath",
     "xpath": "figure[@class='e__category_top_thumbnail']|//div[@class='e__description']|//section[@class='e__category_top_detail']"
@@ -13561,33 +13533,6 @@
   "//snjpn.net/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
-  },
-  "//news.mynavi.jp/article/svalley-": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@id,'div-gpt-ad-')]"
-    ]
-  },
-  "//news.mynavi.jp/series/onnanofushime/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleContent']",
-    "cleanup": [
-      "div[contains(@class, 'btn-nextpage')]"
-    ]
-  },
-  "//news.mynavi.jp/column/svalley/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleContent']",
-    "append_css": "div.center table {width:initial!important;}"
-  },
-  "//news.mynavi.jp/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@class, 'btn-nextpage')]"
-    ],
-    "next_page": "ul[@class='nav']"
   },
   "//www.centsys.jp/column/": {
     "type": "xpath",
@@ -14290,5 +14235,65 @@
   "//blog.goo.ne.jp/keisai-dousureba/": {
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
+  },
+  "//blog.livedoor.jp/dg_law/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']"
+  },
+  "//blog.livedoor.jp/keumaya-china/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//www.asahi.com/corporate/info/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//www.asahi.com/and_M/": {
+    "type": "xpath",
+    "xpath": "div[@class='Main']/div[@class='LayTypeF']",
+    "cleanup": [
+      "div[@class='AdBlock']"
+    ],
+    "next_page": "np div[@class='ArticlePager']"
+  },
+  "//www.asahi.com/and_w/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]"
+  },
+  "//news.mynavi.jp/article/svalley-": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//news.mynavi.jp/series/onnanofushime/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleContent']",
+    "cleanup": [
+      "div[contains(@class, 'btn-nextpage')]"
+    ]
+  },
+  "//news.mynavi.jp/column/svalley/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleContent']",
+    "append_css": "div.center table {width:initial!important;}"
+  },
+  "//news.mynavi.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "next_page": "div[@class='paginate']"
+  },
+  "//newspicks.com/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents-area']//div[@class='news-image' or @class='comments']|//div[@class='container']/div[contains(@class,'article-body')]"
+  },
+  "//jp.reuters.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'StandardArticleBody_body_')]"
   }
 }
