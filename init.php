@@ -86,6 +86,12 @@ class Af_Feedmod extends Plugin implements IHandler
             $article['link'] = 'http:'.$article['link'];
         }
         foreach ($data as $urlpart=>$config) {
+            if(fnmatch('*//*/*.pdf', $article['link'])){
+                $is_hit_link = true;
+                $is_execute = true;
+                break;
+            }
+
             $match_type = 'default';
             if(isset($config['match_type']) && $config['match_type'] === 'fnmatch'){
                 $match_type = 'fnmatch';
@@ -439,7 +445,7 @@ EOD;
 
         $next_page_xpath = new DOMXPath($doc);
         $next_page_entries = $next_page_xpath->query('(//'.$config['next_page'].')');
-        if ($next_page_entries->length === 0){
+        if ($next_page_entries === false || $next_page_entries->length === 0){
             return array();
         }
         $next_page_basenode = $next_page_entries->item(0);
@@ -482,7 +488,10 @@ EOD;
                 $url_item = parse_url($link);
                 $next_page = $url_item['scheme'].'://'.$url_item['host'].$next_page;
             }
-            if(substr($next_page, 0,4) != "http"){
+            if(substr($next_page, 0, 2) == "./"){
+                $next_page = $link.substr($next_page, 1);
+            }
+            if(substr($next_page, 0, 4) != "http"){
                 $pos = strrpos($link, "/");
                 if($pos){
                     $next_page = substr($link, 0, $pos+1).$next_page;
