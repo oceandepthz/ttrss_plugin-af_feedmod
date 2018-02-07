@@ -14566,5 +14566,17 @@
   "//ameblo.jp/wake-up-japan/": {
     "type": "xpath",
     "xpath": "div[@class='articleText']"
+  },
+  "//the-ans.jp/column/": {
+    "type": "xpath",
+    "xpath": "p[@class='post-excerpt']|//div[@id='detail-text']",
+    "cleanup": [
+      "div[@class='nextpage']"
+    ],
+    "next_page": "div[@class='single-pagenation']"
+  },
+  "//weathernews.jp/s/topics/": {
+    "type": "xpath",
+    "xpath": "div[@id='top_com']|//article/section"
   }
 }
