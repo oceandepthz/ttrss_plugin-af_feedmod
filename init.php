@@ -194,8 +194,8 @@ class Af_Feedmod extends Plugin implements IHandler
             $this->writeLog($link,$is_hit_link,$hit_urlpart);
 
             $html_message = $this->get_html_graby($link);
-            if(strlen($html_message) > strlen($article['content'])){
-                $article['content'] = $html_message."<div style='font-size:8px;'>graby</div>";
+            if(strlen($html_message) > 0){
+                $article['content'] = $article['content']."<div>".$html_message."</div><div style='font-size:8px;'>graby</div>";
                 $is_execute = true;
             }
         }
