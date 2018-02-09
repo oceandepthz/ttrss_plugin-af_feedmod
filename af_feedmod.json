@@ -7096,13 +7096,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//storialaw.jp/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[contains(@class,'fb-page') or @class='social4i']"
-    ]
-  },
   "//recruit.gmo.jp/engineer/jisedai/blog/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -14320,10 +14313,6 @@
       "div[@id='sns-group-top' or contains(@class,'saboxplugin-socials') or @id='sns-group']"
     ]
   },
-  "//www.bloomberg.co.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[@class='main-column__content']/div[@class='body-copy']"
-  },
   "//r25.jp/": {
     "type": "xpath",
     "xpath": "div[@class='ArticleContainer__articleWrapper']/div/div[@class='ItemList']"
@@ -14464,7 +14453,8 @@
   },
   "//dosports.yahoo.co.jp/column/": {
     "type": "xpath",
-    "xpath": "div[@id='modColumnPhoto' or @id='detail']"
+    "xpath": "div[@id='modColumnPhoto' or @id='detail']",
+    "append_css": "section{display:block!important;}"
   },
   "//givemegohan.pigboat.jp/": {
     "type": "xpath",
@@ -14578,5 +14568,44 @@
   "//weathernews.jp/s/topics/": {
     "type": "xpath",
     "xpath": "div[@id='top_com']|//article/section"
+  },
+  "//storialaw.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'contents_blog')]",
+    "cleanup": [
+      "div[contains(@class,'fb-page')]"
+    ]
+  },
+  "//blog.ishkawa.org/": {
+    "type": "xpath",
+    "xpath": "article[@class='post-content']"
+  },
+  "//www.bloomberg.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='body-copy']"
+  },
+  "//special.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']",
+    "cleanup": [
+      "*[@class='sns_zone' or @class='p_navi' or @class='to_top']"
+    ],
+    "next_page": "ul[@class='p_navi']"
+  },
+  "//sega.jp/topics/": {
+    "type": "xpath",
+    "xpath": "div[@class='topicsBox']"
+  },
+  "//labs.gree.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//bto-pc.jp/btopc-com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]/div[@class='asset-body' or @class='asset-more']"
+  },
+  "//blog.planet12.jp/post/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
   }
 }
