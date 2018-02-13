@@ -222,6 +222,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
                 }
+
+                $this->update_html_style($xpath, $entry);
+
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
 
@@ -712,6 +715,59 @@ EOD;
                 }
             }
         }
+    }
+
+    function update_html_style(DOMXPath $xpath, DOMElement $basenode) : void {
+        if(!$basenode){
+            return;
+        }
+        $list = $xpath->query("(//*[string-length(@style) > 0])");
+        if(!$list || $list->length === 0){
+            return;
+        }
+        foreach($list as $item){
+            $s = '';
+            if($item->hasAttribute('style')){
+                $s = trim($item->getAttribute('style'));
+            }
+            if(!$s || strlen($s) === 0){
+                continue;
+            }
+            $style = $this->css_style_to_array($s);
+            $is_update = false;
+            if(array_key_exists('display', $style) && $style['display'] == 'none'){
+                $style['display'] = '';
+                $is_update = true;
+            }
+
+            if($is_update){
+                $item->setAttribute('style', $this->array_to_css_style($style));
+            }
+        }
+    }
+    function array_to_css_style(array $style) : string {
+        $s = '';
+        foreach($style as $k => $v){
+            if(!$v){
+                continue;
+            }
+            $s .= "${k}:${v};";
+        }
+        return $s;
+    }
+
+    function css_style_to_array(string $style) : array {
+        $l = [];
+
+        foreach(explode(";", $style) as $i){
+            $kv = explode(":", $i);
+            $k = trim($kv[0]);
+            $v = trim($kv[1]);
+            if($k && $v){
+                $l[$k] = $v;
+            }
+        }
+        return $l;
     }
 
     function cleanup(DOMXPath $xpath, DOMElement $basenode, $config_cleanup) : void {
