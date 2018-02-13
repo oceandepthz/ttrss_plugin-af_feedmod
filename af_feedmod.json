@@ -10680,14 +10680,6 @@
       "div[@id='jp-post-flair']"
     ]
   },
-  "//bestcarweb.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='post-image' or @class='post-content']",
-    "cleanup": [
-      "div[@class='page-links']"
-    ],
-    "next_page": "div[@class='page-links']"
-  },
   "//axia.co.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content') or contains(@class,'article-author')]"
@@ -14607,5 +14599,17 @@
   "//blog.planet12.jp/post/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//bestcarweb.jp/feature/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='article__mainImage' or @class='article__content']"
+  },
+  "//bestcarweb.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-image' or @class='post-content']",
+    "cleanup": [
+      "div[@class='page-links']"
+    ],
+    "next_page": "div[@class='page-links']"
   }
 }
