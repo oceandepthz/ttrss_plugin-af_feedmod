@@ -10112,13 +10112,6 @@
     "type": "xpath",
     "xpath": "div[contains(@id,'post-')]"
   },
-  "//xiaolongchakan.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@class='sp-only' or @class='pc-only']"
-    ]
-  },
   "//junichi-manga.com/": {
     "type": "xpath",
     "xpath": "article",
@@ -14611,5 +14604,43 @@
       "div[@class='page-links']"
     ],
     "next_page": "div[@class='page-links']"
+  },
+  "//xiaolongchakan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-entry__content']",
+    "cleanup": [
+      "div[@class='c-google-adsense']"
+    ]
+  },
+  "//www.oreilly.co.jp/books/": {
+    "type": "xpath",
+    "xpath": "section[@id='content']",
+    "cleanup": [
+      "div[@id='buying_option' or @class='social-tools']"
+    ]
+  },
+  "//tech.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBody']",
+    "next_page": "nav[@class='pagenation']"
+  },
+  "//smartanswer.colopl-research.jp/reports/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'main-content')]/div/div[contains(@class,'report')]",
+    "cleanup": [
+      "div[contains(@class,'social-share')]"
+    ]
+  },
+  "//monetomo.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//famicoroti.blog81.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='ently_body']"
+  },
+  "//carview.yahoo.co.jp/news/market/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-sentence']"
   }
 }
