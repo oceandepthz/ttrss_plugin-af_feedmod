@@ -331,6 +331,11 @@ EOD;
     }
 
     function writeLog(string $url, bool $is_hit_link, string $hit_urlpart = '') : void {
+        $up = parse_url($url);
+        if($up['path'] == '/' && $up['query'] == ''){
+            return;
+        }
+
         $suffix = "";
         if($is_hit_link){
             $suffix = "xpath:".$hit_urlpart;
