@@ -328,10 +328,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "taisy0.com": {
-    "type": "xpath",
-    "xpath": "div[@class='post__body']"
-  },
   "128bit.blog41.fc2.com": {
     "type": "xpath",
     "xpath": "section[@class='article-main']",
@@ -10753,10 +10749,6 @@
     "type": "xpath",
     "xpath": "div[@id='main']"
   },
-  "//www.iscle.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='contents']"
-  },
   "//www.intellilink.co.jp/": {
     "type": "xpath",
     "xpath": "div[@class='content']/div/div/div[contains(@class,'field-item')]",
@@ -12444,10 +12436,6 @@
     "next_page": "div[contains(@class,'pager') and contains(@class,'upper')]/div[@class='pagerInner']",
     "append_css": "img.size-full {width: 500px!important;} div.entry-profile-icon-img img {width:80px!important;height:80px!important;}"
   },
-  "//minecraft-diary.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='main-body']/div[@class='contents']"
-  },
   "//android-developers.googleblog.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-body']"
@@ -12989,23 +12977,6 @@
     "type": "xpath",
     "engine": "phantomjs",
     "xpath": "div[@class='article-body-container']"
-  },
-  "//headlines.yahoo.co.jp/videonews/fnn": {
-    "type": "xpath",
-    "xpath": "div[@class='articleMain']"
-  },
-  "//headlines.yahoo.co.jp/videonews/jnn": {
-    "type": "xpath",
-    "xpath": "div[@class='articleMain']"
-  },
-  "//headlines.yahoo.co.jp/videonews/nnn": {
-    "type": "xpath",
-    "xpath": "div[@class='yvpControl' or @class='article']"
-  },
-  "//headlines.yahoo.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='thumb' or @class='ynDetailHeading']|//p[@class='ynDetailText']",
-    "next_page": "div[@class='ftPager']"
   },
   "//teratail.com/questions/": {
     "type": "xpath",
@@ -13928,20 +13899,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
   },
-  "*//github.com/*/*/wiki/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='wiki-body']"
-  },
-  "*//github.com/*/issues/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
-  "//github.com/": {
-    "type": "xpath",
-    "xpath": "article|//div[contains(@class,'release-body')]"
-  },
   "//zoom-blc.com/": {
     "type": "xpath",
     "xpath": "header[@class='article-header']/div/img|//div[@class='article-body']"
@@ -14667,5 +14624,64 @@
       "div[@class='entryPagenate' or contains(@class,'annotation')]"
     ],
     "next_page": "div[@class='entryPagenate']"
+  },
+  "//www.pc-koubou.jp/magazine/": {
+    "type": "xpath",
+    "xpath": "article/div[@id='main-image' or @id='body-block' or @id='profile']"
+  },
+  "//taisy0.com/": {
+    "type": "xpath",
+    "xpath": "footer[@class='c-entry__footer']|//div[@class='c-entry__content']/p",
+    "cleanup": [
+      "ul[@class='wp-profile-box__sns-accounts']"
+    ]
+  },
+  "//www.iscle.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents']"
+  },
+  "//minecraft-diary.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='inner-contents']"
+  },
+  "*//github.com/*/*/commit/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class,'repository-content')]"
+  },
+  "*//github.com/*/*/wiki/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='wiki-body']"
+  },
+  "*//github.com/*/issues/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "//github.com/": {
+    "type": "xpath",
+    "xpath": "article|//div[contains(@class,'release-body')]"
+  },
+  "//headlines.yahoo.co.jp/videonews/ann": {
+    "type": "xpath",
+    "xpath": "div[@class='articleMain']"
+  },
+  "//headlines.yahoo.co.jp/videonews/fnn": {
+    "type": "xpath",
+    "xpath": "div[@class='articleMain']"
+  },
+  "//headlines.yahoo.co.jp/videonews/jnn": {
+    "type": "xpath",
+    "xpath": "div[@class='articleMain']"
+  },
+  "//headlines.yahoo.co.jp/videonews/nnn": {
+    "type": "xpath",
+    "xpath": "div[@class='yvpControl' or @class='article']"
+  },
+  "//headlines.yahoo.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='thumb' or @class='ynDetailHeading']|//p[@class='ynDetailText']",
+    "next_page": "div[@class='ftPager']"
   }
 }
