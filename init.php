@@ -85,6 +85,16 @@ class Af_Feedmod extends Plugin implements IHandler
         if(strpos($article['link'], '//') === 0){
             $article['link'] = 'http:'.$article['link'];
         }
+
+        // shoutcut url
+        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/'];
+        if($this->strposa($article['link'], $sc_url)){
+            $rd_url = $this->get_redirect_url($article['link']);
+            if(strpos($article['link'], $rd_url) !== false){
+                $article['link'] = $rd_url;
+            }
+        }
+
         foreach ($data as $urlpart=>$config) {
             if(fnmatch('*//*/*.pdf', $article['link'])){
                 $is_hit_link = true;
@@ -294,6 +304,33 @@ EOD;
         }
 
         return $article;
+    }
+
+    function get_redirect_url(string $url): string {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+        curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+        curl_exec($ch);
+        $redirectURL = curl_getinfo($ch,CURLINFO_EFFECTIVE_URL );
+        curl_close($ch);
+        return $redirectURL;
+    }
+
+    function strposa(string $haystack,array $needles) : bool {
+        foreach($needles as $needle) {
+                $res = strpos($haystack, $needle);
+                if ($res !== false) {
+                    return true;
+                }
+        }
+        return false;
     }
 
     function __debug($v){
