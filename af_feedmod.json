@@ -642,11 +642,6 @@
     "type": "xpath",
     "xpath": "div[starts-with(@class, 'recipe-body')]"
   },
-  "realsound.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='entryBody']|//div[@class='entryMainPhoto']",
-    "next_page": "div[@id='pageNation']"
-  },
   "www.e-aidem.com/ch/jimocoro": {
     "type": "xpath",
     "xpath": "article//div[@class='entry-content']"
@@ -10322,13 +10317,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'post-body') and contains(@class,'entry-content')]"
   },
-  "//www.dream-seed.com/weblog/": {
-    "type": "xpath",
-    "xpath": "div[@id='single-post']",
-    "cleanup": [
-      "div[@class='google_adsense']"
-    ]
-  },
   "//www.dmaniax.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
@@ -14529,11 +14517,6 @@
       "div[@id='buying_option' or @class='social-tools']"
     ]
   },
-  "//tech.nikkeibp.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleBody']",
-    "next_page": "nav[@class='pagenation']"
-  },
   "//smartanswer.colopl-research.jp/reports/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'main-content')]/div/div[contains(@class,'report')]",
@@ -14683,5 +14666,96 @@
     "type": "xpath",
     "xpath": "div[@class='thumb' or @class='ynDetailHeading']|//p[@class='ynDetailText']",
     "next_page": "div[@class='ftPager']"
+  },
+  "//www.w3.org/TR/": {
+    "type": "xpath",
+    "xpath": "body"
+  },
+  "//www.w3.org/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.nii.ac.jp/news/release/": {
+    "type": "xpath",
+    "xpath": "div[@id='contentBox']"
+  },
+  "//www.ncc.go.jp/jp/information/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']/div[@class='txtbox']"
+  },
+  "//www.freia.jp/taka/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='container']/div/div[contains(@class,'content')]"
+  },
+  "//www.cyzo.com/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "cleanup": [
+      "div[@id='pageNav' or @id='nextPageTitle' or @class='relation-custom' or @id='snsSharebutton']"
+    ],
+    "next_page": "div[@id='pageNav']"
+  },
+  "//shimajiro-mobiler.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//naruhodo.repop.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='core']"
+  },
+  "//tech.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBody' or @id='kiji']",
+    "cleanup": [
+      "div[@id='naviBottom']"
+    ],
+    "next_page": "nav[@class='pagenation']|//div[@id='pager']"
+  },
+  "//www.hottolink.co.jp/pr/press/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents']/div[@class='inner-frame']"
+  },
+  "//www.hottolink.co.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-post__body']"
+  },
+  "//herumi.github.io/": {
+    "type": "xpath",
+    "xpath": "body"
+  },
+  "//erikbern.com/": {
+    "type": "xpath",
+    "xpath": "main/article"
+  },
+  "//dent-sweden.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eyecatch']|//section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  "//crowdworks.jp/public/jobs/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'main')]/section[contains(@class,'job_summary') or contains(@class,'job_detail')]"
+  },
+  "//anagrams.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']",
+    "cleanup": [
+      "aside[contains(@id,'Banner')]"
+    ]
+  },
+  "//bloggingfrom.tv/wp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.dream-seed.com/weblog/": {
+    "type": "xpath",
+    "xpath": "header[@id='single-header']/p[@class='dek']|//div[@id='main']/div[@class='post']"
+  },
+  "//realsound.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']|//div[@class='entryMainPhoto']",
+    "next_page": "div[@id='pageNation']"
   }
 }
