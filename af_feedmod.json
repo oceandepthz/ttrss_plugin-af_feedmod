@@ -6314,13 +6314,6 @@
     "type": "xpath",
     "xpath": "div[@class='article']"
   },
-  "//www.minnanokaigo.com/news/yamamoto/": {
-    "type": "xpath",
-    "xpath": "article[@id='special-article']",
-    "cleanup": [
-      "div[contains(@class,'util')]"
-    ]
-  },
   "//www.minnanokaigo.com/news/": {
     "type": "xpath",
     "xpath": "div[@class='longnews-section']"
@@ -14757,5 +14750,16 @@
     "type": "xpath",
     "xpath": "div[@id='entryBody']|//div[@class='entryMainPhoto']",
     "next_page": "div[@id='pageNation']"
+  },
+  "//www.minnanokaigo.com/news/yamamoto/": {
+    "type": "xpath",
+    "xpath": "article/h1/img|//article[@id='special-article']|//div[@class='article-body']",
+    "cleanup": [
+      "div[contains(@class,'util')]"
+    ]
+  },
+  "//www.nhk.or.jp/sports-story/": {
+    "type": "xpath",
+    "xpath": "article/div/p[@class='kv']|//article/div/div[@class='section']"
   }
 }
