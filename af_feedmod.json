@@ -14761,5 +14761,18 @@
   "//www.nhk.or.jp/sports-story/": {
     "type": "xpath",
     "xpath": "article/div/p[@class='kv']|//article/div/div[@class='section']"
+  },
+  "//rss.rssad.jp/": {
+    "type": "xpath",
+    "xpath": "body",
+    "no_fetch": true
+  },
+  "//00.bulog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//tmiyadera.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
