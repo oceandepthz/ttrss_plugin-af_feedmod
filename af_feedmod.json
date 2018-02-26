@@ -12643,10 +12643,6 @@
     "type": "xpath",
     "xpath": "div[@class='post_content']"
   },
-  "//www.kokoro-fire.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//www.kiyomi.gr.jp/blog/": {
     "type": "xpath",
     "xpath": "div[@class='main']/div[contains(@class,'txt')]"
@@ -14774,5 +14770,37 @@
   "//tmiyadera.com/blog/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//www.kokoro-fire.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]/div[@class='theContentWrap-ccc']",
+    "cleanup": [
+      "div[contains(@class,'sponsored')]"
+    ]
+  },
+  "//store.steampowered.com/app/": {
+    "type": "xpath",
+    "xpath": "body",
+    "no_fetch": true
+  },
+  "*//slideship.com/users/*/presentations/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "body",
+    "no_fetch": true
+  },
+  "*//slideship.com/users/*/docs/*": {
+    "match_type": "fnmatch",
+    "engine": "chromium",
+    "type": "xpath",
+    "xpath": "div[@class='section-viewer-wrapper']"
+  },
+  "//research.swtch.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']"
+  },
+  "//ksl-live.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='article']/div[contains(@class,'post_content')]"
   }
 }
