@@ -89,14 +89,17 @@ class Af_Feedmod extends Plugin implements IHandler
         // shoutcut url
         $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/'];
         if($this->strposa($article['link'], $sc_url)){
+            $this->__debug("hit shoutcut url ".$article['link']);
             $rd_url = $this->get_redirect_url($article['link']);
             if(strpos($article['link'], $rd_url) !== false){
+                $this->__debug("update url ".$article['link']." => ".$rd_url);
                 $article['link'] = $rd_url;
             }
         }
 
         foreach ($data as $urlpart=>$config) {
             if(fnmatch('*//*/*.pdf', $article['link'])){
+                $this->__debug("hit pdf ".$article['link']);
                 $is_hit_link = true;
                 $is_execute = true;
                 break;
