@@ -232,6 +232,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
                 $this->update_peing_net($doc, $xpath, $entry, $link);
+                $this->update_img_link($doc, $xpath, $entry, $link);
                 $this->update_instagram($doc, $xpath, $entry, $link);
                 if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
@@ -645,6 +646,34 @@ EOD;
             return $xpath->evaluate('string(@src)', $entry);
         }
         return "";
+    }
+
+    function update_img_link(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
+        if(!$basenode){
+            return;
+        }
+        $items = ["//a[contains(@href,'//i.imgur.com/') or contains(@href,'//imgur.com/')]"];
+        foreach($items as $item){
+            $node_list = $xpath->query($item, $basenode);
+            if(!$node_list || $node_list->length === 0){
+                continue;
+            }
+            foreach($node_list as $node){
+                $url = $xpath->evaluate('string(@href)', $node);
+
+$this->__debug('url:'.$url);
+
+                if(!$url){
+                    continue;
+                }
+                $url_nl = $xpath->query("//img[contains(@src,'${url}')]", $basenode);
+                if($url_nl && $url_nl->length > 0){
+                    continue;
+                }
+                $this->append_img_tag($doc, $node, $url); 
+$this->__debug('url append:'.$url);
+            }
+        }
     }
 
     function update_peing_net(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
