@@ -231,6 +231,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_remote_file($entry, $link, "img", "src");
 
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
+                $this->update_peing_net($doc, $xpath, $entry, $link);
                 $this->update_instagram($doc, $xpath, $entry, $link);
                 if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
@@ -646,6 +647,47 @@ EOD;
         return "";
     }
 
+    function update_peing_net(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
+        if(!$basenode){
+            return;
+        }
+
+        $item = "//a[contains(@data-expanded-url,'https://peing.net/ja/qs/')]";
+        $node_list = $xpath->query($item, $basenode);
+        if(!$node_list || $node_list->length === 0){
+            return;
+        }
+        foreach ($node_list as $node){
+            if(!$node){
+                continue;
+            }
+            $link = $xpath->evaluate('string(@data-expanded-url)', $node);
+            if(!$link){
+                continue;
+            }
+            $url = $this->get_peing_img_link($link);
+            if(!$url){
+                continue;
+            }
+            $this->append_img_tag($doc, $node, $url);
+        }
+    }
+    function get_peing_img_link(string $link) : string {
+        $html = $this->get_html($link, array());
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+
+        if(!$doc){
+            return array();
+        }
+        $xpath = new DOMXPath($doc);
+
+        $entries = $xpath->query("(//div[@class='answer-box']/div/a/img[@class='question-eye-catch'])");
+        if($entries === false || $entries->length == 0) {
+            return "";
+        }
+        return $xpath->evaluate('string(@src)', $entries->item(0));
+    }
     function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
         if(!$basenode){
             return;
