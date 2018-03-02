@@ -6816,14 +6816,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//wedge.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "p[@class='noprovide']"
-    ],
-    "next_page": "div[@class='pagination']"
-  },
   "//www.osappiro.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -10009,14 +10001,6 @@
   "//geeksokuhou.net/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
-  },
-  "//twitter.com/i/moments/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]"
-  },
-  "//twitter.com/": {
-    "type": "xpath",
-    "xpath": "div[@role='main']"
   },
   "//www.korino-rossa.com/": {
     "type": "xpath",
@@ -14585,18 +14569,6 @@
       "a[contains(@class,'comres')]"
     ]
   },
-  "//www.newsweekjapan.jp/e-book/": {
-    "type": "xpath",
-    "xpath": "div[@id='magHeadLine']"
-  },
-  "//www.newsweekjapan.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
-    "cleanup": [
-      "div[@class='entryPagenate' or contains(@class,'annotation')]"
-    ],
-    "next_page": "div[@class='entryPagenate']"
-  },
   "//www.pc-koubou.jp/magazine/": {
     "type": "xpath",
     "xpath": "article/div[@id='main-image' or @id='body-block' or @id='profile']"
@@ -14802,5 +14774,56 @@
   "//ksl-live.com/": {
     "type": "xpath",
     "xpath": "div[@id='article']/div[contains(@class,'post_content')]"
+  },
+  "//r.nikkei.com/article/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__content']"
+  },
+  "//engineer.dena.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']"
+  },
+  "//www.yoheim.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']"
+  },
+  "//www.hokkaido-np.co.jp/article/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/div[contains(@class,'mainNews')]"
+  },
+  "//smarthacks.jp/mag/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='p-entry__inner']/div[@class='p-entry__thumbnail' or @class='p-entry__body']"
+  },
+  "//www.newsweekjapan.jp/e-book/": {
+    "type": "xpath",
+    "xpath": "div[@id='magHeadLine']"
+  },
+  "//www.newsweekjapan.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
+    "cleanup": [
+      "div[@class='entryPagenate' or contains(@class,'annotation')]"
+    ],
+    "next_page": "div[@class='entryPagenate']"
+  },
+  "//twitter.com/i/moments/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]"
+  },
+  "//twitter.com/": {
+    "type": "xpath",
+    "xpath": "div[@role='main']",
+    "append_css": "div.AdaptiveMedia-singlePhoto{padding-top:0!important;}"
+  },
+  "//wedge.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "p[@class='noprovide']",
+      "div[@class='next-info' or @class='pagination' or @class='middle-ad' or @class='backtotop' or @class='next-page']",
+      "p/a/img"
+    ],
+    "next_page": "div[@class='pagination']"
   }
 }
