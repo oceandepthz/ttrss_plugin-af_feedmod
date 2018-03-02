@@ -586,7 +586,7 @@ EOD;
         $query = "(//blockquote[@class='instagram-media'])";
         $nodelist = $xpath->query($query, $basenode);
         if($nodelist->length === 0){
-            return;
+            goto TWITTER;
         }
         foreach ($nodelist as $node) {
             $link_node = $xpath->query("(.//div/p/a)", $node);
@@ -625,6 +625,26 @@ EOD;
                }
             }
         }
+
+TWITTER:
+        $query = "(//a[contains(@data-expanded-url,'//www.instagram.com/p/')])";
+        $nodelist = $xpath->query($query, $basenode);
+        if(!$nodelist || $nodelist->length === 0){
+            return;
+        }
+        foreach ($nodelist as $node) {
+            $link = $xpath->evaluate('string(@data-expanded-url)',$node);
+            if(strpos($link, 'https://www.instagram.com/p/') !== 0){
+                continue;
+            }
+            $img_link = $this->get_instagram_img_url($link);
+            if(!$img_link){
+                continue;
+            }
+            if(strpos($img_link, ".jpg")){
+                $this->append_img_tag($doc, $node, $img_link);
+            }
+        }
     }
     function get_instagram_img_url(string $url) : string {
         $html = $this->get_html_chrome($url);
@@ -660,9 +680,6 @@ EOD;
             }
             foreach($node_list as $node){
                 $url = $xpath->evaluate('string(@href)', $node);
-
-$this->__debug('url:'.$url);
-
                 if(!$url){
                     continue;
                 }
@@ -671,7 +688,6 @@ $this->__debug('url:'.$url);
                     continue;
                 }
                 $this->append_img_tag($doc, $node, $url); 
-$this->__debug('url append:'.$url);
             }
         }
     }
