@@ -91,10 +91,8 @@ class Af_Feedmod extends Plugin implements IHandler
         if($this->strposa($article['link'], $sc_url)){
             $this->__debug("hit shoutcut url ".$article['link']);
             $rd_url = $this->get_redirect_url($article['link']);
-            if(strpos($article['link'], $rd_url) !== false){
-                $this->__debug("update url ".$article['link']." => ".$rd_url);
-                $article['link'] = $rd_url;
-            }
+            $this->__debug("update url ".$article['link']." => ".$rd_url);
+            $article['link'] = $rd_url;
         }
 
         foreach ($data as $urlpart=>$config) {
@@ -230,6 +228,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_remote_file($entry, $link, "iframe", "src");
                 $this->update_remote_file($entry, $link, "img", "src");
 
+                $this->update_t_co($doc, $xpath, $entry, $link);
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
                 $this->update_peing_net($doc, $xpath, $entry, $link);
                 $this->update_img_link($doc, $xpath, $entry, $link);
@@ -312,6 +311,25 @@ EOD;
     }
 
     function get_redirect_url(string $url): string {
+        if(strpos($url, '//t.co/') !== false){
+            $html = $this->get_html($url, array());
+            $ret = preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
+            if(count($matches) == 2){
+                return $matches[1];
+            }
+            return $url;
+        }
+
+        $header = get_headers($url, true);
+        if(isset($header['Location'])){
+            $org_url = $header['Location'];
+            if(is_array($org_url)){
+                $org_url = end($org_url);
+            }
+            return $org_url;
+        }
+        return $url;
+/*
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_HEADER, false);
         curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299');
@@ -326,6 +344,7 @@ EOD;
         $redirectURL = curl_getinfo($ch,CURLINFO_EFFECTIVE_URL );
         curl_close($ch);
         return $redirectURL;
+*/
     }
 
     function strposa(string $haystack,array $needles) : bool {
@@ -733,6 +752,34 @@ TWITTER:
         }
         return $xpath->evaluate('string(@src)', $entries->item(0));
     }
+
+    function update_t_co(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
+        if(!$basenode){
+            return;
+        }
+
+        $node_list = $xpath->query("(//a[contains(text(),'//t.co/')])", $basenode);
+        if(!$node_list || $node_list->length === 0){
+            return;
+        }
+        foreach ($node_list as $node){
+            if(!$node){
+                continue;
+            }
+            $href = $node->getAttribute('href');
+            if(!$href){
+                continue;
+            }
+            $html = $this->get_html($href, array());
+            preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
+            if(count($matches) == 2){
+                $url = $matches[1];
+                $node->nodeValue = $url;
+                $node->setAttribute('href', $url);
+            }
+        }
+    }
+
     function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
         if(!$basenode){
             return;
@@ -787,10 +834,17 @@ TWITTER:
     }
 
     function get_pic_links(string $url) : array {
+        if(strpos($url, '//t.co/') !== false){
+            $html = $this->get_html($url, array());
+            $ret = preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
+            if(count($matches) == 2){
+                $url = $matches[1];
+            }
+        }
+
         $html = $this->get_html($url, array());
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
-
         if(!$doc){
             return array();
         }
@@ -800,13 +854,13 @@ TWITTER:
 
         // video
         $entries = $xpath->query("(//meta[@property='og:video:url'])");
-        if($entries->length > 0) {
+        if($entries !== false && $entries->length > 0) {
             $urls[] = str_replace("?embed_source=facebook", "", $xpath->evaluate('string(@content)', $entries->item(0)));
         }
 
         // image
         $entries = $xpath->query("(//meta[@property='og:image'])");
-        if($entries->length == 0) {
+        if($entries === false || $entries->length == 0) {
             return $urls;
         }
         foreach ($entries as $entry) {
