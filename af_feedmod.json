@@ -1394,10 +1394,6 @@
     "type": "xpath",
     "xpath": "div[@id='NWrelart:Body']/p|//div[@id='img_s']/ul"
   },
-  "www.chunichi.co.jp/chuspo": {
-    "type": "xpath",
-    "xpath": "div[@class='Lead']|//table[@class='Photo-left']"
-  },
   "www.chunichi.co.jp": {
     "type": "xpath",
     "xpath": "div[@class='Text']"
@@ -4190,10 +4186,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "www.mazimazi-party.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "www.needs-blog.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -4845,10 +4837,6 @@
   "//www.glocallife.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//www.nytimes.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='story-body-supplemental']/div[contains(@class,'story-body')]"
   },
   "//www.birumendesu.com/": {
     "type": "xpath",
@@ -5739,10 +5727,6 @@
   "//www.instagram.com/p/": {
     "type": "xpath",
     "xpath": "article"
-  },
-  "//www.soumu.go.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='contentsBody']"
   },
   "//www.photo4life.net/": {
     "type": "xpath",
@@ -10643,14 +10627,6 @@
       "ul[@class='social']"
     ]
   },
-  "//1000ch.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='Main']",
-    "cleanup": [
-      "aside[@class='Share']",
-      "nav[@class='Pager']"
-    ]
-  },
   "//wondertrip.jp/": {
     "type": "xpath",
     "xpath": "div[@id='article']",
@@ -14825,5 +14801,98 @@
       "p/a/img"
     ],
     "next_page": "div[@class='pagination']"
+  },
+  "//1000ch.net/": {
+    "type": "xpath",
+    "xpath": "main[@class='Main']",
+    "cleanup": [
+      "aside[@class='Share']",
+      "nav[@class='Pager']"
+    ]
+  },
+  "//www.chunichi.co.jp/chuspo/": {
+    "type": "xpath",
+    "xpath": "div[@class='News-textarea']"
+  },
+  "//www.soumu.go.jp/main_sosiki/joho_tsusin/security/": {
+    "type": "xpath",
+    "xpath": "div[@id='lyt-main']"
+  },
+  "//www.soumu.go.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='contentsBody']"
+  },
+  "//www.nytimes.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='story-body-supplemental']/div[contains(@class,'story-body')]"
+  },
+  "//www.mazimazi-party.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  "//www.pixiv.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']"
+  },
+  "//www.fxsitecompat.com/ja/docs/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//www.fashion-press.net/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='fp_content']/div[@class='fp_content_left']/div[@id='news' or @class='pc_only']"
+  },
+  "//www.cyzowoman.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry_body')]",
+    "cleanup": [
+      "div[contains(@class,'button_more')]"
+    ],
+    "next_page": "ul[contains(@class,'paginator')]"
+  },
+  "//www.artonx.org/diary/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']"
+  },
+  "//rcmdnk.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='center_wrapper' or contains(@class,'related_posts') or @class='footnotes']"
+    ]
+  },
+  "//indeep.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//gururepo.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry-content']",
+    "cleanup": [
+      "aside[@class='bzb-sns-area']"
+    ]
+  },
+  "//blog.toshimaru.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents']",
+    "cleanup": [
+      "ul[@id='social-buttons']",
+      "div[@class='related' or @class='related-by-google' or contains(@class,'post-pagination') or @id='adsense' or @id='disqus_thread']"
+    ]
+  },
+  "//40end.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "iframe[@class='hatena-bookmark-button-frame']",
+      "div[@class='sns']"
+    ]
+  },
+  "//blog.goo.ne.jp/kishi-akira/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']/div[@class='entry-body']"
   }
 }
