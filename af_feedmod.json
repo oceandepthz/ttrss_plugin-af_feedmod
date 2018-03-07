@@ -14894,5 +14894,17 @@
   "//blog.goo.ne.jp/kishi-akira/": {
     "type": "xpath",
     "xpath": "div[@class='entry']/div[@class='entry-body']"
+  },
+  "//yushakobo.jp/pluis9/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry-content']"
+  },
+  "//yushakobo.jp/shop/": {
+    "type": "xpath",
+    "xpath": "div[@class='storycontent']"
+  },
+  "//rnavi.ndl.go.jp/research_guide/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
   }
 }
