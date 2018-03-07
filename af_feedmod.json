@@ -4907,14 +4907,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "impress.co.jp/docs/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'main-contents') or @class='article-info' or @class='author-info' or @class='author-detail']|//nav[contains(@class,'links') and contains(@class,'outer')]",
-    "cleanup": [
-      "div[@class='tab-wrap']"
-    ],
-    "next_page": "ul[@class='number']"
-  },
   "//fladdict.net/blog/": {
     "type": "xpath",
     "xpath": "div[@class='excerpt']"
@@ -6504,17 +6496,6 @@
     "type": "xpath",
     "xpath": "article[@class='post']/section"
   },
-  "//japan.cnet.com/interview/": {
-    "type": "xpath",
-    "xpath": "div[@id='NWrelart:Body']",
-    "next_page": "div[@id='pagination'][1]"
-  },
-  "//japan.cnet.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='NWrelart:Body' or @id='shareBarHolder']",
-    "next_page": "div[@id='pageNation']",
-    "next_page_cleanup": "li[@class='thispage']"
-  },
   "//xn--pckwb0c8766ajkwa.com/": {
     "type": "xpath",
     "xpath": "header/figure[contains(@class,'eyecatch')]|//section[contains(@class,'entry-content')]"
@@ -7495,11 +7476,6 @@
   "//diet-slimo.com/": {
     "type": "xpath",
     "xpath": "div[@class='article']"
-  },
-  "//president.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body' or @id='main-contents']",
-    "next_page": "div[@class='cts-pagenation'][1]|//div[@id='multipage']"
   },
   "//techblog.kayac.com/": {
     "type": "xpath",
@@ -8883,10 +8859,6 @@
   "//antiaging.akicomp.com/": {
     "type": "xpath",
     "xpath": "article[@class='entry']/div[@class='editable']"
-  },
-  "//bunshun.jp/articles/": {
-    "type": "xpath",
-    "xpath": "figure/div[contains(@class,'kanban')]/img|//div[@class='article-body' or @class='author-header' or contains(@class,'title-side')]"
   },
   "//www.missiondrivenbrand.jp/": {
     "type": "xpath",
@@ -11188,13 +11160,6 @@
     "type": "xpath",
     "xpath": "div[@class='post-content']"
   },
-  "//www.kagoshimaniax.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@id='ts-fab-below']"
-    ]
-  },
   "//blog.craftz.dog/": {
     "type": "xpath",
     "xpath": "article/div[contains(@class,'postArticle-content')]"
@@ -12340,13 +12305,6 @@
       "div[@class='social-link']"
     ]
   },
-  "//www.dailyshincho.jp/": {
-    "type": "xpath",
-    "xpath": "p[@class='prof']|//div[@class='wp_txt']|//main/article[@class='l-contents__article']",
-    "cleanup": [
-      "ul[@class='c-list-sns--sm']"
-    ]
-  },
   "//topics.nintendo.co.jp/": {
     "type": "xpath",
     "xpath": "div[@class='topics-articleHead']/p[@class='topics-articleHead__img']|//div[@class='detail-body-container' or @class='detail-footer-container' or @class='detail-main-img-container']"
@@ -12354,15 +12312,6 @@
   "//webtan.impress.co.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'node-body-content')]"
-  },
-  "//jbpress.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body' or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
-    "cleanup": [
-      "div[@class='pagination' or @class='next-info' or @class='ad-right']"
-    ],
-    "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage']|//div[@class='pagination']",
-    "append_css": "video{width:640px!important;height:480px!important;position:static!important;}"
   },
   "//www.lifelogweb.com/": {
     "type": "xpath",
@@ -14906,5 +14855,60 @@
   "//rnavi.ndl.go.jp/research_guide/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//jbpress.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
+    "cleanup": [
+      "div[@class='pagination' or @class='next-info' or @class='ad-right']"
+    ],
+    "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage']|//div[@class='pagination']|//div[@id='pager']",
+    "append_css": "video{width:640px!important;height:480px!important;position:static!important;}"
+  },
+  "//president.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or @id='main-contents']",
+    "next_page": "div[@class='cts-pagenation'][1]|//div[@id='multipage']|//div[@class='pagination']"
+  },
+  "//www.dailyshincho.jp/": {
+    "type": "xpath",
+    "xpath": "p[@class='prof']|//div[@class='wp_txt']|//main/article[@class='l-contents__article']",
+    "cleanup": [
+      "ul[@class='c-list-sns--sm']"
+    ],
+    "next_page": "p[@class='p-pagination']"
+  },
+  "//japan.cnet.com/interview/": {
+    "type": "xpath",
+    "xpath": "div[@id='NWrelart:Body']",
+    "next_page": "div[@id='pagination'][1]"
+  },
+  "//japan.cnet.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='NWrelart:Body' or @id='shareBarHolder']",
+    "next_page": "div[@id='pageNation' or @id='pagination']",
+    "next_page_cleanup": "li[@class='thispage']"
+  },
+  "//bunshun.jp/articles/": {
+    "type": "xpath",
+    "xpath": "figure/div[contains(@class,'kanban')]/img|//div[@class='article-body' or @class='author-header' or contains(@class,'title-side')]",
+    "next_page": "div[contains(@class,'pagination')]",
+    "next_page_cleanup": "a[contains(@class,'active')]"
+  },
+  "//www.kagoshimaniax.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='ts-fab-below']"
+    ],
+    "next_page": "div[contains(@class,'st-pagelink')]"
+  },
+  ".impress.co.jp/docs/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class, 'main-contents') or @class='article-info' or @class='author-info' or @class='author-detail']|//nav[contains(@class,'links') and contains(@class,'outer')]",
+    "cleanup": [
+      "div[@class='tab-wrap']"
+    ],
+    "next_page": "ul[@class='number']"
   }
 }
