@@ -598,14 +598,12 @@ EOD;
             $this->append_img_tag($doc, $node, $url);            
         }
     }
-    function update_instagram(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
-        if(!$basenode){
-            return;
-        }
+
+    function update_instagram_bq(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
         $query = "(//blockquote[@class='instagram-media'])";
         $nodelist = $xpath->query($query, $basenode);
         if($nodelist->length === 0){
-            goto TWITTER;
+            return;
         }
         foreach ($nodelist as $node) {
             $link_node = $xpath->query("(.//div/p/a)", $node);
@@ -644,8 +642,9 @@ EOD;
                }
             }
         }
+    }
 
-TWITTER:
+    function update_instagram_tw(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
         $query = "(//a[contains(@data-expanded-url,'//www.instagram.com/p/')])";
         $nodelist = $xpath->query($query, $basenode);
         if(!$nodelist || $nodelist->length === 0){
@@ -665,6 +664,37 @@ TWITTER:
             }
         }
     }
+
+    function update_instagram_url(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
+        $query = "(//a[contains(text(),'//www.instagram.com/p/') and contains(@href,'//www.instagram.com/p/')])";
+        $nodelist = $xpath->query($query, $basenode);
+        if(!$nodelist || $nodelist->length === 0){
+            return;
+        }
+        foreach ($nodelist as $node) {
+            $link = $xpath->evaluate('string(@href)',$node);
+            if(strpos($link, 'https://www.instagram.com/p/') !== 0){
+                continue;
+            }
+            $img_link = $this->get_instagram_img_url($link);
+            if(!$img_link){
+                continue;
+            }
+            if(strpos($img_link, ".jpg")){
+                $this->append_img_tag($doc, $node, $img_link);
+            }
+        }
+    }
+
+    function update_instagram(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
+        if(!$basenode){
+            return;
+        }
+        $this->update_instagram_bq($doc, $xpath, $basenode, $link);
+        $this->update_instagram_tw($doc, $xpath, $basenode, $link);
+        $this->update_instagram_url($doc, $xpath, $basenode, $link);
+    }
+
     function get_instagram_img_url(string $url) : string {
         $html = $this->get_html_chrome($url);
         $doc = new DOMDocument();
@@ -791,28 +821,30 @@ TWITTER:
             }
         }
 
-        $item = "//a[contains(text(),'pic.twitter.com/')]";
-        $node_list = $xpath->query($item, $basenode);
-        if(!$node_list || $node_list->length === 0){
-            return;
-        }
-        foreach ($node_list as $node){
-            if(!$node){
-                continue;
+        $items = ["//a[contains(text(),'pic.twitter.com/')]", "a[contains(text(),'//twitter.com/') and contains(text(),'/status/')]"];
+        foreach ($items as $item){
+            $node_list = $xpath->query($item, $basenode);
+            if(!$node_list || $node_list->length === 0){
+                return;
             }
-            $link = $xpath->evaluate('string(@href)', $node);
-            if(!$link){
-                continue;
-            }
-            $urls = $this->get_pic_links($link);
-            if(!$urls){
-                continue;
-            }
-            foreach(array_reverse($urls) as $url){
-                if(strpos($url, 'https://twitter.com/i/videos/') === 0){
-                    $this->append_iframe_tag($doc, $node, $url);
-                } else {
-                    $this->append_img_tag($doc, $node, $url);
+            foreach ($node_list as $node){
+                if(!$node){
+                    continue;
+                }
+                $link = $xpath->evaluate('string(@href)', $node);
+                if(!$link){
+                    continue;
+                }
+                $urls = $this->get_pic_links($link);
+                if(!$urls){
+                    continue;
+                }
+                foreach(array_reverse($urls) as $url){
+                    if(strpos($url, 'https://twitter.com/i/videos/') === 0){
+                        $this->append_iframe_tag($doc, $node, $url);
+                    } else {
+                        $this->append_img_tag($doc, $node, $url);
+                    }
                 }
             } 
         }
