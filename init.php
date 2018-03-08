@@ -97,7 +97,6 @@ class Af_Feedmod extends Plugin implements IHandler
 
         foreach ($data as $urlpart=>$config) {
             if(fnmatch('*//*/*.pdf', $article['link'])){
-                $this->__debug("hit pdf ".$article['link']);
                 $is_hit_link = true;
                 $is_execute = true;
                 break;
@@ -661,6 +660,8 @@ EOD;
             }
             if(strpos($img_link, ".jpg")){
                 $this->append_img_tag($doc, $node, $img_link);
+            }else if(strpos($img_link, ".mp4")){
+                $this->append_videomp4_tag($doc, $node, $img_link);
             }
         }
     }
@@ -682,6 +683,8 @@ EOD;
             }
             if(strpos($img_link, ".jpg")){
                 $this->append_img_tag($doc, $node, $img_link);
+            }else if(strpos($img_link, ".mp4")){
+                $this->append_videomp4_tag($doc, $node, $img_link);
             }
         }
     }
@@ -863,6 +866,13 @@ EOD;
         $img = $doc->createElement('img','');
         $img->setAttribute('src', $url);
         $node->parentNode->insertBefore($img, $node->nextSibling);
+    }
+    function append_videomp4_tag(DOMDocument $doc, DOMElement $node, string $url) : void {
+        $video = $doc->createElement('video','');
+        $video->setAttribute('src', $url);
+        $video->setAttribute('type', 'video/mp4');
+        $video->setAttribute('preload', 'none');
+        $node->parentNode->insertBefore($video, $node->nextSibling);
     }
 
     function get_pic_links(string $url) : array {
