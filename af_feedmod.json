@@ -9553,14 +9553,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//tikyuutabi.sakura.ne.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='post']",
-    "cleanup": [
-      "div[@id='breadcrumb']",
-      "aside"
-    ]
-  },
   "//developer.smartnews.com/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
@@ -11279,56 +11271,6 @@
   "//kousyou.cc/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
-  },
-  "//gihyo.jp/design/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/serial/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/admin/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/book/pickup/": {
-    "type": "xpath",
-    "xpath": "div[@id='article' or @id='noticebookLink']",
-    "cleanup": [
-      "div[@class='sectionInfo01']"
-    ]
-  },
-  "//gihyo.jp/book/": {
-    "type": "xpath",
-    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
-    "cleanup": [
-      "dl[@class='storeLink01']"
-    ]
-  },
-  "//gihyo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
   },
   "//smhn.info/": {
     "type": "xpath",
@@ -14910,5 +14852,71 @@
       "div[@class='tab-wrap']"
     ],
     "next_page": "ul[@class='number']"
+  },
+  "//tikyuutabi.sakura.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.gsi.go.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='main_contents']"
+  },
+  "//gihyo.jp/dp/ebook/": {
+    "type": "xpath",
+    "xpath": "div[@id='bookInforMain']",
+    "cleanup": [
+      "aside[@id='social']",
+      "a[contains(@href,'cartAdd')]"
+    ]
+  },
+  "//gihyo.jp/design/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/serial/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/admin/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/book/pickup/": {
+    "type": "xpath",
+    "xpath": "div[@id='article' or @id='noticebookLink']",
+    "cleanup": [
+      "div[@class='sectionInfo01']"
+    ]
+  },
+  "//gihyo.jp/book/": {
+    "type": "xpath",
+    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
+    "cleanup": [
+      "dl[@class='storeLink01']"
+    ]
+  },
+  "//gihyo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
   }
 }
