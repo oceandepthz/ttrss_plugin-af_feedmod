@@ -14918,5 +14918,12 @@
     "next_page_cleanup": [
       "li[@class='current']"
     ]
+  },
+  "//www.technologyreview.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "next_page_cleanup": [
+      "ul[@class='sns']"
+    ]
   }
 }
