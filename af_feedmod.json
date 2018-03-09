@@ -14925,5 +14925,22 @@
     "next_page_cleanup": [
       "ul[@class='sns']"
     ]
+  },
+  "//blog.triedge-lab.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@id,'pc_ad-')]"
+    ]
+  },
+  "//docs.google.com/presentation/": {
+    "type": "xpath",
+    "xpath": "body",
+    "no_fetch": true
+  },
+  "//www.amazon.co.jp/exec/obidos/ASIN/": {
+    "type": "xpath",
+    "xpath": "body",
+    "no_fetch": true
   }
 }
