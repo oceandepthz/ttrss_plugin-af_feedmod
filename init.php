@@ -395,6 +395,11 @@ EOD;
         if($up['path'] == '/' && $up['query'] == ''){
             return;
         }
+        foreach(['index.html','index.htm','index.php'] as $p){
+            if($up['path'] == '/'.$p){
+                return;
+            }
+        }
 
         $suffix = "";
         if($is_hit_link){
@@ -828,7 +833,7 @@ EOD;
         foreach ($items as $item){
             $node_list = $xpath->query($item, $basenode);
             if(!$node_list || $node_list->length === 0){
-                return;
+                continue;
             }
             foreach ($node_list as $node){
                 if(!$node){
