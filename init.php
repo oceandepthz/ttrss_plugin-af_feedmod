@@ -829,7 +829,7 @@ EOD;
             }
         }
 
-        $items = ["//a[contains(text(),'pic.twitter.com/')]", "a[contains(text(),'//twitter.com/') and contains(text(),'/status/')]"];
+        $items = ["//a[contains(text(),'pic.twitter.com/')]", "//a[contains(@href,'//twitter.com/') and contains(@href,'/status/')]"];
         foreach ($items as $item){
             $node_list = $xpath->query($item, $basenode);
             if(!$node_list || $node_list->length === 0){
