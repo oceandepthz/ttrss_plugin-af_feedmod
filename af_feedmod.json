@@ -2258,10 +2258,6 @@
     "type": "xpath",
     "xpath": "div[@class='image']//h5|//p[@class='text sp']"
   },
-  "www.zakzak.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='photo' or @class='text']"
-  },
   "www.masafumiotsuka.com": {
     "type": "xpath",
     "xpath": "div[@class='blog-more-content' or @class='tags-author']",
@@ -8095,7 +8091,10 @@
   },
   "//www9.nhk.or.jp/nw9/digest/": {
     "type": "xpath",
-    "xpath": "div[@class='section01']/div[@id='movie' or @class='entry' or @class='section02']"
+    "xpath": "div[@class='section01']/div[@id='movie' or @class='entry' or @class='section02']",
+    "cleanup": [
+      "div[@class='close']"
+    ]
   },
   "//www.theverge.com/": {
     "type": "xpath",
@@ -12704,18 +12703,6 @@
     "type": "xpath",
     "xpath": "div[@id='main']"
   },
-  "//togetter.com/special/": {
-    "type": "xpath",
-    "xpath": "div[@id='document']/div[contains(@class,'contents')]"
-  },
-  "//togetter.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='contents_main']/div[@class='info_box']|//div[@class='tweet_box']/ul|//div[@id='comment_box']",
-    "cleanup": [
-      "div[@id='comment_form' or @class='info_head' or @class='status']",
-      "ul[@class='info_action']"
-    ]
-  },
   "//www.asagei.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
@@ -14798,15 +14785,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//jbpress.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body' or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
-    "cleanup": [
-      "div[@class='pagination' or @class='next-info' or @class='ad-right']"
-    ],
-    "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage']|//div[@class='pagination']|//div[@id='pager']",
-    "append_css": "video{width:640px!important;height:480px!important;position:static!important;}"
-  },
   "//president.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body' or @id='main-contents']",
@@ -14922,7 +14900,7 @@
   "//www.technologyreview.jp/": {
     "type": "xpath",
     "xpath": "article",
-    "next_page_cleanup": [
+    "cleanup": [
       "ul[@class='sns']"
     ]
   },
@@ -14942,5 +14920,49 @@
     "type": "xpath",
     "xpath": "body",
     "no_fetch": true
+  },
+  "//www.zakzak.co.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@class,'addition') or @class='teads-inread']",
+      "aside[contains(@class,'pr')]"
+    ],
+    "next_page": "ul[@class='pager']"
+  },
+  "//jbpress.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
+    "cleanup": [
+      "div[@class='pagination' or @class='next-info' or @class='ad-right']"
+    ],
+    "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage']|//div[@class='pagination']|//div[@id='pager']|//div[contains(@class,'multipage-end')]",
+    "append_css": "video{width:640px!important;height:480px!important;position:static!important;}"
+  },
+  "//togetter.com/special/": {
+    "type": "xpath",
+    "xpath": "div[@id='document']/div[contains(@class,'contents')]"
+  },
+  "//togetter.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents_main']/div[@class='info_box']|//div[@class='tweet_box']/ul|//div[@id='comment_box']",
+    "cleanup": [
+      "div[@id='comment_form' or @class='info_head' or @class='status']",
+      "ul[@class='info_action']"
+    ],
+    "append_css": [
+      "li.list_box {list-style-type:none;}",
+      ".rad_btn{background-color:#f1f2f4;border:1px solid #ddd;border-radius: 3px;display: inline-block;color: #000;}",
+      ".list_description_box{background-color: #f8f8f8;color: #666;padding: 5px;}",
+      ".info_thumb{float:right;}",
+      ".info_status .user_icon img {border: 0 solid transparent;border-radius: 3px;height: 24px;margin-right: 2px;padding: 0;width: 24px;}",
+      ".info_status {line-height: 24px;}",
+      ".list_tweet_box .tweet_wrap {border: 1px solid #e8e8e8;clear: both;padding: 5px;}",
+      ".list_tweet_box .timestamp {float: right;}",
+      ".list_tweet_box .user_link img {left: 0;top: 5px;position: absolute;}",
+      ".icon_48, .icon_73 {border: 0 solid transparent;border-radius: 6px;padding: 0;}",
+      ".icon_48 {height: 48px;width: 48px;}",
+      ".list_tweet_box {min-height: 50px;padding-left: 53px;position: relative;}"
+    ]
   }
 }
