@@ -243,7 +243,13 @@ class Af_Feedmod extends Plugin implements IHandler
 
             // add css
             if(isset($config['append_css']) && $config['append_css']){
-                $article['content'] .= "<style type='text/css'>".$config['append_css']."</style>";
+                $css = '';
+                if(is_array($config['append_css'])){
+                    $css = implode($config['append_css']);
+                } else {
+                    $css = $config['append_css'];
+                }
+                $article['content'] .= "<style type='text/css'>${css}</style>";
             }
         }
         
@@ -289,6 +295,7 @@ div.hatebu-comment {
 div.hatebu-comment img {
     width: 16px;
     height: 16px;
+    border-radius:3px;
 }
 div.hatebu-comment ul.entry-comment-tags {
     display:table;
