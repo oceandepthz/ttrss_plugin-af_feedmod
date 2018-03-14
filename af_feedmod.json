@@ -3946,10 +3946,6 @@
     "type": "xpath",
     "xpath": "div[@class='text']"
   },
-  "getnavi.jp": {
-    "type": "xpath",
-    "xpath": "article//div[starts-with(@class,'entry_body')]"
-  },
   "blog.shibu.jp": {
     "type": "xpath",
     "xpath": "div[@class='blogbody']/div[@class='text']"
@@ -9941,10 +9937,6 @@
     "type": "xpath",
     "xpath": "div[contains(@id,'post-')]/div[contains(@class,'entry-content')]"
   },
-  "//damonge.com/": {
-    "type": "xpath",
-    "xpath": "article[@id='single']/figure[@class='thumbnail']|//article[@id='single']/div[@class='main']"
-  },
   "//geeksokuhou.net/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
@@ -13973,14 +13965,6 @@
     ],
     "next_page": "ul[@class='link_page_navi']"
   },
-  "//jp.reuters.com/": {
-    "type": "xpath",
-    "engine": "chromium",
-    "xpath": "div[contains(@class,'StandardArticleBody_body_')]",
-    "cleanup": [
-      "div[contains(@id,'google_ads_iframe_')]"
-    ]
-  },
   "//cloudplatform.googleblog.com/": {
     "type": "xpath",
     "engine": "chromium",
@@ -14661,15 +14645,6 @@
     ],
     "next_page": "div[@class='entryPagenate']"
   },
-  "//twitter.com/i/moments/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]"
-  },
-  "//twitter.com/": {
-    "type": "xpath",
-    "xpath": "div[@role='main']",
-    "append_css": "div.AdaptiveMedia-singlePhoto{padding-top:0!important;}"
-  },
   "//wedge.ismedia.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']",
@@ -14962,7 +14937,76 @@
       ".list_tweet_box .user_link img {left: 0;top: 5px;position: absolute;}",
       ".icon_48, .icon_73 {border: 0 solid transparent;border-radius: 6px;padding: 0;}",
       ".icon_48 {height: 48px;width: 48px;}",
-      ".list_tweet_box {min-height: 50px;padding-left: 53px;position: relative;}"
+      ".list_tweet_box {min-height: 50px;padding-left: 53px;position: relative;}",
+      ".list_box {padding: 5px 0;}",
+      "span.user_link > img { display:block; }"
     ]
+  },
+  "//getnavi.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='next-label' or @class='article-page-navigation' or contains(@class,'btn-more')]"
+    ],
+    "next_page": "div[@class='article-page-navigation']/ol"
+  },
+  "//twitter.com/i/moments/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]"
+  },
+  "//twitter.com/": {
+    "type": "xpath",
+    "xpath": "div[@role='main']",
+    "append_css": [
+      "div.AdaptiveMedia-singlePhoto{padding-top:0!important;}",
+      ".avatar {border-radius: 50%;height: 48px;width: 48px;}",
+      ".ProfileTweet-action, .stream-fail-container, .stream-item-footer{display:none;}",
+      ".tweet .stats {border-bottom: 1px solid #e6ecf0;border-top: 1px solid #e6ecf0;margin-top: 10px;width: 100%;}",
+      ".stats {overflow: hidden;}",
+      "ul, ol {list-style: outside none none;}",
+      ".stats li {display: block;float: left;overflow: hidden;}",
+      ".size24 {height: 24px!important;width: 24px!important;}"
+    ]
+  },
+  "//damonge.com/": {
+    "type": "xpath",
+    "xpath": "figure/picture/img|//div[@class='area-body']"
+  },
+  "//jp.reuters.com/": {
+    "type": "xpath",
+    "engine": "chromium",
+    "xpath": "div[starts-with(@class,'container_')]/div[starts-with(@class,'column_')]/div[starts-with(@class,'container_')]/div[starts-with(@class,'body_')]",
+    "cleanup": [
+      "div[contains(@class,'dp-slot-inline_')]"
+    ]
+  },
+  "//www.misoca.jp/toyoshi/": {
+    "type": "xpath",
+    "xpath": "article/section",
+    "cleanup": [
+      "div[contains(@class,'share')]"
+    ]
+  },
+  "//www.alpine-driveseminar.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogArea']",
+    "cleanup": [
+      "ol[contains(@class,'sns_count')]"
+    ]
+  },
+  "//unyoo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='primary']/article/div[@class='entry-thumbnail' or @class='entry-content' or @class='entry-action']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container') or @class='social-action']"
+    ]
+  },
+  "//turingcomplete.fm/": {
+    "type": "xpath",
+    "xpath": "div[@id='wrap']"
+  },
+  "//tanakaryusaku.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
