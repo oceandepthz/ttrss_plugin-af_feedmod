@@ -13524,10 +13524,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'topSection') or @class='article']"
   },
-  "//ipping.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='content-body']/div[contains(@class,'article-cover-image') or @id='article-introduction']"
-  },
   "//i.meet-i.com/": {
     "type": "xpath",
     "xpath": "div[@id='contents']/*[@class='img-detail-top' or @class='detail-summaryarea']"
@@ -14976,7 +14972,8 @@
       ".stats li {display: block;float: left;overflow: hidden;}",
       ".size24 {height: 24px!important;width: 24px!important;}",
       ".QuoteTweet { border: 1px solid #e6ecf0; border-radius: 4px; cursor: pointer;}",
-      ".QuoteTweet [data-item-type='tweet'] {padding: 12px;}"
+      ".QuoteTweet [data-item-type='tweet'] {padding: 12px;}",
+      ".AdaptiveMediaOuterContainer{width:500px;}"
     ]
   },
   "//www3.nhk.or.jp/news/web_tokushu/": {
@@ -15010,5 +15007,25 @@
   "//blog.spacemarket.com/": {
     "type": "xpath",
     "xpath": "p[@class='article_mainimg']|//div[@class='articleinfo__author']|//section[@class='article_body']"
+  },
+  "//galapgs.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='core']/div[starts-with(@id,'post-')]",
+    "cleanup": [
+      "aside",
+      "div[contains(@id,'thk_ps_widget-') or contains(@id,'custom_html-')]"
+    ]
+  },
+  "//www.raspi.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//ipping.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-body']",
+    "cleanup": [
+      "ul[@class='social-buttons']",
+      "span[@class='professional-posts']"
+    ]
   }
 }
