@@ -14971,9 +14971,9 @@
       "ul, ol {list-style: outside none none;}",
       ".stats li {display: block;float: left;overflow: hidden;}",
       ".size24 {height: 24px!important;width: 24px!important;}",
-      ".QuoteTweet { border: 1px solid #e6ecf0; border-radius: 4px; cursor: pointer;}",
-      ".QuoteTweet [data-item-type='tweet'] {padding: 12px;}",
-      ".AdaptiveMediaOuterContainer{width:500px;}"
+      ".QuoteTweet{ border: 1px solid #e6ecf0; border-radius: 4px; cursor: pointer;}",
+      ".QuoteTweet[data-item-type='tweet'] {padding: 12px;}",
+      ".QuoteMedia{width:500px;}"
     ]
   },
   "//www3.nhk.or.jp/news/web_tokushu/": {
