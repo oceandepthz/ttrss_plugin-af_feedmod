@@ -15027,5 +15027,9 @@
       "ul[@class='social-buttons']",
       "span[@class='professional-posts']"
     ]
+  },
+  "//blog.livedoor.jp/nichepcgamer/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
   }
 }
