@@ -3620,10 +3620,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "blog.spacemarket.com": {
-    "type": "xpath",
-    "xpath": "section[@class='content']"
-  },
   "cocopon.me": {
     "type": "xpath",
     "xpath": "div[@class='content']",
@@ -7872,14 +7868,6 @@
     "type": "xpath",
     "xpath": "div[@id='description']"
   },
-  "//www3.nhk.or.jp/news/web_tokushu/": {
-    "type": "xpath",
-    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
-  },
-  "//www3.nhk.or.jp/news/html": {
-    "type": "xpath",
-    "xpath": "section[@class='detail-no-js']/section[@class='module--content']"
-  },
   "//onew-web.net/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
@@ -9607,10 +9595,6 @@
       "iframe[contains(@src,'//www.facebook.com/plugins/page.php')]"
     ]
   },
-  "//www3.nhk.or.jp/lnews/": {
-    "type": "xpath",
-    "xpath": "section[@class='content--detail-main']"
-  },
   "//www.projectdesign.jp/": {
     "type": "xpath",
     "xpath": "div[@id='cl_box']"
@@ -9648,10 +9632,6 @@
     "xpath": "div[@class='entry-content']"
   },
   "//www.nhk.or.jp/shutoken-news/": {
-    "type": "xpath",
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/shutoken-news/": {
     "type": "xpath",
     "xpath": "section[@class='content--detail-main']"
   },
@@ -11428,10 +11408,6 @@
     "type": "xpath",
     "xpath": "figure[@class='article-thumb']|//div[@class='article-main']/div[@class='article-excerpt' or @class='article-contents']"
   },
-  "//www3.nhk.or.jp/news/business_tokushu/": {
-    "type": "xpath",
-    "xpath": "main[@id='main']/article"
-  },
   "//fukuyuki.net/": {
     "type": "xpath",
     "xpath": "section",
@@ -11688,10 +11664,6 @@
   "//www.bpo.gr.jp/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//www3.nhk.or.jp/news/special/": {
-    "type": "xpath",
-    "xpath": "main[@id='main']"
   },
   "//techmemo.biz/": {
     "type": "xpath",
@@ -14274,10 +14246,6 @@
     "type": "xpath",
     "xpath": "article[@class='post-content']"
   },
-  "//www.bloomberg.co.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[@class='body-copy']"
-  },
   "//special.nikkeibp.co.jp/": {
     "type": "xpath",
     "xpath": "div[@id='main']",
@@ -14950,24 +14918,6 @@
     ],
     "next_page": "div[@class='article-page-navigation']/ol"
   },
-  "//twitter.com/i/moments/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]"
-  },
-  "//twitter.com/": {
-    "type": "xpath",
-    "xpath": "div[@role='main']",
-    "append_css": [
-      "div.AdaptiveMedia-singlePhoto{padding-top:0!important;}",
-      ".avatar {border-radius: 50%;height: 48px;width: 48px;}",
-      ".ProfileTweet-action, .stream-fail-container, .stream-item-footer{display:none;}",
-      ".tweet .stats {border-bottom: 1px solid #e6ecf0;border-top: 1px solid #e6ecf0;margin-top: 10px;width: 100%;}",
-      ".stats {overflow: hidden;}",
-      "ul, ol {list-style: outside none none;}",
-      ".stats li {display: block;float: left;overflow: hidden;}",
-      ".size24 {height: 24px!important;width: 24px!important;}"
-    ]
-  },
   "//damonge.com/": {
     "type": "xpath",
     "xpath": "figure/picture/img|//div[@class='area-body']"
@@ -15008,5 +14958,57 @@
   "//tanakaryusaku.jp/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//twitter.com/i/moments/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]"
+  },
+  "//twitter.com/": {
+    "type": "xpath",
+    "xpath": "div[@role='main']",
+    "append_css": [
+      "div.AdaptiveMedia-singlePhoto{padding-top:0!important;}",
+      ".avatar {border-radius: 50%;height: 48px!important;width: 48px!important;}",
+      ".ProfileTweet-action, .stream-fail-container, .stream-item-footer, .dismiss-module {display:none;}",
+      ".tweet .stats {border-bottom: 1px solid #e6ecf0;border-top: 1px solid #e6ecf0;margin-top: 10px;width: 100%;}",
+      ".stats {overflow: hidden;}",
+      "ul, ol {list-style: outside none none;}",
+      ".stats li {display: block;float: left;overflow: hidden;}",
+      ".size24 {height: 24px!important;width: 24px!important;}",
+      ".QuoteTweet { border: 1px solid #e6ecf0; border-radius: 4px; cursor: pointer;}",
+      ".QuoteTweet [data-item-type='tweet'] {padding: 12px;}"
+    ]
+  },
+  "//www3.nhk.or.jp/news/web_tokushu/": {
+    "type": "xpath",
+    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
+  },
+  "//www3.nhk.or.jp/news/html": {
+    "type": "xpath",
+    "xpath": "section[@class='detail-no-js']/section[@class='module--content']"
+  },
+  "//www3.nhk.or.jp/lnews/": {
+    "type": "xpath",
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/shutoken-news/": {
+    "type": "xpath",
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/news/business_tokushu/": {
+    "type": "xpath",
+    "xpath": "main[@id='main']/article"
+  },
+  "//www3.nhk.or.jp/news/special/": {
+    "type": "xpath",
+    "xpath": "main[@id='main']"
+  },
+  "//www.bloomberg.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-column__content']/ul[@class='abstract']|//div[@class='main-column__content']/div[contains(@class,'body-copy')]"
+  },
+  "//blog.spacemarket.com/": {
+    "type": "xpath",
+    "xpath": "p[@class='article_mainimg']|//div[@class='articleinfo__author']|//section[@class='article_body']"
   }
 }
