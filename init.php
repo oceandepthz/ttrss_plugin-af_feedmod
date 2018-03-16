@@ -87,7 +87,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // shoutcut url
-        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/'];
+        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/'];
         if($this->strposa($article['link'], $sc_url)){
             $this->__debug("hit shoutcut url ".$article['link']);
             $rd_url = $this->get_redirect_url($article['link']);
@@ -228,6 +228,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_remote_file($entry, $link, "img", "src");
 
                 $this->update_t_co($doc, $xpath, $entry, $link);
+                $this->update_amzn_to($doc, $xpath, $entry, $link);
+                $this->sanitize_amazon($doc, $xpath, $entry, $link);
+                $this->update_sqex_to($doc, $xpath, $entry, $link);
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
                 $this->update_peing_net($doc, $xpath, $entry, $link);
                 $this->update_img_link($doc, $xpath, $entry, $link);
@@ -335,22 +338,6 @@ EOD;
             return $org_url;
         }
         return $url;
-/*
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-        curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_BINARYTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
-        curl_exec($ch);
-        $redirectURL = curl_getinfo($ch,CURLINFO_EFFECTIVE_URL );
-        curl_close($ch);
-        return $redirectURL;
-*/
     }
 
     function strposa(string $haystack,array $needles) : bool {
@@ -798,6 +785,80 @@ EOD;
         return $xpath->evaluate('string(@src)', $entries->item(0));
     }
 
+    function update_sqex_to(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
+        if(!$basenode){
+            return;
+        }
+        $node_list = $xpath->query("(//a[contains(@href,'//sqex.to/')])", $basenode);
+        foreach ($node_list as $node){
+            if(!$node){
+                continue;
+            }
+            $href = $node->getAttribute('href');
+            if(!$href){
+                continue;
+            }
+            $url = $this->get_redirect_url($href);
+            if(!$url){
+                $url = $href;
+            }
+            $node->setAttribute('href', $url);
+        }
+    }
+
+    function update_amzn_to(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
+        if(!$basenode){
+            return;
+        }
+        $node_list = $xpath->query("(//a[contains(@href,'//amzn.to/')])", $basenode);
+        foreach ($node_list as $node){
+            if(!$node){
+                continue;
+            }
+            $href = $node->getAttribute('href');
+            if(!$href){
+                continue;
+            }
+            $url = $this->get_redirect_url($href);
+            if(!$url){
+                $url = $href;
+            }
+            $node->setAttribute('href', $url); 
+        }
+    }
+    function sanitize_amazon(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
+        if(!$basenode){
+            return;
+        }
+        $queries = ['//www.amazon.co.jp/','//amazon.jp/','//www.amazon.com/','//amazon.com/'];
+        foreach ($queries as $query){
+            $nodes = $xpath->query("(//a[contains(@href,'${query}')])", $basenode);
+            foreach ($nodes as $node){
+                if(!$node){
+                    continue;
+                }
+                $href = $node->getAttribute('href');
+                if(!$href){
+                    continue;
+                }
+                $purl = parse_url($href);
+                $path = explode('/',$purl['path']);
+                $place = -1;
+                foreach($path as $i=>$v){
+                    if($this->strposa($v, ['ASIN','dp','product'])){
+                        $place = $i;
+                        break;
+                    }
+                }
+                if($place >= 0){
+                    $place++;
+                    $href = "${purl['scheme']}://${purl['host']}/dp/${path[$place]}/";
+                }
+                $node->setAttribute('href', $href);
+            }
+        }
+    }
+
     function update_t_co(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
         if(!$basenode){
             return;
@@ -829,7 +890,7 @@ EOD;
         if(!$basenode){
             return;
         }
-        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/'];
+        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/','//twitter.com/'];
         foreach ($exclusion_list as $exclusion){
             if(strpos($link, $exclusion) !== false){
                 return;
