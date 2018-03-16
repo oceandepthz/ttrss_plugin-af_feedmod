@@ -7056,10 +7056,6 @@
     "type": "xpath",
     "xpath": "div[@class='mv']/div[@class='kiji_img']|//div[@class='kiji' or @class='mv_kiji']"
   },
-  "//www.sukesuke-mile-kojiki.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//www.si-po.jp/post/column/": {
     "type": "xpath",
     "xpath": "div[@class='articleMainArea']",
@@ -14973,7 +14969,7 @@
       ".size24 {height: 24px!important;width: 24px!important;}",
       ".QuoteTweet{ border: 1px solid #e6ecf0; border-radius: 4px; cursor: pointer;}",
       ".QuoteTweet[data-item-type='tweet'] {padding: 12px;}",
-      ".QuoteMedia{width:500px;}"
+      ".QuoteMedia, .AdaptiveMedia{width:500px;}"
     ]
   },
   "//www3.nhk.or.jp/news/web_tokushu/": {
@@ -15031,5 +15027,19 @@
   "//blog.livedoor.jp/nichepcgamer/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
+  },
+  "//www.sukesuke-mile-kojiki.net/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  "//www.mhatta.org/wp/blog/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts']"
+    ]
   }
 }
