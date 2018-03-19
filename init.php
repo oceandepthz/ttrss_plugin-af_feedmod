@@ -864,7 +864,7 @@ EOD;
             return;
         }
 
-        $node_list = $xpath->query("(//a[contains(text(),'//t.co/')])", $basenode);
+        $node_list = $xpath->query("(//a[contains(text(),'//t.co/') or contains(@href,'//t.co/')])", $basenode);
         if(!$node_list || $node_list->length === 0){
             return;
         }
@@ -897,7 +897,7 @@ EOD;
             }
         }
 
-        $items = ["//a[contains(text(),'pic.twitter.com/')]", "//a[contains(@href,'//twitter.com/') and contains(@href,'/photo/')]"];
+        $items = ["//a[contains(text(),'pic.twitter.com/')]", "//a[contains(@href,'//twitter.com/') and (contains(@href,'/photo/') or contains(@href,'/video/'))]"];
         foreach ($items as $item){
             $node_list = $xpath->query($item, $basenode);
             if(!$node_list || $node_list->length === 0){
