@@ -4869,13 +4869,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'topic__written') or contains(@class,'topic__eyecatch')]"
   },
-  "//blog.tsubotax.com/": {
-    "type": "xpath",
-    "xpath": "section[@class='post-content']",
-    "cleanup": [
-      "div[@class='amazlet-box' or @class='wp_social_bookmarking_light' or @id='wp_rp_first']"
-    ]
-  },
   "//ashita-office.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-thumbnail']/img|//section[@class='post-content']"
@@ -7435,13 +7428,6 @@
   "//www.ex-ma.com/blog/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
-  },
-  "//tobalog.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='mainbox']",
-    "cleanup": [
-      "div[@class='textwidget' or @class='kizi-under-box']"
-    ]
   },
   "//charingress.tokyo/": {
     "type": "xpath",
@@ -14337,13 +14323,6 @@
       "div[@class='adsbox' or @class='add']"
     ]
   },
-  "//senjp.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='left_col']/div[contains(@class,'post')]",
-    "cleanup": [
-      "div[contains(@id,'single_banner') or contains(@class,'a-single')]"
-    ]
-  },
   "//simchange.jp/": {
     "type": "xpath",
     "xpath": "div[@class='p-articleHeader__thumbnailText' or @class='p-articleContent']"
@@ -15041,5 +15020,51 @@
     "cleanup": [
       "div[contains(@class,'sharedaddy') or @id='jp-relatedposts']"
     ]
+  },
+  "//senjp.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='left_col']/div[contains(@class,'post')]",
+    "cleanup": [
+      "div[contains(@id,'single_banner') or contains(@class,'a-single')]"
+    ]
+  },
+  "//blog.tsubotax.com/": {
+    "type": "xpath",
+    "engine": "chromium",
+    "xpath": "div[@class='imagenote-viewer' or @class='note-cover-img' or @class='body-wrapper']"
+  },
+  "//tobalog.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  "//www.nginx.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//neuro-educator.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//money-campus.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']",
+    "cleanup": [
+      "div[@class='share-post']"
+    ]
+  },
+  "//gumroad.com/l/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'preview-content') or @class='description-container']"
+  },
+  "//career-rules.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//blog.kubernetes.io/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'hentry')]/div[starts-with(@id,'post-body-')]"
   }
 }
