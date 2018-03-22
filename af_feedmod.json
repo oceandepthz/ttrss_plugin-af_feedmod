@@ -11105,10 +11105,6 @@
     "type": "xpath",
     "xpath": "div[@class='post-content']"
   },
-  "//blog.craftz.dog/": {
-    "type": "xpath",
-    "xpath": "article/div[contains(@class,'postArticle-content')]"
-  },
   "//app-r.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]",
@@ -15066,5 +15062,31 @@
   "//blog.kubernetes.io/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'hentry')]/div[starts-with(@id,'post-body-')]"
+  },
+  "//www.fastgrow.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'p-article-thumb-wrapper')]/div[@class='p-article-thumb']|//section[@class='p-article-prologue']/div[@class='p-article-description']|//div[contains(@class,'js-container-main')]/section[starts-with(@id,'js-article-body-section-')]"
+  },
+  "//www.apple.com/jp/support/": {
+    "type": "xpath",
+    "xpath": "div[@id='section']",
+    "cleanup": [
+      "select[@id='country_nav']"
+    ]
+  },
+  "//mywarstory.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//blog.craftz.dog/": {
+    "type": "xpath",
+    "xpath": "main/article/div/section/div[@class='section-content']"
+  },
+  "//ameblo.jp/wada-masamune/": {
+    "type": "xpath",
+    "xpath": "div[@class='subContentsInner']"
   }
 }
