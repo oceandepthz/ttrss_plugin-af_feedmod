@@ -917,6 +917,7 @@ EOD;
                 }
                 foreach(array_reverse($urls) as $url){
                     if(strpos($url, 'https://twitter.com/i/videos/') === 0){
+                        //$this->append_iframe_tag($doc, $node, 'https://pp.kozono.org?q='.urlencode($url));
                         $this->append_iframe_tag($doc, $node, $url);
                     } else {
                         $this->append_img_tag($doc, $node, $url);
