@@ -14983,6 +14983,7 @@
   },
   "//senjp.com/": {
     "type": "xpath",
+    "engine": "chromium",
     "xpath": "div[@id='left_col']/div[contains(@class,'post')]",
     "cleanup": [
       "div[contains(@id,'single_banner') or contains(@class,'a-single')]"
@@ -15102,6 +15103,43 @@
     "xpath": "div[@class='post-content']",
     "cleanup": [
       "div[contains(@class,'sharedaddy') or contains(@id,'like-post-wrapper-')]"
+    ]
+  },
+  "//www.whitehouse.gov/": {
+    "type": "xpath",
+    "xpath": "div[@class='page-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//www.e-soft.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='lists']/div[@class='lists_left']/span[@class='entry-content']"
+  },
+  "//twi-papa.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='va-social-buzz']"
+    ]
+  },
+  "//englishforhackers.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//tolarian-academy.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//note.crohaco.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-body']"
+  },
+  "//epistation.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "aside[@class='sns-list']"
     ]
   }
 }
