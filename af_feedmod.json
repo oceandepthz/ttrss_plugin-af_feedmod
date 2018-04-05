@@ -14850,10 +14850,6 @@
     "type": "xpath",
     "xpath": "main[@id='main']"
   },
-  "//www.bloomberg.co.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[@class='main-column__content']/ul[@class='abstract']|//div[@class='main-column__content']/div[contains(@class,'body-copy')]"
-  },
   "//blog.spacemarket.com/": {
     "type": "xpath",
     "xpath": "p[@class='article_mainimg']|//div[@class='articleinfo__author']|//section[@class='article_body']"
@@ -15206,13 +15202,28 @@
       "#commentlisting li.comment.full > .comment-item .commentBody {margin-top: 10px;padding: 6px 6px 0;}",
       ".hide {display: none;}",
       "ul[id^='commtree_'] {clear: left;margin: 0;padding: 0 0 0 16px;}",
-      "#commentlisting li.comment > .ind {border-color: #e0d2bd;border-style: none none solid solid;border-width: 2px;float: left;height: 10px;left: -16px;line-height: 12px;overflow: hidden;position: absolute;text-indent: -999999px;width: 10px;}",
+      "#commentlisting li.comment > .ind {border-color: #e0d2bd;border-style: none none solid solid;border-width: 2px;float: left;height: 10px;left: -16px;position: absolute;width: 10px;}",
       "#commentlisting li.comment.oneline {background: #fdfcfb none repeat scroll 0 0;border: 1px solid transparent;margin: 0 4px;padding: 0;}",
-      "#commentlisting li.comment.oneline > .comment-item {height: 1.2em;line-height: 100%;margin: 2px 0;overflow: hidden;padding: 0 6px 0 0;}"
+      "#commentlisting li.comment.oneline > .comment-item {line-height: 100%;margin: 2px 0;overflow: visible;padding: 0 6px 0 0;}"
     ]
   },
   "//www.mhlw.go.jp/stf/seisakunitsuite/bunya/": {
     "type": "xpath",
     "xpath": "div[@id='contents']"
+  },
+  "//www.akb48matomemory.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']/img[contains(@class,'pict')]|//div[@class='article_body_more']"
+  },
+  "//www.bloomberg.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-column__content']/ul[@class='abstract']|//div[@class='main-column__content']/div[contains(@class,'body-copy')]|//section[@class='main-column']/figure|//section[@class='main-column']/div[contains(@class,'body-copy')]"
+  },
+  "//www.cockroachlabs.com/blog/": {
+    "type": "xpath",
+    "xpath": "section/div/div[@class='blog-article__image' or @class='blog-article__content']",
+    "cleanup": [
+      "div[contains(@class,'article-sidebar')]"
+    ]
   }
 }
