@@ -1048,10 +1048,6 @@
     "type": "xpath",
     "xpath": "div[@id='bt_body']"
   },
-  "liginc.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='media_article_title--eyecatch']|//div[@class='article_body']"
-  },
   "lifehack2ch.livedoor.biz": {
     "type": "xpath",
     "xpath": "div[@class='main']|//div[@class='mainmore']|//h3[@class='commenthead']|//div[@id='comment']"
@@ -1324,10 +1320,6 @@
     "cleanup": [
       "*[starts-with(@class, 'wp_social_bookmarking_')]"
     ]
-  },
-  "www.football-lab.jp/column": {
-    "type": "xpath",
-    "xpath": "div[@id='columnEntry']/div[starts-with(@class, 'cpt')]"
   },
   "www.ryuzee.com": {
     "type": "xpath",
@@ -2641,10 +2633,6 @@
   "in.fablic.co.jp": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "travel.spot-app.jp": {
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'entry-content')]"
   },
   "www.theworldmagazine.jp": {
     "type": "xpath",
@@ -13485,11 +13473,6 @@
       "iframe"
     ]
   },
-  "//note.mu/": {
-    "type": "xpath",
-    "engine": "chromium",
-    "xpath": "div[@class='imagenote-viewer' or @class='note-cover-img' or @class='body-wrapper']"
-  },
   "//blog.haramishio.xyz/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -15224,6 +15207,53 @@
     "xpath": "section/div/div[@class='blog-article__image' or @class='blog-article__content']",
     "cleanup": [
       "div[contains(@class,'article-sidebar')]"
+    ]
+  },
+  "//www.football-lab.jp/column/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='clmTypeT' or @class='clmTypeB']"
+  },
+  "//liginc.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='single-header-media']|//div[contains(@class,'single-body ')]"
+  },
+  "//note.mu/": {
+    "type": "xpath",
+    "engine": "chromium",
+    "xpath": "div[@class='imagenote-viewer' or @class='note-cover-img' or @class='body-wrapper']"
+  },
+  "//travel.spot-app.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='feature_body']"
+  },
+  "//www.ghibli.jp/info/": {
+    "type": "xpath",
+    "xpath": "div[@role='main']/div[@class='bs-docs-section']"
+  },
+  "//www.codexa.net/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
+  },
+  "//searchapp.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//labs.timedia.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//hitorica.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//53ningen.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts']"
     ]
   }
 }
