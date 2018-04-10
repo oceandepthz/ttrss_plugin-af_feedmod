@@ -87,11 +87,9 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // shoutcut url
-        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/'];
+        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/'];
         if($this->strposa($article['link'], $sc_url)){
-            $this->__debug("hit shoutcut url ".$article['link']);
             $rd_url = $this->get_redirect_url($article['link']);
-            $this->__debug("update url ".$article['link']." => ".$rd_url);
             $article['link'] = $rd_url;
         }
 
@@ -480,6 +478,21 @@ EOD;
         return mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
     }
 
+    // russia2018.yahoo.co.jp 向け
+    function get_np_links_russia2018_yahoo_co_jp(DOMXPath $xpath, DOMDocument $doc, string $link) : array {
+        $links = [];
+        $yxpath = new DOMXPath($doc);
+        $ye = $yxpath->query("//ul[@class='sn-pagination__list']//span[contains(@class,'sn-pagination__number--duration')]");
+        if($ye == false || $ye->length === 0){
+            return [];
+        }
+        $ye = $ye->item(0);
+        $n = intval($ye->nodeValue);
+        for($i = 2; $i <= $n; $i++){
+            $links[] = $link."?p=".$i;
+        }
+        return $links;
+    }
     // number向け
     function get_np_links_number_bunshun_jp(DOMXPath $xpath, DOMDocument $doc, string $link) : array {
         $links = array();
@@ -499,8 +512,11 @@ EOD;
     function get_np_links(DOMXPath $xpath, DOMDocument $doc, array $config, string $link) : array {
         $links = array();
 
-        if(strpos($link, '//number.bunshun.jp/articles/') !== FALSE){
+        if(strpos($link, '//number.bunshun.jp/articles/') !== false){
             return $this->get_np_links_number_bunshun_jp($xpath, $doc, $link);
+        }
+        if(strpos($link, '//russia2018.yahoo.co.jp/') !== false){
+            return $this->get_np_links_russia2018_yahoo_co_jp($xpath, $doc, $link);
         }
         if(!isset($config['next_page']) || !$config['next_page']){
             return array();
