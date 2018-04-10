@@ -7674,10 +7674,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//style.nikkei.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='conts']/p[@class='text']|//div[@id='articleImage']|//div[@class='load']/div[not(@class) or @class='text01']"
-  },
   "//weekly-g.jp/": {
     "type": "xpath",
     "xpath": "div[@class='cHeader']|//div[@class='contentIn']/section"
@@ -12363,11 +12359,6 @@
       "div[contains(@class,'add')]"
     ]
   },
-  "//www.soccerdigestweb.com/news/detail/": {
-    "type": "xpath",
-    "xpath": "div[@class='content_detail']",
-    "next_page": "div[@class='pager']"
-  },
   "//www.preferred-networks.jp/ja/news/": {
     "type": "xpath",
     "xpath": "div[@class='post_content']"
@@ -15266,6 +15257,23 @@
     "xpath": "div[@class='entry-content']",
     "cleanup": [
       "div[contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//style.nikkei.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='conts']/p[@class='text']|//div[@id='articleImage']|//div[@class='load']/div[not(@class) or @class='text01']",
+    "next_page": "ul[contains(@class,'pagination_article_detail')]"
+  },
+  "//russia2018.yahoo.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'sn-columnDetail__paragraph')]"
+  },
+  "//www.soccerdigestweb.com/news/detail/": {
+    "type": "xpath",
+    "xpath": "div[@class='content_detail']",
+    "next_page": "div[@class='pager']",
+    "cleanup": [
+      "iframe[contains(@src,'//secure.spox.com/')]"
     ]
   }
 }
