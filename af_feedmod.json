@@ -15214,10 +15214,6 @@
     "engine": "chromium",
     "xpath": "div[@class='imagenote-viewer' or @class='note-cover-img' or @class='body-wrapper']"
   },
-  "//travel.spot-app.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='feature_body']"
-  },
   "//www.ghibli.jp/info/": {
     "type": "xpath",
     "xpath": "div[@role='main']/div[@class='bs-docs-section']"
@@ -15275,5 +15271,9 @@
     "cleanup": [
       "iframe[contains(@src,'//secure.spox.com/')]"
     ]
+  },
+  "//travel.spot-app.jp/": {
+    "type": "xpath",
+    "xpath": "header/p[@class='single-title_description']|//div[@class='feature_body' or contains(@class, 'entry-content')]"
   }
 }
