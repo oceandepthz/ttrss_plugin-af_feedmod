@@ -12,7 +12,12 @@
       "button[contains(@class,'entry-comment-menu')]",
       "ul[contains(@class,'entry-comment-menu-list')]"
     ],
-    "append_css": ".entry-user-icon img{width:32px;height:32px;border-radius:3px;vertical-align:middle;}"
+    "append_css": [
+      ".entry-user-icon img{width:32px;height:32px;border-radius:3px;vertical-align:middle;}",
+      ".entry-info-title, .entry-info-meta{border: 1px solid #ccc;margin: 0 0 20px;position: relative;padding:20px}",
+      ".entry-comment-contents {border-bottom: 1px solid #ececec;display: block;font-size: 13px;padding: 9px 36px 9px 52px;position: relative;}",
+      ".entry-comment-permalink {display:none;}"
+    ]
   },
   "//b.hatena.ne.jp/": {
     "type": "xpath",
@@ -12967,10 +12972,6 @@
     "type": "xpath",
     "xpath": "div[@class='post-outer']"
   },
-  "blogspot.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post-outer']"
-  },
   "//yoshikawaweb.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -15254,6 +15255,17 @@
     "xpath": "div[@class='entry-content']",
     "cleanup": [
       "div[contains(@class,'sharedaddy') or @id='jp-relatedposts']"
+    ]
+  },
+  ".blogspot.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-outer']"
+  },
+  "//blog.o365mvp.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy')]"
     ]
   }
 }
