@@ -6256,10 +6256,6 @@
     "type": "xpath",
     "xpath": "div[@class='article']"
   },
-  "//www.minnanokaigo.com/news/": {
-    "type": "xpath",
-    "xpath": "div[@class='longnews-section']"
-  },
   "//xn--n9j6fdet7q9c3h7202azb5b.net/": {
     "type": "xpath",
     "xpath": "article/div[@class='entry-content']",
@@ -7077,14 +7073,6 @@
   "//mzyy94.com/blog/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//menhera.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content' or @class='entry-thumb']",
-    "cleanup": [
-      "div[@class='wp_social_bookmarking_light' or @id='ts-fab-below' or contains(@class,'sharedaddy')]",
-      "ul[@class='wpp-list']"
-    ]
   },
   "//digital-cat.com/": {
     "type": "xpath",
@@ -14367,13 +14355,6 @@
     "xpath": "div[@id='entryBody']|//div[@class='entryMainPhoto']",
     "next_page": "div[@id='pageNation']"
   },
-  "//www.minnanokaigo.com/news/yamamoto/": {
-    "type": "xpath",
-    "xpath": "article/h1/img|//article[@id='special-article']|//div[@class='article-body']",
-    "cleanup": [
-      "div[contains(@class,'util')]"
-    ]
-  },
   "//www.nhk.or.jp/sports-story/": {
     "type": "xpath",
     "xpath": "article/div/p[@class='kv']|//article/div/div[@class='section']"
@@ -14607,14 +14588,6 @@
       "div[@id='ts-fab-below']"
     ],
     "next_page": "div[contains(@class,'st-pagelink')]"
-  },
-  ".impress.co.jp/docs/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'main-contents') or @class='article-info' or @class='author-info' or @class='author-detail']|//nav[contains(@class,'links') and contains(@class,'outer')]",
-    "cleanup": [
-      "div[@class='tab-wrap']"
-    ],
-    "next_page": "ul[@class='number']"
   },
   "//tikyuutabi.sakura.ne.jp/": {
     "type": "xpath",
@@ -15275,5 +15248,38 @@
   "//travel.spot-app.jp/": {
     "type": "xpath",
     "xpath": "header/p[@class='single-title_description']|//div[@class='feature_body' or contains(@class, 'entry-content')]"
+  },
+  "//menhera.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'articleContent')]"
+  },
+  "//www.minnanokaigo.com/news/yamamoto/": {
+    "type": "xpath",
+    "xpath": "article/h1/img|//article[@id='special-article']|//div[@class='article-body']",
+    "cleanup": [
+      "div[contains(@class,'util')]"
+    ]
+  },
+  "//www.minnanokaigo.com/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='longnews-section']"
+  },
+  "//www.mirucon.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-inside']/div[contains(@class,'entry')]"
+  },
+  "//www.shortnote.jp/view/notes/": {
+    "type": "xpath",
+    "engine": "chromium",
+    "xpath": "div[@class='note-content-container']"
+  },
+  "*//*.impress.co.jp/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class, 'main-contents') or @class='article-info' or @class='author-info' or @class='author-detail']|//nav[contains(@class,'links') and contains(@class,'outer')]",
+    "cleanup": [
+      "div[@class='tab-wrap']"
+    ],
+    "next_page": "ul[@class='number']"
   }
 }
