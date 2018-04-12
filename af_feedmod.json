@@ -9331,10 +9331,6 @@
     "type": "xpath",
     "xpath": "div[@id='article_body']/article"
   },
-  "//blog.tai2.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//blog.mozilla.org/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content' or contains(@class,'post-image')]"
@@ -15281,5 +15277,17 @@
       "div[@class='tab-wrap']"
     ],
     "next_page": "ul[@class='number']"
+  },
+  "//blog.tai2.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__content']"
+  },
+  "//www.atpress.ne.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='news_body_block' or @class='secondary']"
+  },
+  "//blog.livedoor.jp/k_urushima/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-body') and contains(@class,'entry-content')]"
   }
 }
