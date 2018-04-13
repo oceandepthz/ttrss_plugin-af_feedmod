@@ -14228,25 +14228,6 @@
     "type": "xpath",
     "xpath": "div[@class='inner-contents']"
   },
-  "*//github.com/*/*/commit/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[contains(@class,'repository-content')]"
-  },
-  "*//github.com/*/*/wiki/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='wiki-body']"
-  },
-  "*//github.com/*/issues/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
-  "//github.com/": {
-    "type": "xpath",
-    "xpath": "article|//div[contains(@class,'release-body')]"
-  },
   "//headlines.yahoo.co.jp/videonews/ann": {
     "type": "xpath",
     "xpath": "div[@class='articleMain']"
@@ -15289,5 +15270,33 @@
   "//blog.livedoor.jp/k_urushima/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'article-body') and contains(@class,'entry-content')]"
+  },
+  "*//github.com/*/*/commit/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class,'repository-content')]"
+  },
+  "*//github.com/*/*/wiki/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='wiki-body']"
+  },
+  "*//github.com/*/issues/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "*//github.com/*/*/pull/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "//github.com/": {
+    "type": "xpath",
+    "xpath": "article|//div[contains(@class,'release-body')]"
+  },
+  "//www.footballista.jp/": {
+    "type": "xpath",
+    "xpath": "article"
   }
 }
