@@ -15298,5 +15298,51 @@
   "//www.footballista.jp/": {
     "type": "xpath",
     "xpath": "article"
+  },
+  "//yoicomic.blog.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='contents_body']/p"
+  },
+  "//yoheikikuta.github.io/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry' or @class='date']"
+  },
+  "//www.manga-japan.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//www.goodsmile.info/ja/product/": {
+    "type": "xpath",
+    "xpath": "div[@id='itemBox']/div[@class='itemInfo' or @class='itemPhotos' or @class='itemDetail']",
+    "cleanup": [
+      "div[contains(@class,'socialbuttons')]"
+    ]
+  },
+  "//watashitopapa.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='mainbox']"
+  },
+  "//siliconvalleyrw.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@class='sp-warning' or @class='page-link' or @class='va-social-buzz' or @class='saboxplugin-wrap']"
+    ],
+    "next_page": "div[@class='page-link']"
+  },
+  "//chromesoku.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='post']/section"
+  },
+  "//blog.heroku.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'post-body')]"
+  },
+  "//www.mof.go.jp/public_relations/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[@class='singleBlock']"
   }
 }
