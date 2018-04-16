@@ -794,7 +794,7 @@ EOD;
         }
         $xpath = new DOMXPath($doc);
 
-        $entries = $xpath->query("(//div[@class='answer-box']/div/a/img[@class='question-eye-catch'])");
+        $entries = $xpath->query("(//div[@class='answer-box']//a[contains(@href,'.jpg')])");
         if($entries === false || $entries->length == 0) {
             return "";
         }
