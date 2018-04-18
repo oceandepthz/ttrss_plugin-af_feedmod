@@ -577,10 +577,6 @@
       "div[@class='category']"
     ]
   },
-  "rss.rssad.jp/rss/artclk/ZIQzCz_y3f5F": {
-    "type": "xpath",
-    "xpath": "div[@id='cmsBody']/div/p|//div[@id='cmsBody']/div/div[contains(@class, 'box')]"
-  },
   "design.dmm.com/entry": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -10334,10 +10330,6 @@
     "type": "xpath",
     "xpath": "div[@class='post-content']"
   },
-  "//huawei-report.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='the-content']"
-  },
   "//hanpenblog.com/": {
     "type": "xpath",
     "xpath": "figure[@class='eye-catch']|//div[@id='the-content']"
@@ -13718,15 +13710,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//www.financialpointer.com/jp/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[@id='breadcrumb' or @class='blogbox' or @class='share' or contains(@id,'quads-ad')]",
-      "h1"
-    ],
-    "next_page": "article/div/p/a[contains(@href,'//www.financialpointer.com/jp/post-')]/.."
-  },
   "*//ask.fm/*/answers/*": {
     "match_type": "fnmatch",
     "type": "xpath",
@@ -15344,5 +15327,48 @@
   "//www.mof.go.jp/public_relations/": {
     "type": "xpath",
     "xpath": "div[@id='main']/div[@class='singleBlock']"
+  },
+  "//rss.rssad.jp/rss/artclk/ZIQzCz_y3f5F/": {
+    "type": "xpath",
+    "xpath": "div[@id='cmsBody']/div/p|//div[@id='cmsBody']/div/div[contains(@class, 'box')]"
+  },
+  "//www2.financialpointer.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='breadcrumb' or @class='blogbox' or @class='share' or contains(@id,'quads-ad')]",
+      "h1"
+    ],
+    "next_page": "span[@id='page-links']"
+  },
+  "//www.gundam.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='g-pageMain']//div[contains(@class,'gijpC-detailArticle')]"
+  },
+  "//blog.nicovideo.jp/3d/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'hentry')]/div[contains(@class,'entry-content')]"
+  },
+  "//huawei-report.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area') or @class='saboxplugin-wrap']"
+    ]
+  },
+  "//research.sakura.ad.jp/": {
+    "type": "xpath",
+    "xpath": "td[@id='middle']/div[starts-with(@id,'post-5')]",
+    "cleanup": [
+      "div[@class='social']"
+    ]
+  },
+  "//media.sakuras.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog-article__content']"
+  },
+  "//ameblo.jp/ymnhana/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
   }
 }
