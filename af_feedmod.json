@@ -15370,5 +15370,13 @@
   "//ameblo.jp/ymnhana/": {
     "type": "xpath",
     "xpath": "div[@id='entryBody']"
+  },
+  "//news-vision.jp/": {
+    "type": "xpath",
+    "xpath": "article[@id='page_content_main']/*[contains(@class,'article_img') or contains(@class,'article-body')]"
+  },
+  "//geniee.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div/div[@class='box_det']"
   }
 }
