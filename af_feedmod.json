@@ -15378,5 +15378,29 @@
   "//geniee.co.jp/news/": {
     "type": "xpath",
     "xpath": "div[@id='main']/div/div[@class='box_det']"
+  },
+  "//2020.yahoo.co.jp/column/": {
+    "type": "xpath",
+    "xpath": "div[@class='mod-content']",
+    "next_page": "div[@class='navPage']"
+  },
+  "//www.shueisha.co.jp/info/": {
+    "type": "xpath",
+    "xpath": "body"
+  },
+  "//www.sci.kyoto-u.ac.jp/ja/academics/programs/scicom/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']"
+  },
+  "//www.moyashi-koubou.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']/*[contains(@class,'single-thumbnail') or @class='entry-content']"
+  },
+  "//designmemo.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='eyecatch-cover']|//article/section",
+    "cleanup": [
+      "footer"
+    ]
   }
 }
