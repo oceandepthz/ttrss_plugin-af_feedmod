@@ -15402,5 +15402,25 @@
     "cleanup": [
       "footer"
     ]
+  },
+  "//www.nhk.or.jp/politics/": {
+    "type": "xpath",
+    "xpath": "section[@class='module--detail-content']"
+  },
+  "//www.yamdas.org/column/": {
+    "type": "xpath",
+    "xpath": "body"
+  },
+  "//www3.nhk.or.jp/kansai-news/": {
+    "type": "xpath",
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/news/contents/ohabiz/": {
+    "type": "xpath",
+    "xpath": "div[@id='upperArea' or @id='caster']"
+  },
+  "//www.jaipa.or.jp/topics/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'main-column')]"
   }
 }
