@@ -15422,5 +15422,28 @@
   "//www.jaipa.or.jp/topics/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'main-column')]"
+  },
+  "//hack.nikkei.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='hn-article' or @class='author']",
+    "cleanup": [
+      "div[@class='share']"
+    ]
+  },
+  "//blog.livedoor.jp/businesslaw/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//toris.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='container']/section"
+  },
+  "//realkyoto.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='content_main_content_text' or @id='content_left_bloger_img' or @id='content_left_bloger_description']"
+  },
+  "//blogs.mcafee.jp/": {
+    "type": "xpath",
+    "xpath": "article/header/figure[@class='entry-thumbnail']|//article/div[@class='entry-content']"
   }
 }
