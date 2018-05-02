@@ -7001,14 +7001,6 @@
     "type": "xpath",
     "xpath": "div[@class='content_area']"
   },
-  "//www.moguravr.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post']|//ul[@class='list-writer-profile']",
-    "cleanup": [
-      "div[@class='blogbox' or @class='sns_area']",
-      "ul[@class='social-links']"
-    ]
-  },
   "//www.brother.co.jp/product/printer/sp/m/": {
     "type": "xpath",
     "xpath": "section[@id='articles']",
@@ -11265,13 +11257,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//anonymous-post.com/": {
-    "type": "xpath",
-    "xpath": "section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@id,'_ad_')]"
-    ]
-  },
   "//akiyolife.com/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']",
@@ -15445,5 +15430,54 @@
   "//blogs.mcafee.jp/": {
     "type": "xpath",
     "xpath": "article/header/figure[@class='entry-thumbnail']|//article/div[@class='entry-content']"
+  },
+  "//anonymous-post.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@id,'_ad_')]"
+    ]
+  },
+  "//knowledge-plus.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'contents')]/div[@class='article']"
+  },
+  "//www.moguravr.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='mg-article-content']"
+  },
+  "//www.phoronix.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='content']"
+  },
+  "//www.benfrederickson.com/": {
+    "type": "xpath",
+    "xpath": "body/div[@class='container']"
+  },
+  "//mwwlog.com/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='eyecatch' or contains(@class,'entry-content')]"
+  },
+  "//www.webopixel.net/": {
+    "type": "xpath",
+    "xpath": "article/section"
+  },
+  "//kimu3.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='share']"
+    ]
+  },
+  "//hitoxu.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@id='widget-in-article']"
+    ]
+  },
+  "//blogs.dropbox.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry-content']"
   }
 }
