@@ -1476,15 +1476,6 @@
       "script[contains(@src, 'pagead2.googlesyndication.com')]"
     ]
   },
-  "creive.me": {
-    "type": "xpath",
-    "xpath": "article[@id='single']",
-    "cleanup": [
-      "h1",
-      "div[@id='single_data' or @class='sbver' or @id='single_ad']",
-      "script[contains(@src, 'sh.adingo.jp')]"
-    ]
-  },
   "phil-portal.com": {
     "type": "xpath",
     "xpath": "section/span|//section/article|//section/div[@id='author-box']"
@@ -8971,10 +8962,6 @@
       "div[@class='ad-single' or @class='share-box']"
     ]
   },
-  "//ffxi-mh.blogspot.com/": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']"
-  },
   "//ginbeeroom.txt-nifty.com/blog/": {
     "type": "xpath",
     "xpath": "div[@class='entry-body' or @class='entry-more']",
@@ -11401,10 +11388,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.invast.jp/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@class='post-content']"
-  },
   "//www.starbucks.co.jp/notice/": {
     "type": "xpath",
     "xpath": "div[@class='newContents']"
@@ -12097,15 +12080,6 @@
   "//www.lifelogweb.com/": {
     "type": "xpath",
     "xpath": "header/figure[@class='eyecatch']|//div[@class='theContentWrap-ccc']"
-  },
-  "//news.denfaminicogamer.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='articleBody']",
-    "cleanup": [
-      "div[@class='next_page_header']"
-    ],
-    "next_page": "div[contains(@class,'pager') and contains(@class,'upper')]/div[@class='pagerInner']",
-    "append_css": "img.size-full {width: 500px!important;} div.entry-profile-icon-img img {width:80px!important;height:80px!important;}"
   },
   "//builder.japan.zdnet.com/": {
     "type": "xpath",
@@ -15162,10 +15136,6 @@
       "div[contains(@class,'sharedaddy') or @id='jp-relatedposts']"
     ]
   },
-  ".blogspot.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post-outer']"
-  },
   "//blog.o365mvp.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -15316,15 +15286,6 @@
   "//rss.rssad.jp/rss/artclk/ZIQzCz_y3f5F/": {
     "type": "xpath",
     "xpath": "div[@id='cmsBody']/div/p|//div[@id='cmsBody']/div/div[contains(@class, 'box')]"
-  },
-  "//www2.financialpointer.com/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[@id='breadcrumb' or @class='blogbox' or @class='share' or contains(@id,'quads-ad')]",
-      "h1"
-    ],
-    "next_page": "span[@id='page-links']"
   },
   "//www.gundam.info/": {
     "type": "xpath",
@@ -15479,5 +15440,42 @@
   "//blogs.dropbox.com/": {
     "type": "xpath",
     "xpath": "article/div[@class='entry-content']"
+  },
+  "//manablog.org/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//www.financialpointer.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='breadcrumb' or @class='blogbox' or @class='share' or contains(@id,'quads-ad')]",
+      "h1"
+    ],
+    "next_page": "span[@id='page-links']"
+  },
+  "//creive.me/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  ".blogspot.com/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//news.denfaminicogamer.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "cleanup": [
+      "div[@class='next_page_header']"
+    ],
+    "next_page": "div[contains(@class,'pager') and contains(@class,'upper')]/div[@class='pagerInner']",
+    "append_css": "img.size-full {width: 500px!important;} div.entry-profile-icon-img img {width:80px!important;height:80px!important;}"
+  },
+  "//www.invast.jp/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
   }
 }
