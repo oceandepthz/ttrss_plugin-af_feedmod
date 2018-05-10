@@ -9507,10 +9507,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body']"
   },
-  "//king.mineo.jp/magazines/special/": {
-    "type": "xpath",
-    "xpath": "div[@class='mineo-magazine-detail']"
-  },
   "//hackerslab.aktsk.jp/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -15515,6 +15511,37 @@
       ".QuoteTweet[data-item-type='tweet'] {padding: 12px;}",
       ".QuoteMedia, .AdaptiveMedia{width:500px;}",
       ".Emoji--forText {height: 1.25em!important;padding: 0 0.05em 0 0.1em;vertical-align: -0.2em;width: 1.25em!important;}"
+    ]
+  },
+  "//www.u-tokyo.ac.jp/ja/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_details']",
+    "cleanup": [
+      "div[@id='fb-root' or contains(@class,'fb-like')]",
+      "iframe[contains(@class,'twitter-share-button')]"
+    ]
+  },
+  "//king.mineo.jp/magazines/special/": {
+    "type": "xpath",
+    "xpath": "div[@class='mineo-magazine-detail']/p/img|//div[@class='mineo-magazine-detail']/p[contains(@class,'readable')]"
+  },
+  "//www.satonao.com/": {
+    "type": "xpath",
+    "xpath": "article/div/div[@class='txt']"
+  },
+  "//www8.cao.go.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='contentsArea']"
+  },
+  "//satoru-blog.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@id='the-content']"
+  },
+  "//livejapan.com/": {
+    "type": "xpath",
+    "xpath": "main/div[contains(@class,'article--content')]/div[1]",
+    "cleanup": [
+      "div[@class='c-heading__body']"
     ]
   }
 }
