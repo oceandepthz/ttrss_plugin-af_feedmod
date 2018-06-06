@@ -1,7 +1,7 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
 
-ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:57.0) Gecko/20100101 Firefox/57.0');
+ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299');
 
 class Af_Feedmod extends Plugin implements IHandler
 {
@@ -257,7 +257,8 @@ class Af_Feedmod extends Plugin implements IHandler
 
         // add hatebu comment
         if(strpos($article['feed']['fetch_url'],'//b.hatena.ne.jp/hotentry/it.rss') !== false ||
-           strpos($article['feed']['fetch_url'],'//feeds.feedburner.com/hatena/b/hotentry') !== false){
+           strpos($article['feed']['fetch_url'],'//feeds.feedburner.com/hatena/b/hotentry') !== false ||
+           strpos($article['feed']['fetch_url'],'//rss.kozono.org/rss/hatebu_marge_hotentry.rss') !== false){
 
             // create hatena url
             $is_ssl = strpos($article['link'],'https://') === 0;
@@ -439,6 +440,94 @@ EOD;
         $ch = new Chromium();
         return $ch->get_html($url);
     }
+    function get_html_note_mu(string $url) : string {
+        file_put_contents(dirname(__FILE__).'/af_feed_note_mu.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
+        $json_url = $this->get_note_mu_json_url($url);
+        $json = json_decode(file_get_contents($json_url), true);
+
+        $eye = $json["data"]["eyecatch"];
+        $title = $json["data"]["tweet_text"];
+        $content = $json["data"]["body"];
+        $pictures = $json["data"]["pictures"];
+
+        $html = "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body><main>";
+        if(strlen($eye)){
+          $html .= "<img src='${eye}' class='eyecatch' style='width:480px;'>";
+        }
+        $html .= "<h1>${title}</h1>";
+        if(strlen($content)){
+          $html .= "<article>${content}</article>";
+        }
+        if(is_array($pictures) && count($pictures) > 0){
+          foreach($pictures as $picture){
+            $caption = $picture["caption"];
+            $picture_url = $picture["url"];
+            $html .= "<div style='margin-bottom:12px' class='picture'><img src='${picture_url}' style='width:480px;'><p>${caption}</p></div>";
+          }
+        }
+        $html .= "</main></body></html>";
+        return $html;
+    }
+    function get_html_jp_reuters_com(string $url) : string {
+        file_put_contents(dirname(__FILE__).'/af_feed_jp_reuters_com.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
+        $html = mb_convert_encoding(file_get_contents($url), 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+        $doc = new DOMDocument();
+        @$doc->loadHTML($html);
+        $xpath = new DOMXPath($doc);
+        $entries = $xpath->query("(//script[contains(text(),'window.RCOM_Data')])");
+        $entry = $entries->item(0);
+
+        $item = $entry->textContent;
+        $item = str_replace('window.RCOM_Data = ','',$item);
+        $item = rtrim($item ,";");
+        $item = json_decode($item, true);
+
+        $article_list = [];
+        foreach($item as $k => $v){
+            if(strpos($k, 'article_list_') === 0){
+                $article_list = $v;
+                break;
+            }
+        }
+        if(count($article_list) == 0){
+            return "";
+        }
+        $first_article = [];
+        foreach($article_list as $k => $v){
+            if($k == 'first_article'){
+                $first_article = $v;
+                break;
+            }
+        }
+        if(count($first_article) == 0){
+            return "";
+        }
+
+        $body = '';
+        if(array_key_exists('body', $first_article)){
+            $body = html_entity_decode($first_article['body']);
+        }
+
+        $image_url = '';
+        $image_caption = '';
+        if(array_key_exists('images', $first_article) && array_key_exists(0, $first_article['images']) ){
+            if(array_key_exists('url', $first_article['images'][0])){
+                $image_url = $first_article['images'][0]['url'];
+            }
+            if(array_key_exists('caption', $first_article['images'][0])){
+                $image_caption = html_entity_decode($first_article['images'][0]['caption']);
+            }
+        }
+        return "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body><main><img src='${image_url}' class='eyecatch' style='width:480px;'><p>${image_caption}</p><article>${body}</article></main></body></html>";
+    }
+    function get_note_mu_json_url(string $url) : string {
+        preg_match('/^https:\/\/note\.mu\/.*\/n\/(.*)$/', $url, $match);
+        if(count($match) == 2){
+            $key = $match[1];
+            return "https://note.mu/api/v1/notes/${key}";
+        }
+        return "";
+    }
     function is_pjs(array $config) : bool {
         if(!isset($config['engine'])){
             return false;
@@ -451,8 +540,27 @@ EOD;
         }
         return strtolower($config['engine']) == 'chromium';
     }
+    function is_note_mu(string $url, array $config) : bool {
+        if(strpos($url, "//note.mu/") !== false){
+            return true;
+        }
+        if(!isset($config['engine'])){
+            return false;
+        }
+        return strtolower($config['engine']) == 'note_mu';
+    }
+    function is_jp_reuters_com(string $url) : bool {
+        if(strpos($url, "//jp.reuters.com/") !== false){
+            return true;
+        }
+        return false;
+    }
     function get_contents(string $url, array $config) : string {
-        if($this->is_pjs($config)){
+        if($this->is_jp_reuters_com($url)) {
+            return $this->get_html_jp_reuters_com($url);
+        } elseif($this->is_note_mu($url,$config)){
+            return $this->get_html_note_mu($url);
+        } elseif($this->is_pjs($config)){
             return $this->get_html_pjs($url);
         } elseif ($this->is_chromium($config)){
             return $this->get_html_chrome($url);
@@ -463,11 +571,11 @@ EOD;
     }
     function get_html(string $url, array $config) : string {
         $html = $this->get_contents($url, $config);
-        if(!$html){
-            sleep(10);
+        if(!$html || $html == ''){
+            sleep(30);
             $html = $this->get_contents($url, $config);
-            if(!$html){
-                sleep(60);
+            if(!$html || $html == ''){
+                sleep(30);
                 $html = $this->get_contents($url, $config);
             }
         }
@@ -777,10 +885,12 @@ EOD;
             if(!$link){
                 continue;
             }
+            $this->__debug("peing.net url :${link}");
             $url = $this->get_peing_img_link($link);
             if(!$url){
                 continue;
             }
+            $this->__debug("peing.net img url :${url}");
             $this->append_img_tag($doc, $node, $url);
         }
     }
@@ -790,12 +900,14 @@ EOD;
         @$doc->loadHTML($html);
 
         if(!$doc){
+            $this->__debug("peing.net img link loadHTML error");
             return array();
         }
         $xpath = new DOMXPath($doc);
 
         $entries = $xpath->query("(//div[@class='answer-box']//a[contains(@href,'.jpg')])");
         if($entries === false || $entries->length == 0) {
+            $this->__debug("peing.net img link query error");
             return "";
         }
         return $xpath->evaluate('string(@src)', $entries->item(0));
