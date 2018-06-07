@@ -9715,10 +9715,6 @@
     "type": "xpath",
     "xpath": "article//figure[@class='eyecatch']|//article//section[contains(@class,'entry-content')]"
   },
-  "//www.nhk.or.jp/gendai/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'bodyText') or contains(@class,'person2') or @class='hero__pic']"
-  },
   "//www.hashicorp.com/blog/": {
     "type": "xpath",
     "xpath": "article[@class='blog-post']/div/div/div[contains(@class,'col-md-8')]"
@@ -15740,7 +15736,7 @@
     "cleanup": [
       "div[@class='AdBlock']"
     ],
-    "next_page": "np div[@class='ArticlePager']"
+    "next_page": "div[@class='ArticlePager']"
   },
   "//www.asahi.com/and_w/": {
     "type": "xpath",
@@ -15772,5 +15768,71 @@
   "//webexpert-draft.jp/": {
     "type": "xpath",
     "xpath": "div[@class='p-article']"
+  },
+  "//www.nhk.or.jp/gendai/kiji/": {
+    "type": "xpath",
+    "xpath": "div[@class='hero--kiji']/div[@class='hero__pic--kiji']|//div[@class='column']/div[@class='kijiContents__description' or @class='kijiContents__body' or @class='kijiContents__note']"
+  },
+  "//www.nhk.or.jp/gendai/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'bodyText') or contains(@class,'person2') or @class='hero__pic']"
+  },
+  "//wakamie-lab.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//tenki.jp/forecaster/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-column']/section",
+    "cleanup": [
+      "div[contains(@class,'social-box-')]"
+    ]
+  },
+  "//www.saga-s.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-column']/div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@class,'article-sns')]"
+    ]
+  },
+  "//suumo.jp/journal/": {
+    "type": "xpath",
+    "xpath": "div[@class='ui-section-body']/div[contains(@class,'article_lead') or @class='article_content']"
+  },
+  "//starsth.liblo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//sportiva.shueisha.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'block-detail-c-a__body')]",
+    "next_page": "div[contains(@class,'block-navi-b-d__container')]"
+  },
+  "//share-terrace.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eyecatch']|//div[@class='contents_text']"
+  },
+  "//readingmonkey.blog.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='main_block'][1]"
+  },
+  "//privatter.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='evernote']"
+  },
+  "//precure.news/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//otocoto.jp/interview/": {
+    "type": "xpath",
+    "xpath": "header/img[@class='featuredimg']|//section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='page-links']"
+    ],
+    "next_page": "div[@class='page-links']"
   }
 }
