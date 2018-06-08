@@ -11385,34 +11385,6 @@
     "type": "xpath",
     "xpath": "article/div[@class='entry-content']"
   },
-  "//natalie.mu/music/pp/": {
-    "type": "xpath",
-    "xpath": "div[@class='PP_header']|//div[@class='PP_main']/div[@class='PP_paragraph']",
-    "cleanup": [
-      "div[@class='PP_share']"
-    ],
-    "next_page": "div[@class='PP_pager']"
-  },
-  "//natalie.mu/comic/pp/": {
-    "type": "xpath",
-    "xpath": "div[@class='p-group' or @class='int-group' or @class='sp-lead' or @id='sp-about' or @class='sp-title']",
-    "cleanup": [
-      "div[contains(@class,'sp-bookmarks')]"
-    ],
-    "next_page": "div[@class='sp-footer-navigation']"
-  },
-  "//natalie.mu/eiga/pp/": {
-    "type": "xpath",
-    "xpath": "div[@class='PP_header']|//div[@class='PP_main']/div[@class='PP_paragraph']",
-    "cleanup": [
-      "div[@class='PP_share']"
-    ],
-    "next_page": "div[@class='PP_pager']"
-  },
-  "//natalie.mu/": {
-    "type": "xpath",
-    "xpath": "div[@class='NA_articleBody']|//p[@class='NA_figure']"
-  },
   "//boxil.jp/": {
     "type": "xpath",
     "xpath": "div[@class='articleContent-main']"
@@ -15726,26 +15698,6 @@
     "type": "xpath",
     "xpath": "article/div[@class='article-body']"
   },
-  "//www.asahi.com/corporate/info/": {
-    "type": "xpath",
-    "xpath": "main"
-  },
-  "//www.asahi.com/and_M/": {
-    "type": "xpath",
-    "xpath": "div[@class='Main']/div[@class='LayTypeF']|//div[@class='ArticleBlock']/div[@class='ArticleTxt']",
-    "cleanup": [
-      "div[@class='AdBlock']"
-    ],
-    "next_page": "div[@class='ArticlePager']"
-  },
-  "//www.asahi.com/and_w/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint') or contains(@class,'ArticleBody')]"
-  },
   "//www.anige-sokuhouvip.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
@@ -15834,5 +15786,60 @@
       "div[@class='page-links']"
     ],
     "next_page": "div[@class='page-links']"
+  },
+  "//www.kore-eda.com/message/": {
+    "type": "xpath",
+    "xpath": "div[@id='main_content']"
+  },
+  "//rockinmoviestars.blog.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='inner-contents']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//oboega-01.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//news.2chblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//www.asahi.com/corporate/info/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//www.asahi.com/and_M/": {
+    "type": "xpath",
+    "xpath": "div[@class='Main']/div[@class='LayTypeF']|//div[@class='ArticleBlock']/div[@class='ArticleTxt']",
+    "cleanup": [
+      "div[@class='AdBlock']"
+    ],
+    "next_page": "div[@class='ArticlePager']"
+  },
+  "//www.asahi.com/and_w/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]"
+  },
+  "//natalie.mu/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'PP_header')]|//div[@class='PP_main']/div[contains(@class,'PP_paragraph')]",
+    "cleanup": [
+      "div[@class='PP_share']"
+    ],
+    "next_page": "div[@class='PP_pager']"
+  },
+  "//myuon.github.io/posts/": {
+    "type": "xpath",
+    "xpath": "section[@class='content']"
+  },
+  "//morning.moae.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='article-main']"
   }
 }
