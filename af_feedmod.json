@@ -11822,11 +11822,6 @@
     ],
     "next_page": "nav[@class='pagenation']"
   },
-  "//scrapbox.io/": {
-    "type": "xpath",
-    "engine": "chromium",
-    "xpath": "div[@id='app-container']//div[@class='page']"
-  },
   "//qa.atmarkit.co.jp/q/": {
     "type": "xpath",
     "xpath": "article[@id='question']//div[@class='main']"
@@ -15841,5 +15836,78 @@
   "//morning.moae.jp/news/": {
     "type": "xpath",
     "xpath": "div[@id='article-main']"
+  },
+  "//ototoy.jp/feature/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']",
+    "cleanup": [
+      "div[@class='nextPageLink' or @class='pager']"
+    ],
+    "next_page": "div[@class='pager']"
+  },
+  "//ototoy.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_content']/div[starts-with(@class,'post_')]"
+  },
+  "//mikoblo.livedoor.biz/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//magic.wizards.com/ja/articles/": {
+    "type": "xpath",
+    "xpath": "div[@id='content-detail-page-of-an-article']"
+  },
+  "//lunaluna302.blog.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog_entry_text']"
+  },
+  "//www.komazaki.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__contents']"
+  },
+  "//kyoiku.yomiuri.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article_fl')]"
+  },
+  "//kurasheep.com/": {
+    "type": "xpath",
+    "xpath": "header/p[@class='post-thumbnail']|//section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='va-social-buzz' or contains(@class,'sponsored')]"
+    ]
+  },
+  "//kk1up.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//ken-horimoto.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add') or contains(@class,'mamahack-')]"
+    ]
+  },
+  "//ictj-report.joho.or.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[@id='mainvisual' or @id='main_inner']"
+  },
+  "//iden-tity.biz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//imaging-world.net/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//japan-indepth.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='img-area' or @class='singlecontent2']"
+  },
+  "//j.people.com.cn/": {
+    "type": "xpath",
+    "xpath": "div[@id='p_content']"
   }
 }
