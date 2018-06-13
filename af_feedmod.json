@@ -588,10 +588,6 @@
       "h1"
     ]
   },
-  "//news.livedoor.com/article/detail/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleBody']"
-  },
   "himasoku.com": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']",
@@ -638,10 +634,6 @@
   "nanapi.jp": {
     "type": "xpath",
     "xpath": "div[starts-with(@class, 'recipe-body')]"
-  },
-  "www.e-aidem.com/ch/jimocoro": {
-    "type": "xpath",
-    "xpath": "article//div[@class='entry-content']"
   },
   "dailynewsonline.jp": {
     "type": "xpath",
@@ -1991,10 +1983,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "logmi.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='outline-head' or @id='article' or @id='img-article-main']"
-  },
   "macaro-ni.jp": {
     "type": "xpath",
     "xpath": "div[@class='articleArea' or @id='summary-icon' or @id='title_desc']"
@@ -2395,13 +2383,6 @@
       "iframe[contains(@src,'ad.internetcom.jp')]"
     ]
   },
-  "mtg-jp.com": {
-    "type": "xpath",
-    "xpath": "div[@id='main']",
-    "cleanup": [
-      "iframe[starts-with(@class,'twitter-share-button')]/.."
-    ]
-  },
   "dragonporn.ldblog.jp": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
@@ -2694,11 +2675,6 @@
   "www.facebook.com": {
     "type": "xpath",
     "xpath": "div[contains(@class, 'userContentWrapper')]"
-  },
-  "wpb.shueisha.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='mod-article']",
-    "next_page": "div[@class='mod-pagination']"
   },
   "blog.livedoor.jp/prestoo": {
     "type": "xpath",
@@ -3813,13 +3789,6 @@
       "script[contains(text(),'ad_spot') or contains(@src,'js.ad-stir.com')]"
     ]
   },
-  "tabiris.com": {
-    "type": "xpath",
-    "xpath": "article//section",
-    "cleanup": [
-      "div[@class='thanks_button_div']"
-    ]
-  },
   "www.utsujoshi.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -4371,10 +4340,6 @@
     "type": "xpath",
     "xpath": "div[starts-with(@id,'post-body-')]"
   },
-  "pret.yakan-hiko.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "rabilinth.blog.fc2.com": {
     "type": "xpath",
     "xpath": "p[@class='entry_more']|//div[@class='topentry_text']",
@@ -4476,10 +4441,6 @@
   "//kotetsu.game-waza.net/": {
     "type": "xpath",
     "xpath": "div[@class='EntryTextBox']"
-  },
-  "response.jp": {
-    "type": "xpath",
-    "xpath": "figure|//span[@class='writer']|//main/div/article"
   },
   "99designs.jp": {
     "type": "xpath",
@@ -5056,13 +5017,6 @@
   "//www.aritai.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//news.microsoft.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts' or @class='back-to-top-wrap']"
-    ]
   },
   "//www.heibonnashufu.net/": {
     "type": "xpath",
@@ -9428,10 +9382,6 @@
     "type": "xpath",
     "xpath": "div[@class='content']"
   },
-  "//shimz.me/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//www.nhk.or.jp/shutoken-news/": {
     "type": "xpath",
     "xpath": "section[@class='content--detail-main']"
@@ -12063,10 +12013,6 @@
     "type": "xpath",
     "xpath": "figure[@class='cover']|//div[@id='article_con']"
   },
-  "//mangalifewin.takeshobo.co.jp/rensai/": {
-    "type": "xpath",
-    "xpath": "a[contains(@href,'//mangalifewin.takeshobo.co.jp/rensai/')]/img"
-  },
   "//madewithunity.jp/": {
     "type": "xpath",
     "xpath": "div[@id='main-box']/div[contains(@class,'box-title')]|//div[@id='contents']"
@@ -12964,14 +12910,6 @@
   "//www.city.osaka.lg.jp/": {
     "type": "xpath",
     "xpath": "div[@id='mol_contents']"
-  },
-  "//www.cinra.net/column/": {
-    "type": "xpath",
-    "xpath": "div[@class='js-inner-main']",
-    "cleanup": [
-      "div[contains(@class,'pagination--bordertop')]"
-    ],
-    "next_page": "div[contains(@class,'pagination--bordertop')]"
   },
   "//www.894651.com/column/": {
     "type": "xpath",
@@ -14668,13 +14606,6 @@
     ],
     "next_page": "nav[@class='pagenation']|//div[@id='pager']"
   },
-  "//www.legendsstadium.com/": {
-    "type": "xpath",
-    "xpath": "section[@class='writerContainer']|//article/div[@class='articleTextBlock' or @class='articleTitleBlock']",
-    "cleanup": [
-      "div[@class='snsLinkBlock']"
-    ]
-  },
   "//official-blog.line.me/": {
     "type": "xpath",
     "xpath": "article/div[@class='article-body']"
@@ -14927,10 +14858,6 @@
   "//blog.heroku.com/": {
     "type": "xpath",
     "xpath": "article/section[contains(@class,'post-body')]"
-  },
-  "//www.mof.go.jp/public_relations/": {
-    "type": "xpath",
-    "xpath": "div[@id='main']/div[@class='singleBlock']"
   },
   "//rss.rssad.jp/rss/artclk/ZIQzCz_y3f5F/": {
     "type": "xpath",
@@ -15999,5 +15926,90 @@
       "div[@class='page-link']"
     ],
     "next_page": "div[@class='page-link']"
+  },
+  "//news.livedoor.com/article/detail/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBody']"
+  },
+  "//mtg-jp.com/reading/": {
+    "type": "xpath",
+    "xpath": "div[@class='reading-main']/section/div[@class='detail']"
+  },
+  "//mtg-jp.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']",
+    "cleanup": [
+      "iframe[starts-with(@class,'twitter-share-button')]/.."
+    ]
+  },
+  "//www.mof.go.jp/public_relations/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']"
+  },
+  "//news.microsoft.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts' or @class='back-to-top-wrap']"
+    ]
+  },
+  "//tabiris.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'td-post-content')]",
+    "cleanup": [
+      "div[contains(@class,'td-g-rec') or contains(@id,'quads-ad')]"
+    ]
+  },
+  "//logmi.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='outline-head' or @id='article' or @id='img-article-main']"
+  },
+  "//www.cinra.net/column/": {
+    "type": "xpath",
+    "xpath": "div[@class='js-inner-main']",
+    "cleanup": [
+      "div[contains(@class,'pagination--bordertop')]"
+    ],
+    "next_page": "div[contains(@class,'pagination--bordertop')]"
+  },
+  "//shimz.me/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-inside']/div[contains(@class,'entry')]"
+  },
+  "//pret.yakan-hiko.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.e-aidem.com/ch/jimocoro/": {
+    "type": "xpath",
+    "xpath": "div[@class='box_first']/div[@class='img_ogp']|//div[@id='article']/div[@class='article']",
+    "cleanup": [
+      "ul[@class='page_num']"
+    ],
+    "next_page": "ul[@class='page_num']"
+  },
+  "//wpb.shueisha.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='mod-article']",
+    "next_page": "div[@class='mod-pagination']"
+  },
+  "//mangalifewin.takeshobo.co.jp/rensai/": {
+    "type": "xpath",
+    "xpath": "a[contains(@href,'//mangalifewin.takeshobo.co.jp/rensai/')]/img"
+  },
+  "//response.jp/": {
+    "type": "xpath",
+    "xpath": "figure|//span[@class='writer']|//main/div/article"
+  },
+  "//matome.response.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']/div[contains(@class,'header') or @class='header_outline' or @id='article-contents']"
+  },
+  "//www.legendsstadium.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='writerContainer']|//article/div[@class='articleTextBlock' or @class='articleTitleBlock']",
+    "cleanup": [
+      "div[@class='snsLinkBlock']"
+    ]
   }
 }
