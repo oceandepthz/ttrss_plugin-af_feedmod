@@ -16011,5 +16011,36 @@
     "cleanup": [
       "div[@class='snsLinkBlock']"
     ]
+  },
+  "//blog.goo.ne.jp/aibatatuya/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']"
+  },
+  "//blog.goo.ne.jp/ktonegaw/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']"
+  },
+  "//blog.livedoor.jp/iseda503/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']"
+  },
+  "//blog.livedoor.jp/kaikaihanno/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "div[@class='naka_rss']"
+    ]
+  },
+  "//blog.livedoor.jp/kudan9/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//ameblo.jp/koiwai-kotori/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
+  },
+  "//ameblo.jp/nishino-akihiro/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
   }
 }
