@@ -440,6 +440,12 @@ EOD;
         $ch = new Chromium();
         return $ch->get_html($url);
     }
+    function get_html_togetter(string $url) : string {
+        file_put_contents(dirname(__FILE__).'/af_feed_togetter.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
+        require_once('Togetter.php');
+        $to = new Togetter();
+        return $to->get_html($url);
+    }
     function get_html_note_mu(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_note_mu.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
         $json_url = $this->get_note_mu_json_url($url);
@@ -555,9 +561,17 @@ EOD;
         }
         return false;
     }
+    function is_togetter_com(string $url) : bool {
+        if(strpos($url, "//togetter.com/li/") !== false){
+            return true;
+        }
+        return false;
+    }
     function get_contents(string $url, array $config) : string {
         if($this->is_jp_reuters_com($url)) {
             return $this->get_html_jp_reuters_com($url);
+        } elseif($this->is_togetter_com($url)){
+            return $this->get_html_togetter($url);
         } elseif($this->is_note_mu($url,$config)){
             return $this->get_html_note_mu($url);
         } elseif($this->is_pjs($config)){
@@ -620,9 +634,9 @@ EOD;
     function get_np_links(DOMXPath $xpath, DOMDocument $doc, array $config, string $link) : array {
         $links = array();
 
-        if(strpos($link, '//number.bunshun.jp/articles/') !== false){
-            return $this->get_np_links_number_bunshun_jp($xpath, $doc, $link);
-        }
+//        if(strpos($link, '//number.bunshun.jp/articles/') !== false){
+//            return $this->get_np_links_number_bunshun_jp($xpath, $doc, $link);
+//        }
         if(strpos($link, '//russia2018.yahoo.co.jp/') !== false){
             return $this->get_np_links_russia2018_yahoo_co_jp($xpath, $doc, $link);
         }
@@ -822,6 +836,11 @@ EOD;
     }
 
     function get_instagram_img_url(string $url) : string {
+        file_put_contents(dirname(__FILE__).'/af_feed_instagram.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
+        require_once('Instagram.php');
+        $in = new Instagram();
+        return $to->get_content($url);
+/*
         $html = $this->get_html_chrome($url);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
@@ -840,7 +859,7 @@ EOD;
             $entry = $entries[0];
             return $xpath->evaluate('string(@src)', $entry);
         }
-        return "";
+        return "";*/
     }
 
     function update_img_link(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
