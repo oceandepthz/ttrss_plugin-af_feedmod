@@ -16060,5 +16060,13 @@
       "div[@class='PP_share']"
     ],
     "next_page": "div[@class='PP_pager']"
+  },
+  "//hr.pepabo.com/interview/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
+  },
+  "//gameboku.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
