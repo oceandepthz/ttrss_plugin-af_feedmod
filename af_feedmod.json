@@ -8117,13 +8117,6 @@
     "type": "xpath",
     "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
   },
-  "//number.bunshun.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='image-area']/figure|//div[@class='single']",
-    "cleanup": [
-      "p[@class='next-title']"
-    ]
-  },
   "//www.shogi.or.jp/news/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'articleArea')]"
@@ -13750,10 +13743,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//bestcarweb.jp/feature/": {
-    "type": "xpath",
-    "xpath": "article/*[@class='article__mainImage' or @class='article__content']"
-  },
   "//bestcarweb.jp/": {
     "type": "xpath",
     "xpath": "div[@class='post-image' or @class='post-content']",
@@ -15472,15 +15461,14 @@
     ],
     "next_page": "div[@id='start']"
   },
-  "//togetter.com/": {
+  "//togetter.com/li/": {
     "type": "xpath",
-    "xpath": "div[@class='contents_main']/div[@class='info_box']|//div[@class='tweet_box']|//div[@id='comment_box']",
+    "xpath": "body",
     "cleanup": [
       "div[@id='comment_form' or @class='info_head' or @class='status']",
       "ul[@class='info_action']"
     ],
     "append_css": [
-      "li.list_box {list-style-type:none;}",
       ".rad_btn{background-color:#f1f2f4;border:1px solid #ddd;border-radius: 3px;display: inline-block;color: #000;}",
       ".list_description_box{background-color: #f8f8f8;color: #666;padding: 5px;}",
       ".info_thumb{float:right;}",
@@ -15489,11 +15477,29 @@
       ".list_tweet_box .tweet_wrap {border: 1px solid #e8e8e8;clear: both;padding: 5px;}",
       ".list_tweet_box .timestamp {float: right;}",
       ".list_tweet_box .user_link img {left: 0;top: 5px;position: absolute;}",
+      ".list_tweet_box .tweet {margin-bottom: 0;white-space: pre-wrap;font-size: 108%;line-height: 1.4em;}",
       ".icon_48, .icon_73 {border: 0 solid transparent;border-radius: 6px;padding: 0;}",
       ".icon_48 {height: 48px;width: 48px;}",
       ".list_tweet_box {min-height: 50px;padding-left: 53px;position: relative;}",
       ".list_box {padding: 5px 0;}",
-      "span.user_link > img { display:block; }"
+      "span.user_link > img { display:block; }",
+      ".type_markdown .md-h-2 {border-bottom: 1px solid #eee;font-size: 1.35em;line-height: 1.2;display: block;margin: 16px 0;padding-bottom: .3em;font-weight: 700;}",
+      ".list_tweet_box .tweet .f20 {font-size: 140%;line-height: 1.2em;}",
+      ".c10 {color: #088;}",
+      ".f20 {font-size: 152%;font-weight: 700;}",
+      ".list_tweet_box .tweet .f17 {font-size: 119%;line-height: 1.2em;}",
+      ".c01 {color: #e22;}",
+      ".f17, .f19 {font-weight: 700;}",
+      ".f17 {font-size: 129%;}",
+      ".list_tweet_box .tweet .f15 {font-size: 107%;line-height: 1.2em;}",
+      ".c02 {color: #e0e;}",
+      ".f15 {font-size: 116%;}",
+      ".f13, .f15 {font-weight: 700;}",
+      ".comment_box .comment {padding: 5px;border: 1px solid #ccc;background-color: #f6fafa;}",
+      ".rad5 {border-radius: 5px;}",
+      ".c06 {color: #f80;}",
+      ".f13 {font-size: 100%;}",
+      ".type_markdown .md-h-1 {border-bottom: 3px solid #eee;font-size: 1.65em;}"
     ]
   },
   "//mainichi.jp/sportsspecial/": {
@@ -15709,14 +15715,6 @@
   "//www.asahi.com/": {
     "type": "xpath",
     "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]"
-  },
-  "//natalie.mu/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'PP_header')]|//div[@class='PP_main']/div[contains(@class,'PP_paragraph')]",
-    "cleanup": [
-      "div[@class='PP_share']"
-    ],
-    "next_page": "div[@class='PP_pager']"
   },
   "//myuon.github.io/posts/": {
     "type": "xpath",
@@ -16042,5 +16040,25 @@
   "//ameblo.jp/nishino-akihiro/": {
     "type": "xpath",
     "xpath": "div[@id='entryBody']"
+  },
+  "//number.bunshun.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='image-area']/figure|//div[@class='single']",
+    "cleanup": [
+      "p[@class='next-title']"
+    ],
+    "next_page": "div[@class='list-pagination-02']"
+  },
+  "//bestcarweb.jp/feature/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='article__mainImage' or @class='article__content']"
+  },
+  "//natalie.mu/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'PP_header')]|//div[@class='PP_main']/div[contains(@class,'PP_paragraph')]|//article/div[@class='NA_articleUnit']/div[@class='NA_articleBody' or @class='NA_articleGallery' or @class='NA_articleSup' or @class='NA_articleBanner']",
+    "cleanup": [
+      "div[@class='PP_share']"
+    ],
+    "next_page": "div[@class='PP_pager']"
   }
 }
