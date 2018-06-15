@@ -615,28 +615,9 @@ EOD;
         }
         return $links;
     }
-    // number向け
-    function get_np_links_number_bunshun_jp(DOMXPath $xpath, DOMDocument $doc, string $link) : array {
-        $links = array();
-
-        $numberXpath = new DOMXPath($doc);
-        $numberEntry = $numberXpath->query("(//div[@class='list-pagination-append-02']/span)");
-        if($numberEntry->length === 0){
-            return array();
-        }
-        $numberEntry = $numberEntry->item(0);
-        preg_match('/1\/([0-9]+).*/', $numberEntry->nodeValue, $match);
-        for($i = 2;$i <= $match[1]; $i++){
-            $links[] = $link."?page=".$i;
-        }
-        return $links;
-    }
     function get_np_links(DOMXPath $xpath, DOMDocument $doc, array $config, string $link) : array {
         $links = array();
 
-//        if(strpos($link, '//number.bunshun.jp/articles/') !== false){
-//            return $this->get_np_links_number_bunshun_jp($xpath, $doc, $link);
-//        }
         if(strpos($link, '//russia2018.yahoo.co.jp/') !== false){
             return $this->get_np_links_russia2018_yahoo_co_jp($xpath, $doc, $link);
         }
@@ -840,26 +821,6 @@ EOD;
         require_once('Instagram.php');
         $in = new Instagram();
         return $in->get_content($url);
-/*
-        $html = $this->get_html_chrome($url);
-        $doc = new DOMDocument();
-        @$doc->loadHTML($html);
-        if(!$doc){
-            return "";
-        }
-
-        $xpath = new DOMXPath($doc);
-        $entries = $xpath->query("(//span[@id='react-root']//article/div//img)");
-        if($entries->length > 0) {
-            $entry = $entries[0];
-            return $xpath->evaluate('string(@src)', $entry);
-        }
-        $entries = $xpath->query("(//span[@id='react-root']//article/div//video)");
-        if($entries->length > 0) {
-            $entry = $entries[0];
-            return $xpath->evaluate('string(@src)', $entry);
-        }
-        return "";*/
     }
 
     function update_img_link(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
