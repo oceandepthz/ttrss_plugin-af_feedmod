@@ -839,7 +839,7 @@ EOD;
         file_put_contents(dirname(__FILE__).'/af_feed_instagram.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
         require_once('Instagram.php');
         $in = new Instagram();
-        return $to->get_content($url);
+        return $in->get_content($url);
 /*
         $html = $this->get_html_chrome($url);
         $doc = new DOMDocument();
