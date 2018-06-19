@@ -185,26 +185,25 @@ class Af_Feedmod extends Plugin implements IHandler
 
         if($is_execute){
             $article['content'] = $article['content']."<div style='font-size:8px;'>xpath:".$urlpart."</div>";
-        }
-
-        // hatena content
-        if(!$is_execute){
+        } else {
+            // hatena content
             $content = $this->get_routine_content($article['link']);
             if(strlen($content) > 0){
                 $article['content'] = $content;
                 $is_hit_link = true;
                 $is_execute = true;
             }
-        }
 
-        if(!$is_execute){
-            $link = $article['link'];
-            $this->writeLog($link,$is_hit_link,$hit_urlpart);
+            // graby
+            if(!$is_execute){
+                $link = $article['link'];
+                $this->writeLog($link,$is_hit_link,$hit_urlpart);
 
-            $html_message = $this->get_html_graby($link);
-            if(strlen($html_message) > 0){
-                $article['content'] = $article['content']."<div>".$html_message."</div><div style='font-size:8px;'>graby</div>";
-                $is_execute = true;
+                $html_message = $this->get_html_graby($link);
+                if(strlen($html_message) > 0){
+                    $article['content'] = $article['content']."<div>".$html_message."</div><div style='font-size:8px;'>graby</div>";
+                    $is_execute = true;
+                }
             }
         }
 
