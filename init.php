@@ -1261,7 +1261,7 @@ EOD;
     function get_replace_src(DOMElement $node) : string {
         $url = '';
         $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-img-path', 'srcset',
-            'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original'];
+            'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original', 'data-orig-file'];
         foreach($attr_list as $attr){
             if(!$node->hasAttribute($attr)){
                 continue;
