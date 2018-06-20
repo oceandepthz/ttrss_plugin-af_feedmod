@@ -13583,10 +13583,6 @@
     "next_page": "div[@class='paginate']",
     "append_css": "div.center table {width:initial!important;}"
   },
-  "//dosports.yahoo.co.jp/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='modColumnPhoto' or @id='detail']"
-  },
   "//givemegohan.pigboat.jp/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -14008,18 +14004,6 @@
   "//smarthacks.jp/mag/": {
     "type": "xpath",
     "xpath": "article/div[@class='p-entry__inner']/div[@class='p-entry__thumbnail' or @class='p-entry__body']"
-  },
-  "//www.newsweekjapan.jp/e-book/": {
-    "type": "xpath",
-    "xpath": "div[@id='magHeadLine']"
-  },
-  "//www.newsweekjapan.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
-    "cleanup": [
-      "div[@class='entryPagenate' or contains(@class,'annotation')]"
-    ],
-    "next_page": "div[@class='entryPagenate']"
   },
   "//wedge.ismedia.jp/": {
     "type": "xpath",
@@ -14704,14 +14688,6 @@
   "//russia2018.yahoo.co.jp/": {
     "type": "xpath",
     "xpath": "article/section[contains(@class,'sn-columnDetail__paragraph')]"
-  },
-  "//www.soccerdigestweb.com/news/detail/": {
-    "type": "xpath",
-    "xpath": "div[@class='content_detail']",
-    "next_page": "div[@class='pager']",
-    "cleanup": [
-      "iframe[contains(@src,'//secure.spox.com/')]"
-    ]
   },
   "//travel.spot-app.jp/": {
     "type": "xpath",
@@ -16112,6 +16088,45 @@
     "xpath": "article/div[@class='entry-content']",
     "cleanup": [
       "aside"
+    ]
+  },
+  "//www.newsweekjapan.jp/e-book/": {
+    "type": "xpath",
+    "xpath": "div[@id='magHeadLine']"
+  },
+  "//www.newsweekjapan.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
+    "cleanup": [
+      "div[@class='entryPagenate' or contains(@class,'annotation')]"
+    ],
+    "next_page": "div[@class='entryPagenate']",
+    "next_page_cleanup": [
+      "li[@class='cont']"
+    ]
+  },
+  "//dosports.yahoo.co.jp/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='modColumnPhoto' or @id='detail' or @class='sn-columnDetail__headPhoto']"
+  },
+  "//www.soccerdigestweb.com/news/detail/": {
+    "type": "xpath",
+    "xpath": "div[@class='content_detail']",
+    "next_page": "div[@class='pager']",
+    "cleanup": [
+      "iframe[contains(@src,'//secure.spox.com/')]",
+      "a[contains(@href,'//prf.hn/click/')]"
+    ]
+  },
+  "//blog.techbookfest.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-entry']"
+  },
+  "//jvns.ca/blog/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "footer"
     ]
   }
 }
