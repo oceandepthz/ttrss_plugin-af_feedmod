@@ -87,7 +87,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // shoutcut url
-        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/'];
+        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/', '//feedproxy.google.com/'];
         if($this->strposa($article['link'], $sc_url)){
             $rd_url = $this->get_redirect_url($article['link']);
             $article['link'] = $rd_url;
@@ -533,6 +533,12 @@ EOD;
         }
         return "";
     }
+    function get_googleblog_com(string $url) : string {
+        file_put_contents(dirname(__FILE__).'/af_feed_googleblog.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
+        require_once('GoogleblogCom.php');
+        $g = new GoogleblogCom();
+        return $g->get_content($url);
+    }
     function is_pjs(array $config) : bool {
         if(!isset($config['engine'])){
             return false;
@@ -566,8 +572,16 @@ EOD;
         }
         return false;
     }
+    function is_googleblog_com(string $url) : bool {
+        if(strpos($url, ".googleblog.com/") !== false){
+            return true;
+        }
+        return false;
+    }
     function get_contents(string $url, array $config) : string {
-        if($this->is_jp_reuters_com($url)) {
+        if($this->is_googleblog_com($url)) {
+            return $this->get_googleblog_com($url);
+        } elseif($this->is_jp_reuters_com($url)) {
             return $this->get_html_jp_reuters_com($url);
         } elseif($this->is_togetter_com($url)){
             return $this->get_html_togetter($url);
