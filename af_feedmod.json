@@ -114,7 +114,7 @@
     "type": "xpath",
     "xpath": "div[@class='main_blog_txt']",
     "cleanup": [
-      "div[@class='article_end'"
+      "div[@class='article_end']"
     ]
   },
   "//cookpad.com/recipe/": {
@@ -10451,10 +10451,6 @@
     "type": "xpath",
     "xpath": "div[@id='main']//div[@class='entries']/div/div[contains(@class,'entry')]"
   },
-  "//grapee.jp/": {
-    "type": "xpath",
-    "xpath": "article/div[@class='image' or @class='comment']"
-  },
   "//gawain.blog.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']",
@@ -10636,10 +10632,6 @@
   "//www.at-s.com/news/article/social/shizuoka/": {
     "type": "xpath",
     "xpath": "div[@id='bt_body']"
-  },
-  "//coziest.net/": {
-    "type": "xpath",
-    "xpath": "div[@id='the-content']"
   },
   "//gogotsu.com/": {
     "type": "xpath",
@@ -11152,14 +11144,6 @@
   "//kosotatu.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article']"
-  },
-  "//kakuyomu.jp/works/": {
-    "type": "xpath",
-    "xpath": "div[@id='work']"
-  },
-  "//kakuyomu.jp/info/entry/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
   },
   "//www.starbucks.co.jp/notice/": {
     "type": "xpath",
@@ -12658,10 +12642,6 @@
   "//news.mixi.jp/view_news.pl": {
     "type": "xpath",
     "xpath": "div[contains(@class,'contents')]/div[@class='article']"
-  },
-  "//www.afpbb.com/": {
-    "type": "xpath",
-    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]"
   },
   "//siusiu.blog.shinobi.jp/": {
     "type": "xpath",
@@ -14337,10 +14317,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'hentry')]/div[starts-with(@id,'post-body-')]"
   },
-  "//www.fastgrow.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'p-article-thumb-wrapper')]/div[@class='p-article-thumb']|//section[@class='p-article-prologue']/div[@class='p-article-description']|//div[contains(@class,'js-container-main')]/section[starts-with(@id,'js-article-body-section-')]"
-  },
   "//www.apple.com/jp/support/": {
     "type": "xpath",
     "xpath": "div[@id='section']",
@@ -14658,30 +14634,6 @@
   "//blog.livedoor.jp/k_urushima/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'article-body') and contains(@class,'entry-content')]"
-  },
-  "*//github.com/*/*/commit/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[contains(@class,'repository-content')]"
-  },
-  "*//github.com/*/*/wiki/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='wiki-body']"
-  },
-  "*//github.com/*/issues/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
-  "*//github.com/*/*/pull/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
-  "//github.com/": {
-    "type": "xpath",
-    "xpath": "article|//div[contains(@class,'release-body')]"
   },
   "//www.footballista.jp/": {
     "type": "xpath",
@@ -16114,5 +16066,63 @@
   "//www.mdn.co.jp/": {
     "type": "xpath",
     "xpath": "article"
+  },
+  "*//kakuyomu.jp/works/*/episodes/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='contentMain-inner']"
+  },
+  "//kakuyomu.jp/works/": {
+    "type": "xpath",
+    "xpath": "div[@id='work']",
+    "cleanup": [
+      "div[@id='workMeta' or @id='signUpBalloon' or @id='workFollow-modalContainer']",
+      "p[@id='workFollow']",
+      "section[@id='reviews']"
+    ]
+  },
+  "//www.fastgrow.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='js-articleBodyIndex-wrapper-main' or contains(@class,'p-articleHero__thumb-wrapper')]"
+  },
+  "//www.afpbb.com/": {
+    "type": "xpath",
+    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]"
+  },
+  "//coziest.net/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//github.com/apps/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'application-main')]"
+  },
+  "*//github.com/*/*/commit/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class,'repository-content')]"
+  },
+  "*//github.com/*/*/wiki/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='wiki-body']"
+  },
+  "*//github.com/*/issues/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "*//github.com/*/*/pull/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "//github.com/": {
+    "type": "xpath",
+    "xpath": "article|//div[contains(@class,'release-body')]"
+  },
+  "//grapee.jp/": {
+    "type": "xpath",
+    "xpath": "article/figure|//article/section/div[@class='comment']"
   }
 }
