@@ -417,31 +417,31 @@ EOD;
     }
 
     function get_html_graby(string $url) : string {
-        require_once('GrabyWarpper.php');
+        require_once('classes/GrabyWarpper.php');
         $graby = new GrabyWarpper();
         return $graby->get_html($url);
     }
     function get_html_pjs(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_phantomjs.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
-        require_once('PhantomJsWarpper.php');
+        require_once('classes/PhantomJsWarpper.php');
         $pjs = new PhantomJsWarpper();
         return $pjs->get_html($url);
     }
     function get_html_chrome(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_chromium.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
-        require_once('Chrome.php');
+        require_once('classes/Chrome.php');
         $ch = new Chrome();
         return $ch->get_html($url);
     }
     function get_html_chromium(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_chromium.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
-        require_once('Chromium.php');
+        require_once('classes/Chromium.php');
         $ch = new Chromium();
         return $ch->get_html($url);
     }
     function get_html_togetter(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_togetter.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
-        require_once('Togetter.php');
+        require_once('classes/Togetter.php');
         $to = new Togetter();
         return $to->get_html($url);
     }
@@ -535,7 +535,7 @@ EOD;
     }
     function get_googleblog_com(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_googleblog.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
-        require_once('GoogleblogCom.php');
+        require_once('classes/GoogleblogCom.php');
         $g = new GoogleblogCom();
         return $g->get_content($url);
     }
@@ -831,7 +831,7 @@ EOD;
 
     function get_instagram_img_url(string $url) : string {
         file_put_contents(dirname(__FILE__).'/af_feed_instagram.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
-        require_once('Instagram.php');
+        require_once('classes/Instagram.php');
         $in = new Instagram();
         return $in->get_content($url);
     }
