@@ -16124,5 +16124,74 @@
   "//grapee.jp/": {
     "type": "xpath",
     "xpath": "article/figure|//article/section/div[@class='comment']"
+  },
+  "//www.nhk.or.jp/minna/songs/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@class='c-item__social']"
+    ]
+  },
+  "//www.blog.umentu.work/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts' or contains(@class,'veu_socialSet') or @class='yarpp-related']",
+      "aside[contains(@class,'veu_relatedPosts')]"
+    ]
+  },
+  "//todai-umeet.com/": {
+    "type": "xpath",
+    "xpath": "article/header/figure|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'page-links') or @class='yarpp-related']"
+    ],
+    "next_page": "div[contains(@class,'page-links')]"
+  },
+  "//tech.bizreach.co.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "ul[@class='shareLink']"
+    ]
+  },
+  "//premium.toyokeizai.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-content']/article",
+    "cleanup": [
+      "div[@class='about-plusmember' or @id='pagination' or @class='article-menu' or @id='article-end']"
+    ]
+  },
+  "//nico-opendata.jp/": {
+    "type": "xpath",
+    "xpath": "body/div[@class='container']"
+  },
+  "//finders.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='__post-content']/*[@class='__post-mainImg' or @class='__post-ttl' or @class='__post-body']"
+  },
+  "//esquire.jp/": {
+    "type": "xpath",
+    "xpath": "hgroup/div[@class='headword']"
+  },
+  "//commte.net/": {
+    "type": "xpath",
+    "xpath": "article/section[@class='blog-style']",
+    "cleanup": [
+      "div[contains(@class,'ad_') or contains(@class,'_ad') or contains(@class,'ad-')]",
+      "ul[@id='share']"
+    ]
+  },
+  "*//builderscon.io/tokyo/*/session/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "section[@class='section-second']",
+    "cleanup": [
+      "div[@class='social-button']"
+    ]
+  },
+  "//blog.piyo.tech/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
   }
 }
