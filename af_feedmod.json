@@ -2,7 +2,13 @@
   "*//b.hatena.ne.jp/entry/*/comment/*": {
     "match_type": "fnmatch",
     "type": "xpath",
-    "xpath": "ul[@class='breadcrumb']|//div[@class='comment-body' or @class='comment-entry']"
+    "xpath": "ul[@class='breadcrumb']|//div[@class='comment-body' or @class='comment-entry']",
+    "append_css": [
+      ".breadcrumb-home {height: 16px!important;width: 16px!important;}",
+      ".breadcrumb {color: #999;display: flex;flex-grow: 1;font-size: 12px;overflow: hidden;}",
+      ".breadcrumb li { background: rgba(0, 0, 0, 0) url('http://b.hatena.ne.jp/images/v4/public/breadcrumb-arrow.svg?version=599f52194b2cb39d3a6afe563df6739e68232f6f') no-repeat scroll right 1px / 8px 15px;flex-shrink: 0;margin: 0 8px 0 0;padding: 0 18px 0 0;list-style: outside none none;}",
+      ".comment-body, .comment-entry {border: 2px dotted;padding:10px;margin:10px auto;}"
+    ]
   },
   "//b.hatena.ne.jp/entry/": {
     "type": "xpath",
