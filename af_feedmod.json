@@ -16193,5 +16193,12 @@
   "//blog.piyo.tech/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
+  },
+  "//www.wi-fi.org/news-events/newsroom/": {
+    "type": "xpath",
+    "xpath": "article[@class='content-main']",
+    "cleanup": [
+      "div[contains(@class,'hide-on-') or @class='sharethis-wrapper']"
+    ]
   }
 }
