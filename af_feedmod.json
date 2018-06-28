@@ -16206,5 +16206,9 @@
     "cleanup": [
       "div[contains(@class,'hide-on-') or @class='sharethis-wrapper']"
     ]
+  },
+  "//www.refugee.or.jp/fukuzatsu/": {
+    "type": "xpath",
+    "xpath": "div[@id='author_head' or @id='content' or @id='author']"
   }
 }
