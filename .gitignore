@@ -3,12 +3,4 @@ af_feed_no_entry.txt
 /bin
 /vendor
 composer.lock
-af_feed_phantomjs.txt
-af_feed_chromium.txt
-replace_link.txt
-debug.txt
-af_feed_jp_reuters_com.txt
-af_feed_note_mu.txt
-af_feed_instagram.txt
-af_feed_togetter.txt
-af_feed_googleblog.txt
+/logs
