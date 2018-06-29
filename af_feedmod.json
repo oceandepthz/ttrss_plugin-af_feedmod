@@ -2155,10 +2155,6 @@
       "table[@class='ad']"
     ]
   },
-  "forbesjapan.com": {
-    "type": "xpath",
-    "xpath": "div[@class='article_detail' or @class='author_box' or  @class='mb-20']"
-  },
   "prtimes.jp": {
     "type": "xpath",
     "xpath": "div[@class='rbody']"
@@ -15037,10 +15033,6 @@
     "type": "xpath",
     "xpath": "article//a[@class='thumbnail']/..|//article/p[@itemprop='articleBody']|//article/div[@class='date-bottom']"
   },
-  "//r25.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleContainer__mainImage']|//div[@class='ArticleContainer__articleWrapper']/div[not(@class)]"
-  },
   "//www.digimonostation.jp/": {
     "type": "xpath",
     "xpath": "article/div/div[@class='entry-content' or contains(@class,'ml-img-size')]"
@@ -16209,6 +16201,36 @@
   },
   "//www.refugee.or.jp/fukuzatsu/": {
     "type": "xpath",
-    "xpath": "div[@id='author_head' or @id='content' or @id='author']"
+    "xpath": "div[@id='author_head' or @id='content' or @id='author']",
+    "append_css": [
+      "#author_head img {border-radius: 25px;height: 50px;margin-bottom: 0;margin-right: 10px;width: 50px;}",
+      "#author_head {display:flex;}",
+      "#content h2 {border-bottom: 1px solid #46aa28;clear: both;color: #46aa28;font-size: 100%;font-weight: bold;margin-bottom: 10px;margin-top: 30px;padding: 2px 0;width: 100%;}",
+      "#author .author_title {border-bottom: 1px solid #1ea0fa;clear: both;color: #1ea0fa;font-size: 100%;font-weight: bold;margin-bottom: 10px;margin-top: 30px;padding: 2px 0;text-transform: uppercase;width: 100%;}",
+      "#author .img img {height: 150px;margin-bottom: 0;margin-top: 4px;width: 150px;}"
+    ]
+  },
+  "//forbesjapan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='kizi-box']/div[contains(@class,'mt-photo')]|//div[@class='article_detail']",
+    "next_page": "ul[@class='contents_pagination']",
+    "next_page_cleanup": [
+      "li[@class='active']"
+    ]
+  },
+  "//r25.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='Article__mainImage']|//div[@class='Article__articleWrapper']/div[not(@class)]"
+  },
+  "//www.honda.co.jp/info/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents']/div[contains(@class,'par_main')]"
+  },
+  "//www.fukulow.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_thumbnail' or @class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'more_pr_area')]"
+    ]
   }
 }
