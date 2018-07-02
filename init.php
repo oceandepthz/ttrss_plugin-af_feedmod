@@ -87,7 +87,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // shoutcut url
-        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/', '//feedproxy.google.com/'];
+        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/', '//feedproxy.google.com/', '//rss.rssad.jp/'];
         if($this->strposa($article['link'], $sc_url)){
             $rd_url = $this->get_redirect_url($article['link']);
             $article['link'] = $rd_url;
@@ -235,8 +235,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
                 }
-
                 $this->update_html_style($xpath, $entry);
+                $this->update_tag($doc, $xpath, $entry, $link);
 
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
@@ -1291,6 +1291,16 @@ EOD;
         }
         return $url;
     }
+    function update_tag(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
+        $entries = $xpath->query("//div[contains(@class,'js-delayed-image-load')]");
+        if($entries->length === 0){
+            return;
+        }
+        foreach($entries as $entry){
+            $this->append_iframe_tag($doc, $entry, $entry->getAttribute('data-src'));
+        }
+    }
+
     function hook_prefs_tabs($args)
     {
         print '<div id="feedmodConfigTab" dojoType="dijit.layout.ContentPane"
