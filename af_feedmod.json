@@ -16233,5 +16233,17 @@
   "//gqjapan.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-content-lead' or @class='article-content-credit' or @class='article-content-hero' or @class='article-content-text']"
+  },
+  "//mkasumi.com/": {
+    "type": "xpath",
+    "xpath": "article/div"
+  },
+  "//devblog.fornothing.net/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'post-body')]"
+  },
+  "//ai-topics.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'eyecatch')]|//section[@class='content']"
   }
 }
