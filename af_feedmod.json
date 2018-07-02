@@ -10043,13 +10043,6 @@
       "div[@id='snsButton']"
     ]
   },
-  "//netshop.impress.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='node-body-content']",
-    "cleanup": [
-      "div[contains(@class,'field-name-field-bancho-prev-next')]"
-    ]
-  },
   "//nagasawake.com/": {
     "type": "xpath",
     "xpath": "section[contains(@class,'entry-content')]"
@@ -11763,10 +11756,6 @@
     "type": "xpath",
     "xpath": "div[@class='topics-articleHead']/p[@class='topics-articleHead__img']|//div[@class='detail-body-container' or @class='detail-footer-container' or @class='detail-main-img-container']"
   },
-  "//webtan.impress.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'node-body-content')]"
-  },
   "//www.lifelogweb.com/": {
     "type": "xpath",
     "xpath": "header/figure[@class='eyecatch']|//div[@class='theContentWrap-ccc']"
@@ -12076,18 +12065,6 @@
     "cleanup": [
       "div[@class='wp_social_bookmarking_light' or @class='intro']"
     ]
-  },
-  "//gqjapan.jp/culture/column/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-item-section__content-page']/div[@class='article-content-lead' or @class='article-content-credit' or @class='article-content-hero' or @class='article-content-text']"
-  },
-  "//gqjapan.jp/": {
-    "type": "xpath",
-    "xpath": "article[@class='article_box' or @class='gallery_box']",
-    "cleanup": [
-      "div[@class='recommend_section']"
-    ],
-    "next_page": "div[contains(@class,'pagenation')]"
   },
   "//www.percona.com/blog/": {
     "type": "xpath",
@@ -12572,13 +12549,6 @@
   "//ameblo.jp/wadou708/": {
     "type": "xpath",
     "xpath": "div[@class='articleText']"
-  },
-  "//yoshikawaweb.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@class='share_wrap']"
-    ]
   },
   "//www.westjr.co.jp/press/": {
     "type": "xpath",
@@ -14588,10 +14558,6 @@
     "type": "xpath",
     "xpath": "article/section[contains(@class,'sn-columnDetail__paragraph')]"
   },
-  "//travel.spot-app.jp/": {
-    "type": "xpath",
-    "xpath": "header/p[@class='single-title_description']|//div[@class='feature_body' or contains(@class, 'entry-content')]"
-  },
   "//menhera.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'articleContent')]"
@@ -14615,15 +14581,6 @@
     "type": "xpath",
     "engine": "chromium",
     "xpath": "div[@class='note-content-container']"
-  },
-  "*//*.impress.co.jp/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[contains(@class, 'main-contents') or @class='article-info' or @class='author-info' or @class='author-detail']|//nav[contains(@class,'links') and contains(@class,'outer')]",
-    "cleanup": [
-      "div[@class='tab-wrap']"
-    ],
-    "next_page": "ul[@class='number']"
   },
   "//blog.tai2.net/": {
     "type": "xpath",
@@ -16091,34 +16048,6 @@
     "type": "xpath",
     "xpath": "article/div[contains(@class,'entry-content')]"
   },
-  "//github.com/apps/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'application-main')]"
-  },
-  "*//github.com/*/*/commit/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[contains(@class,'repository-content')]"
-  },
-  "*//github.com/*/*/wiki/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='wiki-body']"
-  },
-  "*//github.com/*/issues/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
-  "*//github.com/*/*/pull/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
-  "//github.com/": {
-    "type": "xpath",
-    "xpath": "article|//div[contains(@class,'release-body')]"
-  },
   "//grapee.jp/": {
     "type": "xpath",
     "xpath": "article/figure|//article/section/div[@class='comment']"
@@ -16180,14 +16109,6 @@
       "ul[@id='share']"
     ]
   },
-  "*//builderscon.io/tokyo/*/session/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "section[@class='section-second']",
-    "cleanup": [
-      "div[@class='social-button']"
-    ]
-  },
   "//blog.piyo.tech/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
@@ -16232,5 +16153,85 @@
     "cleanup": [
       "div[contains(@class,'more_pr_area')]"
     ]
+  },
+  "//travel.spot-app.jp/": {
+    "type": "xpath",
+    "xpath": "header/p[@class='single-title_description']|//div[@class='feature_body' or contains(@class, 'entry-content')]",
+    "append_css": [
+      ".feature_body {width: 796px;}"
+    ]
+  },
+  "//github.com/apps/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'application-main')]"
+  },
+  "*//github.com/*/*/commit/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class,'repository-content')]"
+  },
+  "*//github.com/*/*/wiki/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='wiki-body']"
+  },
+  "*//github.com/*/issues/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "td[contains(@class,'comment-body')]|//h3[contains(@class,'timeline-comment-header-text')]|//div[contains(@class,'timeline-comment-avatar')]/a/img[contains(@class,'avatar')]|//div[@id='partial-discussion-header']|//div[contains(@class,'js-timeline-item')]/div[contains(@class,'discussion-item')]"
+  },
+  "*//github.com/*/*/pull/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "//github.com/": {
+    "type": "xpath",
+    "xpath": "article|//div[contains(@class,'release-body')]"
+  },
+  "*//builderscon.io/tokyo/*/session/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@class='container']/section",
+    "cleanup": [
+      "div[@class='social-button']"
+    ]
+  },
+  "//webtan.impress.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'node-body-content')]"
+  },
+  "//netshop.impress.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='node-body-content']",
+    "cleanup": [
+      "div[contains(@class,'field-name-field-bancho-prev-next')]"
+    ]
+  },
+  "*//*.impress.co.jp/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class, 'main-contents') or @class='article-info' or @class='author-info' or @class='author-detail']|//nav[contains(@class,'links') and contains(@class,'outer')]",
+    "cleanup": [
+      "div[@class='tab-wrap']"
+    ],
+    "next_page": "ul[@class='number']",
+    "append_css": [
+      "div.image-wrap>div.inner {display: inline-block;margin: 0 auto 17px;padding: 5px;border: 1px solid #ccc;background-color: #efefef;}",
+      "div.image-wrap div.column span.caption {display: block;float: none;clear: both;margin: 4px 0 0;padding: 0 2px;font-size: 75%;text-align: left;line-height: 1.3;}",
+      ".hdg-03 {float: none;clear: both;margin: 0 0 7px;padding: 0 5px 7px 0;border-bottom: 1px solid #dadada;font-size: 100%;font-weight: bold;line-height: 1.4;}",
+      ".hdg-03 span {border-left-color: #36f;display: block;padding: 1px 0 2px 9px;border-style: solid;border-width: 0;border-left-width: 5px;}"
+    ]
+  },
+  "//yoshikawaweb.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='share_wrap']"
+    ]
+  },
+  "//gqjapan.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-content-lead' or @class='article-content-credit' or @class='article-content-hero' or @class='article-content-text']"
   }
 }
