@@ -16245,5 +16245,13 @@
   "//ai-topics.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'eyecatch')]|//section[@class='content']"
+  },
+  "//freelance.umentu.work/": {
+    "type": "xpath",
+    "xpath": "section[@class='content']",
+    "cleanup": [
+      "div[@class='veu_followSet' or contains(@class,'sharedaddy') or @id='jp-relatedposts' or contains(@class,'veu_socialSet')]",
+      "aside[contains(@class,'veu_relatedPosts')]"
+    ]
   }
 }
