@@ -15,7 +15,9 @@ class Instagram {
         return $entries->item(0)->getAttribute('content');
     }
     function get_contents_domdoc(string $url) : DOMDocument {
-        $html = file_get_contents($url);
+        require_once('FmUtils.php');
+        $u = new FmUtils();
+        $html = $u->url_file_get_contents($url);
         $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
 
         $doc = new DOMDocument();

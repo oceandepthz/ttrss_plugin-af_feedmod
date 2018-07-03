@@ -448,7 +448,12 @@ EOD;
     function get_html_note_mu(string $url) : string {
         file_put_contents(dirname(__FILE__).'/logs/af_feed_note_mu.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
         $json_url = $this->get_note_mu_json_url($url);
-        $json = json_decode(file_get_contents($json_url), true);
+
+        require_once('classes/FmUtils.php');
+        $u = new FmUtils();
+        $json = $u->url_file_get_contents($json_url);
+
+        $json = json_decode($json, true);
 
         $eye = $json["data"]["eyecatch"];
         $title = $json["data"]["tweet_text"];
@@ -475,7 +480,12 @@ EOD;
     }
     function get_html_jp_reuters_com(string $url) : string {
         file_put_contents(dirname(__FILE__).'/logs/af_feed_jp_reuters_com.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
-        $html = mb_convert_encoding(file_get_contents($url), 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+
+        require_once('classes/FmUtils.php');
+        $u = new FmUtils();
+        $html = $u->url_file_get_contents($url);
+
+        $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         $xpath = new DOMXPath($doc);

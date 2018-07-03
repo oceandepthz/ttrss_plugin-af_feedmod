@@ -1,7 +1,9 @@
 <?php
 class GoogleblogCom {
     function get_content(string $url) : string {
-        $html = file_get_contents($url);
+        require_once('FmUtils.php');
+        $u = new FmUtils();
+        $html = $u->url_file_get_contents($url);
         $html = str_replace(array("\r\n", "\r", "\n"), '', $html);
         $r = preg_match('/<script type=\'text\/template\'>(.*?)<\/script>/u', $html, $matches);
         $h = '';
