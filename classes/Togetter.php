@@ -26,7 +26,7 @@ class Togetter {
     function get_first_page_main(DOMDocument $doc, DOMXPath $xpath) : string {
         $html = '';
 
-        $entries = $xpath->query("(//div[@class='contents_main']/div[@class='info_box']|//div[@class='contents_main']/div[@class='tweet_box']/div[contains(@class,'list_box') or @class='type_markdown'])");
+        $entries = $xpath->query("(//div[@class='contents_main']/div[@class='info_box' or @class='title_box']|//div[@class='contents_main']/div[@class='tweet_box']/div[contains(@class,'list_box') or @class='type_markdown'])");
         foreach($entries as $entry){
             $html .= $doc->saveHTML($entry);
         }
