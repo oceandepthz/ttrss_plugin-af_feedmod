@@ -9,12 +9,12 @@ class Af_Feedmod extends Plugin implements IHandler
 
     function about()
     {
-        return array(
+        return [
                 1.0,   // version
                 'Replace feed contents by contents from the linked page',   // description
                 'mbirth',   // author
                 false,   // is_system
-                );
+                ];
     }
 
     function api_version()
@@ -32,7 +32,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
     function csrf_ignore($method)
     {
-        $csrf_ignored = array("index", "edit");
+        $csrf_ignored = ["index", "edit"];
         return array_search($method, $csrf_ignored) !== false;
     }
 
@@ -50,7 +50,7 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function get_file_json_data(){
-        $data = array();
+        $data = [];
         foreach (glob(__DIR__."/json/*.json") as $filename) {
             $data = array_merge($data, json_decode(file_get_contents($filename),true));
         }
@@ -268,7 +268,7 @@ class Af_Feedmod extends Plugin implements IHandler
             }else{
                 $url .= str_replace('http://','',$article['link']);
             }
-            $html = $this->get_html($url, array());
+            $html = $this->get_html($url, []);
             $doc = new DOMDocument();
             @$doc->loadHTML($html);
             if($doc){
@@ -283,7 +283,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $entries = $xpath->query("(//div[contains(@class,'js-bookmarks') and contains(@class,'js-bookmarks-recent')])");
                 if ($entries->length > 0) {
                     foreach ($entries as $entry) {
-                        $this->cleanup($xpath, $entry, array("p[@class='entry-comment-meta']","button[contains(@class,'entry-comment-menu')]","ul[contains(@class,'entry-comment-menu-list')]"));
+                        $this->cleanup($xpath, $entry, ["p[@class='entry-comment-meta']","button[contains(@class,'entry-comment-menu')]","ul[contains(@class,'entry-comment-menu-list')]"]);
                         $h_comment .= $doc->saveXML($entry);
                     }
                     if(strlen($h_comment) > 0){
@@ -319,7 +319,7 @@ EOD;
 
     function get_redirect_url(string $url): string {
         if(strpos($url, '//t.co/') !== false){
-            $html = $this->get_html($url, array());
+            $html = $this->get_html($url, []);
             $ret = preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
             if(count($matches) == 2){
                 return $matches[1];
@@ -353,7 +353,7 @@ EOD;
     }
 
     function get_routine_content(string $url) : string {
-        $html = $this->get_html($url, array());
+        $html = $this->get_html($url, []);
         if(!$html){
             return "";
         }
@@ -639,27 +639,27 @@ EOD;
         return $links;
     }
     function get_np_links(DOMXPath $xpath, DOMDocument $doc, array $config, string $link) : array {
-        $links = array();
+        $links = [];
 
         if(strpos($link, '//russia2018.yahoo.co.jp/') !== false){
             return $this->get_np_links_russia2018_yahoo_co_jp($xpath, $doc, $link);
         }
         if(!isset($config['next_page']) || !$config['next_page']){
-            return array();
+            return [];
         }
         $config_next_page = $config['next_page'];
         if(!$config_next_page){
-            return array();
+            return [];
         }
 
         $next_page_xpath = new DOMXPath($doc);
         $next_page_entries = $next_page_xpath->query('(//'.$config['next_page'].')');
         if ($next_page_entries === false || $next_page_entries->length === 0){
-            return array();
+            return [];
         }
         $next_page_basenode = $next_page_entries->item(0);
         if (!$next_page_basenode) {
-            return array();
+            return [];
         }
 
         if (isset($config['next_page_cleanup'])) {
@@ -680,7 +680,7 @@ EOD;
 
         $next_page_nodelist = $next_page_basenode->getElementsByTagName('a');
         if($next_page_nodelist->length == 0){
-            return array();
+            return [];
         }
         foreach ($next_page_nodelist as $node) {
             $next_page = $node->getAttribute('href');
@@ -898,13 +898,13 @@ EOD;
         }
     }
     function get_peing_img_link(string $link) : string {
-        $html = $this->get_html($link, array());
+        $html = $this->get_html($link, []);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
 
         if(!$doc){
             $this->__debug("peing.net img link loadHTML error");
-            return array();
+            return "";
         }
         $xpath = new DOMXPath($doc);
 
@@ -1007,7 +1007,7 @@ EOD;
             if(!$href){
                 continue;
             }
-            $html = $this->get_html($href, array());
+            $html = $this->get_html($href, []);
             preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
             if(count($matches) == 2){
                 $url = $matches[1];
@@ -1082,22 +1082,22 @@ EOD;
 
     function get_pic_links(string $url) : array {
         if(strpos($url, '//t.co/') !== false){
-            $html = $this->get_html($url, array());
+            $html = $this->get_html($url, []);
             $ret = preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
             if(count($matches) == 2){
                 $url = $matches[1];
             }
         }
 
-        $html = $this->get_html($url, array());
+        $html = $this->get_html($url, []);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         if(!$doc){
-            return array();
+            return [];
         }
         $xpath = new DOMXPath($doc);
 
-        $urls = array();
+        $urls = [];
 
         // video
         $entries = $xpath->query("(//meta[@property='og:video:url'])");
@@ -1212,7 +1212,7 @@ EOD;
             return;
         }
         if (!is_array($config_cleanup)) {
-            $config_cleanup = array($config_cleanup);
+            $config_cleanup = [$config_cleanup];
         }
         foreach ($config_cleanup as $cleanup_item) {
             if(!$cleanup_item){
@@ -1369,10 +1369,10 @@ function save()
 }
 
 function jq_format($json) {
-  $descriptorspec = array(
-     0 => array("pipe", "r"),
-     1 => array("pipe", "w"),
-  );
+  $descriptorspec = [ 
+     0 => ["pipe", "r"],
+     1 => ["pipe", "w"],
+  ];
 
   $process = proc_open('/usr/bin/jq --indent 4 .', $descriptorspec, $pipes);
 
