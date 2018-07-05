@@ -7185,10 +7185,6 @@
     ],
     "next_page": "div[@class='PagenationArea']/ol"
   },
-  "//rss.rssad.jp/rss/artclk/A.5q4WTM.aQA/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry_body']"
-  },
   "//webkikaku.co.jp/blog/": {
     "type": "xpath",
     "xpath": "div[@class='main_con_post_txt']"
@@ -13817,11 +13813,6 @@
     "type": "xpath",
     "xpath": "article/div/p[@class='kv']|//article/div/div[@class='section']"
   },
-  "//rss.rssad.jp/": {
-    "type": "xpath",
-    "xpath": "body",
-    "no_fetch": true
-  },
   "//00.bulog.jp/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
@@ -14639,10 +14630,6 @@
   "//blog.heroku.com/": {
     "type": "xpath",
     "xpath": "article/section[contains(@class,'post-body')]"
-  },
-  "//rss.rssad.jp/rss/artclk/ZIQzCz_y3f5F/": {
-    "type": "xpath",
-    "xpath": "div[@id='cmsBody']/div/p|//div[@id='cmsBody']/div/div[contains(@class, 'box')]"
   },
   "//www.gundam.info/": {
     "type": "xpath",
@@ -16264,5 +16251,24 @@
   "//www.akitashoten.co.jp/news/": {
     "type": "xpath",
     "xpath": "div[@class='contents']/div[@class='textArea']"
+  },
+  "//css-tricks.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='article-content']"
+  },
+  "//booth.pm/ja/items/": {
+    "type": "xpath",
+    "xpath": "div[@class='flex-order-body']"
+  },
+  "//blog.findy.us/": {
+    "type": "xpath",
+    "xpath": "article/header/div[@class='article-thumbnail']|//article/section[@class='article-body']"
+  },
+  "//kagoshima.keizai.biz/headline/": {
+    "type": "xpath",
+    "xpath": "div[@id='topBox']/div/div[@class='main' or @class='txt']",
+    "cleanup": [
+      "div[@class='bnr']"
+    ]
   }
 }
