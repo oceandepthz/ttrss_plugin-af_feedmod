@@ -2609,14 +2609,6 @@
     "xpath": "div[@class='articlebody']",
     "next_page": "div[@id='pages']"
   },
-  "hbol.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='entryContent']",
-    "cleanup": [
-      "div[@class='post-next-page' or @class='post-pager']"
-    ],
-    "next_page": "div[@class='post-pager']"
-  },
   "www.moae.jp/comic": {
     "type": "xpath",
     "xpath": "div[@id='main-block' or @id='title-block' or @class='mod-free-block02']"
@@ -12233,10 +12225,6 @@
       "div[contains(@id,'div-gpt-ad-')]"
     ]
   },
-  "//pocketstudio.net/": {
-    "type": "xpath",
-    "xpath": "div[2]/div[contains(@class,'col-md-offset-1')]"
-  },
   "//sumahoinfo.com/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']",
@@ -13177,14 +13165,6 @@
     "type": "xpath",
     "xpath": "div[@class='section-content']",
     "append_css": "figure div.aspectRatioPlaceholder-fill {padding-bottom:0!important;}"
-  },
-  "//joshi-spa.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='entryContent']",
-    "cleanup": [
-      "div[@class='post-next-page' or @class='post-pager-box']"
-    ],
-    "next_page": "div[@class='post-pager-box']"
   },
   "//www.jomo-news.co.jp/": {
     "type": "xpath",
@@ -16270,5 +16250,52 @@
     "cleanup": [
       "div[@class='bnr']"
     ]
+  },
+  "//joshi-spa.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-container']"
+  },
+  "//hbol.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-container']",
+    "cleanup": [
+      "div[contains(@class,'post-pager') or @class='under-h2' or contains(@id,'div-gpt-ad-')]"
+    ],
+    "next_page": "div[@class='post-pager']"
+  },
+  "//pocketstudio.net/": {
+    "type": "xpath",
+    "xpath": "body",
+    "cleanup": [
+      "div[contains(@class,'navbar-inverse')]",
+      "footer"
+    ]
+  },
+  "//www.shinchosha.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div/section"
+  },
+  "//www.nic.ad.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/article"
+  },
+  "//gg-game.main.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@id='widget-in-article' or contains(@class,'sharedaddy') or @id='jp-relatedposts']"
+    ]
+  },
+  "//figsoku.net/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry_text']"
+  },
+  "//crieit.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='tui-editor-contents']"
+  },
+  "//co.bsnws.net/": {
+    "type": "xpath",
+    "xpath": "article[@id='ariticle_content']"
   }
 }
