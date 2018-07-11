@@ -87,11 +87,13 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // shoutcut url
-        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/', '//feedproxy.google.com/', '//rss.rssad.jp/'];
-        if($this->strposa($article['link'], $sc_url)){
-            $rd_url = $this->get_redirect_url($article['link']);
-            $article['link'] = $rd_url;
-        }
+//        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/', '//feedproxy.google.com/', '//rss.rssad.jp/'];
+//        if($this->strposa($article['link'], $sc_url)){
+//            $rd_url = $this->get_redirect_url($article['link']);
+//            $article['link'] = $rd_url;
+//        }
+        require_once("classes/UrlUtils.php");
+        $article['link'] = UrlUtils::get_original_url($article['link']);
 
         foreach ($data as $urlpart=>$config) {
             if(fnmatch('*//*/*.pdf', $article['link'])){
@@ -255,6 +257,12 @@ class Af_Feedmod extends Plugin implements IHandler
         
 
         // add hatebu comment
+        require_once('classes/HatebuUtils.php');
+        if(HatebuUtils::is_hatebu($article['feed']['fetch_url'])){
+            $article['content'] .= HatebuUtils::get_hatebu_content($article['link']);
+        }
+        
+/*
         if(strpos($article['feed']['fetch_url'],'//b.hatena.ne.jp/hotentry/it.rss') !== false ||
            strpos($article['feed']['fetch_url'],'//feeds.feedburner.com/hatena/b/hotentry') !== false ||
            strpos($article['feed']['fetch_url'],'//rss.kozono.org/rss/hatebu_marge_hotentry.rss') !== false){
@@ -275,7 +283,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $h_comment = "";
                 $xpath = new DOMXPath($doc);
 
-                $users = 0;
+                $users = "0";
                 $entries = $xpath->query("(//div[@class='entry-bookmark']//span[@class='entry-info-users']/a/span)");
                 if ($entries->length > 0){
                   $users = $xpath->evaluate('string()', $entries[0]);    
@@ -286,8 +294,8 @@ class Af_Feedmod extends Plugin implements IHandler
                         $this->cleanup($xpath, $entry, ["p[@class='entry-comment-meta']","button[contains(@class,'entry-comment-menu')]","ul[contains(@class,'entry-comment-menu-list')]"]);
                         $h_comment .= $doc->saveXML($entry);
                     }
-                    if(strlen($h_comment) > 0){
-                        $style = <<<EOD
+                }
+                $style = <<<EOD
 <style type='text/css'>
 div.hatebu-comment { 
     border:solid 2px;
@@ -308,11 +316,9 @@ div.hatebu-comment ul.entry-comment-tags li {
 }
 </style>
 EOD;
-                        $article['content'] .= "<div>${style}<div class='hatebu-comment'><p>hatebu comment (${users}users)</p>${h_comment}</div></div>";
-                    }
-                }
+                $article['content'] .= "<div>${style}<div class='hatebu-comment'><p>hatebu comment (${users}users)</p>${h_comment}</div></div>";
             }
-        }
+        }*/
 
         return $article;
     }
