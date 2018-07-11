@@ -7130,17 +7130,6 @@
     "type": "xpath",
     "xpath": "div[@itemprop='articleBody']"
   },
-  "//www.oricon.co.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[@class='mod-p']|//div[@class='block-detail-body']//p[@class='image']"
-  },
-  "//www.oricon.co.jp/special/": {
-    "type": "xpath",
-    "xpath": "div[@class='special-content']",
-    "cleanup": [
-      "aside"
-    ]
-  },
   "//www.baconjapan.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -15997,13 +15986,6 @@
     ],
     "next_page": "div[contains(@class,'page-links')]"
   },
-  "//tech.bizreach.co.jp/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "ul[@class='shareLink']"
-    ]
-  },
   "//premium.toyokeizai.net/": {
     "type": "xpath",
     "xpath": "div[@id='main-content']/article",
@@ -16297,5 +16279,49 @@
   "//co.bsnws.net/": {
     "type": "xpath",
     "xpath": "article[@id='ariticle_content']"
+  },
+  "//www.oricon.co.jp/confidence/special/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='special-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//www.oricon.co.jp/article/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='block-detail-body' or contains(@class,'block-photo-preview')]"
+  },
+  "//www.oricon.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='mod-p']|//div[@class='block-detail-body']//p[@class='image']"
+  },
+  "//www.oricon.co.jp/special/": {
+    "type": "xpath",
+    "xpath": "div[@class='special-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//www.club-typhoon.com/": {
+    "type": "xpath",
+    "xpath": "article/header/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='add']"
+    ]
+  },
+  "//katashin.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tech.bizreach.co.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "ul[@class='shareLink']"
+    ]
+  },
+  "//freelance.potepan.com/blogs/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog-content' or @class='blogsimg']"
   }
 }
