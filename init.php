@@ -254,7 +254,6 @@ class Af_Feedmod extends Plugin implements IHandler
                 $article['content'] .= "<style type='text/css'>${css}</style>";
             }
         }
-        
 
         // add hatebu comment
         require_once('classes/HatebuUtils.php');
@@ -262,64 +261,6 @@ class Af_Feedmod extends Plugin implements IHandler
             $article['content'] .= HatebuUtils::get_hatebu_content($article['link']);
         }
         
-/*
-        if(strpos($article['feed']['fetch_url'],'//b.hatena.ne.jp/hotentry/it.rss') !== false ||
-           strpos($article['feed']['fetch_url'],'//feeds.feedburner.com/hatena/b/hotentry') !== false ||
-           strpos($article['feed']['fetch_url'],'//rss.kozono.org/rss/hatebu_marge_hotentry.rss') !== false){
-
-            // create hatena url
-            $is_ssl = strpos($article['link'],'https://') === 0;
-            $url = 'http://b.hatena.ne.jp/entry/';
-            if($is_ssl){
-                $url .= 's/';
-                $url .= str_replace('https://','',$article['link']);
-            }else{
-                $url .= str_replace('http://','',$article['link']);
-            }
-            $html = $this->get_html($url, []);
-            $doc = new DOMDocument();
-            @$doc->loadHTML($html);
-            if($doc){
-                $h_comment = "";
-                $xpath = new DOMXPath($doc);
-
-                $users = "0";
-                $entries = $xpath->query("(//div[@class='entry-bookmark']//span[@class='entry-info-users']/a/span)");
-                if ($entries->length > 0){
-                  $users = $xpath->evaluate('string()', $entries[0]);    
-                }
-                $entries = $xpath->query("(//div[contains(@class,'js-bookmarks') and contains(@class,'js-bookmarks-recent')])");
-                if ($entries->length > 0) {
-                    foreach ($entries as $entry) {
-                        $this->cleanup($xpath, $entry, ["p[@class='entry-comment-meta']","button[contains(@class,'entry-comment-menu')]","ul[contains(@class,'entry-comment-menu-list')]"]);
-                        $h_comment .= $doc->saveXML($entry);
-                    }
-                }
-                $style = <<<EOD
-<style type='text/css'>
-div.hatebu-comment { 
-    border:solid 2px;
-    padding:10px;
-}
-div.hatebu-comment img {
-    width: 16px;
-    height: 16px;
-    border-radius:3px;
-}
-div.hatebu-comment ul.entry-comment-tags {
-    display:table;
-    table-layout:fixed;
-    margin:0;
-}
-div.hatebu-comment ul.entry-comment-tags li {
-    display:table-cell;
-}
-</style>
-EOD;
-                $article['content'] .= "<div>${style}<div class='hatebu-comment'><p>hatebu comment (${users}users)</p>${h_comment}</div></div>";
-            }
-        }*/
-
         return $article;
     }
 
