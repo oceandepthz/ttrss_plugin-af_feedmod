@@ -1390,14 +1390,6 @@
     "type": "xpath",
     "xpath": "div[@class='content-single']"
   },
-  "feedtailor.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='entry']",
-    "cleanup": [
-      "*[starts-with(@class, 'wp_social_bookmarking_')]",
-      "div[starts-with(@class, 'yarpp-related')]"
-    ]
-  },
   "cocolog-nifty.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-body-text' or @class='entry-more-text' or @class='entry-body' or @class='entry-more']"
@@ -16323,5 +16315,17 @@
   "//freelance.potepan.com/blogs/": {
     "type": "xpath",
     "xpath": "div[@class='blog-content' or @class='blogsimg']"
+  },
+  "//blog.feedtailor.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//www.kabuku.co.jp/developers/": {
+    "type": "xpath",
+    "xpath": "div[@id='entry-content']"
+  },
+  "//blog.japantaxi.co.jp/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
   }
 }
