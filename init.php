@@ -87,11 +87,6 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // shoutcut url
-//        $sc_url = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/', '//feedproxy.google.com/', '//rss.rssad.jp/'];
-//        if($this->strposa($article['link'], $sc_url)){
-//            $rd_url = $this->get_redirect_url($article['link']);
-//            $article['link'] = $rd_url;
-//        }
         require_once("classes/UrlUtils.php");
         $article['link'] = UrlUtils::get_original_url($article['link']);
 
