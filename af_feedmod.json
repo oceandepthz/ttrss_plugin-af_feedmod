@@ -379,21 +379,6 @@
     "type": "xpath",
     "xpath": "div[@class='text']"
   },
-  "www.cnn.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='leaf-body']/..",
-    "cleanup": [
-      "div[contains(@id, '_popIn_')]",
-      "div[@id='leaf_header']",
-      "div[contains(@class, 'pagination')]",
-      "div[contains(@id, 'mail_magazine')]",
-      "ul[contains(@class, 'sns')]",
-      "div[@id='induction']/..",
-      "div[@id='leaf-related']",
-      "div[@id='leaf-body']/../script"
-    ],
-    "next_page": "div[contains(@class, 'pagination')]"
-  },
   "gamebiz.jp": {
     "type": "xpath",
     "xpath": "div[contains(@class, 'article_body_view')]"
@@ -632,10 +617,6 @@
     "cleanup": [
       "div[starts-with(@class, 'tag')]"
     ]
-  },
-  "www.47news.jp": {
-    "type": "xpath",
-    "xpath": "span[@id='bt_body']|//div[@class='DetailArticleLayout']"
   },
   "gori.me": {
     "type": "xpath",
@@ -7141,13 +7122,6 @@
     "type": "xpath",
     "xpath": "section[@id='detail']"
   },
-  "//www.khara.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@class='wp_social_bookmarking_light']"
-    ]
-  },
   "//withnews.jp/article/": {
     "type": "xpath",
     "xpath": "section[contains(@class, 'articleHeader')]/div[contains(@class, 'articleImgBox') or contains(@class,'articleIndex')]|//section[contains(@class, 'contentBox')]/article",
@@ -9643,13 +9617,6 @@
     "type": "xpath",
     "xpath": "div[@class='middle-single-article' or @class='single-post-image']"
   },
-  "//welove.expedia.co.jp/destination/": {
-    "type": "xpath",
-    "xpath": "article[contains(@id,'post-')]/div[@class='post-thumbnail-wrapper' or contains(@class,'post-content')]",
-    "cleanup": [
-      "div[@class='social-share-custom']"
-    ]
-  },
   "//unleash.tokyo/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]",
@@ -10994,13 +10961,6 @@
       "a[contains(@href,'//blog.with2.net/link.php')]"
     ]
   },
-  "//blog.esuteru.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='article_detail_area']",
-    "cleanup": [
-      "div[@id='main_article_ad_01' or contains(@class,'ad_main_area') or @class='share_button_area']"
-    ]
-  },
   "//www.nxworld.net/": {
     "type": "xpath",
     "xpath": "figure[@class='article-thumb']|//div[@class='article-main']/div[@class='article-excerpt' or @class='article-contents']"
@@ -11017,10 +10977,6 @@
   "//news.kddi.com/kddi/corporate/newsrelease/": {
     "type": "xpath",
     "xpath": "div[@class='ind']"
-  },
-  "//www.huffingtonpost.jp/": {
-    "type": "xpath",
-    "xpath": "header/div[@class='author-byline']|//article[contains(@class,'entry__content')]/div[contains(@class,'entry__body') or @class='top-media']"
   },
   "//business.nikkeibp.co.jp/": {
     "type": "xpath",
@@ -12659,13 +12615,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body']"
   },
-  "//pssection9.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[contains(@id,'quads-ad')]"
-    ]
-  },
   "//zuvuyalink.net/nrjlog/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -14241,13 +14190,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'hentry')]/div[starts-with(@id,'post-body-')]"
   },
-  "//www.apple.com/jp/support/": {
-    "type": "xpath",
-    "xpath": "div[@id='section']",
-    "cleanup": [
-      "select[@id='country_nav']"
-    ]
-  },
   "//mywarstory.tokyo/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -14364,10 +14306,6 @@
     "cleanup": [
       "div[contains(@id,'like-post-wrapper-') or contains(@class,'sharing-wrapper') or @class='navigator-wrapper']"
     ]
-  },
-  "//this.kiji.is/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'main__article')]/article"
   },
   "//developer.ntt.com/ja/blog/": {
     "type": "xpath",
@@ -15610,14 +15548,6 @@
     "type": "xpath",
     "xpath": "div[@id='outline-head' or @id='article' or @id='img-article-main']"
   },
-  "//www.cinra.net/column/": {
-    "type": "xpath",
-    "xpath": "div[@class='js-inner-main']",
-    "cleanup": [
-      "div[contains(@class,'pagination--bordertop')]"
-    ],
-    "next_page": "div[contains(@class,'pagination--bordertop')]"
-  },
   "//shimz.me/blog/": {
     "type": "xpath",
     "xpath": "div[@class='content-inside']/div[contains(@class,'entry')]"
@@ -15633,11 +15563,6 @@
       "ul[@class='page_num']"
     ],
     "next_page": "ul[@class='page_num']"
-  },
-  "//wpb.shueisha.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='mod-article']",
-    "next_page": "div[@class='mod-pagination']"
   },
   "//mangalifewin.takeshobo.co.jp/rensai/": {
     "type": "xpath",
@@ -16327,5 +16252,122 @@
   "//blog.japantaxi.co.jp/": {
     "type": "xpath",
     "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]"
+  },
+  "//pssection9.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@id,'quads-ad')]"
+    ]
+  },
+  "//www.khara.co.jp/": {
+    "type": "xpath",
+    "xpath": "section[contains(@id,'news')]/div[@class='newsc']"
+  },
+  "//wpb.shueisha.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='js-post-detail-body']"
+  },
+  "//www.huffingtonpost.jp/": {
+    "type": "xpath",
+    "xpath": "header/div[contains(@class,'author-byline')]|//div[@class='headline']/h2[@class='headline__subtitle']|//div[contains(@class,'entry__content')]/div[contains(@class,'top-media')]|//div[@id='entry-text']"
+  },
+  "//welove.expedia.co.jp/destination/": {
+    "type": "xpath",
+    "xpath": "div[@class='mainimg_details']|//div[contains(@class,'article_details01')]|//section[contains(@class,'detail_author01')]"
+  },
+  "//www.cinra.net/column/": {
+    "type": "xpath",
+    "xpath": "div[@class='l-inner-contents']",
+    "next_page": "div[contains(@class,'pagination--bordertop')]"
+  },
+  "//www.cnn.co.jp/": {
+    "type": "xpath",
+    "xpath": "header//div[@class='media-img']|//article",
+    "cleanup": [
+      "header",
+      "div[@class='ad-txt' or @class='uae_outstreamplayer']",
+      "ul[@class='pagination']"
+    ],
+    "next_page": ""
+  },
+  "//blog.esuteru.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']/img[@class='pict']|//div[contains(@class,'moreBody')]"
+  },
+  "//zenlogic.jp/news/": {
+    "type": "xpath",
+    "xpath": "section[@id='Manual']"
+  },
+  "//www.theregister.co.uk/": {
+    "type": "xpath",
+    "xpath": "div[@id='body']"
+  },
+  "//www.haijin-boys.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-content']",
+    "cleanup": [
+      "div[@class='adsense' or @id='social' or @id='follow']"
+    ]
+  },
+  "//www.apple.com/jp/newsroom/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@class,'sharesheet ')]"
+    ]
+  },
+  "//www.apple.com/jp/support/": {
+    "type": "xpath",
+    "xpath": "div[@id='section']",
+    "cleanup": [
+      "select[@id='country_nav']"
+    ]
+  },
+  "//wanokokoro-civileng.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//thenewstack.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content' or @class='postfeat']"
+  },
+  "//hirata.blog/": {
+    "type": "xpath",
+    "xpath": "article/section"
+  },
+  "//this.kiji.is/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'main__article')]/article"
+  },
+  "//www.47news.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article_body']"
+  },
+  "//yandod.github.io/blog/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//kubernetes.io/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'blog-content')]"
+  },
+  "//developers.redhat.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//blog.y-yagi.tech/": {
+    "type": "xpath",
+    "xpath": "section[@id='post-body']"
+  },
+  "//blog.nic.ad.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']",
+    "cleanup": [
+      "div[contains(@id,'EntryHeader') or @class='social-btn2' or contains(@id,'ccm-next-previous-') or @class='fb-comments']"
+    ]
   }
 }
