@@ -16288,8 +16288,7 @@
       "header",
       "div[@class='ad-txt' or @class='uae_outstreamplayer']",
       "ul[@class='pagination']"
-    ],
-    "next_page": ""
+    ]
   },
   "//blog.esuteru.com/": {
     "type": "xpath",
@@ -16369,5 +16368,52 @@
     "cleanup": [
       "div[contains(@id,'EntryHeader') or @class='social-btn2' or contains(@id,'ccm-next-previous-') or @class='fb-comments']"
     ]
+  },
+  "//www.sedge-design.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'post-body-')]"
+  },
+  "//www.hayakawabooks.com/n/": {
+    "type": "xpath",
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//takulog.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='theContentWrap-ccc']",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//mercari.connpass.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[@class='group_box']"
+  },
+  "//hawk-a.com/": {
+    "type": "xpath",
+    "xpath": "main/article/header/p[@class='post-thumbnail']|//main/article/section[contains(@class,'entry-content')]"
+  },
+  "//dividable.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div/article/*[@class='post-thumbnail' or @class='post-content']",
+    "cleanup": [
+      "div[contains(@id,'quads-ad')]"
+    ]
+  },
+  "//code.fb.com/": {
+    "type": "xpath",
+    "xpath": "main[@id='main']/article",
+    "cleanup": [
+      "div[@class='entry-social']"
+    ]
+  },
+  "//b-programming.com/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='eye-catch' or @id='the-content']"
+  },
+  "//bizspa.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry-wrap']",
+    "next_page": "article/div[@class='pager-wrap']"
   }
 }
