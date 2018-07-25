@@ -69,6 +69,28 @@ class Togetter {
             return "";
         }
         $list = [];
+        $page_max = 0;
+        foreach($entries as $entry){
+            if(!is_numeric($entry->textContent)){
+                continue;
+            }
+            $i = intval($entry->textContent);
+            if($i <= $page_max){
+                continue;
+            }
+            $page_max = $i;
+        }
+        if($page_max < 2){
+            return "";
+        }
+        foreach(range(2, $page_max) as $page_num){
+            $p_url = $url.'?page='.$page_num;
+            if(in_array($p_url, $list)){
+                continue;
+            }
+            $list[] = $p_url;
+        }
+/*
         foreach($entries as $entry){
             $nurl = "https://togetter.com".$entry->getAttribute('href');
             if($nurl == $url){
@@ -78,7 +100,7 @@ class Togetter {
                 continue;
             }
             $list[] = $nurl;
-        }
+        }*/
         if(count($list) == 0){
             return "";
         }
