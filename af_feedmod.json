@@ -6307,10 +6307,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.kosodateiruka.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//www.kana-ri.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -16124,7 +16120,9 @@
       ".type_url .inner {padding: 10px;padding-bottom: 0;}",
       ".type_url .inner .content {display: block;margin-bottom: 5px;}",
       ".list_box .title {display: block;margin: 5px 0;padding: 0;color: #4a4a4a;font-weight: 600;}",
-      ".type_url .inner .desc {display: block;margin-bottom: 10px;color: #a0a0a0;font-size: 12px;}"
+      ".type_url .inner .desc {display: block;margin-bottom: 10px;color: #a0a0a0;font-size: 12px;}",
+      ".tag_edit_btn{display:none!important;}",
+      ".svg-icon{display:none!important;}"
     ]
   },
   "//www.akitashoten.co.jp/news/": {
@@ -16415,5 +16413,27 @@
     "type": "xpath",
     "xpath": "article/div[@class='entry-wrap']",
     "next_page": "article/div[@class='pager-wrap']"
+  },
+  "//www.kosodateiruka.com/": {
+    "type": "xpath",
+    "xpath": "header/p[@class='post-thumbnail']|//div[@class='theContentWrap-ccc']",
+    "cleanup": [
+      "div[contains(@class,'sponsored')]"
+    ]
+  },
+  "//webdesign-trends.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content' or @class='featured-media']",
+    "cleanup": [
+      "div[contains(@class,'adsense-box') or @class='share-box' or @class='sns-container' or @id='jp-relatedposts']"
+    ]
+  },
+  "//nulab-inc.com/ja/press-release/": {
+    "type": "xpath",
+    "xpath": "div[@class='press-release-article__inner']"
+  },
+  "//i-d.vice.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='short-form-article__body__content']/div[contains(@class,'article_img_wrap') or contains(@class,'article__body')]"
   }
 }
