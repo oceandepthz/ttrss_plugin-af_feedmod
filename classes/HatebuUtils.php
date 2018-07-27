@@ -6,32 +6,6 @@ class HatebuUtils {
         return self::strposa($fetch_url, $target);
     }
     static public function get_hatebu_content(string $url) : string {
-/*
-        $doc = new DOMDocument();
-        @$doc->loadHTML(self::get_hatebu_html($url));
-        if(!$doc){
-            return "";
-        }
-        $xpath = new DOMXPath($doc);
-        
-        // user_count
-        $user_count = "0";
-        $entries = $xpath->query("(//div[@class='entry-bookmark']//span[@class='entry-info-users']/a/span)");
-        if ($entries->length > 0){
-            $user_count = $xpath->evaluate('string()', $entries[0]);
-        }
-
-        // comment
-        $comment = "";
-        $entries = $xpath->query("(//div[contains(@class,'js-bookmarks') and contains(@class,'js-bookmarks-recent')])");
-        if ($entries->length > 0) {
-            foreach ($entries as $entry) {
-                self::cleanup($xpath, $entry, ["p[@class='entry-comment-meta']","button[contains(@class,'entry-comment-menu')]","ul[contains(@class,'entry-comment-menu-list')]"]);
-                $comment .= $doc->saveXML($entry);
-            }
-        }
-*/
-
         // comment
         $comment = self::get_comment($url); 
 
@@ -194,7 +168,9 @@ EOD;
             return '';
         }
         $d = json_decode($json, true);
-
+        if(!is_array($d['bookmarks'])){
+            return '';
+        }
         $c = '';
         foreach($d['bookmarks'] as $b){
             $name = $b['user']['name'];
