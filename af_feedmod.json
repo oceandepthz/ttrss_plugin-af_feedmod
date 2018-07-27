@@ -11741,20 +11741,12 @@
     "type": "xpath",
     "xpath": "div[@class='lo-Column_MainInner']"
   },
-  "//tech-camp.in/note/": {
-    "type": "xpath",
-    "xpath": "article/section[contains(@class,'post-content')]"
-  },
   "//souzoku-academy.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
     "cleanup": [
       "aside"
     ]
-  },
-  "//slackhq.com/": {
-    "type": "xpath",
-    "xpath": "article/div[contains(@class,'postArticle-content')]"
   },
   "//series.yahoo.co.jp/feature/": {
     "type": "xpath",
@@ -14845,33 +14837,6 @@
       ".frame .main-image {width:100px;}"
     ]
   },
-  "//yomidr.yomiuri.co.jp/": {
-    "type": "xpath",
-    "xpath": "article/div[@class='edit-area']",
-    "cleanup": [
-      "div[@class='ad-in-post']"
-    ]
-  },
-  "//komachi.yomiuri.co.jp/": {
-    "type": "xpath",
-    "xpath": "table[@id='topiccontent']//td[@class='m']/p|//table[@id='reslist']"
-  },
-  "//www.yomiuri.co.jp/fukayomi/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[@class='feature-name' or @class='article-upper' or @class='article-pagination' or @class='date-bottom']",
-      "h1"
-    ],
-    "next_page": "div[@class='article-pagination']//ul",
-    "next_page_cleanup": [
-      "li[@class='active']"
-    ]
-  },
-  "//www.yomiuri.co.jp/": {
-    "type": "xpath",
-    "xpath": "article//a[@class='thumbnail']/..|//article/p[@itemprop='articleBody']|//article/div[@class='date-bottom']"
-  },
   "//www.digimonostation.jp/": {
     "type": "xpath",
     "xpath": "article/div/div[@class='entry-content' or contains(@class,'ml-img-size')]"
@@ -16266,10 +16231,6 @@
     "type": "xpath",
     "xpath": "div[@id='js-post-detail-body']"
   },
-  "//www.huffingtonpost.jp/": {
-    "type": "xpath",
-    "xpath": "header/div[contains(@class,'author-byline')]|//div[@class='headline']/h2[@class='headline__subtitle']|//div[contains(@class,'entry__content')]/div[contains(@class,'top-media')]|//div[@id='entry-text']"
-  },
   "//welove.expedia.co.jp/destination/": {
     "type": "xpath",
     "xpath": "div[@class='mainimg_details']|//div[contains(@class,'article_details01')]|//section[contains(@class,'detail_author01')]"
@@ -16435,5 +16396,55 @@
   "//i-d.vice.com/": {
     "type": "xpath",
     "xpath": "div[@class='short-form-article__body__content']/div[contains(@class,'article_img_wrap') or contains(@class,'article__body')]"
+  },
+  "//yomidr.yomiuri.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='edit-area']",
+    "cleanup": [
+      "div[@class='ad-in-post']"
+    ]
+  },
+  "//komachi.yomiuri.co.jp/": {
+    "type": "xpath",
+    "xpath": "table[@id='topiccontent']//td[@class='m']/p|//table[@id='reslist']"
+  },
+  "//www.yomiuri.co.jp/fukayomi/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@class='feature-name' or @class='article-upper' or @class='article-pagination' or @class='date-bottom']",
+      "h1",
+      "aside"
+    ],
+    "next_page": "div[@class='article-pagination']//ul",
+    "next_page_cleanup": [
+      "li[@class='active']"
+    ]
+  },
+  "//www.yomiuri.co.jp/": {
+    "type": "xpath",
+    "xpath": "article//a[@class='thumbnail']/..|//article/p[@itemprop='articleBody']|//article/div[@class='date-bottom']"
+  },
+  "//www.huffingtonpost.jp/": {
+    "type": "xpath",
+    "xpath": "header/div[contains(@class,'author-byline')]|//div[@class='headline']/h2[@class='headline__subtitle']|//div[contains(@class,'entry__content')]/div[contains(@class,'top-media')]|//div[contains(@class,'post-contents')]",
+    "cleanup": [
+      "div[contains(@class,'entry-body--paragraph-ad')]"
+    ]
+  },
+  "//tech-camp.in/note/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'post-content')]"
+  },
+  "//slackhq.com/": {
+    "type": "xpath",
+    "xpath": "header/div[@class='o-wrap--content']|//div[@class='o-wrap--article']"
+  },
+  "//engineer.blog.lancers.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_content']",
+    "cleanup": [
+      "ul[@class='sns-iconBlock']"
+    ]
   }
 }
