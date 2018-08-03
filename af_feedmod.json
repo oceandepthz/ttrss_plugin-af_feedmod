@@ -5298,13 +5298,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//spotnote.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content')]",
-    "cleanup": [
-      "iframe[contains(@src,'rcm-fe.amazon-adsystem.com')]"
-    ]
-  },
   "//naruhodo-cardloan.com/": {
     "type": "xpath",
     "xpath": "div[@class='main-article']",
@@ -5557,13 +5550,6 @@
     "xpath": "section[contains(@class,'entry-content')]",
     "cleanup": [
       "div[@class='ad-word']/.."
-    ]
-  },
-  "//fa-works.com/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='kizi']",
-    "cleanup": [
-      "div[contains(@id,'snsbox')]"
     ]
   },
   "//www.bbc.com/japanese/video-": {
@@ -8256,13 +8242,6 @@
     "cleanup": [
       "div[@id='socialBtn_top' or @id='socialBtn_bottom']"
     ]
-  },
-  "//dime.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='effectArea']",
-    "next_page": "div[@class='articlePager']",
-    "rep_pattern": "/^http:\\/\\/dime\\.jp\\/genre\\/([0-9]+)\\/$/",
-    "rep_replacement": "http://dime.jp/genre/${1}/?first=1"
   },
   "//www.airdays.net/diary/": {
     "type": "xpath",
@@ -12711,10 +12690,6 @@
     "type": "xpath",
     "xpath": "div[@class='main_contents']/div[@class='main_block']"
   },
-  "//support.apple.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='content']"
-  },
   "//soundproof-blog.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -13264,13 +13239,6 @@
     "xpath": "header/p[@class='post-thumbnail']|//section[contains(@class,'entry-content')]",
     "cleanup": [
       "div[contains(@class,'sponsored')]"
-    ]
-  },
-  "//www.sugano.ne.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'-social-')]"
     ]
   },
   "//www.a-k-r.org/d/": {
@@ -14822,21 +14790,6 @@
     "type": "xpath",
     "xpath": "div[@id='contents']"
   },
-  "//gendai.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'articleContents') or contains(@class,'articleFirstImage') or @class='article_author-small']",
-    "next_page": "div[@class='pagination']",
-    "append_css": [
-      ".article_author-small {height: 80px;margin: 10px 0 20px;width: 640px;}",
-      ".article_author-small img {border-radius: 40px;float: left;height: 80px;margin-right: 20px;width: 80px;}",
-      ".article_author-small .article_author-small_name {color: #000000;float: left;font-size: 24px;font-weight: 700;height: 40px;letter-spacing: 1px;line-height: 40px;margin-top: 10px;}",
-      ".article_author-small .article_author-small_title {color: #000000;float: left;font-size: 10px;font-weight: 500;height: 37px;letter-spacing: 0;line-height: 14px;margin-left: 10px;margin-top: 15px;}",
-      ".article_author-small .article_author-small_profileLink {color: #2894d4;float: left;font-size: 13px;font-weight: 700;height: 20px;letter-spacing: 1px;line-height: 18px;margin-top: 10px;width: 520px;}",
-      ".frame {background-color: #eeeeee;line-height: 28px;margin: 40px 0;padding: 20px 30px;}",
-      ".articleContents p {font-size: 16px;line-height: 28px;margin: 1.2em 0;}",
-      ".frame .main-image {width:100px;}"
-    ]
-  },
   "//www.digimonostation.jp/": {
     "type": "xpath",
     "xpath": "article/div/div[@class='entry-content' or contains(@class,'ml-img-size')]"
@@ -15829,10 +15782,6 @@
     "type": "xpath",
     "xpath": "div[@class='js-articleBodyIndex-wrapper-main' or contains(@class,'p-articleHero__thumb-wrapper')]"
   },
-  "//www.afpbb.com/": {
-    "type": "xpath",
-    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]"
-  },
   "//coziest.net/": {
     "type": "xpath",
     "xpath": "article/div[contains(@class,'entry-content')]"
@@ -15846,14 +15795,6 @@
     "xpath": "article",
     "cleanup": [
       "div[@class='c-item__social']"
-    ]
-  },
-  "//www.blog.umentu.work/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-body']",
-    "cleanup": [
-      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts' or contains(@class,'veu_socialSet') or @class='yarpp-related']",
-      "aside[contains(@class,'veu_relatedPosts')]"
     ]
   },
   "//todai-umeet.com/": {
@@ -16445,6 +16386,64 @@
     "xpath": "div[@class='entry_content']",
     "cleanup": [
       "ul[@class='sns-iconBlock']"
+    ]
+  },
+  "//support.apple.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']"
+  },
+  "//fa-works.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='kizi']",
+    "cleanup": [
+      "div[contains(@id,'snsbox')]"
+    ]
+  },
+  "//spotnote.jp/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sponsored')]"
+    ]
+  },
+  "//dime.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='detailMeta_eyecatch']|//div[@class='articleBlock']/div[contains(@class,'entryBody')]",
+    "next_page": "ul[@class='pager_list']"
+  },
+  "//www.afpbb.com/": {
+    "type": "xpath",
+    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]",
+    "next_page": "ul[contains(@class,'pager')]"
+  },
+  "//www.sugano.ne.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'-social-')]"
+    ]
+  },
+  "//gendai.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'articleContents') or contains(@class,'articleFirstImage') or @class='article_author-small']",
+    "next_page": "div[@class='pagination']",
+    "append_css": [
+      ".article_author-small {height: 80px;margin: 10px 0 20px;width: 640px;}",
+      ".article_author-small img {border-radius: 40px;float: left;height: 80px;margin-right: 20px;width: 80px;}",
+      ".article_author-small .article_author-small_name {color: #000000;float: left;font-size: 24px;font-weight: 700;height: 40px;letter-spacing: 1px;line-height: 40px;margin-top: 10px;}",
+      ".article_author-small .article_author-small_title {color: #000000;float: left;font-size: 10px;font-weight: 500;height: 37px;letter-spacing: 0;line-height: 14px;margin-left: 10px;margin-top: 15px;}",
+      ".article_author-small .article_author-small_profileLink {color: #2894d4;float: left;font-size: 13px;font-weight: 700;height: 20px;letter-spacing: 1px;line-height: 18px;margin-top: 10px;width: 520px;}",
+      ".frame {background-color: #eeeeee;line-height: 28px;margin: 40px 0;padding: 20px 30px;}",
+      ".articleContents p {font-size: 16px;line-height: 28px;margin: 1.2em 0;}",
+      ".frame .main-image {width:100px;}"
+    ]
+  },
+  "//www.blog.umentu.work/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts' or contains(@class,'veu_socialSet') or @class='yarpp-related']",
+      "aside[contains(@class,'veu_relatedPosts')]"
     ]
   }
 }
