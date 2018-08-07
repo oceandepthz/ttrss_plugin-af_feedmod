@@ -61,7 +61,7 @@ class Af_Feedmod extends Plugin implements IHandler
     {
         global $fetch_last_content_type;
 
-        $json_conf = $this->host->get($this, 'json_conf');
+        $json_conf = gzuncompress(base64_decode($this->host->get($this, 'json_conf')));
         $owner_uid = $article['owner_uid'];
         $data = json_decode($json_conf, true);
 /*
@@ -545,6 +545,11 @@ class Af_Feedmod extends Plugin implements IHandler
             return $this->get_html_chrome($url);
         } else {
             $r = fetch_file_contents($url);
+/*
+            require_once('classes/FmUtils.php');
+            $u = new FmUtils();
+            $r = $u->url_file_get_contents($url);
+*/
             return $r ? $r : "";
         }
     }
@@ -1263,7 +1268,7 @@ class Af_Feedmod extends Plugin implements IHandler
     function index()
     {
         $pluginhost = PluginHost::getInstance();
-        $json_conf = $pluginhost->get($this, 'json_conf');
+        $json_conf = gzuncompress(base64_decode($pluginhost->get($this, 'json_conf')));
         //$json_conf = $this->jq_format($json_conf);
         //$json_conf = json_encode(json_decode ($json_conf), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES); // decompress
 
@@ -1306,7 +1311,7 @@ function save()
     }
 
     //$json_conf = json_encode(json_decode($json_conf), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES); // compress
-    $this->host->set($this, 'json_conf', $json_conf);
+    $this->host->set($this, 'json_conf', base64_encode(gzcompress($json_conf,1)));
     echo __("Configuration saved.");
 }
 

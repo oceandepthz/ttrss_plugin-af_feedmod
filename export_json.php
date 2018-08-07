@@ -9,4 +9,4 @@
         $content = unserialize($row['content']);
         break;
     }
-    echo $content['json_conf'];
+    echo gzuncompress(base64_decode($content['json_conf']));
