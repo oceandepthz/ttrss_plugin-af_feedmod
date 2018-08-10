@@ -1,7 +1,7 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
 
-ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299');
+ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134');
 
 class Af_Feedmod extends Plugin implements IHandler
 {
@@ -49,29 +49,28 @@ class Af_Feedmod extends Plugin implements IHandler
         return true;
     }
 
-    function get_file_json_data(){
-        $data = [];
-        foreach (glob(__DIR__."/json/*.json") as $filename) {
-            $data = array_merge($data, json_decode(file_get_contents($filename),true));
-        }
-        return $data;
+    function get_json_conf() : string {
+        $json_file_name = __DIR__."/site_conf.json";
+        if(file_exists($json_file_name)){
+            $file_after_ten_min = strtotime("+10 minute", filemtime($json_file_name));
+            if($file_after_ten_min > time()){
+                return file_get_contents($json_file_name);
+            }
+        } 
+        $json_conf = preg_replace("/\r\n|\r|\n/", "\n", gzuncompress(base64_decode($this->host->get($this, 'json_conf'))));
+        //$json_conf = $this->host->get($this, 'json_conf');
+        file_put_contents($json_file_name, $json_conf, LOCK_EX);
+        return $json_conf;
     }
 
     function hook_article_filter($article)
     {
         global $fetch_last_content_type;
 
-        $json_conf = gzuncompress(base64_decode($this->host->get($this, 'json_conf')));
+//$this->__debug_tm('start:'.$article['link']);
+        $json_conf = $this->get_json_conf();
         $owner_uid = $article['owner_uid'];
         $data = json_decode($json_conf, true);
-/*
-        $data = $this->get_file_json_data();
-        if(is_array($data)){
-            $data = array_merge($data, $file_data);
-        }else{
-            $data = $file_data;
-        }
-*/
 
         if (!is_array($data)) {
             // no valid JSON or no configuration at all
@@ -288,6 +287,12 @@ class Af_Feedmod extends Plugin implements IHandler
                 }
         }
         return false;
+    }
+
+    function __debug_tm($v) {
+        $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
+        $um = memory_get_usage() / (1024 * 1024)."MB";
+        $this->__debug("[${dt}][${um}]:${v}");
     }
 
     function __debug($v){
@@ -1269,6 +1274,7 @@ class Af_Feedmod extends Plugin implements IHandler
     {
         $pluginhost = PluginHost::getInstance();
         $json_conf = gzuncompress(base64_decode($pluginhost->get($this, 'json_conf')));
+        //$json_conf = $pluginhost->get($this, 'json_conf');
         //$json_conf = $this->jq_format($json_conf);
         //$json_conf = json_encode(json_decode ($json_conf), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES); // decompress
 
@@ -1312,6 +1318,7 @@ function save()
 
     //$json_conf = json_encode(json_decode($json_conf), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES); // compress
     $this->host->set($this, 'json_conf', base64_encode(gzcompress($json_conf,1)));
+    //$this->host->set($this, 'json_conf', $json_conf);
     echo __("Configuration saved.");
 }
 
