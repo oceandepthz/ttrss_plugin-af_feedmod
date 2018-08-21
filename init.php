@@ -52,7 +52,7 @@ class Af_Feedmod extends Plugin implements IHandler
     function get_json_conf() : string {
         $json_file_name = __DIR__."/site_conf.json";
         if(file_exists($json_file_name)){
-            $file_after_ten_min = strtotime("+10 minute", filemtime($json_file_name));
+            $file_after_ten_min = strtotime("+5 minute", filemtime($json_file_name));
             if($file_after_ten_min > time()){
                 return file_get_contents($json_file_name);
             }
@@ -644,6 +644,10 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             if(substr($next_page, 0, 1) == "?"){
                 $next_page = explode("?", $link)[0].$next_page;
+            }
+            if(substr($next_page, 0, 2) == "//"){
+                $url_item = parse_url($link);
+                $next_page = $url_item['scheme'].':'.$next_page;
             }
             if(substr($next_page, 0, 1) == "/"){
                 $url_item = parse_url($link);
