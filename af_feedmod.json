@@ -16781,5 +16781,31 @@
     "xpath": "article",
     "next_page": "div[@class='paginate']",
     "append_css": "div.center table {width:initial!important;}"
+  },
+  "//words.steveklabnik.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//trust-osk.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//toppamedia.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'veu_socialSet')]"
+    ]
+  },
+  "//tech-lab.sios.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container') or @class='afb_container']"
+    ]
+  },
+  "//take-a-job.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='theContentWrap-ccc']"
   }
 }
