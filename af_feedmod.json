@@ -16807,5 +16807,58 @@
   "//take-a-job.info/": {
     "type": "xpath",
     "xpath": "div[@class='theContentWrap-ccc']"
+  },
+  "//support.sakura.ad.jp/mainte/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//sumaiweb.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='entry-content']"
+  },
+  "//sorabatake.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='content']"
+  },
+  "//snipcart.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-wrapper--small']/div[contains(@class,'post__rte') or @class='post__author']"
+  },
+  "//shuyuy.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='sentence']"
+  },
+  "//shinsho-plus.shueisha.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article_inner']",
+    "cleanup": [
+      "div[@class='article_next' or @class='article_pager' or @class='article_pager_one']"
+    ],
+    "next_page": "div[@class='article_pager']"
+  },
+  "//sakagami3.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  "//research-er.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@class='social-links']"
+    ]
+  },
+  "//realpython.com/": {
+    "type": "xpath",
+    "xpath": "figure|//div[@class='article-body']"
+  },
+  "//realestate-guide.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='va-social-buzz']"
+    ]
   }
 }
