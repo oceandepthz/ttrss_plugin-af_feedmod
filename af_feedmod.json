@@ -2185,10 +2185,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "lepidum.co.jp/blog": {
-    "type": "xpath",
-    "xpath": "div[@class='main']"
-  },
   "gpad.tv": {
     "type": "xpath",
     "xpath": "div[@class='the_content']",
@@ -8105,10 +8101,6 @@
     "cleanup": [
       "div[@class='entry_body_ads' or @class='mamahack-fb' or @class='mamahack-tw']"
     ]
-  },
-  "//ja.wikipedia.org/wiki/": {
-    "type": "xpath",
-    "xpath": "div[@id='mw-content-text']"
   },
   "//iotnews.jp/": {
     "type": "xpath",
@@ -16732,14 +16724,6 @@
       "#novel_a {margin: 40px auto 30px auto;padding: 20px 20px 30px 20px;border-top: 3px double #999999;}"
     ]
   },
-  "//www.bbc.com/japanese/": {
-    "type": "xpath",
-    "xpath": "div[@id='media-asset-page-text' or @id='comp-media-player']"
-  },
-  "//www.bbc.com/": {
-    "type": "xpath",
-    "xpath": "div[@property='articleBody']"
-  },
   "//dividable.net/": {
     "type": "xpath",
     "xpath": "div[@itemprop='articleBody']",
@@ -16859,6 +16843,80 @@
     "xpath": "div[@class='entry-content']",
     "cleanup": [
       "div[@class='va-social-buzz']"
+    ]
+  },
+  "//www.bbc.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='media-asset-page-text' or @id='comp-media-player' or @property='articleBody']"
+  },
+  "//lepidum.co.jp/blog/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//precious.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='entry-column']",
+    "cleanup": [
+      "div[@class='entry_ad' or @class='share']"
+    ]
+  },
+  "//otonanswer.jp/": {
+    "type": "xpath",
+    "xpath": "article/section[@class='detail']"
+  },
+  "//motor-fan.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='subContents']/div[contains(@class,'contentsBox')]"
+  },
+  "//masahikosawada.github.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//marketplace.visualstudio.com/items": {
+    "type": "xpath",
+    "xpath": "div[@class='itemDetails']"
+  },
+  "//lwn.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleText']"
+  },
+  "//lab.sonicmoov.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='all_content']"
+  },
+  "//jp.rbth.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article__summary_') or contains(@class,'article__text_') or contains(@class,'article__cover_')]"
+  },
+  "//johosokuhou.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-text-box']"
+  },
+  "//isuta.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='tj-article__body']"
+  },
+  "//idea.tostring.jp/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'post-content')]"
+  },
+  "//getstream.io/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//firebase.google.com/docs/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  ".wikipedia.org/wiki/": {
+    "type": "xpath",
+    "xpath": "div[@id='mw-content-text']"
+  },
+  "//easyandeasy.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[@id='widget-in-article']"
     ]
   }
 }
