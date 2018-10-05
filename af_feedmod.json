@@ -9492,10 +9492,6 @@
     "type": "xpath",
     "xpath": "div[@id='the-content']"
   },
-  "//www.lifehacker.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='lh-entryDetail-body']/div[@class='lh-entryDetailInner']"
-  },
   "//www.jiji.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'ArticleText')]"
@@ -16963,6 +16959,21 @@
     "xpath": "article/div[@id='post_image_top' or contains(@class,'post_content')]",
     "cleanup": [
       "div[contains(@id,'-ad')]"
+    ]
+  },
+  "//www.lifehacker.jp/amp/": {
+    "type": "xpath",
+    "xpath": "figure/amp-img/img|//div[@class='lh-entryDetail-body']"
+  },
+  "//www.lifehacker.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='lh-entryDetail-body']/div[@class='lh-entryDetailInner']"
+  },
+  "//www.makeuseof.com/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "cleanup": [
+      "div[@class='single-post-sharing-button-list' or contains(@id,'axdsense') or contains(@class,'single-post-navigation') or contains(@class,'single-post-newsletter') or @class='single-post-comments']"
     ]
   }
 }
