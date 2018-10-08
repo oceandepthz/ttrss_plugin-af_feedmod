@@ -138,22 +138,23 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
             $xpath = new DOMXPath($doc);
-
             $links = $this->get_np_links($xpath, $doc, $config, $link);
-            $entries = $xpath->query('(//'.$config['xpath'].')');   // find main DIV according to config
-            if ($entries->length == 0) {
+            $entrysXML = $this->get_xpath_contents($doc, $xpath, $config['xpath']);
+            if(strlen($entrysXML) === 0){
                 break;
             }
-
             $is_execute = true;
-            $entrysXML = '';
-            foreach ($entries as $entry) {
-                if ($entry) {
-                    $entrysXML .= $doc->saveXML($entry);
-                }
-            }
             $article['content'] = $entrysXML;
             $article['plugin_data'] = "feedmod,$owner_uid:" . $article['plugin_data'];
+
+            $head_content = '';
+            if(isset($config['head_xpath']) && $config['head_xpath']){
+                $head_content = $this->get_xpath_contents($doc, $xpath, $config['head_xpath']);
+            }
+            $foot_content = '';
+            if(isset($config['foot_xpath']) && $config['foot_xpath']){
+                $foot_content = $this->get_xpath_contents($doc, $xpath, $config['foot_xpath']);
+            }
 
             foreach($links as $url){
                 $html = $this->get_html($url, $config);
@@ -164,18 +165,16 @@ class Af_Feedmod extends Plugin implements IHandler
                 }
 
                 $xpath = new DOMXPath($doc);
-                $entries = $xpath->query('(//'.$config['xpath'].')');   // find main DIV according to config
-                if($entries->length == 0) {
-                    break;
+                $article['content'] .= $this->get_xpath_contents($doc, $xpath, $config['xpath']);
+
+                if(isset($config['head_xpath']) && $config['head_xpath'] && strlen($head_content) === 0){
+                    $head_content = $this->get_xpath_contents($doc, $xpath, $config['head_xpath']);
                 }
-                $entrysXML = '';
-                foreach ($entries as $entry) {
-                    if ($entry) {
-                        $entrysXML .= $doc->saveXML($entry);
-                    }
+                if(isset($config['foot_xpath']) && $config['foot_xpath'] && strlen($foot_content) === 0 ){
+                    $foot_content = $this->get_xpath_contents($doc, $xpath, $config['foot_xpath']);
                 }
-                $article['content'] .= $entrysXML;
             }
+            $article['content'] = $head_content . $article['content'] . $foot_content;
             break;   // if we got here, we found the correct entry in $data, do not process more
         }
 
@@ -256,6 +255,20 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         
         return $article;
+    }
+
+    function get_xpath_contents(DOMDocument $doc, DOMXPath $xpath, string $query_xpath): string {
+        $entries = $xpath->query("(//${query_xpath})");
+        if ($entries->length == 0) {
+            return '';
+        }
+        $contents = '';
+        foreach ($entries as $entry) {
+            if ($entry) {
+                $contents .= $doc->saveXML($entry);
+            }
+        }
+        return $contents;
     }
 
     function get_redirect_url(string $url): string {
@@ -531,6 +544,9 @@ class Af_Feedmod extends Plugin implements IHandler
     }
     function is_googleblog_com(string $url) : bool {
         if(strpos($url, ".googleblog.com/") !== false){
+            return true;
+        }
+        if(strpos($url, "//blog.chromium.org/") !== false){
             return true;
         }
         return false;
