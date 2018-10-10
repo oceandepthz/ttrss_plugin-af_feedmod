@@ -11200,10 +11200,6 @@
       "div[@id='wp_rp_first' or contains(@class,'sharedaddy') or contains(@id,'like-post-wrapper-')]"
     ]
   },
-  "//code.visualstudio.com/blogs/": {
-    "type": "xpath",
-    "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]"
-  },
   "//blog.guts-kaneko.com/": {
     "type": "xpath",
     "xpath": "figure[@class='eye-catch']|//div[@id='the-content']"
@@ -16967,16 +16963,35 @@
       "div[contains(@id,'atatags-') or @class='wpcnt']"
     ]
   },
+  "//blog.chromium.org/": {
+    "type": "xpath",
+    "xpath": "body"
+  },
+  "//code.visualstudio.com/blogs/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]"
+  },
+  "//code.visualstudio.com/updates/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]",
+    "cleanup": [
+      "div[@class='feedback']"
+    ]
+  },
+  "//www.blog.google/": {
+    "type": "xpath",
+    "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
+  },
+  "//news.kyash.co/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
   "//www.buzzfeed.com/": {
     "type": "xpath",
     "xpath": "article[contains(@class,'article') or contains(@class,'buzz--list')]",
     "cleanup": [
-      "div[contains(@id,'mod-action-bar-')]"
+      "div[contains(@id,'mod-action-bar-') or contains(@class,'action-bar--top')]"
     ],
     "append_css": "div.subbuzz__media-container{padding-top:0!important;}"
-  },
-  "//blog.chromium.org/": {
-    "type": "xpath",
-    "xpath": "body"
   }
 }
