@@ -857,13 +857,6 @@
       "div[@class='google-user-ad']"
     ]
   },
-  "appmarketinglabo.net": {
-    "type": "xpath",
-    "xpath": "div[@class='entry']",
-    "cleanup": [
-      "*[starts-with(@class, 'wp_social_bookmarking_')]"
-    ]
-  },
   "www.laddy.info": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -3794,10 +3787,6 @@
       "div[starts-with(@class,'sharedaddy') or @id='jp-relatedposts']"
     ]
   },
-  "www.dtmstation.com": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']"
-  },
   "blog.codic.jp": {
     "type": "xpath",
     "xpath": "div[starts-with(@class,'the-content')]"
@@ -4905,14 +4894,6 @@
   "//www.kaoriya.net/blog/": {
     "type": "xpath",
     "xpath": "blockquote[@class='post-summary']|//div[@class='post-body']"
-  },
-  "//www.fashionsnap.com/the-posts/": {
-    "type": "xpath",
-    "xpath": "section[@class='body']",
-    "cleanup": [
-      "div[@class='header-social' or contains(@id,'div-gpt-ad-') or @class='article-footer']",
-      "script[contains(text(),'n.teads.tv/media/format.j')]"
-    ]
   },
   "//the01.jp/": {
     "type": "xpath",
@@ -7135,13 +7116,6 @@
       "div[@class='ad-label' or @class='ad-300']"
     ]
   },
-  "//www.fashionsnap.com/inside/": {
-    "type": "xpath",
-    "xpath": "section[@class='body']",
-    "cleanup": [
-      "div[@class='header-social']"
-    ]
-  },
   "//www.mashilog.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -9263,10 +9237,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'single__content')]"
   },
-  "//sbfl.net/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//blog.livedoor.jp/lalha/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
@@ -9625,14 +9595,6 @@
   "//nijigenkisei.ldblog.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
-  },
-  "//www.fashionsnap.com/": {
-    "type": "xpath",
-    "xpath": "section[contains(@class,'body')]",
-    "cleanup": [
-      "div[contains(@id,'div-gpt-ad-') or @class='header-social']",
-      "script[contains(@src,'.teads.tv/')]"
-    ]
   },
   "//www.flopdesign.com/": {
     "type": "xpath",
@@ -13478,64 +13440,6 @@
     "type": "xpath",
     "xpath": "div[@class='main_contents']"
   },
-  "//gihyo.jp/dp/ebook/": {
-    "type": "xpath",
-    "xpath": "div[@id='bookInforMain']",
-    "cleanup": [
-      "aside[@id='social']",
-      "a[contains(@href,'cartAdd')]"
-    ]
-  },
-  "//gihyo.jp/design/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/serial/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/admin/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/book/pickup/": {
-    "type": "xpath",
-    "xpath": "div[@id='article' or @id='noticebookLink']",
-    "cleanup": [
-      "div[@class='sectionInfo01']"
-    ]
-  },
-  "//gihyo.jp/book/": {
-    "type": "xpath",
-    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
-    "cleanup": [
-      "dl[@class='storeLink01']"
-    ]
-  },
-  "//gihyo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
   "//www.technologyreview.jp/": {
     "type": "xpath",
     "xpath": "article",
@@ -16993,5 +16897,140 @@
       "div[contains(@id,'mod-action-bar-') or contains(@class,'action-bar--top')]"
     ],
     "append_css": "div.subbuzz__media-container{padding-top:0!important;}"
+  },
+  "//www.dtmstation.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//sbfl.net/blog/": {
+    "type": "xpath",
+    "xpath": "div[@id='entry-content']"
+  },
+  "//gihyo.jp/dp/ebook/": {
+    "type": "xpath",
+    "xpath": "div[@id='bookInforMain']",
+    "cleanup": [
+      "aside[@id='social']",
+      "a[contains(@href,'cartAdd')]"
+    ]
+  },
+  "//gihyo.jp/design/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/serial/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/admin/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/book/pickup/": {
+    "type": "xpath",
+    "xpath": "div[@id='article' or @id='noticebookLink']",
+    "cleanup": [
+      "div[@class='sectionInfo01']"
+    ]
+  },
+  "*//gihyo.jp/book/*/*/content/commentary": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='article']/div[contains(@class,'readingContent')]",
+    "head_xpath": "div[@id='primary']/*[contains(@class,'mainTitle') or contains(@class,'subTitle')]",
+    "next_page": "div[@id='article']/div[contains(@class,'pageSwitch')]/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/book/": {
+    "type": "xpath",
+    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
+    "cleanup": [
+      "dl[@class='storeLink01']"
+    ]
+  },
+  "//gihyo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//appmarketinglabo.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//www.fashionsnap.com/the-posts/": {
+    "type": "xpath",
+    "xpath": "section[@class='body']",
+    "cleanup": [
+      "div[@class='header-social' or contains(@id,'div-gpt-ad-') or @class='article-footer']",
+      "script[contains(text(),'n.teads.tv/media/format.j')]"
+    ]
+  },
+  "//www.fashionsnap.com/inside/": {
+    "type": "xpath",
+    "xpath": "section[@class='body']",
+    "cleanup": [
+      "div[@class='header-social']"
+    ]
+  },
+  "//www.fashionsnap.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "next_page": "ul[contains(@class,'pagination')]"
+  },
+  "//www.apps-gcp.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//sunchi.jp/": {
+    "type": "xpath",
+    "xpath": "main/div/div[@class='singleVisual__thumb']|//article/*[@class='c-single_contents' or @class='single_title__special']"
+  },
+  "//ednjapan.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='cmsBody']",
+    "cleanup": [
+      "script",
+      "link",
+      "div[contains(@class,'Socialbutton') or @id='notice' or @id='start']"
+    ],
+    "next_page": "div[@id='start']"
+  },
+  "//blog.zaim.co.jp/n/": {
+    "type": "xpath",
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//blog.yuyat.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//bkkcast.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//arslan.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']"
   }
 }
