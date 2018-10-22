@@ -12947,10 +12947,6 @@
       "aside[@class='bzb-sns-area']"
     ]
   },
-  "//bijutsutecho.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='sl_content' or @class='sl_ic-img' or @class='expt']"
-  },
   "//backspace.fm/episode/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -17085,5 +17081,44 @@
   "//corp.sejuku.net/": {
     "type": "xpath",
     "xpath": "section[@id='mainWrap']"
+  },
+  "//bijutsutecho.com/": {
+    "type": "xpath",
+    "xpath": "header[@class='magazine-id__header']/*[@class='magazine-id__lead' or @class='magazine-id__eyecatch']|//div[@class='magazine-id__body-section']/section[@class='text-body']"
+  },
+  "//www.sodo-shed.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry-content']"
+  },
+  "//www.rfc-editor.org/rfc/": {
+    "type": "xpath",
+    "xpath": "xhtml:body"
+  },
+  "//tech.basicinc.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//resemom.jp/": {
+    "type": "xpath",
+    "xpath": "main/div[contains(@class,'arti-content')]",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//medium.freecodecamp.org/": {
+    "type": "xpath",
+    "xpath": "article/div/section[contains(@class,'section--body')]"
+  },
+  "//media.dglab.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='detail_text']"
+  },
+  "//design-plus1.com/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
+  },
+  "//courrier.jp/news/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='article_catch_image_area_box' or @class='article_medias' or @class='article_text_by' or @class='article_text_area']"
   }
 }
