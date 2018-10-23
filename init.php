@@ -496,7 +496,11 @@ class Af_Feedmod extends Plugin implements IHandler
         return "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body><main><img src='${image_url}' class='eyecatch' style='width:480px;'><p>${image_caption}</p><article>${body}</article></main></body></html>";
     }
     function get_note_mu_json_url(string $url) : string {
-        preg_match('/^https:\/\/note\.mu\/.*\/n\/(.*)$/', $url, $match);
+        $pattern = '/^https:\/\/note\.mu\/.*\/n\/(.*)$/';
+        if(strpos($url, '//note.mu/') === false){
+            $pattern = '/^https:\/\/.*\/n\/(.*)$/';
+        }
+        preg_match($pattern, $url, $match);
         if(count($match) == 2){
             $key = $match[1];
             return "https://note.mu/api/v1/notes/${key}";
