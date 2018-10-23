@@ -251,15 +251,6 @@
     "type": "xpath",
     "xpath": "div[@class='MdMTMWidgetList01']"
   },
-  "//anond.hatelabo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='section' or @class='refererlist']",
-    "cleanup": [
-      "div[@class='afc']",
-      "p[@class='share-button']",
-      "p[@class='sectionfooter']"
-    ]
-  },
   "inazumanews2.com": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']",
@@ -492,16 +483,6 @@
     "cleanup": [
       "div[@class='article']"
     ]
-  },
-  "portal.nifty.com": {
-    "type": "xpath",
-    "xpath": "div[@id='mainContentsInner']",
-    "cleanup": [
-      "h1",
-      "div[@id='ydn_ad']",
-      "div[@id='links']"
-    ],
-    "next_page": "div[@id='links']"
   },
   "www.ichitetsu.com": {
     "type": "xpath",
@@ -17120,5 +17101,30 @@
   "//courrier.jp/news/": {
     "type": "xpath",
     "xpath": "article/*[@class='article_catch_image_area_box' or @class='article_medias' or @class='article_text_by' or @class='article_text_area']"
+  },
+  "//dailyportalz.jp/kiji/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainContentsInner']/div[contains(@class,'contentblock')]",
+    "cleanup": [
+      "div[@class='writer-detail']//a[contains(@href,'//twitter.com/') or contains(@href,'//plus.google.com/')]",
+      "div[@id='links']"
+    ],
+    "next_page": "div[@id='links']"
+  },
+  "//blog.whywrite.it/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//anond.hatelabo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='section' or @class='refererlist']",
+    "cleanup": [
+      "div[@class='afc']",
+      "p[@class='share-button' or @class='sectionfooter']",
+      "img[@class='icon']/.."
+    ]
   }
 }
