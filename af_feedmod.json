@@ -17126,5 +17126,16 @@
       "p[@class='share-button' or @class='sectionfooter']",
       "img[@class='icon']/.."
     ]
+  },
+  "//vtub0.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[contains(@class,'eyecatch')]|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  "//be-higher.jp/ceoblog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entryBox')]/p"
   }
 }
