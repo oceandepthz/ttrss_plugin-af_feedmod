@@ -17118,15 +17118,6 @@
       "div[contains(@class,'sharedaddy')]"
     ]
   },
-  "//anond.hatelabo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='section' or @class='refererlist']",
-    "cleanup": [
-      "div[@class='afc']",
-      "p[@class='share-button' or @class='sectionfooter']",
-      "img[@class='icon']/.."
-    ]
-  },
   "//vtub0.com/": {
     "type": "xpath",
     "xpath": "header/figure[contains(@class,'eyecatch')]|//article/section[contains(@class,'entry-content')]",
@@ -17137,5 +17128,32 @@
   "//be-higher.jp/ceoblog/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entryBox')]/p"
+  },
+  "//anond.hatelabo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='day']/h2|//div[@class='body' or @class='refererlist']",
+    "cleanup": [
+      "div[@class='afc']",
+      "p[@class='share-button' or @class='sectionfooter']",
+      "img[@class='icon']/.."
+    ],
+    "append_css": [
+      "h2 {background-color: #5279e7;font-size: 100%;margin: 5px 0 0;padding: 3px 0 2px 10px;width: auto;}",
+      "div.body {border: 1px solid #5279e7;font-size: 90%;line-height: 1.5;margin-bottom: 0;margin-top: 0;padding: 3px 10px;width: auto;}",
+      "div.refererlist {font-size: 90%;margin: 0;padding: 0;width: auto;}",
+      "div.caption {border-bottom: 1px solid #5279e7;margin: 8px 0 0;}",
+      "div.refererlist ul {background-color: #edf1fd;list-style-position: inside;list-style-type: circle; margin: 0;padding: 5px;}",
+      "h2 span.date {color: #ffffff;font-size: 100%;font-style: normal;margin-left: 2px;margin-right: 2px;}",
+      "a.keyword {border-bottom: 1px solid #d0d0d0;color: black;text-decoration: none;}",
+      ".refererlist .box-curve {background: #ffffff none repeat scroll 0 0;border-radius: 6px;margin: 3px auto 8px 0;padding: 4px 0;width: 80%;}",
+      ".refererlist .box-curve p {margin: 0;padding: 1px 6px;text-indent: 0;}",
+      ".refererlist li {list-style-type: disc;}",
+      "div.refererlist ul ul {background-color: #edf1fd;list-style-position: inside;list-style-type: disc;margin: 0 0 0 5%;padding: 0;}",
+      ".refererlist li li {list-style-type: circle;}"
+    ]
+  },
+  "//www.appstars.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='feature-img' or @class='indexed-texts']"
   }
 }
