@@ -230,7 +230,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
                 }
-                $this->update_html_style($xpath, $entry);
+                $this->update_html_style($xpath, $entry, $link);
                 $this->update_tag($doc, $xpath, $entry, $link);
 
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
@@ -1126,7 +1126,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
     }
 
-    function update_html_style(DOMXPath $xpath, DOMElement $basenode) : void {
+    function update_html_style(DOMXPath $xpath, DOMElement $basenode, string $link) : void {
         if(!$basenode){
             return;
         }
@@ -1146,6 +1146,30 @@ class Af_Feedmod extends Plugin implements IHandler
             $is_update = false;
             if(array_key_exists('display', $style) && $style['display'] == 'none'){
                 $style['display'] = '';
+                $is_update = true;
+            }
+            if(array_key_exists('background-image', $style)){
+                preg_match('/^.*[\'\"](.*)[\'\"].*$/', $style['background-image'], $match);
+                if(count($match) != 2){
+                    continue;
+                }
+                $src = $match[1];
+                $scheme = parse_url($link, PHP_URL_SCHEME);
+                $host = parse_url($link, PHP_URL_HOST);
+                if(!$scheme){
+                    $scheme = 'http';
+                }
+                if(substr($src,0,2) == "//"){
+                    $src = $scheme.':'.$src;
+                }else if(substr($src,0,1) == "/"){
+                    $src = $scheme.'://'.$host.$src;
+                }else if(substr($src, 0,4) != "http"){
+                    $pos = strrpos($link, "/");
+                    if($pos){
+                        $src = substr($link, 0, $pos+1).$src;
+                    }
+                }
+                $style['background-image'] = "url('${src}')";
                 $is_update = true;
             }
 
@@ -1240,11 +1264,11 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         foreach($list as $node){
             $src = $node->getAttribute($attr);
-	        $url_item = parse_url($link);
-	        $scheme = $url_item['scheme'];
-	        if(!$scheme){
-	            $scheme = 'http';
-	        }
+            $url_item = parse_url($link);
+            $scheme = $url_item['scheme'];
+            if(!$scheme){
+                $scheme = 'http';
+            }
             if(substr($src,0,2) == "//"){
                 $src = $scheme.':'.$src;
             }else if(substr($src,0,1) == "/"){
