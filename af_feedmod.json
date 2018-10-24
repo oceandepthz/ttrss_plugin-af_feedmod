@@ -10556,14 +10556,6 @@
     "type": "xpath",
     "xpath": "div[@class='ind']"
   },
-  "//business.nikkeibp.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='articleBody']",
-    "next_page": "div[@class='pageNumber']",
-    "next_page_cleanup": [
-      "a[@class='current' or @class='next']"
-    ]
-  },
   "//www.dreamnews.jp/press/": {
     "type": "xpath",
     "xpath": "div[@id='section01' or @id='document' or @id='outline']"
@@ -14850,10 +14842,6 @@
       "div[contains(@class,'td-g-rec') or contains(@id,'quads-ad')]"
     ]
   },
-  "//logmi.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='outline-head' or @id='article' or @id='img-article-main']"
-  },
   "//shimz.me/blog/": {
     "type": "xpath",
     "xpath": "div[@class='content-inside']/div[contains(@class,'entry')]"
@@ -15735,21 +15723,6 @@
     "xpath": "div[contains(@class,'entry-content')]",
     "cleanup": [
       "div[contains(@class,'-social-')]"
-    ]
-  },
-  "//gendai.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'articleContents') or contains(@class,'articleFirstImage') or @class='article_author-small']",
-    "next_page": "div[@class='pagination']",
-    "append_css": [
-      ".article_author-small {height: 80px;margin: 10px 0 20px;width: 640px;}",
-      ".article_author-small img {border-radius: 40px;float: left;height: 80px;margin-right: 20px;width: 80px;}",
-      ".article_author-small .article_author-small_name {color: #000000;float: left;font-size: 24px;font-weight: 700;height: 40px;letter-spacing: 1px;line-height: 40px;margin-top: 10px;}",
-      ".article_author-small .article_author-small_title {color: #000000;float: left;font-size: 10px;font-weight: 500;height: 37px;letter-spacing: 0;line-height: 14px;margin-left: 10px;margin-top: 15px;}",
-      ".article_author-small .article_author-small_profileLink {color: #2894d4;float: left;font-size: 13px;font-weight: 700;height: 20px;letter-spacing: 1px;line-height: 18px;margin-top: 10px;width: 520px;}",
-      ".frame {background-color: #eeeeee;line-height: 28px;margin: 40px 0;padding: 20px 30px;}",
-      ".articleContents p {font-size: 16px;line-height: 28px;margin: 1.2em 0;}",
-      ".frame .main-image {width:100px;}"
     ]
   },
   "//www.blog.umentu.work/": {
@@ -17155,5 +17128,43 @@
   "//www.appstars.io/": {
     "type": "xpath",
     "xpath": "div[@class='feature-img' or @class='indexed-texts']"
+  },
+  "//trillionsmiles.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='main-expand']//article/div[@class='post-pict' or @class='post-body']"
+  },
+  "//logmi.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='speaker-list' or @class='log-event' or @class='log-lead-sentence']|//div[@class='l-article-grid-main']/section/div[contains(@class,'log-content')]"
+  },
+  "//business.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "next_page": "div[@class='pageNumber']",
+    "next_page_cleanup": [
+      "a[@class='current' or @class='next']"
+    ],
+    "append_css": [
+      "#articleBody h4 {border-bottom: 5px solid #e8e8e8;clear: both;font-size: 20px;line-height: 1.5;margin: 50px 0 30px;padding-bottom: 0;}",
+      "#articleBody .speaker01 {color: #165e83;font-weight: bold;}",
+      "#articleBody .bpquestion {font-weight: bold;}",
+      "#articleBody .bpquestion::before {content: '――';font-weight: bold;}"
+    ]
+  },
+  "//gendai.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'articleContents') or contains(@class,'articleFirstImage') or @class='article_author-small']",
+    "next_page": "div[@class='pagination']",
+    "append_css": [
+      ".article_author-small {height: 80px;margin: 10px 0 20px;width: 640px;}",
+      ".article_author-small img {border-radius: 40px;float: left;height: 80px;margin-right: 20px;width: 80px;}",
+      ".article_author-small .article_author-small_name {color: #000000;float: left;font-size: 24px;font-weight: 700;height: 40px;letter-spacing: 1px;line-height: 40px;margin-top: 10px;}",
+      ".article_author-small .article_author-small_title {color: #000000;float: left;font-size: 10px;font-weight: 500;height: 37px;letter-spacing: 0;line-height: 14px;margin-left: 10px;margin-top: 15px;}",
+      ".article_author-small .article_author-small_profileLink {color: #2894d4;float: left;font-size: 13px;font-weight: 700;height: 20px;letter-spacing: 1px;line-height: 18px;margin-top: 10px;width: 520px;}",
+      ".frame {background-color: #eeeeee;line-height: 28px;margin: 40px 0;padding: 20px 30px;}",
+      ".articleContents p {font-size: 16px;line-height: 28px;margin: 1.2em 0;}",
+      ".frame .main-image {width:100px;}",
+      ".articleFirstImage {background-position: center center;background-size: cover;height: 375px;min-width: 1020px;position: relative;width: 100%;}"
+    ]
   }
 }
