@@ -6493,18 +6493,6 @@
     "type": "xpath",
     "xpath": "div[@class='content_area']"
   },
-  "//www.brother.co.jp/product/printer/sp/m/": {
-    "type": "xpath",
-    "xpath": "section[@id='articles']",
-    "cleanup": [
-      "aside[@id='share_button']",
-      "section[@id='sns_share']"
-    ]
-  },
-  "//www.brother.co.jp/product/printer/sp/": {
-    "type": "xpath",
-    "xpath": "div[@class='mv']/div[@class='kiji_img']|//div[@class='kiji' or @class='mv_kiji']"
-  },
   "//www.si-po.jp/post/column/": {
     "type": "xpath",
     "xpath": "div[@class='articleMainArea']",
@@ -7875,10 +7863,6 @@
       "div[@class='sns' or @class='master-post-advert']"
     ]
   },
-  "//masatohagiwara.net/": {
-    "type": "xpath",
-    "xpath": "section[@class='main-content']"
-  },
   "//emacs.rubikitch.com/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
@@ -8032,13 +8016,6 @@
   "//2chcopipe.com/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
-  },
-  "//torounit.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
-    "cleanup": [
-      "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
-    ]
   },
   "//www.yunabe.jp/docs/": {
     "type": "xpath",
@@ -11572,10 +11549,6 @@
       "div[contains(@class,'ads_') or @class='add']"
     ]
   },
-  "//fullswing.dena.com/": {
-    "type": "xpath",
-    "xpath": "article"
-  },
   "//fesoku.net/": {
     "type": "xpath",
     "xpath": "div[@class='article-body' or @class='article-body-more']",
@@ -14108,14 +14081,6 @@
     "type": "xpath",
     "xpath": "div[@id='entryBody']"
   },
-  "//www.u-tokyo.ac.jp/ja/news/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry_details']",
-    "cleanup": [
-      "div[@id='fb-root' or contains(@class,'fb-like')]",
-      "iframe[contains(@class,'twitter-share-button')]"
-    ]
-  },
   "//king.mineo.jp/magazines/special/": {
     "type": "xpath",
     "xpath": "div[@class='mineo-magazine-detail']/p/img|//div[@class='mineo-magazine-detail']/p[contains(@class,'readable')]"
@@ -14377,10 +14342,6 @@
     "type": "xpath",
     "xpath": "div[@class='ar-title-sentence__sentence' or @class='ar-serialize-title__inner']",
     "next_page": "div[@class='ar-pager']"
-  },
-  "//www.kyobun.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='content_excerpt']"
   },
   "//www.jleague.jp/release/": {
     "type": "xpath",
@@ -15760,15 +15721,6 @@
       "div[contains(@class,'code-block')]",
       "aside"
     ]
-  },
-  "//news.denfaminicogamer.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='articleBody']",
-    "cleanup": [
-      "div[@class='next_page_header']"
-    ],
-    "next_page": "div[contains(@class,'pager') and contains(@class,'upper')]/div[@class='pagerInner']",
-    "append_css": "img.size-full {width: 500px!important;} div.entry-profile-icon-img img {width:80px!important;height:80px!important;}"
   },
   "//headlines.yahoo.co.jp/videonews/ann": {
     "type": "xpath",
@@ -17166,5 +17118,136 @@
       ".frame .main-image {width:100px;}",
       ".articleFirstImage {background-position: center center;background-size: cover;height: 375px;min-width: 1020px;position: relative;width: 100%;}"
     ]
+  },
+  "//news.denfaminicogamer.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "cleanup": [
+      "div[@class='next_page_header']"
+    ],
+    "next_page": "div[contains(@class,'pager') and contains(@class,'upper')]/div[@class='pagerInner']",
+    "append_css": [
+      "img.size-full {width: 500px!important;} div.entry-profile-icon-img img {width:80px!important;height:80px!important;}",
+      "#articleBody figure figcaption {background-color: #e0e0e0;font-size: 1.2rem;line-height: 110%;padding: 8px;}",
+      ".entry-profile-icon-prof {background-color: #333333;color: white;display: inline-block;font-size: 14px;padding: 5px 10px;}",
+      ".entry-profile-icon-box {border: 2px solid #333;overflow: hidden;padding: 10px 20px;position: relative;}",
+      ".entry-profile-icon-img {display: block;float: left;width: 80px;}",
+      ".entry-profile-icon-textbox {margin-left: 96px;}"
+    ]
+  },
+  "//torounit.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
+    "cleanup": [
+      "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
+    ]
+  },
+  "//www.kyobun.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='td-post-content']",
+    "cleanup": [
+      "div[contains(@class,'td-a-rec-id-content_bottom') or contains(@class,'td-pb-border-top')]"
+    ]
+  },
+  "//masatohagiwara.net/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'d-column')]"
+  },
+  "//fullswing.dena.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='mainarticle']/div[@class='main' or @class='thumb-wrapper']"
+  },
+  "//www.u-tokyo.ac.jp/focus/": {
+    "type": "xpath",
+    "xpath": "div[@class='editableHtml']"
+  },
+  "//www.u-tokyo.ac.jp/ja/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_details']",
+    "cleanup": [
+      "div[@id='fb-root' or contains(@class,'fb-like')]",
+      "iframe[contains(@class,'twitter-share-button')]"
+    ]
+  },
+  "//www.redhat.com/en/about/press-releases/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//www.redhat.com/en/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='rh-default--component']"
+  },
+  "//www.hareruyamtg.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='honbun_wrap']/div/article"
+  },
+  "//www.elephantech.co.jp/pickups/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='sns' or @id='jp-relatedposts']"
+    ]
+  },
+  "//www.codeotaku.com/journal/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//www.cncf.io/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'main-content')]"
+  },
+  "//www.brother.co.jp/product/printer/sp/m/": {
+    "type": "xpath",
+    "xpath": "section[@id='articles']",
+    "cleanup": [
+      "aside[@id='share_button']",
+      "section[@id='sns_share']"
+    ]
+  },
+  "//www.brother.co.jp/product/printer/sp/": {
+    "type": "xpath",
+    "xpath": "div[@class='mv']/div[@class='kiji_img']|//div[@class='kiji' or @class='mv_kiji']"
+  },
+  "//www.brother.co.jp/product/printer/home/magazine/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'mod-freeHTMLinner')]/section",
+    "cleanup": [
+      "div[@class='sns']"
+    ]
+  },
+  "//waraukurumi.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='pt-post-thumb' or @class='pt-post-main-box']",
+    "cleanup": [
+      "section[@id='ad-single']",
+      "div[contains(@class,'sponsor-') or contains(@class,'ad-single-') or @class='va-social-buzz' or @class='merumaga' or @id='wrap-sns' or @class='hidden_comments']"
+    ]
+  },
+  "//standard.shiftbrain.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//singoro.net/note/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/div[contains(@id,'post-')]/div[contains(@class,'entry-content')]"
+  },
+  "//marketingtoday.jp/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='eye-catch' or @id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'swpm-more-tag-not-logged-in')]"
+    ]
+  },
+  "//evilmartians.com/chronicles/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//d-toybox.com/studio/weblog/show.php": {
+    "type": "xpath",
+    "xpath": "main/section"
+  },
+  "//blog.atom.io/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post') and contains(@class,'markdown')]"
   }
 }
