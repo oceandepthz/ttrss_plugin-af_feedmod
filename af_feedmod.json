@@ -11751,13 +11751,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.switch-science.com/catalog/": {
-    "type": "xpath",
-    "xpath": "div[@id='product']/div[@class='data' OR @class='contents']",
-    "cleanup": [
-      "div[@id='item-sns-buttons']"
-    ]
-  },
   "//www.sinkan.jp/news/": {
     "type": "xpath",
     "xpath": "article",
@@ -17249,5 +17242,23 @@
   "//blog.atom.io/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'post') and contains(@class,'markdown')]"
+  },
+  "//www.switch-science.com/catalog/": {
+    "type": "xpath",
+    "xpath": "div[@id='product']/div[@class='data' OR @class='contents']",
+    "cleanup": [
+      "div[@id='item-sns-buttons']"
+    ]
+  },
+  "//www.lawson.co.jp/company/news/detail/": {
+    "type": "xpath",
+    "xpath": "div[@id='contentsFrame']",
+    "cleanup": [
+      "a[@class='navButton_back']"
+    ]
+  },
+  "//maintenance.hatena.ne.jp/m/": {
+    "type": "xpath",
+    "xpath": "div[@id='container']/article"
   }
 }
