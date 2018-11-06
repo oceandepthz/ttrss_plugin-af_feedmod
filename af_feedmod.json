@@ -2593,11 +2593,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "www.excite.co.jp/News": {
-    "type": "xpath",
-    "xpath": "div[@class='story']",
-    "next_page": "div[@id='storyPager']"
-  },
   "bashalog.c-brains.jp": {
     "type": "xpath",
     "xpath": "header//p[@class='thumb' or @class='author']|//div[@class='entry-body']"
@@ -5150,7 +5145,7 @@
       "div[@class='article-ad' or @id='va-social-buzz']"
     ]
   },
-  "//www.infoq.com/jp/": {
+  "//www.infoq.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'text_content_container')]",
     "cleanup": [
@@ -8568,10 +8563,6 @@
     "type": "xpath",
     "xpath": "section[@class='post-content']"
   },
-  "//engineering.linecorp.com/ja/blog/": {
-    "type": "xpath",
-    "xpath": "div[@id='out']"
-  },
   "//aki.shirai.as/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -8745,14 +8736,6 @@
   "//www.amamiyashion.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//jp.automaton.am/": {
-    "type": "xpath",
-    "xpath": "header[@class='td-post-title']|//div[@class='td-post-content']",
-    "cleanup": [
-      "div[@class='social4i' or contains(@class,'td-a-rec') or contains(@id,'wpdevar_comment_') or contains(@class,'code-block') or contains(@class,'td-g-rec')]"
-    ],
-    "append_css": "img.size-full {width: 500px!important;}"
   },
   "//surutto-news.com/": {
     "type": "xpath",
@@ -17260,5 +17243,88 @@
   "//maintenance.hatena.ne.jp/m/": {
     "type": "xpath",
     "xpath": "div[@id='container']/article"
+  },
+  "//engineering.linecorp.com/ja/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'yuzo_related_post') or contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//x1.inkenkun.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.forcia.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='blogBody' or @class='blogAuthor']"
+  },
+  "//www.excite.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']/div[@class='story' or @class='box-img']",
+    "next_page": "ul[@class='pagination-list']",
+    "cleanup": [
+      "div[@class='pager-Nextpage']"
+    ]
+  },
+  "//www.bluematador.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog-section']/div/div[contains(@class,'post-body')]"
+  },
+  "//vod-hacker.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//re-engines.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//plus1world.com/": {
+    "type": "xpath",
+    "xpath": "article/div/div[@class='article-area-container']",
+    "cleanup": [
+      "span[@class='adsense-box']"
+    ]
+  },
+  "//note.nkmk.me/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']",
+    "cleanup": [
+      "div[@class='ad-block-inside']"
+    ]
+  },
+  "//news.kakaku.com/prdnews/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/section[@class='news' or @class='link-list']",
+    "cleanup": [
+      "ul[@class='sns']",
+      "p[@class='more']"
+    ]
+  },
+  "//automaton-media.com/": {
+    "type": "xpath",
+    "xpath": "header[@class='td-post-title']|//div[@class='td-post-content']",
+    "cleanup": [
+      "div[@class='social4i' or contains(@class,'td-a-rec') or contains(@id,'wpdevar_comment_') or contains(@class,'code-block') or contains(@class,'td-g-rec')]"
+    ],
+    "append_css": "img.size-full {width: 500px!important;}"
+  },
+  "//maywork.net/wp/": {
+    "type": "xpath",
+    "xpath": "header/div/figure/img|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'breadcrumb-container')]"
+    ]
+  },
+  "//flat9.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//arma-search.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='container']/div/div[contains(@class,'useful_content')]",
+    "cleanup": [
+      "div[contains(@class,'social-share') or contains(@class,'contact_bn') or contains(@class,'recommend_content')]"
+    ]
   }
 }
