@@ -9008,10 +9008,6 @@
     "type": "xpath",
     "xpath": "div[@id='contents']/div[contains(@class,'section')]"
   },
-  "//fnmnl.tv/": {
-    "type": "xpath",
-    "xpath": "article[@id='post-text']//div[@class='the-text' or @class='thumb']"
-  },
   "//blog.tasseisyaenomichi.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -17326,5 +17322,9 @@
     "cleanup": [
       "div[contains(@class,'social-share') or contains(@class,'contact_bn') or contains(@class,'recommend_content')]"
     ]
+  },
+  "//fnmnl.tv/": {
+    "type": "xpath",
+    "xpath": "section[@id='content']/*[@class='post-thumb' or @class='post-text']"
   }
 }
