@@ -9355,10 +9355,6 @@
     "type": "xpath",
     "xpath": "section[@class='post-content']"
   },
-  "//maeharakazuhiro.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='the-content']"
-  },
   "//www.jiji.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'ArticleText')]"
@@ -14213,10 +14209,6 @@
     "type": "xpath",
     "xpath": "article/header/*[contains(@class,'post-thumbnail') or contains(@class,'entry-meta')]|//article/div[contains(@class,'entry-content')]"
   },
-  "//www.zeiri4.com/": {
-    "type": "xpath",
-    "xpath": "article/div[contains(@class,'read--body')]"
-  },
   "//www.vissel-kobe.co.jp/news/": {
     "type": "xpath",
     "xpath": "article[contains(@class,'newsmain')]"
@@ -17107,13 +17099,6 @@
       ".entry-profile-icon-textbox {margin-left: 96px;}"
     ]
   },
-  "//torounit.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
-    "cleanup": [
-      "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
-    ]
-  },
   "//www.kyobun.co.jp/": {
     "type": "xpath",
     "xpath": "article/div[@class='td-post-content']",
@@ -17326,5 +17311,40 @@
   "//fnmnl.tv/": {
     "type": "xpath",
     "xpath": "section[@id='content']/*[@class='post-thumb' or @class='post-text']"
+  },
+  "//torounit.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
+    "cleanup": [
+      "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
+    ]
+  },
+  "//www.zeiri4.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'b-generatedHtml__body') or contains(@class,'read_b--body')]",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//maeharakazuhiro.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='cps-post-thumb' or @class='cps-post-main-box']",
+    "cleanup": [
+      "*[contains(@class,'ad-single') or contains(@class,'sponsor-') or contains(@class,'adarea-') or contains(@class,'-ad-') or contains(@class,'share')]"
+    ]
+  },
+  "//www.yumemi.co.jp/ja/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='page-content']",
+    "cleanup": [
+      "div[contains(@class,'ccm-custom-style-container')]"
+    ]
+  },
+  "//www.keyman.or.jp/kn/": {
+    "type": "xpath",
+    "xpath": "div[@id='cmsBodyMain' or @id='cmsAbstract' or @id='cmsByline']",
+    "cleanup": [
+      "div[@id='CmsMembersControl']"
+    ]
   }
 }
