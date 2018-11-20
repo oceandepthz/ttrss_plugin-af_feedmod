@@ -17361,5 +17361,46 @@
     "cleanup": [
       "div[@class='fc2_footer']"
     ]
+  },
+  "//www.wowkorea.jp/": {
+    "type": "xpath",
+    "xpath": "td[@class='news_all']"
+  },
+  "//www.webcg.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']/div[contains(@class,'article-inner')]",
+    "next_page": "div[contains(@class,'pagination-block')]",
+    "cleanup": [
+      "div[contains(@class,'next-page-title-link') or contains(@class,'pagination-block')]"
+    ]
+  },
+  "//rondan.net/": {
+    "type": "xpath",
+    "xpath": "article/header/figure|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'add')]"
+    ]
+  },
+  "//phi-grid.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='theContentWrap-ccc' or @class='single-post-thumb']"
+  },
+  "//matchinghack.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//iwb.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='wp_rp_first' or @class='adsense' or @class='social']"
+    ]
+  },
+  "//ginpen.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
   }
 }
