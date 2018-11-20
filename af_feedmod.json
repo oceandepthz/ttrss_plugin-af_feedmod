@@ -492,13 +492,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entryTitle')]"
   },
-  "llabtooflatot.blog102.fc2.com": {
-    "type": "xpath",
-    "xpath": "div[@class='kizi_body']",
-    "cleanup": [
-      "div[@class='fc2_footer']"
-    ]
-  },
   "aws.typepad.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
@@ -3827,10 +3820,6 @@
     "type": "xpath",
     "xpath": "div[@class='content']"
   },
-  "blogs.msdn.microsoft.com": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'entry-content')]"
-  },
   "www.konayuki358.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -4405,10 +4394,6 @@
   "//www.chosunonline.com/": {
     "type": "xpath",
     "xpath": "h6[@class='reporter' or @class='byline']|//div[@class='article']"
-  },
-  "//eng-blog.iij.ad.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article']"
   },
   "//www.yokobentaro.com/": {
     "type": "xpath",
@@ -16812,10 +16797,6 @@
       "li[@class='current']"
     ]
   },
-  "//appmarketinglabo.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry']"
-  },
   "//www.fashionsnap.com/the-posts/": {
     "type": "xpath",
     "xpath": "section[@class='body']",
@@ -17207,13 +17188,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'post') and contains(@class,'markdown')]"
   },
-  "//www.switch-science.com/catalog/": {
-    "type": "xpath",
-    "xpath": "div[@id='product']/div[@class='data' OR @class='contents']",
-    "cleanup": [
-      "div[@id='item-sns-buttons']"
-    ]
-  },
   "//www.lawson.co.jp/company/news/detail/": {
     "type": "xpath",
     "xpath": "div[@id='contentsFrame']",
@@ -17345,6 +17319,47 @@
     "xpath": "div[@id='cmsBodyMain' or @id='cmsAbstract' or @id='cmsByline']",
     "cleanup": [
       "div[@id='CmsMembersControl']"
+    ]
+  },
+  "//blog.digimarl.com/techblog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post-body')]"
+  },
+  "//www.haproxy.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'_share_')]"
+    ]
+  },
+  "//www.aki-f.net/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='theContentWrap-ccc']"
+  },
+  "//eng-blog.iij.ad.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@id='article-single__image' or @class='article-single__entry']"
+  },
+  "//blogs.msdn.microsoft.com/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'entry-content')]"
+  },
+  "//appmarketinglabo.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//www.switch-science.com/catalog/": {
+    "type": "xpath",
+    "xpath": "div[@id='product']/div[@class='data' OR @class='contents']",
+    "cleanup": [
+      "div[@id='item-sns-buttons']"
+    ]
+  },
+  "//llabtooflatot.blog.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='kizi_body']",
+    "cleanup": [
+      "div[@class='fc2_footer']"
     ]
   }
 }
