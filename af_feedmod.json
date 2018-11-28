@@ -17466,5 +17466,25 @@
     "cleanup": [
       "div[@id='related-links' or @id='nextpagelink' or @class='fb-recommendations-bar']"
     ]
+  },
+  "//www.sraoss.co.jp/tech-blog/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//www.isas.jaxa.jp/feature/forefront/": {
+    "type": "xpath",
+    "xpath": "main/div/div[@class='contents-header__bg']|//main/article"
+  },
+  "//doga.hikakujoho.com/": {
+    "type": "xpath",
+    "xpath": "article[@id='main']",
+    "cleanup": [
+      "h1",
+      "div[@class='brand_update']"
+    ]
+  },
+  "//tomokazu-kozuma.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]/div[@class='theContentWrap-ccc']"
   }
 }
