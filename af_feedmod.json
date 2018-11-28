@@ -6988,24 +6988,6 @@
     "type": "xpath",
     "xpath": "div[@id='post-body' or @id='post-header']"
   },
-  "//type.jp/et/feature/": {
-    "type": "xpath",
-    "xpath": "section[@id='single_post']",
-    "cleanup": [
-      "header",
-      "ul[@class='snsShare']",
-      "iframe[contains(@src,'rcm-fe.amazon-adsystem.com/e/cm')]"
-    ],
-    "next_page": "ol[@class='pagination']",
-    "next_page_cleanup": "li[@class='now']"
-  },
-  "//type.jp/et/log/article/": {
-    "type": "xpath",
-    "xpath": "div[@id='articleindex']",
-    "cleanup": [
-      "div[@id='related-links' or @id='nextpagelink' or @class='fb-recommendations-bar']"
-    ]
-  },
   "//sozai.site/": {
     "type": "xpath",
     "xpath": "div[@class='blog-main-content' or @class='blog-eyecatch']"
@@ -8566,16 +8548,6 @@
   "//blog.goo.ne.jp/ikunya/": {
     "type": "xpath",
     "xpath": "div[@id='in-center']/div/div[2]/div[1]//div[@class='entry-body']"
-  },
-  "//www.atmarkit.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='cmsBody']",
-    "cleanup": [
-      "script[contains(text(), 'byline') or contains(text(), 'connect.facebook.net') or contains(text(), 'msbBtn') or contains(@src, 'socialbutton.js') or contains(text(), 'ybx.yahoo.co.jp') or contains(text(),'ITIR')]",
-      "div[@id='fb-root' or @id='masterSocialbuttonTop' or @id='dmp' or @id='TABLETAD' or @id='endlinkConnection' or @id='cmsCopyright' or @id='notice' or @id='start' or @id='cmsMark' or contains(@class,'colBoxClear') or contains(@class,'cmsBodyItmidSeriesButtonRegist') or @id='ITIR' or @id='cmsSeriesList' or contains(@id,'cx_recommend_')]",
-      "link[contains(@href, 'socialbutton.css')]"
-    ],
-    "next_page": "div[@id='start']"
   },
   "//monoist.atmarkit.co.jp/": {
     "type": "xpath",
@@ -11083,11 +11055,6 @@
     "xpath": "div[@id='news']|//dl[starts-with(@class, 'article-photo_main')]/dt",
     "next_page": "div[@class='article-pagenavi']"
   },
-  "//dot.asahi.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='InfImgBox']//table//img|//p[@class='nTxt1']",
-    "next_page": "ul[@id='pg']"
-  },
   "//androgamer.net/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']",
@@ -12913,13 +12880,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//xiaolongchakan.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='c-entry__content']",
-    "cleanup": [
-      "div[@class='c-google-adsense']"
-    ]
-  },
   "//www.oreilly.co.jp/books/": {
     "type": "xpath",
     "xpath": "section[@id='content']",
@@ -14298,15 +14258,6 @@
     "cleanup": [
       "ul[contains(@class,'snsBtn') or contains(@class,'archiveLink')]"
     ]
-  },
-  ".itmedia.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='cmsBody']",
-    "cleanup": [
-      "div[@id='fb-root' or @id='masterSocialbuttonTop' or @id='endlinkConnection' or @id='notice' or @id='start' or @id='cmsCopyright' or @id='masterSocialbuttonBtm' or @id='end' or @class='endkwd' or @id='backNumBox']",
-      "script"
-    ],
-    "next_page": "div[@id='start']"
   },
   "//mainichi.jp/sportsspecial/": {
     "type": "xpath",
@@ -16721,10 +16672,6 @@
     ],
     "append_css": "div.subbuzz__media-container{padding-top:0!important;}"
   },
-  "//www.dtmstation.com/": {
-    "type": "xpath",
-    "xpath": "article/section[contains(@class,'entry-content')]"
-  },
   "//sbfl.net/blog/": {
     "type": "xpath",
     "xpath": "div[@id='entry-content']"
@@ -17029,10 +16976,6 @@
   "//trillionsmiles.com/": {
     "type": "xpath",
     "xpath": "section[@class='main-expand']//article/div[@class='post-pict' or @class='post-body']"
-  },
-  "//logmi.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='speaker-list' or @class='log-event' or @class='log-lead-sentence']|//div[@class='l-article-grid-main']/section/div[contains(@class,'log-content')]"
   },
   "//business.nikkeibp.co.jp/": {
     "type": "xpath",
@@ -17402,5 +17345,126 @@
   "//ginpen.com/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
+  },
+  "//logmi.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='speaker-list' or @class='log-event' or @class='log-lead-sentence']|//div[@class='l-article-grid-main']/section/div[contains(@class,'log-content')]",
+    "append_css": [
+      ".event-block {align-items: center;display: flex;margin: 1.625rem 0;padding: 0.8125rem;position: relative;transition: background-color 0.2s ease 0s;}",
+      ".event-block::before {content: 'EVENT';font-size: 0.875rem;font-weight: 700;left: 0;padding: 0 0.8125rem;position: absolute;top: 0;transform: translate(0px, -100%);}",
+      ".event-block-image {height: 3.25rem!important;margin-right: 0.8125rem!important;object-fit: contain;width: 3.25rem!important;}",
+      ".speaker-item-image {border-radius: 50%;height: 3.25rem!important;object-fit: cover;width: 3.25rem!important;}"
+    ]
+  },
+  "//goworkship.com/magazine/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='single-body' or @class='single-footer']"
+  },
+  "//fuminners.jp/journal/": {
+    "type": "xpath",
+    "xpath": "figure[contains(@class,'post-thumbnail')]|//div[@class='entry-content']"
+  },
+  "//dena.ai/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']"
+  },
+  "//daniel.haxx.se/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//cloud.google.com/blog/": {
+    "type": "xpath",
+    "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
+  },
+  "//classmethod.jp/cases/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']"
+  },
+  "//www.dtmstation.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  ".itmedia.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='cmsBody']",
+    "cleanup": [
+      "div[@id='fb-root' or @id='masterSocialbuttonTop' or @id='endlinkConnection' or @id='notice' or @id='start' or @id='cmsCopyright' or @id='masterSocialbuttonBtm' or @id='end' or @class='endkwd' or @id='backNumBox']",
+      "script"
+    ],
+    "next_page": "div[@id='start']"
+  },
+  "//dot.asahi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='InfImgBox']//table//img|//p[@class='nTxt1']|//div[@class='FoldedTxtAreaPhotoArticle']",
+    "next_page": "ul[@id='pg']|//nav[@class='articlePager']",
+    "cleanup": [
+      "div[@class='articleTitlePager']",
+      "nav[@class='articlePager']"
+    ]
+  },
+  "//www.kotaro269.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='article-body-main' or @id='article-body-more']",
+    "cleanup": [
+      "div[@class='social_link' or @class='ko_ads' or @id='twitter-dialog-tweet']"
+    ]
+  },
+  "//tellme.tokyo/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']"
+  },
+  "//blog.mgechev.com/": {
+    "type": "xpath",
+    "xpath": "section[@id='post-body']"
+  },
+  "//benhoyt.com/writings/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']"
+  },
+  "//qrunch.io/entries/": {
+    "type": "xpath",
+    "xpath": "div[@class='related-entry' or @id='entry-comments']|//div[@id='entry-data']//div[@class='head' or @class='content']",
+    "append_css": [
+      ".head .user img.icon {border: 1px solid #eceef1;border-radius: 3px;height: 40px; margin: 0; vertical-align: middle;width: 40px;}",
+      ".head .user .profile {display: inline-block;margin-left: 5px;vertical-align: middle;}",
+      ".head .user .profile a {color: #2f2f2f;}",
+      ".head .user .profile .id {color: gray;font-size: 11px;line-height: 14px;}",
+      ".tags .tag {background: #fafafa none repeat scroll 0 0;border: 1px solid #eceef1;color: #2f2f2f;display: inline-block;font-size: 13px;line-height: 18px;margin-bottom: 7px;margin-right: 5px;padding: 4px 10px;}"
+    ]
+  },
+  "//xiaolongchakan.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'c-entry__content')]",
+    "cleanup": [
+      "div[@class='c-google-adsense']"
+    ]
+  },
+  "//www.atmarkit.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='cmsBody' or @id='seriesBody']",
+    "cleanup": [
+      "script[contains(text(), 'byline') or contains(text(), 'connect.facebook.net') or contains(text(), 'msbBtn') or contains(@src, 'socialbutton.js') or contains(text(), 'ybx.yahoo.co.jp') or contains(text(),'ITIR')]",
+      "div[@id='fb-root' or @id='masterSocialbuttonTop' or @id='dmp' or @id='TABLETAD' or @id='endlinkConnection' or @id='cmsCopyright' or @id='notice' or @id='start' or @id='cmsMark' or contains(@class,'colBoxClear') or contains(@class,'cmsBodyItmidSeriesButtonRegist') or @id='ITIR' or @id='cmsSeriesList' or contains(@id,'cx_recommend_')]",
+      "link[contains(@href, 'socialbutton.css')]"
+    ],
+    "next_page": "div[@id='start']"
+  },
+  "//type.jp/et/feature/": {
+    "type": "xpath",
+    "xpath": "section[@id='single_post']",
+    "cleanup": [
+      "header",
+      "ul[@class='snsShare']",
+      "iframe[contains(@src,'rcm-fe.amazon-adsystem.com/e/cm')]"
+    ],
+    "next_page": "ol[@class='pagination']",
+    "next_page_cleanup": "li[@class='now']"
+  },
+  "//type.jp/et/log/article/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleindex']",
+    "cleanup": [
+      "div[@id='related-links' or @id='nextpagelink' or @class='fb-recommendations-bar']"
+    ]
   }
 }
