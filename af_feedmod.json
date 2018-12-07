@@ -10589,10 +10589,6 @@
       "div[@class='adsense__single__in']"
     ]
   },
-  "//connpass.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='main']/div[@class='group_box']"
-  },
   "//techwave.jp/": {
     "type": "xpath",
     "xpath": "article/div[@class='entry-content']"
@@ -11951,13 +11947,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//capitalp.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='c-entry__content']",
-    "cleanup": [
-      "div[@class='ad-single-top' or @class='ad-content-wrapper' or contains(@class,'sharedaddy')]"
-    ]
-  },
   "//japan.hani.co.kr/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'article_body')]"
@@ -13037,13 +13026,6 @@
   "//tmiyadera.com/blog/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//www.kokoro-fire.com/": {
-    "type": "xpath",
-    "xpath": "section[contains(@class,'entry-content')]/div[@class='theContentWrap-ccc']",
-    "cleanup": [
-      "div[contains(@class,'sponsored')]"
-    ]
   },
   "//store.steampowered.com/app/": {
     "type": "xpath",
@@ -15439,10 +15421,6 @@
     "engine": "note_mu",
     "xpath": "body"
   },
-  "//mercari.connpass.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='main']/div[@class='group_box']"
-  },
   "//hawk-a.com/": {
     "type": "xpath",
     "xpath": "main/article/header/p[@class='post-thumbnail']|//main/article/section[contains(@class,'entry-content')]"
@@ -17126,10 +17104,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body']"
   },
-  "//re-engines.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//plus1world.com/": {
     "type": "xpath",
     "xpath": "article/div/div[@class='article-area-container']",
@@ -17181,13 +17155,6 @@
   "//fnmnl.tv/": {
     "type": "xpath",
     "xpath": "section[@id='content']/*[@class='post-thumb' or @class='post-text']"
-  },
-  "//torounit.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
-    "cleanup": [
-      "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
-    ]
   },
   "//www.zeiri4.com/": {
     "type": "xpath",
@@ -17455,11 +17422,6 @@
       ".feature_body {width: 796px;}"
     ]
   },
-  "//techplay.jp/column/": {
-    "type": "xpath",
-    "xpath": "article/section[@class='column-detail']",
-    "next_page": "div[@class='pager']"
-  },
   "//courrier.jp/news/": {
     "type": "xpath",
     "xpath": "article/*[@class='article_catch_image_area_box' or @class='article_medias' or @class='article_text_by' or @class='article_text_area']"
@@ -17493,5 +17455,54 @@
     "type": "xpath",
     "xpath": "div[@class='article_body']",
     "next_page": "div[@class='pagination']"
+  },
+  "*//*.connpass.com/event/*/presentation/": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='contents']"
+  },
+  "*//connpass.com/event/*/presentation/": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='contents']"
+  },
+  "*//*.connpass.com/": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[@class='group_box']"
+  },
+  "//connpass.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[@class='group_box']"
+  },
+  "//techplay.jp/column/": {
+    "type": "xpath",
+    "xpath": "article/section[@class='column-detail']",
+    "next_page": "div[@class='pager']"
+  },
+  "//torounit.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
+    "cleanup": [
+      "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
+    ]
+  },
+  "//capitalp.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-entry__body']",
+    "cleanup": [
+      "div[@class='ad-single-top' or @class='ad-content-wrapper' or contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//www.kokoro-fire.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]/div[@class='theContentWrap-ccc']",
+    "cleanup": [
+      "div[contains(@class,'sponsored')]"
+    ]
+  },
+  "//re-engines.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }

@@ -67,7 +67,6 @@ class Af_Feedmod extends Plugin implements IHandler
     {
         global $fetch_last_content_type;
 
-//$this->__debug_tm('start:'.$article['link']);
         $json_conf = $this->get_json_conf();
         $owner_uid = $article['owner_uid'];
         $data = json_decode($json_conf, true);
@@ -1347,12 +1346,13 @@ print "<input dojoType=\"dijit.form.TextBox\" style=\"display : none\" name=\"me
 print "<input dojoType=\"dijit.form.TextBox\" style=\"display : none\" name=\"plugin\" value=\"af_feedmod\">";
 
 print "<table width='100%'><tr><td>";
-print "<textarea dojoType=\"dijit.form.SimpleTextarea\" name=\"json_conf\" style=\"font-size: 12px; width: 99%; height: 500px;\">$json_conf</textarea>";
+print "<textarea dojoType=\"dijit.form.SimpleTextarea\" class=\"json_conf\" name=\"json_conf\" style=\"font-size: 12px; width: 99%; height: 500px;\">$json_conf</textarea>";
 print "</td></tr></table>";
 
 print "<p><button dojoType=\"dijit.form.Button\" type=\"submit\">".__("Save")."</button>";
 
 print "</form>";
+print "<style type=\"text/css\">.json_conf::-webkit-scrollbar{width:16px;}</style>";
 }
 
 function save()
