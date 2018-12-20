@@ -3618,16 +3618,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "eczine.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='mainArticle']/div[@class='articleMiddle']",
-    "cleanup": [
-      "div[@class='nextLink']/../div[@align='center']",
-      "div[@class='nextLink']"
-    ],
-    "next_page": "div[@class='nextLink']/../div[@align='center']",
-    "next_page_cleanup": "li[@class='active']"
-  },
   "necomesi.jp": {
     "type": "xpath",
     "xpath": "section[starts-with(@class,'nb-post-body')]",
@@ -4211,10 +4201,6 @@
       "h1",
       "div[@class='blog_info']"
     ]
-  },
-  "blog.rust-lang.org": {
-    "type": "xpath",
-    "xpath": "article[@class='post-content']"
   },
   "fashion-basics.com": {
     "type": "xpath",
@@ -9287,10 +9273,6 @@
   "//annburo.blog.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
-  },
-  "//kabumatome.doorblog.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body']"
   },
   "//blog.takus.me/": {
     "type": "xpath",
@@ -14470,13 +14452,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//ken-horimoto.com/": {
-    "type": "xpath",
-    "xpath": "header/figure[@class='eyecatch']|//section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'add') or contains(@class,'mamahack-')]"
-    ]
-  },
   "//ictj-report.joho.or.jp/": {
     "type": "xpath",
     "xpath": "div[@id='main']/div[@id='mainvisual' or @id='main_inner']"
@@ -15747,13 +15722,6 @@
     "type": "xpath",
     "xpath": "article[contains(@class,'arti-body')]"
   },
-  "//seoer.work/": {
-    "type": "xpath",
-    "xpath": "article/figure|//div[@id='the-content']",
-    "cleanup": [
-      "div[@id='widget-in-page-article']"
-    ]
-  },
   "//net-torisetsu.jp/": {
     "type": "xpath",
     "xpath": "article/div[@class='cps-post-thumb']|//div[@itemprop='articleBody']",
@@ -16210,10 +16178,6 @@
       "ul[@class='sns_btn']",
       "div[contains(@class,'navi_wrap')]"
     ]
-  },
-  "//www.shinchosha.co.jp/": {
-    "type": "xpath",
-    "xpath": "article/div/section"
   },
   "//www.baconjapan.com/": {
     "type": "xpath",
@@ -17207,10 +17171,6 @@
     "type": "xpath",
     "xpath": "div[starts-with(@class,'entry-content')]"
   },
-  "//appmarketinglabo.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry']"
-  },
   "//www.switch-science.com/catalog/": {
     "type": "xpath",
     "xpath": "div[@id='product']/div[@class='data' OR @class='contents']",
@@ -17341,17 +17301,6 @@
     "type": "xpath",
     "xpath": "div[@id='content']"
   },
-  "//qrunch.io/entries/": {
-    "type": "xpath",
-    "xpath": "div[@class='related-entry' or @id='entry-comments']|//div[@id='entry-data']//div[@class='head' or @class='content']",
-    "append_css": [
-      ".head .user img.icon {border: 1px solid #eceef1;border-radius: 3px;height: 40px; margin: 0; vertical-align: middle;width: 40px;}",
-      ".head .user .profile {display: inline-block;margin-left: 5px;vertical-align: middle;}",
-      ".head .user .profile a {color: #2f2f2f;}",
-      ".head .user .profile .id {color: gray;font-size: 11px;line-height: 14px;}",
-      ".tags .tag {background: #fafafa none repeat scroll 0 0;border: 1px solid #eceef1;color: #2f2f2f;display: inline-block;font-size: 13px;line-height: 18px;margin-bottom: 7px;margin-right: 5px;padding: 4px 10px;}"
-    ]
-  },
   "//xiaolongchakan.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'c-entry__content')]",
@@ -17414,13 +17363,6 @@
   ".hatenablog.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
-  },
-  "//travel.spot-app.jp/": {
-    "type": "xpath",
-    "xpath": "header/p[@class='single-title_description']|//div[@class='feature_body' or contains(@class, 'entry-content')]",
-    "append_css": [
-      ".feature_body {width: 796px;}"
-    ]
   },
   "//courrier.jp/news/": {
     "type": "xpath",
@@ -17504,5 +17446,109 @@
   "//re-engines.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//qrunch.io/entries/": {
+    "type": "xpath",
+    "xpath": "div[@class='related-entry' or @id='entry-comments']|//div[@id='entry-data']//div[@class='head' or @class='content']",
+    "append_css": [
+      ".head .user img.icon {border: 1px solid #eceef1;border-radius: 3px;height: 40px; margin: 0; vertical-align: middle;width: 40px;}",
+      ".head .user .profile {display: inline-block;margin-left: 5px;vertical-align: middle;}",
+      ".head .user .profile a {color: #2f2f2f;}",
+      ".head .user .profile .id {color: gray;font-size: 11px;line-height: 14px;}",
+      ".tags .tag {background: #fafafa none repeat scroll 0 0;border: 1px solid #eceef1;color: #2f2f2f;display: inline-block;font-size: 13px;line-height: 18px;margin-bottom: 7px;margin-right: 5px;padding: 4px 10px;}",
+      "#entry-comments {background: #fff none repeat scroll 0 0;border: 1px solid #eceef1;border-radius: 3px;font-size: 16px;letter-spacing: normal;line-height: 34px;margin: 0 auto 25px;width: 100%;}",
+      "#entry-comments .comment {border-bottom: 1px solid #eceef1;position: relative;}",
+      "#entry-comments .comment .date {color: #7f7f7f;font-size: 13px;position: absolute;right: 25px;top: 8px;}",
+      "#entry-comments .comment .user {border-bottom: 1px solid #eceef1;}",
+      "#entry-comments .comment .user .inner {padding: 12px 15px;}",
+      "#entry-comments .comment .user .icon {border: 1px solid #eceef1;border-radius: 3px;display: inline-block;vertical-align: middle;}",
+      "#entry-comments .comment .user .icon img {height: 40px;vertical-align: top;width: 40px;}",
+      "#entry-comments .comment .user .profile {display: inline-block;margin-left: 5px;vertical-align: middle;}",
+      "#entry-comments .comment .user .profile .name {font-size: 15px;line-height: 20px;}",
+      "#entry-comments .comment .user .profile .id {color: gray;font-size: 11px;line-height: 14px;}",
+      "#entry-comments .comment .inner {padding: 10px 20px;}"
+    ]
+  },
+  ".qrunch.io/entries/": {
+    "type": "xpath",
+    "xpath": "div[@class='related-entry' or @id='entry-comments']|//div[@id='entry-data']//div[@class='head' or @class='content']",
+    "append_css": [
+      ".head .user img.icon {border: 1px solid #eceef1;border-radius: 3px;height: 40px; margin: 0; vertical-align: middle;width: 40px;}",
+      ".head .user .profile {display: inline-block;margin-left: 5px;vertical-align: middle;}",
+      ".head .user .profile a {color: #2f2f2f;}",
+      ".head .user .profile .id {color: gray;font-size: 11px;line-height: 14px;}",
+      ".tags .tag {background: #fafafa none repeat scroll 0 0;border: 1px solid #eceef1;color: #2f2f2f;display: inline-block;font-size: 13px;line-height: 18px;margin-bottom: 7px;margin-right: 5px;padding: 4px 10px;}",
+      "#entry-comments {background: #fff none repeat scroll 0 0;border: 1px solid #eceef1;border-radius: 3px;font-size: 16px;letter-spacing: normal;line-height: 34px;margin: 0 auto 25px;width: 100%;}",
+      "#entry-comments .comment {border-bottom: 1px solid #eceef1;position: relative;}",
+      "#entry-comments .comment .date {color: #7f7f7f;font-size: 13px;position: absolute;right: 25px;top: 8px;}",
+      "#entry-comments .comment .user {border-bottom: 1px solid #eceef1;}",
+      "#entry-comments .comment .user .inner {padding: 12px 15px;}",
+      "#entry-comments .comment .user .icon {border: 1px solid #eceef1;border-radius: 3px;display: inline-block;vertical-align: middle;}",
+      "#entry-comments .comment .user .icon img {height: 40px;vertical-align: top;width: 40px;}",
+      "#entry-comments .comment .user .profile {display: inline-block;margin-left: 5px;vertical-align: middle;}",
+      "#entry-comments .comment .user .profile .name {font-size: 15px;line-height: 20px;}",
+      "#entry-comments .comment .user .profile .id {color: gray;font-size: 11px;line-height: 14px;}",
+      "#entry-comments .comment .inner {padding: 10px 20px;}"
+    ]
+  },
+  "//blog.rust-lang.org/": {
+    "type": "xpath",
+    "xpath": "section//div[@class='post']"
+  },
+  "//seoer.work/": {
+    "type": "xpath",
+    "xpath": "article/*[contains(@class,'article-header') or contains(@class,'entry-content')]"
+  },
+  "//travel.spot-app.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='content_single']/div/div[@class='content_description' or @class='content_writer' or @class='entry_main']"
+  },
+  "//ken-horimoto.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='kiji-img' or @class='article-contents' or @class='author']",
+    "cleanup": [
+      "div[contains(@class,'snsbtn')]"
+    ]
+  },
+  "//eczine.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='article_body_block']/div[@class='article']",
+    "cleanup": [
+      "div[contains(@class,'login')]"
+    ],
+    "next_page": "div[@class='pager']",
+    "head_xpath": "div[@id='article_body_block']/div[contains(@class,'authorDetail') or contains(@class,'topSection')]"
+  },
+  "//www.shinchosha.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div/section"
+  },
+  "//appmarketinglabo.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
+  },
+  "//comemo.nikkei.com/n/": {
+    "type": "xpath",
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//kabumatome.doorblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "append_css": [
+      ".article-body {font-size: 14px;}",
+      "blockquote.twitter-tweet {border-radius: 5px !important;border-style: solid !important; border-width: 1px !important;padding: 10px !important;bottom: auto !important;box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15) !important;font: 12px/16px 'Helvetica Neue',Arial,sans-serif !important;}",
+      "blockquote.twitter-tweet p {font-family: Georgia,Palatino,serif !important;font-size: 16px !important;line-height: 22px !important;margin-bottom: 6px !important;margin-top: 6px !important;}",
+      ".article-body-inner blockquote::before {color: #ddd;content: '“';font-family: '',serif;font-size: 8em;left: 8px;line-height: 1;position: absolute;top: 0;}",
+      ".article-body-inner blockquote {background-color: #fafafa;border: 1px solid #fff;padding: 1em 1em 1em 5em;}"
+    ]
+  },
+  "//yag-ays.github.io/project/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']"
+  },
+  "//www.typescriptlang.org/docs/handbook/": {
+    "type": "xpath",
+    "xpath": "article[@class='post-content']"
   }
 }
