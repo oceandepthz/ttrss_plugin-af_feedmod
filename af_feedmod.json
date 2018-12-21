@@ -4875,18 +4875,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'blog-post-body')]"
   },
-  "//www.cinra.net/news/": {
-    "type": "xpath",
-    "xpath": "div[@class='l-article-body']"
-  },
-  "//www.cinra.net/interview/": {
-    "type": "xpath",
-    "xpath": "div[@class='l-inner-contents' or @class='l-special-eyecatch']",
-    "cleanup": [
-      "div[@class='titleListBox']"
-    ],
-    "next_page": "ul[@class='pagination-list']"
-  },
   "//tsuchimi.net/": {
     "type": "xpath",
     "xpath": "article",
@@ -16295,10 +16283,6 @@
     "type": "xpath",
     "xpath": "section[@class='entry-content']"
   },
-  "//sorabatake.jp/": {
-    "type": "xpath",
-    "xpath": "section[@class='content']"
-  },
   "//snipcart.com/blog/": {
     "type": "xpath",
     "xpath": "div[@class='content-wrapper--small']/div[contains(@class,'post__rte') or @class='post__author']"
@@ -17550,5 +17534,57 @@
   "//www.typescriptlang.org/docs/handbook/": {
     "type": "xpath",
     "xpath": "article[@class='post-content']"
+  },
+  "//sorabatake.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='EntryMain']"
+  },
+  "//www.patreon.com/posts/": {
+    "type": "xpath",
+    "xpath": "div[@data-tag='post-content']"
+  },
+  "//www.indival.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='news-detail__content']"
+  },
+  "//www.cinra.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='l-inner-contents' or @class='l-special-eyecatch' or @class='l-special-image' or @class='l-article-body']",
+    "cleanup": [
+      "div[@class='titleListBox']"
+    ],
+    "next_page": "ul[@class='pagination-list']"
+  },
+  "//wizsafe.iij.ad.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//v8.dev/blog/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//trend.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='articleBody']",
+    "cleanup": [
+      "div[contains(@class,'caution-before-login') or @class='container-more' or contains(@class,'container-pagenation')]"
+    ],
+    "next_page": "div[contains(@class,'container-pagenation')]",
+    "next_page_cleanup": "a[@class='current']"
+  },
+  "//techblog.gmo-ap.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'social') or @id='ts-fab-below']"
+    ]
+  },
+  "//tech-blog.cerevo.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//support.google.com/webmasters/answer/": {
+    "type": "xpath",
+    "xpath": "article[@class='page']/section"
   }
 }
