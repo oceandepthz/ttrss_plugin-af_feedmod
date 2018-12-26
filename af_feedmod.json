@@ -2514,13 +2514,6 @@
     "xpath": "div[@id='mainWrap']//div[@class='content']/*[@class='contentTop' or @class='contentTopDesc']|//div[@id='mainWrap']//div[@class='content']/article",
     "next_page": "div[@class='pagination']"
   },
-  "www.hitode-festival.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@class='insentence-adsense']"
-    ]
-  },
   "okanehadaiji.com": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']//div[starts-with(@class,'t_h') or starts-with(@class,'t_b')]|//div[@class='article-body-inner']/br|//div[@class='article-body-more']/br"
@@ -5512,10 +5505,6 @@
   "//www.freiheit.co/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//www.animatetimes.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry']"
   },
   "//tomoyukiarasuna.com/": {
     "type": "xpath",
@@ -17586,5 +17575,19 @@
   "//support.google.com/webmasters/answer/": {
     "type": "xpath",
     "xpath": "article[@class='page']/section"
+  },
+  "//www.animatetimes.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='l-content-main']/div/div[contains(@class,'maybe-legacy') or @class='c-image-kv']",
+    "cleanup": [
+      "ul[contains(@class,'_social')]"
+    ]
+  },
+  "//www.hitode-festival.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') or contains(@class,'_sns_') or contains(@class,'sns-')]"
+    ]
   }
 }
