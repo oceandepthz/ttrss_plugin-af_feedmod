@@ -17589,5 +17589,50 @@
     "cleanup": [
       "div[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') or contains(@class,'_sns_') or contains(@class,'sns-')]"
     ]
+  },
+  "//yasuhisa.com/could/": {
+    "type": "xpath",
+    "xpath": "div[@id='container']//div[contains(@class,'entry-content') or contains(@class,'vcard')]"
+  },
+  "//www.mod.go.jp/j/press/news/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//www.marunage.co.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='cooperationArea' or @class='autherArea']|//article/div[contains(@class,'detailBox')]"
+  },
+  "//sorae.info/": {
+    "type": "xpath",
+    "xpath": "div[@id='left_col']/div[contains(@class,'post')]",
+    "cleanup": [
+      "div[contains(@id,'single_banner') or contains(@id,'quads-ad')]"
+    ]
+  },
+  "//seolaboratory.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='body_wrap']"
+  },
+  "//satoshun.github.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']",
+    "cleanup": [
+      "div[@class='social']"
+    ]
+  },
+  "//recipe.kc-cloud.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='fb-like-box']"
+    ]
+  },
+  "//nymphium.github.io/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//ninoseki.github.io/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post-content')]"
   }
 }
