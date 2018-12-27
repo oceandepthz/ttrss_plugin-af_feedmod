@@ -14307,11 +14307,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
   },
-  "//sportiva.shueisha.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'block-detail-c-a__body')]",
-    "next_page": "div[contains(@class,'block-navi-b-d__container')]"
-  },
   "//share-terrace.com/": {
     "type": "xpath",
     "xpath": "figure[@class='eyecatch']|//div[@class='contents_text']"
@@ -16517,17 +16512,6 @@
     "type": "xpath",
     "xpath": "body"
   },
-  "//code.visualstudio.com/blogs/": {
-    "type": "xpath",
-    "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]"
-  },
-  "//code.visualstudio.com/updates/": {
-    "type": "xpath",
-    "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]",
-    "cleanup": [
-      "div[@class='feedback']"
-    ]
-  },
   "//www.blog.google/": {
     "type": "xpath",
     "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
@@ -17688,5 +17672,32 @@
     "type": "xpath",
     "engine": "note_mu",
     "xpath": "body"
+  },
+  "//www.paypay-corp.co.jp/notice/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_body']"
+  },
+  "//www.huawei.com/jp/press-events/news/jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='newsContent']",
+    "cleanup": [
+      "div[contains(@class,'social-share') or contains(@class,'print-download')]"
+    ]
+  },
+  "//sportiva.shueisha.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'block-detail-c-a__body')]",
+    "next_page": "div[contains(@class,'block-navi-b-d__container')]"
+  },
+  "//code.visualstudio.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]",
+    "cleanup": [
+      "div[@class='feedback' or contains(@class,'edit-github')]"
+    ]
+  },
+  "//cdp-japan.jp/news/": {
+    "type": "xpath",
+    "xpath": "article/*[contains(@class,'article-figure') or @class='article-body']"
   }
 }
