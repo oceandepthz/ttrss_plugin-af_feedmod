@@ -17656,5 +17656,37 @@
   "//maywork.net/": {
     "type": "xpath",
     "xpath": "article//div[@class='eye-catch-wrap' or contains(@class,'entry-content')]"
+  },
+  "//labs.mobingi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='td-post-content']"
+  },
+  "//kenchan0130.github.io/development/": {
+    "type": "xpath",
+    "xpath": "article[@class='post-content']"
+  },
+  "//fukabori.fm/episode/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'card-body')]"
+  },
+  "//flets.hikakunet.jp/news/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "*[@class='news-share' or @class='hatena-bookmark-marker' or @id='hatena-bookmark-container' or @class='post-share']"
+    ]
+  },
+  "//electronjs.org/blog/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'blog-post')]/div"
+  },
+  "//dokushojin.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='item_body']"
+  },
+  "//dely.design/n/": {
+    "type": "xpath",
+    "engine": "note_mu",
+    "xpath": "body"
   }
 }
