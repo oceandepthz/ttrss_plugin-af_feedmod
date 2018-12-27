@@ -17634,5 +17634,27 @@
   "//ninoseki.github.io/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'post-content')]"
+  },
+  "//mzsm.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']",
+    "cleanup": [
+      "div[contains(@class,'adsense')]"
+    ]
+  },
+  "//mrsekut.site/": {
+    "type": "xpath",
+    "xpath": "div[@id='entry-content']",
+    "cleanup": [
+      "footer"
+    ]
+  },
+  "//media.comicspace.jp/": {
+    "type": "xpath",
+    "xpath": "article[@id='single']/*[@class='main_visual' or @id='single_content' or @class='copyright' or @id='single_author']"
+  },
+  "//maywork.net/": {
+    "type": "xpath",
+    "xpath": "article//div[@class='eye-catch-wrap' or contains(@class,'entry-content')]"
   }
 }
