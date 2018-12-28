@@ -17699,5 +17699,42 @@
   "//cdp-japan.jp/news/": {
     "type": "xpath",
     "xpath": "article/*[contains(@class,'article-figure') or @class='article-body']"
+  },
+  "//www.so-net.ne.jp/antlers/news/release/": {
+    "type": "xpath",
+    "xpath": "div[@class='article_detail']",
+    "cleanup": [
+      "div[@class='news_sns']"
+    ]
+  },
+  "//businessnetwork.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article_box' or @class='article_txt']"
+  },
+  "//blog.miz-ar.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//blog.dotinstall.com/": {
+    "type": "xpath",
+    "xpath": "ul[@id='posts']//div[contains(@class,'cont')]"
+  },
+  "//bizpow.bizocean.jp/": {
+    "type": "xpath",
+    "xpath": "main/article//*[contains(@class,'eyecatch') or contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='add']"
+    ]
+  },
+  "//anopara.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'wpulike') or contains(@class,'sharedaddy') or @id='jp-relatedposts' or contains(@class,'wpInsertInPostAd')]"
+    ]
+  },
+  "//additionalism.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'eyecatch')]|//section[@class='content']"
   }
 }
