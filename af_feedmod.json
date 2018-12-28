@@ -17736,5 +17736,17 @@
   "//additionalism.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'eyecatch')]|//section[@class='content']"
+  },
+  "//blog.livedoor.jp/trakt/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//ameblo.jp/kekkon-monogatari/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
+  },
+  "//ameblo.jp/mikio-date/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
   }
 }
