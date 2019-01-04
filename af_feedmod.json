@@ -14994,34 +14994,6 @@
       "div[contains(@class,'more_pr_area')]"
     ]
   },
-  "//github.com/apps/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'application-main')]"
-  },
-  "*//github.com/*/*/commit/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[contains(@class,'repository-content')]"
-  },
-  "*//github.com/*/*/wiki/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='wiki-body']"
-  },
-  "*//github.com/*/issues/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "td[contains(@class,'comment-body')]|//h3[contains(@class,'timeline-comment-header-text')]|//div[contains(@class,'timeline-comment-avatar')]/a/img[contains(@class,'avatar')]|//div[@id='partial-discussion-header']|//div[contains(@class,'js-timeline-item')]/div[contains(@class,'discussion-item')]"
-  },
-  "*//github.com/*/*/pull/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
-  "//github.com/": {
-    "type": "xpath",
-    "xpath": "article|//div[contains(@class,'release-body')]"
-  },
   "*//builderscon.io/tokyo/*/session/*": {
     "match_type": "fnmatch",
     "type": "xpath",
@@ -17317,10 +17289,6 @@
     "type": "xpath",
     "xpath": "header/div[@class='post-header-image']|//div[@class='post-body']"
   },
-  ".hatenablog.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content')]"
-  },
   "//courrier.jp/news/": {
     "type": "xpath",
     "xpath": "article/*[@class='article_catch_image_area_box' or @class='article_medias' or @class='article_text_by' or @class='article_text_area']"
@@ -17684,11 +17652,6 @@
       "div[contains(@class,'social-share') or contains(@class,'print-download')]"
     ]
   },
-  "//sportiva.shueisha.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'block-detail-c-a__body')]",
-    "next_page": "div[contains(@class,'block-navi-b-d__container')]"
-  },
   "//code.visualstudio.com/": {
     "type": "xpath",
     "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]",
@@ -17748,5 +17711,47 @@
   "//ameblo.jp/mikio-date/": {
     "type": "xpath",
     "xpath": "div[@id='entryBody']"
+  },
+  "//sportiva.shueisha.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'block-detail-c-a__body')]",
+    "next_page": "div[contains(@class,'block-navi-b-d__container')]"
+  },
+  ".hatenablog.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//github.com/apps/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'application-main')]"
+  },
+  "*//github.com/*/*/commit/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class,'repository-content')]"
+  },
+  "*//github.com/*/*/wiki/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='wiki-body']"
+  },
+  "*//github.com/*/issues/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "td[contains(@class,'comment-body')]|//h3[contains(@class,'timeline-comment-header-text')]|//div[contains(@class,'timeline-comment-avatar')]/a/img[contains(@class,'avatar')]|//div[@id='partial-discussion-header']|//div[contains(@class,'js-timeline-item')]/div[contains(@class,'discussion-item')]"
+  },
+  "*//github.com/*/*/pull/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "*//github.com/*/*/releases/tag/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class,'repository-content')]/div[contains(@class,'release')]"
+  },
+  "//github.com/": {
+    "type": "xpath",
+    "xpath": "article|//div[contains(@class,'release-body')]"
   }
 }
