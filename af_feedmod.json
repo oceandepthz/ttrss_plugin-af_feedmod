@@ -2190,10 +2190,6 @@
       "div[@class='ads']"
     ]
   },
-  "www.recomtank.com": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "datsumou-recipe.com": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
@@ -14354,10 +14350,6 @@
     "type": "xpath",
     "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]"
   },
-  "//myuon.github.io/posts/": {
-    "type": "xpath",
-    "xpath": "section[@class='content']"
-  },
   "//morning.moae.jp/news/": {
     "type": "xpath",
     "xpath": "div[@id='article-main']"
@@ -16619,23 +16611,6 @@
     "type": "xpath",
     "xpath": "div[@id='movieArea']|//div[@id='news_body']"
   },
-  "//www.sankei.com/photo/": {
-    "type": "xpath",
-    "xpath": "article[@class='articleText']",
-    "cleanup": [
-      "header",
-      "div[@class='sugoiCounter']"
-    ]
-  },
-  "//www.sankei.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post_img']/a/figure|//div[@class='post_content']",
-    "cleanup": [
-      "aside",
-      "p[@class='pageNextsubhead']"
-    ],
-    "next_page": "div[@class='pagination']"
-  },
   "//eng.uber.com/": {
     "type": "xpath",
     "xpath": "div[@class='td-post-content']",
@@ -17797,5 +17772,33 @@
       "div[@id='buying_option' or @class='social-tools']"
     ],
     "append_css": "ul.biblio li img {height: 12px!important;margin-right: 2px;max-width: 100%!important;width: auto;}"
+  },
+  "//www.recomtank.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//www.sankei.com/photo/": {
+    "type": "xpath",
+    "xpath": "article[@class='articleText']",
+    "cleanup": [
+      "header",
+      "div[@class='sugoiCounter']"
+    ]
+  },
+  "//www.sankei.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_img']/a/figure|//div[@class='post_content']",
+    "cleanup": [
+      "aside",
+      "p[@class='pageNextsubhead']"
+    ],
+    "next_page": "div[@class='pagination']"
+  },
+  "//myuon.github.io/posts/": {
+    "type": "xpath",
+    "xpath": "article/section"
   }
 }
