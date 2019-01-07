@@ -16480,74 +16480,6 @@
     "type": "xpath",
     "xpath": "div[@id='entry-content']"
   },
-  "//gihyo.jp/dp/ebook/": {
-    "type": "xpath",
-    "xpath": "div[@id='bookInforMain']",
-    "cleanup": [
-      "aside[@id='social']",
-      "a[contains(@href,'cartAdd')]"
-    ]
-  },
-  "//gihyo.jp/design/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/column/": {
-    "type": "xpath",
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/serial/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/admin/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/book/pickup/": {
-    "type": "xpath",
-    "xpath": "div[@id='article' or @id='noticebookLink']",
-    "cleanup": [
-      "div[@class='sectionInfo01']"
-    ]
-  },
-  "*//gihyo.jp/book/*/*/content/commentary": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='article']/div[contains(@class,'readingContent')]",
-    "head_xpath": "div[@id='primary']/*[contains(@class,'mainTitle') or contains(@class,'subTitle')]",
-    "next_page": "div[@id='article']/div[contains(@class,'pageSwitch')]/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/book/": {
-    "type": "xpath",
-    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
-    "cleanup": [
-      "dl[@class='storeLink01']"
-    ]
-  },
-  "//gihyo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
   "//www.fashionsnap.com/the-posts/": {
     "type": "xpath",
     "xpath": "section[@class='body']",
@@ -17800,5 +17732,79 @@
   "//myuon.github.io/posts/": {
     "type": "xpath",
     "xpath": "article/section"
+  },
+  "//qrunch.net/@": {
+    "type": "xpath",
+    "xpath": "div[@class='main-contents']"
+  },
+  "//gihyo.jp/dp/ebook/": {
+    "type": "xpath",
+    "xpath": "div[@id='bookInforMain']",
+    "cleanup": [
+      "aside[@id='social']",
+      "a[contains(@href,'cartAdd')]"
+    ]
+  },
+  "//gihyo.jp/design/column/": {
+    "type": "xpath",
+    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/dev/serial/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]"
+  },
+  "//gihyo.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/dev/column/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "foot_xpath": "div[@id='authorProfile']",
+    "next_page": "div[@class='pageSwitch01']//li[not(@class='current')]"
+  },
+  "//gihyo.jp/admin/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'readingContent01')]",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/book/pickup/": {
+    "type": "xpath",
+    "xpath": "div[@id='article' or @id='noticebookLink']",
+    "cleanup": [
+      "div[@class='sectionInfo01']"
+    ]
+  },
+  "*//gihyo.jp/book/*/*/content/commentary": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='article']/div[contains(@class,'readingContent')]",
+    "head_xpath": "div[@id='primary']/*[contains(@class,'mainTitle') or contains(@class,'subTitle')]",
+    "next_page": "div[@id='article']/div[contains(@class,'pageSwitch')]/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
+  },
+  "//gihyo.jp/book/": {
+    "type": "xpath",
+    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
+    "cleanup": [
+      "dl[@class='storeLink01']"
+    ]
+  },
+  "//gihyo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']",
+    "next_page": "div[@class='pageSwitch01']/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ]
   }
 }
