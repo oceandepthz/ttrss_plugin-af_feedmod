@@ -594,6 +594,23 @@ class Af_Feedmod extends Plugin implements IHandler
         return mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
     }
 
+    // www.newsweekjapan.jp 向け
+    function get_np_www_newsweekjapan_jp(DOMXPath $xpath, DOMDocument $doc, string $link) : array {
+        $links = [];
+        $nwxpath = new DOMXPath($doc);
+        $nw = $nwxpath->query("//div[@class='entryPagenate']/ul[contains(@class,'indexNavi')]/li[not(@class='next')]/a");
+        if($nw == false || $nw->length === 0){
+            return [];
+        }
+        $u = str_replace('.php', '', $link);
+        for($i = 0;$i < ($nw->length-1);$i++){
+            $page_num = $i+2;
+            $page = "${u}_${page_num}.php";
+            $links[] = $page;
+        }
+        return array_unique($links);
+    }
+
     // russia2018.yahoo.co.jp 向け
     function get_np_links_russia2018_yahoo_co_jp(DOMXPath $xpath, DOMDocument $doc, string $link) : array {
         $links = [];
@@ -614,6 +631,9 @@ class Af_Feedmod extends Plugin implements IHandler
 
         if(strpos($link, '//russia2018.yahoo.co.jp/') !== false){
             return $this->get_np_links_russia2018_yahoo_co_jp($xpath, $doc, $link);
+        }
+        if(strpos($link, '//www.newsweekjapan.jp/') !== false){
+            return $this->get_np_www_newsweekjapan_jp($xpath, $doc, $link);
         }
         if(!isset($config['next_page']) || !$config['next_page']){
             return [];
