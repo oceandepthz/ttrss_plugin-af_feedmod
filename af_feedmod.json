@@ -17188,10 +17188,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class, 'article-entry')]"
   },
-  "//techcrunch.com/": {
-    "type": "xpath",
-    "xpath": "article/div/div[@class='article__content-wrap']/*[contains(@class,'article__featured-image') or @class='article-content']"
-  },
   "//builder.japan.zdnet.com/": {
     "type": "xpath",
     "xpath": "div[@id='block_article_header']/img[@class='article_header_img']|//div[@id='block_story']",
@@ -17806,5 +17802,17 @@
     "next_page_cleanup": [
       "li[@class='current']"
     ]
+  },
+  "//techcrunch.com/": {
+    "type": "xpath",
+    "xpath": "article/header//img[@class='article__featured-image']|//div[@class='article-content']"
+  },
+  "//jisin.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']/div[contains(@class,'detail-sp')]"
+  },
+  "//blog.filippo.io/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
   }
 }
