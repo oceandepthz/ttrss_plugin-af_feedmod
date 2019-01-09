@@ -603,7 +603,7 @@ class Af_Feedmod extends Plugin implements IHandler
             return [];
         }
         $u = str_replace('.php', '', $link);
-        for($i = 0;$i < ($nw->length-1);$i++){
+        for($i = 0;$i < $nw->length;$i++){
             $page_num = $i+2;
             $page = "${u}_${page_num}.php";
             $links[] = $page;

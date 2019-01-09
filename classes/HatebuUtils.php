@@ -25,8 +25,8 @@ class HatebuUtils {
     padding:10px;
 }
 .hatebu-comment img {
-    width: 32px;
-    height: 32px;
+    width: 32px!important;
+    height: 32px!important;
     border-radius:3px;
     position: absolute;
     display: inline-block;
