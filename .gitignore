@@ -1,6 +1,7 @@
 config.php
 af_feed_no_entry.txt
-/bin
 /vendor
 composer.lock
 /logs
+/classes/cache
+site_conf.json

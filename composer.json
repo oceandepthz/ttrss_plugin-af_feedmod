@@ -1,19 +1,13 @@
 {
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/moffe42/headerparser"
+    }
+  ],
     "require": {
-        "jonnyw/php-phantomjs" : "4.6.*",
-        "jakoch/phantomjs-installer": "2.1.1-p08",
-        "j0k3r/graby" : "1.*"
-    },
-    "config": {
-       "bin-dir": "bin"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "PhantomInstaller\\Installer::installPhantomJS"
-        ],
-        "post-update-cmd": [
-            "PhantomInstaller\\Installer::installPhantomJS"
-        ]
+        "j0k3r/graby" : "1.*",
+        "jach/headerparser" : "dev-master"
     }
 }
 
