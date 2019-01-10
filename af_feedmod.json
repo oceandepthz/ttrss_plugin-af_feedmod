@@ -3629,10 +3629,6 @@
       "img[contains(@src,'wp-spamfree/img/wpsf-img.php')]"
     ]
   },
-  "efcl.info": {
-    "type": "xpath",
-    "xpath": "div[@class='post-content']"
-  },
   "developers.linecorp.com/blog": {
     "type": "xpath",
     "xpath": "div[starts-with(@id,'post-')]",
@@ -17831,5 +17827,9 @@
       ".comment-title h3, .recommend-title h3, .comment-title h3 {font-size: 18px;margin: 0;}",
       ".recommends .recommend {display: inline-block;margin: 0 10px 15px;width: calc(100% / 3 - 20px);}"
     ]
+  },
+  "//efcl.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
   }
 }
