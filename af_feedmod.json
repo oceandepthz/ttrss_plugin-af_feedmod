@@ -17831,5 +17831,19 @@
   "//efcl.info/": {
     "type": "xpath",
     "xpath": "div[@class='post-content']"
+  },
+  "//www.neweconomy.jp/": {
+    "type": "xpath",
+    "xpath": "article[@class='p-articleContent__contents']"
+  },
+  "//business.nikkei.com/atcl/": {
+    "type": "xpath",
+    "xpath": "div[@id='articleBody']",
+    "head_xpath": "div[@class='mainHeader']/h1|//div[@class='mainHeader']/*[@class='subTitle' or @class='leafAuthor']",
+    "cleanup": [
+      "div[@class='numberLetter']",
+      "nav[@class='pagenation']"
+    ],
+    "next_page": "nav[@class='pagenation']"
   }
 }
