@@ -598,7 +598,7 @@ class Af_Feedmod extends Plugin implements IHandler
     function get_np_www_newsweekjapan_jp(DOMXPath $xpath, DOMDocument $doc, string $link) : array {
         $links = [];
         $nwxpath = new DOMXPath($doc);
-        $nw = $nwxpath->query("//div[@class='entryPagenate']/ul[contains(@class,'indexNavi')]/li[not(@class='next')]/a");
+        $nw = $nwxpath->query("//div[@class='entryPagenate']/ul/li/a[contains(@href,'_\$i.php')]");
         if($nw == false || $nw->length === 0){
             return [];
         }
