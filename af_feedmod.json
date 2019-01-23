@@ -17903,5 +17903,28 @@
     "cleanup": [
       "div[contains(@id,'ad_') or @id='ad']"
     ]
+  },
+  "//www.naka2656-b.site/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//jp.quora.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='layout_2col_main']",
+    "cleanup": [
+      "div[contains(@id,'_question_prompt') or contains(@class,'_questions_container')]"
+    ]
+  },
+  "//iritec.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']",
+    "cleanup": [
+      "ul[contains(@class,'snsb-balloon')]",
+      "div[@class='master-post-advert']"
+    ]
+  },
+  "//hcm-jinjer.com/media/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-content']"
   }
 }
