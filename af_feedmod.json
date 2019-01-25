@@ -17971,5 +17971,20 @@
   "//blog.id774.net/": {
     "type": "xpath",
     "xpath": "div[@class='post_content']"
+  },
+  "//biz.news.mynavi.jp/": {
+    "type": "xpath",
+    "xpath": "article[contains(@class,'is-open')]//div[@class='article-body' or @class='list-summary' or @class='area-info' or @class='hero']",
+    "cleanup": [
+      "ul[contains(@class,'list-share')]"
+    ]
+  },
+  "//appeal.rarejob.co.jp/": {
+    "type": "xpath",
+    "xpath": "header/div/figure|//section[contains(@class,'entry-content')]"
+  },
+  "//aligach.net/diary/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']"
   }
 }
