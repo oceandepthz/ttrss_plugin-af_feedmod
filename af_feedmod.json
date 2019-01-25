@@ -17986,5 +17986,13 @@
   "//aligach.net/diary/": {
     "type": "xpath",
     "xpath": "div[@class='body']"
+  },
+  "//blog.livedoor.jp/nonreal-pompandcircumstance/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//ameblo.jp/horiuchi18/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
   }
 }
