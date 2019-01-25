@@ -17952,5 +17952,24 @@
   "//budougumi0617.github.io/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//hub.docker.com/r/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'styles__headerContainer___') or contains(@class,'styles__container___')]"
+  },
+  "//booskanoriri.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='jp-relatedposts' or contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//blog.travis-ci.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-main']"
+  },
+  "//blog.id774.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_content']"
   }
 }
