@@ -18019,5 +18019,17 @@
     "cleanup": [
       "div[contains(@id,'advads-')]"
     ]
+  },
+  "//scienceandtechnology.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='breadcrumb' or @class='blogbox' or @class='share' or @id='up-articles']",
+      "aside"
+    ]
+  },
+  "//280blocker.net/blog/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
   }
 }
