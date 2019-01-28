@@ -17997,5 +17997,27 @@
     "cleanup": [
       "a[contains(@class,'resp-sharing-button_')]"
     ]
+  },
+  "//www.ogis-ri.co.jp/otc/hiroba/": {
+    "type": "xpath",
+    "xpath": "article/section/div[@id='article-info' or @id='lead' or @id='article-main']",
+    "cleanup": [
+      "div[contains(@class,'sns-btns')]"
+    ]
+  },
+  "//www.ogis-ri.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='descriptionArea']"
+  },
+  "//www.fast.ai/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']"
+  },
+  "//www.ex-it-blog.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='theContentWrap-ccc']",
+    "cleanup": [
+      "div[contains(@id,'advads-')]"
+    ]
   }
 }
