@@ -1897,13 +1897,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry']"
   },
-  "developer.cybozu.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content' or @class='post-thumbnail']",
-    "cleanup": [
-      "div[@id='fb-root' or @class='hatebu' or starts-with(@class,'sharedaddy') or @class='yarpp-related']"
-    ]
-  },
   "blog.livedoor.jp/lunarmodule7": {
     "type": "xpath",
     "xpath": "div[@class='main' or @class='mainmore']"
@@ -2950,10 +2943,6 @@
   "www.fair-skinned-monster.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "akirachiku.com": {
-    "type": "xpath",
-    "xpath": "article[@class='text']/div[not(@class) and not(@id)]"
   },
   "engineer.crowdworks.jp": {
     "type": "xpath",
@@ -17994,5 +17983,19 @@
   "//ameblo.jp/horiuchi18/": {
     "type": "xpath",
     "xpath": "div[@id='entryBody']"
+  },
+  "//developer.cybozu.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='post-thumbnail']",
+    "cleanup": [
+      "div[@id='fb-root' or @class='hatebu' or starts-with(@class,'sharedaddy') or @class='yarpp-related']"
+    ]
+  },
+  "//akirachiku.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "a[contains(@class,'resp-sharing-button_')]"
+    ]
   }
 }
