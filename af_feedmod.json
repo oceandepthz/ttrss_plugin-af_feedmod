@@ -668,10 +668,6 @@
     "type": "xpath",
     "xpath": "article/div[@class='content']"
   },
-  "www.sponichi.co.jp": {
-    "type": "xpath",
-    "xpath": "p[@class='news-textB01']/.."
-  },
   "find-travel.jp": {
     "type": "xpath",
     "xpath": "div[@class='article_body']",
@@ -2608,10 +2604,6 @@
   "kiyotatsu.com": {
     "type": "xpath",
     "xpath": "table[@id='hitokoto']|//div[@id='post_body']"
-  },
-  "www.pakutaso.com": {
-    "type": "xpath",
-    "xpath": "div[@class='blog__description']"
   },
   "kumalog.com": {
     "type": "xpath",
@@ -7169,13 +7161,6 @@
   "//moonpower2020.net/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
-  },
-  "//mac-tegaki.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='contents']/div[@class='inner-contents']",
-    "cleanup": [
-      "div[@class='button-group']"
-    ]
   },
   "//geinou1.net/": {
     "type": "xpath",
@@ -14386,10 +14371,6 @@
     "type": "xpath",
     "xpath": "main"
   },
-  "//www.astroarts.co.jp/": {
-    "type": "xpath",
-    "xpath": "section[@id='article']/div[@class='summary' or @class='body' or @class='appendix']|//div[@id='main']"
-  },
   "//mottox2.com/": {
     "type": "xpath",
     "xpath": "body/div/div/div/div/div",
@@ -16325,19 +16306,6 @@
       "script[contains(text(),'yuzo_related_post')]"
     ]
   },
-  "//www.yomiuri.co.jp/fukayomi/": {
-    "type": "xpath",
-    "xpath": "article/*[@itemprop='articleBody' or contains(@class,'thumbnails') or @class='profile-common']|//article/h2",
-    "head_xpath": "article/*[@id='headlineProfPhotoBox' or @class='article-writer' or @class='maebun-common']",
-    "next_page": "div[@class='article-pagination']//ul",
-    "next_page_cleanup": [
-      "li[@class='active']"
-    ]
-  },
-  "//www.yomiuri.co.jp/": {
-    "type": "xpath",
-    "xpath": "article//a[@class='thumbnail']/..|//article/p[@itemprop='articleBody']|//article/div[@class='date-bottom']"
-  },
   "//hon.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]",
@@ -17753,10 +17721,6 @@
       "u[contains(text(),'Sponsored')]"
     ]
   },
-  ".hatenablog.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content')]"
-  },
   "//ufcpp.net/study/": {
     "type": "xpath",
     "xpath": "article/*[contains(@class,'toc') or @class='content']",
@@ -18005,10 +17969,6 @@
       "div[contains(@class,'sns-btns')]"
     ]
   },
-  "//www.ogis-ri.co.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[@id='descriptionArea']"
-  },
   "//www.fast.ai/": {
     "type": "xpath",
     "xpath": "div[@class='post']"
@@ -18031,5 +17991,48 @@
   "//280blocker.net/blog/": {
     "type": "xpath",
     "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//www.astroarts.co.jp/": {
+    "type": "xpath",
+    "xpath": "section[@id='article']/div[@class='summary' or @class='body' or @class='appendix']|//div[@id='main']|//div[@class='content']"
+  },
+  ".hatenablog.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//www.yomiuri.co.jp/fukayomi/": {
+    "type": "xpath",
+    "xpath": "article/*[@itemprop='articleBody' or contains(@class,'thumbnails') or @class='profile-common']|//article/h2",
+    "head_xpath": "article/*[@id='headlineProfPhotoBox' or @class='article-writer' or @class='maebun-common']",
+    "next_page": "div[@class='article-pagination']//ul",
+    "next_page_cleanup": [
+      "li[@class='active']"
+    ]
+  },
+  "//www.yomiuri.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-main-contents']",
+    "cleanup": [
+      "div[contains(@id,'ad_dfp_')]"
+    ]
+  },
+  "//www.ogis-ri.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='descriptionArea' or @id='LEFT']"
+  },
+  "//mac-tegaki.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainEntity']"
+  },
+  "//www.sponichi.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@data-component='article-body']",
+    "cleanup": [
+      "div[@id='news-more']"
+    ]
+  },
+  "//www.pakutaso.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='page__thumb']|//div[@class='editorArea']"
   }
 }
