@@ -18034,5 +18034,24 @@
   "//www.pakutaso.com/": {
     "type": "xpath",
     "xpath": "figure[@class='page__thumb']|//div[@class='editorArea']"
+  },
+  "//www.mylohas.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='po-Post_Body']"
+  },
+  "//www.mixmag.jp/": {
+    "type": "xpath",
+    "xpath": "article[contains(@class,'blog_article')]",
+    "cleanup": [
+      "div[contains(@class,'mamahack-')]"
+    ]
+  },
+  "//www.hypertextcandy.com/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='article__photo' or @class='article__body']"
+  },
+  "//www.elastic.co/jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-post-wrapper')]"
   }
 }
