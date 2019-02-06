@@ -18053,5 +18053,21 @@
   "//www.elastic.co/jp/blog/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'article-post-wrapper')]"
+  },
+  "//takaking22.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//prograchannel.com/": {
+    "type": "xpath",
+    "xpath": "header/figure|//article/section"
+  },
+  "//overreacted.io/": {
+    "type": "xpath",
+    "xpath": "main/article"
+  },
+  "//mom0tomo.github.io/": {
+    "type": "xpath",
+    "xpath": "article"
   }
 }
