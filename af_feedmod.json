@@ -10617,10 +10617,6 @@
       "script[contains(text(),'l.logly.co.jp/lift_widget.js')]"
     ]
   },
-  "//www.nurs.or.jp/~ogochan/essay/": {
-    "type": "xpath",
-    "xpath": "div[@class='post']"
-  },
   "//www.nasnem.xyz/": {
     "type": "xpath",
     "xpath": "div[@itemprop='mainEntityOfPage']",
@@ -15949,13 +15945,6 @@
     "xpath": "div[@class='edit-body']",
     "next_page": "div[@class='pager-edit']"
   },
-  "//cyblog.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='c-entry__content']",
-    "cleanup": [
-      "div[contains(@class,'wp-share-buttons')]"
-    ]
-  },
   "//blog.btrax.com/": {
     "type": "xpath",
     "xpath": "div[@itemprop='description']"
@@ -18000,22 +17989,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//www.yomiuri.co.jp/fukayomi/": {
-    "type": "xpath",
-    "xpath": "article/*[@itemprop='articleBody' or contains(@class,'thumbnails') or @class='profile-common']|//article/h2",
-    "head_xpath": "article/*[@id='headlineProfPhotoBox' or @class='article-writer' or @class='maebun-common']",
-    "next_page": "div[@class='article-pagination']//ul",
-    "next_page_cleanup": [
-      "li[@class='active']"
-    ]
-  },
-  "//www.yomiuri.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='p-main-contents']",
-    "cleanup": [
-      "div[contains(@id,'ad_dfp_')]"
-    ]
-  },
   "//www.ogis-ri.co.jp/news/": {
     "type": "xpath",
     "xpath": "div[@id='descriptionArea' or @id='LEFT']"
@@ -18069,5 +18042,41 @@
   "//mom0tomo.github.io/": {
     "type": "xpath",
     "xpath": "article"
+  },
+  "//www.nurs.or.jp/~ogochan/essay/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.yomiuri.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-main-contents']",
+    "cleanup": [
+      "div[contains(@id,'ad_dfp_') or @class='article-pagination']",
+      "aside[contains(@class,'ev-article-manual-related')]"
+    ],
+    "next_page": "div[contains(@class,'fn-article-pager')]"
+  },
+  "//cyblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-entry__content']",
+    "cleanup": [
+      "div[contains(@class,'wp-share-buttons')]"
+    ]
+  },
+  "//www.jungleocean.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='content']"
+  },
+  "//thegradient.pub/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'c-post-hero__image') or @class='c-post-hero__content' or @class='c-content']"
+  },
+  "//techcommunity.microsoft.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='bodydisplay']"
+  },
+  "//sect.iij.ad.jp/d/": {
+    "type": "xpath",
+    "xpath": "article[@id='article']"
   }
 }
