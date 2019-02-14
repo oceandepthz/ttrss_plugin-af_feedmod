@@ -13626,13 +13626,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'hentry')]/div[contains(@class,'entry-content')]"
   },
-  "//research.sakura.ad.jp/": {
-    "type": "xpath",
-    "xpath": "td[@id='middle']/div[starts-with(@id,'post-5')]",
-    "cleanup": [
-      "div[@class='social']"
-    ]
-  },
   "//media.sakuras.tokyo/": {
     "type": "xpath",
     "xpath": "div[@class='blog-article__content']"
@@ -18078,5 +18071,54 @@
   "//sect.iij.ad.jp/d/": {
     "type": "xpath",
     "xpath": "article[@id='article']"
+  },
+  "//searchenginetheory.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'_share_')]"
+    ]
+  },
+  "//omoiji.com/": {
+    "type": "xpath",
+    "xpath": "p[@class='post-thumbnail']/img|//div[@class='theContentWrap-ccc']"
+  },
+  "//news.woshiru.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//mya-ake.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='content__body']"
+  },
+  "//media.startup-db.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-article__content']"
+  },
+  "//jiraffe.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "section[@id='article']/div[@class='container']",
+    "cleanup": [
+      "div[@class='share']"
+    ]
+  },
+  "//brew.sh/": {
+    "type": "xpath",
+    "xpath": "div[@id='post']"
+  },
+  "//blog.tomoya.app/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
+  },
+  "//blog.leko.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='___gatsby']/div/div/div"
+  },
+  "//research.sakura.ad.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'_share_')]"
+    ]
   }
 }
