@@ -1066,7 +1066,7 @@ class Af_Feedmod extends Plugin implements IHandler
     function append_img_tag(DOMDocument $doc, DOMElement $node, string $url, array $opt = null) : void {
         $img = $doc->createElement('img','');
         $img->setAttribute('src', $url);
-        if(!is_null($opt)){
+        if($opt){
             foreach($opt as $k => $v){
                 $img->setAttribute($k, $v);
             }
