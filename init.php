@@ -231,6 +231,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 }
                 $this->update_html_style($xpath, $entry, $link);
                 $this->update_tag($doc, $xpath, $entry, $link);
+                $this->update_tag_lazy_image($doc, $xpath, $entry, $link);
 
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
@@ -1062,9 +1063,14 @@ class Af_Feedmod extends Plugin implements IHandler
         $node->parentNode->insertBefore($if, $node->nextSibling);
     }
 
-    function append_img_tag(DOMDocument $doc, DOMElement $node, string $url) : void {
+    function append_img_tag(DOMDocument $doc, DOMElement $node, string $url, array $opt = null) : void {
         $img = $doc->createElement('img','');
         $img->setAttribute('src', $url);
+        if(!$opt){
+            foreach($opt as $k => $v){
+                $img->setAttribute($k, $v);
+            }
+        }
         $node->parentNode->insertBefore($img, $node->nextSibling);
     }
     function append_videomp4_tag(DOMDocument $doc, DOMElement $node, string $url) : void {
@@ -1303,7 +1309,7 @@ class Af_Feedmod extends Plugin implements IHandler
     }
     function get_replace_src(DOMElement $node) : string {
         $url = '';
-        $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-img-path', 'srcset',
+        $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-srcset', 'data-img-path', 'srcset',
             'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original', 'data-orig-file'];
         foreach($attr_list as $attr){
             if(!$node->hasAttribute($attr)){
@@ -1313,6 +1319,10 @@ class Af_Feedmod extends Plugin implements IHandler
                 $url = explode(" ", explode(",", $node->getAttribute('srcset'))[0])[0];
             } else {
                 $url = $node->getAttribute($attr);
+            }
+            if(strpos($url, 'data:image/') === 0){
+                $url = '';
+                continue;
             }
             if($url){
                 break;
@@ -1327,6 +1337,30 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         foreach($entries as $entry){
             $this->append_iframe_tag($doc, $entry, $entry->getAttribute('data-src'));
+        }
+    }
+
+    // logmi.jp
+    function update_tag_lazy_image(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
+        $entries = $xpath->query("//lazy-image");
+        if($entries->length === 0){
+            return;
+        }
+        foreach($entries as $entry){
+            $src = $entry->getAttribute('src');
+            $width = $entry->getAttribute('width');
+            $height = $entry->getAttribute('height');
+            if(!$src){
+                continue;
+            }
+            $opt = [];
+            if(!$width){
+                $opt['width'] = $width;
+            }
+            if(!$height){
+                $opt['height'] = $height;
+            }
+            $this->append_img_tag($doc, $entry, $src, $opt);
         }
     }
 
