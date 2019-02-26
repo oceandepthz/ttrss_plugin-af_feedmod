@@ -6680,10 +6680,6 @@
       "div[@class='media' or contains(@class,'social') or @class='entrySNS' or @class='kanren']"
     ]
   },
-  "//www.tv-tokyo.co.jp/travel/": {
-    "type": "xpath",
-    "xpath": "section[@id='detail']"
-  },
   "//withnews.jp/article/": {
     "type": "xpath",
     "xpath": "section[contains(@class, 'articleHeader')]/div[contains(@class, 'articleImgBox') or contains(@class,'articleIndex')]|//section[contains(@class, 'contentBox')]/article",
@@ -13909,10 +13905,6 @@
     "type": "xpath",
     "xpath": "article[contains(@class,'newsmain')]"
   },
-  "//www.tv-tokyo.co.jp/plus/business/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry_detail_body')]"
-  },
   "//www.nittai.ac.jp/important/": {
     "type": "xpath",
     "xpath": "div[@id='topicsContents']"
@@ -18154,5 +18146,61 @@
   "//ameblo.jp/daiki-iwamasa/": {
     "type": "xpath",
     "xpath": "div[@id='entryBody']"
+  },
+  "//devblogs.microsoft.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='featured']/div[contains(@class,'entry-content')]"
+  },
+  "//www.yutainvest.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='nv-thumb-wrap' or contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'_share_save_')]"
+    ]
+  },
+  "//www.tv-tokyo.co.jp/travel/": {
+    "type": "xpath",
+    "xpath": "section[@id='detail']"
+  },
+  "//www.tv-tokyo.co.jp/plus/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry_detail_body')]"
+  },
+  "//www.maywadenki.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.marketechlabo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'_share_save_')]"
+    ]
+  },
+  "//www.ibm.com/blogs/": {
+    "type": "xpath",
+    "xpath": "div[@class='ibm-blog__article-main' or @id='ibm-leadspace-head']",
+    "cleanup": [
+      "p[@id='sharespacing']",
+      "div[contains(@class,'ibm-ind-link')]"
+    ]
+  },
+  "//www.glamenv-septzen.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='data_main']/div[@class='data_body']",
+    "cleanup": [
+      "ul[@class='plugin_navi']"
+    ]
+  },
+  "//rollingstonejapan.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@id,'article-detail-')]",
+    "head_xpath": "div[@class='articleDetailImg']",
+    "next_page": "div[@class='articlesListPager']",
+    "next_page_cleanup": "li[@class='active']"
+  },
+  "//nihonsoukou.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
   }
 }
