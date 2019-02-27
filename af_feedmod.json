@@ -18225,5 +18225,24 @@
   "//jipsti.jst.go.jp/johokanri/sti_updates/": {
     "type": "xpath",
     "xpath": "div[@class='entry']"
+  },
+  "//hookrace.net/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='post']"
+  },
+  "//friday.kodansha.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div/div[contains(@class,'articleContent___')]"
+  },
+  "//employment.en-japan.com/desc_": {
+    "type": "xpath",
+    "xpath": "div[@class='pageSet']",
+    "cleanup": [
+      "div[@class='descBottomArea' or @id='recommendArea' or @id='bottomStaffArea' or @id='descUnderFunctionArea']"
+    ]
+  },
+  "//dave.cheney.net/": {
+    "type": "xpath",
+    "xpath": "body"
   }
 }
