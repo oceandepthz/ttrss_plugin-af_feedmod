@@ -14021,18 +14021,6 @@
       "aside"
     ]
   },
-  "//www.famitsu.com/matome/": {
-    "type": "xpath",
-    "xpath": "div[@id='contentsMatome']/div[contains(@class,'textBox01')]"
-  },
-  "//www.famitsu.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='textArea']"
-  },
-  "//app.famitsu.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='entry-body']"
-  },
   "//www.pfu.fujitsu.com/news/": {
     "type": "xpath",
     "xpath": "div[@id='contents']"
@@ -18202,5 +18190,40 @@
   "//nihonsoukou.com/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
+  },
+  "//www.famitsu.com/matome/": {
+    "type": "xpath",
+    "xpath": "div[@id='contentsMatome']/div[contains(@class,'textBox01')]"
+  },
+  "//www.famitsu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@class='article-body__contents-pr-primary']"
+    ]
+  },
+  "//app.famitsu.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='entry-body']"
+  },
+  "//www.thinkwithgoogle.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'page-content')]"
+  },
+  "//mono-reco.jp/": {
+    "type": "xpath",
+    "xpath": "article[@class='p-article']"
+  },
+  "//kazune-lab.net/diary/": {
+    "type": "xpath",
+    "xpath": "section[@class='page__content']"
+  },
+  "//jp.yna.co.kr/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-story']"
+  },
+  "//jipsti.jst.go.jp/johokanri/sti_updates/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']"
   }
 }
