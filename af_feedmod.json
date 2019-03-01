@@ -18244,5 +18244,21 @@
   "//dave.cheney.net/": {
     "type": "xpath",
     "xpath": "body"
+  },
+  "//contentmarketinglab.jp/": {
+    "type": "xpath",
+    "xpath": "section[@id='article-body']/*[@id='eye-catch' or @class='article-body-flex' or @class='article-point' or @class='author']"
+  },
+  "//bradfrost.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div/div[contains(@class,'c-text')]"
+  },
+  "//blogs.microsoft.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//blog.shikoan.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']"
   }
 }
