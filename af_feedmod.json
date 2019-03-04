@@ -4559,14 +4559,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//webya.opdsgn.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='article_body']",
-    "cleanup": [
-      "div[@class='ads']",
-      "section[@class='postFooter']"
-    ]
-  },
   "//time-space.kddi.com/interview/": {
     "type": "xpath",
     "xpath": "div[@class='detailContentsInner']",
@@ -10565,13 +10557,6 @@
     "type": "xpath",
     "xpath": "div[contains(@id,'post-body-') and @itemprop='articleBody']"
   },
-  "//www.ibm.com/developerworks/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'ibm-columns')]/div[@class='ibm-col-6-4']",
-    "cleanup": [
-      "div[contains(@class,'dw-article-social') or @id='dw-article-cmts-top' or @class='dw-article-cmts-container' or @class='dw-article-sidebar-alt']"
-    ]
-  },
   "//blog.ff11-beginner.xyz/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content' or @class='post-thumbnail']"
@@ -14171,26 +14156,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
   },
-  "//www.asahi.com/corporate/info/": {
-    "type": "xpath",
-    "xpath": "main"
-  },
-  "//www.asahi.com/and_M/": {
-    "type": "xpath",
-    "xpath": "div[@class='Main']/div[@class='LayTypeF']|//div[@class='ArticleBlock']/div[@class='ArticleTxt']",
-    "cleanup": [
-      "div[@class='AdBlock']"
-    ],
-    "next_page": "div[@class='ArticlePager']"
-  },
-  "//www.asahi.com/and_w/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]"
-  },
   "//morning.moae.jp/news/": {
     "type": "xpath",
     "xpath": "div[@id='article-main']"
@@ -15207,14 +15172,6 @@
     "xpath": "div[contains(@class,'entry-content')]",
     "cleanup": [
       "div[contains(@class,'-social-')]"
-    ]
-  },
-  "//www.blog.umentu.work/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-body']",
-    "cleanup": [
-      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts' or contains(@class,'veu_socialSet') or @class='yarpp-related']",
-      "aside[contains(@class,'veu_relatedPosts')]"
     ]
   },
   "//iphone-mania.jp/": {
@@ -16294,15 +16251,6 @@
   "//design-plus1.com/": {
     "type": "xpath",
     "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
-  },
-  "//dailyportalz.jp/kiji/": {
-    "type": "xpath",
-    "xpath": "div[@id='mainContentsInner']/div[contains(@class,'contentblock')]",
-    "cleanup": [
-      "div[@class='writer-detail']//a[contains(@href,'//twitter.com/') or contains(@href,'//plus.google.com/')]",
-      "div[@id='links']"
-    ],
-    "next_page": "div[@id='links']"
   },
   "//blog.whywrite.it/": {
     "type": "xpath",
@@ -18260,5 +18208,56 @@
   "//blog.shikoan.com/": {
     "type": "xpath",
     "xpath": "div[@id='content']"
+  },
+  "//www.blog.umentu.work/": {
+    "type": "xpath",
+    "xpath": "article/img|//div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'sharedaddy') or @id='jp-relatedposts' or contains(@class,'veu_socialSet') or @class='yarpp-related']",
+      "aside[contains(@class,'veu_relatedPosts')]"
+    ]
+  },
+  "//www.ibm.com/developerworks/community/blogs/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entryContentContainer')]"
+  },
+  "//www.ibm.com/developerworks/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'ibm-columns')]/div[@class='ibm-col-6-4']",
+    "cleanup": [
+      "div[contains(@class,'dw-article-social') or @id='dw-article-cmts-top' or @class='dw-article-cmts-container' or @class='dw-article-sidebar-alt']"
+    ]
+  },
+  "//www.asahi.com/corporate/info/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//www.asahi.com/and_M/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
+  },
+  "//www.asahi.com/and_w/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]"
+  },
+  "//webya.opdsgn.com/": {
+    "type": "xpath",
+    "xpath": "header/span/img|//div[@class='article__body']",
+    "cleanup": [
+      "div[@class='wp_rp_content' or @class='comment']"
+    ]
+  },
+  "//dailyportalz.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainContentsInner']/div[contains(@class,'contentblock')]",
+    "cleanup": [
+      "div[@class='writer-detail']//a[contains(@href,'//twitter.com/') or contains(@href,'//plus.google.com/')]",
+      "div[@id='links']"
+    ],
+    "next_page": "div[@id='links']"
   }
 }
