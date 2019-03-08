@@ -18278,5 +18278,9 @@
     "next_page": "div[@id='start']",
     "rep_pattern": "/^(.*:\\/\\/www\\.itmedia\\.co\\.jp\\/news\\/spv\\/[0-9]+\\/[0-9]+\\/.+)_0(\\.html)$/",
     "rep_replacement": "${1}${2}"
+  },
+  "//book.asahi.com/": {
+    "type": "xpath",
+    "xpath": "article/header/figure|//article/*[@class='module-body' or @class='module-point' or @class='module-credit']"
   }
 }
