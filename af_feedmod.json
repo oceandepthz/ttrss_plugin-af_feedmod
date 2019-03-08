@@ -16689,15 +16689,6 @@
     "type": "xpath",
     "xpath": "div[@id='content']"
   },
-  ".itmedia.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='cmsBody']",
-    "cleanup": [
-      "div[@id='fb-root' or @id='masterSocialbuttonTop' or @id='endlinkConnection' or @id='notice' or @id='start' or @id='cmsCopyright' or @id='masterSocialbuttonBtm' or @id='end' or @class='endkwd' or @id='backNumBox']",
-      "script"
-    ],
-    "next_page": "div[@id='start']"
-  },
   "//dot.asahi.com/": {
     "type": "xpath",
     "xpath": "div[@class='InfImgBox']//table//img|//p[@class='nTxt1']|//div[@class='FoldedTxtAreaPhotoArticle']",
@@ -17203,39 +17194,6 @@
     "xpath": "div[contains(@class,'block-detail-c-a__body')]",
     "next_page": "div[contains(@class,'block-navi-b-d__container')]"
   },
-  "//github.com/apps/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'application-main')]"
-  },
-  "*//github.com/*/*/commit/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[contains(@class,'repository-content')]"
-  },
-  "*//github.com/*/*/wiki/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='wiki-body']"
-  },
-  "*//github.com/*/issues/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "td[contains(@class,'comment-body')]|//h3[contains(@class,'timeline-comment-header-text')]|//div[contains(@class,'timeline-comment-avatar')]/a/img[contains(@class,'avatar')]|//div[@id='partial-discussion-header']|//div[contains(@class,'js-timeline-item')]/div[contains(@class,'discussion-item')]"
-  },
-  "*//github.com/*/*/pull/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
-  },
-  "*//github.com/*/*/releases/tag/*": {
-    "match_type": "fnmatch",
-    "type": "xpath",
-    "xpath": "div[contains(@class,'repository-content')]/div[contains(@class,'release')]"
-  },
-  "//github.com/": {
-    "type": "xpath",
-    "xpath": "article|//div[contains(@class,'release-body')]"
-  },
   "//www.wakuwakubank.com/": {
     "type": "xpath",
     "xpath": "div[@id='c-markdown']"
@@ -17294,23 +17252,6 @@
     "cleanup": [
       "div[contains(@class,'ad-area')]"
     ]
-  },
-  "//www.sankei.com/photo/": {
-    "type": "xpath",
-    "xpath": "article[@class='articleText']",
-    "cleanup": [
-      "header",
-      "div[@class='sugoiCounter']"
-    ]
-  },
-  "//www.sankei.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='post_img']/a/figure|//div[@class='post_content']",
-    "cleanup": [
-      "aside",
-      "p[@class='pageNextsubhead']"
-    ],
-    "next_page": "div[@class='pagination']"
   },
   "//myuon.github.io/posts/": {
     "type": "xpath",
@@ -18259,5 +18200,83 @@
       "div[@id='links']"
     ],
     "next_page": "div[@id='links']"
+  },
+  "*//github.com/*/*/releases/tag/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class,'repository-content')]/div[@class='border-top']"
+  },
+  "//github.com/apps/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'application-main')]"
+  },
+  "*//github.com/*/*/commit/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[contains(@class,'repository-content')]"
+  },
+  "*//github.com/*/*/wiki/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='wiki-body']"
+  },
+  "*//github.com/*/issues/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "td[contains(@class,'comment-body')]|//h3[contains(@class,'timeline-comment-header-text')]|//div[contains(@class,'timeline-comment-avatar')]/a/img[contains(@class,'avatar')]|//div[@id='partial-discussion-header']|//div[contains(@class,'js-timeline-item')]/div[contains(@class,'discussion-item')]"
+  },
+  "*//github.com/*/*/pull/*": {
+    "match_type": "fnmatch",
+    "type": "xpath",
+    "xpath": "div[@id='partial-discussion-header']|//div[contains(@class,'discussion-timeline')]/div[contains(@class,'js-discussion')]"
+  },
+  "//github.com/": {
+    "type": "xpath",
+    "xpath": "article|//div[contains(@class,'release-body')]"
+  },
+  "//www.sankei.com/photo/": {
+    "type": "xpath",
+    "xpath": "article[@class='articleText']",
+    "cleanup": [
+      "header",
+      "div[@class='sugoiCounter']"
+    ]
+  },
+  "//www.sankei.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_img']/a/figure|//div[@class='post_content']",
+    "cleanup": [
+      "aside",
+      "p[@class='pageNextsubhead']"
+    ],
+    "next_page": "div[@class='pagination']"
+  },
+  "//taishu.jp/": {
+    "type": "xpath",
+    "xpath": "main/article",
+    "cleanup": [
+      "aside",
+      "div[@class='next-link' or contains(@id, '-gpt-ad-') or @id='ulCommentWidget']",
+      "ol[@class='pager']"
+    ],
+    "next_page": "ol[@class='pager']",
+    "next_page_cleanup": "li[@class='current']",
+    "rep_pattern": "/^(.*:\\/\\/taishu\\.jp\\/articles\\/-\\/[0-9]+)$/",
+    "rep_replacement": "${1}?page=1"
+  },
+  "//shared-blog.kddi-web.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'content')]/div[contains(@class,'field-name-body')]"
+  },
+  ".itmedia.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='cmsBody']",
+    "cleanup": [
+      "div[@id='fb-root' or @id='masterSocialbuttonTop' or @id='endlinkConnection' or @id='notice' or @id='start' or @id='cmsCopyright' or @id='masterSocialbuttonBtm' or @id='end' or @class='endkwd' or @id='backNumBox']",
+      "script"
+    ],
+    "next_page": "div[@id='start']",
+    "rep_pattern": "/^(.*:\\/\\/www\\.itmedia\\.co\\.jp\\/news\\/spv\\/[0-9]+\\/[0-9]+\\/.+)_0(\\.html)$/",
+    "rep_replacement": "${1}${2}"
   }
 }
