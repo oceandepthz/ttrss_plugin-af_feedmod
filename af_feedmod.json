@@ -1839,13 +1839,6 @@
     "type": "xpath",
     "xpath": "div[@class='article__body']"
   },
-  "honz.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='article_body']",
-    "cleanup": [
-      "ul[@class='boookstores']"
-    ]
-  },
   "blog.webcreativepark.net": {
     "type": "xpath",
     "xpath": "div[@id='main']",
@@ -13327,14 +13320,6 @@
       "ul[@class='flippy']"
     ]
   },
-  "//tech.nikkeibp.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleBody' or @id='kiji']",
-    "cleanup": [
-      "div[@id='naviBottom' or @class='bpframe']"
-    ],
-    "next_page": "nav[@class='pagenation']|//div[@id='pager']"
-  },
   "//official-blog.line.me/": {
     "type": "xpath",
     "xpath": "article/div[@class='article-body']"
@@ -14519,21 +14504,6 @@
     "xpath": "article/div[@class='entry-content']",
     "cleanup": [
       "aside"
-    ]
-  },
-  "//www.newsweekjapan.jp/e-book/": {
-    "type": "xpath",
-    "xpath": "div[@id='magHeadLine']"
-  },
-  "//www.newsweekjapan.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
-    "cleanup": [
-      "div[@class='entryPagenate' or contains(@class,'annotation')]"
-    ],
-    "next_page": "div[@class='entryPagenate']",
-    "next_page_cleanup": [
-      "li[@class='cont']"
     ]
   },
   "//dosports.yahoo.co.jp/column/": {
@@ -18278,5 +18248,47 @@
   "news.yahoo.co.jp/pickup": {
     "type": "xpath",
     "xpath": "article/section/div[@class='tpcHeader_thumb' or @class='tpcNews_body']"
+  },
+  "//www.newsweekjapan.jp/mook/": {
+    "type": "xpath",
+    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
+    "cleanup": [
+      "div[@class='sell-link']"
+    ]
+  },
+  "//www.newsweekjapan.jp/e-book/": {
+    "type": "xpath",
+    "xpath": "div[@id='magHeadLine']"
+  },
+  "//www.newsweekjapan.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
+    "cleanup": [
+      "div[@class='entryPagenate' or contains(@class,'annotation')]"
+    ],
+    "next_page": "div[@class='entryPagenate']",
+    "next_page_cleanup": [
+      "li[@class='cont']"
+    ]
+  },
+  "//honz.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='article_body']",
+    "cleanup": [
+      "ul[@class='boookstores']"
+    ]
+  },
+  "//tech.nikkeibp.co.jp/dm/": {
+    "type": "xpath",
+    "xpath": "div[@id='article']",
+    "next_page": "div[@class='pagingBox']"
+  },
+  "//tech.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBody' or @id='kiji']",
+    "cleanup": [
+      "div[@id='naviBottom' or @class='bpframe']"
+    ],
+    "next_page": "nav[@class='pagenation']|//div[@id='pager']"
   }
 }
