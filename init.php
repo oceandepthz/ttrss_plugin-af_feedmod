@@ -63,6 +63,11 @@ class Af_Feedmod extends Plugin implements IHandler
         return $json_conf;
     }
 
+    function write_url(string $url) : void {
+        $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
+        file_put_contents(dirname(__FILE__).'/logs/site.txt', "[${dt}] ${url}\n", FILE_APPEND|LOCK_EX);
+    }
+
     function hook_article_filter($article)
     {
         global $fetch_last_content_type;
@@ -112,14 +117,6 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
             $hit_urlpart = $urlpart;
-            if (strpos($article['plugin_data'], "feedmod,$owner_uid:") !== false) {
-                // do not process an article more than once
-                if (isset($article['stored']['content'])) {
-                    $article['content'] = $article['stored']['content'];
-                }
-                break;
-            }
-
             $is_hit_link = true;
 
             if(isset($config['no_fetch']) && $config['no_fetch']){
@@ -144,7 +141,7 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             $is_execute = true;
             $article['content'] = $entrysXML;
-            $article['plugin_data'] = "feedmod,$owner_uid:" . $article['plugin_data'];
+            $this->write_url($article['link']);
 
             $head_content = '';
             if(isset($config['head_xpath']) && $config['head_xpath']){
@@ -253,7 +250,7 @@ class Af_Feedmod extends Plugin implements IHandler
         if(HatebuUtils::is_hatebu($article['feed']['fetch_url'])){
             $article['content'] .= HatebuUtils::get_hatebu_content($article['link']);
         }
-        
+ 
         return $article;
     }
 
@@ -305,7 +302,8 @@ class Af_Feedmod extends Plugin implements IHandler
     function __debug_tm($v) {
         $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
         $um = memory_get_usage() / (1024 * 1024)."MB";
-        $this->__debug("[${dt}][${um}]:${v}");
+        $pv = print_r($v, true);
+        $this->__debug("[${dt}][${um}]:${pv}");
     }
 
     function __debug($v){
