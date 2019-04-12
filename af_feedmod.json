@@ -927,7 +927,7 @@
     "type": "xpath",
     "xpath": "div[@id='mbcnews-kiji']"
   },
-  "373news.com": {
+  "//373news.com/": {
     "type": "xpath",
     "xpath": "div[@id='bt_body']"
   },
@@ -1207,14 +1207,6 @@
     "cleanup": [
       "h1",
       "*[starts-with(@class, 'bookmarking')]"
-    ]
-  },
-  "cybozushiki.cybozu.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "ul[@class='socialBtn']",
-      "div[starts-with(@class, 'relatedEntry')]"
     ]
   },
   "blog.goo.ne.jp/yukks453145": {
@@ -2196,13 +2188,6 @@
   "blog-ja.deploygate.com": {
     "type": "xpath",
     "xpath": "div[starts-with(@class,'body')]"
-  },
-  "photo-studio9.com": {
-    "type": "xpath",
-    "xpath": "div[@class='postbox_mid_single']",
-    "cleanup": [
-      "div[@class='single_middle_ad' or @class='single_bottom_ad' or @class='postbox_tags_single' or @id='sns-btn-bottom' or @class='nav-below' or @class='cc_single']"
-    ]
   },
   "blog.inouetakuya.info": {
     "type": "xpath",
@@ -12058,13 +12043,6 @@
     "type": "xpath",
     "xpath": "div[@id='contentBody']"
   },
-  "//kemono-friendsch.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='kizi']/div[@class='blogbox']|//div[@class='kizi']/div[@class='pagetext']/div[@class='text_body']",
-    "cleanup": [
-      "div[@class='waku4' or @class='gads1']"
-    ]
-  },
   "//kadenya.news/": {
     "type": "xpath",
     "xpath": "section[@class='entry-content']|//footer/div[@class='post-author-box']"
@@ -13729,10 +13707,6 @@
     "cleanup": [
       "div[@class='c-heading__body']"
     ]
-  },
-  "cocopon.me": {
-    "type": "xpath",
-    "xpath": "section[@class='blog-singlePage_section']"
   },
   ".blogspot.jp/": {
     "type": "xpath",
@@ -17803,10 +17777,6 @@
       ".hdg-03 span {border-left-color: #36f;display: block;padding: 1px 0 2px 9px;border-style: solid;border-width: 0;border-left-width: 5px;}"
     ]
   },
-  "//www.dtmstation.com/": {
-    "type": "xpath",
-    "xpath": "article/section[contains(@class,'entry-content')]"
-  },
   "//ameblo.jp/daiki-iwamasa/": {
     "type": "xpath",
     "xpath": "div[@id='entryBody']"
@@ -18290,5 +18260,28 @@
       "div[@id='naviBottom' or @class='bpframe']"
     ],
     "next_page": "nav[@class='pagenation']|//div[@id='pager']"
+  },
+  "//cocopon.me/": {
+    "type": "xpath",
+    "xpath": "section[@class='blog-singlePage_section']"
+  },
+  "//photo-studio9.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='st-h-ad']"
+    ]
+  },
+  "//kemono-friendsch.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='comments']/*[@id='resp' or @class='commets-list']|//article/div/div/div[@class='entry-content']"
+  },
+  "//www.dtmstation.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//cybozushiki.cybozu.co.jp/": {
+    "type": "xpath",
+    "xpath": "header/*[@class='ac-det-header__ttl' or @class='ac-det-header__img']|//article/div/div/div[contains(@class,'m-editor')]"
   }
 }
