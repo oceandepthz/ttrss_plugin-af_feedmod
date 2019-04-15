@@ -18283,5 +18283,20 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'article-body') or @id='main-contents']",
     "next_page": "div[@class='cts-pagenation'][1]|//div[@id='multipage' or @class='pagination']|//nav[@class='article-parts-pagenav']"
+  },
+  "//yoshio3.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/div[contains(@id,'post-')]",
+    "cleanup": [
+      "div[@class='wpcnt' or @id='jp-post-flair']"
+    ]
+  },
+  "//y23586.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.u-tokyo.ac.jp/ja/about/president/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-article']/div/div[@class='editableHtml']"
   }
 }
