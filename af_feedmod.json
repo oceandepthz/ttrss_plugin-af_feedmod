@@ -18325,5 +18325,16 @@
   "//www.platinumgames.co.jp/official-blog/": {
     "type": "xpath",
     "xpath": "header/figure|//div[contains(@class,'magazine-content')]"
+  },
+  "//www.news-caravan.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='nv-thumb-wrap' or contains(@class,'nv-content-wrap')]",
+    "cleanup": [
+      "div[contains(@class,'_share_save_')]"
+    ]
+  },
+  "//www.nao.ac.jp/news/": {
+    "type": "xpath",
+    "xpath": "article"
   }
 }
