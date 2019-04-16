@@ -11467,10 +11467,6 @@
       "header"
     ]
   },
-  "//www.ruby.or.jp/ja/news/": {
-    "type": "xpath",
-    "xpath": "div[@id='content-news']"
-  },
   "//www.ntt-east.co.jp/info/detail/": {
     "type": "xpath",
     "xpath": "div[@id='str-main']"
@@ -18298,5 +18294,36 @@
   "//www.u-tokyo.ac.jp/ja/about/president/": {
     "type": "xpath",
     "xpath": "div[@class='c-article']/div/div[@class='editableHtml']"
+  },
+  "//www.theatlantic.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='l-article__container__container']",
+    "cleanup": [
+      "section[@id='share-social']"
+    ]
+  },
+  "//www.thanko.jp/shopdetail/": {
+    "type": "xpath",
+    "xpath": "div[@class='products-area-top' or @class='products-area' or @id='spec']"
+  },
+  "//www.ruby.or.jp/ja/showcase/": {
+    "type": "xpath",
+    "xpath": "div[@id='content-showcase']"
+  },
+  "//www.ruby.or.jp/ja/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='content-news']"
+  },
+  "//www.ruby.or.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='content-page']"
+  },
+  "//www.rondhuit.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='col_main']"
+  },
+  "//www.platinumgames.co.jp/official-blog/": {
+    "type": "xpath",
+    "xpath": "header/figure|//div[contains(@class,'magazine-content')]"
   }
 }
