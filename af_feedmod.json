@@ -18344,5 +18344,13 @@
       "div[@class='social-sharing']",
       "form"
     ]
+  },
+  "//www.elastic.co/blog/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-wrapper']/div[contains(@class,'article-post-wrapper')]"
+  },
+  "//www.chibanippo.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/article/*[@id='bt_body' or @class='related']"
   }
 }
