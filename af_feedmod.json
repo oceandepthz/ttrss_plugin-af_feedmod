@@ -18336,5 +18336,13 @@
   "//www.nao.ac.jp/news/": {
     "type": "xpath",
     "xpath": "article"
+  },
+  "//www.lambdanote.com/products/": {
+    "type": "xpath",
+    "xpath": "img[@class='product-featured-img']|//div[@class='product-single__meta']",
+    "cleanup": [
+      "div[@class='social-sharing']",
+      "form"
+    ]
   }
 }
