@@ -18352,5 +18352,9 @@
   "//www.chibanippo.co.jp/news/": {
     "type": "xpath",
     "xpath": "div[@id='content']/article/*[@id='bt_body' or @class='related']"
+  },
+  "//webliker.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-header']/div[@class='post-image']|//section/div/div[@class='post-body']"
   }
 }
