@@ -52,7 +52,7 @@ class Af_Feedmod extends Plugin implements IHandler
     function get_json_conf() : string {
         $json_file_name = __DIR__."/site_conf.json";
         if(file_exists($json_file_name)){
-            $file_after_ten_min = strtotime("+5 minute", filemtime($json_file_name));
+            $file_after_ten_min = strtotime("+10 minute", filemtime($json_file_name));
             if($file_after_ten_min > time()){
                 return file_get_contents($json_file_name);
             }
