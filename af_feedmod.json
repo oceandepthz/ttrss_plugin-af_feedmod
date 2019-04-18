@@ -13875,13 +13875,6 @@
     "type": "xpath",
     "xpath": "figure[@class='module-header__image']|//aside[@class='module-point' or @class='module-credit']|//section[@class='module-body']"
   },
-  "//youkoseki.com/": {
-    "type": "xpath",
-    "xpath": "body",
-    "cleanup": [
-      "div[@class='social_plugins']"
-    ]
-  },
   "//y-hey.com/": {
     "type": "xpath",
     "xpath": "div[@id='container']",
@@ -18356,5 +18349,21 @@
   "//webliker.info/": {
     "type": "xpath",
     "xpath": "div[@class='post-header']/div[@class='post-image']|//section/div/div[@class='post-body']"
+  },
+  "//youkoseki.com/": {
+    "type": "xpath",
+    "xpath": "body/*[@class='title' or @class='text_paragraph' or @class='text_space']"
+  },
+  "//www.hacker.or.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//telling.asahi.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article__header')]/img|//div[@class='article__body']/section/section[@class='article__article-area']"
+  },
+  "//spring.io/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog--post']"
   }
 }
