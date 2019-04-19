@@ -18365,5 +18365,17 @@
   "//spring.io/blog/": {
     "type": "xpath",
     "xpath": "div[@class='blog--post']"
+  },
+  "//www.athome.co.jp/vox/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]/div[@class='enquete']"
+  },
+  "//smart-flash.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='newsBlock']"
+  },
+  "//shogyokai.jp/": {
+    "type": "xpath",
+    "xpath": "main/article/div/div[contains(@class,'article-body')]"
   }
 }
