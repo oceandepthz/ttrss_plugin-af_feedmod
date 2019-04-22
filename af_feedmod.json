@@ -8422,10 +8422,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.kanaloco.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='post-content']"
-  },
   "//www.ipsj.or.jp/magazine/": {
     "type": "xpath",
     "xpath": "div[@class='contents']"
@@ -11905,10 +11901,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//tablo.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='main_contents']/div[@class='main_block']"
-  },
   "//soundproof-blog.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -15096,10 +15088,6 @@
     "cleanup": [
       "div[contains(@class,'sm_icon_mini') or @class='bbs_preview']"
     ]
-  },
-  "//www.tokyo-sports.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='font_report']"
   },
   "//www.afpbb.com/": {
     "type": "xpath",
@@ -18377,5 +18365,23 @@
   "//shogyokai.jp/": {
     "type": "xpath",
     "xpath": "main/article/div/div[contains(@class,'article-body')]"
+  },
+  "//tablo.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainEntity']",
+    "cleanup": [
+      "h1",
+      "div[@id='paging']",
+      "aside"
+    ],
+    "next_page": "div[@id='paging']"
+  },
+  "//www.tokyo-sports.co.jp/": {
+    "type": "xpath",
+    "xpath": "section/div[@class='detail-content']"
+  },
+  "//www.kanaloco.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-contents']//div[contains(@class,'acms-entry')]"
   }
 }
