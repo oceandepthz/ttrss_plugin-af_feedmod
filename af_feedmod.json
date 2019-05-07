@@ -7237,10 +7237,6 @@
       "ul[contains(@class,'bzb-sns-btn')]"
     ]
   },
-  "//www.theverge.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='l-col__main']/figure[contains(@class,'e-image')]|//div[@class='c-entry-content']"
-  },
   "//houmu-bu.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-thumbnail']|//section[@class='post-content']"
@@ -16971,13 +16967,6 @@
       "div[contains(@class,'social-share') or contains(@class,'print-download')]"
     ]
   },
-  "//code.visualstudio.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='main-content']/div/div/div[contains(@class,'body')]",
-    "cleanup": [
-      "div[@class='feedback' or contains(@class,'edit-github')]"
-    ]
-  },
   "//cdp-japan.jp/news/": {
     "type": "xpath",
     "xpath": "article/*[contains(@class,'article-figure') or @class='article-body']"
@@ -18358,5 +18347,16 @@
   "//tech-camp.in/note/": {
     "type": "xpath",
     "xpath": "div[@class='ArticleBodyContainer' or @class='InterviewArticleHeader']"
+  },
+  "//www.theverge.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='l-col__main']/*[contains(@class,'e-image') or contains(@class,'c-video-embed')]|//div[contains(@class,'c-entry-content')]"
+  },
+  "//code.visualstudio.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'body-content')]/div/div[contains(@class,'body')]",
+    "cleanup": [
+      "div[@class='feedback' or contains(@class,'edit-github')]"
+    ]
   }
 }
