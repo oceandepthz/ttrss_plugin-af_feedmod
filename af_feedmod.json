@@ -1048,14 +1048,6 @@
       "div[starts-with(@class, 'ssba')]"
     ]
   },
-  "kachibito.net": {
-    "type": "xpath",
-    "xpath": "div[@class='post-content']",
-    "cleanup": [
-      "div[@class='bottom_ads']",
-      "div[@id='other-recommend']"
-    ]
-  },
   "tokyo-calendar.jp": {
     "type": "xpath",
     "xpath": "section[starts-with(@class, 'article-content-body') and not(contains(@class, 'next-page-paragraph'))]",
@@ -2020,10 +2012,6 @@
       "iframe[contains(@src,'rcm-fe.amazon-adsystem.com')]",
       "div[@class='bookmark']"
     ]
-  },
-  "www.news-postseven.com": {
-    "type": "xpath",
-    "xpath": "div[@class='image']//h5|//p[@class='text sp']"
   },
   "www.masafumiotsuka.com": {
     "type": "xpath",
@@ -9274,13 +9262,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
   },
-  "//www.flopdesign.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[contains(@class,'sharedaddy')]"
-    ]
-  },
   "//www.dentsu.co.jp/news/release/": {
     "type": "xpath",
     "xpath": "div[@id='contentBodyMain']/div[@class='editArea']"
@@ -12942,17 +12923,6 @@
     ],
     "next_page": "p[@class='p-pagination']"
   },
-  "//japan.cnet.com/interview/": {
-    "type": "xpath",
-    "xpath": "div[@id='NWrelart:Body']",
-    "next_page": "div[@id='pagination'][1]"
-  },
-  "//japan.cnet.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='NWrelart:Body' or @id='shareBarHolder']",
-    "next_page": "div[@id='pageNation' or @id='pagination']",
-    "next_page_cleanup": "li[@class='thispage']"
-  },
   "//bunshun.jp/articles/": {
     "type": "xpath",
     "xpath": "figure/div[contains(@class,'kanban')]/img|//div[@class='article-body' or @class='author-header' or contains(@class,'title-side')]",
@@ -13745,11 +13715,6 @@
     "cleanup": [
       "div[@class='teads-inread']"
     ]
-  },
-  "//kensuu.com/": {
-    "type": "xpath",
-    "engine": "chromium",
-    "xpath": "div[@class='imagenote-viewer' or @class='note-cover-img' or @class='body-wrapper']"
   },
   "//doublehash.me/": {
     "type": "xpath",
@@ -18358,5 +18323,38 @@
     "cleanup": [
       "div[@class='feedback' or contains(@class,'edit-github')]"
     ]
+  },
+  "//japan.cnet.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//japan.cnet.com/interview/": {
+    "type": "xpath",
+    "xpath": "div[@id='NWrelart:Body']",
+    "next_page": "div[@id='pagination'][1]"
+  },
+  "//japan.cnet.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='NWrelart:Body' or @id='shareBarHolder']",
+    "next_page": "div[@id='pageNation' or @id='pagination']",
+    "next_page_cleanup": "li[@class='thispage']"
+  },
+  "//www.flopdesign.com/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//kensuu.com/n/": {
+    "type": "xpath",
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//www.news-postseven.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='detailSec']/div[@class='wp-editor']",
+    "next_page": "ul[@class='pagenation']"
+  },
+  "//kachibito.net/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
   }
 }
