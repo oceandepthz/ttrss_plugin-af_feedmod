@@ -14632,60 +14632,6 @@
       "aside[contains(@class,'veu_relatedPosts')]"
     ]
   },
-  "//togetter.com/special/": {
-    "type": "xpath",
-    "xpath": "div[@id='document']/div[contains(@class,'contents')]"
-  },
-  "//togetter.com/li/": {
-    "type": "xpath",
-    "xpath": "body",
-    "cleanup": [
-      "div[@id='comment_form' or @class='info_head' or @class='status' or contains(@class,'title_box_right')]",
-      "ul[@class='info_action']"
-    ],
-    "append_css": [
-      ".rad_btn{background-color:#f1f2f4;border:1px solid #ddd;border-radius: 3px;display: inline-block;color: #000;}",
-      ".list_description_box{background-color: #f8f8f8;color: #666;padding: 5px;}",
-      ".info_thumb{float:right;}",
-      ".info_status .user_icon img {border: 0 solid transparent;border-radius: 3px;height: 24px;margin-right: 2px;padding: 0;width: 24px;}",
-      ".info_status {line-height: 24px;}",
-      ".list_tweet_box .tweet_wrap {border: 1px solid #e8e8e8;clear: both;padding: 5px;}",
-      ".list_tweet_box .timestamp {float: right;}",
-      ".list_tweet_box .user_link img {left: 0;top: 5px;position: absolute;}",
-      ".list_tweet_box .tweet {margin-bottom: 0;white-space: pre-wrap;font-size: 108%;line-height: 1.4em;}",
-      ".icon_48, .icon_73 {border: 0 solid transparent;border-radius: 6px;padding: 0;}",
-      ".icon_48 {height: 48px;width: 48px;}",
-      ".list_tweet_box {min-height: 50px;padding-left: 53px;position: relative;}",
-      ".list_box {padding: 5px 0;}",
-      "span.user_link > img { display:block; }",
-      ".list_tweet_box .tweet .f20 {font-size: 140%;line-height: 1.2em;}",
-      ".c10 {color: #088;}",
-      ".f20 {font-size: 152%;font-weight: 700;}",
-      ".list_tweet_box .tweet .f17 {font-size: 119%;line-height: 1.2em;}",
-      ".c01 {color: #e22;}",
-      ".f17, .f19 {font-weight: 700;}",
-      ".f17 {font-size: 129%;}",
-      ".list_tweet_box .tweet .f15 {font-size: 107%;line-height: 1.2em;}",
-      ".c02 {color: #e0e;}",
-      ".f15 {font-size: 116%;}",
-      ".f13, .f15 {font-weight: 700;}",
-      ".comment_box .comment {padding: 5px;border: 1px solid #ccc;background-color: #f6fafa;}",
-      ".rad5 {border-radius: 5px;}",
-      ".c06 {color: #f80;}",
-      ".f13 {font-size: 100%;}",
-      ".type_markdown {margin: 0 10px;padding: 0;font-size: 1.2em;line-height: 1.5;}",
-      ".type_markdown .md-h-1 {border-bottom: 3px solid #eee;font-size: 1.65em;}",
-      ".type_markdown .md-h-2 {border-bottom: 1px solid #eee;font-size: 1.35em;line-height: 1.2;display: block;margin: 16px 0;padding-bottom: .3em;font-weight: 700;}",
-      ".type_url {margin: 5px 0;padding: 0;border: 1px solid #e8e8e8;border-radius: 3px;}",
-      ".type_url .thumb {float: right;margin: 0;}",
-      ".type_url .inner {padding: 10px;padding-bottom: 0;}",
-      ".type_url .inner .content {display: block;margin-bottom: 5px;}",
-      ".list_box .title {display: block;margin: 5px 0;padding: 0;color: #4a4a4a;font-weight: 600;}",
-      ".type_url .inner .desc {display: block;margin-bottom: 10px;color: #a0a0a0;font-size: 12px;}",
-      ".tag_edit_btn{display:none!important;}",
-      ".svg-icon{display:none!important;}"
-    ]
-  },
   "//www.akitashoten.co.jp/news/": {
     "type": "xpath",
     "xpath": "div[@class='contents']/div[@class='textArea']"
@@ -18356,5 +18302,83 @@
   "//kachibito.net/": {
     "type": "xpath",
     "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//togetter.com/special/": {
+    "type": "xpath",
+    "xpath": "div[@id='document']/div[contains(@class,'contents')]"
+  },
+  "//togetter.com/li/": {
+    "type": "xpath",
+    "xpath": "body",
+    "cleanup": [
+      "div[@id='comment_form' or contains(@class,'info_head') or @class='status' or contains(@class,'title_box_right')]",
+      "ul[@class='info_action']"
+    ],
+    "append_css": [
+      ".rad_btn{background-color:#f1f2f4;border:1px solid #ddd;border-radius: 3px;display: inline-block;color: #000;}",
+      ".list_description_box{background-color: #f8f8f8;color: #666;padding: 5px;}",
+      ".info_thumb{float:right;}",
+      ".info_status .user_icon img {border: 0 solid transparent;border-radius: 3px;height: 24px;margin-right: 2px;padding: 0;width: 24px;}",
+      ".info_status {line-height: 24px;}",
+      ".list_tweet_box .tweet_wrap {border: 1px solid #e8e8e8;clear: both;padding: 5px;}",
+      ".list_tweet_box .timestamp {float: right;}",
+      ".list_tweet_box .user_link img {left: 0;top: 5px;position: absolute;}",
+      ".list_tweet_box .tweet {margin-bottom: 0;white-space: pre-wrap;font-size: 108%;line-height: 1.4em;}",
+      ".icon_48, .icon_73 {border: 0 solid transparent;border-radius: 6px;padding: 0;}",
+      ".icon_48 {height: 48px;width: 48px;}",
+      ".list_tweet_box {min-height: 50px;padding-left: 53px;position: relative;}",
+      ".list_box {padding: 5px 0;}",
+      "span.user_link > img { display:block; }",
+      ".list_tweet_box .tweet .f20 {font-size: 140%;line-height: 1.2em;}",
+      ".c10 {color: #088;}",
+      ".f20 {font-size: 152%;font-weight: 700;}",
+      ".list_tweet_box .tweet .f17 {font-size: 119%;line-height: 1.2em;}",
+      ".c01 {color: #e22;}",
+      ".f17, .f19 {font-weight: 700;}",
+      ".f17 {font-size: 129%;}",
+      ".list_tweet_box .tweet .f15 {font-size: 107%;line-height: 1.2em;}",
+      ".c02 {color: #e0e;}",
+      ".f15 {font-size: 116%;}",
+      ".f13, .f15 {font-weight: 700;}",
+      ".comment_box .comment {padding: 5px;border: 1px solid #ccc;background-color: #f6fafa;}",
+      ".rad5 {border-radius: 5px;}",
+      ".c06 {color: #f80;}",
+      ".f13 {font-size: 100%;}",
+      ".type_markdown {margin: 0 10px;padding: 0;font-size: 1.2em;line-height: 1.5;}",
+      ".type_markdown .md-h-1 {border-bottom: 3px solid #eee;font-size: 1.65em;}",
+      ".type_markdown .md-h-2 {border-bottom: 1px solid #eee;font-size: 1.35em;line-height: 1.2;display: block;margin: 16px 0;padding-bottom: .3em;font-weight: 700;}",
+      ".type_url {margin: 5px 0;padding: 0;border: 1px solid #e8e8e8;border-radius: 3px;}",
+      ".type_url .thumb {float: right;margin: 0;}",
+      ".type_url .inner {padding: 10px;padding-bottom: 0;}",
+      ".type_url .inner .content {display: block;margin-bottom: 5px;}",
+      ".list_box .title {display: block;margin: 5px 0;padding: 0;color: #4a4a4a;font-weight: 600;}",
+      ".type_url .inner .desc {display: block;margin-bottom: 10px;color: #a0a0a0;font-size: 12px;}",
+      ".tag_edit_btn{display:none!important;}",
+      ".svg-icon{display:none!important;}"
+    ]
+  },
+  "//jam25.jp/": {
+    "type": "xpath",
+    "xpath": "article[@class='article-body']",
+    "cleanup": [
+      "p[@class='spons-search']",
+      "div[@class='share-cta' or @class='snsShareArea']",
+      "section[@id='profile']"
+    ]
+  },
+  "//www.twilio.com/blog/": {
+    "type": "xpath",
+    "xpath": "section[@class='article-content']",
+    "cleanup": [
+      "div[@id='disqus_thread' or @class='article-coauthors']"
+    ]
+  },
+  "//www.shinentai.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='content']"
+  },
+  "//web.dev/": {
+    "type": "xpath",
+    "xpath": "main"
   }
 }
