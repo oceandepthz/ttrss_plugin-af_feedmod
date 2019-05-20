@@ -14201,10 +14201,6 @@
     ],
     "next_page": "div[@class='page-link']"
   },
-  "//news.livedoor.com/article/detail/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleBody']"
-  },
   "//mtg-jp.com/reading/": {
     "type": "xpath",
     "xpath": "div[@class='reading-main']/section/div[@class='detail']"
@@ -18380,5 +18376,87 @@
   "//web.dev/": {
     "type": "xpath",
     "xpath": "main"
+  },
+  "//pr.forkwell.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='wp-content']"
+  },
+  "//nrslib.com/": {
+    "type": "xpath",
+    "xpath": "main/section[@class='content']",
+    "cleanup": [
+      "div[contains(@id,'quads-ad')]"
+    ]
+  },
+  "//news.ycombinator.com/item": {
+    "type": "xpath",
+    "xpath": "table[@id='hnmain']"
+  },
+  "//news.livedoor.com/lite/": {
+    "type": "xpath",
+    "xpath": "div[@class='topicsBody']|//article[contains(@class,'mainSec')]"
+  },
+  "//news.livedoor.com/article/detail/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBody']"
+  },
+  "//jidounten-lab.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='td-post-content']",
+    "cleanup": [
+      "div[contains(@id,'quads-ad')]"
+    ]
+  },
+  "//itnext.io/": {
+    "type": "xpath",
+    "xpath": "section/div[@class='section-content']"
+  },
+  "//hochi.news/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__area']"
+  },
+  "//hikakujoho.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@class,'btn-share-')]"
+    ]
+  },
+  "//drm.ricoh.jp/lab/": {
+    "type": "xpath",
+    "xpath": "section[@class='left-side']/section[contains(@class,'mod-width')]",
+    "cleanup": [
+      "div[@class='mod-sns']"
+    ]
+  },
+  "//dothtml5.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='content']"
+  },
+  "//ctrl-x-s.blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='jp-post-flair']"
+    ]
+  },
+  "//card-media.infoseek.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='column-main']",
+    "cleanup": [
+      "div[@id='riBreadcrumbs' or @id='snstool' or @id='article_common' or @id='page_switcher' or @id='recommend-article']"
+    ]
+  },
+  "//aizine.ai/": {
+    "type": "xpath",
+    "xpath": "header/div[@class='eye-catch-wrap']|//div[contains(@class,'mceContentBody')]"
+  },
+  "//ai-scholar.tech/": {
+    "type": "xpath",
+    "xpath": "header/p[@class='post-thumbnail']|//section[contains(@class,'entry-content')]"
+  },
+  "//airstair.jp/": {
+    "type": "xpath",
+    "xpath": "header/figure|//div[@class='theContentWrap-ccc']"
   }
 }
