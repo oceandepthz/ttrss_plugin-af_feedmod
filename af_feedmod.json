@@ -9208,10 +9208,6 @@
     "type": "xpath",
     "xpath": "article[@class='main']"
   },
-  "//www.mbsd.jp/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='container']/div[@class='contents']"
-  },
   "//www.drone-press.jp/drone-practicaluse/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
@@ -12615,14 +12611,6 @@
       "aside[@class='ad']"
     ]
   },
-  "//www.gentosha.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='title-middle']//div[@class='img']|//div[contains(@class,'article-body')]",
-    "cleanup": [
-      "div[@id='pagination' or @id='article-sns-service' or @id='feed-page' or contains(@class,'article-author')]"
-    ],
-    "next_page": "div[@id='pagination']"
-  },
   "//chimolog.co/": {
     "type": "xpath",
     "xpath": "article/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]",
@@ -12968,15 +12956,6 @@
     "type": "xpath",
     "xpath": "body",
     "no_fetch": true
-  },
-  "//www.zakzak.co.jp/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@class,'addition') or @class='teads-inread']",
-      "aside[contains(@class,'pr')]"
-    ],
-    "next_page": "ul[@class='pager']"
   },
   "//getnavi.jp/": {
     "type": "xpath",
@@ -14992,10 +14971,6 @@
       "*[contains(@class,'-ad-') or contains(@id,'-ad-')]"
     ]
   },
-  "//www.kabuku.co.jp/developers/": {
-    "type": "xpath",
-    "xpath": "div[@id='entry-content']"
-  },
   "//www.meiji.ac.jp/": {
     "type": "xpath",
     "xpath": "div[@class='mainDetail']/div[contains(@class,'DetailTxt')]"
@@ -16586,13 +16561,6 @@
     "xpath": "div[contains(@class,'entry-content') or contains(@class,'post-thumbnail')]",
     "cleanup": [
       "div[starts-with(@class,'sharedaddy') or starts-with(@id,'like-post-wrapper-') or @id='jp-relatedposts']"
-    ]
-  },
-  "//capitalp.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='c-entry__body']",
-    "cleanup": [
-      "div[@class='ad-single-top' or @class='ad-content-wrapper' or contains(@class,'sharedaddy')]"
     ]
   },
   "//www.kokoro-fire.com/": {
@@ -18458,5 +18426,36 @@
   "//airstair.jp/": {
     "type": "xpath",
     "xpath": "header/figure|//div[@class='theContentWrap-ccc']"
+  },
+  "//www.mbsd.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog_standard']"
+  },
+  "//www.kabuku.co.jp/developers/": {
+    "type": "xpath",
+    "xpath": "section[@id='detail']",
+    "cleanup": [
+      "div[contains(@class,'socialbox')]"
+    ]
+  },
+  "//www.zakzak.co.jp/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@class,'addition') or @class='teads-inread']",
+      "aside[contains(@class,'pr')]"
+    ],
+    "next_page": "ul[@class='pager']"
+  },
+  "//capitalp.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-entry__body']",
+    "cleanup": [
+      "div[@class='ad-single-top' or @class='ad-content-wrapper' or contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//www.gentosha.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[contains(@class,'articleDetail')]|//div[@class='secSeriesInner']"
   }
 }
