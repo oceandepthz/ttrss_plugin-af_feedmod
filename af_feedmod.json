@@ -16323,10 +16323,6 @@
     "type": "xpath",
     "xpath": "div[@class='theContentWrap-ccc']"
   },
-  "//eng-blog.iij.ad.jp/": {
-    "type": "xpath",
-    "xpath": "article/div[@id='article-single__image' or @class='article-single__entry']"
-  },
   "//blogs.msdn.microsoft.com/": {
     "type": "xpath",
     "xpath": "div[starts-with(@class,'entry-content')]"
@@ -16344,10 +16340,6 @@
     "cleanup": [
       "div[@class='fc2_footer']"
     ]
-  },
-  "//www.wowkorea.jp/": {
-    "type": "xpath",
-    "xpath": "td[@class='news_all']"
   },
   "//www.webcg.net/": {
     "type": "xpath",
@@ -17812,10 +17804,6 @@
       "div[contains(@id,'single_banner') or contains(@id,'quads-ad')]"
     ]
   },
-  "//www.bloomberg.co.jp/news/": {
-    "type": "xpath",
-    "xpath": "section[@class='main-column']/div[@class='body-columns']"
-  },
   "//www.nhk.or.jp/kokusaihoudou/catch/": {
     "type": "xpath",
     "xpath": "div[@class='entry' or @class='section02']"
@@ -18457,5 +18445,20 @@
   "//www.gentosha.jp/": {
     "type": "xpath",
     "xpath": "div[@id='main']/div[contains(@class,'articleDetail')]|//div[@class='secSeriesInner']"
+  },
+  "//eng-blog.iij.ad.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@id='article-single__image' or @class='article-single__entry']"
+  },
+  "//www.wowkorea.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='news19']",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//www.bloomberg.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "section[@class='main-column']/div/*[@class='body-columns' or @class='abstract']"
   }
 }
