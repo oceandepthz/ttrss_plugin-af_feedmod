@@ -1123,7 +1123,7 @@ class Af_Feedmod extends Plugin implements IHandler
         $default_cleanup = [
             "script[contains(@src,'ead2.googlesyndication.com/pag') or contains(text(),'adsbygoogle')]",
             "ins[contains(@class,'adsbygoogle')]",
-            "div[@class='wp_social_bookmarking_light' or contains(@class,'e-adsense') or @id='my-footer' or @class='ninja_onebutton' or @class='social4i' or @class='yarpp-related' or @id='ads' or contains(@class,'fc2_footer') or @id='jp-post-flair']",
+            "div[@class='wp_social_bookmarking_light' or contains(@class,'e-adsense') or @id='my-footer' or @class='ninja_onebutton' or @class='social4i' or @class='yarpp-related' or @id='ads' or contains(@class,'fc2_footer') or @id='jp-post-flair' or contains(@class,'addtoany_share_save_container')]",
             "a[contains(@href,'//px.a8.net/')]",
             "noscript"
         ];
