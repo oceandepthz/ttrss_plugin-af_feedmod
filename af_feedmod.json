@@ -18460,5 +18460,12 @@
   "//www.bloomberg.co.jp/news/": {
     "type": "xpath",
     "xpath": "section[@class='main-column']/div/*[@class='body-columns' or @class='abstract']"
+  },
+  "//entry.anypicks.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='author' or @class='entry-content']",
+    "cleanup": [
+      "div[@class='registration-point']"
+    ]
   }
 }
