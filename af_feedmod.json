@@ -8585,10 +8585,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//cloud.google.com/blog/big-data/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'blog_post')]"
-  },
   "//www.seoteach.xyz/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -10999,10 +10995,6 @@
     "type": "xpath",
     "engine": "chromium",
     "xpath": "div[@class='content']"
-  },
-  "//www.sony.co.jp/SonyInfo/News/Press/": {
-    "type": "xpath",
-    "xpath": "div[@class='leftBlock']/div[@class='layoutBlock']"
   },
   "//www.nifty.co.jp/cs/newsrelease/detail/": {
     "type": "xpath",
@@ -14380,10 +14372,6 @@
       "a[contains(@href,'//prf.hn/click/')]"
     ]
   },
-  "//blog.techbookfest.org/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-entry']"
-  },
   "//jvns.ca/blog/": {
     "type": "xpath",
     "xpath": "article",
@@ -16378,16 +16366,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body']"
   },
-  "//logmi.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='speaker-list' or @class='log-event' or @class='log-lead-sentence']|//div[@class='l-article-grid-main']/section/div[contains(@class,'log-content')]",
-    "append_css": [
-      ".event-block {align-items: center;display: flex;margin: 1.625rem 0;padding: 0.8125rem;position: relative;transition: background-color 0.2s ease 0s;}",
-      ".event-block::before {content: 'EVENT';font-size: 0.875rem;font-weight: 700;left: 0;padding: 0 0.8125rem;position: absolute;top: 0;transform: translate(0px, -100%);}",
-      ".event-block-image {height: 3.25rem!important;margin-right: 0.8125rem!important;object-fit: contain;width: 3.25rem!important;}",
-      ".speaker-item-image {border-radius: 50%;height: 3.25rem!important;object-fit: cover;width: 3.25rem!important;}"
-    ]
-  },
   "//goworkship.com/magazine/": {
     "type": "xpath",
     "xpath": "article/div[@class='single-body' or @class='single-footer']"
@@ -16403,10 +16381,6 @@
   "//daniel.haxx.se/blog/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//cloud.google.com/blog/": {
-    "type": "xpath",
-    "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
   },
   "//classmethod.jp/cases/": {
     "type": "xpath",
@@ -18467,5 +18441,34 @@
     "cleanup": [
       "div[@class='registration-point']"
     ]
+  },
+  "//logmi.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='speaker-list' or @class='log-event' or @class='log-lead-sentence']|//div[@class='l-article-grid-main']/section/div[contains(@class,'log-content')]",
+    "append_css": [
+      ".event-block {align-items: center;display: flex;margin: 1.625rem 0;padding: 0.8125rem;position: relative;transition: background-color 0.2s ease 0s;}",
+      ".event-block::before {content: 'EVENT';font-size: 0.875rem;font-weight: 700;left: 0;padding: 0 0.8125rem;position: absolute;top: 0;transform: translate(0px, -100%);}",
+      ".event-block-image {height: 3.25rem!important;margin-right: 0.8125rem!important;object-fit: contain;width: 3.25rem!important;}",
+      ".speaker-item-image {border-radius: 50%;height: 3.25rem!important;object-fit: cover;width: 3.25rem!important;}"
+    ]
+  },
+  "//www.sony.co.jp/SonyInfo/News/Press/": {
+    "type": "xpath",
+    "xpath": "div[@id='tmpl_main']/div[@class='ly_contents']",
+    "cleanup": [
+      "ul[@id='sns_list']"
+    ]
+  },
+  "//cloud.google.com/blog/big-data/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'blog_post')]"
+  },
+  "//cloud.google.com/blog/": {
+    "type": "xpath",
+    "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
+  },
+  "//blog.techbookfest.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='card']/div[contains(@class,'card-content')]/div[@class='content']"
   }
 }
