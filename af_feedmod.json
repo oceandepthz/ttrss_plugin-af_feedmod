@@ -3939,13 +3939,6 @@
       "script[contains(@src, 'apis.google.com') or @id='twitter-wjs' or contains(text(), 'platform.twitter.com/widgets.js') or contains(text(), 'apis.google.com/js/plusone.js') or contains(@src, 'b.st-hatena.com') or contains(@src, 'www.google-analytics.com') or contains(text(), 'urchinTracker')]"
     ]
   },
-  "umenon.com": {
-    "type": "xpath",
-    "xpath": "div[@class='post-content']",
-    "cleanup": [
-      "*[starts-with(@class, 'wp_social_bookmarking_')]"
-    ]
-  },
   "rabilinth.blog.fc2.com": {
     "type": "xpath",
     "xpath": "p[@class='entry_more']|//div[@class='topentry_text']",
@@ -5046,14 +5039,6 @@
       "ul[@class='next-prev-nav']",
       "script[contains(text(),'jQuery')]"
     ]
-  },
-  "//omocoro.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body']",
-    "cleanup": [
-      "div[@class='page_navi' or contains(@class,'ad')]"
-    ],
-    "next_page": "div[@class='page_navi']"
   },
   "//basement-times.com/": {
     "type": "xpath",
@@ -7031,13 +7016,6 @@
     "type": "xpath",
     "xpath": "div[@id='the-content']"
   },
-  "//www.nishinippon.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='NP-articleMain']",
-    "cleanup": [
-      "div[@class='NP-articleAd']"
-    ]
-  },
   "//www.xn--r8jg4dyd3e.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -7651,13 +7629,6 @@
   "//ar-con.jp/": {
     "type": "xpath",
     "xpath": "div[@class='ttl']"
-  },
-  "//www.nict.go.jp/press/": {
-    "type": "xpath",
-    "xpath": "div[@class='content']/div[@class='leftBlock']",
-    "cleanup": [
-      "div[@class='sns']"
-    ]
   },
   "//www.nict.go.jp/publication/": {
     "type": "xpath",
@@ -16592,10 +16563,6 @@
     "type": "xpath",
     "xpath": "article/*[contains(@class,'article-header') or contains(@class,'entry-content')]"
   },
-  "//travel.spot-app.jp/": {
-    "type": "xpath",
-    "xpath": "section[@class='content_single']/div/div[@class='content_description' or @class='content_writer' or @class='entry_main']"
-  },
   "//ken-horimoto.com/": {
     "type": "xpath",
     "xpath": "article/div[@class='kiji-img' or @class='article-contents' or @class='author']",
@@ -17405,10 +17372,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'c-post-hero__image') or @class='c-post-hero__content' or @class='c-content']"
   },
-  "//techcommunity.microsoft.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='bodydisplay']"
-  },
   "//sect.iij.ad.jp/d/": {
     "type": "xpath",
     "xpath": "article[@id='article']"
@@ -17870,6 +17833,14 @@
   "//www.nhk.or.jp/gendai/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'bodyText') or contains(@class,'person2') or @class='hero__pic']"
+  },
+  "//www.nhk.or.jp/bunken/research/kotoba/": {
+    "type": "xpath",
+    "xpath": "p[@id='name']|//div[@id='articleBody']"
+  },
+  "//www.nhk.or.jp/docudocu/program/": {
+    "type": "xpath",
+    "xpath": "div[@class='detail__contents']/*[@class='detail__programContent' or @class='columns']"
   },
   "//www3.nhk.or.jp/kansai-news/": {
     "type": "xpath",
@@ -18470,5 +18441,88 @@
   "//blog.techbookfest.org/": {
     "type": "xpath",
     "xpath": "div[@class='card']/div[contains(@class,'card-content')]/div[@class='content']"
+  },
+  "//travel.spot-app.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='content_single']/div/div[@class='content_description' or @class='content_writer' or @class='entry_main']"
+  },
+  "//techcommunity.microsoft.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='bodydisplay' or @id='bodyDisplay']"
+  },
+  "//umenon.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']",
+    "cleanup": [
+      "*[starts-with(@class, 'wp_social_bookmarking_')]"
+    ]
+  },
+  "//www.nishinippon.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleDetail-body__content']/div[@class='articleDetail-body-images' or @class='articleDetail-body-detail']",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ],
+    "next_page": "div[@class='articleDetail-body__content']/div[@class='articleDetail-pagenation']"
+  },
+  "//omocoro.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-body')]",
+    "head_xpath": "div[@class='header-meta']/div[@class='description' or @class='staffs']",
+    "next_page": "div[@class='page-navi']"
+  },
+  "//www.nict.go.jp/press/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'column-main')]",
+    "cleanup": [
+      "*[@class='btns-page-cntrl' or @class='sns-btns']"
+    ]
+  },
+  "//www.highriskrevolution.com/": {
+    "type": "xpath",
+    "xpath": "article[@id='post_body']"
+  },
+  "//tidbits.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@class='under' or @class='va-social-buzz']"
+    ]
+  },
+  "//mainichi-kotoba.jp/blog-": {
+    "type": "xpath",
+    "xpath": "section[@class='single-post-main']/div[@class='content']"
+  },
+  "//linky-juku.com/": {
+    "type": "xpath",
+    "xpath": "header/figure|//section[@class='single-post-main']/div[@class='content']"
+  },
+  "//limo.media/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-body')]",
+    "cleanup": [
+      "h1",
+      "h2",
+      "h4",
+      "ul[contains(@class,'content-meta')]",
+      "div[contains(@class,'affi-text') or contains(@class,'vertical-sns-button') or @id='_popIn_recommend_text' or contains(@class,'content-pager') or contains(@class,'formbox-editor-') or contains(@class,'affi-ga') or contains(@class,'_recommend') or contains(@class,'related-content-list') or contains(@class,'author-area')]",
+      "a[@class='read-more']",
+      "style"
+    ],
+    "next_page": "div[contains(@class,'content-pager')]",
+    "next_page_cleanup": "li[@class='current-page']"
+  },
+  "//japan.techrepublic.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='page-heading']|//article/div[@class='content']",
+    "cleanup": [
+      "div[@id='share-bar' or @id='login_iframe' or @class='read-more' or @class='hide_body']",
+      "newselement",
+      "nav[@class='pagination']"
+    ]
+  },
+  "//iphoneteq.net/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
