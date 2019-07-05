@@ -1819,10 +1819,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry_body']//div[starts-with(@class,'t_h') or starts-with(@class,'t_b')]"
   },
-  "tech.pepabo.com": {
-    "type": "xpath",
-    "xpath": "div[@class='article__body']"
-  },
   "blog.webcreativepark.net": {
     "type": "xpath",
     "xpath": "div[@id='main']",
@@ -4120,13 +4116,6 @@
   "blog.sukecom.net": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "blog.docker.com": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'media')]/div[contains(@class,'media-body')]",
-    "cleanup": [
-      "span[@class='social_links']"
-    ]
   },
   "idolmaster.jp/blog/": {
     "type": "xpath",
@@ -8863,10 +8852,6 @@
     "type": "xpath",
     "xpath": "div[contains(@id,'post-')]/div[contains(@class,'entry-content')]"
   },
-  "//geeksokuhou.net/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body']"
-  },
   "//www.korino-rossa.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -12927,10 +12912,6 @@
       "div[@class='next-label' or @class='article-page-navigation' or contains(@class,'btn-more')]"
     ],
     "next_page": "div[@class='article-page-navigation']/ol"
-  },
-  "//damonge.com/": {
-    "type": "xpath",
-    "xpath": "figure/picture/img|//div[@class='area-body']"
   },
   "//www.misoca.jp/toyoshi/": {
     "type": "xpath",
@@ -17974,10 +17955,6 @@
     "type": "xpath",
     "xpath": "div[@id='comments']/*[@id='resp' or @class='commets-list']|//article/div/div/div[@class='entry-content']"
   },
-  "//www.dtmstation.com/": {
-    "type": "xpath",
-    "xpath": "article/section[contains(@class,'entry-content')]"
-  },
   "//cybozushiki.cybozu.co.jp/": {
     "type": "xpath",
     "xpath": "header/*[@class='ac-det-header__ttl' or @class='ac-det-header__img']|//article/div/div/div[contains(@class,'m-editor')]"
@@ -18524,5 +18501,28 @@
   "//iphoneteq.net/news/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//geeksokuhou.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//www.dtmstation.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//damonge.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainEntity']/div[1]",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//tech.pepabo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__body' or @class='article__eye-catch' or @class='article__author']"
+  },
+  "//blog.docker.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-content']"
   }
 }
