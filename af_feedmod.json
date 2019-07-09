@@ -2542,10 +2542,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-body' or @class='postmeta']"
   },
-  "growthhackjournal.com": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class,'entry__content')]"
-  },
   "business.hatenastaff.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -4674,10 +4670,6 @@
     ],
     "next_page": "div[@class='pagesprit']"
   },
-  "//mercan.mercari.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//lifehacking.jp/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content') or contains(@class,'herald-post-thumbnail-single')]",
@@ -5066,10 +5058,6 @@
   "//www.bokukoko.info/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//udemy.benesse.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entrybody')]"
   },
   "//terkel.jp/": {
     "type": "xpath",
@@ -10475,11 +10463,6 @@
       "div[@id='a-banner' or @id='banner']"
     ]
   },
-  "//medium.com/": {
-    "type": "xpath",
-    "xpath": "header|//main",
-    "append_css": "figure div.aspectRatioPlaceholder-fill {padding-bottom:0!important;}"
-  },
   "//taisyoku-so-dan.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -14227,14 +14210,6 @@
     ],
     "next_page": "div[@class='list-pagination-02']"
   },
-  "//natalie.mu/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'PP_header')]|//div[@class='PP_main']/div[contains(@class,'PP_paragraph')]|//article/div[@class='NA_articleUnit']/div[@class='NA_articleBody' or @class='NA_articleGallery' or @class='NA_articleSup' or @class='NA_articleBanner']",
-    "cleanup": [
-      "div[@class='PP_share']"
-    ],
-    "next_page": "div[@class='PP_pager']"
-  },
   "//hr.pepabo.com/interview/": {
     "type": "xpath",
     "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
@@ -17279,13 +17254,6 @@
     "type": "xpath",
     "xpath": "div[@id='mainEntity']"
   },
-  "//www.sponichi.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@data-component='article-body']",
-    "cleanup": [
-      "div[@id='news-more']"
-    ]
-  },
   "//www.pakutaso.com/": {
     "type": "xpath",
     "xpath": "figure[@class='page__thumb']|//div[@class='editorArea']"
@@ -18379,10 +18347,6 @@
       "div[contains(@id,'div-gpt-ad-')]"
     ]
   },
-  "//www.bloomberg.co.jp/news/": {
-    "type": "xpath",
-    "xpath": "section[@class='main-column']/div/*[@class='body-columns' or @class='abstract']"
-  },
   "//entry.anypicks.jp/": {
     "type": "xpath",
     "xpath": "div[@class='author' or @class='entry-content']",
@@ -18524,5 +18488,61 @@
   "//blog.docker.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-content']"
+  },
+  "//mercan.mercari.com/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'contents')]"
+  },
+  "//medium.com/": {
+    "type": "xpath",
+    "xpath": "article/div/section/div",
+    "cleanup": [
+      "div[@data-test-id='postByline']//button"
+    ]
+  },
+  "//growthhackjournal.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='post-thumbnail']"
+  },
+  "//udemy.benesse.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='detail--content__main']",
+    "cleanup": [
+      "nav[@class='sns__listBottom']"
+    ]
+  },
+  "//www.bloomberg.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "section[@class='main-column']/*[@class='body-columns' or @class='abstract' or contains(@class,'lede-media-image')]"
+  },
+  "//natalie.mu/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'PP_header')]|//div[@class='PP_main']/div[contains(@class,'PP_paragraph')]|//article/div[@class='NA_articleUnit']/div[@class='NA_articleBody' or @class='NA_articleGallery' or @class='NA_articleSup' or @class='NA_articleBanner']",
+    "cleanup": [
+      "div[@class='PP_share']"
+    ],
+    "next_page": "div[@class='PP_pager']"
+  },
+  "//www.sponichi.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@data-component='article-body']",
+    "cleanup": [
+      "div[@id='news-more']"
+    ]
+  },
+  "//www.kajimatsu.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='mainnews-post']/div[@class='news-details' or @class='label-img']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//www.nice2meet.us/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post-body')]"
+  },
+  "//www.vogue.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='single__body' or @class='single__summary' or contains(@class,'single__meta--bottom')]"
   }
 }
