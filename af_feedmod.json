@@ -639,13 +639,6 @@
       "div[@class='yarpp-related']"
     ]
   },
-  "www.kyoto-np.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@id='news']",
-    "cleanup": [
-      "div[@id='mainHeading']"
-    ]
-  },
   "blog.best-teacher-inc.com": {
     "type": "xpath",
     "xpath": "article/div[@class='content']"
@@ -17342,10 +17335,6 @@
       "div[contains(@class,'_share_')]"
     ]
   },
-  "//www.bengo4.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='entryDetailVisual' or @id='entryDetailBodyText']"
-  },
   "//github.blog/": {
     "type": "xpath",
     "xpath": "article/div[@class='post-featured__image' or contains(@class,'post__content')]",
@@ -17368,10 +17357,6 @@
   "//blog.idein.jp/": {
     "type": "xpath",
     "xpath": "div[@class='caption']"
-  },
-  "//alis.to/": {
-    "type": "xpath",
-    "xpath": "div[@class='area-article']/div[@class='area-content']"
   },
   "//ameblo.jp/daiki-iwamasa/": {
     "type": "xpath",
@@ -18206,10 +18191,6 @@
       "div[contains(@id,'quads-ad')]"
     ]
   },
-  "//itnext.io/": {
-    "type": "xpath",
-    "xpath": "section/div[@class='section-content']"
-  },
   "//hochi.news/": {
     "type": "xpath",
     "xpath": "div[@class='article__area']"
@@ -18586,5 +18567,31 @@
     "type": "xpath",
     "engine": "chromium",
     "xpath": "div[@class='blog-article__body']"
+  },
+  "//www.kyoto-np.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='news']",
+    "cleanup": [
+      "div[@id='mainHeading']"
+    ]
+  },
+  "//www.bengo4.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryDetailVisual' or @id='entryDetailBodyText']"
+  },
+  "//alis.to/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'area-article')]/div[contains(@class,'area-content')]"
+  },
+  "//design-trekker.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='content']/img[contains(@class,'attachment-thumb')]|//div[@class='content-in']/div[contains(@class,'aurther') or @class='content-text']"
+  },
+  "//engineer-life.dev/": {
+    "type": "xpath",
+    "xpath": "article[@class='cps-post']/div[@class='cps-post-main-box']",
+    "cleanup": [
+      "*[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') or contains(@class,'share')]"
+    ]
   }
 }
