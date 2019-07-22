@@ -18615,5 +18615,17 @@
     "cleanup": [
       "ul[contains(@class,'share-buttons')]"
     ]
+  },
+  "//keisui.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']/div[contains(@class,'post-content') or @class='post-media-body']"
+  },
+  "//kaigo.homes.co.jp/tayorini/": {
+    "type": "xpath",
+    "xpath": "div[@class='sec-main']/*[@class='articleInner' or contains(@class,'mod-tyrnAuthorProfile')]"
+  },
+  "//jetstream.bz/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='entry-content']"
   }
 }
