@@ -18593,5 +18593,27 @@
     "cleanup": [
       "*[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') or contains(@class,'share')]"
     ]
+  },
+  "//www.sakigake.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'news-body')]",
+    "cleanup": [
+      "div[@class='news-login']"
+    ]
+  },
+  "//tsunagu-media.net/blog/": {
+    "type": "xpath",
+    "xpath": "header/div[@class='eye-catch-wrap' or contains(@id,'author_box-')]|//article/div[contains(@class,'entry-content')]"
+  },
+  "//security.sios.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//media.kiitok.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='media__container']/div[contains(@class,'gatsby-image-wrapper') or @class='media__section']",
+    "cleanup": [
+      "ul[contains(@class,'share-buttons')]"
+    ]
   }
 }
