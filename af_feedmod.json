@@ -18627,5 +18627,24 @@
   "//jetstream.bz/": {
     "type": "xpath",
     "xpath": "article/div[@class='entry-content']"
+  },
+  "//ezoeryou.github.io/blog/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//comic-walker.com/contents/detail/": {
+    "type": "xpath",
+    "xpath": "div[@id='detailIndex']/div[@class='comicIndex-box']|//div[@id='summaryIntroduction']/div[contains(@class,'sec-title') or contains(@class,'ac-content')]",
+    "cleanup": [
+      "*[contains(@class,'btn-detailLink') or @class='infoBox' or @class='ac-close-btn']"
+    ]
+  },
+  "//coeteco.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'text-align-c')]/img|//div[@class='article-content']|//section[contains(@class,'author-prof')]"
+  },
+  "//blog.kamijin-fanta.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-body']"
   }
 }
