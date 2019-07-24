@@ -16788,15 +16788,6 @@
     ],
     "next_page": "div[@class='pageInfoArea02']"
   },
-  "//jbpress.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body' or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
-    "cleanup": [
-      "div[@class='pagination' or @class='next-info' or @class='ad-right' or @class='sns-button' or contains(@class,'next-smr') or @class='pager' or @id='breadcrumb' or @id='signage' or contains(@class,'mp-ie') or @id='popup-win' or @class='back-to-top' or @id='article-end']"
-    ],
-    "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage' or @class='pagination'or @id='pager'or contains(@class,'multipage-end') or @class='pager']",
-    "append_css": "video{width:640px!important;height:480px!important;position:static!important;}"
-  },
   "//www.recomtank.com/": {
     "type": "xpath",
     "xpath": "article/div[contains(@class,'entry-content')]",
@@ -18362,21 +18353,6 @@
     "type": "xpath",
     "xpath": "header/figure|//section[@class='single-post-main']/div[@class='content']"
   },
-  "//limo.media/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'article-body')]",
-    "cleanup": [
-      "h1",
-      "h2",
-      "h4",
-      "ul[contains(@class,'content-meta')]",
-      "div[contains(@class,'affi-text') or contains(@class,'vertical-sns-button') or @id='_popIn_recommend_text' or contains(@class,'content-pager') or contains(@class,'formbox-editor-') or contains(@class,'affi-ga') or contains(@class,'_recommend') or contains(@class,'related-content-list') or contains(@class,'author-area')]",
-      "a[@class='read-more']",
-      "style"
-    ],
-    "next_page": "div[contains(@class,'content-pager')]",
-    "next_page_cleanup": "li[@class='current-page']"
-  },
   "//japan.techrepublic.com/": {
     "type": "xpath",
     "xpath": "div[@class='page-heading']|//article/div[@class='content']",
@@ -18646,5 +18622,34 @@
   "//blog.kamijin-fanta.info/": {
     "type": "xpath",
     "xpath": "div[@class='content-body']"
+  },
+  "//radsum.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//limo.media/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-body')]",
+    "cleanup": [
+      "h1",
+      "h2",
+      "h4",
+      "ul[contains(@class,'content-meta')]",
+      "div[contains(@class,'affi-text') or contains(@class,'vertical-sns-button') or @id='_popIn_recommend_text' or contains(@class,'content-pager') or contains(@class,'formbox-editor-') or contains(@class,'affi-ga') or contains(@class,'_recommend') or contains(@class,'related-content-list') or contains(@class,'author-area') or contains(@class,'right-column')]",
+      "a[@class='read-more']",
+      "style"
+    ],
+    "next_page": "div[contains(@class,'content-pager')]",
+    "next_page_cleanup": "li[@class='current-page']"
+  },
+  "//jbpress.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
+    "cleanup": [
+      "div[@class='pagination' or @class='next-info' or @class='ad-right' or @class='sns-button' or contains(@class,'next-smr') or @class='pager' or @id='breadcrumb' or @id='signage' or contains(@class,'mp-ie') or @id='popup-win' or @class='back-to-top' or @id='article-end']"
+    ],
+    "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage' or @class='pagination'or @id='pager'or contains(@class,'multipage-end') or @class='pager']|//ul[@class='m-pager-list']",
+    "next_page_cleanup": "li[@class='is-active']",
+    "append_css": "video{width:640px!important;height:480px!important;position:static!important;}"
   }
 }
