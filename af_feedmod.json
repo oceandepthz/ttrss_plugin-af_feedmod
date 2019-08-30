@@ -10071,10 +10071,6 @@
       "div[contains(@class,'ad-space')]"
     ]
   },
-  "//adtech.cyberagent.io/techblog/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry']"
-  },
   "//blog.livedoor.jp/wisteriear/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']",
@@ -18342,13 +18338,6 @@
     "type": "xpath",
     "xpath": "div[@id='aboutit']/article"
   },
-  "//leaguemili.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='blog_entry_body']",
-    "cleanup": [
-      "div[@class='mycontent2' or @class='fc2_footer']"
-    ]
-  },
   "//sekasuu.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry_body']",
@@ -18687,5 +18676,19 @@
   "//www.anypicks.jp/news_contents/": {
     "type": "xpath",
     "xpath": "div[@class='body-area' or @class='single-thumbnail']"
+  },
+  "//leaguemili.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='inner-contents']",
+    "cleanup": [
+      "div[@class='mycontent2']"
+    ]
+  },
+  "//adtech.cyberagent.io/techblog/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'post')]",
+    "cleanup": [
+      "div[@class='single-sns-share']"
+    ]
   }
 }
