@@ -17892,10 +17892,6 @@
       "div[contains(@class,'ad-area')]"
     ]
   },
-  "//qrunch.net/@": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-contents']"
-  },
   "//theriver.jp/": {
     "type": "xpath",
     "xpath": "article/*[@class='main-image' or @class='the-content']",
@@ -18677,18 +18673,22 @@
     "type": "xpath",
     "xpath": "div[@class='body-area' or @class='single-thumbnail']"
   },
-  "//leaguemili.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='inner-contents']",
-    "cleanup": [
-      "div[@class='mycontent2']"
-    ]
-  },
   "//adtech.cyberagent.io/techblog/": {
     "type": "xpath",
     "xpath": "article/div[contains(@class,'post')]",
     "cleanup": [
       "div[@class='single-sns-share']"
+    ]
+  },
+  "//qrunch.net/@": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]/div[@class='inner']"
+  },
+  "//leaguemili.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog_entry_body']",
+    "cleanup": [
+      "div[@class='mycontent2']"
     ]
   }
 }
