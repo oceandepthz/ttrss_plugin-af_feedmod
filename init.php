@@ -869,7 +869,7 @@ class Af_Feedmod extends Plugin implements IHandler
             return;
         }
 
-        $item = "//a[contains(@data-expanded-url,'https://peing.net/ja/qs/')]";
+        $item = "//a[contains(@data-expanded-url,'//peing.net/ja/qs/')]";
         $node_list = $xpath->query($item, $basenode);
         if(!$node_list || $node_list->length === 0){
             return;
@@ -883,15 +883,17 @@ class Af_Feedmod extends Plugin implements IHandler
                 continue;
             }
             $this->__debug("peing.net url :${link}");
-            $url = $this->get_peing_img_link($link);
-            if(!$url){
+            $entries = $this->get_peing_content($link);
+            if(!$entries){
                 continue;
             }
-            $this->__debug("peing.net img url :${url}");
-            $this->append_img_tag($doc, $node, $url);
+            foreach($entries as $entry) {
+                $newnode = $doc->importNode($entry, true);
+                $node->parentNode->insertBefore($newnode, $node->nextSibling);
+            }
         }
     }
-    function get_peing_img_link(string $link) : string {
+    function get_peing_content(string $link) : object {
         $html = $this->get_html($link, []);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
@@ -902,12 +904,12 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         $xpath = new DOMXPath($doc);
 
-        $entries = $xpath->query("(//div[@class='answer-box']//a[contains(@href,'.jpg')])");
+        $entries = $xpath->query("(//div[@class='answer-box']/div[@class='eye-catch-wrapper']//img|//div[@class='answer-box']/div[@class='answer'])");
         if($entries === false || $entries->length == 0) {
             $this->__debug("peing.net img link query error");
             return "";
         }
-        return $xpath->evaluate('string(@src)', $entries->item(0));
+        return $entries;
     }
 
     function update_sqex_to(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
