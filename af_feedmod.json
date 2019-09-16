@@ -14507,20 +14507,6 @@
       "div[@class='adsense' or @id='social' or @id='follow']"
     ]
   },
-  "//www.apple.com/jp/newsroom/": {
-    "type": "xpath",
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@class,'sharesheet ')]"
-    ]
-  },
-  "//www.apple.com/jp/support/": {
-    "type": "xpath",
-    "xpath": "div[@id='section']",
-    "cleanup": [
-      "select[@id='country_nav']"
-    ]
-  },
   "//wanokokoro-civileng.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']",
@@ -18686,5 +18672,62 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'article-body')]",
     "next_page": "ul[@class='pagination']"
+  },
+  "//www.wti.jp/contents/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//xtrend.nikkei.com/atcl/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBody']",
+    "cleanup": [
+      "div[contains(@class,'caution')]"
+    ]
+  },
+  "//www.apple.com/jp/newsroom/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@class,'sharesheet ')]"
+    ]
+  },
+  "//www.apple.com/jp/support/": {
+    "type": "xpath",
+    "xpath": "div[@id='section']",
+    "cleanup": [
+      "select[@id='country_nav']"
+    ]
+  },
+  "//www.apple.com/newsroom/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@class,'sharesheet ')]"
+    ]
+  },
+  "//www.apple.com/support/": {
+    "type": "xpath",
+    "xpath": "div[@id='section']",
+    "cleanup": [
+      "select[@id='country_nav']"
+    ]
+  },
+  "//www.designet.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-content']",
+    "cleanup": [
+      "div[@id='footer-contact-box-area']"
+    ]
+  },
+  "//www.engadget.com/": {
+    "type": "xpath",
+    "xpath": "figure|//div[contains(@class,'article-text')]"
+  },
+  "//www.enigmo.co.jp/blog/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='comments-content']"
+    ]
   }
 }
