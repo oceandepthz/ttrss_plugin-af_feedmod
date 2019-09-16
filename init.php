@@ -211,6 +211,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_remote_src($entry, 'img');
                 $this->update_remote_src($entry, 'iframe');
 
+                $this->update_srcset($entry, $link);
+
                 $this->update_remote_file($entry, $link, "a", "href");
                 $this->update_remote_file($entry, $link, "iframe", "src");
                 $this->update_remote_file($entry, $link, "img", "src");
@@ -1276,6 +1278,62 @@ class Af_Feedmod extends Plugin implements IHandler
             }
         }
     }
+
+    function update_absolute_url(string $baseurl, string $src) : string {
+        $url_item = parse_url($baseurl);
+        $scheme = $url_item['scheme'];
+        if(!$scheme){
+            $scheme = 'http';
+        }
+
+        if(substr($src,0,2) == "//"){
+            return $scheme.':'.$src;
+        }
+        if(substr($src,0,1) == "/"){
+            return $scheme.'://'.$url_item['host'].$src;
+        }
+        if(substr($src, 0,4) != "http"){
+            $pos = strrpos($link, "/");
+            if($pos){
+                return substr($link, 0, $pos+1).$src;
+            }
+        }
+        return $src;
+    }
+
+    function update_srcset(DOMElement $basenode, string $link) : void {
+        if(!$basenode){
+            return;
+        }
+        $tag = 'img';
+        $list = [];
+        if($basenode->nodeName == $tag){
+            $list[] = $basenode;
+        }else{
+            $list = $basenode->getElementsByTagName($tag);
+        }
+        foreach($list as $node){
+            if(!$node->hasAttribute('srcset')){
+                continue;
+            }
+            $rval = [];
+            $sources = explode(",", $node->getAttribute('srcset'));
+            foreach($sources as $source) {
+                list($src, $pixel) = explode(" ", $source);
+                //$this->__debug($src);           
+ 
+                $src = $this->update_absolute_url($link, $src); 
+                //$this->__debug($src);           
+                $rval[] = "${src} ${pixel}";
+            }
+
+            if (count($rval) > 0){
+                $s = implode(",", $rval);
+                $node->setAttribute('srcset', $S);
+            }
+        }
+    }
+
     function update_remote_file(DOMElement $basenode, string $link, string $tag, string $attr) : void {
         if(!$basenode){
             return;
@@ -1309,7 +1367,7 @@ class Af_Feedmod extends Plugin implements IHandler
     }
     function get_replace_src(DOMElement $node) : string {
         $url = '';
-        $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-srcset', 'data-img-path', 'srcset',
+        $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-srcset', 'data-img-path', 
             'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original', 'data-orig-file'];
         foreach($attr_list as $attr){
             if(!$node->hasAttribute($attr)){
