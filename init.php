@@ -1325,13 +1325,9 @@ class Af_Feedmod extends Plugin implements IHandler
             $sources = explode(",", $node->getAttribute($attr));
             foreach($sources as $source) {
                 list($src, $pixel) = explode(" ", $source);
-                //$this->__debug($src);           
- 
                 $src = $this->update_absolute_url($link, $src); 
-                //$this->__debug($src);           
                 $rval[] = "${src} ${pixel}";
             }
-
             if (count($rval) > 0){
                 $s = implode(",", $rval);
                 $node->setAttribute($attr, $s);
