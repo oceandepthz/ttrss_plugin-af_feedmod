@@ -1282,12 +1282,15 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function update_absolute_url(string $baseurl, string $src) : string {
+        if(substr($src, 0,5) == "http:" || substr($src, 0,6) == "https:"){
+            return $src;
+        }
+
         $url_item = parse_url($baseurl);
         $scheme = $url_item['scheme'];
         if(!$scheme){
             $scheme = 'http';
         }
-
         if(substr($src,0,2) == "//"){
             return $scheme.':'.$src;
         }
