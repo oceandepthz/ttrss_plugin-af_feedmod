@@ -211,11 +211,13 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_remote_src($entry, 'img');
                 $this->update_remote_src($entry, 'iframe');
 
-                $this->update_srcset($entry, $link);
+                $this->update_srcset($entry, $link, "img");
+                $this->update_srcset($entry, $link, "source");
 
                 $this->update_remote_file($entry, $link, "a", "href");
                 $this->update_remote_file($entry, $link, "iframe", "src");
                 $this->update_remote_file($entry, $link, "img", "src");
+                $this->update_remote_file($entry, $link, "source", "src");
 
                 $this->update_t_co($doc, $xpath, $entry, $link);
                 $this->update_amzn_to($doc, $xpath, $entry, $link);
@@ -1301,11 +1303,11 @@ class Af_Feedmod extends Plugin implements IHandler
         return $src;
     }
 
-    function update_srcset(DOMElement $basenode, string $link) : void {
+    function update_srcset(DOMElement $basenode, string $link, string $tag) : void {
         if(!$basenode){
             return;
         }
-        $tag = 'img';
+        $attr = 'srcset';
         $list = [];
         if($basenode->nodeName == $tag){
             $list[] = $basenode;
@@ -1313,11 +1315,11 @@ class Af_Feedmod extends Plugin implements IHandler
             $list = $basenode->getElementsByTagName($tag);
         }
         foreach($list as $node){
-            if(!$node->hasAttribute('srcset')){
+            if(!$node->hasAttribute($attr)){
                 continue;
             }
             $rval = [];
-            $sources = explode(",", $node->getAttribute('srcset'));
+            $sources = explode(",", $node->getAttribute($attr));
             foreach($sources as $source) {
                 list($src, $pixel) = explode(" ", $source);
                 //$this->__debug($src);           
@@ -1329,7 +1331,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
             if (count($rval) > 0){
                 $s = implode(",", $rval);
-                $node->setAttribute('srcset', $s);
+                $node->setAttribute($attr, $s);
             }
         }
     }
