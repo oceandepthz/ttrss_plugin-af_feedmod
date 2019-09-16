@@ -1329,7 +1329,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
             if (count($rval) > 0){
                 $s = implode(",", $rval);
-                $node->setAttribute('srcset', $S);
+                $node->setAttribute('srcset', $s);
             }
         }
     }
