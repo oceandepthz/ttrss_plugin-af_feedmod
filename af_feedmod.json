@@ -18821,5 +18821,41 @@
   "//i-beam.org/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']"
+  },
+  "//bimatome.weblog.to/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//blog.adachin.me/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'single-post-wrap')]"
+  },
+  "//blogs.jpcert.or.jp/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content') or @class='entry-author-detail']"
+  },
+  "//blog.livedoor.jp/nanyade/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//ameblo.jp/beecle/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
+  },
+  "//ameblo.jp/goto-yuko/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
+  },
+  "//ameblo.jp/kanku0901/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
+  },
+  "//ameblo.jp/matsukawa-rui/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
+  },
+  "//ameblo.jp/nyg1t10/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
   }
 }
