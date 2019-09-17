@@ -18729,5 +18729,43 @@
     "cleanup": [
       "div[@id='comments-content']"
     ]
+  },
+  "//tokusengai.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[contains(@id,'content-')]//img[@class='image-covered']|//div[@class='content-body']/div[@class='content-summary' or contains(@class,'content-body-body')]"
+  },
+  "//www.ai-gakkai.or.jp/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//www.aizulab.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]"
+  },
+  "//www.anypicks.jp/news_resources/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'blog-content') or @class='be-comment-block']"
+  },
+  "//raspida.com/": {
+    "type": "xpath",
+    "xpath": "header//figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@id,'common_ad-')]"
+    ]
+  },
+  "//rightcode.co.jp/blog/": {
+    "type": "xpath",
+    "xpath": "article/div/*[@class='p-entry__img' or @class='p-entry__body']"
+  },
+  "//rin01.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='add']"
+    ]
+  },
+  "//saint-yuya.com/": {
+    "type": "xpath",
+    "xpath": "div[@itemprop='blogPost']/img[contains(@class,'post_thumbnail')]|//div[@itemprop='articleBody']"
   }
 }
