@@ -18767,5 +18767,25 @@
   "//saint-yuya.com/": {
     "type": "xpath",
     "xpath": "div[@itemprop='blogPost']/img[contains(@class,'post_thumbnail')]|//div[@itemprop='articleBody']"
+  },
+  "//mynavi-agent.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='story_in']"
+  },
+  "//npn.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='body']"
+  },
+  "//nulab.com/ja/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog-article__body']"
+  },
+  "//ghasts.blog.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='inner-contents']"
+  },
+  "//itnews.org/news_contents/": {
+    "type": "xpath",
+    "xpath": "div[@class='body-area' or @class='single-thumbnail']"
   }
 }
