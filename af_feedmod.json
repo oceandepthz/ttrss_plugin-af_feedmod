@@ -18787,5 +18787,39 @@
   "//itnews.org/news_contents/": {
     "type": "xpath",
     "xpath": "div[@class='body-area' or @class='single-thumbnail']"
+  },
+  "//lexus.jp/magazine/": {
+    "type": "xpath",
+    "xpath": "figure[@class='vsw-articleHead_figure']|//p[@class='vsw-articleHead_lead']|//div[@class='vsw-articleBody']"
+  },
+  "//loiterapp.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//marketeer.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='post-body']"
+  },
+  "//media.moneyforward.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-box']/*[@class='sub-title' or @class='eyecatch' or @class='mp-article-body']",
+    "cleanup": [
+      "div[@class='ads']"
+    ]
+  },
+  "//coralcap.co/": {
+    "type": "xpath",
+    "xpath": "div[@class='wpb_wrapper']/*[contains(@class,'vcex-post-content') or contains(@class,'vcex-post-media') or contains(@class,'author-bio')]",
+    "cleanup": [
+      "div[contains(@class,'author-bio-social')]"
+    ]
+  },
+  "//gunosy.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'news_body')]"
+  },
+  "//i-beam.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
   }
 }
