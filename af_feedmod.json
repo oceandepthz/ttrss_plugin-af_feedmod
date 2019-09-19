@@ -18872,5 +18872,12 @@
       ".hdg-03 {float: none;clear: both;margin: 0 0 7px;padding: 0 5px 7px 0;border-bottom: 1px solid #dadada;font-size: 100%;font-weight: bold;line-height: 1.4;}",
       ".hdg-03 span {border-left-color: #36f;display: block;padding: 1px 0 2px 9px;border-style: solid;border-width: 0;border-left-width: 5px;}"
     ]
+  },
+  "//ez-oz.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'wpulike-robeen')]"
+    ]
   }
 }
