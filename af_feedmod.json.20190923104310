@@ -9355,6 +9355,10 @@
     "type": "xpath",
     "xpath": "div[@class='article-content']"
   },
+  "//stackoverflow.blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='author-container' or @class='media-padded']"
+  },
   "//ff11demodori.blog.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
@@ -18870,23 +18874,5 @@
     "type": "xpath",
     "xpath": "div[@class='maintxt']",
     "next_page": "div[@class='paging'][1]"
-  },
-  "//stackoverflow.blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='m-post-content']"
-  },
-  "//www.jst.go.jp/pr/announce/": {
-    "type": "xpath",
-    "xpath": "div[@id='pr_headerttl']|//main[@id='main']",
-    "cleanup": [
-      "p[@class='icn_twitter' or @class='backAhead']"
-    ]
-  },
-  "//www.make-effort.com/": {
-    "type": "xpath",
-    "xpath": "section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[@class='insentence-adsense' or contains(@class,'sponsored')]"
-    ]
   }
 }
