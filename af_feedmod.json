@@ -1046,14 +1046,6 @@
       "div[@class='entry-meta']"
     ]
   },
-  "kultur2.blog.fc2.com": {
-    "type": "xpath",
-    "xpath": "div[@class='ently_text']",
-    "cleanup": [
-      "ul[@class='snsb']",
-      "div[@id='ads_perma']"
-    ]
-  },
   "special.smartguide.yahoo.co.jp": {
     "type": "xpath",
     "xpath": "div[@class='lead_area']|//div[@class='article_bd']"
@@ -18888,5 +18880,13 @@
     "cleanup": [
       "div[@class='insentence-adsense' or contains(@class,'sponsored')]"
     ]
+  },
+  "//kultur2.blog.fc2.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='inner-contents']"
+  },
+  "//www.keinet.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='pageImge' or @class='newsContents']"
   }
 }
