@@ -18888,5 +18888,20 @@
   "//www.keinet.com/": {
     "type": "xpath",
     "xpath": "div[@class='pageImge' or @class='newsContents']"
+  },
+  "//ameblo.jp/seiya-nakai/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryBody']"
+  },
+  "//www.modis.jp/insight/": {
+    "type": "xpath",
+    "xpath": "div[@class='str-content']"
+  },
+  "//nazology.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-article']",
+    "cleanup": [
+      "div[@class='ads' or @class='bottom']"
+    ]
   }
 }
