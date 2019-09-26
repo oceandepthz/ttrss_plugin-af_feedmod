@@ -1321,6 +1321,10 @@ class Af_Feedmod extends Plugin implements IHandler
             if(!$node->hasAttribute($attr)){
                 continue;
             }
+            if(strpos($node->hasAttribute($attr), 'data:') === 0) {
+                $node->removeAttribute($attr);
+                continue;
+            }
             $rval = [];
             $sources = explode(",", $node->getAttribute($attr));
             foreach($sources as $source) {
