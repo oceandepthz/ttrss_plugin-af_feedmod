@@ -18914,5 +18914,32 @@
   "//www.raspberrypi.org/documentation/": {
     "type": "xpath",
     "xpath": "article"
+  },
+  "//hobby.dengeki.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='postContents']/*[@itemprop='author' or @class='mainContents' or @class='post-category' or @class='post-copyright']"
+  },
+  "//learning.unity3d.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='EntryContent']"
+  },
+  "//north.thco.mp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//www.serverworks.co.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']",
+    "cleanup": [
+      "div[@class='buttons']"
+    ]
+  },
+  "//www.stockclip.net/notes/": {
+    "type": "xpath",
+    "xpath": "div[@class='flexbox-main-section']/div/div[@class='note-header-image' or @class='panel-body']"
+  },
+  "//pgmg-rails.com/blogs/": {
+    "type": "xpath",
+    "xpath": "div[@class='trix-content']"
   }
 }
