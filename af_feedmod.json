@@ -5899,10 +5899,6 @@
       "div[@class='sns-badges']"
     ]
   },
-  "//necojita.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='the-content']"
-  },
   "//developer-blog.finc.co.jp/": {
     "type": "xpath",
     "xpath": "div[@class='post-body']"
@@ -5982,10 +5978,6 @@
   "//tochikatsu-iroha.com/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
-  },
-  "//www.hotpepper.jp/mesitsu/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
   },
   "//www.hotpepper.jp/magazine/": {
     "type": "xpath",
@@ -13910,14 +13902,6 @@
     "type": "xpath",
     "xpath": "article/div[contains(@class,'entry-content')]"
   },
-  "//www.tachibana-akira.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[@class='page-link']"
-    ],
-    "next_page": "div[@class='page-link']"
-  },
   "//mtg-jp.com/reading/": {
     "type": "xpath",
     "xpath": "div[@class='reading-main']/section/div[@class='detail']"
@@ -18903,5 +18887,32 @@
     "cleanup": [
       "div[@class='ads' or @class='bottom']"
     ]
+  },
+  "//www.tachibana-akira.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='page-link']"
+    ],
+    "next_page": "div[@class='page-link']"
+  },
+  "//necojita.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//www.hotpepper.jp/mesitsu/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//shuchi.php.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article_text']",
+    "head_xpath": "div[@class='article_contents']/p[@class='date' or @class='author']",
+    "foot_xpath": "div[@class='related_book' or @class='related_article']",
+    "next_page": "div[@class='pagenation']"
+  },
+  "//www.raspberrypi.org/documentation/": {
+    "type": "xpath",
+    "xpath": "article"
   }
 }
