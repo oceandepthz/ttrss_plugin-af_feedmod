@@ -5376,10 +5376,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
   },
-  "//www.gamer.ne.jp/news/": {
-    "type": "xpath",
-    "xpath": "div[@id='newsFullBody']"
-  },
   "//smaho-kyokasho.com/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']",
@@ -10477,10 +10473,6 @@
     "cleanup": [
       "div[contains(@class,'fb-comments') or contains(@class,'sharedaddy') or @id='jp-relatedposts']"
     ]
-  },
-  "//blog.n-z.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
   },
   "//blog.nishinos.com/": {
     "type": "xpath",
@@ -18941,5 +18933,17 @@
   "//pgmg-rails.com/blogs/": {
     "type": "xpath",
     "xpath": "div[@class='trix-content']"
+  },
+  "//blog.n-z.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//www.gamer.ne.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@id='newsFullBody' or @class='newsDescription' or @class='newsBody']"
+  },
+  "//virtualcast.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='article_main']"
   }
 }
