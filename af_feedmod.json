@@ -18945,5 +18945,41 @@
   "//virtualcast.jp/blog/": {
     "type": "xpath",
     "xpath": "div[@class='article_main']"
+  },
+  "//www.qhinsights.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'post_content')]"
+  },
+  "//nakedsecurity.sophos.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='entry-featured-image']",
+    "cleanup": [
+      "div[@class='entry-sharing']"
+    ]
+  },
+  "//single-wifi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//techgym.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@id='subscriber_form' or @id='wp_rp_first']"
+    ]
+  },
+  "//voltechno.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry')]",
+    "cleanup": [
+      "div[contains(@class,'widget_text')]"
+    ]
+  },
+  "//wacul.co.jp/lab/": {
+    "type": "xpath",
+    "xpath": "main/div/section",
+    "cleanup": [
+      "ul[contains(@class,'main-single--sns')]"
+    ]
   }
 }
