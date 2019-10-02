@@ -18981,5 +18981,39 @@
     "cleanup": [
       "ul[contains(@class,'main-single--sns')]"
     ]
+  },
+  "//kusuri-info.work/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//mamanew.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-thumbnail']|//section[@class='article-body']",
+    "cleanup": [
+      "div[contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//michimani.net/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'content')]"
+  },
+  "//milapneupane.com.np/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='rns']"
+    ]
+  },
+  "//atnd.org/events/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']"
+  },
+  "//funq.jp/flick/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-article-header__keyvisual']|//div[@class='p-article-info__member']|//section[@class='p-article-item']"
+  },
+  "//furikake.doda.jp/": {
+    "type": "xpath",
+    "xpath": "header/p[@class='arti-summary']|//div[contains(@class,'arti-content')]/*[@class='figure-area' or contains(@class,'arti-body')]"
   }
 }
