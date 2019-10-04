@@ -19020,5 +19020,25 @@
       ".event-block__image {height: 4.0625rem!important;width: 4.0625rem!important;}",
       ".speaker-item__image {border-radius: 50%;height: 3.25rem!important;object-fit: cover;width: 3.25rem!important;}"
     ]
+  },
+  "//www.as-web.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='item-text']",
+    "head_xpath": "div[@class='image-item']",
+    "next_page": "div[@class='pageNavi']",
+    "rep_pattern": "/^(.*:\\/\\/www\\.as\\-web\\.jp\\/[a-z\\-0-9]+\\/[0-9]+)$/",
+    "rep_replacement": "${1}?all"
+  },
+  "//offers.jp/media/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-special__header']/div|//div[@class='p-special__overview']|//div[@class='p-special__wrap']/div[@class='p-special__profile' or contains(@class,'p-special__content')]"
+  },
+  "//t5blog.waveformlab.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//unixism.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
