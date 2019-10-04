@@ -19040,5 +19040,24 @@
   "//unixism.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//blog.ssrf.in/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']"
+  },
+  "//jalammar.github.io/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//jasonformat.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='post-content']"
+  },
+  "//nansystem.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'content__default')]",
+    "cleanup": [
+      "div[@class='social']"
+    ]
   }
 }
