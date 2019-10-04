@@ -5426,10 +5426,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//lab.astamuse.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//githubengineering.com/": {
     "type": "xpath",
     "xpath": "section[not(@class)]/div[@class='content']"
@@ -14896,10 +14892,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//designers.fenrir-inc.com/n/": {
-    "type": "xpath",
-    "xpath": "div[@ng-switch-when='TextNote']"
-  },
   "//magazine.rubyist.net/": {
     "type": "xpath",
     "xpath": "div[@class='row']/div[@class='col-md-12']",
@@ -18325,13 +18317,6 @@
     "type": "xpath",
     "xpath": "div[@class='content']/div[@class='post']"
   },
-  "//logmi.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='l-article-grid-main' or @class='event-block' or @class='article-lead-sentence' or @class='article-credit' or @class='speaker-list']",
-    "cleanup": [
-      "aside"
-    ]
-  },
   "//jisakutech.com/": {
     "type": "xpath",
     "xpath": "div[@id='the-content' or @id='comments-thread']",
@@ -19015,5 +19000,25 @@
   "//furikake.doda.jp/": {
     "type": "xpath",
     "xpath": "header/p[@class='arti-summary']|//div[contains(@class,'arti-content')]/*[@class='figure-area' or contains(@class,'arti-body')]"
+  },
+  "//lab.astamuse.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//designers.fenrir-inc.com/n/": {
+    "type": "xpath",
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//logmi.jp/": {
+    "type": "xpath",
+    "xpath": "header[@class='hero']|//div[@class='l-article-grid-main' or @class='event-block' or @class='article-lead-sentence' or @class='article-credit' or @class='speaker-list']",
+    "cleanup": [
+      "aside"
+    ],
+    "append_css": [
+      ".event-block__image {height: 4.0625rem!important;width: 4.0625rem!important;}",
+      ".speaker-item__image {border-radius: 50%;height: 3.25rem!important;object-fit: cover;width: 3.25rem!important;}"
+    ]
   }
 }
