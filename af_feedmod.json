@@ -11093,10 +11093,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//roboteer-tokyo.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-text']"
-  },
   "//jp.vice.com/": {
     "type": "xpath",
     "engine": "chromium",
@@ -14126,10 +14122,6 @@
       "div[contains(@id,'div-gpt-ad-')]"
     ]
   },
-  "//www.bookbang.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='content_body']/div/div[contains(@class,'text')]"
-  },
   "//techplay.jp/event/": {
     "type": "xpath",
     "xpath": "article",
@@ -14602,11 +14594,6 @@
     "cleanup": [
       "div[contains(@class,'sm_icon_mini') or @class='bbs_preview']"
     ]
-  },
-  "//www.afpbb.com/": {
-    "type": "xpath",
-    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]",
-    "next_page": "ul[contains(@class,'pager')]"
   },
   "//tm2501.com/": {
     "type": "xpath",
@@ -15883,13 +15870,6 @@
   "//fnmnl.tv/": {
     "type": "xpath",
     "xpath": "section[@id='content']/*[@class='post-thumb' or @class='post-text']"
-  },
-  "//www.zeiri4.com/": {
-    "type": "xpath",
-    "xpath": "article/div[contains(@class,'b-generatedHtml__body') or contains(@class,'read_b--body')]",
-    "cleanup": [
-      "aside"
-    ]
   },
   "//maeharakazuhiro.com/": {
     "type": "xpath",
@@ -19058,6 +19038,35 @@
     "xpath": "div[contains(@class,'content__default')]",
     "cleanup": [
       "div[@class='social']"
+    ]
+  },
+  "//roboteer-tokyo.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//www.afpbb.com/": {
+    "type": "xpath",
+    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]",
+    "next_page": "ul[contains(@class,'pager')]"
+  },
+  "//www.bookbang.jp/review/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='book_data' or @class='box_review_detail']",
+    "cleanup": [
+      "div[contains(@class,'box_purchase')]",
+      "ul[contains(@class,'sns_sharebutton_list')]"
+    ]
+  },
+  "//www.bookbang.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='content_body']/div/div[contains(@class,'text')]"
+  },
+  "//www.zeiri4.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'b-generatedHtml__body') or contains(@class,'read_b--body')]|//article/div/div[contains(@class,'b-generatedHtml__body') or contains(@class,'read_b--body')]",
+    "cleanup": [
+      "aside",
+      "div[@class='b-generatedHtml__bodyAdContainer']"
     ]
   }
 }
