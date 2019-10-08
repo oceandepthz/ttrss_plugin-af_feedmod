@@ -13531,10 +13531,6 @@
     "type": "xpath",
     "xpath": "div[@id='WP_contents']|//main/div/div[@class='cassette_inner']"
   },
-  "//japanese.joins.com/": {
-    "type": "xpath",
-    "xpath": "span[@class='article_content']"
-  },
   "//www.sbbit.jp/": {
     "type": "xpath",
     "xpath": "div[@class='ar-title-sentence__sentence' or @class='ar-serialize-title__inner']",
@@ -19067,6 +19063,33 @@
     "cleanup": [
       "aside",
       "div[@class='b-generatedHtml__bodyAdContainer']"
+    ]
+  },
+  "//game.creators-guild.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'postContents')]/section"
+  },
+  "//game-of-life.net/": {
+    "type": "xpath",
+    "xpath": "article/header/div[@class='post-thumbnail']|//article/div[@class='entry-content']"
+  },
+  "//s.japanese.joins.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='article_body']"
+  },
+  "//japanese.joins.com/": {
+    "type": "xpath",
+    "xpath": "span[@class='article_content']"
+  },
+  "//www.htb.co.jp/sodane/": {
+    "type": "xpath",
+    "xpath": "div[@class='entryBodty']"
+  },
+  "//www.tekelog.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sponsored') or @class='insentence-adsense']"
     ]
   }
 }
