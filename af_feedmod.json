@@ -18188,13 +18188,6 @@
     "engine": "chromium",
     "xpath": "div[@class='blog-article__body']"
   },
-  "//www.kyoto-np.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='news']",
-    "cleanup": [
-      "div[@id='mainHeading']"
-    ]
-  },
   "//www.bengo4.com/": {
     "type": "xpath",
     "xpath": "div[@id='entryDetailVisual' or @id='entryDetailBodyText']"
@@ -19090,6 +19083,20 @@
     "xpath": "article/section[contains(@class,'entry-content')]",
     "cleanup": [
       "div[contains(@class,'sponsored') or @class='insentence-adsense']"
+    ]
+  },
+  "//www.kyoto-np.co.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//itnews.org/news_resources/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'blog-content') or @class='be-comment-block']",
+    "cleanup": [
+      "div[@class='pick-group']"
     ]
   }
 }
