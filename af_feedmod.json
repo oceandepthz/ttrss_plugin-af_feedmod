@@ -19103,5 +19103,36 @@
   "//dtptransit.design/": {
     "type": "xpath",
     "xpath": "article/section[contains(@class,'entry-body')]"
+  },
+  "//pypi.org/project/": {
+    "type": "xpath",
+    "xpath": "p[@class='package-description__summary']|//div[@class='package-header__left' or @id='description']"
+  },
+  "//ueno.link/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]",
+    "head_xpath": "p[@class='post-thumbnail']",
+    "next_page": "div[contains(@class,'page-links')]",
+    "cleanup": [
+      "div[contains(@class,'sponsored') or contains(@class,'page-links')]"
+    ]
+  },
+  "//efficiencydesign.info/": {
+    "type": "xpath",
+    "xpath": "div[@id='main_col']/div[@id='left_col']/div[contains(@class,'post')]",
+    "cleanup": [
+      "div[contains(@id,'quads-ad')]"
+    ]
+  },
+  "//eggplantgaming.com/": {
+    "type": "xpath",
+    "xpath": "article/figure/img|//article/div/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'code-block')]"
+    ]
+  },
+  "//gengo.ai/ja/datasets/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'single-content')]/div/div/div/div[1]"
   }
 }
