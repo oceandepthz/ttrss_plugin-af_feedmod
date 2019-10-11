@@ -18353,16 +18353,6 @@
       "div[@class='backToPage']"
     ]
   },
-  "//eiga.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleBox']",
-    "cleanup": [
-      "ul[@id='bmksBtm']",
-      "div[@id='newsLink']",
-      "div[@id='fb-cmnt']",
-      "ul[@id='bf']"
-    ]
-  },
   "//www.suzukikenichi.com/blog/": {
     "type": "xpath",
     "xpath": "div[@id='entry-content']",
@@ -19098,5 +19088,20 @@
     "cleanup": [
       "div[@class='pick-group']"
     ]
+  },
+  "//eiga.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "div[@class='sns-link']"
+    ]
+  },
+  "//blog.apar.jp/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eye-catch']/img|//article/div[contains(@class,'entry-content')]"
+  },
+  "//dtptransit.design/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-body')]"
   }
 }
