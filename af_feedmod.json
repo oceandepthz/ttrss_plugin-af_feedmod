@@ -17495,28 +17495,6 @@
     "type": "xpath",
     "xpath": "article/section/div[@class='tpcHeader_thumb' or @class='tpcNews_body']"
   },
-  "//www.newsweekjapan.jp/mook/": {
-    "type": "xpath",
-    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
-    "cleanup": [
-      "div[@class='sell-link']"
-    ]
-  },
-  "//www.newsweekjapan.jp/e-book/": {
-    "type": "xpath",
-    "xpath": "div[@id='magHeadLine']"
-  },
-  "//www.newsweekjapan.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
-    "cleanup": [
-      "div[@class='entryPagenate' or contains(@class,'annotation')]"
-    ],
-    "next_page": "div[@class='entryPagenate']",
-    "next_page_cleanup": [
-      "li[@class='cont']"
-    ]
-  },
   "//honz.jp/": {
     "type": "xpath",
     "xpath": "div[@id='article_body']",
@@ -19134,5 +19112,31 @@
   "//gengo.ai/ja/datasets/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'single-content')]/div/div/div/div[1]"
+  },
+  "//www.newsweekjapan.jp/press_release/": {
+    "type": "xpath",
+    "xpath": "div[@class='entryDetailBodyCopy']"
+  },
+  "//www.newsweekjapan.jp/mook/": {
+    "type": "xpath",
+    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
+    "cleanup": [
+      "div[@class='sell-link']"
+    ]
+  },
+  "//www.newsweekjapan.jp/e-book/": {
+    "type": "xpath",
+    "xpath": "div[@id='magHeadLine']"
+  },
+  "//www.newsweekjapan.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
+    "cleanup": [
+      "div[@class='entryPagenate' or contains(@class,'annotation')]"
+    ],
+    "next_page": "div[@class='entryPagenate']",
+    "next_page_cleanup": [
+      "li[@class='cont']"
+    ]
   }
 }
