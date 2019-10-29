@@ -19152,5 +19152,27 @@
   "//www.tomshardware.com/news/": {
     "type": "xpath",
     "xpath": "article/section/div[@id='article-body' or @itemprop='image']"
+  },
+  "//anqou.net/poc/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//cloudblogs.microsoft.com/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='post-meta' or @class='entry-content']"
+  },
+  "//2ality.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='core']",
+    "cleanup": [
+      "div[@class='ad-box' or @id='disqus_thread']"
+    ]
+  },
+  "//aiboom.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='main_contents']/div[contains(@class,'post_content')]",
+    "cleanup": [
+      "div[contains(@id,'share_btm') or contains(@class,'sharedaddy')]"
+    ]
   }
 }
