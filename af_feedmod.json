@@ -19132,5 +19132,25 @@
   "//cloud.google.com/blog/": {
     "type": "xpath",
     "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
+  },
+  "//coinpost.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//engineering.docker.com/": {
+    "type": "xpath",
+    "xpath": "article/main"
+  },
+  "//kenyu-life.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//tech.jstream.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.tomshardware.com/news/": {
+    "type": "xpath",
+    "xpath": "article/section/div[@id='article-body' or @itemprop='image']"
   }
 }
