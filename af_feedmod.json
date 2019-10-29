@@ -3931,10 +3931,6 @@
     "type": "xpath",
     "xpath": "div[@class='articleText']"
   },
-  "blog.nicovideo.jp/niconews/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body']"
-  },
   "news.vesta.onl": {
     "type": "xpath",
     "xpath": "img[contains(@class,'attachment-post-thumbnail')]|//div[@class='post_body']",
@@ -13127,10 +13123,6 @@
     "type": "xpath",
     "xpath": "div[@class='g-pageMain']//div[contains(@class,'gijpC-detailArticle')]"
   },
-  "//blog.nicovideo.jp/3d/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'hentry')]/div[contains(@class,'entry-content')]"
-  },
   "//media.sakuras.tokyo/": {
     "type": "xpath",
     "xpath": "div[@class='blog-article__content']"
@@ -13840,10 +13832,6 @@
   "//buffalo.jp/support_s/": {
     "type": "xpath",
     "xpath": "div[@class='osirase-area']"
-  },
-  "//blog.jupyter.org/": {
-    "type": "xpath",
-    "xpath": "div[@class='section-content']"
   },
   "//blog.github.com/": {
     "type": "xpath",
@@ -16072,23 +16060,6 @@
   "//builder.japan.zdnet.com/": {
     "type": "xpath",
     "xpath": "div[@id='block_article_header']/img[@class='article_header_img']|//div[@id='block_story']",
-    "next_page": "div[@class='pagination']"
-  },
-  "//japan.zdnet.com/extra/": {
-    "type": "xpath",
-    "xpath": "div[@id='block_story']",
-    "next_page": "div[@class='pagination']"
-  },
-  "//japan.zdnet.com/amp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-title']/p[@class='image' or @class='published' or @class='author']|//div[@class='article-content']",
-    "cleanup": [
-      "div/ul/li[contains(@id,'snsbtn_')]"
-    ]
-  },
-  "//japan.zdnet.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='article_body']",
     "next_page": "div[@class='pagination']"
   },
   "*//*.connpass.com/event/*/presentation/": {
@@ -18710,13 +18681,6 @@
     ],
     "next_page": "ul[@class='pagination']"
   },
-  "//develman.net/": {
-    "type": "xpath",
-    "xpath": "header/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'add')]"
-    ]
-  },
   "//proc-cpuinfo.fixstars.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'post-single-content')]",
@@ -19001,11 +18965,6 @@
     "type": "xpath",
     "xpath": "article/div[contains(@class,'entry-content')]"
   },
-  "//www.afpbb.com/": {
-    "type": "xpath",
-    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]",
-    "next_page": "ul[contains(@class,'pager')]"
-  },
   "//www.bookbang.jp/review/": {
     "type": "xpath",
     "xpath": "article/div[@class='book_data' or @class='box_review_detail']",
@@ -19045,13 +19004,6 @@
   "//www.htb.co.jp/sodane/": {
     "type": "xpath",
     "xpath": "div[@class='entryBodty']"
-  },
-  "//www.tekelog.com/": {
-    "type": "xpath",
-    "xpath": "article/section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'sponsored') or @class='insentence-adsense']"
-    ]
   },
   "//www.kyoto-np.co.jp/": {
     "type": "xpath",
@@ -19138,5 +19090,54 @@
     "next_page_cleanup": [
       "li[@class='cont']"
     ]
+  },
+  "//japan.zdnet.com/extra/": {
+    "type": "xpath",
+    "xpath": "div[@id='block_story']",
+    "next_page": "div[@class='pagination']"
+  },
+  "//japan.zdnet.com/amp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-title']/p[@class='image' or @class='published' or @class='author']|//div[@class='article-content']",
+    "cleanup": [
+      "div/ul/li[contains(@id,'snsbtn_')]"
+    ]
+  },
+  "//japan.zdnet.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-contents']",
+    "head_xpath": "div[@id='article-header']",
+    "next_page": "ul[@class='pagination']"
+  },
+  "//develman.net/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='cps-post-main-box' or @class='cps-post-thumb']",
+    "cleanup": [
+      "*[contains(@class,'sponsor-') or contains(@class,'ad-single') or @class='adarea-box' or @class='sns']"
+    ]
+  },
+  "//www.tekelog.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//www.afpbb.com/": {
+    "type": "xpath",
+    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]",
+    "next_page": "ul[contains(@class,'pager')]"
+  },
+  "//blog.nicovideo.jp/niconews/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-content')]"
+  },
+  "//blog.nicovideo.jp/3d/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'hentry')]/div[contains(@class,'entry-content')]"
+  },
+  "//blog.jupyter.org/": {
+    "type": "xpath",
+    "xpath": "article/div/section"
   }
 }
