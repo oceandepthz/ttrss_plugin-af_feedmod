@@ -2093,21 +2093,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry_content']"
   },
-  "dengekionline.com": {
-    "type": "xpath",
-    "xpath": "div[@id='contArt']|//section[@id='newsText']",
-    "cleanup": [
-      "div[@id='articleBannerBottom']",
-      "div[contains(@class, 'social')]",
-      "ul[@class='ofclLink']",
-      "p[@class='data_title']",
-      "div[@class='data_box']",
-      "p[@class='relatedTitle']",
-      "ul[@class='related']",
-      "script",
-      "section[@id='bottom_area']"
-    ]
-  },
   "blog-ja.deploygate.com": {
     "type": "xpath",
     "xpath": "div[starts-with(@class,'body')]"
@@ -17926,14 +17911,6 @@
       "ul[@id='sns_list']"
     ]
   },
-  "//cloud.google.com/blog/big-data/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'blog_post')]"
-  },
-  "//cloud.google.com/blog/": {
-    "type": "xpath",
-    "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
-  },
   "//blog.techbookfest.org/": {
     "type": "xpath",
     "xpath": "div[@class='card']/div[contains(@class,'card-content')]/div[@class='content']"
@@ -18357,13 +18334,6 @@
   "//www.jtrustsystem.co.jp/": {
     "type": "xpath",
     "xpath": "header/div/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
-  },
-  "//www.kyotoanimation.co.jp/information/": {
-    "type": "xpath",
-    "xpath": "article[@id='information']",
-    "cleanup": [
-      "ul[@id='informationSocialLink']"
-    ]
   },
   "//www.wsj.com/articles/": {
     "type": "xpath",
@@ -19139,5 +19109,28 @@
   "//blog.jupyter.org/": {
     "type": "xpath",
     "xpath": "article/div/section"
+  },
+  "//dengekionline.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='contArt' or contains(@class,'gEntry_body')]|//section[@id='newsText']",
+    "cleanup": [
+      "div[@id='articleBannerBottom']",
+      "div[contains(@class, 'social')]",
+      "ul[@class='ofclLink']",
+      "p[@class='data_title']",
+      "div[@class='data_box']",
+      "p[@class='relatedTitle']",
+      "ul[@class='related']",
+      "script",
+      "section[@id='bottom_area']"
+    ]
+  },
+  "//cloud.google.com/blog/big-data/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'blog_post')]"
+  },
+  "//cloud.google.com/blog/": {
+    "type": "xpath",
+    "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
   }
 }
