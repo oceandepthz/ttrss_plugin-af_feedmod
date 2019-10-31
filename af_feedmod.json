@@ -5187,13 +5187,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.jcp.or.jp/akahata/": {
-    "type": "xpath",
-    "xpath": "div[@id='content_L1']",
-    "cleanup": [
-      "div[@id='sns_bg']"
-    ]
-  },
   "//www.iwebstyle.net/": {
     "type": "xpath",
     "xpath": "div[contains(@id,'post-')]",
@@ -13479,14 +13472,6 @@
     "xpath": "article/div[@class='entry']",
     "next_page": "article/ul[contains(@class,'pager')]"
   },
-  "//www.jcp.or.jp/web_policy/": {
-    "type": "xpath",
-    "xpath": "div[@id='web_policy']/div/article"
-  },
-  "//www.jcp.or.jp/web_info/": {
-    "type": "xpath",
-    "xpath": "section[@class='standardContainer']"
-  },
   "//www.igaku-shoin.co.jp/paperDetail.do": {
     "type": "xpath",
     "xpath": "div[@id='serialinfo']"
@@ -19122,6 +19107,42 @@
     "xpath": "header/a/img|//div[@class='article-body-inner']",
     "cleanup": [
       "div[@id='app' or @id='___gcse_0']"
+    ]
+  },
+  "//www.jcp.or.jp/akahata/": {
+    "type": "xpath",
+    "xpath": "div[@id='content_L1']",
+    "cleanup": [
+      "div[@id='sns_bg']"
+    ]
+  },
+  "//www.jcp.or.jp/web_policy/": {
+    "type": "xpath",
+    "xpath": "div[@id='web_policy']/div/article"
+  },
+  "//www.jcp.or.jp/web_info/": {
+    "type": "xpath",
+    "xpath": "section[@class='standardContainer']"
+  },
+  "//webdesignfacts.net/": {
+    "type": "xpath",
+    "xpath": "header/p[@class='post-thumbnail']|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sponsored')]"
+    ]
+  },
+  "//www.citusdata.com/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog-article-content__text']",
+    "cleanup": [
+      "div[@class='inline-newsletter-signup' or contains(@class,'social-media-icons')]"
+    ]
+  },
+  "//yasslab.jp/ja/posts/": {
+    "type": "xpath",
+    "xpath": "section[@id='main_content']",
+    "cleanup": [
+      "ol[@class='snsb']"
     ]
   }
 }
