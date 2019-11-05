@@ -19190,5 +19190,36 @@
     "xpath": "div[@class='mod-content']",
     "foot_xpath": "div[@class='relate_link' or @class='authorTex']",
     "next_page": "div[@class='navPage']"
+  },
+  "//mykpb.com/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//quickcms.century.yokohama/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='content']"
+  },
+  "//www.vice.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'short-form-v2__lede-image-wrapper')]/div/div[@class='article-keep-reading' or contains(@class,'placeholder-image')]|//div[@class='article-keep-reading']"
+  },
+  "//honsuki.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='writerinfo' or @class='othprof']|//div[contains(@id,'post-')]/div[@class='entry']",
+    "cleanup": [
+      "div[@class='s_sbm']"
+    ]
+  },
+  "//hypebeast.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'carousel-cell-image-wrapper')]|//article/div[@class='post-body-content' or @class='post-body-credentials' or @class='post-body-content-tags']"
+  },
+  "//isog-j.org/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents_left']"
+  },
+  "//jprs.jp/whatsnew/notice/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents']"
   }
 }
