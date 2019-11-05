@@ -12733,11 +12733,6 @@
       "div[contains(@class,'addtoany_share_save_container')]"
     ]
   },
-  "//sports.yahoo.co.jp/": {
-    "type": "xpath",
-    "xpath": "article[@class='sn-modArticle']/div[@class='sn-modBody']|//div[@class='mod-content']|//article[contains(@class,'module modColumnDetail')]/section|//section[@class='modAuthor']|//article[contains(@class,'module modColumnDetail')]/img[@class='largePhoto']|//article/*[contains(@class,'sn-columnDetail__paragraph') or contains(@class,'sn-columnAuthor')]",
-    "next_page": "div[@class='navPage']"
-  },
   "//codezine.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article']|//div[@class='main']/div[contains(@class,'article')]//div[@class='summary' or contains(@class,'main')]",
@@ -19144,5 +19139,56 @@
     "cleanup": [
       "ol[@class='snsb']"
     ]
+  },
+  "//misoji-engineer.com/": {
+    "type": "xpath",
+    "xpath": "header/div/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//oharadesu.com/": {
+    "type": "xpath",
+    "xpath": "header/div/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//okamototomohiro.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='saboxplugin-wrap' or contains(@class,'sharedaddy') or @id='jp-relatedposts']"
+    ]
+  },
+  "//ota42y.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'post__content')]"
+  },
+  "//uit-inside.linecorp.com/episode/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'DetailWrapper')]"
+  },
+  "//aiko-hj.blog.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='article-body']"
+  },
+  "//front-row.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'content-cover')]/div[@class='image-bg-blur']|//div[@class='content-body']/div[contains(@class,'content-body-body') or @class='content-summary']"
+  },
+  "//pochisoku.net/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eye-catch']/img|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area') or contains(@class,'widget')]"
+    ]
+  },
+  "//sky-joker.tech/": {
+    "type": "xpath",
+    "xpath": "div[@class='thecontent']"
+  },
+  "//sports.yahoo.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='mod-content']",
+    "foot_xpath": "div[@class='relate_link' or @class='authorTex']",
+    "next_page": "div[@class='navPage']"
   }
 }
