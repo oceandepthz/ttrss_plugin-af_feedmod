@@ -1884,13 +1884,6 @@
     "type": "xpath",
     "xpath": "div[@class='hasunoha_list_content' or @class='questions_notice' or @class='question_answer2' or @class='thanks-box']"
   },
-  "www.1101.com": {
-    "type": "xpath",
-    "xpath": "div[@class='article']|//h1",
-    "cleanup": [
-      "div[@class='navi']"
-    ]
-  },
   "wayohoo.com": {
     "type": "xpath",
     "xpath": "div[@class='articleBody']",
@@ -7298,34 +7291,6 @@
   "//dmm-corp.com/press/press-release/": {
     "type": "xpath",
     "xpath": "section[@class='p-wp-content']"
-  },
-  "//wired.jp/series/": {
-    "type": "xpath",
-    "xpath": "section[@class='text-body']",
-    "cleanup": [
-      "ul[@class='next-prev-nav']",
-      "div[@class='social-area-syncer']"
-    ]
-  },
-  "//wired.jp/special/": {
-    "type": "xpath",
-    "xpath": "header/div/div[starts-with(@class,'txt') or @class='credit']|//main[@id='contents']",
-    "cleanup": [
-      "div[starts-with(@id,'data-ad-banner-')]",
-      "aside"
-    ]
-  },
-  "//wired.jp/innovationinsights/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@id,'column')]"
-  },
-  "//wired.jp/": {
-    "type": "xpath",
-    "xpath": "article[@class='article-detail']",
-    "cleanup": [
-      "section[@class='article-tag-list']",
-      "div[@class='social-area-syncer']"
-    ]
   },
   "//www.taguchizu.net/": {
     "type": "xpath",
@@ -19221,5 +19186,71 @@
   "//jprs.jp/whatsnew/notice/": {
     "type": "xpath",
     "xpath": "div[@id='contents']"
+  },
+  "//www.1101.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']|//h1",
+    "cleanup": [
+      "div[@class='navi']"
+    ]
+  },
+  "//wired.jp/membership/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='article__hero-image--large' or @class='article__intro' or @class='article__credit' or @class='article__contents']"
+  },
+  "//wired.jp/series/": {
+    "type": "xpath",
+    "xpath": "section[@class='text-body']",
+    "cleanup": [
+      "ul[@class='next-prev-nav']",
+      "div[@class='social-area-syncer']"
+    ]
+  },
+  "//wired.jp/special/": {
+    "type": "xpath",
+    "xpath": "header/div/div[starts-with(@class,'txt') or @class='credit']|//main[@id='contents']",
+    "cleanup": [
+      "div[starts-with(@id,'data-ad-banner-')]",
+      "aside"
+    ]
+  },
+  "//wired.jp/innovationinsights/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@id,'column')]"
+  },
+  "//wired.jp/": {
+    "type": "xpath",
+    "xpath": "article[@class='article-detail']",
+    "cleanup": [
+      "section[@class='article-tag-list']",
+      "div[@class='social-area-syncer']"
+    ]
+  },
+  "//critic20.exblog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='POST_BODY']",
+    "cleanup": [
+      "div[@id='gpt_pc_blog_article_native' or @class='bbs_preview' or @class='POST_TAIL' or @class='COMMENT']"
+    ]
+  },
+  "//gravitational.com/blog/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//1kohei1.com/": {
+    "type": "xpath",
+    "xpath": "main/div[not(@class)]"
+  },
+  "//ai-lab.lapras.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//bitbucket.org/blog/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-content')]"
+  },
+  "//bouncy.news/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'l-content')]/div[@class='single-body' or @class='single-product-info' or @class='single-author']"
   }
 }
