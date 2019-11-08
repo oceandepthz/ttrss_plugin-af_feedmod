@@ -19260,5 +19260,13 @@
   "//www.janog.gr.jp/meeting/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'main_contents')]"
+  },
+  "//securelist.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.coindeskjapan.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
   }
 }
