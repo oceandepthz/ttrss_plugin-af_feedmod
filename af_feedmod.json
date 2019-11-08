@@ -19252,5 +19252,13 @@
   "//bouncy.news/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'l-content')]/div[@class='single-body' or @class='single-product-info' or @class='single-author']"
+  },
+  "//datsuaikokukarutonosusume.blog.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//www.janog.gr.jp/meeting/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'main_contents')]"
   }
 }
