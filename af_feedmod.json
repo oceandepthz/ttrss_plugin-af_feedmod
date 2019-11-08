@@ -19268,5 +19268,46 @@
   "//www.coindeskjapan.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
+  },
+  "//newsroom.fb.com/news/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-single')]"
+  },
+  "//reacttraining.com/blog/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//recompile.net/": {
+    "type": "xpath",
+    "xpath": "header/figure|//div[@class='blog-article__content']"
+  },
+  "//jigensha.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']|//footer[@class='entry-meta']|//header[@class='entry-header']/img"
+  },
+  "//myajo.net/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='imgBox' or @class='content-blog-text']"
+  },
+  "//nctech.online/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainEntity']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//ai-products.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='schema-image']"
+  },
+  "//blog.rogiken.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//full-count.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='paragraph']",
+    "head_xpath": "p[@class='main_lead']",
+    "next_page": "ul[contains(@class,'article-footer-pagination')]"
   }
 }
