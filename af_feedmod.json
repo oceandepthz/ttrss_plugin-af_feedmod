@@ -19309,5 +19309,17 @@
     "xpath": "div[@class='paragraph']",
     "head_xpath": "p[@class='main_lead']",
     "next_page": "ul[contains(@class,'article-footer-pagination')]"
+  },
+  "//blog.discordapp.com/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//yamotty.tokyo/": {
+    "type": "xpath",
+    "xpath": "main/div[@class='post']"
+  },
+  "//Yamotty.github.io/": {
+    "type": "xpath",
+    "xpath": "main/div[@class='post']"
   }
 }
