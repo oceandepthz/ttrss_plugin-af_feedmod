@@ -12413,16 +12413,6 @@
     "type": "xpath",
     "xpath": "article/div[@class='p-entry__inner']/div[@class='p-entry__thumbnail' or @class='p-entry__body']"
   },
-  "//wedge.ismedia.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body']",
-    "cleanup": [
-      "p[@class='noprovide']",
-      "div[@class='next-info' or @class='pagination' or @class='middle-ad' or @class='backtotop' or @class='next-page']",
-      "p/a/img"
-    ],
-    "next_page": "div[@class='pagination']"
-  },
   "//1000ch.net/": {
     "type": "xpath",
     "xpath": "main[@class='Main']",
@@ -14837,10 +14827,6 @@
     "type": "xpath",
     "xpath": "article"
   },
-  "//vdata.nikkei.com/newsgraphics/": {
-    "type": "xpath",
-    "xpath": "section[@id='content-start']"
-  },
   "//www.huawei-report.com/": {
     "type": "xpath",
     "xpath": "header/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]",
@@ -15529,10 +15515,6 @@
     "type": "xpath",
     "xpath": "article"
   },
-  "//www.redhat.com/en/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='rh-default--component']"
-  },
   "//www.hareruyamtg.com/": {
     "type": "xpath",
     "xpath": "div[@class='honbun_wrap']/div/article"
@@ -15834,13 +15816,6 @@
   "//benhoyt.com/writings/": {
     "type": "xpath",
     "xpath": "div[@id='content']"
-  },
-  "//xiaolongchakan.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'c-entry__content')]",
-    "cleanup": [
-      "div[@class='c-google-adsense']"
-    ]
   },
   "//www.atmarkit.co.jp/": {
     "type": "xpath",
@@ -17228,7 +17203,7 @@
     "type": "xpath",
     "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
   },
-  "//www3.nhk.or.jp/news/html": {
+  "//www3.nhk.or.jp/news/html/": {
     "type": "xpath",
     "xpath": "section[@class='detail-no-js']/section[@class='module--content']"
   },
@@ -17297,19 +17272,6 @@
     "cleanup": [
       "ul[@class='boookstores']"
     ]
-  },
-  "//tech.nikkeibp.co.jp/dm/": {
-    "type": "xpath",
-    "xpath": "div[@id='article']",
-    "next_page": "div[@class='pagingBox']"
-  },
-  "//tech.nikkeibp.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='articleBody' or @id='kiji']",
-    "cleanup": [
-      "div[@id='naviBottom' or @class='bpframe']"
-    ],
-    "next_page": "nav[@class='pagenation']|//div[@id='pager']"
   },
   "//cocopon.me/": {
     "type": "xpath",
@@ -17908,17 +17870,6 @@
       "ul[@class='sns']"
     ]
   },
-  "//iedge.tech/": {
-    "type": "xpath",
-    "xpath": "div[@id='nocopy']/div[@class='article']",
-    "cleanup": [
-      "span[@class='huto']",
-      "div[@class='saboxplugin-wrap' or @class='pagesprit' or @id='dir' or @class='iot_sec']"
-    ],
-    "next_page": "div[@class='pagesprit']",
-    "head_xpath": "div[@class='iot_post_img']|//div[@id='nocopy']/div[@class='iot_outher']",
-    "foot_xpath": "div[@itemprop='author']"
-  },
   "//dcross.impress.co.jp/": {
     "type": "xpath",
     "xpath": "article/section[@class='article']",
@@ -18022,21 +17973,6 @@
   "//radsum.com/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
-  },
-  "//limo.media/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'article-body')]",
-    "cleanup": [
-      "h1",
-      "h2",
-      "h4",
-      "ul[contains(@class,'content-meta')]",
-      "div[contains(@class,'affi-text') or contains(@class,'vertical-sns-button') or @id='_popIn_recommend_text' or contains(@class,'content-pager') or contains(@class,'formbox-editor-') or contains(@class,'affi-ga') or contains(@class,'_recommend') or contains(@class,'related-content-list') or contains(@class,'author-area') or contains(@class,'right-column')]",
-      "a[@class='read-more']",
-      "style"
-    ],
-    "next_page": "div[contains(@class,'content-pager')]",
-    "next_page_cleanup": "li[@class='current-page']"
   },
   "//jbpress.ismedia.jp/": {
     "type": "xpath",
@@ -18905,11 +18841,6 @@
       "div[contains(@class,'ad-area')]"
     ]
   },
-  "//www.afpbb.com/": {
-    "type": "xpath",
-    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]",
-    "next_page": "ul[contains(@class,'pager')]"
-  },
   "//blog.nicovideo.jp/niconews/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'article-content')]"
@@ -19321,5 +19252,65 @@
   "//Yamotty.github.io/": {
     "type": "xpath",
     "xpath": "main/div[@class='post']"
+  },
+  "//www.afpbb.com/": {
+    "type": "xpath",
+    "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]",
+    "next_page": "ul[contains(@class,'pager')]"
+  },
+  "//xiaolongchakan.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'c-entry__content')]",
+    "cleanup": [
+      "div[@class='c-google-adsense']"
+    ]
+  },
+  "//www.redhat.com/en/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='rh-default--component' or @class='rh-generic--component']"
+  },
+  "//wedge.ismedia.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='main-contents-wrapper' or @class='article-body']",
+    "cleanup": [
+      "p[@class='noprovide']",
+      "div[@class='next-info' or @class='pagination' or @class='middle-ad' or @class='backtotop' or @class='next-page']",
+      "p/a/img"
+    ],
+    "next_page": "div[@class='pagination']"
+  },
+  "//limo.media/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'article-body')]",
+    "cleanup": [
+      "h1",
+      "h2",
+      "h4",
+      "ul[contains(@class,'content-meta')]",
+      "div[contains(@class,'affi-text') or contains(@class,'vertical-sns-button') or @id='_popIn_recommend_text' or contains(@class,'content-pager') or contains(@class,'formbox-editor-') or contains(@class,'affi-ga') or contains(@class,'_recommend') or contains(@class,'related-content-list') or contains(@class,'author-area') or contains(@class,'right-column')]",
+      "a[@class='read-more']",
+      "style"
+    ],
+    "next_page": "div[contains(@class,'content-pager')]",
+    "next_page_cleanup": "li[@class='current-page']"
+  },
+  "//tech.nikkeibp.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='articleBody' or @id='kiji']",
+    "cleanup": [
+      "div[@id='naviBottom' or @class='bpframe']"
+    ],
+    "next_page": "nav[@class='pagenation']|//div[@id='pager']"
+  },
+  "//iedge.tech/": {
+    "type": "xpath",
+    "xpath": "div[@id='nocopy']/div[@class='article']",
+    "cleanup": [
+      "span[@class='huto']",
+      "div[@class='saboxplugin-wrap' or @class='pagesprit' or @id='dir' or @class='iot_sec']"
+    ],
+    "next_page": "div[@class='pagesprit']",
+    "head_xpath": "div[@class='iot_post_img']|//div[@id='nocopy']/div[@class='iot_outher']",
+    "foot_xpath": "div[@itemprop='author']"
   }
 }
