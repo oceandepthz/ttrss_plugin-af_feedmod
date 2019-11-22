@@ -19312,5 +19312,18 @@
     "next_page": "div[@class='pagesprit']",
     "head_xpath": "div[@class='iot_post_img']|//div[@id='nocopy']/div[@class='iot_outher']",
     "foot_xpath": "div[@itemprop='author']"
+  },
+  "//freesoft.tvbok.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='header']/h2[contains(@class,'description')]|//div[@id='main' or @id='main2']"
+  },
+  "//cgworld.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='article-body']",
+    "cleanup": [
+      "a[@class='btn']"
+    ],
+    "next_page": "article/div[@class='pageNav']",
+    "head_xpath": "article/figure[@class='article-thum']"
   }
 }
