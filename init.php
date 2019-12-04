@@ -273,15 +273,6 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function get_redirect_url(string $url): string {
-        if(strpos($url, '//t.co/') !== false){
-            $html = $this->get_html($url, []);
-            $ret = preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
-            if(count($matches) == 2){
-                return $matches[1];
-            }
-            return $url;
-        }
-
         $header = get_headers($url, true);
         if(isset($header['Location'])){
             $org_url = $header['Location'];
@@ -498,9 +489,12 @@ class Af_Feedmod extends Plugin implements IHandler
         return "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body><main><img src='${image_url}' class='eyecatch' style='width:480px;'><p>${image_caption}</p><article>${body}</article></main></body></html>";
     }
     function get_note_mu_json_url(string $url) : string {
-        $pattern = '/^https:\/\/note\.mu\/.*\/n\/(.*)$/';
-        if(strpos($url, '//note.mu/') === false){
-            $pattern = '/^https:\/\/.*\/n\/(.*)$/';
+        $pattern = '/^https:\/\/.*\/n\/(.*)$/';
+        if(strpos($url, '//note.mu/') !== false){
+            $pattern = '/^https:\/\/note\.mu\/.*\/n\/(.*)$/';
+        }
+        if(strpos($url, '//note.com/') !== false){
+            $pattern = '/^https:\/\/note\.com\/.*\/n\/(.*)$/';
         }
         preg_match($pattern, $url, $match);
         if(count($match) == 2){
@@ -529,6 +523,9 @@ class Af_Feedmod extends Plugin implements IHandler
     }
     function is_note_mu(string $url, array $config) : bool {
         if(strpos($url, "//note.mu/") !== false){
+            return true;
+        }
+        if(strpos($url, "//note.com/") !== false){
             return true;
         }
         if(!isset($config['engine'])){
@@ -1007,13 +1004,26 @@ class Af_Feedmod extends Plugin implements IHandler
             if(!$href){
                 continue;
             }
-            $html = $this->get_html($href, []);
-            preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
-            if(count($matches) == 2){
-                $url = $matches[1];
-                $node->nodeValue = $url;
-                $node->setAttribute('href', $url);
+
+            //$this->__debug("update_t_co href:${href}");
+
+            $header = get_headers($href, true);
+            //$this->__debug("update_t_co header".print_r($header, true));
+            $url = '';
+            if(isset($header['Location'])){
+                $url = $header['Location'];
+                if(is_array($url)){
+                    $url = end($url);
+                }
             }
+            //$this->__debug("update_t_co url:${url}");
+
+
+            if(!$url) {
+                continue;
+            }
+            $node->nodeValue = $url;
+            $node->setAttribute('href', $url);
         }
     }
 
@@ -1321,7 +1331,7 @@ class Af_Feedmod extends Plugin implements IHandler
             if(!$node->hasAttribute($attr)){
                 continue;
             }
-            if(strpos($node->hasAttribute($attr), 'data:') === 0) {
+            if(strpos($node->getAttribute($attr), 'data:') === 0) {
                 $node->removeAttribute($attr);
                 continue;
             }
