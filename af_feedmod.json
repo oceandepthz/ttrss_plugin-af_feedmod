@@ -4798,10 +4798,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.gibe-on.info/": {
-    "type": "xpath",
-    "xpath": "div[@id='article']/div[@id='post_image' or contains(@class,'post_content')]"
-  },
   "//tech.feedforce.jp/": {
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
@@ -12359,11 +12355,6 @@
     "type": "xpath",
     "xpath": "header[@id='single-header']/p[@class='dek']|//div[@id='main']/div[@class='post']"
   },
-  "//realsound.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='entryBody']|//div[@class='entryMainPhoto']",
-    "next_page": "div[@id='pageNation']"
-  },
   "//00.bulog.jp/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
@@ -17083,13 +17074,6 @@
     "type": "xpath",
     "xpath": "article/header/figure|//article/*[@class='module-body' or @class='module-point' or @class='module-credit']"
   },
-  "//sorae.info/": {
-    "type": "xpath",
-    "xpath": "div[@id='left_col']/div[contains(@class,'post')]",
-    "cleanup": [
-      "div[contains(@id,'single_banner') or contains(@id,'quads-ad')]"
-    ]
-  },
   "//www.nhk.or.jp/kokusaihoudou/catch/": {
     "type": "xpath",
     "xpath": "div[@class='entry' or @class='section02']"
@@ -19245,14 +19229,6 @@
     "type": "xpath",
     "xpath": "article"
   },
-  "//yamotty.tokyo/": {
-    "type": "xpath",
-    "xpath": "main/div[@class='post']"
-  },
-  "//Yamotty.github.io/": {
-    "type": "xpath",
-    "xpath": "main/div[@class='post']"
-  },
   "//www.afpbb.com/": {
     "type": "xpath",
     "xpath": "figure[@id='photos']//figcaption[@class='caption']|//figure[@id='photos']//img[@id='main-img']|//article/div[contains(@class,'article-relation-photo')]//img|//article/div[contains(@class,'article-body')]",
@@ -19325,5 +19301,34 @@
     ],
     "next_page": "article/div[@class='pageNav']",
     "head_xpath": "article/figure[@class='article-thum']"
+  },
+  "//sorae.info/": {
+    "type": "xpath",
+    "xpath": "article/section[@class='single-post-main']/div[@class='content']",
+    "cleanup": [
+      "div[contains(@class,'code-block')]"
+    ]
+  },
+  "//yamotty.tokyo/": {
+    "type": "xpath",
+    "xpath": "main/div[@class='post']"
+  },
+  "//Yamotty.tokyo/": {
+    "type": "xpath",
+    "xpath": "main/div[@class='post']"
+  },
+  "//Yamotty.github.io/": {
+    "type": "xpath",
+    "xpath": "main/div[@class='post']"
+  },
+  "//realsound.jp/": {
+    "type": "xpath",
+    "xpath": "main/article//div[@class='entry-body']",
+    "next_page": "ul[@class='pagination']",
+    "head_xpath": "main/article//div[@class='entry-thumb']"
+  },
+  "//www.gibe-on.info/": {
+    "type": "xpath",
+    "xpath": "article/header/p[@class='post-thumbnail']|//article/section[contains(@class,'entry-content')]"
   }
 }
