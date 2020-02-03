@@ -2418,10 +2418,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "lineblog.me": {
-    "type": "xpath",
-    "xpath": "div[@class='article-body-inner']"
-  },
   "internet-kyokasho.com": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
@@ -6759,10 +6755,6 @@
   "//tech.a-listers.jp/": {
     "type": "xpath",
     "xpath": "div[@class='main']"
-  },
-  "//otakei.otakuma.net/": {
-    "type": "xpath",
-    "xpath": "div[@id='left_col']/div[contains(@class,'post')]/div[not(@class='social-single-area')]"
   },
   "//www.smartaleck.co.jp/": {
     "type": "xpath",
@@ -12932,11 +12924,6 @@
     "type": "xpath",
     "xpath": "div[@id='main']/div/div[@class='box_det']"
   },
-  "//2020.yahoo.co.jp/column/": {
-    "type": "xpath",
-    "xpath": "div[@class='mod-content']",
-    "next_page": "div[@class='navPage']"
-  },
   "//www.shueisha.co.jp/info/": {
     "type": "xpath",
     "xpath": "body"
@@ -14278,13 +14265,6 @@
     "type": "xpath",
     "xpath": "table[@id='topiccontent']//td[@class='m']/p|//table[@id='reslist']"
   },
-  "//www.huffingtonpost.jp/": {
-    "type": "xpath",
-    "xpath": "header/div[contains(@class,'author-byline')]|//div[@class='headline']/h2[@class='headline__subtitle']|//div[contains(@class,'entry__content')]/div[contains(@class,'top-media')]|//div[contains(@class,'post-contents')]",
-    "cleanup": [
-      "div[contains(@class,'entry-body--paragraph-ad')]"
-    ]
-  },
   "//slackhq.com/": {
     "type": "xpath",
     "xpath": "header/div[@class='o-wrap--content']|//div[@class='o-wrap--article']"
@@ -14580,10 +14560,6 @@
     "cleanup": [
       "aside"
     ]
-  },
-  "//ferret-plus.com/": {
-    "type": "xpath",
-    "xpath": "header/div[@class='image']|//div[@class='articleMain']"
   },
   "//photoshopvip.net/": {
     "type": "xpath",
@@ -15530,13 +15506,6 @@
     "type": "xpath",
     "xpath": "div[@class='article-body']"
   },
-  "//plus1world.com/": {
-    "type": "xpath",
-    "xpath": "article/div/div[@class='article-area-container']",
-    "cleanup": [
-      "span[@class='adsense-box']"
-    ]
-  },
   "//note.nkmk.me/": {
     "type": "xpath",
     "xpath": "div[@id='content']",
@@ -16386,13 +16355,6 @@
   "//www.naka2656-b.site/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
-  },
-  "//jp.quora.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='layout_2col_main']",
-    "cleanup": [
-      "div[contains(@id,'_question_prompt') or contains(@class,'_questions_container')]"
-    ]
   },
   "//iritec.jp/": {
     "type": "xpath",
@@ -19277,15 +19239,30 @@
     "type": "xpath",
     "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]"
   },
-  "//japanese.engadget.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='post-center-col']/div[@data-testid='PostContentContainer']/div|//section[@id='post-slideshow']"
-  },
   "//www.cockroachlabs.com/blog/": {
     "type": "xpath",
     "xpath": "section/div/div[@class='blog-article__image' or @class='blog-article__content']",
     "cleanup": [
       "div[contains(@class,'article-sidebar')]"
+    ]
+  },
+  "//twitter.com/i/moments/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]",
+    "append_css": [
+      ".Emoji--forText {height: 1.25em!important;padding: 0 0.05em 0 0.1em;vertical-align: -0.2em;width: 1.25em!important;}",
+      ".MomentCapsuleItemTweet--withText {background-color: #f5f8fa;border-radius: 2px;padding: 24px;}",
+      ".MomentCapsuleItem {margin-bottom: 40px;position: relative;}",
+      ".MomentCapsuleItemTweet--withText .MomentUserByline-avatar {border-radius: 50%;height: 48px;margin-right: 8px;width: 48px;}",
+      ".MomentFormatLink-anchor {border: 1px solid #ccd6dd;border-radius: 2px;display: block;padding: 16px;text-decoration: none;transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;}",
+      ".MomentTweetActions, .Icon--verified, .ProfileTweet-actionCountList {display:none;}",
+      ".MomentCapsuleCoverAttribution, .MomentCapsuleCoverAttribution:active, .MomentCapsuleCoverAttribution:focus, .MomentCapsuleCoverAttribution:hover {color: #aab8c2;}",
+      ".MomentCapsuleCover-media {border-bottom: 1px solid #aab8c2;padding-bottom: 40px;position: relative;}",
+      ".MomentsPermalinkPage-tweets {margin: 40px auto;width: 98%;}",
+      ".MomentFormatLink-title, .MomentFormatLink-description {color: #14171a;line-height: 1.5em;max-height: 1.5em;overflow: hidden;}",
+      ".MomentFormatLink-url {color: #657786;}",
+      ".MomentCapsuleCover {margin: 40px auto 0; width: 98%;}",
+      ".MomentMediaItem-entity--image, .MomentMediaItem-entity--video {width:480px!important;}"
     ]
   },
   "//twitter.com/": {
@@ -19307,23 +19284,44 @@
       ".Emoji--forText {height: 1.25em!important;padding: 0 0.05em 0 0.1em;vertical-align: -0.2em;width: 1.25em!important;}"
     ]
   },
-  "//twitter.com/i/moments/": {
+  "//japanese.engadget.com/": {
     "type": "xpath",
-    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]",
-    "append_css": [
-      ".Emoji--forText {height: 1.25em!important;padding: 0 0.05em 0 0.1em;vertical-align: -0.2em;width: 1.25em!important;}",
-      ".MomentCapsuleItemTweet--withText {background-color: #f5f8fa;border-radius: 2px;padding: 24px;}",
-      ".MomentCapsuleItem {margin-bottom: 40px;position: relative;}",
-      ".MomentCapsuleItemTweet--withText .MomentUserByline-avatar {border-radius: 50%;height: 48px;margin-right: 8px;width: 48px;}",
-      ".MomentFormatLink-anchor {border: 1px solid #ccd6dd;border-radius: 2px;display: block;padding: 16px;text-decoration: none;transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;}",
-      ".MomentTweetActions, .Icon--verified, .ProfileTweet-actionCountList {display:none;}",
-      ".MomentCapsuleCoverAttribution, .MomentCapsuleCoverAttribution:active, .MomentCapsuleCoverAttribution:focus, .MomentCapsuleCoverAttribution:hover {color: #aab8c2;}",
-      ".MomentCapsuleCover-media {border-bottom: 1px solid #aab8c2;padding-bottom: 40px;position: relative;}",
-      ".MomentsPermalinkPage-tweets {margin: 40px auto;width: 98%;}",
-      ".MomentFormatLink-title, .MomentFormatLink-description {color: #14171a;line-height: 1.5em;max-height: 1.5em;overflow: hidden;}",
-      ".MomentFormatLink-url {color: #657786;}",
-      ".MomentCapsuleCover {margin: 40px auto 0; width: 98%;}",
-      ".MomentMediaItem-entity--image, .MomentMediaItem-entity--video {width:480px!important;}"
+    "xpath": "div[@id='post-center-col']/div[@data-testid='PostContentContainer']/div|//section[@id='post-slideshow']|//div[contains(@class,'article-text')]"
+  },
+  "//lineblog.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//www.huffingtonpost.jp/": {
+    "type": "xpath",
+    "xpath": "header/div[contains(@class,'author-byline')]|//div[@class='headline']/h2[@class='headline__subtitle']|//div[contains(@class,'entry__content')]/div[contains(@class,'top-media')]|//div[contains(@class,'post-contents')]|//section[@id='entry-body']",
+    "cleanup": [
+      "div[contains(@class,'entry-body--paragraph-ad')]"
+    ]
+  },
+  "//plus1world.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-area-container']",
+    "next_page": "div[@class='page-numbers']",
+    "cleanup": [
+      "span[@class='adsense-box']",
+      "div[contains(@class,'ad-container')]"
+    ]
+  },
+  "//ferret-plus.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-content' or @class='main-visual']"
+  },
+  "//2020.yahoo.co.jp/column/": {
+    "type": "xpath",
+    "xpath": "section[@class='article__body']",
+    "next_page": "ul[@class='pagination__list']"
+  },
+  "//otakei.otakuma.net/": {
+    "type": "xpath",
+    "xpath": "img[contains(@class,'attachment-post-thumbnail')]|//div[@class='post-content']",
+    "cleanup": [
+      "div[@class='related-label' or @id='related_post_inner']"
     ]
   }
 }
