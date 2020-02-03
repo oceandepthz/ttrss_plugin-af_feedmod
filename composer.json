@@ -1,13 +1,13 @@
 {
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/moffe42/headerparser"
-    }
-  ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/moffe42/headerparser"
+        }
+    ],
     "require": {
-        "j0k3r/graby" : "1.*",
+        "j0k3r/graby": "^2.1",
+        "php-http/guzzle6-adapter": "^2.0",
         "jach/headerparser" : "dev-master"
     }
 }
-
