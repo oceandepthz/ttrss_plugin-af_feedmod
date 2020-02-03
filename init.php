@@ -1,7 +1,8 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
 
-ini_set('user_agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.18362');
+define("USER_AGENT_FEEDMOD", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0");
+ini_set('user_agent', USER_AGENT_FEEDMOD);
 
 class Af_Feedmod extends Plugin implements IHandler
 {
@@ -429,6 +430,7 @@ class Af_Feedmod extends Plugin implements IHandler
           }
         }
         $html .= "</main></body></html>";
+        
         return $html;
     }
     function get_html_jp_reuters_com(string $url) : string {
@@ -554,28 +556,45 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         return false;
     }
+    function is_twitter_com(string $url) : bool {
+        if(strpos($url, "//twitter.com/") !== false){
+            return true;
+        }
+        return false;
+    }
     function get_contents(string $url, array $config) : string {
         if($this->is_googleblog_com($url)) {
             return $this->get_googleblog_com($url);
-        } elseif($this->is_jp_reuters_com($url)) {
+        } 
+        if($this->is_jp_reuters_com($url)) {
             return $this->get_html_jp_reuters_com($url);
-        } elseif($this->is_togetter_com($url)){
+        } 
+        if($this->is_togetter_com($url)){
             return $this->get_html_togetter($url);
-        } elseif($this->is_note_mu($url,$config)){
+        } 
+        if($this->is_note_mu($url,$config)){
             return $this->get_html_note_mu($url);
-        } elseif($this->is_pjs($config)){
+        } 
+        if($this->is_pjs($config)){
             return $this->get_html_pjs($url);
-        } elseif ($this->is_chromium($config)){
+        } 
+        if ($this->is_chromium($config)){
             return $this->get_html_chrome($url);
-        } else {
-            $r = fetch_file_contents($url);
+        } 
+
+        $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD];
+        $is_twitter = $this->is_twitter_com($url);
+        if($is_twitter){
+            $options["useragent"] = 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko';
+        }
+
+        $r = fetch_file_contents($options);
 /*
             require_once('classes/FmUtils.php');
             $u = new FmUtils();
             $r = $u->url_file_get_contents($url);
 */
-            return $r ? $r : "";
-        }
+        return $r ? $r : "";
     }
     function get_html(string $url, array $config) : string {
         $html = $this->get_contents($url, $config);
@@ -1005,10 +1024,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 continue;
             }
 
-            //$this->__debug("update_t_co href:${href}");
 
             $header = get_headers($href, true);
-            //$this->__debug("update_t_co header".print_r($header, true));
             $url = '';
             if(isset($header['Location'])){
                 $url = $header['Location'];
@@ -1016,8 +1033,6 @@ class Af_Feedmod extends Plugin implements IHandler
                     $url = end($url);
                 }
             }
-            //$this->__debug("update_t_co url:${url}");
-
 
             if(!$url) {
                 continue;
