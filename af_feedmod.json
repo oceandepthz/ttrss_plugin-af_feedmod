@@ -5637,10 +5637,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//techracho.bpsinc.jp/morimorihoge/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "//kaztaira.wordpress.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-wrap']",
@@ -6209,10 +6205,6 @@
   "taharasoichiro.com/cms/": {
     "type": "xpath",
     "xpath": "section[@class='entry-content']"
-  },
-  "//techracho.bpsinc.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
   },
   "//shoma2da.net/": {
     "type": "xpath",
@@ -14927,10 +14919,6 @@
       "div[@class='va-social-buzz']"
     ]
   },
-  "//www.bbc.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='media-asset-page-text' or @id='comp-media-player' or @property='articleBody']"
-  },
   "//lepidum.co.jp/blog/": {
     "type": "xpath",
     "xpath": "article"
@@ -17526,10 +17514,6 @@
     "type": "xpath",
     "xpath": "div[@class='card']/div[contains(@class,'card-content')]/div[@class='content']"
   },
-  "//travel.spot-app.jp/": {
-    "type": "xpath",
-    "xpath": "section[@class='content_single']/div/div[@class='content_description' or @class='content_writer' or @class='entry_main']"
-  },
   "//techcommunity.microsoft.com/": {
     "type": "xpath",
     "xpath": "div[@id='bodydisplay' or @id='bodyDisplay']"
@@ -17713,10 +17697,6 @@
     "type": "xpath",
     "engine": "chromium",
     "xpath": "div[@class='blog-article__body']"
-  },
-  "//www.bengo4.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='entryDetailVisual' or @id='entryDetailBodyText']"
   },
   "//alis.to/": {
     "type": "xpath",
@@ -19239,13 +19219,6 @@
     "type": "xpath",
     "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]"
   },
-  "//www.cockroachlabs.com/blog/": {
-    "type": "xpath",
-    "xpath": "section/div/div[@class='blog-article__image' or @class='blog-article__content']",
-    "cleanup": [
-      "div[contains(@class,'article-sidebar')]"
-    ]
-  },
   "//twitter.com/i/moments/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]",
@@ -19323,5 +19296,28 @@
     "cleanup": [
       "div[@class='related-label' or @id='related_post_inner']"
     ]
+  },
+  "//www.cockroachlabs.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'single-blog-content') or @id='post-media']",
+    "cleanup": [
+      "div[contains(@class,'article-sidebar ') or @class='article-cta-sidebar']"
+    ]
+  },
+  "//techracho.bpsinc.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='single-body' or @class='single-header-thumb']"
+  },
+  "//travel.spot-app.jp/": {
+    "type": "xpath",
+    "xpath": "p[@class='article_desc']|//section[@class='article_mv' or @class='article_body']"
+  },
+  "//www.bbc.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='media-asset-page-text' or @id='comp-media-player' or @property='articleBody']"
+  },
+  "//www.bengo4.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='entryDetailVisual' or @id='entryDetailBodyText']"
   }
 }
