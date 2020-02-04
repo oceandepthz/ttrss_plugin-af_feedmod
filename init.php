@@ -556,12 +556,6 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         return false;
     }
-    function is_twitter_com(string $url) : bool {
-        if(strpos($url, "//twitter.com/") !== false){
-            return true;
-        }
-        return false;
-    }
     function get_contents(string $url, array $config) : string {
         if($this->is_googleblog_com($url)) {
             return $this->get_googleblog_com($url);
@@ -582,9 +576,12 @@ class Af_Feedmod extends Plugin implements IHandler
             return $this->get_html_chrome($url);
         } 
 
+        $user_agent = "";
         $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD];
-        $is_twitter = $this->is_twitter_com($url);
-        if($is_twitter){
+        if(isset($config['user_agent'])){
+            $user_agent = $config['user_agent'];
+        }
+        if($user_agent == "ie11"){
             $options["useragent"] = 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko';
         }
 

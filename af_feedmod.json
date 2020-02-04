@@ -19222,6 +19222,7 @@
   "//twitter.com/i/moments/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]",
+    "user_agent": "ie11",
     "append_css": [
       ".Emoji--forText {height: 1.25em!important;padding: 0 0.05em 0 0.1em;vertical-align: -0.2em;width: 1.25em!important;}",
       ".MomentCapsuleItemTweet--withText {background-color: #f5f8fa;border-radius: 2px;padding: 24px;}",
@@ -19241,6 +19242,7 @@
   "//twitter.com/": {
     "type": "xpath",
     "xpath": "div[@role='main']",
+    "user_agent": "ie11",
     "append_css": [
       "div.AdaptiveMedia-singlePhoto{padding-top:0!important;}",
       ".avatar {border-radius: 50%;height: 48px!important;width: 48px!important;}",
