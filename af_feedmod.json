@@ -19329,5 +19329,36 @@
   "//blog.findy.us/": {
     "type": "xpath",
     "xpath": "section[@class='post-content']"
+  },
+  "//www.iii.u-tokyo.ac.jp/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='content']",
+    "cleanup": [
+      "div[@class='sns']"
+    ]
+  },
+  "//wpteq.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//notepm.jp/blog/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//ozy.be/wp/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']",
+    "cleanup": [
+      "div[contains(@class,'ad-space')]"
+    ],
+    "next_page": "div[@class='page-link']"
+  },
+  "//unicorn-blog.jp/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//baigie.me/officialblog/": {
+    "type": "xpath",
+    "xpath": "div[@class='p-article-heading__eyecatch' or @class='p-article__inner']"
   }
 }
