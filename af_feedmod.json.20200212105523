@@ -11838,6 +11838,13 @@
       "div[@class='inside_ad']"
     ]
   },
+  "//www.softantenna.com/wp/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='add']"
+    ]
+  },
   "//letsencrypt.jp/blog/": {
     "type": "xpath",
     "xpath": "article",
@@ -19353,37 +19360,5 @@
   "//baigie.me/officialblog/": {
     "type": "xpath",
     "xpath": "div[@class='p-article-heading__eyecatch' or @class='p-article__inner']"
-  },
-  "//www.softantenna.com/wp/": {
-    "type": "xpath",
-    "xpath": "section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[@class='add']"
-    ]
-  },
-  "//www.zerorenovation.com/": {
-    "type": "xpath",
-    "xpath": "header/div[@class='post_thumbnail']|//article/div[contains(@class,'single-blog-content')]"
-  },
-  "//yamory.io/blog/": {
-    "type": "xpath",
-    "xpath": "div[@class='post-content-body']"
-  },
-  "//yonosuke.net/eguchi/": {
-    "type": "xpath",
-    "xpath": "article/div[contains(@class,'entry-content')]"
-  },
-  "//yusukebe.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='markdown']"
-  },
-  "//xtech.nikkei.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'articleBody')]",
-    "cleanup": [
-      "div[@class='p-article_ad']",
-      "section[@class='p-loginForRead']",
-      "nav[contains(@class,'pagenation')]"
-    ]
   }
 }
