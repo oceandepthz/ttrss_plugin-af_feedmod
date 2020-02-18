@@ -19241,10 +19241,6 @@
     "type": "xpath",
     "xpath": "div[@class='single-body' or @class='single-header-thumb']"
   },
-  "//travel.spot-app.jp/": {
-    "type": "xpath",
-    "xpath": "p[@class='article_desc']|//section[@class='article_mv' or @class='article_body']"
-  },
   "//www.bbc.com/": {
     "type": "xpath",
     "xpath": "div[@id='media-asset-page-text' or @id='comp-media-player' or @property='articleBody']"
@@ -19385,5 +19381,68 @@
       "section[@class='p-loginForRead']",
       "nav[contains(@class,'pagenation')]"
     ]
+  },
+  "//www.helentech.net/": {
+    "type": "xpath",
+    "xpath": "header/div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//www.nichepcgamer.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='mainEntity']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//www.axismag.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_body']"
+  },
+  "//www.braveryk7.com/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@id,'_ad-')]"
+    ]
+  },
+  "//www.disney.co.jp/corporate/news/": {
+    "type": "xpath",
+    "xpath": "div[@class='strMain']"
+  },
+  "//www.hasegawa-tomoki.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//tiyu.to/": {
+    "type": "xpath",
+    "xpath": "article/section/div[@class='news_body']|//article/div[@class='note']|//article/aside"
+  },
+  "//towardsdatascience.com/": {
+    "type": "xpath",
+    "xpath": "article/div/section"
+  },
+  "//uxdesign.cc/": {
+    "type": "xpath",
+    "xpath": "article/div/section/div",
+    "cleanup": [
+      "div[@data-test-id='postByline']//button"
+    ]
+  },
+  "//vaience.com/": {
+    "type": "xpath",
+    "xpath": "article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@id,'vaien-') or @class='add']"
+    ]
+  },
+  "//venturebeat.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='article-masthead' or @id='content']"
+  },
+  "//travel.spot-app.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry_main' or @class='content_description']"
   }
 }
