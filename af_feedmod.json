@@ -19444,5 +19444,48 @@
   "//travel.spot-app.jp/": {
     "type": "xpath",
     "xpath": "div[@class='entry_main' or @class='content_description']"
+  },
+  "//tech-blog.sgr-ksmt.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='main-content-wrap']"
+  },
+  "//tech.preferred.jp/ja/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='content-area']"
+  },
+  "//thehackernews.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='articlebody']"
+  },
+  "//times.abema.tv/": {
+    "type": "xpath",
+    "xpath": "div[@class='blog-article__contents']"
+  },
+  "//leapmind.io/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or @class='featured-image']"
+  },
+  "//mizunashi-mana.github.io/blog/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//ogino.link/": {
+    "type": "xpath",
+    "xpath": "article[@class='twothird']",
+    "cleanup": [
+      "div[contains(@class,'widget-adspace') or @id='next' or @id='respond']",
+      "form[@id='commentform']"
+    ]
+  },
+  "//otona-life.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry']",
+    "cleanup": [
+      "div[contains(@class,'ad')]"
+    ]
+  },
+  "//simtaro.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='nocopy']"
   }
 }
