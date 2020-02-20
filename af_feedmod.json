@@ -19487,5 +19487,24 @@
   "//simtaro.com/": {
     "type": "xpath",
     "xpath": "div[@id='nocopy']"
+  },
+  "//jpn.nec.com/press/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'str-column-main')]",
+    "cleanup": [
+      "div[contains(@class,'comp-sns')]"
+    ]
+  },
+  "//kakuyasu-sim.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//kenthi.net/": {
+    "type": "xpath",
+    "xpath": "header/div/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]"
+  },
+  "//railsdoc.com/": {
+    "type": "xpath",
+    "xpath": "main"
   }
 }
