@@ -214,10 +214,6 @@
       "li[@class='next']"
     ]
   },
-  "techblog.yahoo.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='entry-content']"
-  },
   "dochikushow.blog3.fc2.com": {
     "type": "xpath",
     "xpath": "div[@id='mainBlock']/div[1]/div[@class='mainEntryBase']"
@@ -1988,10 +1984,6 @@
   "blog.stanaka.org": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "thinkit.co.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='deck' or contains(@class, 'field-name-field-main-image') or contains(@class, 'field-name-body')]"
   },
   "tkengo.github.io/blog": {
     "type": "xpath",
@@ -9651,10 +9643,6 @@
     "cleanup": [
       "ol[@class='snsb']"
     ]
-  },
-  "//uxmilk.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='article']/div[@id='js-articleBody' or contains(@class,'author') or @class='article__credit']"
   },
   "//www.weblog-tech.nagoya/": {
     "type": "xpath",
@@ -18443,10 +18431,6 @@
     "type": "xpath",
     "xpath": "div[@id='article_body']"
   },
-  "//japanese.joins.com/": {
-    "type": "xpath",
-    "xpath": "span[@class='article_content']"
-  },
   "//www.htb.co.jp/sodane/": {
     "type": "xpath",
     "xpath": "div[@class='entryBodty']"
@@ -19506,5 +19490,43 @@
   "//railsdoc.com/": {
     "type": "xpath",
     "xpath": "main"
+  },
+  "//techblog.yahoo.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='entry' or @id='entryAuthor']"
+  },
+  "//japanese.joins.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='article_body']"
+  },
+  "//thinkit.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='deck' or contains(@class, 'field-name-field-main-image') or contains(@class, 'field-name-body')]"
+  },
+  "//uxmilk.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']/div[@id='js-articleBody' or contains(@class,'author') or @class='article__credit']"
+  },
+  "//gakushuu.xyz/": {
+    "type": "xpath",
+    "xpath": "figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//ichi001.com/": {
+    "type": "xpath",
+    "xpath": "article//figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='add']"
+    ]
+  },
+  "//mag.ibis.gs/": {
+    "type": "xpath",
+    "xpath": "article/header//figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]"
+  },
+  "//withktsy.com/": {
+    "type": "xpath",
+    "xpath": "header//figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
   }
 }
