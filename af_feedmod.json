@@ -19528,5 +19528,44 @@
   "//withktsy.com/": {
     "type": "xpath",
     "xpath": "header//figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//engineer.dena.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body']"
+  },
+  "//findy-code.io/interviews/": {
+    "type": "xpath",
+    "xpath": "div[@class='interviews-show']",
+    "cleanup": [
+      "div[@class='social']"
+    ]
+  },
+  "//waxtuze-yoka.com/": {
+    "type": "xpath",
+    "xpath": "header/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]"
+  },
+  "//cybersecurity-jp.com/": {
+    "type": "xpath",
+    "xpath": "header/figure|//section[@class='single-post-main']/div[@class='content']",
+    "cleanup": [
+      "div[@class='diver_ad']",
+      "td[@class='pc_only']",
+      "*[contains(@href,'.a8.net') or contains(@src,'.a8.net')]"
+    ]
+  },
+  "//daily-gadget.net/": {
+    "type": "xpath",
+    "xpath": "div[@id='the-content']"
+  },
+  "//daveceddia.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='commento']"
+    ]
+  },
+  "//deviceplus.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article__content']"
   }
 }
