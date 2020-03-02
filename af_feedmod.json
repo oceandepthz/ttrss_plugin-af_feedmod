@@ -5352,13 +5352,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//napoan.com/": {
-    "type": "xpath",
-    "xpath": "section[@class='article-inner']",
-    "cleanup": [
-      "div[@id='continue-sense' or @id='article-bottom-sense']"
-    ]
-  },
   "//journal.anabuki-style.com/": {
     "type": "xpath",
     "xpath": "div[@class='post-thumbnail']|//section[@class='post-content']"
@@ -12212,14 +12205,6 @@
     "type": "xpath",
     "xpath": "div[@class='container']/div/div[contains(@class,'content')]"
   },
-  "//www.cyzo.com/": {
-    "type": "xpath",
-    "xpath": "div[@itemprop='articleBody']",
-    "cleanup": [
-      "div[@id='pageNav' or @id='nextPageTitle' or @class='relation-custom' or @id='snsSharebutton']"
-    ],
-    "next_page": "div[@id='pageNav']"
-  },
   "//shimajiro-mobiler.net/": {
     "type": "xpath",
     "xpath": "div[@id='the-content']"
@@ -15686,10 +15671,6 @@
     "type": "xpath",
     "xpath": "header/div[@class='post-header-image']|//div[@class='post-body']"
   },
-  "//courrier.jp/news/": {
-    "type": "xpath",
-    "xpath": "article/*[@class='article_catch_image_area_box' or @class='article_medias' or @class='article_text_by' or @class='article_text_area']"
-  },
   "//jp.techcrunch.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class, 'article-entry')]"
@@ -18495,32 +18476,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'single-content')]/div/div/div/div[1]"
   },
-  "//www.newsweekjapan.jp/press_release/": {
-    "type": "xpath",
-    "xpath": "div[@class='entryDetailBodyCopy']"
-  },
-  "//www.newsweekjapan.jp/mook/": {
-    "type": "xpath",
-    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
-    "cleanup": [
-      "div[@class='sell-link']"
-    ]
-  },
-  "//www.newsweekjapan.jp/e-book/": {
-    "type": "xpath",
-    "xpath": "div[@id='magHeadLine']"
-  },
-  "//www.newsweekjapan.jp/": {
-    "type": "xpath",
-    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
-    "cleanup": [
-      "div[@class='entryPagenate' or contains(@class,'annotation')]"
-    ],
-    "next_page": "div[@class='entryPagenate']",
-    "next_page_cleanup": [
-      "li[@class='cont']"
-    ]
-  },
   "//japan.zdnet.com/extra/": {
     "type": "xpath",
     "xpath": "div[@id='block_story']",
@@ -19567,5 +19522,83 @@
   "//deviceplus.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article__content']"
+  },
+  "//www.newsweekjapan.jp/press_release/": {
+    "type": "xpath",
+    "xpath": "div[@class='entryDetailBodyCopy']"
+  },
+  "//www.newsweekjapan.jp/mook/": {
+    "type": "xpath",
+    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
+    "cleanup": [
+      "div[@class='sell-link']"
+    ]
+  },
+  "//www.newsweekjapan.jp/e-book/": {
+    "type": "xpath",
+    "xpath": "div[@id='magHeadLine']"
+  },
+  "//www.newsweekjapan.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
+    "cleanup": [
+      "div[@class='entryPagenate' or contains(@class,'annotation')]"
+    ],
+    "next_page": "div[@class='entryPagenate']/ul",
+    "next_page_cleanup": [
+      "li[@class='cont']"
+    ]
+  },
+  "//napoan.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='c-story__text']",
+    "cleanup": [
+      "div[@id='continue-sense' or @id='article-bottom-sense']"
+    ]
+  },
+  "//www.cyzo.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'entry-body')]",
+    "cleanup": [
+      "div[@id='pageNav' or @id='nextPageTitle' or @class='relation-custom' or @id='snsSharebutton' or @class='adsenseArea']"
+    ],
+    "next_page": "div[@id='pageNav']"
+  },
+  "//blog.p1ass.com/": {
+    "type": "xpath",
+    "xpath": "article",
+    "cleanup": [
+      "section[@class='sns_parent']"
+    ]
+  },
+  "//courrier.jp/": {
+    "type": "xpath",
+    "xpath": "article/*[@class='article_catch_image_area_box' or contains(@class,'article_medias') or @class='article_text_by' or @class='article_text_area']",
+    "cleanup": [
+      "div[contains(@class,'attention_pay_area')]"
+    ]
+  },
+  "//blog.api.rakuten.net/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'kk-star-ratings') or contains(@class,'sharedaddy') or @id='jp-relatedposts']"
+    ]
+  },
+  "//blog.bitsrc.io/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//blog.craftz.dog/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//blog.global.fujitsu.com/": {
+    "type": "xpath",
+    "xpath": "section/div[contains(@class,'p-article__body')]"
+  },
+  "//blog.hiroshiba.jp/": {
+    "type": "xpath",
+    "xpath": "section[@class='markdown-content']"
   }
 }
