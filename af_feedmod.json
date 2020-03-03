@@ -19600,5 +19600,31 @@
   "//blog.hiroshiba.jp/": {
     "type": "xpath",
     "xpath": "section[@class='markdown-content']"
+  },
+  "//6d745.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='jp-post-flair']"
+    ]
+  },
+  "//amazon-press.jp/": {
+    "type": "xpath",
+    "xpath": "article"
+  },
+  "//blog.acolyer.org/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='jp-post-flair']"
+    ]
+  },
+  "//blog.livedoor.jp/bihatsuon/": {
+    "type": "xpath",
+    "xpath": "article/div[@class='article-body']"
+  },
+  "//blog.livedoor.jp/sugitamio/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body-inner']"
   }
 }
