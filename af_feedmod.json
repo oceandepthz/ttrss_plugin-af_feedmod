@@ -45,13 +45,6 @@
       "ins"
     ]
   },
-  "//dev.classmethod.jp/": {
-    "type": "xpath",
-    "xpath": "div[contains(concat(' ',@class,' '),' editable_contents ')]",
-    "cleanup": [
-      "script"
-    ]
-  },
   "//blog.livedoor.jp/rock1963roll/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']",
@@ -1932,13 +1925,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "news.yahoo.co.jp/feature": {
-    "type": "xpath",
-    "xpath": "section",
-    "cleanup": [
-      "div[contains(@class, 'embed')]"
-    ]
-  },
   "www.itstaffing.jp/engineer": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -3487,13 +3473,6 @@
     "xpath": "div[starts-with(@class,'article-detail-box')]",
     "next_page": "div[@class='paging-box']",
     "next_page_cleanup": "li[@class='current']"
-  },
-  "//blog.engineer-memo.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[starts-with(@class,'sharedaddy') or @id='jp-relatedposts']"
-    ]
   },
   "blog.codic.jp": {
     "type": "xpath",
@@ -9934,13 +9913,6 @@
     "type": "xpath",
     "xpath": "div[@id='column-leftRight']/div[@class='signature' or @class='paragraph']"
   },
-  "//news.yahoo.co.jp/newshack/": {
-    "type": "xpath",
-    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
-    "cleanup": [
-      "ul[@id='snsbtm']"
-    ]
-  },
   "//www.sho-yamane.me/blog/": {
     "type": "xpath",
     "xpath": "div[@id='main-blog__content']"
@@ -11439,10 +11411,6 @@
     "cleanup": [
       "div[@class='ad']"
     ]
-  },
-  "//news.yahoo.co.jp/story/": {
-    "type": "xpath",
-    "xpath": "div[@class='mainBody']"
   },
   "//news.bitflyer.jp/": {
     "type": "xpath",
@@ -13144,23 +13112,6 @@
   "//note.com/": {
     "type": "xpath",
     "xpath": "body"
-  },
-  "//blog.qiita.com/": {
-    "type": "xpath",
-    "xpath": "div[starts-with(@class, 'article_body')]"
-  },
-  "//qiita.com/advent-calendar/": {
-    "type": "xpath",
-    "xpath": "div[@id='main']/div[@class='adventCalendarSection' or contains(@class,'adventCalendarCalendar')]"
-  },
-  "//qiita.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='it-Header_info' or @class='it-Tags' or @class='it-AuthorInfo']|//section[@class='it-MdContent']|//div[@class='p-items_main']/div[contains(@class,'p-items_aside')]",
-    "append_css": "img.it-Header_authorImage,img.it-AuthorInfo_image{width:30px!important;height:30px!important;}img.commentHeader_creatorIcon{width:36px!important;height:36px!important;}"
-  },
-  "//help.qiita.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='article']"
   },
   "//jp.reuters.com/": {
     "type": "xpath",
@@ -16983,10 +16934,6 @@
       "div[contains(@class,'ad-area')]"
     ]
   },
-  "news.yahoo.co.jp/pickup": {
-    "type": "xpath",
-    "xpath": "article/section/div[@class='tpcHeader_thumb' or @class='tpcNews_body']"
-  },
   "//honz.jp/": {
     "type": "xpath",
     "xpath": "div[@id='article_body']",
@@ -17744,13 +17691,6 @@
     "xpath": "section[contains(@class,'entry-content')]",
     "cleanup": [
       "div[contains(@class,'_sharing_container') or contains(@id,'_ad_')]"
-    ]
-  },
-  "//news.yahoo.co.jp/byline/": {
-    "type": "xpath",
-    "xpath": "footer|//div[contains(@class,'articleBody')]",
-    "cleanup": [
-      "div[contains(@class,'snsButton')]"
     ]
   },
   "//www.salesforce.com/jp/blog/": {
@@ -19308,10 +19248,6 @@
     "type": "xpath",
     "xpath": "article/div[contains(@class,'entry-content')]"
   },
-  "//yusukebe.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='markdown']"
-  },
   "//xtech.nikkei.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'articleBody')]",
@@ -19626,5 +19562,77 @@
   "//blog.livedoor.jp/sugitamio/": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
+  },
+  "//blog.engineer-memo.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='main']"
+  },
+  "//blog.qiita.com/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class, 'article_body')]"
+  },
+  "//qiita.com/advent-calendar/": {
+    "type": "xpath",
+    "xpath": "div[@id='main']/div[@class='adventCalendarSection' or contains(@class,'adventCalendarCalendar')]"
+  },
+  "//qiita.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='it-Header_info' or @class='it-Tags' or @class='it-AuthorInfo']|//section[@class='it-MdContent']|//div[@class='p-items_main']/div[contains(@class,'p-items_aside')]",
+    "append_css": [
+      "img.it-Header_authorImage,img.it-AuthorInfo_image{width:30px!important;height:30px!important;}img.commentHeader_creatorIcon{width:36px!important;height:36px!important;}",
+      ".it-Header_info {align-items: center;display: flex;flex-wrap: wrap;justify-content: flex-start;width: 100%;}",
+      ".it-Header_author {align-items: center;display: flex;margin-right: 16px;}",
+      ".it-Header_time {color: #999;font-size: 0.8rem;margin-right: 16px;}",
+      ".it-Tags {display: flex;flex-wrap: wrap;}",
+      ".it-Tags_item {align-items: center;background-color: #eee;border-radius: 4px;color: #666;display: flex;margin-bottom: 4px;padding: 4px 8px;}",
+      ".it-Tags_item:not(:last-child) {margin-right: 8px;}",
+      ".it-MdContent h1, .it-MdContent h2, .it-MdContent h3, .it-MdContent h4, .it-MdContent h5, .it-MdContent h6 {cursor: pointer;font-feature-settings: 'palt';font-weight: bold;line-height: 1.5;margin-bottom: 2.4rem;margin-top: 2.2em;position: relative;}",
+      ".it-MdContent h2 {border-bottom: 1px solid #ddd;font-size: 1.6em;padding-bottom: 0.1em;}",
+      ".it-MdContent h3 {font-size: 1.4em;}"
+    ],
+    "cleanup": [
+      "div[@class='it-Header_meta']"
+    ]
+  },
+  "//help.qiita.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='article']"
+  },
+  "//dev.classmethod.jp/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'single_article_contents')]|//div[@class='main']/div[@class='content']"
+  },
+  "//news.yahoo.co.jp/pickup/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'pickupMain_image')]/picture|//p[contains(@class,'pickupMain_articleSummary')]|//section[@class='pickupPoint']"
+  },
+  "//news.yahoo.co.jp/feature/": {
+    "type": "xpath",
+    "xpath": "section",
+    "cleanup": [
+      "div[contains(@class, 'embed')]"
+    ]
+  },
+  "//news.yahoo.co.jp/byline/": {
+    "type": "xpath",
+    "xpath": "footer|//div[contains(@class,'articleBody')]",
+    "cleanup": [
+      "div[contains(@class,'snsButton')]"
+    ]
+  },
+  "//news.yahoo.co.jp/story/": {
+    "type": "xpath",
+    "xpath": "div[@class='mainBody']"
+  },
+  "//news.yahoo.co.jp/newshack/": {
+    "type": "xpath",
+    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
+    "cleanup": [
+      "ul[@id='snsbtm']"
+    ]
+  },
+  "//yusukebe.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'post-body')]"
   }
 }
