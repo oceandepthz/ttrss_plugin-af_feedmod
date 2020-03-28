@@ -19019,26 +19019,6 @@
     ],
     "next_page": "div[@class='pagination']"
   },
-  "//www.asahi.com/special/news/": {
-    "type": "xpath",
-    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
-  },
-  "//www.asahi.com/corporate/info/": {
-    "type": "xpath",
-    "xpath": "main"
-  },
-  "//www.asahi.com/and_M/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
-  },
-  "//www.asahi.com/and_w/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "type": "xpath",
-    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]"
-  },
   "//newswitch.jp/": {
     "type": "xpath",
     "xpath": "article/*[@class='eyecatch' or @class='figcaption' or @class='post-body']"
@@ -19638,5 +19618,28 @@
   "//gadget-shot.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-main-content' or @class='entry-header-img']"
+  },
+  "//www.asahi.com/special/news/": {
+    "type": "xpath",
+    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
+  },
+  "//www.asahi.com/corporate/info/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//www.asahi.com/and_M/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
+  },
+  "//www.asahi.com/and_w/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]",
+    "append_css": [
+      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
+    ]
   }
 }
