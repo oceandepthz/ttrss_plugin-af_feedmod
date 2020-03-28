@@ -1043,7 +1043,7 @@ class Af_Feedmod extends Plugin implements IHandler
         if(!$basenode){
             return;
         }
-        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/','//twitter.com/'];
+        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/','//twitter.com/','//blog.domesoccer.jp/','//automaton-media.com/'];
         foreach ($exclusion_list as $exclusion){
             if(strpos($link, $exclusion) !== false){
                 return;
