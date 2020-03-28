@@ -12775,10 +12775,6 @@
     "type": "xpath",
     "xpath": "div[contains(@class,'article-body') and contains(@class,'entry-content')]"
   },
-  "//www.footballista.jp/": {
-    "type": "xpath",
-    "xpath": "article"
-  },
   "//yoicomic.blog.fc2.com/": {
     "type": "xpath",
     "xpath": "div[@class='contents_body']/p"
@@ -19634,5 +19630,9 @@
   "//yusukebe.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'post-body')]"
+  },
+  "//www.footballista.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_detail__content' or @class='post_detail__header__img']"
   }
 }
