@@ -235,6 +235,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_tag($doc, $xpath, $entry, $link);
                 $this->update_tag_lazy_image($doc, $xpath, $entry, $link);
 
+                $this->change_attribute_value($doc, $xpath, $entry, "id", "container", "container_chg");
+                $this->change_attribute_value($doc, $xpath, $entry, "id", "main", "main_chg");
+
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
 
@@ -583,6 +586,9 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         if($user_agent == "ie11"){
             $options["useragent"] = 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko';
+        }
+        if($user_agent == "ie9"){
+            $options["useragent"] = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)';
         }
 
         $r = fetch_file_contents($options);
@@ -1043,7 +1049,8 @@ class Af_Feedmod extends Plugin implements IHandler
         if(!$basenode){
             return;
         }
-        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/','//twitter.com/','//blog.domesoccer.jp/','//automaton-media.com/'];
+
+        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/','//twitter.com/'];
         foreach ($exclusion_list as $exclusion){
             if(strpos($link, $exclusion) !== false){
                 return;
@@ -1069,12 +1076,7 @@ class Af_Feedmod extends Plugin implements IHandler
                     continue;
                 }
                 foreach(array_reverse($urls) as $url){
-                    if(strpos($url, 'https://twitter.com/i/videos/') === 0){
-                        //$this->append_iframe_tag($doc, $node, 'https://pp.kozono.org?q='.urlencode($url));
-                        $this->append_iframe_tag($doc, $node, $url);
-                    } else {
-                        $this->append_img_tag($doc, $node, $url);
-                    }
+                    $this->append_img_tag($doc, $node, $url);
                 }
             } 
         }
@@ -1109,14 +1111,14 @@ class Af_Feedmod extends Plugin implements IHandler
 
     function get_pic_links(string $url) : array {
         if(strpos($url, '//t.co/') !== false){
-            $html = $this->get_html($url, []);
+            $html = $this->get_html($url, ["user_agent"=>"ie9"]);
             $ret = preg_match('/.*<title>(.*)<\/title>.*/', $html, $matches);
             if(count($matches) == 2){
                 $url = $matches[1];
             }
         }
 
-        $html = $this->get_html($url, []);
+        $html = $this->get_html($url, ["user_agent"=>"ie9"]);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         if(!$doc){
@@ -1126,19 +1128,16 @@ class Af_Feedmod extends Plugin implements IHandler
 
         $urls = [];
 
-        // video
-        $entries = $xpath->query("(//meta[@property='og:video:url'])");
-        if($entries !== false && $entries->length > 0) {
-            $urls[] = str_replace("?embed_source=facebook", "", $xpath->evaluate('string(@content)', $entries->item(0)));
-        }
-
         // image
-        $entries = $xpath->query("(//meta[@property='og:image'])");
+        $entries = $xpath->query("(//table[@class='main-tweet']//div[@class='card-photo']//div[@class='media']//img)");
         if($entries === false || $entries->length == 0) {
-            return $urls;
+            return [];
         }
         foreach ($entries as $entry) {
-            $urls[] = str_replace(":large","",$xpath->evaluate('string(@content)', $entry));
+            $img_url = $xpath->evaluate('string(@src)', $entry);
+            $img_url = str_replace(":large", "", $img_url);
+            $img_url = str_replace(":small", "", $img_url);
+            $urls[] = $img_url;
         }
         return array_unique($urls);
     }
@@ -1415,6 +1414,18 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         return $url;
     }
+
+    function change_attribute_value(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $attr_name, string $attr_value, string $chg_attr_value) : void {
+        $query_string = "//*[@${attr_name}='${attr_value}']";
+        $entries = $xpath->query($query_string);
+        if($entries->length === 0){
+            return;
+        }
+        foreach($entries as $entry){
+           $entry->setAttribute($attr_name, $chg_attr_value); 
+        }
+    }
+
     function update_tag(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link): void {
         $entries = $xpath->query("//div[contains(@class,'js-delayed-image-load')]");
         if($entries->length === 0){
