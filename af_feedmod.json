@@ -1988,10 +1988,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "wirelesswire.jp": {
-    "type": "xpath",
-    "xpath": "div[@class='wysiwyg']"
-  },
   "klabgames.tech.blog.jp.klab.com": {
     "type": "xpath",
     "xpath": "div[@class='article-body-inner']"
@@ -7338,10 +7334,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
   },
-  "//www.highriskrevolution.com/gamelife/": {
-    "type": "xpath",
-    "xpath": "div[@class='entryBodyset']/div[@class='entry_body']"
-  },
   "//www.haha-syuhutoshite.com/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
@@ -7531,10 +7523,6 @@
   "//www.dagasorega-e.net/": {
     "type": "xpath",
     "xpath": "div[@class='entry-content']"
-  },
-  "//www.businessinsider.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='p-post-content']"
   },
   "//shopping-tribe.com/": {
     "type": "xpath",
@@ -12753,10 +12741,6 @@
     "type": "xpath",
     "xpath": "article/section[contains(@class,'post-body')]"
   },
-  "//www.gundam.info/": {
-    "type": "xpath",
-    "xpath": "div[@class='g-pageMain']//div[contains(@class,'gijpC-detailArticle')]"
-  },
   "//media.sakuras.tokyo/": {
     "type": "xpath",
     "xpath": "div[@class='blog-article__content']"
@@ -17228,10 +17212,6 @@
       "*[@class='btns-page-cntrl' or @class='sns-btns']"
     ]
   },
-  "//www.highriskrevolution.com/": {
-    "type": "xpath",
-    "xpath": "article[@id='post_body']"
-  },
   "//tidbits.jp/": {
     "type": "xpath",
     "xpath": "div[@class='article-body']",
@@ -19604,5 +19584,21 @@
   "//bijutsutecho.com/": {
     "type": "xpath",
     "xpath": "article[@class='l_main-sidebar__main']"
+  },
+  "//www.gundam.info/": {
+    "type": "xpath",
+    "xpath": "div[@class='c-articleDtail']"
+  },
+  "//www.highriskrevolution.com/": {
+    "type": "xpath",
+    "xpath": "article[@id='post_body']"
+  },
+  "//www.businessinsider.jp/": {
+    "type": "xpath",
+    "xpath": "article/div[contains(@class,'p-post-content')]"
+  },
+  "//wirelesswire.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='wysiwyg' or @class='keyVisual']"
   }
 }
