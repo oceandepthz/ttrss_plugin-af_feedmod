@@ -456,10 +456,6 @@
     "type": "xpath",
     "xpath": "div[@class='entry-body-text']"
   },
-  "www.scutum.jp/information/waf_tech_blog": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entryTitle')]"
-  },
   "aws.typepad.com": {
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
@@ -12930,10 +12926,6 @@
     "type": "xpath",
     "xpath": "div[@class='post-outer']"
   },
-  "//www.fnn.jp/": {
-    "type": "xpath",
-    "xpath": "article/header/div[@class='PostHeader__imageBlock']|//article/header/section[@class='PostHeader__summary']|//article/div[@class='PostBody']"
-  },
   "//tsudoi.org/": {
     "type": "xpath",
     "xpath": "main/div/div[contains(@class,'content')]"
@@ -15150,10 +15142,6 @@
     "cleanup": [
       "div[contains(@class,'td-a-rec-id-content_bottom') or contains(@class,'td-pb-border-top')]"
     ]
-  },
-  "//masatohagiwara.net/": {
-    "type": "xpath",
-    "xpath": "section[contains(@class,'d-column')]"
   },
   "//fullswing.dena.com/": {
     "type": "xpath",
@@ -19600,5 +19588,17 @@
   "//wirelesswire.jp/": {
     "type": "xpath",
     "xpath": "div[@class='wysiwyg' or @class='keyVisual']"
+  },
+  "//www.fnn.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='article-body' or @class='article-header-imgwrap' or @class='article-header-videowrap']|//ul[@class='article-header__summary']"
+  },
+  "//masatohagiwara.net/": {
+    "type": "xpath",
+    "xpath": "section[contains(@class,'d-column')]|//article[@class='single']"
+  },
+  "//www.scutum.jp/information/waf_tech_blog/": {
+    "type": "xpath",
+    "xpath": "article[contains(@class,'entryTitle')]"
   }
 }
