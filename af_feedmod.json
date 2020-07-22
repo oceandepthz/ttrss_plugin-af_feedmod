@@ -10368,10 +10368,6 @@
       "div[@class='social-link']"
     ]
   },
-  "//topics.nintendo.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='topics-articleHead']/p[@class='topics-articleHead__img']|//div[@class='detail-body-container' or @class='detail-footer-container' or @class='detail-main-img-container']"
-  },
   "//www.lifelogweb.com/": {
     "type": "xpath",
     "xpath": "header/figure[@class='eyecatch']|//div[@class='theContentWrap-ccc']"
@@ -18766,10 +18762,6 @@
     "type": "xpath",
     "xpath": "div[@class='single-body' or @class='single-header-thumb']"
   },
-  "//www.bbc.com/": {
-    "type": "xpath",
-    "xpath": "div[@id='media-asset-page-text' or @id='comp-media-player' or @property='articleBody']"
-  },
   "//www.bengo4.com/": {
     "type": "xpath",
     "xpath": "div[@id='entryDetailVisual' or @id='entryDetailBodyText']"
@@ -19502,10 +19494,6 @@
       "div[contains(@class,'cmp-misc') or @id='_popIn_recommend_new' or contains(@class,'cmp-m-catelst') or @class='l-container-narrow']"
     ]
   },
-  "//www.kobe-np.co.jp/": {
-    "type": "xpath",
-    "xpath": "div[@class='news-contents']"
-  },
   "//www.mhlw.go.jp/stf/": {
     "type": "xpath",
     "xpath": "div[@class='l-contentMain']"
@@ -19600,5 +19588,17 @@
   "//www.scutum.jp/information/waf_tech_blog/": {
     "type": "xpath",
     "xpath": "article[contains(@class,'entryTitle')]"
+  },
+  "//www.bbc.com/japanese/": {
+    "type": "xpath",
+    "xpath": "main"
+  },
+  "//topics.nintendo.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='topics-articleHead']/p[contains(@class,'topics-articleHead__img')]|//div[@id='okra-elements' or contains(concat(' ',@class,' '), ' topics-authorArea ') or contains(concat(' ',@class,' '), ' topics-relatedLinks ')]"
+  },
+  "//www.kobe-np.co.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='news-contents' or @class='textDetail']"
   }
 }
