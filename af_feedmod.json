@@ -11523,38 +11523,6 @@
       "div[@id='comments']"
     ]
   },
-  "//aws.amazon.com/releasenotes/": {
-    "type": "xpath",
-    "xpath": "div[@id='yui-main']"
-  },
-  "//aws.amazon.com/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
-  },
-  "//aws.amazon.com/jp/blogs/": {
-    "type": "xpath",
-    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
-  },
-  "//aws.amazon.com/jp/solutions/": {
-    "type": "xpath",
-    "xpath": "section/div[contains(@class,'content')]"
-  },
-  "//aws.amazon.com/about-aws/whats-new/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
-  "//aws.amazon.com/jp/about-aws/whats-new/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
-  "//aws.amazon.com/message/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
-  "//aws.amazon.com/jp/message/": {
-    "type": "xpath",
-    "xpath": "main[@role='main']"
-  },
   "//blog.goo.ne.jp/narmuqym/": {
     "type": "xpath",
     "xpath": "div[@class='entry-body']"
@@ -19610,5 +19578,72 @@
   "//www.chunichi.co.jp/": {
     "type": "xpath",
     "xpath": "div[@class='thumb' or @class='block']"
+  },
+  "//www.docker.com/blog/": {
+    "type": "xpath",
+    "xpath": "article/main"
+  },
+  "//mizchi.dev/": {
+    "type": "xpath",
+    "xpath": "div[@class='markdown-body']"
+  },
+  "//georgebest1969.typepad.jp/blog/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-body']"
+  },
+  "//blog.uhy.ooo/": {
+    "type": "xpath",
+    "xpath": "article/main"
+  },
+  "//blog.ojisan.io/": {
+    "type": "xpath",
+    "xpath": "div[starts-with(@class,'blogTemplate-module--contentWrapper--')]/div[starts-with(@class,'blogTemplate-module--content--') or contains(@class,'gatsby-image-wrapper')]"
+  },
+  "//blog.newrelic.co.jp/engineering/": {
+    "type": "xpath",
+    "xpath": "div[@class='post-body']",
+    "cleanup": [
+      "div[contains(@class,'swp_social_panel')]"
+    ]
+  },
+  "//aws.amazon.com/jp/builders-flash/": {
+    "type": "xpath",
+    "xpath": "div[@id='aws-page-content']/main"
+  },
+  "//aws.amazon.com/releasenotes/": {
+    "type": "xpath",
+    "xpath": "div[@id='yui-main']"
+  },
+  "//aws.amazon.com/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
+  },
+  "//aws.amazon.com/jp/blogs/": {
+    "type": "xpath",
+    "xpath": "section[@property='articleBody' or @itemprop='articleBody']"
+  },
+  "//aws.amazon.com/jp/solutions/": {
+    "type": "xpath",
+    "xpath": "section/div[contains(@class,'content')]"
+  },
+  "//aws.amazon.com/about-aws/whats-new/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/jp/about-aws/whats-new/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//aws.amazon.com/jp/message/": {
+    "type": "xpath",
+    "xpath": "main[@role='main']"
+  },
+  "//and-engineer.com/": {
+    "type": "xpath",
+    "xpath": "div[@id='__next']"
   }
 }
