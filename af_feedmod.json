@@ -18590,10 +18590,6 @@
     "type": "xpath",
     "xpath": "div[@id='single_content']"
   },
-  "//www.ryuzee.com/": {
-    "type": "xpath",
-    "xpath": "div[contains(@class,'entry-content-wrapper')]/div[@class='entry-content']"
-  },
   "//style.nikkei.com/": {
     "type": "xpath",
     "xpath": "div[contains(@class,'pc-article-body')]/../div/div/img|//div[contains(@class,'pc-article-body')]",
@@ -19645,5 +19641,54 @@
   "//and-engineer.com/": {
     "type": "xpath",
     "xpath": "div[@id='__next']"
+  },
+  "//www.kk-bestsellers.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='post_write']",
+    "head_xpath": "div[@class='post_author_data']",
+    "next_page": "ul[@class='list_pagination']"
+  },
+  "//www.mext.go.jp/": {
+    "type": "xpath",
+    "xpath": "div[@id='contents' or @id='footerGuidance']",
+    "cleanup": [
+      "li[@class='pageTop' or @class='pageHome']"
+    ]
+  },
+  "//www.tohoho-web.com/": {
+    "type": "xpath",
+    "xpath": "body"
+  },
+  "//www.to-r.net/media/": {
+    "type": "xpath",
+    "xpath": "main/article"
+  },
+  "//www.webtanguide.jp/": {
+    "type": "xpath",
+    "xpath": "div[@class='st-author-box']//div[@class='active']|//article/div/div[@class='st-eyecatch' or @class='mainbox']"
+  },
+  "//www.ryuzee.com/": {
+    "type": "xpath",
+    "xpath": "div[contains(@class,'single-post')]/div/div[contains(@class,'entry-content')]"
+  },
+  "//engineering.mercari.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='container']/img[@class='post__thumbnail']|//div[@class='body']"
+  },
+  "//web-debug.com/": {
+    "type": "xpath",
+    "xpath": "div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//note.pocketwifi.me/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content' or contains(@class,'page-header-image-single')]"
+  },
+  "//itips.krsw.biz/": {
+    "type": "xpath",
+    "xpath": "div[@class='entry-content']"
+  },
+  "//gmor-sys.com/": {
+    "type": "xpath",
+    "xpath": "section[@class='content']"
   }
 }
