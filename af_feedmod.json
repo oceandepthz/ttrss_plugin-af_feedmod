@@ -6962,9 +6962,6 @@
       "div[@class='fc2_footer']"
     ]
   },
-  "//hnakamur.github.io/blog/": {
-    "xpath": "section[@id='content']"
-  },
   "//full-kaiten.com/note/": {
     "xpath": "div[@class='article-body']"
   },
@@ -11947,9 +11944,6 @@
   "//news.kyash.co/": {
     "xpath": "div[@class='entry-content']"
   },
-  "//sbfl.net/blog/": {
-    "xpath": "div[@id='entry-content']"
-  },
   "//www.fashionsnap.com/the-posts/": {
     "xpath": "section[@class='body']",
     "cleanup": [
@@ -16017,5 +16011,29 @@
   },
   "//www.fxsitecompat.dev/": {
     "xpath": "article"
+  },
+  "//hnakamur.github.io/blog/": {
+    "xpath": "div[@class='post']"
+  },
+  "//sbfl.net/blog/": {
+    "xpath": "section[@class='article-content']"
+  },
+  "//seo.krsw.biz/": {
+    "xpath": "div[@id='nocopy']"
+  },
+  "//shuuuhei.com/": {
+    "xpath": "article/header/p[@class='post-thumbnail']|//article/section[contains(@class,'entry-content')]"
+  },
+  "//smallstep.com/blog/": {
+    "xpath": "article/div/section[contains(@class,'single')]"
+  },
+  "//tech-blog.cloud-config.jp/": {
+    "xpath": "figure[contains(@class,'post_thum')]|//article[@id='post_body']"
+  },
+  "//unit42.paloaltonetworks.jp/": {
+    "xpath": "div[contains(@class,'article__content')]",
+    "cleanup": [
+      "div[contains(@class,'article__subscribe')]"
+    ]
   }
 }
