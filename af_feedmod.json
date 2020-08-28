@@ -13552,10 +13552,6 @@
   "//mag.switch-science.com/": {
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//sportiva.shueisha.co.jp/": {
-    "xpath": "div[contains(@class,'block-detail-c-a__body')]",
-    "next_page": "div[contains(@class,'block-navi-b-d__container')]"
-  },
   "//tech-camp.in/note/": {
     "xpath": "div[@class='ArticleBodyContainer' or @class='InterviewArticleHeader']"
   },
@@ -16034,6 +16030,49 @@
     "xpath": "div[contains(@class,'article__content')]",
     "cleanup": [
       "div[contains(@class,'article__subscribe')]"
+    ]
+  },
+  "//sportiva.shueisha.co.jp/": {
+    "xpath": "div[contains(@class,'block-detail-c-a__body') or contains(@class,'block-detail-c-b__body')]",
+    "head_xpath": "ul[contains(@class,'block-detail-b-a__credit')]",
+    "next_page": "div[contains(@class,'block-navi-b-d__container')]"
+  },
+  "//nextjs.org/blog/": {
+    "xpath": "div[@id='__next']"
+  },
+  "//note.stopcovid19.jp/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//preferred.jp/ja/news/": {
+    "xpath": "div[@class='detail-area']/div[@class='text-area']"
+  },
+  "//tech.preferred.jp/en/blog/": {
+    "xpath": "div[@class='content-area']"
+  },
+  "//protoout.studio/": {
+    "xpath": "div[@class='post-content' or @class='hero']"
+  },
+  "//ryohin-keikaku.jp/news/": {
+    "xpath": "div[@id='main']"
+  },
+  "//maidonanews.jp/": {
+    "xpath": "div[contains(@class,'module-article-body__more')]"
+  },
+  "//mirror.asahi.com/": {
+    "xpath": "div[@class='article-body' or @class='article-summary' or @class='article-main-image' or @class='article-author']"
+  },
+  "//netflixtechblog.com/": {
+    "xpath": "article/div/section"
+  },
+  "//www.afi-b.com/": {
+    "xpath": "article/header/p[@class='post-thumbnail']|//article/section[contains(@class,'entry-content')]"
+  },
+  "//www.jmedj.co.jp/journal/paper/": {
+    "xpath": "div[@class='layoutMain']/section[@class='section']",
+    "cleanup": [
+      "div[@class='sns']",
+      "ul[@class='btnList']"
     ]
   }
 }
