@@ -16093,5 +16093,31 @@
     "cleanup": [
       "div[@class='nextpage']"
     ]
+  },
+  "//bungeishunju.com/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//card-media.money.rakuten.co.jp/": {
+    "xpath": "div[@id='column-main']",
+    "cleanup": [
+      "div[@id='riBreadcrumbs' or @id='snstool' or @id='page_switcher' or @id='article_common']",
+      "ul[contains(@class,'sns')]"
+    ]
+  },
+  "//ch.togetter.com/": {
+    "xpath": "header/div/div[contains(@class,'description_box') or contains(@id,'tag_box_')]|//article/div[@class='kiji_body']|//footer/div[@class='kiji_writer_box']"
+  },
+  "//cyberagent.ai/blog/": {
+    "xpath": "div[@class='p-blogContent__body' or @class='postSingleAuthor']"
+  },
+  "//marketingnative.jp/": {
+    "xpath": "div[@class='postMainImg']/div[@class='pcImg']|//div[@id='article-detail']"
+  },
+  "//asagei.biz/": {
+    "xpath": "figure[@class='eye-catch']|//div[@id='the-content']"
+  },
+  "//blog.tensorflow.org/": {
+    "xpath": "div[@class='tensorsite-detail__body']"
   }
 }
