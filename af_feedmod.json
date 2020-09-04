@@ -15069,9 +15069,6 @@
   "//tech.basicinc.jp/": {
     "xpath": "div[@class='article-body']"
   },
-  "//blog.soracom.jp/": {
-    "xpath": "div[@class='content']/div[@class='post']"
-  },
   "//tech.pepabo.com/": {
     "xpath": "div[@class='article__body' or @class='article__eye-catch' or @class='article__author']"
   },
@@ -16073,6 +16070,28 @@
     "cleanup": [
       "div[@class='sns']",
       "ul[@class='btnList']"
+    ]
+  },
+  "//blog.soracom.com/": {
+    "xpath": "div[@class='c-entry__body']"
+  },
+  "//blog.soracom.jp/": {
+    "xpath": "div[@class='content']/div[@class='post']"
+  },
+  "//engineering.shopify.com/blogs/engineering/": {
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//formula1-data.com/": {
+    "xpath": "header/div/img|//header/ul[@class='entryHeader__meta']|//main/div[contains(@class,'entry')]"
+  },
+  "//labs.cybozu.co.jp/blog/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//magmix.jp/": {
+    "xpath": "article/section[@class='detail']/*[@class='post-excerpt' or @id='detail-text']",
+    "next_page": "div[@class='single-pagenation']",
+    "cleanup": [
+      "div[@class='nextpage']"
     ]
   }
 }
