@@ -117,7 +117,7 @@ class Togetter {
     function get_second_page_main(DOMDocument $doc, DOMXPath $xpath) : string {
         $html = '';
 
-        $entries = $xpath->query("(//div[@class='contents_main']/div[@class='tweet_box']/div[contains(@class,'list_box') or @class='type_markdown'])");
+        $entries = $xpath->query("(//article/div[@class='tweet_box'])");
         foreach($entries as $entry){
             $html .= $doc->saveHTML($entry);
         }
