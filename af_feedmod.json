@@ -11713,31 +11713,6 @@
   "//dekiru.net/": {
     "xpath": "div[@class='module-individual-article-summary' or contains(@class,'article-body')]"
   },
-  "//news.mynavi.jp/itsearch/": {
-    "xpath": "div[@class='articleContent']",
-    "next_page": "div[contains(@class,'search_navi_ult')]"
-  },
-  "//news.mynavi.jp/article/svalley-": {
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@id,'div-gpt-ad-')]"
-    ]
-  },
-  "//news.mynavi.jp/series/onnanofushime/": {
-    "xpath": "div[@class='articleContent']",
-    "cleanup": [
-      "div[contains(@class, 'btn-nextpage')]"
-    ]
-  },
-  "//news.mynavi.jp/column/svalley/": {
-    "xpath": "div[@class='articleContent']",
-    "append_css": "div.center table {width:initial!important;}"
-  },
-  "//news.mynavi.jp/": {
-    "xpath": "article",
-    "next_page": "div[@class='paginate']",
-    "append_css": "div.center table {width:initial!important;}"
-  },
   "//words.steveklabnik.com/": {
     "xpath": "article"
   },
@@ -13639,7 +13614,8 @@
       ".list_box .title {display: block;margin: 5px 0;padding: 0;color: #4a4a4a;font-weight: 600;}",
       ".type_url .inner .desc {display: block;margin-bottom: 10px;color: #a0a0a0;font-size: 12px;}",
       ".tag_edit_btn{display:none!important;}",
-      ".svg-icon{display:none!important;}"
+      ".svg-icon{display:none!important;}",
+      ".lite_share, .dropdown_wrap{display:none!important;}"
     ]
   },
   "//jam25.jp/": {
@@ -16119,5 +16095,37 @@
   },
   "//blog.tensorflow.org/": {
     "xpath": "div[@class='tensorsite-detail__body']"
+  },
+  "//news.mynavi.jp/itsearch/": {
+    "xpath": "div[@class='articleContent']",
+    "next_page": "div[contains(@class,'search_navi_ult')]"
+  },
+  "//news.mynavi.jp/article/svalley-": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//news.mynavi.jp/series/onnanofushime/": {
+    "xpath": "div[@class='articleContent']",
+    "cleanup": [
+      "div[contains(@class, 'btn-nextpage')]"
+    ]
+  },
+  "//news.mynavi.jp/column/svalley/": {
+    "xpath": "div[@class='articleContent']",
+    "append_css": "div.center table {width:initial!important;}"
+  },
+  "//news.mynavi.jp/": {
+    "xpath": "div[@class='articleHeader_img' or @class='articleHeader_info']|//article",
+    "next_page": "div[@class='paginate']",
+    "append_css": [
+      "div.center table {width:initial!important;}",
+      ".article, .articleHeader_img, .articleHeader_info {width: calc(100% - 20px);max-width:720px;}",
+      ".photo_table__caption {font-size: 12px;}",
+      ".photo_table li {list-style-type: none;}",
+      ".articleHeader_update::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-clock-df0a9cc21b443debc8978e60788cac262aba3505626ce52a8751476f48f819c2.svg');height: 13px;margin-right: 6px;width: 13px;}",
+      ".articleHeader_last::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-update-3111b75726a04d16953e0b0a7c14d2488250981f5d224e5eb4ae8159cb29fd54.svg');background-size: 11px 11px;height: 11px;width: 11px;}"
+    ]
   }
 }
