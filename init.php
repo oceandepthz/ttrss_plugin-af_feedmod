@@ -64,9 +64,9 @@ class Af_Feedmod extends Plugin implements IHandler
         return $json_conf;
     }
 
-    function write_url(string $url) : void {
+    function write_url(string $url, string $urlpart) : void {
         $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
-        file_put_contents(dirname(__FILE__).'/logs/site.txt', "[${dt}] ${url}\n", FILE_APPEND|LOCK_EX);
+        file_put_contents(dirname(__FILE__).'/logs/site.txt', "[${dt}] ${url} ${urlpart}\n", FILE_APPEND|LOCK_EX);
     }
 
     function hook_article_filter($article)
@@ -142,7 +142,7 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             $is_execute = true;
             $article['content'] = $entrysXML;
-            $this->write_url($article['link']);
+            $this->write_url($article['link'], $urlpart);
 
             $head_content = '';
             if(isset($config['head_xpath']) && $config['head_xpath']){
@@ -455,6 +455,10 @@ class Af_Feedmod extends Plugin implements IHandler
         $item = rtrim($item ,";");
         $item = json_decode($item, true);
 
+        if(!is_array($item)){
+            return "";
+        }
+
         $article_list = [];
         foreach($item as $k => $v){
             if(strpos($k, 'article_list_') === 0){
@@ -591,7 +595,8 @@ class Af_Feedmod extends Plugin implements IHandler
             $options["useragent"] = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)';
         }
 
-        $r = fetch_file_contents($options);
+//        $r = fetch_file_contents($options);
+        $r = UrlHelper::fetch($options);
 /*
             require_once('classes/FmUtils.php');
             $u = new FmUtils();
@@ -601,6 +606,7 @@ class Af_Feedmod extends Plugin implements IHandler
     }
     function get_html(string $url, array $config) : string {
         $html = $this->get_contents($url, $config);
+/*
         if(!$html || $html == ''){
             sleep(30);
             $html = $this->get_contents($url, $config);
@@ -609,6 +615,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $html = $this->get_contents($url, $config);
             }
         }
+*/
         if(!$html){
             return $html;
         }
@@ -1030,8 +1037,8 @@ class Af_Feedmod extends Plugin implements IHandler
 
             $header = get_headers($href, true);
             $url = '';
-            if(isset($header['Location'])){
-                $url = $header['Location'];
+            if(isset($header['location'])){
+                $url = $header['location'];
                 if(is_array($url)){
                     $url = end($url);
                 }
@@ -1045,19 +1052,19 @@ class Af_Feedmod extends Plugin implements IHandler
         }
     }
 
-    function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
+    function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $url) : void {
         if(!$basenode){
             return;
         }
 
-        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/','//twitter.com/'];
+        $exclusion_list = ['//togetter.com/','//kabumatome.doorblog.jp/'];
         foreach ($exclusion_list as $exclusion){
-            if(strpos($link, $exclusion) !== false){
+            if(strpos($url, $exclusion) !== false){
                 return;
             }
         }
 
-        $items = ["//a[contains(text(),'pic.twitter.com/') or contains(@href,'pic.twitter.com/')]", "//a[contains(@href,'//twitter.com/') and (contains(@href,'/photo/') or contains(@href,'/video/'))]"];
+        $items = ["//a[contains(text(),'pic.twitter.com/') or contains(@href,'pic.twitter.com/')]", "//a[contains(@href,'//twitter.com/') and ((contains(@href,'/photo/') or contains(@href,'/video/')))]"];
         foreach ($items as $item){
             $node_list = $xpath->query($item, $basenode);
             if(!$node_list || $node_list->length === 0){
@@ -1068,10 +1075,20 @@ class Af_Feedmod extends Plugin implements IHandler
                     continue;
                 }
                 $link = $xpath->evaluate('string(@href)', $node);
-                if(!$link){
-                    continue;
+                $urls = [];
+                if($link){
+                    $urls = $this->get_pic_links($link);
                 }
-                $urls = $this->get_pic_links($link);
+                if(!$urls){
+                    $link = $xpath->evaluate('string()', $node);
+                    $pos = strpos($link, 'pic.twitter.com/');
+                    if($pos !== false && $pos  === 0){
+                        $link = 'https://' . $link;
+                    }
+                    if($link){
+                        $urls = $this->get_pic_links($link);
+                    }
+                }
                 if(!$urls){
                     continue;
                 }
@@ -1109,6 +1126,18 @@ class Af_Feedmod extends Plugin implements IHandler
         $node->parentNode->insertBefore($video, $node->nextSibling);
     }
 
+
+    function get_mobile_twitter_content(string $url) : string {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0)");
+        curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $ret = @curl_exec($ch);
+        curl_close($ch);
+        return $ret;
+    }
+
     function get_pic_links(string $url) : array {
         if(strpos($url, '//t.co/') !== false){
             $html = $this->get_html($url, ["user_agent"=>"ie9"]);
@@ -1118,7 +1147,13 @@ class Af_Feedmod extends Plugin implements IHandler
             }
         }
 
-        $html = $this->get_html($url, ["user_agent"=>"ie9"]);
+        $url = str_replace('//twitter.com/', '//mobile.twitter.com/', $url);
+
+        $html = $this->get_mobile_twitter_content($url);
+        if(!$html){
+            return [];
+        }
+        //$html = $this->get_html($url, ["user_agent"=>"ie9"]);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
         if(!$doc){
@@ -1408,6 +1443,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 $url = '';
                 continue;
             }
+            $url = str_replace(":large", "", $url);
+            $url = str_replace(":medium", "", $url);
+            $url = str_replace(":small", "", $url);
             if($url){
                 break;
             }
