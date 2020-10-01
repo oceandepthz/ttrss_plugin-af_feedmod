@@ -15680,35 +15680,6 @@
   "//www.kobe-np.co.jp/": {
     "xpath": "div[@class='news-contents' or @class='textDetail']"
   },
-  "//news.yahoo.co.jp/pickup/": {
-    "xpath": "div[contains(@class,'pickupMain_image')]/picture|//p[contains(@class,'pickupMain_articleSummary')]|//section[@class='pickupPoint']"
-  },
-  "//news.yahoo.co.jp/feature/": {
-    "xpath": "section",
-    "cleanup": [
-      "div[contains(@class, 'embed')]"
-    ]
-  },
-  "//news.yahoo.co.jp/byline/": {
-    "xpath": "footer|//div[contains(@class,'articleBody')]",
-    "cleanup": [
-      "div[contains(@class,'snsButton')]"
-    ]
-  },
-  "//news.yahoo.co.jp/story/": {
-    "xpath": "div[@class='mainBody']"
-  },
-  "//news.yahoo.co.jp/newshack/": {
-    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
-    "cleanup": [
-      "ul[@id='snsbtm']"
-    ]
-  },
-  "//news.yahoo.co.jp/": {
-    "xpath": "div[@class='article_body']",
-    "next_page": "div[@class='pagination_body']",
-    "head_xpath": "article/header"
-  },
   "srad.jp/story/": {
     "xpath": "article/div[@class='body']|//ul[@id='commentlisting']",
     "cleanup": [
@@ -16127,5 +16098,49 @@
       ".articleHeader_update::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-clock-df0a9cc21b443debc8978e60788cac262aba3505626ce52a8751476f48f819c2.svg');height: 13px;margin-right: 6px;width: 13px;}",
       ".articleHeader_last::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-update-3111b75726a04d16953e0b0a7c14d2488250981f5d224e5eb4ae8159cb29fd54.svg');background-size: 11px 11px;height: 11px;width: 11px;}"
     ]
+  },
+  "//news.yahoo.co.jp/pickup/": {
+    "xpath": "div[contains(@class,'pickupMain_image')]/picture|//p[contains(@class,'pickupMain_articleSummary')]|//section[@class='pickupPoint']"
+  },
+  "//news.yahoo.co.jp/feature/": {
+    "xpath": "section",
+    "cleanup": [
+      "div[contains(@class, 'embed')]"
+    ]
+  },
+  "//news.yahoo.co.jp/byline/": {
+    "xpath": "footer|//div[contains(@class,'articleBody')]",
+    "cleanup": [
+      "div[contains(@class,'snsButton')]"
+    ]
+  },
+  "//news.yahoo.co.jp/story/": {
+    "xpath": "div[@class='mainBody']"
+  },
+  "//news.yahoo.co.jp/newshack/": {
+    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
+    "cleanup": [
+      "ul[@id='snsbtm']"
+    ]
+  },
+  "//news.yahoo.co.jp/": {
+    "xpath": "div[@class='article_body']",
+    "next_page": "div[@class='pagination_body']",
+    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
+    "foot_xpath": "article/footer"
+  },
+  "*//zenn.dev/*/articles/*": {
+    "match_type": "fnmatch",
+    "xpath": "aside[@class='article-author']|//div[@id='toc-container']",
+    "cleanup": [
+      "div[contains(@class,'bio-links')]"
+    ]
+  },
+  "*//zenn.dev/*/books/*": {
+    "match_type": "fnmatch",
+    "xpath": "header[contains(@class,'bh__header')]|//div[@id='chapters']"
+  },
+  "//zoom.us/webinar/register/": {
+    "xpath": "div[@id='webinar_register_container']/img[@class='img-responsive']|//form[@id='webinar_register_form']/div[@class='row']"
   }
 }
