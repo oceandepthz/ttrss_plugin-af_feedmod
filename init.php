@@ -155,8 +155,11 @@ class Af_Feedmod extends Plugin implements IHandler
 
             foreach($links as $url){
                 $html = $this->get_html($url, $config);
-                @$doc->loadHTML($html);
+                if(!$html){
+                    break;
+                }
 
+                @$doc->loadHTML($html);
                 if(!$doc){
                     break;
                 }
@@ -623,6 +626,15 @@ class Af_Feedmod extends Plugin implements IHandler
         return mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
     }
 
+    // sportiva.shueisha.co.jp
+    function get_np_sportiva_shueisha_co_jp(string $link) : array {
+        $links = [];
+        for($i=2;$i<10;$i++){
+          $links[] = "${link}index_${i}.php";
+        }
+        return $links;
+    }
+
     // www.newsweekjapan.jp 向け
     function get_np_www_newsweekjapan_jp(DOMXPath $xpath, DOMDocument $doc, string $link) : array {
         $links = [];
@@ -664,6 +676,10 @@ class Af_Feedmod extends Plugin implements IHandler
         if(strpos($link, '//www.newsweekjapan.jp/') !== false){
             return $this->get_np_www_newsweekjapan_jp($xpath, $doc, $link);
         }
+        if(strpos($link, '//sportiva.shueisha.co.jp/') !== false){
+            return $this->get_np_sportiva_shueisha_co_jp($link);
+        }
+
         if(!isset($config['next_page']) || !$config['next_page']){
             return [];
         }
