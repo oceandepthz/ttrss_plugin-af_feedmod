@@ -52,7 +52,7 @@ class HatebuUtils {
     margin: 0 0 0 5px;
 }
 .hatebu-comment .entry-comment-tags li:first-child {
-    background: url(http://b.hatena.ne.jp/images/v4/public/entry/tag.svg?version=1afa398e3bf939de1cb5e62aa8e0bb25f0aa4724) no-repeat left center;
+    background: url(https://b.hatena.ne.jp/images/v4/public/entry/tag.svg?version=1afa398e3bf939de1cb5e62aa8e0bb25f0aa4724) no-repeat left center;
     background-size: 10px 10px;
     padding: 0 0 0 14px;
 }
@@ -130,7 +130,7 @@ EOD;
         return $style;
     }
     static function get_relation(string $url) : string {
-        $target = 'http://b.hatena.ne.jp/api/ipad.related_entry.json?url='.urlencode($url);
+        $target = 'https://b.hatena.ne.jp/api/ipad.related_entry.json?url='.urlencode($url);
 
         require_once('FmUtils.php');
         $u = new FmUtils();
@@ -151,14 +151,14 @@ EOD;
             $hatebu_url = self::get_hatebu_url($url);
             $root_url = $e['root_url'];
             $url_host = parse_url($url, PHP_URL_HOST);
-            $hatebu_domain_url = "http://b.hatena.ne.jp/entrylist?url=${url_host}";
+            $hatebu_domain_url = "https://b.hatena.ne.jp/entrylist?url=${url_host}";
             $c .= "<li><div class='entry-relationContents-text'><img src='${favicon_url}' alt='' class='entry-relationContents-favicon' width='16px' height='16px'><h4 class='entry-relationContents-title'><a rel='nofollow' href='${url}' title='${title}' >${title}</a></h4><p><span class='entry-relationContents-users'><a href='${hatebu_url}' >${count} users</a></span><span class='entry-relationContents-domain'><a href='${hatebu_domain_url}'>${url_host}</a></span></p></div><a rel='nofollow' href='${url}'><span class='entry-relationContents-thumb' style='background-image:url(${image})'></span></a></li>\n";
         }
         return "<section class='entry-relationContents'><h3 class='entry-relationContents-sectionTitle'>関連記事</h3><ul class='entry-relationContents-list'>${c}</ul></section>\n";; 
     }
  
     static function get_comment(string $url) : string {
-        $target = 'http://b.hatena.ne.jp/api/entry/'.urlencode($url).'/bookmarks?limit=500&commented_only=1';
+        $target = 'https://b.hatena.ne.jp/api/entry/'.urlencode($url).'/bookmarks?limit=500&commented_only=1';
 
         require_once('FmUtils.php');
         $u = new FmUtils();
@@ -212,7 +212,7 @@ EOD;
 
     static private function get_hatebu_url($url) : string {
         $is_ssl = strpos($url,'https://') === 0;
-        $hurl = 'http://b.hatena.ne.jp/entry/';
+        $hurl = 'https://b.hatena.ne.jp/entry/';
         if($is_ssl){
             $hurl .= 's/';
             $hurl .= str_replace('https://','',$url);
