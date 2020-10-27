@@ -644,12 +644,6 @@
       "div[@class='google-user-ad']"
     ]
   },
-  "www.laddy.info": {
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[starts-with(@class, 'sharedaddy')]"
-    ]
-  },
   "sociologbook.net": {
     "xpath": "div[@class='entry-content']",
     "cleanup": [
@@ -3190,13 +3184,6 @@
   },
   "note.golden-lucky.net": {
     "xpath": "div[starts-with(@id,'post-body-')]"
-  },
-  "blogofmobile.com": {
-    "xpath": "div[@class='post']",
-    "cleanup": [
-      "h1",
-      "div[@class='blog_info']"
-    ]
   },
   "fashion-basics.com": {
     "xpath": "section[@class='post-content']"
@@ -9867,11 +9854,6 @@
     ],
     "next_page": "p[@class='p-pagination']"
   },
-  "//bunshun.jp/articles/": {
-    "xpath": "figure/div[contains(@class,'kanban')]/img|//div[@class='article-body' or @class='author-header' or contains(@class,'title-side')]",
-    "next_page": "div[contains(@class,'pagination')]",
-    "next_page_cleanup": "a[contains(@class,'active')]"
-  },
   "//tikyuutabi.sakura.ne.jp/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -14114,10 +14096,6 @@
       ".articleFirstImage {background-position: center center;background-size: cover;height: 375px;min-width: 1020px;position: relative;width: 100%;}"
     ]
   },
-  "//president.jp/": {
-    "xpath": "section[contains(@class,'article-body')]",
-    "next_page": "div[@class='c-pagination']"
-  },
   "//diamond.jp/": {
     "xpath": "div[contains(@class,'article-body')]",
     "next_page": "ul[@class='pagination']"
@@ -14632,12 +14610,6 @@
       "div[@class='ad-box' or @id='disqus_thread']"
     ]
   },
-  "//aiboom.net/": {
-    "xpath": "div[@id='main_contents']/div[contains(@class,'post_content')]",
-    "cleanup": [
-      "div[contains(@id,'share_btm') or contains(@class,'sharedaddy')]"
-    ]
-  },
   "//blog.mozilla.org/nfroyd/": {
     "xpath": "div[@id='content']/div[contains(@id,'post-')]"
   },
@@ -14915,12 +14887,6 @@
     "next_page": "article/div[@class='pageNav']",
     "head_xpath": "article/figure[@class='article-thum']"
   },
-  "//sorae.info/": {
-    "xpath": "article/section[@class='single-post-main']/div[@class='content']",
-    "cleanup": [
-      "div[contains(@class,'code-block')]"
-    ]
-  },
   "//yamotty.tokyo/": {
     "xpath": "main/div[@class='post']"
   },
@@ -14935,9 +14901,6 @@
   },
   "//www.kagoshimaniax.com/": {
     "xpath": "header/figure[@class='single_thumbnail']|//section[@class='single-post-main']/div[@class='content']"
-  },
-  "//niccorin.com/": {
-    "xpath": "div[@class='article__content' or @class='posted']"
   },
   "//withnews.jp/article/": {
     "xpath": "section[@class='article-ttl' or @class='article-img' or @class='article-index' or @class='article-section']|//section[@class='article-meta']/div/a/*"
@@ -14968,12 +14931,6 @@
     "next_page": "div[@id='start']",
     "rep_pattern": "/^(.*:\\/\\/www\\.itmedia\\.co\\.jp\\/news\\/spv\\/[0-9]+\\/[0-9]+\\/.+)_0(\\.html)$/",
     "rep_replacement": "${1}${2}"
-  },
-  "//www.makeuseof.com/": {
-    "xpath": "div[@class='post-body']",
-    "cleanup": [
-      "div[@id='axdsense1']"
-    ]
   },
   "//iphone-mania.jp/": {
     "xpath": "div[@id='single_content']"
@@ -16142,5 +16099,69 @@
   },
   "//zoom.us/webinar/register/": {
     "xpath": "div[@id='webinar_register_container']/img[@class='img-responsive']|//form[@id='webinar_register_form']/div[@class='row']"
+  },
+  "//sorae.info/": {
+    "xpath": "article/section[@class='single-post-main']/div[@class='content']",
+    "cleanup": [
+      "div[contains(@class,'code-block')]"
+    ]
+  },
+  "//www.laddy.info/": {
+    "xpath": "section[@class='content']",
+    "cleanup": [
+      "div[starts-with(@class, 'sharedaddy')]",
+      "*[contains(@href,'.a8.net') or contains(@src,'.a8.net')]"
+    ]
+  },
+  "//president.jp/": {
+    "xpath": "section[contains(@class,'article-body')]|//div[contains(@class,'article-body')]",
+    "next_page": "div[@class='c-pagination']|//nav[@class='article-parts-pagenav']"
+  },
+  "//aiboom.net/": {
+    "xpath": "div[@id='main_contents']/div[contains(@class,'post_content')]",
+    "cleanup": [
+      "div[contains(@id,'share_btm') or contains(@class,'sharedaddy')]"
+    ]
+  },
+  "//www.makeuseof.com/": {
+    "xpath": "section[@class='article-body']",
+    "cleanup": [
+      "div[contains(@class,'ad-zone-container')]"
+    ]
+  },
+  "//niccorin.com/": {
+    "xpath": "div[@class='article-body-inner' or @id='comments-list']",
+    "cleanup": [
+      "a[@class='comment-res' or @class='comment-jump']"
+    ]
+  },
+  "//kamabokopan.com/": {
+    "xpath": "div[@id='nocopy']/div[contains(@class,'st-photohu') or @class='entry-content']"
+  },
+  "//blogofmobile.com/": {
+    "xpath": "div[@class='post']",
+    "cleanup": [
+      "h1",
+      "div[@class='blog_info']"
+    ]
+  },
+  "//bunshun.jp/articles/": {
+    "xpath": "figure/div[contains(@class,'kanban')]/img|//div[@class='article-body' or @class='author-header' or contains(@class,'title-side')]",
+    "next_page": "div[contains(@class,'pagination')]",
+    "next_page_cleanup": "a[contains(@class,'active')]"
+  },
+  "//search.yahoo.co.jp/realtime/search/tweet/": {
+    "xpath": "div[@id='TSm']",
+    "append_css": [
+      "#TSm { width: 659px;text-align: left;line-height: 1.22;}",
+      "img.ic_image { width: 17px!important; height: 13px!important; background-position: 0 -370px; background-image: url('https://s.yimg.jp/images/serp/ts/sp1_v10.png'); background-repeat: no-repeat;}",
+      "#TSm .cnt h2 {float: right;width: 550px;min-height: 39px;margin-bottom: 10px;font-size: 108%;line-height: 1.4;}",
+      "#TSm .cnt .img {float: left;width: 53px;margin-top: .2em;}",
+      "#TSm .cnt .img a {display: block;width: 48px;overflow: hidden;border-radius: 24px;border: 1px solid #fff;overflow: hidden;}",
+      "#TSm .cnt .img a img {border-radius: 24px;}",
+      ".cnt .details, .TS2bh .details {margin-bottom: 10px;margin-left: 58px;clear: both;}",
+      ".hd span.img_toggle_btn, p.image-switch{display:none;}",
+      "#TSm .cnt .inf {float: right;width: 550px;color: #666;margin-bottom: 6px;}"
+    ]
   }
 }
