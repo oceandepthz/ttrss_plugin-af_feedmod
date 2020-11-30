@@ -521,6 +521,14 @@ class Af_Feedmod extends Plugin implements IHandler
         $g = new GoogleblogCom();
         return $g->get_content($url);
     }
+    function get_chrome_content(string $url) : string {
+        require_once('classes/ChromeContent.php');
+	$t = new ChromeContent($url);
+	$c = $t->get_content();
+	$this->__debug("content length (${url}):".strlen($c));
+	return $c;
+    }
+
     function is_pjs(array $config) : bool {
         if(!isset($config['engine'])){
             return false;
@@ -566,6 +574,13 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         return false;
     }
+    function is_twiiter_event(string $url) : bool {
+        if(strpos($url, "//twitter.com/i/events/") !== false){
+            return true;
+        }
+        return false;
+    }
+
     function get_contents(string $url, array $config) : string {
         if($this->is_googleblog_com($url)) {
             return $this->get_googleblog_com($url);
@@ -584,7 +599,11 @@ class Af_Feedmod extends Plugin implements IHandler
         } 
         if ($this->is_chromium($config)){
             return $this->get_html_chrome($url);
-        } 
+	}
+	
+	if($this->is_twiiter_event($url)){
+	    return $this->get_chrome_content($url);
+	}
 
         $user_agent = "";
         $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD];

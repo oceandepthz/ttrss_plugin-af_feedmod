@@ -6,8 +6,9 @@
         }
     ],
     "require": {
-        "j0k3r/graby": "^2.1",
+        "j0k3r/graby": "^2.2",
         "php-http/guzzle6-adapter": "^2.0",
-        "jach/headerparser" : "dev-master"
+        "jach/headerparser" : "dev-master",
+        "chrome-php/chrome": "^0.8.1"
     }
 }
