@@ -15282,28 +15282,6 @@
   "//www.footballista.jp/": {
     "xpath": "div[@class='post_detail__content' or @class='post_detail__header__img']"
   },
-  "//www.newsweekjapan.jp/press_release/": {
-    "xpath": "div[@class='entryDetailBodyCopy']"
-  },
-  "//www.newsweekjapan.jp/mook/": {
-    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
-    "cleanup": [
-      "div[@class='sell-link']"
-    ]
-  },
-  "//www.newsweekjapan.jp/e-book/": {
-    "xpath": "div[@id='magHeadLine']"
-  },
-  "//www.newsweekjapan.jp/": {
-    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
-    "cleanup": [
-      "div[@class='entryPagenate' or contains(@class,'annotation')]"
-    ],
-    "next_page": "div[@class='entryPagenate']/ul",
-    "next_page_cleanup": [
-      "li[@class='cont']"
-    ]
-  },
   "//engineering.linecorp.com/ja/blog/": {
     "xpath": "div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -16099,7 +16077,7 @@
     ]
   },
   "//twitter.com/i/events/": {
-    "xpath": "style|//article"
+    "xpath": "style|//div[@data-testid='primaryColumn']"
   },
   "//twitter.com/": {
     "xpath": "div[@id='container']",
@@ -16156,6 +16134,37 @@
   "//www3.nhk.or.jp/news/special/": {
     "xpath": "main[@id='main']"
   },
+  "//www.newsweekjapan.jp/worldvoice/": {
+    "xpath": "div[@class='wv-entry-body']",
+    "foot_xpath": "div[@class='wv-profile']",
+    "next_page": "div[contains(@class,'wv-pager')]"
+  },
+  "//www.newsweekjapan.jp/press_release/": {
+    "xpath": "div[@class='entryDetailBodyCopy']"
+  },
+  "//www.newsweekjapan.jp/mook/": {
+    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
+    "cleanup": [
+      "div[@class='sell-link']"
+    ]
+  },
+  "//www.newsweekjapan.jp/e-book/": {
+    "xpath": "div[@id='magHeadLine']"
+  },
+  "//www.newsweekjapan.jp/": {
+    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
+    "cleanup": [
+      "div[@class='entryPagenate' or contains(@class,'annotation')]"
+    ],
+    "next_page": "div[@class='entryPagenate']/ul",
+    "next_page_cleanup": [
+      "li[@class='cont']"
+    ]
+  },
+  "*//zenn.dev/*/scraps/*": {
+    "match_type": "fnmatch",
+    "xpath": "div[@class='scrap-thread']"
+  },
   "*//zenn.dev/*/articles/*": {
     "match_type": "fnmatch",
     "xpath": "aside[@class='article-author']|//div[@id='toc-target-content']",
@@ -16163,8 +16172,12 @@
       "div[contains(@class,'bio-links')]"
     ]
   },
+  "*//zenn.dev/*/books/*/viewer/*": {
+    "match_type": "fnmatch",
+    "xpath": "section[@class='vw-sec']"
+  },
   "*//zenn.dev/*/books/*": {
     "match_type": "fnmatch",
-    "xpath": "header[contains(@class,'bh__header')]|//div[@id='chapters']"
+    "xpath": "section[@class='book-show__main']"
   }
 }
