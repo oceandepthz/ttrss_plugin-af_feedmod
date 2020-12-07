@@ -5764,10 +5764,6 @@
   "//sftt.jp/": {
     "xpath": "div[@class='post-content' or @class='catch-image']"
   },
-  "//www.nikkei.com/": {
-    "xpath": "div[contains(@class,'cmn-article_text')]",
-    "next_page": "div[@id='JSID_pageNation']"
-  },
   "//blog.otakumode.com/": {
     "xpath": "article",
     "cleanup": [
@@ -6663,9 +6659,6 @@
     "cleanup": [
       "ul[contains(@class,'shareButtonLists')]"
     ]
-  },
-  "//blog.animereview.jp/": {
-    "xpath": "section[contains(@class,'entry-content')]"
   },
   "//yurudie.com/": {
     "xpath": "div[contains(@class,'the-content')]"
@@ -10396,9 +10389,6 @@
     "xpath": "body"
   },
   "//note.com/": {
-    "xpath": "body"
-  },
-  "//jp.reuters.com/": {
     "xpath": "body"
   },
   "//zatsukan.ltd/": {
@@ -15246,9 +15236,6 @@
   "//blog.livedoor.jp/sugitamio/": {
     "xpath": "div[@class='article-body-inner']"
   },
-  "//blog.engineer-memo.com/": {
-    "xpath": "div[@class='main']"
-  },
   "//blog.qiita.com/": {
     "xpath": "div[starts-with(@class, 'article_body')]"
   },
@@ -16107,33 +16094,6 @@
       "div[@class='google-user-ad']"
     ]
   },
-  "//www3.nhk.or.jp/kansai-news/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/news/contents/ohabiz/": {
-    "xpath": "div[@id='upperArea' or @id='caster']"
-  },
-  "//www3.nhk.or.jp/news/web_tokushu/": {
-    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
-  },
-  "//www3.nhk.or.jp/news/html/": {
-    "xpath": "figure[@class='content--video']|//div[@class='content--detail-body']",
-    "cleanup": [
-      "nav"
-    ]
-  },
-  "//www3.nhk.or.jp/lnews/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/shutoken-news/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/news/business_tokushu/": {
-    "xpath": "main[@id='main']/article"
-  },
-  "//www3.nhk.or.jp/news/special/": {
-    "xpath": "main[@id='main']"
-  },
   "//www.newsweekjapan.jp/worldvoice/": {
     "xpath": "div[@class='wv-entry-body']",
     "foot_xpath": "div[@class='wv-profile']",
@@ -16179,5 +16139,71 @@
   "*//zenn.dev/*/books/*": {
     "match_type": "fnmatch",
     "xpath": "section[@class='book-show__main']"
+  },
+  "//www.ginbee-blog.info/blog/": {
+    "xpath": "div[@class='entry-body']"
+  },
+  "//jisakuhibi.jp/": {
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "div[contains(@class,'article-social-btn')]"
+    ]
+  },
+  "//jyajyayome.blog.jp/": {
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//blog.animereview.jp/": {
+    "xpath": "div[contains(@class,'c-entry__content')]",
+    "cleanup": [
+      "section[@class='sdcec-entry__bottom']"
+    ]
+  },
+  "//blog.engineer-memo.com/": {
+    "xpath": "div[@class='main']"
+  },
+  "//www3.nhk.or.jp/kansai-news/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/news/contents/ohabiz/": {
+    "xpath": "div[@id='upperArea' or @id='caster']"
+  },
+  "//www3.nhk.or.jp/news/web_tokushu/": {
+    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
+  },
+  "//www3.nhk.or.jp/news/html/": {
+    "xpath": "figure[contains(@class,'content--video') or contains(@class,'content--thumb')]|//div[@class='content--detail-body']",
+    "engine": "chromium",
+    "cleanup": [
+      "nav"
+    ]
+  },
+  "//www3.nhk.or.jp/lnews/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/shutoken-news/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/news/business_tokushu/": {
+    "xpath": "main[@id='main']/article"
+  },
+  "//www3.nhk.or.jp/news/special/": {
+    "xpath": "main[@id='main']"
+  },
+  "//www.nikkei.com/": {
+    "xpath": "article/section[@data-track-article-content='']",
+    "engine": "chromium"
+  },
+  "//jp.reuters.com/": {
+    "xpath": "div[@class='ArticleBodyWrapper']",
+    "engine": "chromium",
+    "cleanup": [
+      "div[contains(@class,'ArticleBody-read-time-and-social-')]"
+    ]
+  },
+  "//blogs.mbc.co.jp/donkago/": {
+    "xpath": "div[@class='detail_text']",
+    "cleanup": [
+      "div[@class='share' or @class='post_meta']"
+    ]
   }
 }
