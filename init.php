@@ -272,15 +272,18 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         $contents = '';
         foreach ($entries as $entry) {
-            if ($entry) {
-                $contents .= $doc->saveXML($entry);
+	    if ($entry) {
+                $content = $doc->saveXML($entry);
+		$content = str_replace('<![CDATA[','',$content);
+		$content = str_replace(']]>','',$content);
+                $contents .= $content;
             }
         }
         return $contents;
     }
 
     function get_redirect_url(string $url): string {
-        $header = get_headers($url, true);
+        $header = @get_headers($url, true);
         if(isset($header['Location'])){
             $org_url = $header['Location'];
             if(is_array($org_url)){
@@ -525,7 +528,7 @@ class Af_Feedmod extends Plugin implements IHandler
         require_once('classes/ChromeContent.php');
 	$t = new ChromeContent($url);
 	$c = $t->get_content();
-	$this->__debug("content length (${url}):".strlen($c));
+	//$this->__debug("content length (${url}):".strlen($c));
 	return $c;
     }
 
@@ -585,9 +588,9 @@ class Af_Feedmod extends Plugin implements IHandler
         if($this->is_googleblog_com($url)) {
             return $this->get_googleblog_com($url);
         } 
-        if($this->is_jp_reuters_com($url)) {
-            return $this->get_html_jp_reuters_com($url);
-        } 
+        //if($this->is_jp_reuters_com($url)) {
+        //    return $this->get_html_jp_reuters_com($url);
+        //} 
         if($this->is_togetter_com($url)){
             return $this->get_html_togetter($url);
         } 
@@ -598,7 +601,7 @@ class Af_Feedmod extends Plugin implements IHandler
             return $this->get_html_pjs($url);
         } 
         if ($this->is_chromium($config)){
-            return $this->get_html_chrome($url);
+	    return $this->get_chrome_content($url);
 	}
 	
 	if($this->is_twiiter_event($url)){
@@ -1070,7 +1073,7 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
 
-            $header = get_headers($href, true);
+            $header = @get_headers($href, true);
             $url = '';
             if(isset($header['location'])){
                 $url = $header['location'];
