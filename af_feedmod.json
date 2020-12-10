@@ -16230,5 +16230,8 @@
   },
   "//blog.google/": {
     "xpath": "article/section/div/div[contains(@class,'uni-content')]"
+  },
+  "//pr.kyash.co/": {
+    "xpath": "div[@class='entry-content']"
   }
 }
