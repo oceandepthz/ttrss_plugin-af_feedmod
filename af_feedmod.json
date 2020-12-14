@@ -14226,12 +14226,6 @@
   "//www.modis.jp/insight/": {
     "xpath": "div[@class='str-content']"
   },
-  "//nazology.net/": {
-    "xpath": "div[@class='post-article']",
-    "cleanup": [
-      "div[@class='ads' or @class='bottom']"
-    ]
-  },
   "//www.tachibana-akira.com/": {
     "xpath": "div[@class='entry-content']",
     "cleanup": [
@@ -16222,5 +16216,12 @@
   "//ascii.jp/": {
     "xpath": "div[@id='contents_detail' or @id='detail_contents']",
     "next_page": "div[@class='pages']"
+  },
+  "//nazology.net/": {
+    "xpath": "div[@class='post-article']",
+    "cleanup": [
+      "div[contains(@class,'ads') or @class='bottom' or @class='article-pagination']"
+    ],
+    "next_page": "div[@class='article-pagination']"
   }
 }
