@@ -274,8 +274,6 @@ class Af_Feedmod extends Plugin implements IHandler
         foreach ($entries as $entry) {
 	    if ($entry) {
                 $content = $doc->saveXML($entry);
-		$content = str_replace('<![CDATA[','',$content);
-		$content = str_replace(']]>','',$content);
                 $contents .= $content;
             }
         }
@@ -904,8 +902,10 @@ class Af_Feedmod extends Plugin implements IHandler
     function get_instagram_img_url(string $url) : string {
         file_put_contents(dirname(__FILE__).'/logs/af_feed_instagram.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
         require_once('classes/Instagram.php');
-        $in = new Instagram();
-        return $in->get_content($url);
+	$in = new Instagram();
+	$c = $in->get_content($url);
+	file_put_contents(dirname(__FILE__).'/logs/af_feed_instagram.txt', date("Y-m-d H:i:s")."\t".$c."\n", FILE_APPEND|LOCK_EX);
+        return $c;
     }
 
     function update_img_link(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $link) : void {
