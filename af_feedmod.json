@@ -6945,9 +6945,6 @@
   "//blog.takus.me/": {
     "xpath": "section[@class='post-content']"
   },
-  "//www.jiji.com/": {
-    "xpath": "div[contains(@class,'ArticleText')]"
-  },
   "//j-ron.jp/": {
     "xpath": "section[@class='post-text']"
   },
@@ -15873,12 +15870,6 @@
   "//zoom.us/webinar/register/": {
     "xpath": "div[@id='webinar_register_container']/img[@class='img-responsive']|//form[@id='webinar_register_form']/div[@class='row']"
   },
-  "//sorae.info/": {
-    "xpath": "article/section[@class='single-post-main']/div[@class='content']",
-    "cleanup": [
-      "div[contains(@class,'code-block')]"
-    ]
-  },
   "//www.laddy.info/": {
     "xpath": "section[@class='content']",
     "cleanup": [
@@ -16110,35 +16101,9 @@
   "//jisin.jp/": {
     "xpath": "div[@class='content']/div[contains(@class,'detail-sp') or contains(@class,'detail-pc')]"
   },
-  "*//zenn.dev/*/scraps/*": {
-    "match_type": "fnmatch",
-    "xpath": "div[@class='scrap-thread']"
-  },
-  "*//zenn.dev/*/articles/*": {
-    "match_type": "fnmatch",
-    "xpath": "aside[@class='article-author']|//div[@id='toc-target-content']",
-    "cleanup": [
-      "div[contains(@class,'bio-links')]"
-    ]
-  },
-  "*//zenn.dev/*/books/*/viewer/*": {
-    "match_type": "fnmatch",
-    "xpath": "section[@class='vw-sec']"
-  },
-  "*//zenn.dev/*/books/*": {
-    "match_type": "fnmatch",
-    "xpath": "section[starts-with(@class,'BookMain_mainColumn__')]/*[starts-with(@class,'BookHeader_container__') or @id='chapters']"
-  },
   "//ascii.jp/": {
     "xpath": "div[@id='contents_detail' or @id='detail_contents']",
     "next_page": "div[@class='pages']"
-  },
-  "//nazology.net/": {
-    "xpath": "div[@class='post-article']",
-    "cleanup": [
-      "div[contains(@class,'ads') or @class='bottom' or @class='article-pagination']"
-    ],
-    "next_page": "div[@class='article-pagination']"
   },
   "//twitter.com/i/moments/": {
     "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]",
@@ -16254,5 +16219,43 @@
   },
   "//www.jacom.or.jp/": {
     "xpath": "section/div[@class='contArticle__read' or @class='contArticle__body']"
+  },
+  "//www.jiji.com/": {
+    "xpath": "div[contains(@class,'ArticleText')]",
+    "cleanup": [
+      "a[@href='/jc/v7?id=world-column']",
+      "div[@class='TitleMove' or @class='Pagination']"
+    ],
+    "next_page": "div[@class='Pagination']"
+  },
+  "//nazology.net/": {
+    "xpath": "div[@class='post-body']",
+    "head_xpath": "div[@class='post-head__meta' or @class='post-lead']",
+    "next_page": "div[@class='post-pagination']"
+  },
+  "//sorae.info/": {
+    "xpath": "article/section[@class='single-post-main']/div[contains(@class,'content')]",
+    "cleanup": [
+      "div[contains(@class,'code-block')]"
+    ]
+  },
+  "*//zenn.dev/*/scraps/*": {
+    "match_type": "fnmatch",
+    "xpath": "div[contains(@class,'ScrapThread_item__')]",
+    "cleanup": [
+      "footer[contains(@class,'ThreadItem_footer__')]"
+    ]
+  },
+  "*//zenn.dev/*/articles/*": {
+    "match_type": "fnmatch",
+    "xpath": "aside[contains(@class,'ArticleMain_author__')]|//div[@id='toc-target-content']"
+  },
+  "*//zenn.dev/*/books/*/viewer/*": {
+    "match_type": "fnmatch",
+    "xpath": "div[@id='viewer-toc']"
+  },
+  "*//zenn.dev/*/books/*": {
+    "match_type": "fnmatch",
+    "xpath": "section[starts-with(@class,'BookMain_mainColumn__')]/*[starts-with(@class,'BookHeader_container__') or @id='chapters']"
   }
 }
