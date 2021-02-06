@@ -9309,9 +9309,6 @@
   "//www.jomo-news.co.jp/": {
     "xpath": "div[@class='article-main']/div[@class='article-body']"
   },
-  "//www.foocom.net/": {
-    "xpath": "div[contains(@class,'entry-content')]"
-  },
   "//tanweb.net/": {
     "xpath": "div[@class='post']/div[@class='honbun']"
   },
@@ -11558,9 +11555,6 @@
       "div[contains(@class,'ad-area') or @class='saboxplugin-wrap']"
     ]
   },
-  "//bestcarweb.jp/": {
-    "xpath": "article/*[contains(@class,'article__mainImage') or @class='article__content']"
-  },
   "//techblog.raccoon.ne.jp/": {
     "xpath": "main/section"
   },
@@ -12201,12 +12195,6 @@
   },
   "//blogs.msdn.microsoft.com/": {
     "xpath": "div[starts-with(@class,'entry-content')]"
-  },
-  "//www.switch-science.com/catalog/": {
-    "xpath": "div[@id='product']/div[@class='data' OR @class='contents']",
-    "cleanup": [
-      "div[@id='item-sns-buttons']"
-    ]
   },
   "//llabtooflatot.blog.fc2.com/": {
     "xpath": "div[@class='kizi_body']",
@@ -16007,10 +15995,6 @@
   "//www3.nhk.or.jp/news/special/": {
     "xpath": "main[@id='main']"
   },
-  "//www.nikkei.com/": {
-    "xpath": "article/section[@data-track-article-content='']",
-    "engine": "chromium"
-  },
   "//jp.reuters.com/": {
     "xpath": "div[@class='ArticleBodyWrapper']",
     "engine": "chromium",
@@ -16257,5 +16241,57 @@
   "*//zenn.dev/*/books/*": {
     "match_type": "fnmatch",
     "xpath": "section[starts-with(@class,'BookMain_mainColumn__')]/*[starts-with(@class,'BookHeader_container__') or @id='chapters']"
+  },
+  "//bestcarweb.jp/": {
+    "xpath": "article/*[contains(@class,'article__mainImage') or @class='article__content']"
+  },
+  "//foocom.net/": {
+    "xpath": "article/section[@class='contents']"
+  },
+  "//ayudante.jp/column/": {
+    "xpath": "section[@class='post-content']",
+    "cleanup": [
+      "div[@class='sns-container']"
+    ]
+  },
+  "//fukuno.jig.jp/": {
+    "xpath": "div[@id='cmain']"
+  },
+  "//www.nikkei.com/": {
+    "xpath": "article/section[starts-with(@class,'container_')]"
+  },
+  "//www.switch-science.com/catalog/": {
+    "xpath": "div[@id='description']"
+  },
+  "//support.kyash.co/hc/ja/articles/": {
+    "xpath": "div[@class='article-body']"
+  },
+  "//tech.mfkessai.co.jp/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//markelabo.com/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//mixil.mixi.co.jp/": {
+    "xpath": "div[@class='mainVisual']|//section[@class='sectionDetail']",
+    "cleanup": [
+      "div[@class='pagebreak-links']"
+    ],
+    "next_page": "div[@class='pagebreak-links']"
+  },
+  "//note.kishidanami.com/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//qjweb.jp/": {
+    "xpath": "div[@class='editor']",
+    "cleanup": [
+      "p[@class='next_page']",
+      "div[@class='page-links']"
+    ],
+    "next_page": "div[@class='page-links']",
+    "head_xpath": "div[@class='article_head']/div[@class='image_box' or @class='people_caption']",
+    "foot_xpath": "div[@class='relation_box' or @class='article_writer_box']|//ul[@class='interview_e_box']"
   }
 }
