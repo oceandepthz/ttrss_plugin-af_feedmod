@@ -16293,5 +16293,29 @@
     "next_page": "div[@class='page-links']",
     "head_xpath": "div[@class='article_head']/div[@class='image_box' or @class='people_caption']",
     "foot_xpath": "div[@class='relation_box' or @class='article_writer_box']|//ul[@class='interview_e_box']"
+  },
+  "//jp.vuejs.org/": {
+    "xpath": "div[@id='main']/div[contains(@class,'content')]"
+  },
+  "//magazine.cainz.com/": {
+    "xpath": "div[@class='articleWrap']/div[@class='authorAreaTop' or @class='mainImg' or @class='pageMenu' or @class='contentsArea']"
+  },
+  "//manager-life.net/": {
+    "xpath": "article/div/div[@class='lead' or @id='index']|//article/div/section[starts-with(@id,'sect')]"
+  },
+  "//dropbox.tech/": {
+    "xpath": "div[@class='dr-article-content__content']"
+  },
+  "//engineering.fb.com/": {
+    "xpath": "article/*[@id='post-feat-image-container' or @class='entry-authors-social' or @class='entry-content']",
+    "cleanup": [
+      "div[@class='entry-social']"
+    ]
+  },
+  "//gentosha-go.com/": {
+    "xpath": "div[@id='article-body' or @class='author-info']"
+  },
+  "//healthpolicyhealthecon.com/": {
+    "xpath": "div[@class='entry-content']"
   }
 }
