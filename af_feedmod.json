@@ -2816,9 +2816,6 @@
   "sierblog.com": {
     "xpath": "div[@class='article-body-inner']"
   },
-  "blog.jetbrains.com": {
-    "xpath": "div[@class='entry-content']"
-  },
   "www.nikkan-gendai.com": {
     "xpath": "div[starts-with(@class,'article-detail-box')]",
     "next_page": "div[@class='paging-box']",
@@ -11525,12 +11522,6 @@
   "//www.hashicorp.com/blog/": {
     "xpath": "article"
   },
-  "//blog.tinect.jp/": {
-    "xpath": "div[@class='post-content' or @class='amp-wp-article-content']",
-    "cleanup": [
-      "div[starts-with(@class, 'fb-social-plugin') or starts-with(@class, 'wp_social_bookmarking') or @class='amazonjs_item']"
-    ]
-  },
   "//teineini.net/": {
     "xpath": "article/div[@class='cps-post-thumb' or @class='cps-post-main-box']",
     "cleanup": [
@@ -13569,9 +13560,6 @@
   },
   "//aizine.ai/": {
     "xpath": "header/div[@class='eye-catch-wrap']|//div[contains(@class,'mceContentBody')]"
-  },
-  "//ai-scholar.tech/": {
-    "xpath": "header/p[@class='post-thumbnail']|//section[contains(@class,'entry-content')]"
   },
   "//airstair.jp/": {
     "xpath": "header/figure|//div[@class='theContentWrap-ccc']"
@@ -16317,5 +16305,23 @@
   },
   "//healthpolicyhealthecon.com/": {
     "xpath": "div[@class='entry-content']"
+  },
+  "//blog.tinect.jp/": {
+    "xpath": "div[@class='post-content' or @class='amp-wp-article-content']",
+    "cleanup": [
+      "div[starts-with(@class, 'fb-social-plugin') or starts-with(@class, 'wp_social_bookmarking') or @class='amazonjs_item']"
+    ]
+  },
+  "//blog.watilde.com/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//ai-scholar.tech/": {
+    "xpath": "main/article"
+  },
+  "//akaki.io/": {
+    "xpath": "div[contains(@class,'--pageBody-')]"
+  },
+  "//blog.jetbrains.com/": {
+    "xpath": "div[@class='full-content']"
   }
 }
