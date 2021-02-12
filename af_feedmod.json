@@ -1280,14 +1280,6 @@
     ],
     "next_page": "div[@class='pagemenu-nav_page']"
   },
-  "www.websec-room.com": {
-    "xpath": "div[@class='content']/div[1]",
-    "cleanup": [
-      "div[@class='content_ads' or @class='navi_l' or @class='navi_r' or @class='social_buttons' or starts-with(@class,'fb-like-box')]",
-      "script[contains(text(), 'platform.twitter.com')]",
-      "iframe[@id='twitter-widget-0']"
-    ]
-  },
   "saigetsuan.com": {
     "xpath": "section",
     "cleanup": [
@@ -6477,9 +6469,6 @@
       "script[contains(text(),'google_ad_client')]",
       "div[@class='ad-block']"
     ]
-  },
-  "//www.mitsue.co.jp/knowledge/blog/frontend/": {
-    "xpath": "div[@id='main_content']"
   },
   "//www.apple-life.net/": {
     "xpath": "div[@class='entry-content']"
@@ -13641,12 +13630,6 @@
       "*[@class='btns-page-cntrl' or @class='sns-btns']"
     ]
   },
-  "//tidbits.jp/": {
-    "xpath": "div[@class='article-body']",
-    "cleanup": [
-      "div[@class='under' or @class='va-social-buzz']"
-    ]
-  },
   "//mainichi-kotoba.jp/blog-": {
     "xpath": "section[@class='single-post-main']/div[@class='content']"
   },
@@ -16147,9 +16130,6 @@
   "//shiodaifuku.io/": {
     "xpath": "div[@class='nuxt-content']"
   },
-  "//www.koemu.com/blog/": {
-    "xpath": "div[@class='entry-content']"
-  },
   "//www.shinmai.co.jp/news/nagano/": {
     "xpath": "figure[@class='c-article-detail__photo']|//div[@class='c-article-detail__text']",
     "cleanup": [
@@ -16323,5 +16303,17 @@
   },
   "//blog.jetbrains.com/": {
     "xpath": "div[@class='full-content']"
+  },
+  "//tidbits.jp/": {
+    "xpath": "main/article/*[@class='p-articleThumb'or @class='post_content']"
+  },
+  "//www.koemu.com/blog/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.mitsue.co.jp/knowledge/": {
+    "xpath": "div[@class='o-layout__contentColumn']"
+  },
+  "//www.websec-room.com/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
   }
 }
