@@ -16315,5 +16315,17 @@
   },
   "//www.websec-room.com/": {
     "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//www.treasuredata.co.jp/blog_jp/": {
+    "xpath": "div[contains(@class,'uncode_text_column')]"
+  },
+  "//www.u-presscenter.jp/": {
+    "xpath": "div[@class='detailBox']"
+  },
+  "//www.waca.associates/jp/column/": {
+    "xpath": "div[@class='post_content']"
+  },
+  "//zaiteku-cookie.com/": {
+    "xpath": "div[@class='entry-content']"
   }
 }
