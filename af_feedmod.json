@@ -16327,5 +16327,9 @@
   },
   "//zaiteku-cookie.com/": {
     "xpath": "div[@class='entry-content']"
+  },
+  "//kuruma-news.jp/": {
+    "xpath": "section[@id='detail']/*[@class='post-excerpt' or @class='paragraph']",
+    "next_page": "div[@class='single-pagenation']"
   }
 }
