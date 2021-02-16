@@ -4449,12 +4449,6 @@
   "//xn--pckwb0c8766ajkwa.com/": {
     "xpath": "header/figure[contains(@class,'eyecatch')]|//section[contains(@class,'entry-content')]"
   },
-  "//www.softbank.jp/corp/group/sbm/news/press/": {
-    "xpath": "div[@id='contents-body']",
-    "cleanup": [
-      "div[@class='header-group' or @id='category-title' or @class='related-news' or @class='related-news_bottom']"
-    ]
-  },
   "//www.meadameada.net/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -16331,5 +16325,31 @@
   "//kuruma-news.jp/": {
     "xpath": "section[@id='detail']/*[@class='post-excerpt' or @class='paragraph']",
     "next_page": "div[@class='single-pagenation']"
+  },
+  "//www.softbank.jp/corp/news/press/sbkk/": {
+    "xpath": "div[@class='corp-article']"
+  },
+  "//www.softbank.jp/corp/group/sbm/news/press/": {
+    "xpath": "div[@id='contents-body']",
+    "cleanup": [
+      "div[@class='header-group' or @id='category-title' or @class='related-news' or @class='related-news_bottom']"
+    ]
+  },
+  "//www.souichi.club/": {
+    "xpath": "div[@class='entry-inner']"
+  },
+  "//www.theguardian.com/": {
+    "xpath": "header[contains(@class,'content__head')]/figure|//div[contains(@class,'content__article-body')]"
+  },
+  "//www.ohmsha.co.jp/book/": {
+    "xpath": "div[@class='detailLeft' or @id='tabs']"
+  },
+  "//www.seshop.com/product/detail/": {
+    "xpath": "div[contains(@class,'cx_container_contents')]/section",
+    "cleanup": [
+      "form",
+      "div[@id='social']",
+      "a[contains(@class,'btn-warning')]"
+    ]
   }
 }
