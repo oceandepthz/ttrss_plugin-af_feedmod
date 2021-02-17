@@ -16354,5 +16354,20 @@
   },
   "//www.highriskrevolution.com/": {
     "xpath": "main/*[contains(@class,'post_thum') or @id='post_body']"
+  },
+  "//www.mbsd.jp/research/": {
+    "xpath": "div[@class='researchDetail__content']",
+    "cleanup": [
+      "div[@class='researchDetail__snsArea']"
+    ]
+  },
+  "//www.musashi-corporation.com/wealthhack/": {
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//www.ntt.com/shines/": {
+    "xpath": "div[@class='content']"
   }
 }
