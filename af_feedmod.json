@@ -10419,21 +10419,6 @@
       "ul[contains(@class,'snsBtn') or contains(@class,'archiveLink')]"
     ]
   },
-  "//mainichi.jp/sportsspecial/": {
-    "xpath": "div[@class='main-text']//figure|//div[@class='main-text']/p[@class='txt']"
-  },
-  "//mainichi.jp/premier/": {
-    "xpath": "figure[@class='main']|//div[@class='article-inner']"
-  },
-  "//mainichi.jp/articles/": {
-    "xpath": "div[@class='main-text']/div/figure//img|//div[@class='main-text']/div/figure/figcaption|//div[@class='main-text']/p[@class='txt']|//div[contains(@class,'main-photo')]"
-  },
-  "//mainichi.jp/": {
-    "xpath": "div[contains(@class, 'NewsBody')]",
-    "cleanup": [
-      "aside"
-    ]
-  },
   "//www.pfu.fujitsu.com/news/": {
     "xpath": "div[@id='contents']"
   },
@@ -15386,9 +15371,6 @@
   "//www.gundam.info/": {
     "xpath": "div[@class='c-articleDtail']"
   },
-  "//www.highriskrevolution.com/": {
-    "xpath": "article[@id='post_body']"
-  },
   "//www.businessinsider.jp/": {
     "xpath": "article/div[contains(@class,'p-post-content')]"
   },
@@ -16351,5 +16333,26 @@
       "div[@id='social']",
       "a[contains(@class,'btn-warning')]"
     ]
+  },
+  "//caddi.tech/": {
+    "xpath": "article[@id='post_body']"
+  },
+  "//mainichi.jp/sportsspecial/": {
+    "xpath": "div[@class='main-text']//figure|//div[@class='main-text']/p[@class='txt']"
+  },
+  "//mainichi.jp/premier/": {
+    "xpath": "figure[@class='main']|//div[@class='article-inner']"
+  },
+  "//mainichi.jp/articles/": {
+    "xpath": "section[@id='articledetail-body']"
+  },
+  "//mainichi.jp/": {
+    "xpath": "div[contains(@class, 'NewsBody')]",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//www.highriskrevolution.com/": {
+    "xpath": "main/*[contains(@class,'post_thum') or @id='post_body']"
   }
 }
