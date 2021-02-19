@@ -6816,9 +6816,6 @@
       "aside"
     ]
   },
-  "//www.creativevillage.ne.jp/": {
-    "xpath": "div[@class='middle-single-article' or @class='single-post-image']"
-  },
   "//unleash.tokyo/": {
     "xpath": "div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -16369,5 +16366,20 @@
   },
   "//www.ntt.com/shines/": {
     "xpath": "div[@class='content']"
+  },
+  "//www.creativevillage.ne.jp/": {
+    "xpath": "div[@class='post-content' or @class='post-eyecatch']"
+  },
+  "//www.macrumors.com/": {
+    "xpath": "article/div[starts-with(@class,'content--')]"
+  },
+  "//www.madamin2.me/": {
+    "xpath": "div[@class='post-body-container']"
+  },
+  "//www.makuake.com/project/": {
+    "xpath": "div[@id='leftContent']/section/*[@class='story_title' or @class='summaryContainer' or @id='leftContentMain']"
+  },
+  "//emacs-jp.github.io/": {
+    "xpath": "div[starts-with(@class,'main')]"
   }
 }
