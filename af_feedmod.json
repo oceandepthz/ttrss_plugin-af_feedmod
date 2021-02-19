@@ -16381,5 +16381,14 @@
   },
   "//emacs-jp.github.io/": {
     "xpath": "div[starts-with(@class,'main')]"
+  },
+  "//www.jitec.ipa.go.jp/": {
+    "xpath": "div[@id='ipar_main']"
+  },
+  "//www.jpx.co.jp/": {
+    "xpath": "div[@id='readArea']",
+    "cleanup": [
+      "*[@class='fb-share-button' or @class='twitter-share-button']"
+    ]
   }
 }
