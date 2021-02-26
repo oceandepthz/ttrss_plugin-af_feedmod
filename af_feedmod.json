@@ -15408,13 +15408,6 @@
       "div[starts-with(@class,'ad') or contains(@class,'rad')]"
     ]
   },
-  "//www.as-web.jp/": {
-    "xpath": "div[@class='item-text']",
-    "head_xpath": "div[@class='image-item']",
-    "next_page": "div[@class='pageNavi']",
-    "rep_pattern": "/^(.*:\\/\\/www\\.as\\-web\\.jp\\/[a-z\\-0-9]+\\/[0-9]+)$/",
-    "rep_replacement": "${1}?all"
-  },
   "//www.tokyo-np.co.jp/": {
     "xpath": "div[@id='entry']",
     "cleanup": [
@@ -16012,7 +16005,8 @@
       "svg {width:24px; height:24px;}",
       "div[role=presentation] div div:first-child {padding-bottom: 0!important;}",
       "div[dir=ltr] {display:none;}",
-      "a[role=link]{padding-bottom: auto;}"
+      "a[role=link]{padding-bottom: auto;}",
+      "img[src$='.svg']{width:20px!important;}"
     ]
   },
   "//blog.domesoccer.jp/": {
@@ -16408,5 +16402,37 @@
   },
   "//www.ebiebievidence.com/": {
     "xpath": "div[contains(@class,'Layout__Content-')]/div[@class='post']"
+  },
+  "//wiseloan-cash.com/": {
+    "xpath": "div[@id='article']"
+  },
+  "//www.agile-studio.jp/": {
+    "xpath": "article[@class='blog-post-page-font']"
+  },
+  "//www.akiradeveloper.com/": {
+    "xpath": "article[@class='blog-post']",
+    "cleanup": [
+      "div[@class='pocket-btn']",
+      "section[@id='social-share']"
+    ]
+  },
+  "//www.as-web.jp/race-queens/": {
+    "xpath": "section[@id='recequeenDetail']",
+    "cleanup": [
+      "div[@class='sns_btn_group' or @class='btnarea']"
+    ]
+  },
+  "//www.as-web.jp/": {
+    "xpath": "div[@class='item-text']",
+    "head_xpath": "div[@class='image-item']",
+    "next_page": "div[@class='pageNavi']",
+    "rep_pattern": "/^(.*:\\/\\/www\\.as\\-web\\.jp\\/[a-z\\-0-9]+\\/[0-9]+)$/",
+    "rep_replacement": "${1}?all"
+  },
+  "//www.news24.jp/nnn/": {
+    "xpath": "main/section/div[@class='newsDetailVisual' or @class='newsDetailText']"
+  },
+  "//www.news24.jp/": {
+    "xpath": "div[@id='player']|//div[@class='article']/div[@class='full']/div[contains(@class,'text')]"
   }
 }
