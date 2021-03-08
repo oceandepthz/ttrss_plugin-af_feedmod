@@ -15118,9 +15118,6 @@
   "//web.kawade.co.jp/bungei/": {
     "xpath": "article/div[@id='postCont']"
   },
-  "//this.kiji.is/": {
-    "xpath": "div[contains(@class,'main__article')]/article"
-  },
   "//www.calciomatome.net/": {
     "xpath": "div[@class='blogbody']/div[@class='text']",
     "cleanup": [
@@ -15136,9 +15133,6 @@
   },
   "//www.instagram.com/p/": {
     "xpath": "article"
-  },
-  "//times.abema.tv/": {
-    "xpath": "div[@class='blog-article__contents']"
   },
   "//npn.co.jp/": {
     "xpath": "div[@class='post']"
@@ -16455,5 +16449,15 @@
     "cleanup": [
       "ul[@class='socials']"
     ]
+  },
+  "//this.kiji.is/": {
+    "xpath": "div[@class='main__articleBody']/article"
+  },
+  "//times.abema.tv/": {
+    "xpath": "div[@class='blog-article__contents']",
+    "engine": "chromium"
+  },
+  "//tkrel.com/": {
+    "xpath": "div[@class='single-post-wrap']"
   }
 }
