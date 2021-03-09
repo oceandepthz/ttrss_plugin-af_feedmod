@@ -14605,9 +14605,6 @@
   "//securelist.com/": {
     "xpath": "div[@class='entry-content']"
   },
-  "//www.coindeskjapan.com/": {
-    "xpath": "div[@class='entry-content']"
-  },
   "//newsroom.fb.com/news/": {
     "xpath": "div[contains(@class,'article-single')]"
   },
@@ -16459,5 +16456,23 @@
   },
   "//tkrel.com/": {
     "xpath": "div[@class='single-post-wrap']"
+  },
+  "//startup-cto.net/": {
+    "xpath": "figure[@class='post-image']|//section[@class='post-content']"
+  },
+  "//techblitz.com/": {
+    "xpath": "main/div[@class='entry']/*[@class='entry-eyecatch' or @class='entry-lead' or @class='entry-content']"
+  },
+  "//telework.cyber.ipa.go.jp/": {
+    "xpath": "body"
+  },
+  "//slashgear.jp/": {
+    "xpath": "div[@class='post_content']"
+  },
+  "//smoozapp.com/blog/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.coindeskjapan.com/": {
+    "xpath": "header/div/div/picture|//article/section[@class='p-content']"
   }
 }
