@@ -12079,13 +12079,6 @@
       "p[@class='more']"
     ]
   },
-  "//automaton-media.com/": {
-    "xpath": "header[@class='td-post-title']|//div[@class='td-post-content']",
-    "cleanup": [
-      "div[@class='social4i' or contains(@class,'td-a-rec') or contains(@id,'wpdevar_comment_') or contains(@class,'code-block') or contains(@class,'td-g-rec')]"
-    ],
-    "append_css": "img.size-full {width: 500px!important;}"
-  },
   "//maywork.net/wp/": {
     "xpath": "header/div/figure/img|//article/div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -16474,5 +16467,41 @@
   },
   "//www.coindeskjapan.com/": {
     "xpath": "header/div/div/picture|//article/section[@class='p-content']"
+  },
+  "//automaton-media.com/": {
+    "xpath": "header[@class='td-post-title']|//div[contains(@class,'td-post-content')]",
+    "cleanup": [
+      "div[@class='social4i' or contains(@class,'td-a-rec') or contains(@id,'wpdevar_comment_') or contains(@class,'code-block') or contains(@class,'td-g-rec')]"
+    ],
+    "append_css": "img.size-full {width: 500px!important;}"
+  },
+  "//premium.kai-you.net/": {
+    "xpath": "main/*[@class='m-article-main-summary' or @class='m-article-main-eyecatch' or @class='m-article-main-body']"
+  },
+  "//rabbit-note.com/": {
+    "xpath": "header//figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//react.christmas/": {
+    "xpath": "article/*[contains(@class,'post__HeroImage-') or contains(@class,'PrismThemer-')]"
+  },
+  "//sn-jp.com/": {
+    "xpath": "article/header/figure|//section/div[@class='content']"
+  },
+  "//newscast.jp/news/": {
+    "xpath": "article/div[@class='News__Body']"
+  },
+  "//news.nocodejapan.org/": {
+    "xpath": "span[@class='eyecatch__link']/img|//div[@class='postContents']/section"
+  },
+  "//nippper.com/": {
+    "xpath": "article"
+  },
+  "//note.kohkoku.jp/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//otakinen-museum.note.jp/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
   }
 }
