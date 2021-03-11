@@ -4864,9 +4864,6 @@
   "//news.nifty.com/": {
     "xpath": "div[@class='article_body_text' or @class='article_widget']"
   },
-  "//mzyy94.com/blog/": {
-    "xpath": "div[@class='entry-content']"
-  },
   "//digital-cat.com/": {
     "xpath": "div[@class='kizi']"
   },
@@ -13802,12 +13799,6 @@
   "//joshi-spa.jp/": {
     "xpath": "div[contains(@class,'post-container')]"
   },
-  "//kyoko-np.net/": {
-    "xpath": "article",
-    "cleanup": [
-      "h1"
-    ]
-  },
   "//galapgs.com/": {
     "xpath": "div[@id='mainEntity']",
     "cleanup": [
@@ -16503,5 +16494,68 @@
   "//otakinen-museum.note.jp/n/": {
     "engine": "note_mu",
     "xpath": "body"
+  },
+  "//miraihouse.biz/": {
+    "xpath": "div[@class='postContents']/section[contains(@class,'content')]"
+  },
+  "//mzyy94.com/blog/": {
+    "xpath": "div[@class='page-content']/div[@class='e-content']"
+  },
+  "//newburu.com/": {
+    "xpath": "div[@id='mainEntity']",
+    "cleanup": [
+      "header",
+      "aside"
+    ]
+  },
+  "//corp.mobile.rakuten.co.jp/": {
+    "xpath": "article",
+    "cleanup": [
+      "ul[@class='cms-common-Article_Pager']",
+      "p[contains(@class,'u-Adjust_Align-right')]",
+      "div[@class='cms-common-Article_Recruit']"
+    ]
+  },
+  "//justine.lol/": {
+    "xpath": "body"
+  },
+  "//jyn.jp/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[@id='breadcrumb' or contains(@class,'blogbox')]",
+      "h1[@class='entry-title']",
+      "aside"
+    ]
+  },
+  "//kyoko-np.net/": {
+    "xpath": "article",
+    "cleanup": [
+      "h1",
+      "div[@class='advert' or contains(@class,'app')]"
+    ]
+  },
+  "//mikotoniomakase.com/": {
+    "xpath": "section[contains(@class,'entry-content')]"
+  },
+  "//community.exawizards.com/aishinbun/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[@class='sns']"
+    ]
+  },
+  "//dream-soft.mydns.jp/blog/": {
+    "xpath": "header/div/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//epinesis.net/": {
+    "xpath": "article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sponsored')]"
+    ]
+  },
+  "//garasubo.github.io/hexo/": {
+    "xpath": "article/div/div[@class='entry']"
+  },
+  "//jpazureid.github.io/blog/": {
+    "xpath": "div[@class='article-entry']"
   }
 }
