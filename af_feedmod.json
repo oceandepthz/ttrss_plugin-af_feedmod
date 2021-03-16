@@ -12582,15 +12582,6 @@
   "//www.neweconomy.jp/": {
     "xpath": "article[@class='p-articleContent__contents']"
   },
-  "//business.nikkei.com/atcl/": {
-    "xpath": "div[@id='articleBody']",
-    "head_xpath": "div[@class='mainHeader']/h1|//div[@class='mainHeader']/*[@class='subTitle' or @class='leafAuthor']",
-    "cleanup": [
-      "div[@class='numberLetter']",
-      "nav[@class='pagenation']"
-    ],
-    "next_page": "nav[@class='pagenation']"
-  },
   "//www.percona.com/blog/": {
     "xpath": "article/div/div[@class='entry-content']",
     "cleanup": [
@@ -16587,5 +16578,32 @@
   },
   "//blog.tomoya.dev/": {
     "xpath": "article"
+  },
+  "//aish.dev/": {
+    "xpath": "div[@class='article_body']"
+  },
+  "//ampmedia.jp/": {
+    "xpath": "div[@class='article-body']"
+  },
+  "//beta.kiitok.com/": {
+    "xpath": "article/section/figure/img|//div[@class='talkItemWrap']"
+  },
+  "//business.nikkei.com/atcl/": {
+    "xpath": "div[contains(@class,'articleBody')]",
+    "cleanup": [
+      "div[@id='moreLinkArea' or @class='onlyLastPage']"
+    ]
+  },
+  "//www.preferred.jp/ja/news/": {
+    "xpath": "div[@class='detail-area']",
+    "cleanup": [
+      "div[contains(@class,'bottom')]"
+    ]
+  },
+  "//yukawanet.com/": {
+    "xpath": "article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sponsored')]"
+    ]
   }
 }
