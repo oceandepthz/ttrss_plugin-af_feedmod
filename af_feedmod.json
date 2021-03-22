@@ -2474,9 +2474,6 @@
       "*[starts-with(@class, 'wp_social_bookmarking_')]"
     ]
   },
-  "www.traicy.com": {
-    "xpath": "div[@class='entry-content']/p"
-  },
   "websae.net": {
     "xpath": "div[starts-with(@class,'post-single-content')]",
     "cleanup": [
@@ -15963,9 +15960,6 @@
       "img[src$='.svg']{width:20px!important;}"
     ]
   },
-  "//blog.domesoccer.jp/": {
-    "xpath": "article[@id='post']/section[@class='section-article-first' or @class='section-article-constract']"
-  },
   "//blogs.windows.com/": {
     "xpath": "main/div[@class='panel-collection']|//article/div[@class='t-content']",
     "engine": "chromium"
@@ -16611,5 +16605,14 @@
   },
   "//sosukesuzuki.dev/": {
     "xpath": "main"
+  },
+  "//blog.domesoccer.jp/": {
+    "xpath": "article[@id='post']/section[@class='section-article-first' or @class='section-article-constract']"
+  },
+  "//www.jp-bank.japanpost.jp/news/": {
+    "xpath": "div[@id='contents']"
+  },
+  "//www.traicy.com/": {
+    "xpath": "section[@id='content']"
   }
 }
