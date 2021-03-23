@@ -8549,12 +8549,6 @@
   "//earth-memorandum.net/": {
     "xpath": "div[@id='the-content']"
   },
-  "//dev.to/": {
-    "xpath": "div[@id='article-show-container']",
-    "cleanup": [
-      "div[@id='article-reaction-actions']"
-    ]
-  },
   "//dev.oro.com/": {
     "xpath": "div[@class='post_detail_content' or @class='post_detail_heading_thumbnail']"
   },
@@ -9566,12 +9560,6 @@
     "xpath": "div[@itemprop='articleBody']",
     "cleanup": [
       "aside[@class='ad']"
-    ]
-  },
-  "//chimolog.co/": {
-    "xpath": "article/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[@class='adsbox' or @class='add']"
     ]
   },
   "//simchange.jp/": {
@@ -10732,12 +10720,6 @@
   },
   "//gameboku.blog.jp/": {
     "xpath": "div[@class='article-body-inner']"
-  },
-  "//www.meti.go.jp/press/": {
-    "xpath": "div[@id='main']/div[contains(@class,'main')]"
-  },
-  "//www.meti.go.jp/statistics/": {
-    "xpath": "div[@id='contents']"
   },
   "//web.goout.jp/": {
     "xpath": "div[@class='entry-content']"
@@ -15505,12 +15487,6 @@
   "//www.shonenjump.com/": {
     "xpath": "section[@class='newsContents']"
   },
-  "//cloud.google.com/blog/big-data/": {
-    "xpath": "div[contains(@class,'blog_post')]"
-  },
-  "//cloud.google.com/blog/": {
-    "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
-  },
   "//cloud.google.com/": {
     "xpath": "div[contains(@class,'devsite-article-body')]"
   },
@@ -16614,5 +16590,50 @@
   },
   "//www.traicy.com/": {
     "xpath": "section[@id='content']"
+  },
+  "//lyohe.github.io/": {
+    "xpath": "div[@class='article-post']"
+  },
+  "//moviewalker.jp/": {
+    "xpath": "div[@class='un_newsDetail_content']",
+    "head_xpath": "div[@class='un_newsDetail_head_imgWrap']/img",
+    "next_page": "ul[@class='un_newsDetail_pagination']"
+  },
+  "//neos21.net/blog/": {
+    "xpath": "main[@id='main']",
+    "cleanup": [
+      "div[@id='header-date' or @class='ad-amazon' or @class='ad-rakuten']"
+    ]
+  },
+  "//suu-haa.jp/": {
+    "xpath": "header/picture|//div[@class='p-entry__body']"
+  },
+  "//www.meti.go.jp/press/": {
+    "xpath": "div[@id='main']/div[contains(@class,'main')]"
+  },
+  "//www.meti.go.jp/statistics/": {
+    "xpath": "div[@id='contents']"
+  },
+  "//www.meti.go.jp/topic/": {
+    "xpath": "div[@id='__main_contents']"
+  },
+  "//chimolog.co/": {
+    "xpath": "article/figure[@class='eyecatch']|//article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='adsbox' or @class='add']"
+    ]
+  },
+  "//cloud.google.com/blog/": {
+    "engine": "chromium",
+    "xpath": "section[@class='uni-container']//div[contains(@class,'uni-content')]"
+  },
+  "//blog.crowdworks.jp/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//dev.to/": {
+    "xpath": "header[@id='main-title']/div[@class='crayons-article__cover']|//div[@id='article-body']"
+  },
+  "//hatena.zoom.us/webinar/": {
+    "xpath": "div[@id='webinar_register_container']/img|//div[@class='webinar_topic']"
   }
 }
