@@ -60,9 +60,6 @@
       "div[@class='post-top-right-single']"
     ]
   },
-  "//techlog.iij.ad.jp/": {
-    "xpath": "div[contains(@class, 'entry-content')]"
-  },
   "//androidken.blog119.fc2.com/": {
     "xpath": "div[@class='ently_text']",
     "cleanup": [
@@ -723,9 +720,6 @@
   },
   "www.mbc.co.jp/newsfile": {
     "xpath": "div[@id='mbcnews-kiji']"
-  },
-  "//373news.com/": {
-    "xpath": "div[@id='bt_body']"
   },
   "lifehack2ch.livedoor.biz": {
     "xpath": "div[@class='main']|//div[@class='mainmore']|//h3[@class='commenthead']|//div[@id='comment']"
@@ -4420,12 +4414,6 @@
   "//itpro.nikkeibp.co.jp/": {
     "xpath": "div[@id='articleBody']",
     "next_page": "div[@class='pager']"
-  },
-  "//www.iij.ad.jp/news/pressrelease/": {
-    "xpath": "div[@id='contents']",
-    "cleanup": [
-      "ul[@class='social-box']"
-    ]
   },
   "//www.tbsradio.jp/": {
     "xpath": "div[@class='b-article__body']"
@@ -12359,9 +12347,6 @@
     ],
     "next_page": "ul[@class='pagination-list']"
   },
-  "//wizsafe.iij.ad.jp/": {
-    "xpath": "div[@class='entry-content']"
-  },
   "//trend.nikkeibp.co.jp/": {
     "xpath": "article/div[@class='articleBody']",
     "cleanup": [
@@ -12815,9 +12800,6 @@
   },
   "//thegradient.pub/": {
     "xpath": "div[contains(@class,'c-post-hero__image') or @class='c-post-hero__content' or @class='c-content']"
-  },
-  "//sect.iij.ad.jp/d/": {
-    "xpath": "article[@id='article']"
   },
   "//searchenginetheory.com/": {
     "xpath": "div[@class='entry-content']",
@@ -13493,9 +13475,6 @@
   },
   "//www.gentosha.jp/": {
     "xpath": "div[@id='main']/div[contains(@class,'articleDetail')]|//div[@class='secSeriesInner']"
-  },
-  "//eng-blog.iij.ad.jp/": {
-    "xpath": "article/div[@id='article-single__image' or @class='article-single__entry']"
   },
   "//www.wowkorea.jp/": {
     "xpath": "div[@class='news19']",
@@ -16635,5 +16614,35 @@
   },
   "//hatena.zoom.us/webinar/": {
     "xpath": "div[@id='webinar_register_container']/img|//div[@class='webinar_topic']"
+  },
+  "//373news.com/": {
+    "xpath": "div[@id='bt_body']"
+  },
+  "//blog.adobe.com/": {
+    "xpath": "main"
+  },
+  "//blog.stin.ink/": {
+    "xpath": "article[starts-with(@class,'Article_article__')]"
+  },
+  "//blog.suusan2go.dev/": {
+    "xpath": "div[starts-with(@class,'Markdown_markdown__')]"
+  },
+  "//sect.iij.ad.jp/": {
+    "xpath": "div[@class='content-inside']/div[contains(@class,'entry-thumbnail-image') or contains(@class,'entry')]"
+  },
+  "//techlog.iij.ad.jp/": {
+    "xpath": "div[contains(@class, 'entry-content')]"
+  },
+  "//eng-blog.iij.ad.jp/": {
+    "xpath": "article/div[@id='article-single__image' or @class='article-single__entry']"
+  },
+  "//wizsafe.iij.ad.jp/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.iij.ad.jp/news/pressrelease/": {
+    "xpath": "div[@id='contents']",
+    "cleanup": [
+      "ul[@class='social-box']"
+    ]
   }
 }
