@@ -16644,5 +16644,8 @@
     "cleanup": [
       "ul[@class='social-box']"
     ]
+  },
+  "//tcd-theme.com/": {
+    "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
   }
 }
