@@ -46,14 +46,6 @@
       "script"
     ]
   },
-  "//gazfootball.com/": {
-    "xpath": "div[@class='kizi']",
-    "cleanup": [
-      "table",
-      "h1",
-      "span"
-    ]
-  },
   "//juggly.cn/": {
     "xpath": "div[@class='the_content']",
     "cleanup": [
@@ -16647,5 +16639,11 @@
   },
   "//tcd-theme.com/": {
     "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
+  },
+  "//messagepassing.github.io/": {
+    "xpath": "body/div/div/div"
+  },
+  "//gazfootball.com/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
   }
 }
