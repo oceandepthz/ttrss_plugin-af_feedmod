@@ -16645,5 +16645,12 @@
   },
   "//gazfootball.com/": {
     "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//sakatsukurtw.blog.fc2.com/": {
+    "xpath": "div[@class='ently_body']",
+    "cleanup": [
+      "div[@class='ad-entry-bottom' or @class='fc2_footer']",
+      "dl[@id='fc2relate_entry_thumbnail_area']"
+    ]
   }
 }
