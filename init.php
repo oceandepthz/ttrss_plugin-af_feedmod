@@ -1422,9 +1422,9 @@ class Af_Feedmod extends Plugin implements IHandler
             $rval = [];
             $sources = explode(",", $node->getAttribute($attr));
             foreach($sources as $source) {
-                list($src, $pixel) = explode(" ", $source);
-                $src = $this->update_absolute_url($link, $src); 
-                $rval[] = "${src} ${pixel}";
+                list($src, $pixel) = explode(" ", trim($source));
+		$image_url = $this->update_absolute_url($link, $src);
+                $rval[] = "${image_url} ${pixel}";
             }
             if (count($rval) > 0){
                 $s = implode(",", $rval);
@@ -1559,8 +1559,8 @@ class Af_Feedmod extends Plugin implements IHandler
             new Ajax.Request('backend.php', {
 parameters: dojo.objectToQuery(this.getValues()),
 onComplete: function(transport) {
-if (transport.responseText.indexOf('error')>=0) notify_error(transport.responseText);
-else notify_info(transport.responseText);
+if (transport.responseText.indexOf('error')>=0) Notify.error(transport.responseText);
+else Notify.info(transport.responseText);
 }
 });
 //this.reset();
