@@ -14667,9 +14667,6 @@
   "//www.haconiwa-mag.com/": {
     "xpath": "main/*[@class='mainVisual' or contains(@class,'single_content')]"
   },
-  "//japanese.engadget.com/": {
-    "xpath": "div[@id='post-center-col']/div[@data-testid='PostContentContainer']/div|//section[@id='post-slideshow']|//div[contains(@class,'article-text')]"
-  },
   "//lineblog.me/": {
     "xpath": "div[@class='article-body-inner']"
   },
@@ -15133,24 +15130,6 @@
   },
   "//gadget-shot.com/": {
     "xpath": "div[@class='entry-main-content' or @class='entry-header-img']"
-  },
-  "//www.asahi.com/special/news/": {
-    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
-  },
-  "//www.asahi.com/corporate/info/": {
-    "xpath": "main"
-  },
-  "//www.asahi.com/and_M/": {
-    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
-  },
-  "//www.asahi.com/and_w/": {
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]",
-    "append_css": [
-      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
-    ]
   },
   "//miyearnzzlabo.com/": {
     "xpath": "header/div/figure[@class='eye-catch']|//div[contains(@class,'entry-content')]",
@@ -16652,5 +16631,44 @@
       "div[@class='ad-entry-bottom' or @class='fc2_footer']",
       "dl[@id='fc2relate_entry_thumbnail_area']"
     ]
+  },
+  "//japanese.engadget.com/": {
+    "xpath": "div[@id='post-center-col']/div[@data-testid='PostContentContainer']/div|//section[@id='post-slideshow']|//div[contains(@class,'article-text')]"
+  },
+  "//www.asahi.com/special/news/": {
+    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
+  },
+  "//www.asahi.com/corporate/info/": {
+    "xpath": "main"
+  },
+  "//www.asahi.com/and_M/": {
+    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
+  },
+  "//www.asahi.com/and_w/": {
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]",
+    "append_css": [
+      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
+    ]
+  },
+  "//nttcom.github.io/": {
+    "xpath": "article"
+  },
+  "//pronama.jp/": {
+    "xpath": "div[@id='mainEntity']"
+  },
+  "//pulpxstyle.com/": {
+    "xpath": "div[@class='article_mainContents']",
+    "cleanup": [
+      "*[@class='add_article_hero' or @class='article_footer']"
+    ]
+  },
+  "//pythonspeed.com/": {
+    "xpath": "div[@itemprop='articleBody']"
+  },
+  "//wapa5pow.com/": {
+    "xpath": "div[starts-with(@class,'markdown-styles_markdown__')]"
   }
 }
