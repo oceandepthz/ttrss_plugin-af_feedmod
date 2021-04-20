@@ -15795,12 +15795,6 @@
       "div[contains(@class,'ArticleBody-read-time-and-social-')]"
     ]
   },
-  "//blogs.mbc.co.jp/donkago/": {
-    "xpath": "div[@class='detail_text']",
-    "cleanup": [
-      "div[@class='share' or @class='post_meta']"
-    ]
-  },
   "//blog.ojisan.io/": {
     "xpath": "div[@class='main']/div/div[contains(@class,'gatsby-image-wrapper') or @class='content']"
   },
@@ -16635,24 +16629,6 @@
   "//japanese.engadget.com/": {
     "xpath": "div[@id='post-center-col']/div[@data-testid='PostContentContainer']/div|//section[@id='post-slideshow']|//div[contains(@class,'article-text')]"
   },
-  "//www.asahi.com/special/news/": {
-    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
-  },
-  "//www.asahi.com/corporate/info/": {
-    "xpath": "main"
-  },
-  "//www.asahi.com/and_M/": {
-    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
-  },
-  "//www.asahi.com/and_w/": {
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "xpath": "div[@class='ArticleBody']/div[@class='ImagesMod' or contains(@class,'ArticleText') or @class='RelatedLinkMod' or contains(@class,'ArticleProfileMod')]|//div[@id='MainInner']/div[contains(@class,'GalleryPrint')]",
-    "append_css": [
-      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
-    ]
-  },
   "//nttcom.github.io/": {
     "xpath": "article"
   },
@@ -16670,5 +16646,29 @@
   },
   "//wapa5pow.com/": {
     "xpath": "div[starts-with(@class,'markdown-styles_markdown__')]"
+  },
+  "//blogs.mbc.co.jp/donkago/": {
+    "xpath": "div[@class='p-entry__body']"
+  },
+  "//www.asahi.com/special/news/": {
+    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
+  },
+  "//www.asahi.com/corporate/info/": {
+    "xpath": "main"
+  },
+  "//www.asahi.com/and_M/": {
+    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
+  },
+  "//www.asahi.com/and_w/": {
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "xpath": "main[@id='main']",
+    "cleanup": [
+      "div[contains(@class,'notPrint')]"
+    ],
+    "append_css": [
+      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
+    ]
   }
 }
