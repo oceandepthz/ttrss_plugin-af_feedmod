@@ -7424,9 +7424,6 @@
   "//www.proof0309.com/": {
     "xpath": "section[contains(@class,'entry-content')]"
   },
-  "//goodpatch.com/blog/": {
-    "xpath": "header/figure|//section[contains(@class,'entry-content')]"
-  },
   "//www.edge-link.omron.co.jp/news/": {
     "xpath": "p[@class='photo']|//div[@class='entryContent']"
   },
@@ -15062,69 +15059,6 @@
       "div[starts-with(@class, 'ads')]"
     ]
   },
-  "//gihyo.jp/dp/ebook/": {
-    "xpath": "div[@id='bookInforMain']",
-    "cleanup": [
-      "aside[@id='social']",
-      "a[contains(@href,'cartAdd')]"
-    ]
-  },
-  "//gihyo.jp/design/column/": {
-    "xpath": "div[@id='authorProfile']|//div[@id='article']/div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/dev/serial/": {
-    "xpath": "div[starts-with(@class,'readingContent01')]"
-  },
-  "//gihyo.jp/news/": {
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/dev/column/": {
-    "xpath": "div[@itemprop='articleBody']",
-    "foot_xpath": "div[@id='authorProfile']",
-    "next_page": "div[@class='pageSwitch01']//li[not(@class='current')]"
-  },
-  "//gihyo.jp/admin/": {
-    "xpath": "div[starts-with(@class,'readingContent01')]",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/book/pickup/": {
-    "xpath": "div[@id='article' or @id='noticebookLink']",
-    "cleanup": [
-      "div[@class='sectionInfo01']"
-    ]
-  },
-  "*//gihyo.jp/book/*/*/content/commentary": {
-    "match_type": "fnmatch",
-    "xpath": "div[@id='article']/div[contains(@class,'readingContent')]",
-    "head_xpath": "div[@id='primary']/*[contains(@class,'mainTitle') or contains(@class,'subTitle')]",
-    "next_page": "div[@id='article']/div[contains(@class,'pageSwitch')]/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
-  "//gihyo.jp/book/": {
-    "xpath": "div[@id='primary']/div[@typeof='product:Product' or @id='summary' or @id='toc' or @id='authorProfile']",
-    "cleanup": [
-      "dl[@class='storeLink01']"
-    ]
-  },
-  "//gihyo.jp/magazine/": {
-    "xpath": "div[@id='article']/div[contains(@class,'readingContent')]"
-  },
-  "//gihyo.jp/": {
-    "xpath": "div[@itemprop='articleBody']",
-    "next_page": "div[@class='pageSwitch01']/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ]
-  },
   "//mykpb.com/": {
     "xpath": "header/p[@class='post-thumbnail']|//article/section[contains(@class,'entry-content')]"
   },
@@ -16202,36 +16136,6 @@
       "*[@class='fb-share-button' or @class='twitter-share-button']"
     ]
   },
-  "//news.yahoo.co.jp/pickup/": {
-    "xpath": "article"
-  },
-  "//news.yahoo.co.jp/feature/": {
-    "xpath": "section",
-    "cleanup": [
-      "div[contains(@class, 'embed')]"
-    ]
-  },
-  "//news.yahoo.co.jp/byline/": {
-    "xpath": "footer|//div[contains(@class,'articleBody')]",
-    "cleanup": [
-      "div[contains(@class,'snsButton')]"
-    ]
-  },
-  "//news.yahoo.co.jp/story/": {
-    "xpath": "div[@class='mainBody']"
-  },
-  "//news.yahoo.co.jp/newshack/": {
-    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
-    "cleanup": [
-      "ul[@id='snsbtm']"
-    ]
-  },
-  "//news.yahoo.co.jp/": {
-    "xpath": "div[@class='article_body']",
-    "next_page": "div[@class='pagination_body']",
-    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
-    "foot_xpath": "article/footer"
-  },
   "//blog.ja.playstation.com/": {
     "xpath": "div[@class='article-main-section']",
     "cleanup": [
@@ -16670,5 +16574,69 @@
     "append_css": [
       "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
     ]
+  },
+  "//goodpatch.com/blog/": {
+    "xpath": "div[@class='ArticleBody-content' or @class='ArticleBody-cover']"
+  },
+  "//manba.co.jp/": {
+    "xpath": "div[@class='article-contents']"
+  },
+  "//matomebu.com/": {
+    "xpath": "header//figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//netmark.jp/": {
+    "xpath": "article[@class='blog-post']",
+    "cleanup": [
+      "section[@id='social-share']"
+    ]
+  },
+  "//news.yahoo.co.jp/pickup/": {
+    "xpath": "article"
+  },
+  "//news.yahoo.co.jp/feature/": {
+    "xpath": "section",
+    "cleanup": [
+      "div[contains(@class, 'embed')]"
+    ]
+  },
+  "//news.yahoo.co.jp/byline/": {
+    "xpath": "footer|//div[contains(@class,'articleBody')]",
+    "cleanup": [
+      "div[contains(@class,'snsButton')]"
+    ]
+  },
+  "//news.yahoo.co.jp/story/": {
+    "xpath": "div[@class='mainBody']"
+  },
+  "//news.yahoo.co.jp/newshack/": {
+    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
+    "cleanup": [
+      "ul[@id='snsbtm']"
+    ]
+  },
+  "//news.yahoo.co.jp/": {
+    "xpath": "div[@class='article_body']",
+    "next_page": "div[@class='pagination_body']",
+    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
+    "foot_xpath": "article/footer"
+  },
+  "//www.uplink.co.jp/": {
+    "xpath": "article/figure|//article/section"
+  },
+  "//gihyo.jp/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'banner') or contains(@id,'AdSenseContent') or @id='socialBookmark' or @id='contentSwitch' or @id='primaryTopTextPr' or @id='magazineSupportButton']",
+      "dl[contains(@class,'storeLink')]"
+    ]
+  },
+  "//lore.kernel.org/": {
+    "xpath": "body",
+    "cleanup": [
+      "form"
+    ]
+  },
+  "//www.prisma.io/blog/": {
+    "xpath": "header/div/div[starts-with(@class,'Header__Abstract-') or starts-with(@class,'Header__Image-')]|//article/div[starts-with(@class,'styles__Container-')]"
   }
 }
