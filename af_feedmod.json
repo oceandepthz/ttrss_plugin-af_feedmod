@@ -193,9 +193,6 @@
       "div[contains(@class, 'ika')]"
     ]
   },
-  "postd.cc": {
-    "xpath": "div[@class='block-text-content']"
-  },
   "kankoreshuukai.blog.jp": {
     "xpath": "div[@class='article-body-inner']"
   },
@@ -8124,12 +8121,6 @@
   },
   "//camp-fire.jp/projects/view/": {
     "xpath": "section[@id='js-thumbnail']/div[@class='thumbnail-in']|//section[contains(@class,'caption')]/h2|//section[@class='projects-body']"
-  },
-  "//blog.ohgaki.net/": {
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[contains(@class,'fb-comments') or contains(@class,'sharedaddy') or @id='jp-relatedposts']"
-    ]
   },
   "//blog.nishinos.com/": {
     "xpath": "div[@class='article-body-inner']"
@@ -16623,13 +16614,6 @@
   "//www.uplink.co.jp/": {
     "xpath": "article/figure|//article/section"
   },
-  "//gihyo.jp/": {
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@id,'banner') or contains(@id,'AdSenseContent') or @id='socialBookmark' or @id='contentSwitch' or @id='primaryTopTextPr' or @id='magazineSupportButton']",
-      "dl[contains(@class,'storeLink')]"
-    ]
-  },
   "//lore.kernel.org/": {
     "xpath": "body",
     "cleanup": [
@@ -16638,5 +16622,37 @@
   },
   "//www.prisma.io/blog/": {
     "xpath": "header/div/div[starts-with(@class,'Header__Abstract-') or starts-with(@class,'Header__Image-')]|//article/div[starts-with(@class,'styles__Container-')]"
+  },
+  "//gihyo.jp/magazine/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'banner') or contains(@id,'AdSenseContent') or @id='socialBookmark' or @id='contentSwitch' or @id='primaryTopTextPr' or @id='magazineSupportButton']",
+      "dl[contains(@class,'storeLink')]"
+    ]
+  },
+  "//gihyo.jp/book/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'banner') or contains(@id,'AdSenseContent') or @id='socialBookmark' or @id='contentSwitch' or @id='primaryTopTextPr' or @id='magazineSupportButton']",
+      "dl[contains(@class,'storeLink')]"
+    ]
+  },
+  "//gihyo.jp/": {
+    "xpath": "div[@id='article']/div[starts-with(@class,'readingContent')]",
+    "next_page": "div[@id='article']/div[starts-with(@class,'pageSwitch')][1]/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ],
+    "head_xpath": "h2[starts-with(@class,'subTitle')]|//div[@class='sectionProperty']/p",
+    "foot_xpath": "div[@id='primary']/div[@id='authorProfile' or starts-with(@id,'backNumber') or @id='relArticle']"
+  },
+  "//postd.cc/": {
+    "xpath": "div[starts-with(@class,'article__Inner-')]/*[starts-with(@class,'article__MainVisual-') or starts-with(@class,'TextPage-')]"
+  },
+  "//blog.ohgaki.net/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'wpdevar_comment_') or contains(@class,'sharedaddy')]"
+    ]
   }
 }
