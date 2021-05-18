@@ -16511,9 +16511,6 @@
   "//messagepassing.github.io/": {
     "xpath": "body/div/div/div"
   },
-  "//gazfootball.com/": {
-    "xpath": "article/div[contains(@class,'entry-content')]"
-  },
   "//sakatsukurtw.blog.fc2.com/": {
     "xpath": "div[@class='ently_body']",
     "cleanup": [
@@ -16654,5 +16651,19 @@
     "cleanup": [
       "div[contains(@id,'wpdevar_comment_') or contains(@class,'sharedaddy')]"
     ]
+  },
+  "//www.ktv.jp/news/": {
+    "xpath": "div[@class='article_inner']"
+  },
+  "//gazfootball.com/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//note.tokyo-sports.co.jp/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//note.com/nhk_syuzai/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
   }
 }
