@@ -10137,12 +10137,6 @@
       "div[@class='share']"
     ]
   },
-  "//hitoxu.com/": {
-    "xpath": "div[@id='the-content']",
-    "cleanup": [
-      "div[@id='widget-in-article']"
-    ]
-  },
   "//blogs.dropbox.com/": {
     "xpath": "article/div[@class='entry-content']"
   },
@@ -12911,9 +12905,6 @@
   "//hookrace.net/blog/": {
     "xpath": "div[@class='post']"
   },
-  "//friday.kodansha.co.jp/": {
-    "xpath": "article/div/div[contains(@class,'articleContent___')]"
-  },
   "//employment.en-japan.com/desc_": {
     "xpath": "div[@class='pageSet']",
     "cleanup": [
@@ -13286,10 +13277,6 @@
   "//kensuu.com/n/": {
     "engine": "note_mu",
     "xpath": "body"
-  },
-  "//www.news-postseven.com/": {
-    "xpath": "div[@class='detailSec']/div[@class='wp-editor']",
-    "next_page": "ul[@class='pagenation']"
   },
   "//kachibito.net/": {
     "xpath": "article/div[contains(@class,'entry-content')]"
@@ -13922,12 +13909,6 @@
     "xpath": "div[@class='article-box']/*[@class='sub-title' or @class='eyecatch' or @class='mp-article-body']",
     "cleanup": [
       "div[@class='ads']"
-    ]
-  },
-  "//coralcap.co/": {
-    "xpath": "div[@class='wpb_wrapper']/*[contains(@class,'vcex-post-content') or contains(@class,'vcex-post-media') or contains(@class,'author-bio')]",
-    "cleanup": [
-      "div[contains(@class,'author-bio-social')]"
     ]
   },
   "//gunosy.co.jp/news/": {
@@ -15726,14 +15707,6 @@
       "aside[@class='share-sns']"
     ]
   },
-  "//diamond.jp/": {
-    "xpath": "div[contains(@class,'article-body')]",
-    "next_page": "ul[@class='pagination']"
-  },
-  "//signal.diamond.jp/": {
-    "xpath": "div[contains(@class,'article-body')]",
-    "next_page": "ul[@class='pagination']"
-  },
   "//ukyouforverde.seesaa.net/": {
     "xpath": "div[@class='article__content']"
   },
@@ -16198,9 +16171,6 @@
       "div#data_body{width:100%;max-width:540px;}"
     ]
   },
-  "//www.kagoshimaniax.com/": {
-    "xpath": "article/*[@class='p-articleThumb' or @class='post_content']"
-  },
   "//vercel.com/guides/": {
     "xpath": "article/div/section[contains(@class,'content')]"
   },
@@ -16517,12 +16487,6 @@
   "//pronama.jp/": {
     "xpath": "div[@id='mainEntity']"
   },
-  "//pulpxstyle.com/": {
-    "xpath": "div[@class='article_mainContents']",
-    "cleanup": [
-      "*[@class='add_article_hero' or @class='article_footer']"
-    ]
-  },
   "//pythonspeed.com/": {
     "xpath": "div[@itemprop='articleBody']"
   },
@@ -16710,5 +16674,59 @@
   },
   "//blog.tailwindcss.com/": {
     "xpath": "article/div/div/div[contains(@class,'prose')]"
+  },
+  "//kagoshimaniax.com/": {
+    "xpath": "article/*[@class='p-articleThumb' or @class='post_content']"
+  },
+  "//diamond-rm.net/": {
+    "xpath": "article/div[@class='wpeditor']",
+    "next_page": "article/div[@class='pagenation']",
+    "cleanup": [
+      "div[@class='box-nextpage']"
+    ]
+  },
+  "//diamond.jp/": {
+    "xpath": "div[contains(@class,'article-body')]",
+    "next_page": "ul[@class='pagination']"
+  },
+  "//signal.diamond.jp/": {
+    "xpath": "div[contains(@class,'article-body')]",
+    "next_page": "ul[@class='pagination']"
+  },
+  "//reiwa-kawaraban.com/": {
+    "xpath": "div[@class='entry-body']",
+    "cleanup": [
+      "div[@class='likebtn_container' or contains(@class,'veu_socialSet')]",
+      "aside"
+    ]
+  },
+  "//variiis.com/": {
+    "xpath": "article/div[@class='cps-post-thumb' or @class='cps-post-main-box']",
+    "cleanup": [
+      "a[contains(@href,'//af.moshimo.com/')]",
+      "div[contains(@class,'share')]"
+    ]
+  },
+  "//www.news-postseven.com/": {
+    "xpath": "div[@class='detailSec']/div[@class='wp-editor']",
+    "next_page": "ul[@class='pagenation']"
+  },
+  "//friday.kodansha.co.jp/": {
+    "xpath": "article/ul[contains(@class,'styles_credits__')]|//article/div[@class='p402_premium']"
+  },
+  "//hitoxu.com/": {
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//journal.uzabase.com/": {
+    "xpath": "section/div/div[@class='normal' or @id='content' or @class='single__pwrap']"
+  },
+  "//pulpxstyle.com/": {
+    "xpath": "main/*[@class='article_hero_thumbnail' or @class='article_mainContents_section']"
+  },
+  "//coralcap.co/": {
+    "xpath": "div[contains(@class,'et_pb_column')]/div[contains(@class,'et_pb_image') or contains(@class,'coral_blog_main_content')]"
   }
 }
