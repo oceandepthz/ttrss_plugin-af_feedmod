@@ -10214,13 +10214,6 @@
   "//www.mavo.co.jp/": {
     "xpath": "section/div[@class='post']"
   },
-  "//www.fastly.com/blog/": {
-    "xpath": "body/section[@class='section']",
-    "cleanup": [
-      "span[@class='social-links']",
-      "div[@id='disqus_thread']"
-    ]
-  },
   "//magazine.gamewith.co.jp/": {
     "xpath": "article/div[@class='Article_catch' or contains(@class,'Article_content')]",
     "cleanup": [
@@ -16728,5 +16721,21 @@
   },
   "//coralcap.co/": {
     "xpath": "div[contains(@class,'et_pb_column')]/div[contains(@class,'et_pb_image') or contains(@class,'coral_blog_main_content')]"
+  },
+  "//www.fastly.com/blog/": {
+    "xpath": "section[contains(@class,'blog-post-section-body')]"
+  },
+  "//hikkoshi.suumo.jp/oyakudachi/": {
+    "xpath": "article/div/div[@class='secWrapper']",
+    "cleanup": [
+      "form",
+      "div[@class='actionBox' or contains(@class,'catNewWrapper') or contains(@class,'catPopularWrapper')]"
+    ]
+  },
+  "//ja.kohsuke.org/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//world.hey.com/": {
+    "xpath": "article"
   }
 }
