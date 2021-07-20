@@ -12941,14 +12941,6 @@
       "div[@class='wp_rp_content' or @class='comment']"
     ]
   },
-  "//dailyportalz.jp/": {
-    "xpath": "div[@id='mainContentsInner']/div[contains(@class,'contentblock')]",
-    "cleanup": [
-      "div[@class='writer-detail']//a[contains(@href,'//twitter.com/') or contains(@href,'//plus.google.com/')]",
-      "div[@id='links']"
-    ],
-    "next_page": "div[@id='links']"
-  },
   "*//github.com/*/*/releases/tag/*": {
     "match_type": "fnmatch",
     "xpath": "div[contains(@class,'repository-content')]/div[@class='border-top']"
@@ -15098,14 +15090,6 @@
   "//www.raspberrypi.org/blog/": {
     "xpath": "article/div[contains(@class,'c-post-content')]"
   },
-  "//www.sankei.com/": {
-    "xpath": "div[@class='post_content']",
-    "cleanup": [
-      "aside",
-      "p[@class='pageNextsubhead']"
-    ],
-    "next_page": "div[@class='pagination']"
-  },
   "//offers.jp/media/": {
     "xpath": "div[@class='p-article']",
     "cleanup": [
@@ -16586,36 +16570,6 @@
   "//media.lifull.com/stories/": {
     "xpath": "div[@id='main']/section/div[@id='post-lead' or @id='post-img' or @id='post-content']"
   },
-  "//news.yahoo.co.jp/pickup/": {
-    "xpath": "article"
-  },
-  "//news.yahoo.co.jp/feature/": {
-    "xpath": "section",
-    "cleanup": [
-      "div[contains(@class, 'embed')]"
-    ]
-  },
-  "//news.yahoo.co.jp/byline/": {
-    "xpath": "footer|//div[contains(@class,'articleBody')]",
-    "cleanup": [
-      "div[contains(@class,'snsButton')]"
-    ]
-  },
-  "//news.yahoo.co.jp/story/": {
-    "xpath": "div[@class='mainBody']"
-  },
-  "//news.yahoo.co.jp/newshack/": {
-    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
-    "cleanup": [
-      "ul[@id='snsbtm']"
-    ]
-  },
-  "//news.yahoo.co.jp/": {
-    "xpath": "div[@class='article_body']",
-    "next_page": "div[@class='pagination_body']",
-    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
-    "foot_xpath": "article/footer"
-  },
   "//peing.net/ja/q/": {
     "xpath": "div[@class='answer-box']/div[@class='eye-catch-wrapper' or @class='user-link-container' or @class='answer']",
     "cleanup": [
@@ -16737,5 +16691,54 @@
   },
   "//world.hey.com/": {
     "xpath": "article"
+  },
+  "//nagamono.jugem.jp/": {
+    "xpath": "dl[@id='entry_area']/dd/div[@class='entry_body' or @class='entry_more']",
+    "cleanup": [
+      "div[@class='entry_love']"
+    ]
+  },
+  "//news.yahoo.co.jp/pickup/": {
+    "xpath": "article"
+  },
+  "//news.yahoo.co.jp/feature/": {
+    "xpath": "section",
+    "cleanup": [
+      "div[contains(@class, 'embed')]"
+    ]
+  },
+  "//news.yahoo.co.jp/byline/": {
+    "xpath": "footer|//div[contains(@class,'articleBody')]",
+    "cleanup": [
+      "div[contains(@class,'snsButton')]"
+    ]
+  },
+  "//news.yahoo.co.jp/story/": {
+    "xpath": "div[@class='mainBody']"
+  },
+  "//news.yahoo.co.jp/newshack/": {
+    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
+    "cleanup": [
+      "ul[@id='snsbtm']"
+    ]
+  },
+  "//news.yahoo.co.jp/": {
+    "xpath": "div[contains(@class,'article_body')]",
+    "next_page": "div[@class='pagination_body']",
+    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
+    "foot_xpath": "article/footer"
+  },
+  "//www.sankei.com/": {
+    "xpath": "div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@class,'inline-ad')]"
+    ],
+    "next_page": "div[contains(@class,'pagination')]"
+  },
+  "//nordot.app/": {
+    "xpath": "div[@class='main__articleBody']"
+  },
+  "//dailyportalz.jp/": {
+    "xpath": "div[@class='article_content']"
   }
 }
