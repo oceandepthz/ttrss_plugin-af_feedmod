@@ -5326,12 +5326,6 @@
       "div[@class='insentense-adsense']"
     ]
   },
-  "//www.mbs.jp/news/kansai/": {
-    "xpath": "section[@id='article']",
-    "cleanup": [
-      "ul[contains(@class,'btn_sns')]"
-    ]
-  },
   "//www.gohongi-beauty.jp/blog/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -9310,9 +9304,6 @@
     "xpath": "body",
     "no_fetch": true
   },
-  "//www.mbs.jp/news/sp/kansai/": {
-    "xpath": "div[@class='movie']|//section[@id='article']/p"
-  },
   "//www.kobetsu.co.jp/cafeducation/": {
     "xpath": "section[@id='articleContents']"
   },
@@ -10376,9 +10367,6 @@
   },
   "//www.anige-sokuhouvip.com/": {
     "xpath": "div[@class='entry-body']"
-  },
-  "//www.agrinews.co.jp/": {
-    "xpath": "div[contains(@class,'article_detail')]"
   },
   "//woman-type.jp/wt/feature/": {
     "xpath": "section[@id='section_1']",
@@ -16632,10 +16620,6 @@
       "div[contains(@class,'share')]"
     ]
   },
-  "//www.news-postseven.com/": {
-    "xpath": "div[@class='detailSec']/div[@class='wp-editor']",
-    "next_page": "ul[@class='pagenation']"
-  },
   "//friday.kodansha.co.jp/": {
     "xpath": "article/ul[contains(@class,'styles_credits__')]|//article/div[@class='p402_premium']"
   },
@@ -16749,5 +16733,50 @@
     "next_page": "div[contains(@class,'title-pagination')]//span[@class='pagination']|//div[@id='multipage' or @class='pagination'or @id='pager'or contains(@class,'multipage-end') or @class='pager']|//ul[@class='m-pager-list']",
     "next_page_cleanup": "li[@class='is-active']",
     "append_css": "video{width:640px!important;height:480px!important;position:static!important;}"
+  },
+  "//www.covid19-jma-medical-expert-meeting.jp/": {
+    "xpath": "div[contains(@class,'elementor-widget-theme-post-content')]",
+    "cleanup": [
+      "h3[contains(@class,'yws_post_')]",
+      "div[@id='yws_recent_post']"
+    ]
+  },
+  "//www.designstoriesinc.com/": {
+    "xpath": "div[@id='contents']"
+  },
+  "//www.klab.com/": {
+    "xpath": "div[contains(@class,'p-newsArea') or contains(@class,'p-blog_articleArea')]"
+  },
+  "//www.mbs.jp/news/": {
+    "xpath": "div[@class='movie']|//section[@id='article']/p"
+  },
+  "//www.news-postseven.com/": {
+    "xpath": "div[contains(@class,'article-body-')]/div[@class='wp-editor']",
+    "next_page": "nav[@class='st-Pagination']",
+    "next_page_cleanup": "a[contains(@class,'st-Pagination_Link-disabledArrow')]"
+  },
+  "//slowinternet.jp/": {
+    "xpath": "div[@class='content-body']/article"
+  },
+  "//softantenna.com/": {
+    "xpath": "article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'contentunder')]"
+    ]
+  },
+  "//www.agrinews.co.jp/": {
+    "xpath": "div[@id='ev-viewport' or contains(@class,'hk-article-body')]"
+  },
+  "//www.bunkanews.jp/": {
+    "xpath": "div[contains(@class,'single-content')]"
+  },
+  "//tokuhain.arukikata.co.jp/": {
+    "xpath": "div[@id='2column_main']/div[@class='title_l' or @class='article' or @class='article_link']"
+  },
+  "//news.arukikata.co.jp/": {
+    "xpath": "div[@class='article_txt']",
+    "cleanup": [
+      "div[@class='ad' or @class='article_count']"
+    ]
   }
 }
