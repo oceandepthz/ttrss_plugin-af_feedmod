@@ -1915,10 +1915,6 @@
   "bashalog.c-brains.jp": {
     "xpath": "header//p[@class='thumb' or @class='author']|//div[@class='entry-body']"
   },
-  "www.sanspo.com": {
-    "xpath": "div[@class='NewsDetail']",
-    "next_page": "div[@class='PageNavi']"
-  },
   "camera.one-cut.net": {
     "xpath": "div[@class='entry-content']"
   },
@@ -16378,9 +16374,6 @@
   "//hatena.zoom.us/webinar/": {
     "xpath": "div[@id='webinar_register_container']/img|//div[@class='webinar_topic']"
   },
-  "//373news.com/": {
-    "xpath": "div[@id='bt_body']"
-  },
   "//blog.adobe.com/": {
     "xpath": "main"
   },
@@ -16660,36 +16653,6 @@
       "div[@class='entry_love']"
     ]
   },
-  "//news.yahoo.co.jp/pickup/": {
-    "xpath": "article"
-  },
-  "//news.yahoo.co.jp/feature/": {
-    "xpath": "section",
-    "cleanup": [
-      "div[contains(@class, 'embed')]"
-    ]
-  },
-  "//news.yahoo.co.jp/byline/": {
-    "xpath": "footer|//div[contains(@class,'articleBody')]",
-    "cleanup": [
-      "div[contains(@class,'snsButton')]"
-    ]
-  },
-  "//news.yahoo.co.jp/story/": {
-    "xpath": "div[@class='mainBody']"
-  },
-  "//news.yahoo.co.jp/newshack/": {
-    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
-    "cleanup": [
-      "ul[@id='snsbtm']"
-    ]
-  },
-  "//news.yahoo.co.jp/": {
-    "xpath": "div[contains(@class,'article_body')]",
-    "next_page": "div[@class='pagination_body']",
-    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
-    "foot_xpath": "article/footer"
-  },
   "//www.sankei.com/": {
     "xpath": "div[contains(@class,'article-body')]",
     "cleanup": [
@@ -16778,5 +16741,61 @@
     "cleanup": [
       "div[@class='ad' or @class='article_count']"
     ]
+  },
+  "//news.yahoo.co.jp/pickup/": {
+    "xpath": "article"
+  },
+  "//news.yahoo.co.jp/feature/": {
+    "xpath": "section",
+    "cleanup": [
+      "div[contains(@class, 'embed')]"
+    ]
+  },
+  "//news.yahoo.co.jp/byline/": {
+    "xpath": "article/div/figure|//article/div/section|//div[@id='contentsWrap']/div"
+  },
+  "//news.yahoo.co.jp/story/": {
+    "xpath": "div[@class='mainBody']"
+  },
+  "//news.yahoo.co.jp/newshack/": {
+    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
+    "cleanup": [
+      "ul[@id='snsbtm']"
+    ]
+  },
+  "//news.yahoo.co.jp/": {
+    "xpath": "div[contains(@class,'article_body')]",
+    "next_page": "div[@class='pagination_body']",
+    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
+    "foot_xpath": "article/footer"
+  },
+  "//373news.com/": {
+    "xpath": "div[@id='bt_body']"
+  },
+  "//smbiz.asahi.com/": {
+    "xpath": "main/div/div/div[@class='article-main-image' or @class='article-summary']|//main/div/div[@class='article-body']"
+  },
+  "//takuti.me/": {
+    "xpath": "article/div[@class='post']"
+  },
+  "//www.sanspo.com/": {
+    "xpath": "main/div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@class,'article__inline-ad')]",
+      "section[contains(@class,'SocialShare')]"
+    ]
+  },
+  "//rockinon.com/": {
+    "xpath": "article/div[@class='c-detail-article__body']",
+    "next_page": "nav[@class='c-article-pagenation']",
+    "cleanup": [
+      "div[@class='c-article-nextpage']"
+    ]
+  },
+  "//shujisado.com/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//sibucho-laboratory.com/": {
+    "xpath": "article/header/div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]"
   }
 }
