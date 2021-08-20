@@ -16797,5 +16797,22 @@
   },
   "//sibucho-laboratory.com/": {
     "xpath": "article/header/div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//medical.jiji.com/": {
+    "xpath": "div[@class='articleBody']"
+  },
+  "//memo.tyoshida.me/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//note.designing.jp/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//note.digital.go.jp/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//openai.com/blog/": {
+    "xpath": "section[@class='content']"
   }
 }
