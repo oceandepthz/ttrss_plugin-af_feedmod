@@ -12444,9 +12444,6 @@
   "//modelessdesign.com/backdrop/": {
     "xpath": "div[@class='entry-content']"
   },
-  "//kojika17.com/": {
-    "xpath": "article/div[@class='entry']"
-  },
   "//harasou.jp/": {
     "xpath": "article/div[contains(@class,'post-content')]"
   },
@@ -14941,12 +14938,6 @@
   "//www.footballista.jp/": {
     "xpath": "div[@class='post_detail__content' or @class='post_detail__header__img']"
   },
-  "//engineering.linecorp.com/ja/blog/": {
-    "xpath": "div[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'yuzo_related_post') or contains(@class,'addtoany_share_save_container')]"
-    ]
-  },
   "//web.kawade.co.jp/bungei/": {
     "xpath": "article/div[@id='postCont']"
   },
@@ -16273,9 +16264,6 @@
   "//www.apollographql.com/blog/": {
     "xpath": "main"
   },
-  "//jabba.cloud/": {
-    "xpath": "article/div[contains(@class,'bodytext')]"
-  },
   "//css-tricks.com/": {
     "xpath": "div[@class='article-content']"
   },
@@ -16814,5 +16802,37 @@
   },
   "//openai.com/blog/": {
     "xpath": "section[@class='content']"
+  },
+  "//kojika17.com/": {
+    "xpath": "body",
+    "cleanup": [
+      "header",
+      "footer",
+      "div[@class='sns' or @class='ad' or @class='paginate']"
+    ]
+  },
+  "//engineering.linecorp.com/": {
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'yuzo_related_post') or contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//linecorp.com/ja/security/": {
+    "xpath": "div[contains(@class,'article')]/div[contains(@class,'content_area')]"
+  },
+  "//ideyuta.com/": {
+    "xpath": "div[@class='post']"
+  },
+  "//jabba.cloud/": {
+    "xpath": "article/div/div/div"
+  },
+  "//ja.stateofaiguides.com/": {
+    "xpath": "p[@class='post-full-custom-excerpt']|//figure[@class='post-full-image']|//section[@class='post-full-content']"
+  },
+  "//kahoku.news/": {
+    "xpath": "div[@class='article__wrap']",
+    "cleanup": [
+      "div[@class='share' or @class='mailmaga']"
+    ]
   }
 }
