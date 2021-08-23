@@ -10644,9 +10644,6 @@
     ],
     "next_page": "div[@class='list-pagination-02']"
   },
-  "//hr.pepabo.com/interview/": {
-    "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
-  },
   "//gameboku.blog.jp/": {
     "xpath": "div[@class='article-body-inner']"
   },
@@ -16468,32 +16465,6 @@
   "//www.prisma.io/blog/": {
     "xpath": "header/div/div[starts-with(@class,'Header__Abstract-') or starts-with(@class,'Header__Image-')]|//article/div[starts-with(@class,'styles__Container-')]"
   },
-  "//gihyo.jp/magazine/": {
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@id,'banner') or contains(@id,'AdSenseContent') or @id='socialBookmark' or @id='contentSwitch' or @id='primaryTopTextPr' or @id='magazineSupportButton']",
-      "dl[contains(@class,'storeLink')]"
-    ]
-  },
-  "//gihyo.jp/book/": {
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@id,'banner') or contains(@id,'AdSenseContent') or @id='socialBookmark' or @id='contentSwitch' or @id='primaryTopTextPr' or @id='magazineSupportButton']",
-      "dl[contains(@class,'storeLink')]"
-    ]
-  },
-  "//gihyo.jp/": {
-    "xpath": "div[@id='article']/div[starts-with(@class,'readingContent')]",
-    "next_page": "div[@id='article']/div[starts-with(@class,'pageSwitch')][1]/ul",
-    "next_page_cleanup": [
-      "li[@class='current']"
-    ],
-    "head_xpath": "h2[starts-with(@class,'subTitle')]|//div[@class='sectionProperty']/p",
-    "foot_xpath": "div[@id='primary']/div[@id='authorProfile' or starts-with(@id,'backNumber') or @id='relArticle']"
-  },
-  "//postd.cc/": {
-    "xpath": "div[starts-with(@class,'article__Inner-')]/*[starts-with(@class,'article__MainVisual-') or starts-with(@class,'TextPage-')]"
-  },
   "//blog.ohgaki.net/": {
     "xpath": "article",
     "cleanup": [
@@ -16578,10 +16549,6 @@
     "cleanup": [
       "div[@class='box-nextpage']"
     ]
-  },
-  "//diamond.jp/": {
-    "xpath": "div[contains(@class,'article-body')]",
-    "next_page": "ul[@class='pagination']"
   },
   "//signal.diamond.jp/": {
     "xpath": "div[contains(@class,'article-body')]",
@@ -16834,5 +16801,54 @@
     "cleanup": [
       "div[@class='share' or @class='mailmaga']"
     ]
+  },
+  "//gihyo.jp/magazine/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'banner') or contains(@id,'AdSenseContent') or @id='socialBookmark' or @id='contentSwitch' or @id='primaryTopTextPr' or @id='magazineSupportButton']",
+      "dl[contains(@class,'storeLink')]"
+    ]
+  },
+  "//gihyo.jp/book/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'banner') or contains(@id,'AdSenseContent') or @id='socialBookmark' or @id='contentSwitch' or @id='primaryTopTextPr' or @id='magazineSupportButton']",
+      "dl[contains(@class,'storeLink')]"
+    ]
+  },
+  "//gihyo.jp/": {
+    "xpath": "div[@id='article']/div[starts-with(@class,'readingContent')]",
+    "next_page": "div[@id='article']/div[starts-with(@class,'pageSwitch')][1]/ul",
+    "next_page_cleanup": [
+      "li[@class='current']"
+    ],
+    "head_xpath": "h2[starts-with(@class,'subTitle')]|//div[@class='sectionProperty']/p",
+    "foot_xpath": "div[@id='primary']/div[@id='authorProfile' or starts-with(@id,'backNumber') or @id='relArticle']"
+  },
+  "//golang.org/doc/": {
+    "xpath": "main"
+  },
+  "//growth-marketing.jp/knowledge/": {
+    "xpath": "aside[@class='c-author-profile']|//div[@class='c-article-content']"
+  },
+  "//hr.pepabo.com/interview/": {
+    "xpath": "div[@class='Entry__FeaturedImage' or @class='Entry__Content']"
+  },
+  "//diamond.jp/": {
+    "xpath": "div[contains(@class,'article-body')]",
+    "next_page": "ul[@class='pagination']"
+  },
+  "//diehardtales.com/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//eh-career.com/engineerhub/": {
+    "xpath": "p[@class='entry-og-description']|//div[@class='entry-content']"
+  },
+  "//flatt.tech/assessment/": {
+    "xpath": "div[starts-with(@class,'index-module--Voice_ContentWrapper--')]"
+  },
+  "//postd.cc/": {
+    "xpath": "div[starts-with(@class,'article__Inner-')]/*[starts-with(@class,'article__MainVisual-') or starts-with(@class,'article__OriginalWrapper-') or starts-with(@class,'textPageStyles__TextPage-')]"
   }
 }
