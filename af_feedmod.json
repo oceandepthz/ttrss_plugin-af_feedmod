@@ -7549,15 +7549,6 @@
       "div[contains(@class,'mh-social-')]"
     ]
   },
-  "//synodos.jp/": {
-    "xpath": "div[@id='singleInner']",
-    "cleanup": [
-      "ins/../script",
-      "ins",
-      "div[@class='entryLastSns']"
-    ],
-    "next_page": "div[@id='linkPages']"
-  },
   "//se-tenshokucenter.com/": {
     "xpath": "figure[@class='eye-catch']|//div[@id='the-content']"
   },
@@ -16850,5 +16841,17 @@
   },
   "//postd.cc/": {
     "xpath": "div[starts-with(@class,'article__Inner-')]/*[starts-with(@class,'article__MainVisual-') or starts-with(@class,'article__OriginalWrapper-') or starts-with(@class,'textPageStyles__TextPage-')]"
+  },
+  "//nextjs.org/docs/": {
+    "xpath": "div[contains(@class,'docs-content')]"
+  },
+  "//synodos.jp/": {
+    "xpath": "article/div[@class='content']|//article/h3|//article/div[@class='section-profile']"
+  },
+  "//tech.bitbank.cc/": {
+    "xpath": "article/div[@class='featured-media' or @class='post-content']"
+  },
+  "//www.theregister.com/": {
+    "xpath": "div[@id='body']"
   }
 }
