@@ -16862,7 +16862,7 @@
   "//www.yuu-progra.com/": {
     "xpath": "div[@class='cps-post-main-box' or contains(@class,'cps-post-thumb')]",
     "cleanup": [
-      "*[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') @class='sns']"
+      "*[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') or @class='sns']"
     ]
   }
 }
