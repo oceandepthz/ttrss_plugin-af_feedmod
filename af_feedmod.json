@@ -7324,10 +7324,6 @@
       "div[contains(@class,'a-single')]"
     ]
   },
-  "//doda.jp/engineer/guide/": {
-    "xpath": "div[@id='geek_main' or @id='geek_head' or @class='backprofile']",
-    "next_page": "div[@class='pager']"
-  },
   "//corriente.top/": {
     "xpath": "div[@class='article']",
     "cleanup": [
@@ -15511,15 +15507,6 @@
       "div[@class='blog_info']"
     ]
   },
-  "//bunshun.jp/articles/": {
-    "xpath": "figure/div[contains(@class,'kanban')]/img|//div[@class='article-body' or @class='author-header' or contains(@class,'title-side')]",
-    "cleanup": [
-      "span[@class='icon-image-link']",
-      "div[contains(@class,'ad-banner') or contains(@class,'btn-link-photopage')]"
-    ],
-    "next_page": "div[contains(@class,'pagination')]",
-    "next_page_cleanup": "a[contains(@class,'active')]"
-  },
   "//search.yahoo.co.jp/realtime/search/tweet/": {
     "xpath": "div[@class='main']/div[contains(@class,'HeadingTweet_HeadingTweet__') or contains(@class,'PageTitle_PageTitle__') or contains(@class,'PastTweet_PastTweet__')]",
     "cleanup": [
@@ -16688,33 +16675,6 @@
       "div[@class='ad' or @class='article_count']"
     ]
   },
-  "//news.yahoo.co.jp/pickup/": {
-    "xpath": "article"
-  },
-  "//news.yahoo.co.jp/feature/": {
-    "xpath": "section",
-    "cleanup": [
-      "div[contains(@class, 'embed')]"
-    ]
-  },
-  "//news.yahoo.co.jp/byline/": {
-    "xpath": "article/div/figure|//article/div/section|//div[@id='contentsWrap']/div"
-  },
-  "//news.yahoo.co.jp/story/": {
-    "xpath": "div[@class='mainBody']"
-  },
-  "//news.yahoo.co.jp/newshack/": {
-    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
-    "cleanup": [
-      "ul[@id='snsbtm']"
-    ]
-  },
-  "//news.yahoo.co.jp/": {
-    "xpath": "div[contains(@class,'article_body')]",
-    "next_page": "div[@class='pagination_body']",
-    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
-    "foot_xpath": "article/footer"
-  },
   "//373news.com/": {
     "xpath": "div[@id='bt_body']"
   },
@@ -16853,5 +16813,56 @@
   },
   "//www.theregister.com/": {
     "xpath": "div[@id='body']"
+  },
+  "//bunshun.jp/denshiban/": {
+    "xpath": "section[@class='article-header']/figure|//section[@class='article-body']",
+    "cleanup": [
+      "div[@class='article-social']"
+    ]
+  },
+  "//bunshun.jp/articles/": {
+    "xpath": "figure/div[contains(@class,'kanban')]/img|//div[@class='article-body' or @class='author-header' or contains(@class,'title-side')]",
+    "cleanup": [
+      "span[@class='icon-image-link']",
+      "div[contains(@class,'ad-banner') or contains(@class,'btn-link-photopage')]"
+    ],
+    "next_page": "div[contains(@class,'pagination')]",
+    "next_page_cleanup": "a[contains(@class,'active')]"
+  },
+  "//doda.jp/engineer/guide/": {
+    "xpath": "div[@id='container']/section/div[@class='homeHero']/img|//div[@id='container']/section/div[@class='homeHero']/p[@class='caption']|//div[@id='container']/section/div[contains(@class,'articleArea') or @class='guide_AdviserBox']"
+  },
+  "//news.yahoo.co.jp/pickup/": {
+    "xpath": "article"
+  },
+  "//news.yahoo.co.jp/feature/": {
+    "xpath": "section",
+    "cleanup": [
+      "div[contains(@class, 'embed')]"
+    ]
+  },
+  "//news.yahoo.co.jp/byline/": {
+    "xpath": "article/div/figure|//article/div/section|//div[@id='contentsWrap']/div"
+  },
+  "//news.yahoo.co.jp/story/": {
+    "xpath": "div[@class='mainBody']"
+  },
+  "//news.yahoo.co.jp/newshack/": {
+    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
+    "cleanup": [
+      "ul[@id='snsbtm']"
+    ]
+  },
+  "//news.yahoo.co.jp/": {
+    "xpath": "div[contains(@class,'article_body')]",
+    "next_page": "div[@class='pagination_body']",
+    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
+    "foot_xpath": "article/footer"
+  },
+  "//www.yuu-progra.com/": {
+    "xpath": "div[@class='cps-post-main-box' or contains(@class,'cps-post-thumb')]",
+    "cleanup": [
+      "*[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') @class='sns']"
+    ]
   }
 }
