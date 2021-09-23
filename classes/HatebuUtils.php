@@ -2,7 +2,12 @@
 
 class HatebuUtils {
     static public function is_hatebu(string $fetch_url) : bool {
-        $target = ['//b.hatena.ne.jp/hotentry/it.rss','//feeds.feedburner.com/hatena/b/hotentry','//rss.kozono.org/rss/hatebu_marge_hotentry.rss'];
+	    $target = [
+		    '//b.hatena.ne.jp/hotentry/it.rss',
+		       '//feeds.feedburner.com/hatena/b/hotentry',
+		       '//rss.kozono.org/rss/hatebu_marge_hotentry.rss',
+	               '//b.hatena.ne.jp/hotentry.rss'
+	       ];
         return self::strposa($fetch_url, $target);
     }
     static public function get_hatebu_content(string $url) : string {
