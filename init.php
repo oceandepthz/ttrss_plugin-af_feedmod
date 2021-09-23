@@ -929,6 +929,22 @@ class Af_Feedmod extends Plugin implements IHandler
                 }
                 $this->append_img_tag($doc, $node, $url); 
             }
+	}
+
+        $items = ["//blockquote[@class='imgur-embed-pub']"];
+        foreach($items as $item){
+            $node_list = $xpath->query($item, $basenode);
+            if(!$node_list || $node_list->length === 0){
+                continue;
+	    }
+	    foreach($node_list as $node){
+                $dataid = $xpath->evaluate('string(@data-id)', $node);
+		if(!$dataid){
+		    continue;
+		}
+		$url = "https://i.imgur.com/${dataid}l.jpg";
+                $this->append_img_tag($doc, $node, $url);
+	    }
         }
     }
 
