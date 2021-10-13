@@ -14,7 +14,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 1.0,   // version
                 'Replace feed contents by contents from the linked page',   // description
                 'mbirth',   // author
-                false,   // is_system
+//                false,   // is_system
                 ];
     }
 
@@ -58,8 +58,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 return file_get_contents($json_file_name);
             }
         } 
-        $json_conf = preg_replace("/\r\n|\r|\n/", "\n", gzuncompress(base64_decode($this->host->get($this, 'json_conf'))));
-        //$json_conf = $this->host->get($this, 'json_conf');
+        //$json_conf = preg_replace("/\r\n|\r|\n/", "\n", gzuncompress(base64_decode($this->host->get($this, 'json_conf'))));
+        $json_conf = $this->host->get($this, 'json_conf');
         file_put_contents($json_file_name, $json_conf, LOCK_EX);
         return $json_conf;
     }
@@ -1562,8 +1562,8 @@ class Af_Feedmod extends Plugin implements IHandler
     function index()
     {
         $pluginhost = PluginHost::getInstance();
-        $json_conf = gzuncompress(base64_decode($pluginhost->get($this, 'json_conf')));
-        //$json_conf = $pluginhost->get($this, 'json_conf');
+        //$json_conf = gzuncompress(base64_decode($pluginhost->get($this, 'json_conf')));
+        $json_conf = $pluginhost->get($this, 'json_conf');
         //$json_conf = $this->jq_format($json_conf);
         //$json_conf = json_encode(json_decode ($json_conf), JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES); // decompress
 
@@ -1607,8 +1607,8 @@ function save()
     }
 
     //$json_conf = json_encode(json_decode($json_conf), JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES); // compress
-    $this->host->set($this, 'json_conf', base64_encode(gzcompress($json_conf,1)));
-    //$this->host->set($this, 'json_conf', $json_conf);
+    //$this->host->set($this, 'json_conf', base64_encode(gzcompress($json_conf,1)));
+    $this->host->set($this, 'json_conf', $json_conf);
     echo __("Configuration saved.");
 }
 
