@@ -14896,15 +14896,8 @@
     "xpath": "div[@id='main']/div[@class='adventCalendarSection' or contains(@class,'adventCalendarCalendar')]"
   },
   "//qiita.com/": {
-    "xpath": "div[@class='it-Header_info' or @class='it-Tags' or @class='it-AuthorInfo']|//section[@class='it-MdContent']|//div[@class='p-items_main']/div[contains(@class,'p-items_aside')]",
+    "xpath": "script[contains(@src,'//cdn.qiita.com/assets/public/v3-article-bundle-')]|//section[@class='it-MdContent']",
     "append_css": [
-      "img.it-Header_authorImage,img.it-AuthorInfo_image{width:30px!important;height:30px!important;}img.commentHeader_creatorIcon{width:36px!important;height:36px!important;}",
-      ".it-Header_info {align-items: center;display: flex;flex-wrap: wrap;justify-content: flex-start;width: 100%;}",
-      ".it-Header_author {align-items: center;display: flex;margin-right: 16px;}",
-      ".it-Header_time {color: #999;font-size: 0.8rem;margin-right: 16px;}",
-      ".it-Tags {display: flex;flex-wrap: wrap;}",
-      ".it-Tags_item {align-items: center;background-color: #eee;border-radius: 4px;color: #666;display: flex;margin-bottom: 4px;padding: 4px 8px;}",
-      ".it-Tags_item:not(:last-child) {margin-right: 8px;}",
       ".it-MdContent h1, .it-MdContent h2, .it-MdContent h3, .it-MdContent h4, .it-MdContent h5, .it-MdContent h6 {cursor: pointer;font-feature-settings: 'palt';font-weight: bold;line-height: 1.5;margin-bottom: 2.4rem;margin-top: 2.2em;position: relative;}",
       ".it-MdContent h2 {border-bottom: 1px solid #ddd;font-size: 1.6em;padding-bottom: 0.1em;}",
       ".it-MdContent h3 {font-size: 1.4em;}"
@@ -15642,40 +15635,6 @@
   "//ascii.jp/": {
     "xpath": "div[@id='contents_detail' or @id='detail_contents']",
     "next_page": "div[@class='pages']"
-  },
-  "//twitter.com/i/moments/": {
-    "xpath": "div[contains(@class,'MomentsPermalinkPage-capsule')]/div[@class='MomentCapsuleCover' or contains(@class,'MomentsPermalinkPage-tweets')]",
-    "user_agent": "ie11",
-    "append_css": [
-      ".Emoji--forText {height: 1.25em!important;padding: 0 0.05em 0 0.1em;vertical-align: -0.2em;width: 1.25em!important;}",
-      ".MomentCapsuleItemTweet--withText {background-color: #f5f8fa;border-radius: 2px;padding: 24px;}",
-      ".MomentCapsuleItem {margin-bottom: 40px;position: relative;}",
-      ".MomentCapsuleItemTweet--withText .MomentUserByline-avatar {border-radius: 50%;height: 48px;margin-right: 8px;width: 48px;}",
-      ".MomentFormatLink-anchor {border: 1px solid #ccd6dd;border-radius: 2px;display: block;padding: 16px;text-decoration: none;transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;}",
-      ".MomentTweetActions, .Icon--verified, .ProfileTweet-actionCountList {display:none;}",
-      ".MomentCapsuleCoverAttribution, .MomentCapsuleCoverAttribution:active, .MomentCapsuleCoverAttribution:focus, .MomentCapsuleCoverAttribution:hover {color: #aab8c2;}",
-      ".MomentCapsuleCover-media {border-bottom: 1px solid #aab8c2;padding-bottom: 40px;position: relative;}",
-      ".MomentsPermalinkPage-tweets {margin: 40px auto;width: 98%;}",
-      ".MomentFormatLink-title, .MomentFormatLink-description {color: #14171a;line-height: 1.5em;max-height: 1.5em;overflow: hidden;}",
-      ".MomentFormatLink-url {color: #657786;}",
-      ".MomentCapsuleCover {margin: 40px auto 0; width: 98%;}",
-      ".MomentMediaItem-entity--image, .MomentMediaItem-entity--video {width:480px!important;}"
-    ]
-  },
-  "//twitter.com/i/events/": {
-    "xpath": "style|//div[@data-testid='primaryColumn']"
-  },
-  "//twitter.com/": {
-    "xpath": "section/div/div/div/div/div/article",
-    "engine": "chromium",
-    "append_css": [
-      "a div div:first-child {padding-bottom: 0!important;}",
-      "svg {width:24px; height:24px;}",
-      "div[role=presentation] div div:first-child {padding-bottom: 0!important;}",
-      "div[dir=ltr] {display:none;}",
-      "a[role=link]{padding-bottom: auto;}",
-      "img[src$='.svg']{width:20px!important;}"
-    ]
   },
   "//blogs.windows.com/": {
     "xpath": "main/div[@class='panel-collection']|//article/div[@class='t-content']",
@@ -16863,6 +16822,47 @@
     "xpath": "div[@class='cps-post-main-box' or contains(@class,'cps-post-thumb')]",
     "cleanup": [
       "*[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') or @class='sns']"
+    ]
+  },
+  "//nitter.net/": {
+    "xpath": "div[@class='main-thread']",
+    "append_css": [
+      ".icon-container {display: inline;}",
+      ".icon-comment:before {content: '\\e802';}",
+      ".icon-retweet:before {content: '\\e80d';}",
+      ".icon-quote:before {content: '\\275e';}",
+      ".icon-heart:before {content: '\\2665';}",
+      ".icon-play:before {content: '\\e804';}",
+      ".tweet-avatar img {width: 48px;height: 48px;}",
+      ".avatar {border-radius: 50%;}"
+    ]
+  },
+  "//nitter.kozono.org/": {
+    "xpath": "div[@class='main-thread']",
+    "append_css": [
+      ".icon-container {display: inline;}",
+      ".icon-comment:before {content: '\\e802';}",
+      ".icon-retweet:before {content: '\\e80d';}",
+      ".icon-quote:before {content: '\\275e';}",
+      ".icon-heart:before {content: '\\2665';}",
+      ".icon-play:before {content: '\\e804';}",
+      ".tweet-avatar img {width: 48px;height: 48px;}",
+      ".avatar {border-radius: 50%;}"
+    ]
+  },
+  "//twitter.com/": {
+    "xpath": "div[@class='main-thread']",
+    "rep_pattern": "/^.*:\\/\\/twitter\\.com\\/(.*\\/status\\/[0-9]+)$/",
+    "rep_replacement": "https://nitter.kozono.org/${1}",
+    "append_css": [
+      ".icon-container {display: inline;}",
+      ".icon-comment:before {content: '\\e802';}",
+      ".icon-retweet:before {content: '\\e80d';}",
+      ".icon-quote:before {content: '\\275e';}",
+      ".icon-heart:before {content: '\\2665';}",
+      ".icon-play:before {content: '\\e804';}",
+      ".tweet-avatar img {width: 48px;height: 48px;}",
+      ".avatar {border-radius: 50%;}"
     ]
   }
 }
