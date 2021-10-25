@@ -191,7 +191,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
             // graby
             if(!$is_execute){
-                $link = $article['link'];
+                $link = $this->replace_link(trim($article['link']),$config);    
                 $this->writeLog($link,$is_hit_link,$hit_urlpart);
 
                 $html_message = $this->get_html_graby($link);
@@ -202,8 +202,8 @@ class Af_Feedmod extends Plugin implements IHandler
             }
         }
 
-        if($is_execute){
-            $link = $article['link'];
+	if($is_execute){
+            $link = $this->replace_link(trim($article['link']),$config);
             $content = mb_convert_encoding("<div>".$article['content']."</div>", 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
             $doc = new DOMDocument();
             @$doc->loadHTML($content);
