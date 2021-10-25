@@ -9430,9 +9430,6 @@
       "aside[@class='bzb-sns-area']"
     ]
   },
-  "//backspace.fm/episode/": {
-    "xpath": "div[@class='entry-content']"
-  },
   "//at99.net/": {
     "xpath": "div[@id='the-content']"
   },
@@ -16864,5 +16861,11 @@
       ".tweet-avatar img {width: 48px;height: 48px;}",
       ".avatar {border-radius: 50%;}"
     ]
+  },
+  "//backspace.fm/episode/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//feeds.backspace.fm/": {
+    "xpath": "div[@class='entry-content']"
   }
 }
