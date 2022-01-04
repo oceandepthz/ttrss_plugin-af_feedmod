@@ -9601,9 +9601,6 @@
   "//ksl-live.com/": {
     "xpath": "div[@id='article']/div[contains(@class,'post_content')]"
   },
-  "//engineer.dena.jp/": {
-    "xpath": "div[@class='entry-body']"
-  },
   "//www.yoheim.net/": {
     "xpath": "div[@class='article']"
   },
@@ -14325,11 +14322,6 @@
   "//sky-joker.tech/": {
     "xpath": "div[@class='thecontent']"
   },
-  "//sports.yahoo.co.jp/": {
-    "xpath": "div[@class='mod-content']",
-    "foot_xpath": "div[@class='relate_link' or @class='authorTex']",
-    "next_page": "div[@class='navPage']"
-  },
   "//quickcms.century.yokohama/": {
     "xpath": "article/div[@class='content']"
   },
@@ -14755,9 +14747,6 @@
   },
   "//withktsy.com/": {
     "xpath": "header//figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
-  },
-  "//engineer.dena.com/": {
-    "xpath": "div[@class='article-body']"
   },
   "//findy-code.io/interviews/": {
     "xpath": "div[@class='interviews-show']",
@@ -15386,38 +15375,6 @@
   "//blog.tensorflow.org/": {
     "xpath": "div[@class='tensorsite-detail__body']"
   },
-  "//news.mynavi.jp/itsearch/": {
-    "xpath": "div[@class='articleContent']",
-    "next_page": "div[contains(@class,'search_navi_ult')]"
-  },
-  "//news.mynavi.jp/article/svalley-": {
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@id,'div-gpt-ad-')]"
-    ]
-  },
-  "//news.mynavi.jp/series/onnanofushime/": {
-    "xpath": "div[@class='articleContent']",
-    "cleanup": [
-      "div[contains(@class, 'btn-nextpage')]"
-    ]
-  },
-  "//news.mynavi.jp/column/svalley/": {
-    "xpath": "div[@class='articleContent']",
-    "append_css": "div.center table {width:initial!important;}"
-  },
-  "//news.mynavi.jp/": {
-    "xpath": "div[@class='articleHeader_img' or @class='articleHeader_info']|//article",
-    "next_page": "div[@class='paginate']",
-    "append_css": [
-      "div.center table {width:initial!important;}",
-      ".article, .articleHeader_img, .articleHeader_info {width: calc(100% - 20px);max-width:720px;}",
-      ".photo_table__caption {font-size: 12px;}",
-      ".photo_table li {list-style-type: none;}",
-      ".articleHeader_update::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-clock-df0a9cc21b443debc8978e60788cac262aba3505626ce52a8751476f48f819c2.svg');height: 13px;margin-right: 6px;width: 13px;}",
-      ".articleHeader_last::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-update-3111b75726a04d16953e0b0a7c14d2488250981f5d224e5eb4ae8159cb29fd54.svg');background-size: 11px 11px;height: 11px;width: 11px;}"
-    ]
-  },
   "//zoom.us/webinar/register/": {
     "xpath": "div[@id='webinar_register_container']/img[@class='img-responsive']|//form[@id='webinar_register_form']/div[@class='row']"
   },
@@ -15947,19 +15904,6 @@
       "div[@class='pocket-btn']",
       "section[@id='social-share']"
     ]
-  },
-  "//www.as-web.jp/race-queens/": {
-    "xpath": "section[@id='recequeenDetail']",
-    "cleanup": [
-      "div[@class='sns_btn_group' or @class='btnarea']"
-    ]
-  },
-  "//www.as-web.jp/": {
-    "xpath": "div[@class='item-text']",
-    "head_xpath": "div[@class='image-item']",
-    "next_page": "div[@class='pageNavi']",
-    "rep_pattern": "/^(.*:\\/\\/www\\.as\\-web\\.jp\\/[a-z\\-0-9]+\\/[0-9]+)$/",
-    "rep_replacement": "${1}?all"
   },
   "//www.news24.jp/nnn/": {
     "xpath": "main/section/div[@class='newsDetailVisual' or @class='newsDetailText']"
@@ -16506,12 +16450,6 @@
       "ul[contains(@class,'author_social_link')]"
     ]
   },
-  "//mixi-developers.mixi.co.jp/": {
-    "xpath": "article/div/section/div",
-    "cleanup": [
-      "div[@data-test-id='postByline']//button"
-    ]
-  },
   "//jbpress.ismedia.jp/": {
     "xpath": "div[contains(@class,'article-body') or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
     "cleanup": [
@@ -16881,5 +16819,85 @@
   "*//zenn.dev/*/books/*": {
     "match_type": "fnmatch",
     "xpath": "section[starts-with(@class,'View_mainColumn__')]"
+  },
+  "//manekai.ameba.jp/": {
+    "xpath": "main/article",
+    "cleanup": [
+      "div[contains(@class,'btn-share-group-')]"
+    ]
+  },
+  "//blog.evsmart.net/": {
+    "xpath": "article/div"
+  },
+  "//blog.8-p.info/": {
+    "xpath": "article/div[contains(@class,'content')]"
+  },
+  "//www.ffxi-memoir.info/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//sports.yahoo.co.jp/": {
+    "xpath": "header[@class='cm-articleHead02']|//div[@class='cm-articleParagraph']",
+    "head_xpath": "div[@class='cm-authorInfo']",
+    "foot_xpath": "section[@id='profile' or @id='rlink']",
+    "next_page": "div[@id='paging']"
+  },
+  "//engineering.dena.com/blog/": {
+    "xpath": "article/section[contains(@class,'content-box')]"
+  },
+  "//www.as-web.jp/race-queens/": {
+    "xpath": "section[@id='recequeenDetail']",
+    "cleanup": [
+      "div[@class='sns_btn_group' or @class='btnarea']"
+    ]
+  },
+  "//www.as-web.jp/": {
+    "xpath": "div[@class='item-text' or @class='content_right']",
+    "head_xpath": "div[@class='image-item']",
+    "next_page": "div[@class='pageNavi']",
+    "rep_pattern": "/^(.*:\\/\\/www\\.as\\-web\\.jp\\/[a-z\\-0-9]+\\/[0-9]+)$/",
+    "rep_replacement": "${1}?all"
+  },
+  "//mixi-developers.mixi.co.jp/": {
+    "xpath": "div[@id='root']/div/div/article/div/div/section/div/figure|//div[@id='root']/div/div/article/div/div/section/div/div"
+  },
+  "//security.macnica.co.jp/blog/": {
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//news.mynavi.jp/itsearch/": {
+    "xpath": "div[@class='articleContent']",
+    "next_page": "div[contains(@class,'search_navi_ult')]"
+  },
+  "//news.mynavi.jp/article/svalley-": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//news.mynavi.jp/series/onnanofushime/": {
+    "xpath": "div[@class='articleContent']",
+    "cleanup": [
+      "div[contains(@class, 'btn-nextpage')]"
+    ]
+  },
+  "//news.mynavi.jp/column/svalley/": {
+    "xpath": "div[@class='articleContent']",
+    "append_css": "div.center table {width:initial!important;}"
+  },
+  "//news.mynavi.jp/techplus/": {
+    "xpath": "article",
+    "next_page": "div[@class='c-archivePager']",
+    "head_xpath": "div[@class='articleHeader_img' or @class='articleHeader_info']"
+  },
+  "//news.mynavi.jp/": {
+    "xpath": "div[@class='articleHeader_img' or @class='articleHeader_info']|//article",
+    "next_page": "div[@class='paginate']",
+    "append_css": [
+      "div.center table {width:initial!important;}",
+      ".article, .articleHeader_img, .articleHeader_info {width: calc(100% - 20px);max-width:720px;}",
+      ".photo_table__caption {font-size: 12px;}",
+      ".photo_table li {list-style-type: none;}",
+      ".articleHeader_update::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-clock-df0a9cc21b443debc8978e60788cac262aba3505626ce52a8751476f48f819c2.svg');height: 13px;margin-right: 6px;width: 13px;}",
+      ".articleHeader_last::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-update-3111b75726a04d16953e0b0a7c14d2488250981f5d224e5eb4ae8159cb29fd54.svg');background-size: 11px 11px;height: 11px;width: 11px;}"
+    ]
   }
 }
