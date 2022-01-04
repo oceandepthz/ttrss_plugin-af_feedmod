@@ -10602,13 +10602,6 @@
   "//blog.livedoor.jp/kudan9/": {
     "xpath": "div[@class='article-body-inner']"
   },
-  "//number.bunshun.jp/": {
-    "xpath": "div[@class='image-area']/figure|//div[@class='single']",
-    "cleanup": [
-      "p[@class='next-title']"
-    ],
-    "next_page": "div[@class='list-pagination-02']"
-  },
   "//gameboku.blog.jp/": {
     "xpath": "div[@class='article-body-inner']"
   },
@@ -13420,12 +13413,6 @@
   },
   "//mercan.mercari.com/": {
     "xpath": "section[contains(@class,'contents')]"
-  },
-  "//medium.com/": {
-    "xpath": "article/div/section/div",
-    "cleanup": [
-      "div[@data-test-id='postByline']//button"
-    ]
   },
   "//growthhackjournal.com/": {
     "xpath": "div[@class='entry-content' or @class='post-thumbnail']"
@@ -16475,11 +16462,6 @@
   "//www.mbs.jp/news/": {
     "xpath": "div[@class='movie']|//section[@id='article']/p"
   },
-  "//www.news-postseven.com/": {
-    "xpath": "div[contains(@class,'article-body-')]/div[@class='wp-editor']",
-    "next_page": "nav[@class='st-Pagination']",
-    "next_page_cleanup": "a[contains(@class,'st-Pagination_Link-disabledArrow')]"
-  },
   "//slowinternet.jp/": {
     "xpath": "div[@class='content-body']/article"
   },
@@ -16899,5 +16881,35 @@
       ".articleHeader_update::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-clock-df0a9cc21b443debc8978e60788cac262aba3505626ce52a8751476f48f819c2.svg');height: 13px;margin-right: 6px;width: 13px;}",
       ".articleHeader_last::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-update-3111b75726a04d16953e0b0a7c14d2488250981f5d224e5eb4ae8159cb29fd54.svg');background-size: 11px 11px;height: 11px;width: 11px;}"
     ]
+  },
+  "medium.com/": {
+    "xpath": "article/div/div/section/div",
+    "cleanup": [
+      "div[@aria-describedby='postFooterSocialMenu']"
+    ]
+  },
+  "//number.bunshun.jp/": {
+    "xpath": "div[@class='image-area']/figure|//div[@class='single']",
+    "cleanup": [
+      "p[@class='next-title']"
+    ],
+    "next_page": "div[@class='list-pagination-02']"
+  },
+  "//somethingorange.biz/": {
+    "xpath": "header/div[@class='eye-catch-wrap']/figure|//header/div/div[contains(@class,'author-box')]|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='author-follows' or contains(@class,'wpulike') or @class='codoc-entry']"
+    ]
+  },
+  "//www.news-postseven.com/": {
+    "xpath": "div[@class='detailSec']/div[@class='wp-editor']",
+    "next_page": "ul[@class='pagenation']",
+    "next_page_cleanup": "li[@class='on']"
+  },
+  "//developers.prtimes.jp/": {
+    "xpath": "article/figure[@class='p-articleThumb']|//div[@class='post_content']"
+  },
+  "//digital-shift.jp/": {
+    "xpath": "header/div[@class='eyecatch' or @class='description']|//article/div[@id='article_body']"
   }
 }
