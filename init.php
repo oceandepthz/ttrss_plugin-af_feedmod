@@ -1,7 +1,8 @@
 <?php
 //date_default_timezone_set('Asia/Tokyo');
 
-define("USER_AGENT_FEEDMOD", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0");
+//define("USER_AGENT_FEEDMOD", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0");
+define("USER_AGENT_FEEDMOD", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0");
 ini_set('user_agent', USER_AGENT_FEEDMOD);
 
 class Af_Feedmod extends Plugin implements IHandler
@@ -1118,6 +1119,31 @@ class Af_Feedmod extends Plugin implements IHandler
             }
         }
 
+	$items = [
+		"//a[contains(text(),'pic.twitter.com/')]",
+	];
+        foreach ($items as $item){
+	    $node_list = $xpath->query($item, $basenode);
+            //$this->__debug("pic.twitter.com count : ${url} : " . $node_list->length);
+            if(!$node_list || $node_list->length === 0){
+                continue;
+	    }
+            foreach ($node_list as $node){
+                if(!$node){
+                    continue;
+		}
+		$link = $xpath->evaluate('string()', $node);
+		//$this->__debug("pic.twitter.com url : ${url} :${link}");
+                require_once('classes/PicTwitterImageUrls.php');
+	        $p = new PicTwitterImageUrls($link);
+		$urls = $p->getImageUrls();
+		//$this->__debug_tm($urls);
+                foreach(array_reverse($urls) as $url){
+                    $this->append_img_tag($doc, $node, $url);
+                }
+            }
+	}
+/*
         $items = ["//a[contains(text(),'pic.twitter.com/') or contains(@href,'pic.twitter.com/')]", "//a[contains(@href,'//twitter.com/') and ((contains(@href,'/photo/') or contains(@href,'/video/')))]"];
         foreach ($items as $item){
             $node_list = $xpath->query($item, $basenode);
@@ -1150,7 +1176,8 @@ class Af_Feedmod extends Plugin implements IHandler
                     $this->append_img_tag($doc, $node, $url);
                 }
             } 
-        }
+	}
+ */
     }
 
     function append_iframe_tag(DOMDocument $doc, DOMElement $node, string $url) : void {
