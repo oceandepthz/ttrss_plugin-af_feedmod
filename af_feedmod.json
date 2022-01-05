@@ -16911,5 +16911,25 @@
   },
   "//digital-shift.jp/": {
     "xpath": "header/div[@class='eyecatch' or @class='description']|//article/div[@id='article_body']"
+  },
+  "//techfeed.io/": {
+    "xpath": "div[@class='article-content']",
+    "engine": "chromium"
+  },
+  "//tokion.jp/": {
+    "xpath": "header[@class='c-entry__header']/div[@class='c-entry__meta']|//article/div[@class='c-entry__body']/div[contains(@class,'c-entry__content') or @class='c-entry-tags' or @class='tkn-profile']"
+  },
+  "//www.inc.com/": {
+    "xpath": "article[contains(@class,'article')]/article[contains(@class,'article__body')]"
+  },
+  "*//www.nhk.jp/p/*/ts/*/blog/bl/*/bp/*/": {
+    "match_type": "fnmatch",
+    "xpath": "article[@class='blogposting-article']"
+  },
+  "//ytranking.net/": {
+    "xpath": "div[@id='main']/section[@class='single']",
+    "cleanup": [
+      "div[contains(@class,'ad-blog-')]"
+    ]
   }
 }
