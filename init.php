@@ -1435,9 +1435,9 @@ class Af_Feedmod extends Plugin implements IHandler
             return $scheme.'://'.$url_item['host'].$src;
         }
         if(substr($src, 0,4) != "http"){
-            $pos = strrpos($link, "/");
+            $pos = strrpos($baseurl, "/");
             if($pos){
-                return substr($link, 0, $pos+1).$src;
+                return substr($baseurl, 0, $pos+1).$src;
             }
         }
         return $src;
