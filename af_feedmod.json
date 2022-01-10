@@ -654,9 +654,6 @@
       "a[contains(@href, 's.liveads.jp')]"
     ]
   },
-  "mantan-web.jp": {
-    "xpath": "figure|//div[@class='newsbody__honbun']"
-  },
   "mtane0412.com": {
     "xpath": "div[@id='the-content']",
     "cleanup": [
@@ -14965,20 +14962,6 @@
       "div[@class='p-mobileSocial']"
     ]
   },
-  "//limo.media/": {
-    "xpath": "div[contains(@class,'article-body')]",
-    "cleanup": [
-      "h1",
-      "h2",
-      "h4",
-      "ul[contains(@class,'content-meta')]",
-      "div[contains(@class,'affi-text') or contains(@class,'vertical-sns-button') or @id='_popIn_recommend_text' or contains(@class,'content-pager') or contains(@class,'formbox-editor-') or contains(@class,'affi-ga') or contains(@class,'_recommend') or contains(@class,'related-content-list') or contains(@class,'author-area') or contains(@class,'right-column')]",
-      "a[@class='read-more']",
-      "style"
-    ],
-    "next_page": "div[contains(@class,'content-pager')]",
-    "next_page_cleanup": "li[@class='current-page']"
-  },
   "//bijutsutecho.com/": {
     "xpath": "article[@class='l_main-sidebar__main']"
   },
@@ -16931,5 +16914,17 @@
     "cleanup": [
       "div[contains(@class,'ad-blog-')]"
     ]
+  },
+  "//mantan-web.jp/": {
+    "xpath": "figure|//div[@class='article_text__wrap' or @class='article__photolist']"
+  },
+  "//limo.media/": {
+    "xpath": "article/div/div[@class='article-header__img' or @class='article-header__caption']|//article/div[contains(@class,'article-body') or contains(@class,'m-author')]",
+    "cleanup": [
+      "div[@class='m-ad-rectangle']",
+      "a[contains(@href,'//moneiro.jp/')]"
+    ],
+    "next_page": "div[@class='m-pagination']",
+    "next_page_cleanup": "li[contains(@class,'is-current')]"
   }
 }
