@@ -11012,12 +11012,6 @@
   "//slackhq.com/": {
     "xpath": "header/div[@class='o-wrap--content']|//div[@class='o-wrap--article']"
   },
-  "//engineer.blog.lancers.jp/": {
-    "xpath": "div[@class='entry_content']",
-    "cleanup": [
-      "ul[@class='sns-iconBlock']"
-    ]
-  },
   "//support.apple.com/": {
     "xpath": "div[@class='main']"
   },
@@ -15115,9 +15109,6 @@
   "//www.ryuzee.com/": {
     "xpath": "div[contains(@class,'single-post')]/div/div[contains(@class,'entry-content')]"
   },
-  "//engineering.mercari.com/": {
-    "xpath": "div[@class='container']/img[@class='post__thumbnail']|//div[@class='body']"
-  },
   "//web-debug.com/": {
     "xpath": "div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]"
   },
@@ -16926,5 +16917,33 @@
     ],
     "next_page": "div[@class='m-pagination']",
     "next_page_cleanup": "li[contains(@class,'is-current')]"
+  },
+  "//magazine.kinto-jp.com/column/": {
+    "xpath": "div[@class='magazine_article_body' or @class='magazine_article_mv']",
+    "cleanup": [
+      "h2[@id='kinto-lead-module-title']",
+      "div[@id='kinto-lead-module' or @class='magazine_atticle_btn']"
+    ]
+  },
+  "//msrc-blog.microsoft.com/": {
+    "xpath": "article/div/div[contains(@class,'entry-content')]"
+  },
+  "//researchmap.jp/blogs/": {
+    "xpath": "article"
+  },
+  "//engineer.blog.lancers.jp/": {
+    "xpath": "div[@class='entry-header']/img|//div[@class='entry-content']"
+  },
+  "//engineering.mercari.com/": {
+    "xpath": "div[@class='container']/img[@class='post__thumbnail']|//div[@class='body']"
+  },
+  "//engineering-org.findy-teams.com/": {
+    "xpath": "article",
+    "cleanup": [
+      "button"
+    ]
+  },
+  "//infact.press/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
   }
 }
