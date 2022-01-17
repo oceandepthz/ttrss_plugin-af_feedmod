@@ -16404,13 +16404,6 @@
   "//shunyaueta.com/": {
     "xpath": "div[@class='article-post']"
   },
-  "//senjp.com/": {
-    "xpath": "div[@id='left_col']/div[contains(@class,'post') or @id='single_author']",
-    "cleanup": [
-      "div[contains(@id,'single_banner') or contains(@class,'a-single')]",
-      "ul[contains(@class,'author_social_link')]"
-    ]
-  },
   "//jbpress.ismedia.jp/": {
     "xpath": "div[contains(@class,'article-body') or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
     "cleanup": [
@@ -16945,5 +16938,29 @@
   },
   "//infact.press/": {
     "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//www.goo-net.com/magazine/": {
+    "xpath": "article",
+    "cleanup": [
+      "p[@class='title_text1']",
+      "h2[@class='title_list2']",
+      "div[@class='main_content_left' or @class='footer_img_ssp_banner_under']",
+      "div[@class='single_bottom_content']/div"
+    ]
+  },
+  "//blog.microcms.io/": {
+    "xpath": "div[@class='post']"
+  },
+  "//cybozu.github.io/": {
+    "xpath": "main/div/div[contains(@class,'post_authors__') or contains(@class,'PostContent_post__') or contains(@class,'Tags_tags__')]"
+  },
+  "//deno.com/blog/": {
+    "xpath": "div[@class='markdown-body']"
+  },
+  "//senjp.com/": {
+    "xpath": "article/*[@class='p-entry__thumbnail' or contains(@class,'p-entry__body') or contains(@class,'p-entry__meta')]",
+    "cleanup": [
+      "div[contains(@class,'a-single')]"
+    ]
   }
 }
