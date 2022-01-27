@@ -16784,12 +16784,6 @@
   "//www.ffxi-memoir.info/": {
     "xpath": "div[@class='entry-content']"
   },
-  "//sports.yahoo.co.jp/": {
-    "xpath": "header[@class='cm-articleHead02']|//div[@class='cm-articleParagraph']",
-    "head_xpath": "div[@class='cm-authorInfo']",
-    "foot_xpath": "section[@id='profile' or @id='rlink']",
-    "next_page": "div[@id='paging']"
-  },
   "//engineering.dena.com/blog/": {
     "xpath": "article/section[contains(@class,'content-box')]"
   },
@@ -16962,5 +16956,11 @@
     "cleanup": [
       "div[contains(@class,'a-single')]"
     ]
+  },
+  "//sports.yahoo.co.jp/": {
+    "xpath": "article/section",
+    "head_xpath": "div[@class='cm-authorInfo']",
+    "foot_xpath": "section[@id='profile' or @id='rlink']",
+    "next_page": "div[@id='paging']"
   }
 }
