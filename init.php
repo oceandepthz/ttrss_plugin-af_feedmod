@@ -129,7 +129,10 @@ class Af_Feedmod extends Plugin implements IHandler
             $doc = new DOMDocument();
             $link = $this->replace_link(trim($article['link']),$config);
 
-            $html = $this->get_html($link, $config);
+	    $html = $this->get_html($link, $config);
+	    if(!$html){
+                break;
+	    }
             @$doc->loadHTML($html);
             if(!$doc){
                 break;
@@ -1581,6 +1584,29 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             $this->append_img_tag($doc, $entry, $src, $opt);
         }
+    }
+
+    function update_twitter_tweet(DOMDocument $doc, DOMXPath $xpath): void {
+        $expressions = ["//blockquote[@class='twitter-tweet']//a"];
+	    foreach($expressions as $expression){
+            $entries = $xpath->query($expression);
+            if($entries->length === 0){
+                continue;
+            }
+            foreach($entries as $entry){
+	        $tw_url = $entry->getAttribute('href');
+                if(!$tw_url){
+		        continue;
+		}
+		require_once('classes/TwitterContents.php');
+		$p = new TwitterContents($url);
+                $a = $p->getContents();
+
+                // transformation url
+                // get content
+                // insert html
+            }
+    	}
     }
 
     function hook_prefs_tabs($args)
