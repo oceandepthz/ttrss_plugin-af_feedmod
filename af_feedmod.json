@@ -14902,15 +14902,6 @@
     "user_agent": "ie11",
     "next_page": "div[@class='ftPager']"
   },
-  "//wired.jp/membership/": {
-    "xpath": "article/*[contains(@class,'article__hero-image--') or @class='article__intro' or @class='article__credit' or @class='article__contents']"
-  },
-  "//wired.jp/": {
-    "xpath": "div[@class='teaser-text' or @class='tt__img' or @class='article-body' or @class='teaser-meta']",
-    "cleanup": [
-      "div[contains(@class,'article-related')]"
-    ]
-  },
   "//yamakamu.net/": {
     "xpath": "article/div[contains(@class,'entry-content')]"
   },
@@ -16921,9 +16912,6 @@
   "//engineer.blog.lancers.jp/": {
     "xpath": "div[@class='entry-header']/img|//div[@class='entry-content']"
   },
-  "//engineering.mercari.com/": {
-    "xpath": "div[@class='container']/img[@class='post__thumbnail']|//div[@class='body']"
-  },
   "//engineering-org.findy-teams.com/": {
     "xpath": "article",
     "cleanup": [
@@ -16962,5 +16950,19 @@
     "head_xpath": "div[@class='cm-authorInfo']",
     "foot_xpath": "section[@id='profile' or @id='rlink']",
     "next_page": "div[@id='paging']"
+  },
+  "//beijing2022.yahoo.co.jp/": {
+    "xpath": "section[@class='article__body']",
+    "foot_xpath": "footer[@class='article__footer']",
+    "next_page": "div[@class='pagination']"
+  },
+  "//engineering.mercari.com/": {
+    "xpath": "div[@class='container']/img[@class='post__thumbnail']|//section/div/div[contains(@class,'body')]"
+  },
+  "//wired.jp/membership/": {
+    "xpath": "article/*[contains(@class,'article__hero-image--') or @class='article__intro' or @class='article__credit' or @class='article__contents']"
+  },
+  "//wired.jp/": {
+    "xpath": "picture[starts-with(@class,'ResponsiveImagePicture-') and contains(@class,'ContentHeaderResponsiveAsset-')]|//div[starts-with(@class,'ContentHeaderDek-') or @class='body__inner-container']"
   }
 }
