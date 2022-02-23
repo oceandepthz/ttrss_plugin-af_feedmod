@@ -11591,12 +11591,6 @@
       "div[contains(@id,'-ad')]"
     ]
   },
-  "//www.lifehacker.jp/amp/": {
-    "xpath": "figure/amp-img/img|//div[@class='lh-entryDetail-body']"
-  },
-  "//www.lifehacker.jp/": {
-    "xpath": "div[@class='lh-entryDetail-body']/div[@class='lh-entryDetailInner']"
-  },
   "//www2.keinet.com/nitanis/": {
     "xpath": "div[contains(@class,'mainContents')]/section/div[@class='pageImge' or @class='newsContents']"
   },
@@ -12023,14 +12017,6 @@
   },
   "//classmethod.jp/cases/": {
     "xpath": "div[@id='content']"
-  },
-  "//dot.asahi.com/": {
-    "xpath": "div[@class='InfImgBox']//table//img|//p[@class='nTxt1']|//div[@class='FoldedTxtAreaPhotoArticle']",
-    "next_page": "ul[@id='pg']|//nav[@class='articlePager']",
-    "cleanup": [
-      "div[@class='articleTitlePager']",
-      "nav[@class='articlePager']"
-    ]
   },
   "//www.kotaro269.com/": {
     "xpath": "div[@id='article-body-main' or @id='article-body-more']",
@@ -12711,12 +12697,6 @@
     "xpath": "div[contains(@class,'entry-content')]",
     "cleanup": [
       "div[contains(@class,'_share_')]"
-    ]
-  },
-  "//github.blog/": {
-    "xpath": "article/div[@class='post-featured__image' or contains(@class,'post__content')]",
-    "cleanup": [
-      "div[contains(@class,'post__social-share')]"
     ]
   },
   "//digital.baycurrent.co.jp/blog/": {
@@ -16791,9 +16771,6 @@
     "rep_pattern": "/^(.*:\\/\\/www\\.as\\-web\\.jp\\/[a-z\\-0-9]+\\/[0-9]+)$/",
     "rep_replacement": "${1}?all"
   },
-  "//mixi-developers.mixi.co.jp/": {
-    "xpath": "div[@id='root']/div/div/article/div/div/section/div/figure|//div[@id='root']/div/div/article/div/div/section/div/div"
-  },
   "//security.macnica.co.jp/blog/": {
     "xpath": "article/section[contains(@class,'entry-content')]"
   },
@@ -16964,5 +16941,28 @@
   },
   "//wired.jp/": {
     "xpath": "picture[starts-with(@class,'ResponsiveImagePicture-') and contains(@class,'ContentHeaderResponsiveAsset-')]|//div[starts-with(@class,'ContentHeaderDek-') or @class='body__inner-container']"
+  },
+  "//www.lifehacker.jp/amp/": {
+    "xpath": "figure/amp-img/img|//div[@class='lh-entryDetail-body']"
+  },
+  "//www.lifehacker.jp/": {
+    "xpath": "figure[starts-with(@class,'article_pArticle_Thumbnail__')]|//div[starts-with(@class,'articleBodyWrapper')]/div[starts-with(@class,'article_pArticle_Body__')]"
+  },
+  "//dot.asahi.com/": {
+    "xpath": "div[@class='p-article-aera']",
+    "head_xpath": "div[@class='p-article__author']",
+    "next_page": "div[@class='p-article-aera__pages']/div[@class='c-button--pagination']",
+    "next_page_cleanup": "a[@class='-active-']",
+    "cleanup": [
+      "div[@class='p-article-aera__add' or @class='p-article-aera__pages']"
+    ],
+    "rep_pattern": "/^(.*:\\/\\/dot\\.asahi\\.com\\/.*html)$/",
+    "rep_replacement": "${1}?page=1"
+  },
+  "//github.blog/": {
+    "xpath": "div[contains(@class,'post-hero__img') or contains(@class,'post-hero__byline') or contains(@class,'post__content')]"
+  },
+  "//mixi-developers.mixi.co.jp/": {
+    "xpath": "article/section/div/div/div/div"
   }
 }
