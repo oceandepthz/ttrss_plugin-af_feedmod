@@ -5617,9 +5617,6 @@
       "div[@class='wp_social_bookmarking_light']"
     ]
   },
-  "//jj-labo.seesaa.net/": {
-    "xpath": "div[@class='article__content']"
-  },
   "//www.s-kimamaniotalife.jp/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -15442,9 +15439,6 @@
       "div[contains(@class,'ArticleBody-read-time-and-social-')]"
     ]
   },
-  "//blog.ojisan.io/": {
-    "xpath": "div[@class='main']/div/div[contains(@class,'gatsby-image-wrapper') or @class='content']"
-  },
   "//r7kamura.com/": {
     "xpath": "article"
   },
@@ -16964,5 +16958,11 @@
   },
   "//mixi-developers.mixi.co.jp/": {
     "xpath": "article/section/div/div/div/div"
+  },
+  "//jj-labo.seesaa.net/": {
+    "xpath": "div[@class='article__content']"
+  },
+  "//blog.ojisan.io/": {
+    "xpath": "main/div"
   }
 }
