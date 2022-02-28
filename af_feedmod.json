@@ -16964,5 +16964,11 @@
   },
   "//blog.ojisan.io/": {
     "xpath": "main/div"
+  },
+  "//www.kagoya.jp/howto/": {
+    "xpath": "div[@class='single-footer__author']|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='kh-cta']"
+    ]
   }
 }
