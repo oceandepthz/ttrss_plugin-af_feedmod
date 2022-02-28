@@ -16970,5 +16970,11 @@
     "cleanup": [
       "div[@class='kh-cta']"
     ]
+  },
+  "//www.raspberrypi.com/news/": {
+    "xpath": "article/div[contains(@class,'c-post-content__wysiwyg')]"
+  },
+  "//www.tc3.co.jp/": {
+    "xpath": "main/div[contains(@class,'article-content')]/div"
   }
 }
