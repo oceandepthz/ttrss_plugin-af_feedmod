@@ -13492,9 +13492,6 @@
   "//blog.kamijin-fanta.info/": {
     "xpath": "div[@class='content-body']"
   },
-  "//radsum.com/": {
-    "xpath": "div[@id='the-content']"
-  },
   "//jisakutech.com/": {
     "xpath": "div[@id='the-content' or @id='comments-thread']",
     "cleanup": [
@@ -16397,12 +16394,6 @@
   "//slowinternet.jp/": {
     "xpath": "div[@class='content-body']/article"
   },
-  "//softantenna.com/": {
-    "xpath": "article/section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'contentunder')]"
-    ]
-  },
   "//www.agrinews.co.jp/": {
     "xpath": "div[@id='ev-viewport' or contains(@class,'hk-article-body')]"
   },
@@ -16805,12 +16796,6 @@
       ".articleHeader_last::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-update-3111b75726a04d16953e0b0a7c14d2488250981f5d224e5eb4ae8159cb29fd54.svg');background-size: 11px 11px;height: 11px;width: 11px;}"
     ]
   },
-  "medium.com/": {
-    "xpath": "article/div/div/section/div",
-    "cleanup": [
-      "div[@aria-describedby='postFooterSocialMenu']"
-    ]
-  },
   "//number.bunshun.jp/": {
     "xpath": "div[@class='image-area']/figure|//div[@class='single']",
     "cleanup": [
@@ -16976,5 +16961,29 @@
   },
   "//www.tc3.co.jp/": {
     "xpath": "main/div[contains(@class,'article-content')]/div"
+  },
+  "//radsum.com/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//pg-life.net/": {
+    "xpath": "article/div/div[contains(@class,'cps-post-main')]",
+    "cleanup": [
+      "div[contains(@class,'adarea-') or contains(@class,'-ad-') or contains(@class,'wpulike')]"
+    ]
+  },
+  "medium.com/": {
+    "xpath": "article/div/div/section/div",
+    "cleanup": [
+      "div[@aria-describedby='postFooterSocialMenu']"
+    ]
+  },
+  "//sakisiru.jp/": {
+    "xpath": "div[contains(@class,'articleContent') or @class='articleSummaryWrapper' or @class='tag' or @class='articleBottom']"
+  },
+  "//softantenna.com/": {
+    "xpath": "article/div[@class='post_content']"
+  },
+  "//dochikushow.blog.fc2.com/": {
+    "xpath": "div[@class='mainEntryBody' or @class='mainEntryMore']"
   }
 }
