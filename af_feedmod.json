@@ -16995,5 +16995,11 @@
     "xpath": "article/div[contains(@class,'article-body-pc')]/div[@class='wp-editor']",
     "next_page": "nav[@class='st-Pagination']",
     "next_page_cleanup": "a[contains(@class,'st-Pagination_Link-disabledArrow') or contains(@class, 'st-Pagination_Link-active')]"
+  },
+  "div[@class='Article']": {
+    "xpath": "//go.dev/blog/"
+  },
+  "//data-campus.ai/announcements/": {
+    "xpath": "article/section/div/div[@id='editor']"
   }
 }
