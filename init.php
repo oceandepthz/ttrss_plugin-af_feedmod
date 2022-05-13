@@ -32,13 +32,13 @@ class Af_Feedmod extends Plugin implements IHandler
         $host->add_hook($host::HOOK_ARTICLE_FILTER, $this);
     }
 
-    function csrf_ignore($method)
+    function csrf_ignore($method) : bool
     {
         $csrf_ignored = ["index", "edit"];
         return array_search($method, $csrf_ignored) !== false;
     }
 
-    function before($method)
+    function before($method) : bool
     {
         if ($_SESSION["uid"]) {
             return true;
@@ -46,7 +46,7 @@ class Af_Feedmod extends Plugin implements IHandler
         return false;
     }
 
-    function after()
+    function after() : bool
     {
         return true;
     }
@@ -1609,7 +1609,7 @@ class Af_Feedmod extends Plugin implements IHandler
     	}
     }
 
-    function hook_prefs_tabs($args)
+    function hook_prefs_tabs() : void
     {
         print '<div id="feedmodConfigTab" dojoType="dijit.layout.ContentPane"
             href="backend.php?op=af_feedmod"
