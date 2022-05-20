@@ -10051,9 +10051,6 @@
   "//knowledge-plus.com/": {
     "xpath": "div[contains(@class,'contents')]/div[@class='article']"
   },
-  "//www.moguravr.com/": {
-    "xpath": "div[@class='mg-article-content']"
-  },
   "//www.phoronix.com/": {
     "xpath": "article/div[@class='content']"
   },
@@ -10215,13 +10212,6 @@
   },
   "//www.nittai.ac.jp/important/": {
     "xpath": "div[@id='topicsContents']"
-  },
-  "//www.nippon.com/": {
-    "xpath": "div[@id='main']/div[@id='main_detail' or @id='detail_contents']",
-    "next_page": "div[@id='pager']",
-    "next_page_cleanup": [
-      "a[@class='active']"
-    ]
   },
   "//www.nihon-u.ac.jp/information/": {
     "xpath": "article/div[contains(@class,'post')]/div"
@@ -11392,9 +11382,6 @@
   },
   "//satoshi.blogs.com/": {
     "xpath": "article/div[contains(@class,'entry-body')]"
-  },
-  "//www.lac.co.jp/": {
-    "xpath": "div[@class='entryArea']"
   },
   "//yagitsawa.github.io/": {
     "xpath": "div[@class='article-entry']"
@@ -13112,9 +13099,6 @@
     "cleanup": [
       "div[contains(@id,'quads-ad')]"
     ]
-  },
-  "//hochi.news/": {
-    "xpath": "div[@class='article__area']"
   },
   "//hikakujoho.com/": {
     "xpath": "article",
@@ -15716,10 +15700,6 @@
   "//this.kiji.is/": {
     "xpath": "div[@class='main__articleBody']/article"
   },
-  "//times.abema.tv/": {
-    "xpath": "div[@class='blog-article__contents']",
-    "engine": "chromium"
-  },
   "//tkrel.com/": {
     "xpath": "div[@class='single-post-wrap']"
   },
@@ -16596,43 +16576,6 @@
   "//security.macnica.co.jp/blog/": {
     "xpath": "article/section[contains(@class,'entry-content')]"
   },
-  "//news.mynavi.jp/itsearch/": {
-    "xpath": "div[@class='articleContent']",
-    "next_page": "div[contains(@class,'search_navi_ult')]"
-  },
-  "//news.mynavi.jp/article/svalley-": {
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@id,'div-gpt-ad-')]"
-    ]
-  },
-  "//news.mynavi.jp/series/onnanofushime/": {
-    "xpath": "div[@class='articleContent']",
-    "cleanup": [
-      "div[contains(@class, 'btn-nextpage')]"
-    ]
-  },
-  "//news.mynavi.jp/column/svalley/": {
-    "xpath": "div[@class='articleContent']",
-    "append_css": "div.center table {width:initial!important;}"
-  },
-  "//news.mynavi.jp/techplus/": {
-    "xpath": "article",
-    "next_page": "div[@class='c-archivePager']",
-    "head_xpath": "div[@class='articleHeader_img' or @class='articleHeader_info']"
-  },
-  "//news.mynavi.jp/": {
-    "xpath": "div[@class='articleHeader_img' or @class='articleHeader_info']|//article",
-    "next_page": "div[@class='paginate']",
-    "append_css": [
-      "div.center table {width:initial!important;}",
-      ".article, .articleHeader_img, .articleHeader_info {width: calc(100% - 20px);max-width:720px;}",
-      ".photo_table__caption {font-size: 12px;}",
-      ".photo_table li {list-style-type: none;}",
-      ".articleHeader_update::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-clock-df0a9cc21b443debc8978e60788cac262aba3505626ce52a8751476f48f819c2.svg');height: 13px;margin-right: 6px;width: 13px;}",
-      ".articleHeader_last::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-update-3111b75726a04d16953e0b0a7c14d2488250981f5d224e5eb4ae8159cb29fd54.svg');background-size: 11px 11px;height: 11px;width: 11px;}"
-    ]
-  },
   "//number.bunshun.jp/": {
     "xpath": "div[@class='image-area']/figure|//div[@class='single']",
     "cleanup": [
@@ -16996,10 +16939,69 @@
     "next_page": "nav[@class='st-Pagination']",
     "next_page_cleanup": "a[contains(@class,'st-Pagination_Link-disabledArrow') or contains(@class, 'st-Pagination_Link-active')]"
   },
-  "div[@class='Article']": {
-    "xpath": "//go.dev/blog/"
+  "//go.dev/blog/": {
+    "xpath": "div[@class='Article']"
   },
   "//data-campus.ai/announcements/": {
     "xpath": "article/section/div/div[@id='editor']"
+  },
+  "//hochi.news/": {
+    "xpath": "div[@class='article__area']",
+    "rep_pattern": "/^(.*:\\/\\/hochi\\.news\\/.*html)$/",
+    "rep_replacement": "${1}?page=1"
+  },
+  "//news.mynavi.jp/itsearch/": {
+    "xpath": "div[@class='articleContent']",
+    "next_page": "div[contains(@class,'search_navi_ult')]"
+  },
+  "//news.mynavi.jp/article/svalley-": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//news.mynavi.jp/series/onnanofushime/": {
+    "xpath": "div[@class='articleContent']",
+    "cleanup": [
+      "div[contains(@class, 'btn-nextpage')]"
+    ]
+  },
+  "//news.mynavi.jp/column/svalley/": {
+    "xpath": "div[@class='articleContent']",
+    "append_css": "div.center table {width:initial!important;}"
+  },
+  "//news.mynavi.jp/techplus/": {
+    "xpath": "article",
+    "next_page": "div[@class='c-archivePager']",
+    "head_xpath": "div[@class='articleHeader_img' or @class='articleHeader_info']"
+  },
+  "//news.mynavi.jp/": {
+    "xpath": "div[@class='articleHeader_img' or @class='articleHeader_info']|//article",
+    "next_page": "div[@class='paginate']",
+    "append_css": [
+      "div.center table {width:initial!important;}",
+      ".article, .articleHeader_img, .articleHeader_info {width: calc(100% - 20px);max-width:720px;}",
+      ".photo_table__caption {font-size: 12px;}",
+      ".photo_table li {list-style-type: none;}",
+      ".articleHeader_update::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-clock-df0a9cc21b443debc8978e60788cac262aba3505626ce52a8751476f48f819c2.svg');height: 13px;margin-right: 6px;width: 13px;}",
+      ".articleHeader_last::before {background-image: url('https://news.mynavi.jp/assets/design_renewal_2020/icon-update-3111b75726a04d16953e0b0a7c14d2488250981f5d224e5eb4ae8159cb29fd54.svg');background-size: 11px 11px;height: 11px;width: 11px;}"
+    ]
+  },
+  "//times.abema.tv/": {
+    "xpath": "article/div[contains(@class,'article-body')]",
+    "engine": "chromium",
+    "cleanup": [
+      "div[@class='article-tvbtn' or contains(@class,'article-relation-card') or contains(@class,'article-thumb')]",
+      "ul[@class='article-relation-links']"
+    ]
+  },
+  "//www.lac.co.jp/": {
+    "xpath": "div[contains(@class,'entryArea')]"
+  },
+  "//www.moguravr.com/": {
+    "xpath": "main/article"
+  },
+  "//www.nippon.com/": {
+    "xpath": "div[@class='c-content']/*[@class='c-detailmv' or @id='kiji-author' or @class='c-read']|//div[@class='editArea']"
   }
 }
