@@ -14364,9 +14364,6 @@
   "//tech.basicinc.jp/": {
     "xpath": "div[@class='article-body']"
   },
-  "//tech.pepabo.com/": {
-    "xpath": "div[@class='article__body' or @class='article__eye-catch' or @class='article__author']"
-  },
   "//blog.findy.us/": {
     "xpath": "section[@class='post-content']"
   },
@@ -16704,9 +16701,6 @@
     "rep_pattern": "/^(.*:\\/\\/dot\\.asahi\\.com\\/.*html)$/",
     "rep_replacement": "${1}?page=1"
   },
-  "//github.blog/": {
-    "xpath": "div[contains(@class,'post-hero__img') or contains(@class,'post-hero__byline') or contains(@class,'post__content')]"
-  },
   "//jj-labo.seesaa.net/": {
     "xpath": "div[@class='article__content']"
   },
@@ -17009,5 +17003,20 @@
     "cleanup": [
       "div[contains(@id,'like-post-wrapper-')]"
     ]
+  },
+  "//www.infiniteloop.co.jp/pr-blog/": {
+    "xpath": "div[@class='m-blog-mv']/img|//article"
+  },
+  "//github.blog/": {
+    "xpath": "div/img[contains(@class,'cover-image')]|//main"
+  },
+  "//levtech.jp/": {
+    "xpath": "p[@class='articleDetail__head__img']|//div[@class='articleDetail']/div[@class='l-articleProfile' or @class='articleDetail__cont']"
+  },
+  "//panda-program.com/": {
+    "xpath": "article"
+  },
+  "//tech.pepabo.com/": {
+    "xpath": "div[@class='article__body' or @class='article__eye-catch' or @class='article__author']"
   }
 }
