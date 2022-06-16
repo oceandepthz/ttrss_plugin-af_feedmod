@@ -8582,12 +8582,6 @@
       "span[@class='admax-banner']"
     ]
   },
-  "//opcdiary.net/": {
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[contains(@id,'like-post-wrapper-')]"
-    ]
-  },
   "//news.nicovideo.jp/watch/": {
     "xpath": "section[contains(@class,'news-article-body')]"
   },
@@ -15425,9 +15419,6 @@
   "//fukuno.jig.jp/": {
     "xpath": "div[@id='cmain']"
   },
-  "//www.nikkei.com/": {
-    "xpath": "article/section[starts-with(@class,'container_')]"
-  },
   "//www.switch-science.com/catalog/": {
     "xpath": "div[@id='description']"
   },
@@ -17003,5 +16994,20 @@
   },
   "//www.nippon.com/": {
     "xpath": "div[@class='c-content']/*[@class='c-detailmv' or @id='kiji-author' or @class='c-read']|//div[@class='editArea']"
+  },
+  "//www.nikkei.com/": {
+    "xpath": "article/section[starts-with(@class,'container_')]|//*[@id='k-think']/div/ul/li[contains(@class,'activeBlock_')]",
+    "engine": "chromium",
+    "cleanup": [
+      "form",
+      "label",
+      "button"
+    ]
+  },
+  "//opcdiary.net/": {
+    "xpath": "div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@id,'like-post-wrapper-')]"
+    ]
   }
 }
