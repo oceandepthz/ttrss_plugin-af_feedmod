@@ -6,7 +6,8 @@ class HatebuUtils {
 		    '//b.hatena.ne.jp/hotentry/it.rss',
 		       '//feeds.feedburner.com/hatena/b/hotentry',
 		       '//rss.kozono.org/rss/hatebu_marge_hotentry.rss',
-	               '//b.hatena.ne.jp/hotentry.rss'
+		       '//b.hatena.ne.jp/hotentry.rss',
+		       '//b.hatena.ne.jp/hotentry/knowledge.rss'
 	       ];
         return self::strposa($fetch_url, $target);
     }
