@@ -126,6 +126,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 break;
             }
 
+            $this->write_url($article['link'], $urlpart);
+
             $doc = new DOMDocument();
             $link = $this->replace_link(trim($article['link']),$config);
 
@@ -146,7 +148,7 @@ class Af_Feedmod extends Plugin implements IHandler
             }
             $is_execute = true;
             $article['content'] = $entrysXML;
-            $this->write_url($article['link'], $urlpart);
+//            $this->write_url($article['link'], $urlpart);
 
             $head_content = '';
             if(isset($config['head_xpath']) && $config['head_xpath']){
@@ -646,8 +648,12 @@ class Af_Feedmod extends Plugin implements IHandler
         if(!$html){
             return $html;
         }
-
-        return mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+        $patterns = ['/<script.*?>.*?<\/script>/ims', '/<noscript.*?>.*?<\/noscript>/ims'];
+        $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+        foreach($patterns as $pattern){
+            $html = preg_replace($pattern, '', $html);
+        }
+	return $html;
     }
 
     // sportiva.shueisha.co.jp

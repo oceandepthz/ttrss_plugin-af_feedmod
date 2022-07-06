@@ -80,7 +80,10 @@ class PicTwitterImageUrls
             )
         );
         stream_context_get_default($default_opts);
-        $headers = get_headers($url, True);
+	$headers = get_headers($url, True);
+	if(!$headers){
+            return "";
+	}
 	if(!array_key_exists('location', $headers))
 	{
             return "";
