@@ -17024,5 +17024,11 @@
     "next_page": "div[@class='article-footer']/ul[contains(@class,'m-pagination')]",
     "rep_pattern": "/^(.*:\\/\\/newsdig\\.tbs\\.co\\.jp\\/articles\\/.*\\/[0-9]*)$/",
     "rep_replacement": "${1}?display=1"
+  },
+  "//pokemongo-kouryakumatome.net/": {
+    "xpath": "article/div[@class='Article__content']",
+    "cleanup": [
+      "div[@align='center' or @id='article-ad']"
+    ]
   }
 }
