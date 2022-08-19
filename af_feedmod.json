@@ -13128,12 +13128,6 @@
     ],
     "next_page": "ul[@class='pager']"
   },
-  "//capitalp.jp/": {
-    "xpath": "div[@class='c-entry__body']",
-    "cleanup": [
-      "div[@class='ad-single-top' or @class='ad-content-wrapper' or contains(@class,'sharedaddy')]"
-    ]
-  },
   "//www.gentosha.jp/": {
     "xpath": "div[@id='main']/div[contains(@class,'articleDetail')]|//div[@class='secSeriesInner']"
   },
@@ -17050,5 +17044,8 @@
     "cleanup": [
       "form"
     ]
+  },
+  "//capitalp.jp/": {
+    "xpath": "article/div/div[@class='entry-eye-catch']|//article/div[contains(@class,'entry-content')]"
   }
 }
