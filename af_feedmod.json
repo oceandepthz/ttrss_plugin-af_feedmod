@@ -11220,9 +11220,6 @@
   "//niku.name/": {
     "xpath": "article"
   },
-  "//flxy.jp/": {
-    "xpath": "div[@class='blog_content']"
-  },
   "//www.kochinews.co.jp/": {
     "xpath": "div[@class='article']"
   },
@@ -12427,16 +12424,6 @@
       "ul[contains(@class,'ul_sns_head')]"
     ]
   },
-  "//www.oreilly.co.jp/community/blog": {
-    "xpath": "div[@class='entry-content']"
-  },
-  "//www.oreilly.co.jp/": {
-    "xpath": "section[@id='content']",
-    "cleanup": [
-      "div[@id='buying_option' or @class='social-tools']"
-    ],
-    "append_css": "ul.biblio li img {height: 12px!important;margin-right: 2px;max-width: 100%!important;width: auto;}"
-  },
   "//www.jabba.cloud/": {
     "xpath": "article/div[contains(@class,'bodytext')]"
   },
@@ -13069,9 +13056,6 @@
   },
   "//web.dev/": {
     "xpath": "main"
-  },
-  "//pr.forkwell.com/": {
-    "xpath": "div[@class='wp-content']"
   },
   "//nrslib.com/": {
     "xpath": "main/section[@class='content']",
@@ -15257,7 +15241,7 @@
     "xpath": "main[@id='main']/article"
   },
   "//www3.nhk.or.jp/news/special/": {
-    "xpath": "main[@id='main']"
+    "xpath": "main[@id='main']|//div[@class='c-container__main']/div/article"
   },
   "//jp.reuters.com/": {
     "xpath": "div[@class='ArticleBodyWrapper']",
@@ -16283,12 +16267,6 @@
       "div[@class='sns' or @class='ad' or @class='paginate']"
     ]
   },
-  "//engineering.linecorp.com/": {
-    "xpath": "div[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'yuzo_related_post') or contains(@class,'addtoany_share_save_container')]"
-    ]
-  },
   "//linecorp.com/ja/security/": {
     "xpath": "div[contains(@class,'article')]/div[contains(@class,'content_area')]"
   },
@@ -17051,5 +17029,26 @@
   },
   "//www.nhk.or.jp/radio/magazine/": {
     "xpath": "div[@class='article-threeline']|//div[@class='article-header']//p[@class='article-header-thumbnail' or @class='yr-tags']|//div[@class='article-body']"
+  },
+  "//engineering.linecorp.com/": {
+    "xpath": "article/section[@class='post_content_wrap']"
+  },
+  "//flxy.jp/": {
+    "xpath": "article/div[@class='post__contents']",
+    "cleanup": [
+      "div[@class='cta_box']"
+    ]
+  },
+  "//pr.forkwell.com/": {
+    "xpath": "header/div/div/a/img|//div[@class='article_body' or @class='author']"
+  },
+  "//www.oreilly.co.jp/community/blog": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.oreilly.co.jp/": {
+    "xpath": "main[@id='maincontent']",
+    "cleanup": [
+      "form"
+    ]
   }
 }
