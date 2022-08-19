@@ -16732,88 +16732,6 @@
     "next_page": "div[contains(@class,'pagination')]",
     "next_page_cleanup": "a[contains(@class,'active')]"
   },
-  "//www.nhk.or.jp/kokusaihoudou/catch/": {
-    "xpath": "div[@class='entry' or @class='section02']"
-  },
-  "//www.nhk.or.jp/kokusaihoudou/": {
-    "xpath": "section[@id='marugotoEntry']/div[@class='section01']"
-  },
-  "//www.nhk.or.jp/catchsekai/marugoto": {
-    "xpath": "div[@class='section01']/div[@class='entry' or @class='section02']"
-  },
-  "//www.nhk.or.jp/nw9/marugoto": {
-    "xpath": "div[@class='section01']/div[@class='entry' or @class='section02']"
-  },
-  "//www.nhk.or.jp/nw9/digest": {
-    "xpath": "div[@class='entry' or @class='section02']"
-  },
-  "//www.nhk.or.jp/kaisetsu-blog/": {
-    "xpath": "div[@class='article']"
-  },
-  "//www.nhk.or.jp/ohayou/biz/": {
-    "xpath": "div[@class='detailContents__body']",
-    "cleanup": [
-      "div[@class='bizMovieBtn' or @id='p-bizRelated']"
-    ]
-  },
-  "//www.nhk.or.jp/ohayou/": {
-    "xpath": "div[@class='section01']/div[@class='entry' or @class='section02']"
-  },
-  "//www.nhk.or.jp/minna/songs/": {
-    "xpath": "article",
-    "cleanup": [
-      "div[@class='c-item__social']"
-    ]
-  },
-  "//www.nhk.or.jp/keizai": {
-    "xpath": "div[@class='featureDetail__body']"
-  },
-  "//www.nhk.or.jp/politics/": {
-    "xpath": "section[@class='module--detail-content']"
-  },
-  "//www.nhk.or.jp/sports-story/": {
-    "xpath": "article/div/p[@class='kv']|//article/div/div[@class='section']"
-  },
-  "//www.nhk.or.jp/dramatopics-blog/": {
-    "xpath": "div[@class='entry-content']"
-  },
-  "//www.nhk.or.jp/drama-blog/": {
-    "xpath": "div[@class='entry-content']"
-  },
-  "//www.nhk.or.jp/kokorotabi-blog/": {
-    "xpath": "div[@class='entry']",
-    "cleanup": [
-      "p[@class='pageNav']",
-      "span[@class='socialbookmark']",
-      "form"
-    ]
-  },
-  "//www.nhk.or.jp/nc11-news/digest/": {
-    "xpath": "header[@class='digestArticle__heaer']|//div[@class='digestArticle__body' or @class='digestArticle__conversation']"
-  },
-  "//www.nhk.or.jp/shutoken-news/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www.nhk.or.jp/gendai/kiroku/": {
-    "xpath": "div[contains(@class, 'vtr')]",
-    "next_page": "div[contains(@class, 'pager') and contains(@class, 'pc')]",
-    "next_page_cleanup": "li[contains(@class, 'lastChild')]"
-  },
-  "//www.nhk.or.jp/gendai/kiji/": {
-    "xpath": "div[@class='hero--kiji']/div[@class='hero__pic--kiji']|//div[@class='column']/div[@class='kijiContents__description' or @class='kijiContents__body' or @class='kijiContents__note']"
-  },
-  "//www.nhk.or.jp/gendai/": {
-    "xpath": "div[contains(@class,'bodyText') or contains(@class,'person2') or @class='hero__pic']"
-  },
-  "//www.nhk.or.jp/bunken/research/kotoba/": {
-    "xpath": "p[@id='name']|//div[@id='articleBody']"
-  },
-  "//www.nhk.or.jp/docudocu/program/": {
-    "xpath": "div[@class='detail__contents']/*[@class='detail__programContent' or @class='columns']"
-  },
-  "//www.nhk.or.jp/radio/magazine/": {
-    "xpath": "div[@class='article-threeline']|//div[@class='article-header']//p[@class='article-header-thumbnail' or @class='yr-tags']|//div[@class='article-body']"
-  },
   "//togetter.com/special/": {
     "xpath": "div[@id='document']/div[contains(@class,'contents')]"
   },
@@ -17030,5 +16948,108 @@
     "cleanup": [
       "div[@align='center' or @id='article-ad']"
     ]
+  },
+  "//gendai.media/": {
+    "xpath": "div[contains(@class,'articleContents') or contains(@class,'articleFirstImage') or @class='article_author-small' or @class='articleBody']",
+    "next_page": "div[@class='pagination']",
+    "append_css": [
+      ".article_author-small {height: 80px;margin: 10px 0 20px;width: 640px;}",
+      ".article_author-small img {border-radius: 40px;float: left;height: 80px;margin-right: 20px;width: 80px;}",
+      ".article_author-small .article_author-small_name {color: #000000;float: left;font-size: 24px;font-weight: 700;height: 40px;letter-spacing: 1px;line-height: 40px;margin-top: 10px;}",
+      ".article_author-small .article_author-small_title {color: #000000;float: left;font-size: 10px;font-weight: 500;height: 37px;letter-spacing: 0;line-height: 14px;margin-left: 10px;margin-top: 15px;}",
+      ".article_author-small .article_author-small_profileLink {color: #2894d4;float: left;font-size: 13px;font-weight: 700;height: 20px;letter-spacing: 1px;line-height: 18px;margin-top: 10px;width: 520px;}",
+      ".frame {background-color: #eeeeee;line-height: 28px;margin: 40px 0;padding: 20px 30px;}",
+      ".articleContents p {font-size: 16px;line-height: 28px;margin: 1.2em 0;}",
+      ".frame .main-image {width:100px;}",
+      ".articleFirstImage {background-position: center center;background-size: cover;height: 375px;min-width: 1020px;position: relative;width: 100%;}"
+    ]
+  },
+  "//news.ntv.co.jp/": {
+    "xpath": "div[@class='mainContents']/*[@class='player-contents' or @class='player-text']"
+  },
+  "//www.nhk.or.jp/kokusaihoudou/catch/": {
+    "xpath": "div[@class='entry' or @class='section02']"
+  },
+  "//www.nhk.or.jp/kokusaihoudou/": {
+    "xpath": "section[@id='marugotoEntry']/div[@class='section01']"
+  },
+  "//www.nhk.or.jp/catchsekai/marugoto": {
+    "xpath": "div[@class='section01']/div[@class='entry' or @class='section02']"
+  },
+  "//www.nhk.or.jp/nw9/marugoto": {
+    "xpath": "div[@class='section01']/div[@class='entry' or @class='section02']"
+  },
+  "//www.nhk.or.jp/nw9/digest": {
+    "xpath": "div[@class='entry' or @class='section02']"
+  },
+  "//www.nhk.or.jp/kaisetsu-blog/": {
+    "xpath": "div[@class='article']"
+  },
+  "//www.nhk.or.jp/ohayou/biz/": {
+    "xpath": "div[@class='detailContents__body']",
+    "cleanup": [
+      "div[@class='bizMovieBtn' or @id='p-bizRelated']"
+    ]
+  },
+  "//www.nhk.or.jp/ohayou/": {
+    "xpath": "div[@class='section01']/div[@class='entry' or @class='section02']"
+  },
+  "//www.nhk.or.jp/minna/songs/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[@class='c-item__social']"
+    ]
+  },
+  "//www.nhk.or.jp/keizai": {
+    "xpath": "div[@class='featureDetail__body']"
+  },
+  "//www.nhk.or.jp/politics/": {
+    "xpath": "section[@class='module--detail-content']"
+  },
+  "//www.nhk.or.jp/sports-story/": {
+    "xpath": "article/div/p[@class='kv']|//article/div/div[@class='section']"
+  },
+  "//www.nhk.or.jp/dramatopics-blog/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.nhk.or.jp/drama-blog/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//www.nhk.or.jp/kokorotabi-blog/": {
+    "xpath": "div[@class='entry']",
+    "cleanup": [
+      "p[@class='pageNav']",
+      "span[@class='socialbookmark']",
+      "form"
+    ]
+  },
+  "//www.nhk.or.jp/nc11-news/digest/": {
+    "xpath": "header[@class='digestArticle__heaer']|//div[@class='digestArticle__body' or @class='digestArticle__conversation']"
+  },
+  "//www.nhk.or.jp/shutoken-news/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www.nhk.or.jp/gendai/comment/": {
+    "xpath": "main/article"
+  },
+  "//www.nhk.or.jp/gendai/kiroku/": {
+    "xpath": "div[contains(@class, 'vtr')]",
+    "next_page": "div[contains(@class, 'pager') and contains(@class, 'pc')]",
+    "next_page_cleanup": "li[contains(@class, 'lastChild')]"
+  },
+  "//www.nhk.or.jp/gendai/kiji/": {
+    "xpath": "div[@class='hero--kiji']/div[@class='hero__pic--kiji']|//div[@class='column']/div[@class='kijiContents__description' or @class='kijiContents__body' or @class='kijiContents__note']"
+  },
+  "//www.nhk.or.jp/gendai/": {
+    "xpath": "div[contains(@class,'bodyText') or contains(@class,'person2') or @class='hero__pic']"
+  },
+  "//www.nhk.or.jp/bunken/research/kotoba/": {
+    "xpath": "p[@id='name']|//div[@id='articleBody']"
+  },
+  "//www.nhk.or.jp/docudocu/program/": {
+    "xpath": "div[@class='detail__contents']/*[@class='detail__programContent' or @class='columns']"
+  },
+  "//www.nhk.or.jp/radio/magazine/": {
+    "xpath": "div[@class='article-threeline']|//div[@class='article-header']//p[@class='article-header-thumbnail' or @class='yr-tags']|//div[@class='article-body']"
   }
 }
