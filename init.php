@@ -649,11 +649,18 @@ class Af_Feedmod extends Plugin implements IHandler
             return $html;
         }
         $patterns = ['/<script.*?>.*?<\/script>/ims', '/<noscript.*?>.*?<\/noscript>/ims'];
-        $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
-        foreach($patterns as $pattern){
-            $html = preg_replace($pattern, '', $html);
-        }
-	return $html;
+        $mb_conv_html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+        if(!$mb_conv_html){
+            return $html;
+	}
+        $clean_html = $mb_conv_html;
+	foreach($patterns as $pattern){
+            $clean_html = preg_replace($pattern, '', $clean_html);
+	}
+        if(!$clean_html){
+            return $html;
+	}
+	return $clean_html;
     }
 
     // sportiva.shueisha.co.jp
@@ -1110,7 +1117,8 @@ class Af_Feedmod extends Plugin implements IHandler
 
             if(!$url) {
                 continue;
-            }
+	    }
+	    $url = htmlspecialchars($url);
             $node->nodeValue = $url;
             $node->setAttribute('href', $url);
         }
