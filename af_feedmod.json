@@ -14708,9 +14708,6 @@
   "//diary.sorah.jp/": {
     "xpath": "div[@class='entry-content-container']"
   },
-  "//natalie.mu/": {
-    "xpath": "div[@class='NA_article_body']"
-  },
   "//www.rfc-editor.org/rfc/": {
     "xpath": "body"
   },
@@ -14899,12 +14896,6 @@
   },
   "//www.vogue.co.jp/": {
     "xpath": "div[starts-with(@class,'Wrapper-')]/p[contains(@class,'BaseText-sc-')]|//section[contains(@class,'MainContentWrapper-')]"
-  },
-  "//www.buzzfeed.com/": {
-    "xpath": "a[starts-with(@class,'headlineByline__')]/div[starts-with(@class,'bylineContainer__')]|//article//div[starts-with(@class,'container__')]/*[starts-with(@class,'title__') or starts-with(@class,'description__')]|//div[contains(@class,'buzz--long')]",
-    "cleanup": [
-      "div[@class='js-inline-share-bar']"
-    ]
   },
   "//data-viz-lab.com/": {
     "xpath": "aside[@class='post-author']|//div[@class='entry-content']",
@@ -16056,12 +16047,6 @@
   "//csirt.ninja/": {
     "xpath": "div[@id='content']"
   },
-  "//developer.chrome.com/blog/": {
-    "xpath": "main/article"
-  },
-  "//developer.chrome.com/docs/": {
-    "xpath": "main/div/article"
-  },
   "//developer.mozilla.org/": {
     "xpath": "article[@class='main-page-content']"
   },
@@ -16438,9 +16423,6 @@
       ".event-block__image {height: 4.0625rem!important;width: 4.0625rem!important;}",
       ".speaker-item__image {border-radius: 50%;height: 3.25rem!important;object-fit: cover;width: 3.25rem!important;}"
     ]
-  },
-  "//developer.chrome.com/ja/blog/": {
-    "xpath": "main/div/img[contains(@class,'hero-image')]|//main/div/div/article"
   },
   "//guitar-ijiri.com/": {
     "xpath": "div[@id='mainEntity']/div",
@@ -17047,5 +17029,29 @@
   },
   "//capitalp.jp/": {
     "xpath": "article/div/div[@class='entry-eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//developer.chrome.com/blog/": {
+    "xpath": "main//img[contains(@class,'hero-image')]|//main//article[contains(@class,'post')]"
+  },
+  "//developer.chrome.com/docs/": {
+    "xpath": "main//article"
+  },
+  "//developer.chrome.com/ja/blog/": {
+    "xpath": "main//img[contains(@class,'hero-image')]|//main//article[contains(@class,'post')]"
+  },
+  "//natalie.mu/": {
+    "xpath": "article/div[@class='PP_main']",
+    "next_page": "nav[@class='PP_pager_wrapper']",
+    "head_xpath": "article/div[@class='PP_header']",
+    "cleanup": [
+      "nav",
+      "div[@class='PP_share' or contains(@class,'PP_nextpage')]"
+    ]
+  },
+  "//www.buzzfeed.com/": {
+    "xpath": "article//*[starts-with(@class,'headline_title__') or starts-with(@class,'headline_description__') or starts-with(@class,'headline-byline_adaptive')]|//article/div/div[contains(@class,'subbuzzes--buzzfeed')]",
+    "cleanup": [
+      "div[contains(@class,'js-inline-share-bar')]"
+    ]
   }
 }
