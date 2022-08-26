@@ -1918,9 +1918,6 @@
   "internet-kyokasho.com": {
     "xpath": "section[@class='post-content']"
   },
-  "www.orefolder.net": {
-    "xpath": "div[@class='entry-single']"
-  },
   "twishort.com": {
     "xpath": "blockquote/div[@class='pull-left']|//div[@id='onetweet']/p"
   },
@@ -9496,12 +9493,6 @@
   "//www.pc-koubou.jp/magazine/": {
     "xpath": "article/div[@id='main-image' or @id='body-block' or @id='profile']"
   },
-  "//taisy0.com/": {
-    "xpath": "footer[@class='c-entry__footer']|//div[@class='c-entry__content']/p",
-    "cleanup": [
-      "ul[@class='wp-profile-box__sns-accounts']"
-    ]
-  },
   "//www.iscle.com/": {
     "xpath": "div[@id='contents']"
   },
@@ -13967,12 +13958,6 @@
       "div[@class='ad-box' or @id='disqus_thread']"
     ]
   },
-  "//blog.mozilla.org/nfroyd/": {
-    "xpath": "div[@id='content']/div[contains(@id,'post-')]"
-  },
-  "//blog.mozilla.org/": {
-    "xpath": "div[@class='entry-content' or contains(@class,'post-image')]"
-  },
   "//blog.tsubotax.com/n/": {
     "engine": "note_mu",
     "xpath": "body"
@@ -15345,9 +15330,6 @@
   "//ssl.sakura.ad.jp/column/": {
     "xpath": "p[@class='content-title_text']|//article/figure|//article/*[@class='layout_content-inner' or @class='layout_section' or @class='column-article-date' or @id='author-contents']"
   },
-  "//www.axion.zone/": {
-    "xpath": "p[@class='post-full-custom-excerpt']|//figure[@class='post-full-image']|//section[@class='post-full-content']"
-  },
   "//www.jacom.or.jp/": {
     "xpath": "section/div[@class='contArticle__read' or @class='contArticle__body']"
   },
@@ -16146,9 +16128,6 @@
   "//www.hashicorp.com/blog/": {
     "xpath": "div[contains(@class,'BlogPost_blogPost__')]/div[contains(@class,'BlogPostHeader_blogPostHeader__') or contains(@class,'BlogPost_content__')]"
   },
-  "//shunyaueta.com/": {
-    "xpath": "div[@class='article-post']"
-  },
   "//jbpress.ismedia.jp/": {
     "xpath": "div[contains(@class,'article-body') or @class='article-video-container' or @class='summary' or @id='_popin_content' or @itemprop='articleBody' or @id='main-contents']",
     "cleanup": [
@@ -16170,9 +16149,6 @@
   },
   "//www.klab.com/": {
     "xpath": "div[contains(@class,'p-newsArea') or contains(@class,'p-blog_articleArea')]"
-  },
-  "//www.mbs.jp/news/": {
-    "xpath": "div[@class='movie']|//section[@id='article']/p"
   },
   "//slowinternet.jp/": {
     "xpath": "div[@class='content-body']/article"
@@ -16272,10 +16248,6 @@
   },
   "//hr.pepabo.com/interview/": {
     "xpath": "div[@class='Entry__FeaturedImage' or @class='Entry__Content']"
-  },
-  "//diamond.jp/": {
-    "xpath": "div[contains(@class,'article-body')]",
-    "next_page": "ul[@class='pagination']"
   },
   "//diehardtales.com/n/": {
     "engine": "note_mu",
@@ -17052,6 +17024,37 @@
     "xpath": "article//*[starts-with(@class,'headline_title__') or starts-with(@class,'headline_description__') or starts-with(@class,'headline-byline_adaptive')]|//article/div/div[contains(@class,'subbuzzes--buzzfeed')]",
     "cleanup": [
       "div[contains(@class,'js-inline-share-bar')]"
+    ]
+  },
+  "//blog.mozilla.org/nfroyd/": {
+    "xpath": "div[@id='content']/div[contains(@id,'post-')]"
+  },
+  "//blog.mozilla.org/": {
+    "xpath": "img[starts-with(@class,'ft-c-single-post__featured-image')]|//div[@class='ft-c-single-post__body']"
+  },
+  "//diamond.jp/": {
+    "xpath": "div[contains(@class,'article-body')]",
+    "next_page": "ul[@class='pagination']"
+  },
+  "//www.mbs.jp/news/": {
+    "xpath": "div[@class='article-body' or @class='article-media']"
+  },
+  "//shunyaueta.com/": {
+    "xpath": "article/*[@class='entry-cover' or @class='post-content']"
+  },
+  "//taisy0.com/": {
+    "xpath": "article/section[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'sponsored')]"
+    ]
+  },
+  "//www.axion.zone/": {
+    "xpath": "figure[@class='c-post-media']|//div[@class='c-post-header']/*[@class='c-post-header__excerpt' or @class='c-post-header__meta']|//div[contains(@class,'c-content')]"
+  },
+  "//www.orefolder.net/": {
+    "xpath": "img[contains(@class,'entry-top-image')]|//div[@class='entry-body']",
+    "cleanup": [
+      "div[@class='snsbtn']"
     ]
   }
 }
