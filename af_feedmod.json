@@ -13435,13 +13435,6 @@
   "//daipresents.com/": {
     "xpath": "article/div[contains(@class,'entry-content')]"
   },
-  "//sirabee.com/": {
-    "xpath": "div[@itemprop='articleBody']",
-    "cleanup": [
-      "div[@class='entryBottomBanner']"
-    ],
-    "next_page": "nav[contains(@class,'paging')]"
-  },
   "//peaks.cc/": {
     "xpath": "div[@class='c-content']"
   },
@@ -17056,5 +17049,16 @@
     "cleanup": [
       "div[@class='snsbtn']"
     ]
+  },
+  "//sirabee.com/": {
+    "xpath": "div[@class='article']/div[contains(@class,'wysiwyg')]",
+    "cleanup": [
+      "div[@id='rectangle' or @class='entryBottomBanner']"
+    ],
+    "head_xpath": "h2[@class='article_lead']",
+    "next_page": "nav[contains(@class,'paging')]"
+  },
+  "//storybook.js.org/blog/": {
+    "xpath": "article/figure/img|//section[contains(@class,'load-external-scripts')]"
   }
 }
