@@ -238,11 +238,11 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_amzn_to($doc, $xpath, $entry, $link);
                 $this->sanitize_amazon($doc, $xpath, $entry, $link);
                 $this->update_sqex_to($doc, $xpath, $entry, $link);
+                $this->update_twitter_tweet($doc, $xpath, $entry);
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
                 $this->update_peing_net($doc, $xpath, $entry, $link);
                 $this->update_img_link($doc, $xpath, $entry, $link);
                 $this->update_instagram($doc, $xpath, $entry, $link);
-                $this->update_twitter_tweet($doc, $xpath, $entry);
 		if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
                 }
@@ -1666,8 +1666,8 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 	    foreach($entries as $entry){
 		// content有無確認
-                $contents = $xpath->query("p[@dir='ltr']", $entry);
-		if($contents->length >= 0){
+                $contents = $xpath->query("//p[@dir='ltr']", $entry);
+		if($contents->length > 0){
                     continue;
 		}
 
@@ -1681,8 +1681,8 @@ class Af_Feedmod extends Plugin implements IHandler
 		if(!$h){
 		    continue;
 		}
-		$h = str_replace('href="/', 'href="https://rss.kozono.org/', $h);
-		$h = str_replace('src="/', 'src="https://rss.kozono.org/', $h);
+		$h = str_replace('href="/', 'href="https://nitter.kozono.org/', $h);
+		$h = str_replace('src="/', 'src="https://nitter.kozono.org/', $h);
 
 		$h = mb_convert_encoding($h, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
 		$sdom = new DOMDocument();
