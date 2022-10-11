@@ -12,7 +12,8 @@ require_once('PicTwitterImageUrls.php');
 
 //$url = "pic.twitter.com/81uDdcPnIS";
 //$url = "pic.twitter.com/0G1njgXN1U";
-$url = "pic.twitter.com/ErCdG8mkRC";
+//$url = "pic.twitter.com/ErCdG8mkRC";
+$url = "pic.twitter.com/SovVzy607a";
 
 $p = new PicTwitterImageUrls($url);
 

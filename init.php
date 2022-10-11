@@ -221,6 +221,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_remote_src($entry, 'img');
                 $this->update_remote_src($entry, 'iframe');
 
+                $this->update_video_src($entry);
+
                 $this->update_srcset($entry, $link, "img");
                 $this->update_srcset($entry, $link, "source");
 
@@ -228,6 +230,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_remote_file($entry, $link, "iframe", "src");
                 $this->update_remote_file($entry, $link, "img", "src");
                 $this->update_remote_file($entry, $link, "source", "src");
+                $this->update_remote_file($entry, $link, "video", "poster");
+                $this->update_remote_file($entry, $link, "video", "data-url");
+                $this->update_remote_file($entry, $link, "video", "src");
 
                 $this->update_t_co($doc, $xpath, $entry, $link);
                 $this->update_amzn_to($doc, $xpath, $entry, $link);
@@ -237,7 +242,8 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_peing_net($doc, $xpath, $entry, $link);
                 $this->update_img_link($doc, $xpath, $entry, $link);
                 $this->update_instagram($doc, $xpath, $entry, $link);
-                if(strpos($link, '//jp.reuters.com/article/') !== false){
+                $this->update_twitter_tweet($doc, $xpath, $entry);
+		if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
                 }
                 $this->update_html_style($xpath, $entry, $link);
@@ -823,7 +829,35 @@ class Af_Feedmod extends Plugin implements IHandler
             return;
         }
         foreach ($nodelist as $node) {
-            $link_node = $xpath->query("(.//div/p/a)", $node);
+            $instagram_url = $xpath->evaluate('string(@data-instgrm-permalink)',$node);
+            if(strpos($instagram_url, 'https://www.instagram.com/p/') !== 0){
+                continue;
+	    }
+            require_once('classes/Bibliogram.php');
+            $bibliogram = new Bibliogram($instagram_url);
+            $html = $bibliogram->getInstagramHtml();
+            if(!$html){
+                continue;
+	    }
+	    $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+
+            $sdom = new DOMDocument();
+	    @$sdom->loadHTML($html);
+	    $sdom_xpath = new DOMXPath($sdom);
+            $div = $sdom_xpath->query("//div[@class='instagram-media']")->item(0);
+
+
+	    //$sxmle = simplexml_load_string($html);
+	    //$inode = $doc->importNode(dom_import_simplexml($sxmle), true);
+            while ($node->hasChildNodes()) {
+                $node->removeChild($node->firstChild);
+            }
+	    //$node->appendChild($inode);
+	    $result = $doc->importNode($div,true);
+	    $node->appendChild($result);
+
+/*
+		$link_node = $xpath->query("(.//div/p/a)", $node);
             if($link_node->length ===0){
                 continue;
             }
@@ -857,7 +891,7 @@ class Af_Feedmod extends Plugin implements IHandler
                    $i_node->appendChild($img);
                    $i_node->setAttribute('style','');
                }
-            }
+	    }*/
         }
     }
 
@@ -912,8 +946,8 @@ class Af_Feedmod extends Plugin implements IHandler
             return;
         }
         $this->update_instagram_bq($doc, $xpath, $basenode, $link);
-        $this->update_instagram_tw($doc, $xpath, $basenode, $link);
-        $this->update_instagram_url($doc, $xpath, $basenode, $link);
+        //$this->update_instagram_tw($doc, $xpath, $basenode, $link);
+        //$this->update_instagram_url($doc, $xpath, $basenode, $link);
     }
 
     function get_instagram_img_url(string $url) : string {
@@ -1119,7 +1153,9 @@ class Af_Feedmod extends Plugin implements IHandler
                 continue;
 	    }
 	    $url = htmlspecialchars($url);
-            $node->nodeValue = $url;
+	    if(strpos($node->nodeValue, 'pic.twitter.com/') === false){
+                $node->nodeValue = $url;
+	    }
             $node->setAttribute('href', $url);
         }
     }
@@ -1417,6 +1453,27 @@ class Af_Feedmod extends Plugin implements IHandler
             }
         }
     }
+    function update_video_src(DOMElement $basenode) : void {
+	if(!$basenode)
+	{
+            return;
+        }
+        $nodes = $basenode->getElementsByTagName('video');
+	foreach($nodes as $node)
+	{
+	    $src = $node->getAttribute('src');
+	    if($src)
+	    {
+		continue;
+	    }
+	    $dataurl = $node->getAttribute('data-url');
+	    if(!$dataurl)
+	    {
+		continue;
+	    }
+            $node->setAttribute('src',urldecode($dataurl));
+	}
+    }
     function update_remote_src(DOMElement $basenode, string $tag) : void {
         if(!$basenode){
             return;
@@ -1600,21 +1657,42 @@ class Af_Feedmod extends Plugin implements IHandler
         }
     }
 
-    function update_twitter_tweet(DOMDocument $doc, DOMXPath $xpath): void {
+    function update_twitter_tweet(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode): void {
         $expressions = ["//blockquote[@class='twitter-tweet']//a"];
 	    foreach($expressions as $expression){
-            $entries = $xpath->query($expression);
+            $entries = $xpath->query($expression, $basenode);
             if($entries->length === 0){
                 continue;
             }
-            foreach($entries as $entry){
+	    foreach($entries as $entry){
+		// content有無確認
+                $contents = $xpath->query("p[@dir='ltr']", $entry);
+		if($contents->length >= 0){
+                    continue;
+		}
+
 	        $tw_url = $entry->getAttribute('href');
                 if(!$tw_url){
 		        continue;
 		}
 		require_once('classes/TwitterContents.php');
-		$p = new TwitterContents($url);
-                $a = $p->getContents();
+		$tc = new TwitterContents($tw_url);
+                $h = $tc->getContents();
+		if(!$h){
+		    continue;
+		}
+		$h = str_replace('href="/', 'href="https://rss.kozono.org/', $h);
+		$h = str_replace('src="/', 'src="https://rss.kozono.org/', $h);
+
+		$h = mb_convert_encoding($h, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+		$sdom = new DOMDocument();
+		@$sdom->loadHTML($h);
+                $sdom_xpath = new DOMXPath($sdom);
+                $div = $sdom_xpath->query("//div[@id='m']")->item(0);
+                
+		$result = $doc->importNode($div,true);
+                $entry->appendChild($result);
+
 
                 // transformation url
                 // get content

@@ -27,6 +27,10 @@ class TwitterContents
 	// get nitter contents
         $contents = $this->getArticle($doc, $xpath);
 
+        // cleanup
+	//$contents = str_replace("middot", "#183", $contents);
+	//$contents = str_replace("・", "&#183;", $contents);
+
 	return $contents;
     }
     private function getArticle(DOMDocument $doc, DOMXPath $xpath) : string {
