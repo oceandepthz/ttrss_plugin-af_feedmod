@@ -830,7 +830,8 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         foreach ($nodelist as $node) {
             $instagram_url = $xpath->evaluate('string(@data-instgrm-permalink)',$node);
-            if(strpos($instagram_url, 'https://www.instagram.com/p/') !== 0){
+	    if(strpos($instagram_url, 'https://www.instagram.com/p/') !== 0 && 
+	       strpos($instagram_url, 'https://www.instagram.com/reel/') !== 0){
                 continue;
 	    }
             require_once('classes/Bibliogram.php');
