@@ -37,7 +37,7 @@ class Bibliogram {
     private function getVideoHtml(array $videos) : string {
         $html = "";
 	foreach($videos as $url){
-	    $html .= "<video src='${url}' max-width='720' />";
+	    $html .= "<video src='${url}' max-width='720' controls />";
 	}
 	return $html;
     }
@@ -90,9 +90,9 @@ class Bibliogram {
 
     private function convertBibliogramUrl() : string
     {
-        $pattern = '/^https:\/\/www\.instagram\.com\/(p\/.*\/).*$/';
+        $pattern = '/^https:\/\/www\.instagram\.com\/((p|reel)\/.*\/).*$/';
         preg_match($pattern, $this->instagram_url, $match);
-        if(count($match) != 2)
+        if(count($match) != 3)
         {
             return "";
         }
