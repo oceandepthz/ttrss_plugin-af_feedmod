@@ -17067,5 +17067,18 @@
     "cleanup": [
       "div[contains(@id,'div-gpt-ad-') or @class='link-nextpage' or @class='link-gallery']"
     ]
+  },
+  "//www.rakuten-card.co.jp/minna-money/": {
+    "xpath": "div[@class='content']",
+    "next_page": "div[@class='pagination']",
+    "cleanup": [
+      "section[@class='heading-default']",
+      "div[contains(@class,'more-read') or @class='pagination' or contains(@class,'to-next') or contains(@class,'detail-sns') or contains(@class,'detail-share')]",
+      "a[contains(@class,'detail-pickup')]",
+      "center"
+    ]
+  },
+  "//tech.travelbook.co.jp/": {
+    "xpath": "article"
   }
 }
