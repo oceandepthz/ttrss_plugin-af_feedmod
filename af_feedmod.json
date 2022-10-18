@@ -9757,14 +9757,6 @@
       "div[contains(@class,'addtoany_share_save_container')]"
     ]
   },
-  "//codezine.jp/": {
-    "xpath": "div[@class='article']|//div[@class='main']/div[contains(@class,'article')]//div[@class='summary' or contains(@class,'main')]",
-    "next_page": "div[@class='pager']",
-    "next_page_cleanup": [
-      "li[@class='current']",
-      "li[@class='nextBtn']"
-    ]
-  },
   "//deepage.net/": {
     "xpath": "header/img[@id='thumbnail-image']|//div[@class='post-content']|//article[contains(@class,'article-blog-feature')]",
     "cleanup": [
@@ -17086,5 +17078,9 @@
     "cleanup": [
       "div[contains(@class,'ad-area') or contains(@class,'rakuten-item-box')]"
     ]
+  },
+  "//codezine.jp/": {
+    "xpath": "div[@class='detailBlock']/*[contains(@class,'c-article_hero') or @class='c-article_summary' or @id='c-article_content']",
+    "next_page": "ul[@class='c-pager_pages_list']"
   }
 }
