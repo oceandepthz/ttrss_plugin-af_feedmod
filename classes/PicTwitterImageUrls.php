@@ -87,8 +87,15 @@ class PicTwitterImageUrls
 	if(!array_key_exists('location', $headers))
 	{
             return "";
-        }
-        return $headers['location'];
+	}
+	$location = $headers['location'];
+	if(is_string($location)){
+            return $location;
+	}
+	if(is_array($location)){
+            return $location[0];
+	}
+        return "";
     }
 
     private function getNormalizationUrl() : string
