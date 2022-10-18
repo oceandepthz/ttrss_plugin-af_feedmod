@@ -17080,5 +17080,11 @@
   },
   "//tech.travelbook.co.jp/": {
     "xpath": "article"
+  },
+  "//fromsaikasou.com/": {
+    "xpath": "article/header/div/figure|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area') or contains(@class,'rakuten-item-box')]"
+    ]
   }
 }
