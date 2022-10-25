@@ -15119,13 +15119,6 @@
   "//www3.nhk.or.jp/news/special/": {
     "xpath": "main[@id='main']|//div[@class='c-container__main']/div/article"
   },
-  "//jp.reuters.com/": {
-    "xpath": "div[@class='ArticleBodyWrapper']",
-    "engine": "chromium",
-    "cleanup": [
-      "div[contains(@class,'ArticleBody-read-time-and-social-')]"
-    ]
-  },
   "//r7kamura.com/": {
     "xpath": "article"
   },
@@ -15995,9 +15988,6 @@
   },
   "//coralcap.co/": {
     "xpath": "div[contains(@class,'et_pb_column')]/div[contains(@class,'et_pb_image') or contains(@class,'coral_blog_main_content')]"
-  },
-  "//www.fastly.com/blog/": {
-    "xpath": "section[contains(@class,'blog-post-section-body')]"
   },
   "//hikkoshi.suumo.jp/oyakudachi/": {
     "xpath": "article/div/div[@class='secWrapper']",
@@ -17082,5 +17072,33 @@
   "//codezine.jp/": {
     "xpath": "div[@class='detailBlock']/*[contains(@class,'c-article_hero') or @class='c-article_summary' or @id='c-article_content']",
     "next_page": "ul[@class='c-pager_pages_list']"
+  },
+  "//jp.reuters.com/": {
+    "xpath": "figure/div/button/figure/div/div/div[1]|//figure/div[contains(@class,'WithCaption-caption-container-')]|//div[@class='ArticleBodyWrapper']/p[contains(@class,'ArticleBody-para-')]",
+    "engine": "chromium"
+  },
+  "//www.fastly.com/jp/blog/": {
+    "xpath": "article[starts-with(@class,'blog-post__Article-')]"
+  },
+  "//www.infiniteloop.co.jp/tech-blog/": {
+    "xpath": "article"
+  },
+  "//www.miyamanavi.net/": {
+    "xpath": "div[@class='article-body']"
+  },
+  "//kumanichi.com/": {
+    "xpath": "div[contains(@class,'entry') or contains(@class,'field--name-field-para-body')]"
+  },
+  "//www.docomo.ne.jp/info/": {
+    "xpath": "article"
+  },
+  "//encount.press/": {
+    "xpath": "div[@class='single__content']",
+    "next_page": "div[@class='single__pagenation']",
+    "cleanup": [
+      "div[@class='lead_under']",
+      "aside",
+      "ul[@class='single_share_btn']"
+    ]
   }
 }
