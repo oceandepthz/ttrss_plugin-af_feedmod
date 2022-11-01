@@ -13994,9 +13994,6 @@
   "//quickcms.century.yokohama/": {
     "xpath": "article/div[@class='content']"
   },
-  "//www.vice.com/": {
-    "xpath": "div[contains(@class,'short-form-v2__lede-image-wrapper')]/div/div[@class='article-keep-reading' or contains(@class,'placeholder-image')]|//div[@class='article-keep-reading']"
-  },
   "//honsuki.jp/": {
     "xpath": "div[@class='writerinfo' or @class='othprof']|//div[contains(@id,'post-')]/div[@class='entry']",
     "cleanup": [
@@ -17099,6 +17096,12 @@
       "div[@class='lead_under']",
       "aside",
       "ul[@class='single_share_btn']"
+    ]
+  },
+  "//www.vice.com/": {
+    "xpath": "div[@class='short-form__body__article-lede-image' or contains(@class,'article__body-components') or  @class='article__longform__lede-image']",
+    "cleanup": [
+      "div[contains(@class,'adph')]"
     ]
   }
 }
