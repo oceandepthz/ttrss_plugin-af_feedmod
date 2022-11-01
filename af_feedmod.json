@@ -17103,5 +17103,29 @@
     "cleanup": [
       "div[contains(@class,'adph')]"
     ]
+  },
+  "//www.o-uccino.jp/": {
+    "xpath": "div[@class='eroom_image' or @class='article_body' or @class='editor_profile']"
+  },
+  "//www.shimotsuke.co.jp/": {
+    "xpath": "article",
+    "cleanup": [
+      "div[contains(@id,'_ad_unit_')]"
+    ]
+  },
+  "//www.tokyoartbeat.com/": {
+    "xpath": "div[@class='articleDetailExcerpt' or contains(@class,'detailContent')]"
+  },
+  "//crd.ndl.go.jp/reference/modules/d3ndlcrdentry/": {
+    "xpath": "div[@class='refCaseBox']"
+  },
+  "//www.htb.co.jp/news/": {
+    "xpath": "article/div[@class='imgOrMovieArea']|//article//div[@class='newsText']/p"
+  },
+  "//www.jstage.jst.go.jp/": {
+    "xpath": "body/div[contains(@class,'container')]"
+  },
+  "//www.modis.co.jp/candidate/insight/": {
+    "xpath": "main"
   }
 }
