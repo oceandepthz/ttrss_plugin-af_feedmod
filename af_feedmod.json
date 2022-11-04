@@ -17127,5 +17127,14 @@
   },
   "//www.modis.co.jp/candidate/insight/": {
     "xpath": "main"
+  },
+  "//tailscale.com/blog/": {
+    "xpath": "article/div[contains(@class,'Markdown')]"
+  },
+  "//www.caa.go.jp/notice/": {
+    "xpath": "div[@id='main']",
+    "cleanup": [
+      "div[@id='block_printbtn']"
+    ]
   }
 }
