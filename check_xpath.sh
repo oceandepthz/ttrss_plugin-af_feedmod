@@ -7,4 +7,4 @@
 	/usr/bin/uniq|
 	/usr/bin/awk '{print $1}'|
 	/usr/bin/uniq -c|
-	/usr/bin/awk '{if($1>2){print $0}}'
+	/usr/bin/awk '{if($1>1){print $0}}'
