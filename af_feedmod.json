@@ -353,13 +353,6 @@
       "p[@class='next_and_previous']"
     ]
   },
-  "www.j-cast.com": {
-    "xpath": "div[@class='entry-text']/div[@class='entry-text-body']",
-    "next_page": "div[@class='pagenation']",
-    "next_page_cleanup": [
-      "div[@class='view-all']"
-    ]
-  },
   "www.jcer.or.jp/column/otake": {
     "xpath": "div[@id='otakeArea']",
     "cleanup": [
@@ -10496,12 +10489,6 @@
   "//matome.response.jp/": {
     "xpath": "div[@class='article']/div[contains(@class,'header') or @class='header_outline' or @id='article-contents']"
   },
-  "//www.legendsstadium.com/": {
-    "xpath": "section[@class='writerContainer']|//article/div[@class='articleTextBlock' or @class='articleTitleBlock']",
-    "cleanup": [
-      "div[@class='snsLinkBlock']"
-    ]
-  },
   "//blog.goo.ne.jp/aibatatuya/": {
     "xpath": "div[@class='entry-body']"
   },
@@ -11269,14 +11256,8 @@
   "//zine.qiita.com/products/": {
     "xpath": "article/div[contains(@class,'post_content')]"
   },
-  "//www.zdnet.com/": {
-    "xpath": "article/div[@class='storyBody']"
-  },
   "//www.smashingmagazine.com/": {
     "xpath": "div[@id='article__content']"
-  },
-  "//www.netlify.com/blog/": {
-    "xpath": "article/div[@class='post-body']"
   },
   "//seleck.cc/": {
     "xpath": "div[contains(@class,'article-body-wrap')]/*[contains(@class,'article__writer') or contains(@class,'wp-post-image') or @id='post-content' or contains(@class,'article__interviewee')]"
@@ -14678,12 +14659,6 @@
       "div[starts-with(@class,'ad') or contains(@class,'rad')]"
     ]
   },
-  "//www.tokyo-np.co.jp/": {
-    "xpath": "div[@id='entry']",
-    "cleanup": [
-      "div[contains(@class,'cmp-misc') or @id='_popIn_recommend_new' or contains(@class,'cmp-m-catelst') or @class='l-container-narrow']"
-    ]
-  },
   "//pyama.fun/": {
     "xpath": "div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -16090,9 +16065,6 @@
   "//sibucho-laboratory.com/": {
     "xpath": "article/header/div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]"
   },
-  "//medical.jiji.com/": {
-    "xpath": "div[@class='articleBody']"
-  },
   "//memo.tyoshida.me/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -16479,9 +16451,6 @@
   },
   "//www.tc3.co.jp/": {
     "xpath": "main/div[contains(@class,'article-content')]/div"
-  },
-  "//radsum.com/": {
-    "xpath": "article/div[contains(@class,'entry-content')]"
   },
   "//pg-life.net/": {
     "xpath": "article/div/div[contains(@class,'cps-post-main')]",
@@ -17136,5 +17105,63 @@
     "cleanup": [
       "div[@id='block_printbtn']"
     ]
+  },
+  "//medical.jiji.com/": {
+    "xpath": "main/div[@class='bootstrap']"
+  },
+  "//radsum.com/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//suan.tokyo/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//sysdig.jp/blog/": {
+    "xpath": "div[@class='blog-content']"
+  },
+  "//fly.io/blog/": {
+    "xpath": "main/article/section"
+  },
+  "//lucy.ne.jp/bazubu/": {
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//media.locaop.jp/": {
+    "xpath": "article/div/div[contains(@class,'p-entry__body') or @class='p-entry__thumbnail']"
+  },
+  "//artexhibition.jp/": {
+    "xpath": "article[@class='main-content']/*[@class='eyecatch' or @class='news-detail']"
+  },
+  "//blog.recruit.co.jp/": {
+    "xpath": "main/div/div[@class='entry-content']"
+  },
+  "//blog.w0s.jp/": {
+    "xpath": "main"
+  },
+  "//www.j-cast.com/": {
+    "xpath": "div[@class='entry-text']/div[@class='entry-text-body']",
+    "next_page": "div[@class='pagenation']",
+    "next_page_cleanup": [
+      "div[@class='view-all']"
+    ]
+  },
+  "//www.legendsstadium.com/": {
+    "xpath": "section[@class='writerContainer']|//article/div[@class='articleTextBlock' or @class='articleTitleBlock']",
+    "cleanup": [
+      "div[@class='snsLinkBlock']"
+    ]
+  },
+  "//www.netlify.com/blog/": {
+    "xpath": "div[@class='blog-post-content']"
+  },
+  "//www.tokyo-np.co.jp/": {
+    "xpath": "div[@id='entry']",
+    "cleanup": [
+      "div[contains(@class,'cmp-misc') or @id='_popIn_recommend_new' or contains(@class,'cmp-m-catelst') or @class='l-container-narrow']"
+    ]
+  },
+  "//www.zdnet.com/": {
+    "xpath": "div[@class='c-articleContent']"
   }
 }
