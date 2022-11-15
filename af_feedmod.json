@@ -7840,9 +7840,6 @@
       "aside"
     ]
   },
-  "//techable.jp/": {
-    "xpath": "div[@id='js-make-index-target']"
-  },
   "//www.outward-matrix.com/": {
     "xpath": "section[contains(@class,'entry-content')]",
     "cleanup": [
@@ -12270,10 +12267,6 @@
       "div[@class='wp-post-navigation' or @id='jp-relatedposts']"
     ]
   },
-  "//techplay.jp/column/": {
-    "xpath": "section[@class='column-detail']",
-    "next_page": "div[@class='pager']"
-  },
   "//i-d.vice.com/": {
     "xpath": "div[contains(@class,'short-form-article__body__content') or contains(@class,'long-form-article__content__body')]/div[contains(@class,'article_img_wrap') or contains(@class,'article__body')]"
   },
@@ -15985,9 +15978,6 @@
   "//www.bunkanews.jp/": {
     "xpath": "div[contains(@class,'single-content')]"
   },
-  "//tokuhain.arukikata.co.jp/": {
-    "xpath": "div[@id='2column_main']/div[@class='title_l' or @class='article' or @class='article_link']"
-  },
   "//news.arukikata.co.jp/": {
     "xpath": "div[@class='article_txt']",
     "cleanup": [
@@ -16268,12 +16258,6 @@
       "p[@class='next-title']"
     ],
     "next_page": "div[@class='list-pagination-02']"
-  },
-  "//somethingorange.biz/": {
-    "xpath": "header/div[@class='eye-catch-wrap']/figure|//header/div/div[contains(@class,'author-box')]|//article/div[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[@class='author-follows' or contains(@class,'wpulike') or @class='codoc-entry']"
-    ]
   },
   "//developers.prtimes.jp/": {
     "xpath": "article/figure[@class='p-articleThumb']|//div[@class='post_content']"
@@ -17186,5 +17170,20 @@
       "div[contains(@class,'cmp-misc') or @id='_popIn_recommend_new' or contains(@class,'cmp-m-catelst') or @class='l-container-narrow']"
     ],
     "next_page": "div[@class='pager']"
+  },
+  "//somethingorange.biz/": {
+    "xpath": "header/div[@class='eye-catch-wrap']/figure|//header/div/div[contains(@class,'author-box')]|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[@class='author-follows' or contains(@class,'wpulike') or @class='codoc-entry']"
+    ]
+  },
+  "//techable.jp/": {
+    "xpath": "div[@id='js-make-index-target']"
+  },
+  "//techplay.jp/column/": {
+    "xpath": "header//div[@class='column-image' or @class='column-header-lead']|//section[contains(@class,'column-detail')]"
+  },
+  "//tokuhain.arukikata.co.jp/": {
+    "xpath": "div[@id='2column_main']/div[@class='title_l' or @class='article' or @class='article_link']"
   }
 }
