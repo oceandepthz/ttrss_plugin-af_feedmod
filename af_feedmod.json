@@ -77,7 +77,10 @@
     "xpath": "div[@id='recipe']"
   },
   "//hatenablog.jp/": {
-    "xpath": "div[@class='entry-content']"
+    "xpath": "div[@class='entry-content']",
+    "append_css": [
+      "div.entry-content > div.embed-responsive { padding-bottom:0!important; }"
+    ]
   },
   "//toyokeizai.net/": {
     "xpath": "div[@id='article-body-inner']",
@@ -12441,7 +12444,10 @@
     "xpath": "section[@id='article']/div[@class='summary' or @class='body' or @class='appendix']|//div[@id='main']|//div[@class='content']"
   },
   ".hatenablog.com/": {
-    "xpath": "div[contains(@class,'entry-content')]"
+    "xpath": "div[contains(@class,'entry-content')]",
+    "append_css": [
+      "div.entry-content > div.embed-responsive { padding-bottom:0!important; }"
+    ]
   },
   "//www.ogis-ri.co.jp/news/": {
     "xpath": "div[@id='descriptionArea' or @id='LEFT']"
