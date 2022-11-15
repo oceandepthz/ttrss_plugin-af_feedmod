@@ -346,7 +346,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 foreach ($entries as $entry) {
                     $entrysXML .= $doc->saveXML($entry);
                 }
-                return $entrysXML."<div style='font-size:8px;'>hatena</div>";
+                return $entrysXML."<style type='text/css'>div.entry-content > div.embed-responsive { padding-bottom:0!important; }</style><div style='font-size:8px;'>hatena</div>";
             }
         }
 
