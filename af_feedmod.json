@@ -17191,5 +17191,14 @@
   },
   "//tokuhain.arukikata.co.jp/": {
     "xpath": "div[@id='2column_main']/div[@class='title_l' or @class='article' or @class='article_link']"
+  },
+  "//www.libro-koseisha.co.jp/": {
+    "xpath": "main/div/div[contains(@class,'books_main') or contains(@class,'post_main')]",
+    "cleanup": [
+      "div[@class='breadcrumbs']"
+    ]
+  },
+  "//www.pixiv.net/info.php": {
+    "xpath": "div[contains(@class,'area_article ')]"
   }
 }
