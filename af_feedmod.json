@@ -6584,12 +6584,6 @@
       "iframe[contains(@src,'//blog.hatena.ne.jp/minatoblog/minatoblog.hatenablog.com/subscribe/iframe')]"
     ]
   },
-  "//current.ndl.go.jp/": {
-    "xpath": "div[@id='block-system-main']//div[@class='content']",
-    "cleanup": [
-      "div[@class='book-navigation']"
-    ]
-  },
   "//www.yome-love.com/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -10802,9 +10796,6 @@
   },
   "//hirata.blog/": {
     "xpath": "article/section"
-  },
-  "//www.47news.jp/": {
-    "xpath": "div[@class='article_body']"
   },
   "//yandod.github.io/blog/": {
     "xpath": "article"
@@ -15380,9 +15371,6 @@
   "//wiseloan-cash.com/": {
     "xpath": "div[@id='article']"
   },
-  "//www.agile-studio.jp/": {
-    "xpath": "article[@class='blog-post-page-font']"
-  },
   "//www.akiradeveloper.com/": {
     "xpath": "article[@class='blog-post']",
     "cleanup": [
@@ -16871,12 +16859,6 @@
   "//www.clear-code.com/blog/": {
     "xpath": "div[@class='post']"
   },
-  "//softantenna.com/": {
-    "xpath": "section[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'contentunder')]"
-    ]
-  },
   "//newsdig.tbs.co.jp/": {
     "xpath": "article/div[@class='article-header']//div[@class='vjs-poster' or @class='u-movie']|//article/div[@class='article-header']/div/img|//div[contains(@class,'article-body')]",
     "next_page": "div[@class='article-footer']/ul[contains(@class,'m-pagination')]",
@@ -17208,5 +17190,30 @@
   },
   "//www.recordchina.co.jp/": {
     "xpath": "div[contains(@class,'news-detail-main')]//div[contains(@class,'blog-item-img') or contains(@class,'news-detail-caption')]"
+  },
+  "//current.ndl.go.jp/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//www.47news.jp/": {
+    "xpath": "div[@id='detail_area']",
+    "cleanup": [
+      "div[@class='item_social']"
+    ]
+  },
+  "//www.agile-studio.jp/": {
+    "xpath": "main",
+    "engine": "chromium"
+  },
+  "//softantenna.com/": {
+    "xpath": "div[@class='post_content']"
+  },
+  "//shueisha.online/": {
+    "xpath": "header/div[@class='el-PostHeader_Title' or @class='el-PostHeader_Description']|//div[@id='post-defult-okra-elements']/div/div/div[contains(@class,'post-heading-element') or contains(@class,'post-text-element') or contains(@class,'post-media-element')]"
+  },
+  "//techblog.tebiki.co.jp/": {
+    "xpath": "main"
+  },
+  "//www.ukrinform.jp/": {
+    "xpath": "article/div[@class='newsPicture' or @class='newsText']"
   }
 }
