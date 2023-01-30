@@ -17215,5 +17215,11 @@
   },
   "//www.ukrinform.jp/": {
     "xpath": "article/div[@class='newsPicture' or @class='newsText']"
+  },
+  "//love-knowledge.com/": {
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[starts-with(@class,'box')]"
+    ]
   }
 }
