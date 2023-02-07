@@ -6509,9 +6509,6 @@
   "//yurudie.com/": {
     "xpath": "div[contains(@class,'the-content')]"
   },
-  "//www.zukeran.org/shin/": {
-    "xpath": "div[@id='the-content']"
-  },
   "//www.kk3marketer.com/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -10161,10 +10158,6 @@
   },
   "//www.pfu.fujitsu.com/news/": {
     "xpath": "div[@id='contents']"
-  },
-  "//www.lisani.jp/": {
-    "xpath": "article/div[@class='entry']",
-    "next_page": "article/ul[contains(@class,'pager')]"
   },
   "//www.igaku-shoin.co.jp/paperDetail.do": {
     "xpath": "div[@id='serialinfo']"
@@ -14036,12 +14029,6 @@
     "next_page": "article/div[@class='pageNav']",
     "head_xpath": "article/figure[@class='article-thum']"
   },
-  "//yamotty.tokyo/": {
-    "xpath": "main/div[@class='post']"
-  },
-  "//Yamotty.tokyo/": {
-    "xpath": "main/div[@class='post']"
-  },
   "//Yamotty.github.io/": {
     "xpath": "main/div[@class='post']"
   },
@@ -15891,9 +15878,6 @@
   "//nordot.app/": {
     "xpath": "div[@class='main__articleBody']"
   },
-  "//dailyportalz.jp/": {
-    "xpath": "div[@class='article_content']"
-  },
   "//www.hashicorp.com/blog/": {
     "xpath": "div[contains(@class,'BlogPost_blogPost__')]/div[contains(@class,'BlogPostHeader_blogPostHeader__') or contains(@class,'BlogPost_content__')]"
   },
@@ -17221,5 +17205,38 @@
     "cleanup": [
       "div[starts-with(@class,'box')]"
     ]
+  },
+  "//gazlog.com/": {
+    "xpath": "main/div/div/section[starts-with(@class,'content')]",
+    "cleanup": [
+      "iframe"
+    ]
+  },
+  "//dailyportalz.jp/": {
+    "xpath": "div[@class='article_content']",
+    "cleanup": [
+      "div[@id='links']"
+    ],
+    "next_page": "div[@id='links']"
+  },
+  "//www.lisani.jp/": {
+    "xpath": "div[contains(@class,'detail__wysiwyg')]",
+    "cleanup": [
+      "p[@class='btn-page']",
+      "ul[starts-with(@class,'pager')]"
+    ],
+    "head_xpath": "head p[@class='detail__header__img']",
+    "next_page": "ul[starts-with(@class,'pager')]",
+    "rep_pattern": "/^(.*:\\/\\/www\\.lisani\\.jp\\/[0-9]*\\/)$/",
+    "rep_replacement": "${1}?show_more=1"
+  },
+  "//www.zukeran.org/shin/": {
+    "xpath": "div[@id='mainEntity']/div",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//yamotty.tokyo/": {
+    "xpath": "main/*[starts-with(@id,'block-')]"
   }
 }
