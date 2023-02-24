@@ -103,7 +103,7 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
             $match_type = 'default';
-            if(isset($config['match_type']) && $config['match_type'] === 'fnmatch'){
+            if(array_key_exists('match_type', $config) && $config['match_type'] === 'fnmatch'){
                 $match_type = 'fnmatch';
             }
             if($match_type === 'default'){
@@ -121,7 +121,7 @@ class Af_Feedmod extends Plugin implements IHandler
             $hit_urlpart = $urlpart;
             $is_hit_link = true;
 
-            if(isset($config['no_fetch']) && $config['no_fetch']){
+            if(array_key_exists('no_fetch', $config) && $config['no_fetch']){
                 $is_execute = true;
                 break;
             }
@@ -151,11 +151,11 @@ class Af_Feedmod extends Plugin implements IHandler
 //            $this->write_url($article['link'], $urlpart);
 
             $head_content = '';
-            if(isset($config['head_xpath']) && $config['head_xpath']){
+            if(array_key_exists('head_xpath', $config) && $config['head_xpath']){
                 $head_content = $this->get_xpath_contents($doc, $xpath, $config['head_xpath']);
             }
             $foot_content = '';
-            if(isset($config['foot_xpath']) && $config['foot_xpath']){
+            if(array_key_exists('foot_xpath', $config) && $config['foot_xpath']){
                 $foot_content = $this->get_xpath_contents($doc, $xpath, $config['foot_xpath']);
             }
 
@@ -173,10 +173,10 @@ class Af_Feedmod extends Plugin implements IHandler
                 $xpath = new DOMXPath($doc);
                 $article['content'] .= $this->get_xpath_contents($doc, $xpath, $config['xpath']);
 
-                if(isset($config['head_xpath']) && $config['head_xpath'] && strlen($head_content) === 0){
+                if(array_key_exists('head_xpath', $config) && $config['head_xpath'] && strlen($head_content) === 0){
                     $head_content = $this->get_xpath_contents($doc, $xpath, $config['head_xpath']);
                 }
-                if(isset($config['foot_xpath']) && $config['foot_xpath'] && strlen($foot_content) === 0 ){
+                if(array_key_exists('foot_xpath', $config) && $config['foot_xpath'] && strlen($foot_content) === 0 ){
                     $foot_content = $this->get_xpath_contents($doc, $xpath, $config['foot_xpath']);
                 }
             }
@@ -257,7 +257,7 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
             // add css
-            if(isset($config['append_css']) && $config['append_css']){
+            if(array_key_exists('append_css', $config) && $config['append_css']){
                 $css = '';
                 if(is_array($config['append_css'])){
                     $css = implode($config['append_css']);
@@ -294,7 +294,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
     function get_redirect_url(string $url): string {
         $header = @get_headers($url, true);
-        if(isset($header['Location'])){
+        if(array_key_exists('Location', $header)){
             $org_url = $header['Location'];
             if(is_array($org_url)){
                 $org_url = end($org_url);
@@ -378,7 +378,7 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function replace_link(string $link, array $config) : string {
-        if(!isset($config['rep_pattern'])){
+        if(!array_key_exists('rep_pattern', $config)){
             return $link;
         }
         if(preg_match($config['rep_pattern'], $link) !== 1){
@@ -543,13 +543,13 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function is_pjs(array $config) : bool {
-        if(!isset($config['engine'])){
+        if(!array_key_exists('engine', $config)){
             return false;
         }
         return strtolower($config['engine']) == 'phantomjs';
     }
     function is_chromium(array $config) : bool {
-        if(!isset($config['engine'])){
+        if(!array_key_exists('engine', $config)){
             return false;
         }
         return strtolower($config['engine']) == 'chromium';
@@ -561,7 +561,7 @@ class Af_Feedmod extends Plugin implements IHandler
         if(strpos($url, "//note.com/") !== false){
             return true;
         }
-        if(!isset($config['engine'])){
+        if(!array_key_exists('engine', $config)){
             return false;
         }
         return strtolower($config['engine']) == 'note_mu';
@@ -620,7 +620,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
         $user_agent = "";
         $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD];
-        if(isset($config['user_agent'])){
+        if(array_key_exists('user_agent', $config)){
             $user_agent = $config['user_agent'];
         }
         if($user_agent == "ie11"){
@@ -723,7 +723,7 @@ class Af_Feedmod extends Plugin implements IHandler
             return $this->get_np_sportiva_shueisha_co_jp($link);
         }
 
-        if(!isset($config['next_page']) || !$config['next_page']){
+        if(!array_key_exists('next_page', $config) || !$config['next_page']){
             return [];
         }
         $config_next_page = $config['next_page'];
@@ -741,7 +741,7 @@ class Af_Feedmod extends Plugin implements IHandler
             return [];
         }
 
-        if (isset($config['next_page_cleanup'])) {
+        if (array_key_exists('next_page_cleanup', $config)) {
             if (!is_array($config['next_page_cleanup'])) {
                 $config['next_page_cleanup'] = array($config['next_page_cleanup']);
             }
@@ -1143,7 +1143,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
             $header = @get_headers($href, true);
             $url = '';
-            if(isset($header['location'])){
+            if(array_key_exists('location', $header)){
                 $url = $header['location'];
                 if(is_array($url)){
                     $url = end($url);
