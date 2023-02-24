@@ -1141,7 +1141,10 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
 
-            $header = @get_headers($href, true);
+	    $header = @get_headers($href, true);
+	    if(!$header){
+                continue;
+	    }
             $url = '';
             if(array_key_exists('location', $header)){
                 $url = $header['location'];
