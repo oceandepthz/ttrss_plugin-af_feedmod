@@ -11,7 +11,7 @@ class ChromeContent {
 	function get_content() : string {
                 $browserFactory = new BrowserFactory('google-chrome');
                 $browser = $browserFactory->createBrowser([
-                        'windowSize'      => [1920, 2160],
+                        'windowSize'      => [1280, 1080],
                 ]);
 		$page = $browser->createPage();
 		$page->navigate($this->url)->waitForNavigation(Page::NETWORK_IDLE, 60000);
