@@ -17291,5 +17291,24 @@
     "cleanup": [
       "div[@class='vr2_article__meta']"
     ]
+  },
+  "//guitarmagazine.jp/": {
+    "xpath": "article/section[contains(@class,'entry-content')]"
+  },
+  "//saasis.jp/": {
+    "xpath": "main/article/*[@class='p-articleThumb' or @class='post_content']"
+  },
+  "//saita-puls.com/": {
+    "xpath": "div[@class='l-main']/*[@class='headerImg__items' or @class='article' or @class='articleHead__wrap']"
+  },
+  "//blogcake.net/": {
+    "xpath": "main/article/*[@class='p-articleThumb' or @class='post_content']"
+  },
+  "//chatgpt-lab.com/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//docs.aws.amazon.com/": {
+    "xpath": "div[@id='main-content']"
   }
 }
