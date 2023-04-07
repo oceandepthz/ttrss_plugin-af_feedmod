@@ -17109,9 +17109,6 @@
     "head_xpath": "div[@class='article-detail-head__bottom']/div[@class='author']|//div[@class='article-detail-img']",
     "foot_xpath": "div[@class='article-detail-translater']"
   },
-  "//travel.spot-app.jp/": {
-    "xpath": "div[@class='content_header']/div[@class='content_writer']|//div[@class='entry_main']"
-  },
   "//www.kyoto-np.co.jp/": {
     "xpath": "article/div[contains(@class,'article-body')]",
     "cleanup": [
@@ -17351,5 +17348,41 @@
   },
   "//liginc.co.jp/": {
     "xpath": "article/div/figure|//div[@id='js-blog-content']"
+  },
+  "//travel.spot-app.jp/": {
+    "xpath": "article/header|//article/div[@id='main' or @class='event-info' or @class='organizer-info']"
+  },
+  "//idolmaster-official.jp/news/": {
+    "xpath": "div[@class='c-txt']"
+  },
+  "//www.bunka.go.jp/": {
+    "xpath": "div[@id='main_contents']"
+  },
+  "//www.builder.io/blog/": {
+    "xpath": "div[contains(@class,'page-wrapper')]/div/div/picture|//main"
+  },
+  "//www.clipstudio.net/ja/news/": {
+    "xpath": "div[@class='main_contents']"
+  },
+  "//www.hamakei.com/": {
+    "xpath": "div[@id='topBox']/div/div[@class='main' or @class='gallery' or @class='txt']"
+  },
+  "//euske.github.io/": {
+    "xpath": "body",
+    "cleanup": [
+      "div[@class='nav']"
+    ]
+  },
+  "//it.kensan.net/": {
+    "xpath": "header/div/figure|//article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//soysoftware.sakura.ne.jp/": {
+    "xpath": "div[@class='post-content']",
+    "cleanup": [
+      "div[@class='social4i' or contains(@class,'sharedaddy') or @id='jp-relatedposts']"
+    ]
   }
 }
