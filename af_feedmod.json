@@ -17384,5 +17384,25 @@
     "cleanup": [
       "div[@class='social4i' or contains(@class,'sharedaddy') or @id='jp-relatedposts']"
     ]
+  },
+  "//www.geekly.co.jp/column/": {
+    "xpath": "div[@class='column-page']/div[@class='column-page-lead__image' or contains(@class,'column-page-header') or contains(@class,'column-page-body')]",
+    "cleanup": [
+      "p[contains(@class,'geeklymedia_entry_') or @class='entry_link']",
+      "ul[contains(@class,'column-sns')]"
+    ]
+  },
+  "//www.riken.jp/pr/": {
+    "xpath": "main[@id='main']",
+    "cleanup": [
+      "div[@class='ttlGroup']",
+      "form"
+    ]
+  },
+  "//www.warp.dev/blog/": {
+    "xpath": "body/div[contains(@class,'articlehero') or contains(@class,'articlecontent')]"
+  },
+  "//www.zippu21.com/": {
+    "xpath": "header/div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]"
   }
 }
