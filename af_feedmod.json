@@ -246,9 +246,6 @@
   "blog.square-enix.com/ff11": {
     "xpath": "div[@class='text']"
   },
-  "gamebiz.jp": {
-    "xpath": "div[contains(@class, 'article_body_view')]"
-  },
   "news.kyokasho.biz": {
     "xpath": "div[@class='post']/section",
     "cleanup": [
@@ -17404,5 +17401,25 @@
   },
   "//www.zippu21.com/": {
     "xpath": "header/div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//gamebiz.jp/": {
+    "xpath": "div[@class='article__body-text']"
+  },
+  "//pandora11.com/": {
+    "xpath": "div[@class='ently_body']"
+  },
+  "//project.nikkeibp.co.jp/": {
+    "xpath": "div[@class='articleBody' or @class='bplead' or @class='imageArea']",
+    "cleanup": [
+      "div[@class='nextDescription' or @class='nextButton' or @class='ex_next_banner' or @class='nextPage']",
+      "nav[@class='pagenation']"
+    ],
+    "next_page": "nav[@class='pagenation']",
+    "next_page_cleanup": [
+      "*[@class='current']"
+    ]
+  },
+  "//trap.jp/": {
+    "xpath": "article"
   }
 }
