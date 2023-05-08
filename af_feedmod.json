@@ -10399,12 +10399,6 @@
   "//pokemongolive.com/post/": {
     "xpath": "div[@class='grid__item--10-cols--gt-md']"
   },
-  "//matomame.jp/user/": {
-    "xpath": "div[@id='article_contents']",
-    "cleanup": [
-      "div[contains(@class,'ads')]"
-    ]
-  },
   "//kotobaken.jp/qa/": {
     "xpath": "div[@class='contents-main']",
     "cleanup": [
@@ -17448,5 +17442,13 @@
   },
   "//www.ipa.go.jp/": {
     "xpath": "main[contains(@class,'__main')]|//div[@id='mainContent']/div[@class='container--m']"
+  },
+  "//matomame.jp/user/": {
+    "xpath": "div[@id='article_contents']",
+    "cleanup": [
+      "div[contains(@class,'ads')]",
+      "div[@id='table_of_contents']"
+    ],
+    "next_page": "ul[@class='pagination']"
   }
 }
