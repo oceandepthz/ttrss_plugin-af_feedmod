@@ -3247,9 +3247,6 @@
       "div[contains(@class,'add') or @id='wp_rp_first']"
     ]
   },
-  "//www.ipa.go.jp/": {
-    "xpath": "div[@id='ipar_main']"
-  },
   "//made.livesense.co.jp/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -8727,12 +8724,6 @@
       "div[contains(@class,'add') or @class='linkcard' or @class='va-social-buzz']"
     ]
   },
-  "//www.tsr-net.co.jp/news/tsr/": {
-    "xpath": "div[@id='mainContents']/div[@class='newsHeadLine' or @class='innerWrap']",
-    "cleanup": [
-      "div[contains(@class,'snsIcon ')]"
-    ]
-  },
   "//zuuonline.com/": {
     "xpath": "div[@class='article-body']"
   },
@@ -8775,13 +8766,6 @@
   },
   "//www.osaka-u.ac.jp/ja/news/topics/": {
     "xpath": "div[@id='content']//div[@class='moduleCategoryArticle']"
-  },
-  "//www.moneypost.jp/": {
-    "xpath": "div[@class='recent_entry']",
-    "cleanup": [
-      "div[@class='share-buttons']"
-    ],
-    "next_page": "div[contains(@class,'singlePagenaition')]"
   },
   "//www.matolabel.net/": {
     "xpath": "article[@id='entryarea']/section[@id='introtext' or @id='maintext']"
@@ -14056,9 +14040,6 @@
   "//techracho.bpsinc.jp/": {
     "xpath": "div[@class='single-body' or @class='single-header-thumb']"
   },
-  "//newswitch.jp/": {
-    "xpath": "article/*[@class='eyecatch' or @class='figcaption' or @class='post-body']"
-  },
   "//www.hottolink.co.jp/blog/": {
     "xpath": "div[@class='p-editable-area' or @class='c-image']"
   },
@@ -14629,12 +14610,6 @@
     "xpath": "main[@id='main']",
     "cleanup": [
       "div[@class='ttlGroup']"
-    ]
-  },
-  "//www.tsr-net.co.jp/news/analysis/": {
-    "xpath": "div[@id='mainContents']",
-    "cleanup": [
-      "div[@id='fb-root' or @class='iconList' or @class='relatedInquiryBox']"
     ]
   },
   "//www.bigdata-navi.com/": {
@@ -15608,27 +15583,6 @@
   "//blogs.mbc.co.jp/donkago/": {
     "xpath": "div[@class='p-entry__body']"
   },
-  "//www.asahi.com/special/news/": {
-    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
-  },
-  "//www.asahi.com/corporate/info/": {
-    "xpath": "main"
-  },
-  "//www.asahi.com/and_M/": {
-    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
-  },
-  "//www.asahi.com/and_w/": {
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "xpath": "main[@id='main']",
-    "cleanup": [
-      "div[contains(@class,'notPrint')]"
-    ],
-    "append_css": [
-      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
-    ]
-  },
   "//goodpatch.com/blog/": {
     "xpath": "div[@class='ArticleBody-content' or @class='ArticleBody-cover']"
   },
@@ -15736,9 +15690,6 @@
       "a[contains(@href,'//af.moshimo.com/')]",
       "div[contains(@class,'share')]"
     ]
-  },
-  "//friday.kodansha.co.jp/": {
-    "xpath": "article/ul[contains(@class,'styles_credits__')]|//article/div[@class='p402_premium']"
   },
   "//hitoxu.com/": {
     "xpath": "article/div[contains(@class,'entry-content')]",
@@ -17106,12 +17057,6 @@
     "head_xpath": "div[@class='article-detail-head__bottom']/div[@class='author']|//div[@class='article-detail-img']",
     "foot_xpath": "div[@class='article-detail-translater']"
   },
-  "//www.kyoto-np.co.jp/": {
-    "xpath": "article/div[contains(@class,'article-body')]",
-    "cleanup": [
-      "div[contains(@id,'div-gpt-ad-')]"
-    ]
-  },
   "//blog.ojisan.io/": {
     "xpath": "article"
   },
@@ -17421,5 +17366,87 @@
   },
   "//trap.jp/": {
     "xpath": "article"
+  },
+  "//www.tsr-net.co.jp/news/tsr/": {
+    "xpath": "div[@id='mainContents']/div[@class='newsHeadLine' or @class='innerWrap']",
+    "cleanup": [
+      "div[contains(@class,'snsIcon ')]"
+    ]
+  },
+  "//www.tsr-net.co.jp/news/analysis/": {
+    "xpath": "div[@id='mainContents']",
+    "cleanup": [
+      "div[@id='fb-root' or @class='iconList' or @class='relatedInquiryBox']"
+    ]
+  },
+  "//www.tsr-net.co.jp/data/detail/": {
+    "xpath": "div[@class='entry']/p"
+  },
+  "//blog.gmo.media/": {
+    "xpath": "div[@id='mainEntity']/div",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//vague.style/": {
+    "xpath": "article/section[@class='post-detail-container']",
+    "next_page": "article/section[@class='pager-container']",
+    "head_xpath": "article/section/p[@class='description']",
+    "cleanup": [
+      "section[@class='post-paging-container']"
+    ]
+  },
+  "//ja.stability.ai/blog/": {
+    "xpath": "div[@class='sqs-block-content']"
+  },
+  "//blog.oimo.io/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//buildstd.com/": {
+    "xpath": "main/div[@class='note__single-contents']"
+  },
+  "//www.moneypost.jp/": {
+    "xpath": "div[contains(@class,'article-body-pc')]",
+    "next_page": "nav[@class='st-Pagination']",
+    "next_page_cleanup": [
+      "a[contains(@class,'st-Pagination_Link-disabledArrow')]"
+    ]
+  },
+  "//www.kyoto-np.co.jp/": {
+    "xpath": "article/div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@id,'div-gpt-ad-')]"
+    ]
+  },
+  "//newswitch.jp/": {
+    "xpath": "div[@class='eyecatch' or @class='article-detail-body' or @class='source' or @class='editor-comment']"
+  },
+  "//friday.kodansha.co.jp/": {
+    "xpath": "article/div[contains(@class,'styles_articleContent__')]",
+    "next_page": "article//ul[contains(@class,'styles_numbersList__')]"
+  },
+  "//www.asahi.com/special/news/": {
+    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
+  },
+  "//www.asahi.com/corporate/info/": {
+    "xpath": "main"
+  },
+  "//www.asahi.com/and_M/": {
+    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
+  },
+  "//www.asahi.com/and_w/": {
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "xpath": "main[@id='main']",
+    "cleanup": [
+      "div[contains(@class,'notPrint')]"
+    ],
+    "append_css": [
+      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
+    ]
+  },
+  "//www.ipa.go.jp/": {
+    "xpath": "main[contains(@class,'__main')]|//div[@id='mainContent']/div[@class='container--m']"
   }
 }
