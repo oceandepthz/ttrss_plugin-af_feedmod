@@ -17147,6 +17147,9 @@
     "xpath": "div[@id='article']/div[@id='post_image' or contains(@class,'post_content')]",
     "cleanup": [
       "div[@class='va-social-buzz']"
+    ],
+    "append_css": [
+      "img {width: calc(100% - 20px)!important;max-width:720px!important;}"
     ]
   },
   "//kurokumasoft.com/": {
