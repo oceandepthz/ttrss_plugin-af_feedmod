@@ -126,15 +126,20 @@ class Af_Feedmod extends Plugin implements IHandler
                 break;
             }
 
+            // note.com or note.mu
+			if(array_key_exists('engine', $config) && $config['engine'] === 'note_mu'){
+                $config['xpath'] = "figure[@class='o-noteEyecatch']|//div[@class='note-common-styles__textnote-body']";
+            }
+
             $this->write_url($article['link'], $urlpart);
 
             $doc = new DOMDocument();
             $link = $this->replace_link(trim($article['link']),$config);
 
-	    $html = $this->get_html($link, $config);
-	    if(!$html){
+            $html = $this->get_html($link, $config);
+            if(!$html){
                 break;
-	    }
+            }
             @$doc->loadHTML($html);
             if(!$doc){
                 break;
@@ -604,9 +609,9 @@ class Af_Feedmod extends Plugin implements IHandler
         if($this->is_togetter_com($url)){
             return $this->get_html_togetter($url);
         } 
-        if($this->is_note_mu($url,$config)){
-            return $this->get_html_note_mu($url);
-        } 
+        //if($this->is_note_mu($url,$config)){
+        //    return $this->get_html_note_mu($url);
+        //} 
         if($this->is_pjs($config)){
             return $this->get_html_pjs($url);
         } 
