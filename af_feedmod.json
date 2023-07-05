@@ -15910,21 +15910,6 @@
       ".avatar {border-radius: 50%;}"
     ]
   },
-  "//twitter.com/": {
-    "xpath": "div[@class='main-thread']",
-    "rep_pattern": "/^.*:\\/\\/twitter\\.com\\/(.*\\/status\\/[0-9]+)$/",
-    "rep_replacement": "https://nitter.kozono.org/${1}",
-    "append_css": [
-      ".icon-container {display: inline;}",
-      ".icon-comment:before {content: '\\e802';}",
-      ".icon-retweet:before {content: '\\e80d';}",
-      ".icon-quote:before {content: '\\275e';}",
-      ".icon-heart:before {content: '\\2665';}",
-      ".icon-play:before {content: '\\e804';}",
-      ".tweet-avatar img {width: 48px;height: 48px;}",
-      ".avatar {border-radius: 50%;}"
-    ]
-  },
   "//www.kobe-np.co.jp/": {
     "xpath": "div[contains(@class,'textDetail') or @class='photoDetail_area']",
     "cleanup": [
@@ -17160,18 +17145,6 @@
     ],
     "next_page": "div[@class='list-pagination-02']"
   },
-  "//qiita.com/advent-calendar/": {
-    "xpath": "div[@id='main']/div[@class='adventCalendarSection' or contains(@class,'adventCalendarCalendar')]"
-  },
-  "//qiita.com/": {
-    "xpath": "div[@class='p-items_main']/div/div/div/div|//section[@class='it-MdContent']",
-    "append_css": [
-      ".style-jee675 { border-radius: 4px;height: 20px;width: 20px;}"
-    ],
-    "cleanup": [
-      "div[@class='it-Header_meta']"
-    ]
-  },
   "//komachi.yomiuri.co.jp/": {
     "xpath": "div[@class='topicsId__article' or @class='p-resList']",
     "cleanup": [
@@ -17458,5 +17431,17 @@
   },
   "//texal.jp/": {
     "xpath": "figure/a/picture|//main/article/div/div[@class='entry-content']"
+  },
+  "//qiita.com/advent-calendar/": {
+    "xpath": "div[@id='main']/div[@class='adventCalendarSection' or contains(@class,'adventCalendarCalendar')]"
+  },
+  "//qiita.com/": {
+    "xpath": "div[@class='p-items_main']/div/div/div/div|//section[@class='it-MdContent']",
+    "append_css": [
+      "#content-insert > div > div > div > div > div > div > div > span > a > img { border-radius: 4px!important;height: 20px!important;width: 20px!important;}"
+    ],
+    "cleanup": [
+      "div[@class='it-Header_meta']"
+    ]
   }
 }
