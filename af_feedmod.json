@@ -15464,9 +15464,6 @@
   "//sosukesuzuki.dev/": {
     "xpath": "main"
   },
-  "//blog.domesoccer.jp/": {
-    "xpath": "article[@id='post']/section[@class='section-article-first' or @class='section-article-constract']"
-  },
   "//www.jp-bank.japanpost.jp/news/": {
     "xpath": "div[@id='contents']"
   },
@@ -17442,6 +17439,27 @@
     ],
     "cleanup": [
       "div[@class='it-Header_meta']"
+    ]
+  },
+  "//blog.domesoccer.jp/": {
+    "xpath": "article[@id='post']/section[@class='section-article-first' or @class='section-article-constract']",
+    "append_css": [
+      "blockquote.twitter-tweet img[src$='.svg'] {width:16px!important;height:16px!important;}"
+    ]
+  },
+  "//twitter.com/": {
+    "xpath": "div[@class='main-thread']",
+    "rep_pattern": "/^.*:\\/\\/twitter\\.com\\/(.*\\/status\\/[0-9]+)$/",
+    "rep_replacement": "https://nitter.kozono.org/${1}",
+    "append_css": [
+      ".icon-container {display: inline;}",
+      ".icon-comment:before {content: '\\e802';}",
+      ".icon-retweet:before {content: '\\e80d';}",
+      ".icon-quote:before {content: '\\275e';}",
+      ".icon-heart:before {content: '\\2665';}",
+      ".icon-play:before {content: '\\e804';}",
+      ".tweet-avatar img {width: 48px;height: 48px;}",
+      ".avatar {border-radius: 50%;}"
     ]
   }
 }
