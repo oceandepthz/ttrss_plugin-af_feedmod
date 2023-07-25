@@ -16546,12 +16546,6 @@
   "//storybook.js.org/blog/": {
     "xpath": "article/figure/img|//section[contains(@class,'load-external-scripts')]"
   },
-  "//courrier.jp/": {
-    "xpath": "article/*[@class='article_catch_image_area_box' or contains(@class,'article_medias') or @class='article_text_by' or @class='article_text_area']",
-    "cleanup": [
-      "div[contains(@class,'attention_pay_area')]"
-    ]
-  },
   "//www.jomo-news.co.jp/": {
     "xpath": "div[@class='article-body']"
   },
@@ -16746,9 +16740,6 @@
   },
   "//www.htb.co.jp/news/": {
     "xpath": "article/div[@class='imgOrMovieArea']|//article//div[@class='newsText']/p"
-  },
-  "//www.jstage.jst.go.jp/": {
-    "xpath": "body/div[contains(@class,'container')]"
   },
   "//www.modis.co.jp/candidate/insight/": {
     "xpath": "main"
@@ -17461,5 +17452,36 @@
       ".tweet-avatar img {width: 48px;height: 48px;}",
       ".avatar {border-radius: 50%;}"
     ]
+  },
+  "//courrier.jp/": {
+    "xpath": "article/*[@class='article_catch_image_area_box' or contains(@class,'article_medias') or @class='article_text_by' or @class='article_text_area']",
+    "cleanup": [
+      "div[contains(@class,'attention_pay_area')]"
+    ]
+  },
+  "//www.jstage.jst.go.jp/": {
+    "xpath": "body/div[contains(@class,'container')]"
+  },
+  "//mujintoudisk.com/": {
+    "xpath": "main/div/div/section[contains(@class,'content')]"
+  },
+  "//vitaminw.livedoor.blog/": {
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//futabasha-change.com/": {
+    "xpath": "article/div[@class='article-body']",
+    "rep_pattern": "/^(.*:\\/\\/futabasha\\-change\\.com\\/articles\\/\\-\\/[0-9]+)$/",
+    "rep_replacement": "${1}?page=1",
+    "head_xpath": "div[@class='article-hero']/figure[contains(@class,'article-hero__img')]|//article/div[@class='article-header']",
+    "next_page": "article/ol[contains(@class,'m-pagination')]",
+    "next_page_cleanup": [
+      "li[contains(@class,'is-active')]"
+    ]
+  },
+  "//news.netkeiba.com/": {
+    "xpath": "div[contains(@class,'NewsArticle_Body') or @class='ColumnArticle_Body']"
+  },
+  "//simonwillison.net/": {
+    "xpath": "div[@id='primary']"
   }
 }
