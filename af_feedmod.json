@@ -10216,9 +10216,6 @@
   "//www.komazaki.net/": {
     "xpath": "div[@class='article__contents']"
   },
-  "//kyoiku.yomiuri.co.jp/": {
-    "xpath": "div[contains(@class,'article_fl')]"
-  },
   "//kurasheep.com/": {
     "xpath": "header/p[@class='post-thumbnail']|//section[contains(@class,'entry-content')]",
     "cleanup": [
@@ -10758,12 +10755,6 @@
   },
   "//nulab-inc.com/ja/press-release/": {
     "xpath": "div[@class='press-release-article__inner']"
-  },
-  "//yomidr.yomiuri.co.jp/": {
-    "xpath": "article/div[@class='edit-area']",
-    "cleanup": [
-      "div[@class='ad-in-post']"
-    ]
   },
   "//slackhq.com/": {
     "xpath": "header/div[@class='o-wrap--content']|//div[@class='o-wrap--article']"
@@ -14697,9 +14688,6 @@
   "//blog.soracom.jp/": {
     "xpath": "div[@class='content']/div[@class='post']"
   },
-  "//formula1-data.com/": {
-    "xpath": "header/div/img|//header/ul[@class='entryHeader__meta']|//main/div[contains(@class,'entry')]"
-  },
   "//labs.cybozu.co.jp/blog/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -15902,14 +15890,6 @@
   },
   "//yusukebe.com/": {
     "xpath": "main/article"
-  },
-  "//www.yomiuri.co.jp/": {
-    "xpath": "div[contains(@class,'p-main-contents')]",
-    "cleanup": [
-      "div[contains(@id,'ad_dfp_') or @class='article-pagination']",
-      "aside[contains(@class,'ev-article-manual-related')]"
-    ],
-    "next_page": "div[contains(@class,'fn-article-pager')]"
   },
   "//webma.xscore.co.jp/": {
     "xpath": "article/div[contains(@class,'entry-content')]"
@@ -17114,13 +17094,6 @@
     ],
     "next_page": "div[@class='list-pagination-02']"
   },
-  "//komachi.yomiuri.co.jp/": {
-    "xpath": "div[@class='topicsId__article' or @class='p-resList']",
-    "cleanup": [
-      "div[@class='topicsId__articleKorepochi' or @class='topicsId__articleMainRelation' or @class='p-resList__itemFollowing']",
-      "span[@class='p-resList__itemToggle']"
-    ]
-  },
   "//agora-web.jp/": {
     "xpath": "article/div/div[@class='articleTop' or contains(@class,'eye-catch-wrap')]|//article/div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -17496,5 +17469,32 @@
   },
   "//artnewsjapan.com/": {
     "xpath": "header/*[contains(@class,'-detail-header__title') or contains(@class,'-detail-header__lead') or contains(@class,'-detail-header__thumb')]|//article/div[contains(@class,'-detail-content')]"
+  },
+  "//www.yomiuri.co.jp/": {
+    "xpath": "div[contains(@class,'p-main-contents')]",
+    "cleanup": [
+      "div[@class='article-related-link' or contains(@id,'ad_dfp_') or @class='p-article-wp-pager' or @class='ev-article-bottom-banner']",
+      "aside[contains(@class,'ev-article-manual-related')]"
+    ],
+    "next_page": "div[@class='p-article-wp-pager']"
+  },
+  "//kyoiku.yomiuri.co.jp/": {
+    "xpath": "div[contains(@class,'article_fl')]"
+  },
+  "//komachi.yomiuri.co.jp/": {
+    "xpath": "div[@class='topicsId__article' or @class='p-resList']",
+    "cleanup": [
+      "div[@class='topicsId__articleKorepochi' or @class='topicsId__articleMainRelation' or @class='p-resList__itemFollowing']",
+      "span[@class='p-resList__itemToggle']"
+    ]
+  },
+  "//yomidr.yomiuri.co.jp/": {
+    "xpath": "article/div[@class='edit-area']",
+    "cleanup": [
+      "div[@class='ad-in-post']"
+    ]
+  },
+  "//formula1-data.com/": {
+    "xpath": "header/div/div/img|//header/ul[@class='entryHeader__meta']|//main/div[contains(@class,'entry')]"
   }
 }
