@@ -128,12 +128,6 @@
       "div[@class='posted']"
     ]
   },
-  "econ101.jp": {
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "div[contains(@class, 'sharedaddy')]"
-    ]
-  },
   "www.capital-tribune.com": {
     "xpath": "div[@class='entry']",
     "cleanup": [
@@ -8026,10 +8020,6 @@
   },
   "//www.kaitoy.xyz/": {
     "xpath": "article[@id='post']/div[contains(@class,'eyecatch') or @class='content']"
-  },
-  "//www.nikkansports.com/": {
-    "xpath": "div[@id='news']|//dl[starts-with(@class, 'article-photo_main')]/dt",
-    "next_page": "div[@class='article-pagenavi']"
   },
   "//androgamer.net/": {
     "xpath": "div[@id='the-content']",
@@ -17065,9 +17055,6 @@
   "//ekrits.jp/": {
     "xpath": "div[@class='texts-article-content']"
   },
-  "//shueisha.online/": {
-    "xpath": "header/div[@class='el-PostHeader_Title' or @class='el-PostHeader_Description']|//div[@id='post-defult-okra-elements']/div/div/div[contains(@class,'post-heading-element') or contains(@class,'post-text-element') or contains(@class,'post-media-element')]"
-  },
   "//grandfleet.info/": {
     "xpath": "div[@id='article']/div[@id='post_image' or contains(@class,'post_content')]",
     "cleanup": [
@@ -17496,5 +17483,33 @@
   },
   "//formula1-data.com/": {
     "xpath": "header/div/div/img|//header/ul[@class='entryHeader__meta']|//main/div[contains(@class,'entry')]"
+  },
+  "//blog.livedoor.jp/tohopoke/": {
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//www.udiscovermusic.jp/": {
+    "xpath": "div[@id='mvp-content-main' or @id='mvp-post-feat-img']"
+  },
+  "//jp.quora.com/": {
+    "xpath": "main[@id='main']/div",
+    "rep_pattern": "/^.*:\\/\\/jp\\.quora\\.com\\/(.+)$/",
+    "rep_replacement": "https://quetre.kozono.org/${1}?lang=jp"
+  },
+  "//econ101.jp/": {
+    "xpath": "figure[contains(@class,'cs-entry__post-media')]|//div[@class='entry-content' or @class='cs-entry__subtitle']",
+    "cleanup": [
+      "div[contains(@class, 'sharedaddy') or @id='jp-relatedposts']"
+    ]
+  },
+  "//www.nikkansports.com/": {
+    "xpath": "div[@id='news']|//dl[starts-with(@class, 'article-photo_main')]/dt|//ul[@id='artPhotoThumb']",
+    "next_page": "div[@class='article-pagenavi']",
+    "append_css": [
+      "dt a img {background-color: #f0f0f0; background-position: center center; background-repeat: no-repeat; background-size: contain; height: 250px!important; width: 300px!important;}",
+      "#artPhotoThumb li a img { background-color: #dbe1e6; background-position: center center; background-repeat: no-repeat; background-size: contain; heigh: 70px!important; width: 70px!important;}"
+    ]
+  },
+  "//shueisha.online/": {
+    "xpath": "header/div[@class='el-PostHeader_Title' or @class='el-PostHeader_Description']|//div[@id='post-defult-okra-elements']/div/div/div[contains(@class,'post-heading-element') or contains(@class,'post-text-element') or contains(@class,'post-media-element')]"
   }
 }
