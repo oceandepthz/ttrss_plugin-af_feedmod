@@ -17585,5 +17585,50 @@
   },
   "//tanakanews.com/": {
     "xpath": "table"
+  },
+  "*//www.threads.net/@*/post/*": {
+    "xpath": "div[@data-pressable-container='true']",
+    "engine": "chromium",
+    "match_type": "fnmatch"
+  },
+  "//gameboku.com/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//go2senkyo.com/articles/": {
+    "xpath": "section[@class='p_article_detail_contents' or contains(@class,'p_article_detail_contents_author')]"
+  },
+  "//go2senkyo.com/seijika/": {
+    "xpath": "section[contains(@class,'p_seijika_detail_contents') or @class='p_seijika_detail_bottom_author']"
+  },
+  "//mag.minkabu.jp/": {
+    "xpath": "article/figure|//article/section"
+  },
+  "//news.j-wave.co.jp/": {
+    "xpath": "div[@id='articleIntro']/div/div[@class='pct']|//div[@class='article-txt']/div[not(@class)]"
+  },
+  "//note.cover-corp.com/n/": {
+    "engine": "note_mu",
+    "xpath": "body"
+  },
+  "//crea.bunshun.jp/": {
+    "xpath": "article[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@class,'article-series-section') or contains(@id,'div-gpt-ad-') or contains(@class,'link-button') or @class='module-pagination']",
+      "p[@class='noprovide' or @class='credit']"
+    ],
+    "next_page": "div[@class='module-pagination']",
+    "foot_xpath": "article/p[@class='credit']"
+  },
+  "//d4p.world/": {
+    "xpath": "article/div[contains(@class,'d4p-news-article-area')]"
+  },
+  "//dictionary.sanseido-publ.co.jp/": {
+    "xpath": "div[@id='column']/section[@class='author-profile' or @class='from-editor']|//div[@id='column']/article|//div[@id='column']/div[@id='column-arcives-list']"
+  },
+  "//bookplus.nikkei.com/": {
+    "xpath": "article/header/div/a/div/img|//div[@class='articleBody']",
+    "cleanup": [
+      "div[@class='readNextButton']"
+    ]
   }
 }
