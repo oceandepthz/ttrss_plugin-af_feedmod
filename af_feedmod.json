@@ -10,11 +10,9 @@
     ]
   },
   "//b.hatena.ne.jp/entry/": {
-    "xpath": "div[@class='entry-info']/*[@class='entry-info-title' or contains(@class,'entry-info-meta')]|//div[contains(@class,'js-bookmarks-recent')]",
+    "xpath": "div[contains(@class,'entry-info')]/*[contains(@class,'entry-info-title') or contains(@class,'entry-info-meta')]|//div[contains(@class,'js-bookmarks-recent')]",
     "cleanup": [
-      "div[contains(@class,'entry-comment-readmore')]",
-      "button[contains(@class,'entry-comment-menu')]",
-      "ul[contains(@class,'entry-comment-menu-list')]"
+      "div[@class='entry-comment-menus']"
     ],
     "append_css": [
       ".entry-user-icon img{width:32px;height:32px;border-radius:3px;vertical-align:middle;}",
@@ -8507,12 +8505,6 @@
       "div[contains(@classm'fb-page')]"
     ]
   },
-  "//scan.netsecurity.ne.jp/": {
-    "xpath": "main[@class='thm-main']/div[contains(@class,'arti-content')]",
-    "cleanup": [
-      "aside"
-    ]
-  },
   "//piro.sakura.ne.jp/latest/blosxom/": {
     "xpath": "div[@id='section-root']/div[@id='section-root-children']/div/div[@class='sec-content']",
     "cleanup": [
@@ -12836,14 +12828,6 @@
       "div[contains(@class,'socialbox')]"
     ]
   },
-  "//www.zakzak.co.jp/": {
-    "xpath": "article",
-    "cleanup": [
-      "div[contains(@class,'addition') or @class='teads-inread']",
-      "aside[contains(@class,'pr')]"
-    ],
-    "next_page": "ul[@class='pager']"
-  },
   "//www.gentosha.jp/": {
     "xpath": "div[@id='main']/div[contains(@class,'articleDetail')]|//div[@class='secSeriesInner']"
   },
@@ -15147,12 +15131,6 @@
       "*[@class='fb-share-button' or @class='twitter-share-button']"
     ]
   },
-  "//blog.ja.playstation.com/": {
-    "xpath": "div[@class='article-main-section']",
-    "cleanup": [
-      "div[contains(@class='post-like-share')]"
-    ]
-  },
   "//androplus.org/": {
     "xpath": "article/div/a/span/img|//div[@class='entry-content']"
   },
@@ -16588,12 +16566,6 @@
   "//www.clear-code.com/blog/": {
     "xpath": "div[@class='post']"
   },
-  "//newsdig.tbs.co.jp/": {
-    "xpath": "article/div[@class='article-header']//div[@class='vjs-poster' or @class='u-movie']|//article/div[@class='article-header']/div/img|//div[contains(@class,'article-body')]",
-    "next_page": "div[@class='article-footer']/ul[contains(@class,'m-pagination')]",
-    "rep_pattern": "/^(.*:\\/\\/newsdig\\.tbs\\.co\\.jp\\/articles\\/.*\\/[0-9]*)$/",
-    "rep_replacement": "${1}?display=1"
-  },
   "//j-town.net/": {
     "xpath": "div[@class='entry-contents_text']"
   },
@@ -17167,9 +17139,6 @@
   "//liginc.co.jp/": {
     "xpath": "article/div/figure|//div[@id='js-blog-content']"
   },
-  "//travel.spot-app.jp/": {
-    "xpath": "article/header|//article/div[@id='main' or @class='event-info' or @class='organizer-info']"
-  },
   "//idolmaster-official.jp/news/": {
     "xpath": "div[@class='c-txt']"
   },
@@ -17551,5 +17520,27 @@
   },
   "//yogajournal.jp/": {
     "xpath": "article/*[@class='image_main' or @class='headInfo' or @class='intro' or @class='wysiwyg' or @class='autherprof__wrap']"
+  },
+  "//travel.spot-app.jp/": {
+    "xpath": "article/header|//article/div[@id='main' or @class='event-info' or @class='organizer-info']|//div[@class='entry_main']"
+  },
+  "//newsdig.tbs.co.jp/": {
+    "xpath": "article/div[contains(@class,'article-header')]//div[@class='vjs-poster' or @class='u-movie']|//article/div[@class='article-header']/div/img|//div[contains(@class,'article-body')]",
+    "next_page": "div[contains(@class,'article-footer')]/ul[contains(@class,'m-pagination')]",
+    "rep_pattern": "/^(.*:\\/\\/newsdig\\.tbs\\.co\\.jp\\/articles\\/.*\\/[0-9]*)$/",
+    "rep_replacement": "${1}?display=1"
+  },
+  "//www.zakzak.co.jp/": {
+    "xpath": "article/div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@class,'inline-gptAd')]"
+    ],
+    "next_page": "ul[contains(@class,'page-list')]"
+  },
+  "//scan.netsecurity.ne.jp/": {
+    "xpath": "p[@class='arti-summary']|//main/div/div/figure|//div[@class='mms-unauth-content']|//span[contains(@class,'writer-name')]"
+  },
+  "//blog.ja.playstation.com/": {
+    "xpath": "div[@class='article-main-section']/div[@class='post-single__featured-asset' or contains(@class,'post-single__content')]"
   }
 }
