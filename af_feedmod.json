@@ -17542,5 +17542,48 @@
   },
   "//blog.ja.playstation.com/": {
     "xpath": "div[@class='article-main-section']/div[@class='post-single__featured-asset' or contains(@class,'post-single__content')]"
+  },
+  "//www.a-tm.co.jp/": {
+    "xpath": "section/div[@data-layout='PostEyeCatch' or @data-layout='PostContentWrapper']"
+  },
+  "//www.autocar.jp/": {
+    "xpath": "p[@class='post-excerpt']|//div[@id='textArea']",
+    "cleanup": [
+      "div[contains(@class,'nextpage_button')]",
+      "p[@class='go_gallery']"
+    ],
+    "next_page": "div[@id='page_links']",
+    "foot_xpath": "section[@class='writer-list']"
+  },
+  "//www.chugoku-np.co.jp/": {
+    "xpath": "div[@class='article-body']"
+  },
+  "//www.ht-tax.or.jp/": {
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "aside"
+    ]
+  },
+  "//ocwx.ocw.u-tokyo.ac.jp/": {
+    "xpath": "article"
+  },
+  "//ocw.u-tokyo.ac.jp/": {
+    "xpath": "article"
+  },
+  "//platform.openai.com/docs/": {
+    "xpath": "div[@class='docs-body']/div[contains(@class,'markdown-content')]"
+  },
+  "//sairu.co.jp/": {
+    "xpath": "main/article"
+  },
+  "//shosetsu-maru.com/": {
+    "xpath": "article/div[@class='post_content__body--main-article']",
+    "cleanup": [
+      "ul[@class='page-numbers']"
+    ],
+    "next_page": "ul[@class='page-numbers']"
+  },
+  "//tanakanews.com/": {
+    "xpath": "table"
   }
 }
