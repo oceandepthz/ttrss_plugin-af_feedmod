@@ -17630,5 +17630,47 @@
     "cleanup": [
       "div[@class='readNextButton']"
     ]
+  },
+  "//www.stv.jp/news/": {
+    "xpath": "article/div"
+  },
+  "//www.topics.or.jp/": {
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[contains(@class,'m-login-signage')]"
+    ]
+  },
+  "//yshibata.blog.ss-blog.jp/": {
+    "xpath": "div[@class='articles-body']",
+    "cleanup": [
+      "div[@class='bookmark']"
+    ]
+  },
+  "//yuheiy.com/": {
+    "xpath": "article/div[contains(@class,'container')]"
+  },
+  "//www.hayakawa-online.co.jp/new/": {
+    "xpath": "div[@id='page']/div[@class='infobody']"
+  },
+  "//www.hbc.co.jp/news/": {
+    "xpath": "div[@id='player']|//p[@id='discription']"
+  },
+  "//www.ide.go.jp/": {
+    "xpath": "div[@id='mainArea']",
+    "cleanup": [
+      "div[contains(@class,'btnPrint') or contains(@class,'totopbtn')]"
+    ]
+  },
+  "//www.iwanami.co.jp/": {
+    "xpath": "div[@id='main']",
+    "cleanup": [
+      "div[@class='social' or @id='share']"
+    ]
+  },
+  "//www.nikkei-science.com/": {
+    "xpath": "div[@id='content']",
+    "cleanup": [
+      "div[@class='social-area' or @class='article-bottom']"
+    ]
   }
 }
