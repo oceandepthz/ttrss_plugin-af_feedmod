@@ -4296,9 +4296,6 @@
     "xpath": "div[@id='articleBody']",
     "next_page": "div[@class='pager']"
   },
-  "//www.tbsradio.jp/": {
-    "xpath": "div[@class='b-article__body']"
-  },
   "//www.bake-jp.com/magazine/": {
     "xpath": "article",
     "cleanup": [
@@ -8429,11 +8426,6 @@
   },
   "//teratail.com/report/": {
     "xpath": "div[@class='p-article__ttlImg' or @class='p-article__detail']"
-  },
-  "enterprisezine.jp": {
-    "xpath": "div[starts-with(@class, 'topSection')]|//div[@class='article']",
-    "next_page": "div[@class='pager']",
-    "next_page_cleanup": "li[@class='current']"
   },
   "//sungine-palace.com/": {
     "xpath": "div[@class='post-thumbnail' or @class='entry-content']",
@@ -13777,12 +13769,6 @@
   "//jprs.jp/whatsnew/notice/": {
     "xpath": "div[@id='contents']"
   },
-  "//www.1101.com/": {
-    "xpath": "div[@class='article']|//h1",
-    "cleanup": [
-      "div[@class='navi']"
-    ]
-  },
   "//critic20.exblog.jp/": {
     "xpath": "div[@class='POST_BODY']",
     "cleanup": [
@@ -15971,17 +15957,6 @@
   "//www.lifehacker.jp/": {
     "xpath": "figure[starts-with(@class,'article_pArticle_Thumbnail__')]|//div[starts-with(@class,'articleBodyWrapper')]/div[starts-with(@class,'article_pArticle_Body__')]"
   },
-  "//dot.asahi.com/": {
-    "xpath": "div[@class='p-article-aera']",
-    "head_xpath": "div[@class='p-article__author']",
-    "next_page": "div[@class='p-article-aera__pages']/div[@class='c-button--pagination']",
-    "next_page_cleanup": "a[@class='-active-']",
-    "cleanup": [
-      "div[@class='p-article-aera__add' or @class='p-article-aera__pages']"
-    ],
-    "rep_pattern": "/^(.*:\\/\\/dot\\.asahi\\.com\\/.*html)$/",
-    "rep_replacement": "${1}?page=1"
-  },
   "//jj-labo.seesaa.net/": {
     "xpath": "div[@class='article__content']"
   },
@@ -17664,5 +17639,27 @@
       "div[contains(@class,'ai-viewport') or contains(@id, '_inArticle_adBox_') or contains(@class,'td-g-rec')]"
     ],
     "append_css": "img.size-full {width: 500px!important;}"
+  },
+  "//www.1101.com/": {
+    "xpath": "h1|//section[@id='yodogawa' or @id='talk_wrap']"
+  },
+  "//www.tbsradio.jp/": {
+    "xpath": "article[@class='articles-single__article']",
+    "cleanup": [
+      "div[contains(@class,'articles-single__article__border') or contains(@class,'__ad') or contains(@class,'__sns')]"
+    ]
+  },
+  "//enterprisezine.jp/": {
+    "xpath": "div[@class='detailBlock']/*[contains(@class,'c-article_hero') or @class='c-article_summary' or @id='c-article_content']"
+  },
+  "//dot.asahi.com/": {
+    "xpath": "div[@class='article-body' or @class='article-auther']",
+    "next_page": "div[contains(@class,'m-pagination')]",
+    "cleanup": [
+      "div[contains(@class,'a-ad')]",
+      "aside"
+    ],
+    "rep_pattern": "/^(.*:\\/\\/dot\\.asahi\\.com\\/.*)$/",
+    "rep_replacement": "${1}?page=1"
   }
 }
