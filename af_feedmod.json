@@ -17661,5 +17661,18 @@
     ],
     "rep_pattern": "/^(.*:\\/\\/dot\\.asahi\\.com\\/.*)$/",
     "rep_replacement": "${1}?page=1"
+  },
+  "//azukiazusa.dev/blog/": {
+    "xpath": "main/div/div/article"
+  },
+  "//trilltrill.jp/": {
+    "xpath": "article/div[contains(@class,'articleDetail-DescriptionContainer')]"
+  },
+  "//uchubiz.com/": {
+    "xpath": "section/div[contains(@class,'c-col__item__article')]",
+    "cleanup": [
+      "div[contains(@class,'c-content__sns_icons')]",
+      "ul[@class='c-tag__list']"
+    ]
   }
 }
