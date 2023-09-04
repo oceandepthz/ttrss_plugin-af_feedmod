@@ -17674,5 +17674,14 @@
       "div[contains(@class,'c-content__sns_icons')]",
       "ul[@class='c-tag__list']"
     ]
+  },
+  "//sumahodigest.com/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//supabase.com/blog/": {
+    "xpath": "article"
+  },
+  "//support.microsoft.com/": {
+    "xpath": "article[@class='ocpArticleContent']"
   }
 }
