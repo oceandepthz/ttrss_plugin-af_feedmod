@@ -9029,9 +9029,6 @@
   "//blog.livedoor.jp/keumaya-china/": {
     "xpath": "div[@class='article-body-inner']"
   },
-  "//newspicks.com/news/": {
-    "xpath": "div[@class='contents-area']//div[@class='news-image' or @class='comments']|//div[@class='container']/div[contains(@class,'article-body')]"
-  },
   "//mananavi.com/": {
     "xpath": "div[@class='entry-content' or @id='writer_box']"
   },
@@ -17683,5 +17680,45 @@
   },
   "//support.microsoft.com/": {
     "xpath": "article[@class='ocpArticleContent']"
+  },
+  "//roundup-gamers.jp/": {
+    "xpath": "main/div/div[@class='figure-area']|//main/div/article"
+  },
+  "//scienceportal.jst.go.jp/": {
+    "xpath": "div[@class='p-article-body']"
+  },
+  "//secon.dev/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//slack.com/intl/": {
+    "xpath": "section[contains(@class,'c-billboard')]|//div[contains(@class,'c-post-content')]/div[@class='s-wysiwyg']"
+  },
+  "//smarthr.design/": {
+    "xpath": "main/article"
+  },
+  "//naokoiwanaga.theletter.jp/": {
+    "xpath": "main//div[@class='pb-2']|//main//div[@class='web-post']"
+  },
+  "//newspicks.com/topics/": {
+    "xpath": "section[@class='post-detail']/div[@class='post-thumbnail-container']|//header/div/div[@class='post-author']|//main[@class='post-contents']"
+  },
+  "//newspicks.com/news/": {
+    "xpath": "div[@class='contents-area']//div[@class='news-image' or @class='comments']|//div[@class='container']/div[contains(@class,'article-body')]"
+  },
+  "//job.newspicks.com/": {
+    "xpath": "div[@id='root']/div/div/div/div/div/section"
+  },
+  "//pirosengen.com/": {
+    "xpath": "div[@class='cps-post-main-box' or @class='cps-post-thumb']",
+    "cleanup": [
+      "div[contains(@class,'share')]"
+    ]
+  },
+  "//pouhon.net/": {
+    "xpath": "article/div[contains(@class,'entry-content')]"
+  },
+  "//productzine.jp/": {
+    "xpath": "div[@class='detailBlock']",
+    "next_page": "div[@class='c-article_pager']"
   }
 }
