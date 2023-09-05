@@ -17743,5 +17743,39 @@
   },
   "//levelup.gitconnected.com/": {
     "xpath": "article/div/div/section/div/div/div/div"
+  },
+  "//freeblog-video.com/": {
+    "xpath": "article"
+  },
+  "//generativeinfo365.com/": {
+    "xpath": "header/div[@id='jinrPostThumb']|//section[@id='postContent']",
+    "cleanup": [
+      "section[@class='o--widget-area']"
+    ]
+  },
+  "//gfngfn.github.io/": {
+    "xpath": "div[@class='upcards-single-content']"
+  },
+  "//group.ntt/jp/newsrelease/": {
+    "xpath": "div[@class='contents']"
+  },
+  "//hattatu-matome.ldblog.jp/": {
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "div[@class='rss-husen' or @id='ad2' or starts-with(@class,'rec')]",
+      "table[@class='top_ad']"
+    ]
+  },
+  "//developer.medley.jp/": {
+    "xpath": "main/div/div/div[1]",
+    "cleanup": [
+      "button[contains(@class,'__ShareButton')]"
+    ]
+  },
+  "//dig-it.media/": {
+    "xpath": "main/div/*[contains(@class,'eyecatch') or contains(@class,'profile')]|//div[@class='postContents']/section[contains(@class,'content')]"
+  },
+  "//discord.com/blog/": {
+    "xpath": "div[contains(@class,'blog-hero-container')]/div/div/div/img|//div[contains(@class,'blog-post-container')]/div[contains(@class,'column-wrapper')]"
   }
 }
