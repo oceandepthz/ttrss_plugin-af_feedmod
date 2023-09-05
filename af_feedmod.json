@@ -16747,15 +16747,6 @@
   "//win-tab.net/": {
     "xpath": "div[@id='the-content']"
   },
-  "//limo.media/": {
-    "xpath": "article/div/div[@class='article-header__img' or @class='article-header__caption']|//article/div[contains(@class,'article-body') or contains(@class,'m-author')]",
-    "cleanup": [
-      "div[@class='m-ad-rectangle']",
-      "a[contains(@href,'//moneiro.jp/')]"
-    ],
-    "next_page": "div[@class='m-pagination']",
-    "next_page_cleanup": "li[contains(@class,'is-current')]"
-  },
   "//mdpr.jp/": {
     "xpath": "main/*[contains(@class,'c-image') or @class='pg-articleDetail__description' or contains(@class,'pg-articleDetail__body')]"
   },
@@ -17720,5 +17711,37 @@
   "//productzine.jp/": {
     "xpath": "div[@class='detailBlock']",
     "next_page": "div[@class='c-article_pager']"
+  },
+  "//limo.media/": {
+    "xpath": "article/div/div[@class='article-header__img' or @class='article-header__caption']|//article/div[contains(@class,'article-body') or contains(@class,'m-author')]",
+    "cleanup": [
+      "div[@class='m-ad-rectangle']",
+      "a[contains(@href,'//moneiro.jp/')]"
+    ],
+    "next_page": "div[@class='m-pagination']",
+    "next_page_cleanup": "li[contains(@class,'is-current')]"
+  },
+  "//imogayu1868.com/": {
+    "xpath": "header/div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//intojapanwaraku.com/": {
+    "xpath": "div[@class='article-content' or @class='post-thumbnail' or @class='main-author-wrapper']"
+  },
+  "//jpn.nec.com/cybersecurity/blog/": {
+    "xpath": "main/section/div[@class='str-outer']",
+    "cleanup": [
+      "div[contains(@class,'comp-sns')]"
+    ]
+  },
+  "//lab.mo-t.com/": {
+    "xpath": "div[contains(@class,'blog_post__')]",
+    "cleanup": [
+      "h1",
+      "a[contains(@href,'/blog/tag/')]",
+      "button[contains(@class,'__ShareButton')]"
+    ]
+  },
+  "//levelup.gitconnected.com/": {
+    "xpath": "article/div/div/section/div/div/div/div"
   }
 }
