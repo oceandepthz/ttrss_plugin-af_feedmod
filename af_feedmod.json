@@ -17777,5 +17777,17 @@
   },
   "//discord.com/blog/": {
     "xpath": "div[contains(@class,'blog-hero-container')]/div/div/div/img|//div[contains(@class,'blog-post-container')]/div[contains(@class,'column-wrapper')]"
+  },
+  "//codeknowledge.livedoor.blog/": {
+    "xpath": "div[@class='article-body-inner']"
+  },
+  "//crossacross.org/": {
+    "xpath": "article"
+  },
+  "//designing.jp/": {
+    "xpath": "article/header/picture|//article/header/div/p[contains(@class,'lead_')]|//article/div[contains(@class,'body_')]"
+  },
+  "//www.theheadline.jp/": {
+    "xpath": "div[contains(@class,'hl-article-banner')]|//div[@id='free-content']"
   }
 }
