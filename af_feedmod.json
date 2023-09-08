@@ -374,10 +374,6 @@
       "a[contains(@class, 'currentpage')]"
     ]
   },
-  "zasshi.news.yahoo.co.jp": {
-    "xpath": "div[@class='articleMain']/div[@class='paragraph']",
-    "next_page": "div[@class='ftPager']"
-  },
   "togech.jp": {
     "xpath": "section[@class='entry-content']"
   },
@@ -901,9 +897,6 @@
   "www.hochi.co.jp": {
     "xpath": "div[@id='NWrelart:Body']/p|//div[@id='img_s']/ul"
   },
-  "bylines.news.yahoo.co.jp": {
-    "xpath": "div[@class='articleMainImage']|//div[@class='articleBody']/div[@class='bd']|//div[starts-with(@class, 'articleF')]/div[@class='hd']"
-  },
   "timesteps.net": {
     "xpath": "div[@class='article-body-inner']"
   },
@@ -928,13 +921,6 @@
   },
   "engineer.typemag.jp": {
     "xpath": "div[@id='articleindex']"
-  },
-  "staffblog.news.yahoo.co.jp": {
-    "xpath": "div[@id='content-body']",
-    "cleanup": [
-      "div[@class='articleHd']",
-      "ul[@class='snsModOriginal']"
-    ]
   },
   "www.moongift.jp": {
     "xpath": "div[@class='post_body']",
@@ -15744,33 +15730,6 @@
   "//doda.jp/engineer/guide/": {
     "xpath": "div[@id='container']/section/div[@class='homeHero']/img|//div[@id='container']/section/div[@class='homeHero']/p[@class='caption']|//div[@id='container']/section/div[contains(@class,'articleArea') or @class='guide_AdviserBox']"
   },
-  "//news.yahoo.co.jp/pickup/": {
-    "xpath": "article"
-  },
-  "//news.yahoo.co.jp/feature/": {
-    "xpath": "section",
-    "cleanup": [
-      "div[contains(@class, 'embed')]"
-    ]
-  },
-  "//news.yahoo.co.jp/byline/": {
-    "xpath": "article/div/figure|//article/div/section|//div[@id='contentsWrap']/div"
-  },
-  "//news.yahoo.co.jp/story/": {
-    "xpath": "div[@class='mainBody']"
-  },
-  "//news.yahoo.co.jp/newshack/": {
-    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
-    "cleanup": [
-      "ul[@id='snsbtm']"
-    ]
-  },
-  "//news.yahoo.co.jp/": {
-    "xpath": "div[contains(@class,'article_body')]",
-    "next_page": "div[@class='pagination_body']",
-    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
-    "foot_xpath": "article/footer"
-  },
   "//www.yuu-progra.com/": {
     "xpath": "div[@class='cps-post-main-box' or contains(@class,'cps-post-thumb')]",
     "cleanup": [
@@ -16439,24 +16398,6 @@
     "xpath": "img[contains(@class,'flipboard-image')]|//article/div/div[contains(@class,'entry-content')]",
     "cleanup": [
       "div[contains(@id,'vip-') or contains(@class,'block-da')]"
-    ]
-  },
-  "//natalie.mu/music/pp/": {
-    "xpath": "article/div[@class='PP_main']",
-    "next_page": "nav[@class='PP_pager_wrapper']",
-    "head_xpath": "article/div[@class='PP_header']",
-    "cleanup": [
-      "nav",
-      "div[@class='PP_share' or contains(@class,'PP_nextpage')]"
-    ]
-  },
-  "//natalie.mu/": {
-    "xpath": "div[@class='NA_article_body']",
-    "next_page": "nav[@class='NA_pager_wrapper']",
-    "head_xpath": "div[@class='NA_article_header_img']",
-    "cleanup": [
-      "nav",
-      "div[contains(@class,'NA_article_nextpage') or @class='NA_article_social' or @class='NA_share' or contains(@class,'NA_article_link') or @class='NA_article_tag']"
     ]
   },
   "*//zenn.dev/*/scraps/*": {
@@ -17789,5 +17730,53 @@
   },
   "//www.theheadline.jp/": {
     "xpath": "div[contains(@class,'hl-article-banner')]|//div[@id='free-content']"
+  },
+  "//news.yahoo.co.jp/feature/": {
+    "xpath": "section",
+    "cleanup": [
+      "div[contains(@class, 'embed')]"
+    ]
+  },
+  "//news.yahoo.co.jp/newshack/": {
+    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
+    "cleanup": [
+      "ul[@id='snsbtm']"
+    ]
+  },
+  "//news.yahoo.co.jp/expert/": {
+    "xpath": "article/div/figure|//article/div/section|//div[@id='contentsWrap']/div"
+  },
+  "//news.yahoo.co.jp/": {
+    "xpath": "div[contains(@class,'article_body')]",
+    "next_page": "div[@class='pagination_body']",
+    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
+    "foot_xpath": "article/footer"
+  },
+  "//natalie.mu/music/pp/": {
+    "xpath": "article/div[@class='PP_main']",
+    "next_page": "nav[@class='PP_pager_wrapper']",
+    "head_xpath": "article/div[@class='PP_header']",
+    "cleanup": [
+      "nav",
+      "div[@class='PP_share' or contains(@class,'PP_nextpage')]"
+    ]
+  },
+  "//natalie.mu/comic/pp/": {
+    "xpath": "article/div[@class='PP_main']",
+    "next_page": "nav[@class='PP_pager_wrapper']",
+    "head_xpath": "article/div[@class='PP_header']",
+    "cleanup": [
+      "nav",
+      "div[@class='PP_share' or contains(@class,'PP_nextpage')]"
+    ]
+  },
+  "//natalie.mu/": {
+    "xpath": "div[@class='NA_article_body']",
+    "next_page": "nav[@class='NA_pager_wrapper']",
+    "head_xpath": "div[@class='NA_article_header_img']",
+    "cleanup": [
+      "nav",
+      "div[contains(@class,'NA_article_nextpage') or @class='NA_article_social' or @class='NA_share' or contains(@class,'NA_article_link') or @class='NA_article_tag']"
+    ]
   }
 }
