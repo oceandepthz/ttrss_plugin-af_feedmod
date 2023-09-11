@@ -17778,5 +17778,29 @@
       "nav",
       "div[contains(@class,'NA_article_nextpage') or @class='NA_article_social' or @class='NA_share' or contains(@class,'NA_article_link') or @class='NA_article_tag']"
     ]
+  },
+  "//camphack.nap-camp.com/": {
+    "xpath": "section[@class='heading-eyecatch']|//section[@class='heading-article']/*[@class='heading-article__lead' or @class='heading-article__author']|//main/div[@class='content']",
+    "next_page": "div[@class='paging-article']",
+    "cleanup": [
+      "div[@class='nextpage__btn' or contains(@id,'affiliate_')]"
+    ]
+  },
+  "//chienomi.org/": {
+    "xpath": "article",
+    "cleanup": [
+      "header[@id='ArticleTitle']",
+      "div[@id='TopicPath']",
+      "aside[@id='LinuxNotice' or @id='JLinuxerInfo' or @id='Jump2Toc']"
+    ]
+  },
+  "//cir.nii.ac.jp/crid/": {
+    "xpath": "div[@id='itemdetail']"
+  },
+  "//www.geidai.ac.jp/": {
+    "xpath": "div[@class='tua_main']/div[contains(@class,'tua_main_eyecatch') or contains(@class,'tua_main_contents') or contains(@class,'tua_main_subpage')]",
+    "cleanup": [
+      "div[contains(@class,'sns_share_buttons_')]"
+    ]
   }
 }
