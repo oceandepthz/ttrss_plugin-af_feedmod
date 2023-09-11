@@ -17802,5 +17802,66 @@
     "cleanup": [
       "div[contains(@class,'sns_share_buttons_')]"
     ]
+  },
+  "//blogs.soundmain.net/": {
+    "xpath": "article/div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='upper-sns']"
+    ]
+  },
+  "//blog.vuejs.org/": {
+    "xpath": "main/article/div"
+  },
+  "//blueskyweb.xyz/blog/": {
+    "xpath": "div[starts-with(@class,'Blog_blogBody__')]"
+  },
+  "//bokuweb.github.io/undefined/": {
+    "xpath": "main"
+  },
+  "//buf.build/blog/": {
+    "xpath": "article"
+  },
+  "//astro.build/blog/": {
+    "xpath": "main/div/div/article"
+  },
+  "//blog.bokken.io/": {
+    "xpath": "article"
+  },
+  "//blog.katsyoshi.org/": {
+    "xpath": "article/div[contains(@class,'post-content')]"
+  },
+  "//blog.pragmaticengineer.com/": {
+    "xpath": "header/nav/a[@class='blog-logo']/img|//section[@id='content']"
+  },
+  "//10x.co.jp/blog/": {
+    "xpath": "div[@class='body']"
+  },
+  "//80c.jp/": {
+    "xpath": "div[@class='td-post-content']",
+    "next_page": "footer/div[contains(@class,'page-nav')]"
+  },
+  "//9to5google.com/": {
+    "xpath": "div[@id='content']/div[contains(@class,'post-content')]"
+  },
+  "//agirobots.com/": {
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "div[@id='st_toc_container' or @class='st-h-ad']"
+    ]
+  },
+  "//www.semianalysis.com/": {
+    "xpath": "div[@class='available-content']"
+  },
+  "//www.theplayerstribune.com/": {
+    "xpath": "header/div/figure|//article/div/div[@class='viewablity-block']"
+  },
+  "//www.timeout.jp/": {
+    "xpath": "main/div/section"
+  },
+  "//www.uhb.jp/news/": {
+    "xpath": "article/div[@class='p-news_entry__body']"
+  },
+  "//www.webdoku.jp/": {
+    "xpath": "div[@id='header']|//div[@id='alpha']/div[@class='entry']"
   }
 }
