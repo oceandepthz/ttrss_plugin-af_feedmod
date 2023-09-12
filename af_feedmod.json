@@ -2826,9 +2826,6 @@
   "blog.kaerucloud.com": {
     "xpath": "div[@class='entry-content']"
   },
-  "www.sakura.ad.jp/press": {
-    "xpath": "div[@id='main-area']/div[@class='section-block']"
-  },
   "www.momijimom.net": {
     "xpath": "div[@class='entry-content']"
   },
@@ -7692,9 +7689,6 @@
     "cleanup": [
       "script[contains(text(),'//www.google-analytics.com/analytics.js')]"
     ]
-  },
-  "//www.sakura.ad.jp/news/sakurainfo/": {
-    "xpath": "div[@id='main-area']//div[@class='txt-block']"
   },
   "//www.bpo.gr.jp/": {
     "xpath": "div[@class='entry-content']"
@@ -13629,12 +13623,6 @@
   "//www.gartner.com/jp/newsroom/press-releases/": {
     "xpath": "section/div/div/div/div[contains(@class,'responsivegrid')]"
   },
-  "//www.sakura.ad.jp/information/": {
-    "xpath": "div[@class='news-section']",
-    "cleanup": [
-      "div[contains(@class,'btn-transition') or contains(@class,'social-button')]"
-    ]
-  },
   "//fullkiss.jp/": {
     "xpath": "header/p[@class='post-thumbnail']|//article/section[contains(@class,'entry-content')]"
   },
@@ -15734,12 +15722,6 @@
     "xpath": "div[@class='cps-post-main-box' or contains(@class,'cps-post-thumb')]",
     "cleanup": [
       "*[contains(@class,'sponsor-') or contains(@class,'ad-') or contains(@class,'adarea-') or @class='sns']"
-    ]
-  },
-  "//www.kobe-np.co.jp/": {
-    "xpath": "div[contains(@class,'textDetail') or @class='photoDetail_area']",
-    "cleanup": [
-      "div[contains(@id,'_adWrapper_') or @class='photoDetail_text_image']"
     ]
   },
   "//www.bengo4.com/": {
@@ -17863,5 +17845,41 @@
   },
   "//www.webdoku.jp/": {
     "xpath": "div[@id='header']|//div[@id='alpha']/div[@class='entry']"
+  },
+  "//www.kobe-np.co.jp/": {
+    "xpath": "div[contains(@class,'article-body')]"
+  },
+  "//withenergy.jp/": {
+    "xpath": "div[@class='article']/div[@class='articleTop' or contains(@class,'articleContent') or @id='comments']",
+    "cleanup": [
+      "div[@class='aicp' or @id='respond' or @class='reply']"
+    ]
+  },
+  "//www.jasrac.or.jp/smt/": {
+    "xpath": "div[@id='contents']/section/section"
+  },
+  "//www.jasrac.or.jp/": {
+    "xpath": "div[@id='contents']",
+    "cleanup": [
+      "div[@class='pressSnsWrap' or @class='linkAreaTop' or @class='linkAreaBottom' or @class='newsSnsWrap']"
+    ]
+  },
+  "//www.sakura.ad.jp/corporate/": {
+    "xpath": "article[@class='post-article']",
+    "cleanup": [
+      "div[@class='post-article__social']"
+    ]
+  },
+  "//www.sakura.ad.jp/press/": {
+    "xpath": "div[@id='main-area']/div[@class='section-block']"
+  },
+  "//www.sakura.ad.jp/information/": {
+    "xpath": "div[@class='news-section']",
+    "cleanup": [
+      "div[contains(@class,'btn-transition') or contains(@class,'social-button')]"
+    ]
+  },
+  "//www.sakura.ad.jp/news/sakurainfo/": {
+    "xpath": "div[@id='main-area']//div[@class='txt-block']"
   }
 }
