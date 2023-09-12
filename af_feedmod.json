@@ -17881,5 +17881,17 @@
   },
   "//www.sakura.ad.jp/news/sakurainfo/": {
     "xpath": "div[@id='main-area']//div[@class='txt-block']"
+  },
+  "//indiegamesjp.dev/": {
+    "xpath": "article/div/div/div[@class='entry-inner']"
+  },
+  "//www.netdenjd.com/": {
+    "xpath": "div[@class='l-main']/div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@class,'login-parts')]"
+    ]
+  },
+  "//www.washingtonpost.com/": {
+    "xpath": "main/div/header|//main/article"
   }
 }
