@@ -17695,27 +17695,6 @@
   "//www.theheadline.jp/": {
     "xpath": "div[contains(@class,'hl-article-banner')]|//div[@id='free-content']"
   },
-  "//news.yahoo.co.jp/feature/": {
-    "xpath": "section",
-    "cleanup": [
-      "div[contains(@class, 'embed')]"
-    ]
-  },
-  "//news.yahoo.co.jp/newshack/": {
-    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
-    "cleanup": [
-      "ul[@id='snsbtm']"
-    ]
-  },
-  "//news.yahoo.co.jp/expert/": {
-    "xpath": "article/div/figure|//article/div/section|//div[@id='contentsWrap']/div"
-  },
-  "//news.yahoo.co.jp/": {
-    "xpath": "div[contains(@class,'article_body')]",
-    "next_page": "div[@class='pagination_body']",
-    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
-    "foot_xpath": "article/footer"
-  },
   "//natalie.mu/music/pp/": {
     "xpath": "article/div[@class='PP_main']",
     "next_page": "nav[@class='PP_pager_wrapper']",
@@ -17920,5 +17899,29 @@
   },
   "//hokanko-alt.com/": {
     "xpath": "div[@class='article-body-inner']"
+  },
+  "//news.yahoo.co.jp/feature/": {
+    "xpath": "section",
+    "cleanup": [
+      "div[contains(@class, 'embed')]"
+    ]
+  },
+  "//news.yahoo.co.jp/newshack/": {
+    "xpath": "header/p[@class='nhArticleImg']|//div[@id='article']",
+    "cleanup": [
+      "ul[@id='snsbtm']"
+    ]
+  },
+  "//news.yahoo.co.jp/expert/": {
+    "xpath": "article/div/figure|//article/div/section|//div[@id='contentsWrap']/div"
+  },
+  "//news.yahoo.co.jp/byline/": {
+    "xpath": "article/div/figure|//article/div/section|//div[@id='contentsWrap']/div"
+  },
+  "//news.yahoo.co.jp/": {
+    "xpath": "div[contains(@class,'article_body')]",
+    "next_page": "div[@class='pagination_body']",
+    "head_xpath": "article/header//a[contains(@data-ylk,'rsec:detail;')]",
+    "foot_xpath": "article/footer"
   }
 }
