@@ -17920,5 +17920,43 @@
     "cleanup": [
       "div[contains(@id,'SideAds-')]"
     ]
+  },
+  "//accessible-usable.net/": {
+    "xpath": "main",
+    "cleanup": [
+      "div[@class='prev-next']"
+    ]
+  },
+  "//go.dev/doc/": {
+    "xpath": "main"
+  },
+  "//insights-jp.arcserve.com/": {
+    "xpath": "article/div[@class='entry-content']",
+    "cleanup": [
+      "div[@class='sns_share']"
+    ]
+  },
+  "//reameizu.com/": {
+    "xpath": "article/header/figure|//article/div[@class='entry-content']"
+  },
+  "//ripurun.com/": {
+    "xpath": "article/*[@class='post-thumbnail' or @class='post-content']"
+  },
+  "//www.saisoncard.co.jp/credictionary/lifestyle/": {
+    "xpath": "section/*[@class='article-img' or @class='article-lead' or @class='sec-content']"
+  },
+  "//digital.asahi.com/sp/": {
+    "xpath": "main",
+    "cleanup": [
+      "div[@id='gsm_above_SnsUtilityArea' or contains(@class,'notPrint')]"
+    ],
+    "rep_pattern": "/^(.*:\\/\\/digital\\.asahi\\.com)\\/sp(\\/.*)$/",
+    "rep_replacement": "${1}${2}"
+  },
+  "//digital.asahi.com/": {
+    "xpath": "main",
+    "cleanup": [
+      "div[@id='gsm_above_SnsUtilityArea' or contains(@class,'notPrint')]"
+    ]
   }
 }
