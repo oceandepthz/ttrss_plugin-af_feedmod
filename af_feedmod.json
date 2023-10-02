@@ -9446,13 +9446,6 @@
   "//rnavi.ndl.go.jp/research_guide/": {
     "xpath": "div[contains(@class,'entry-content')]"
   },
-  "//www.dailyshincho.jp/": {
-    "xpath": "p[@class='prof']|//div[@class='wp_txt']|//main/article[@class='l-contents__article']",
-    "cleanup": [
-      "ul[@class='c-list-sns--sm']"
-    ],
-    "next_page": "p[@class='p-pagination']"
-  },
   "//tikyuutabi.sakura.ne.jp/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -13788,11 +13781,6 @@
   "//blog.rogiken.org/": {
     "xpath": "div[@class='entry-content']"
   },
-  "//full-count.jp/": {
-    "xpath": "div[@class='paragraph']",
-    "head_xpath": "p[@class='main_lead']",
-    "next_page": "ul[contains(@class,'article-footer-pagination')]"
-  },
   "//blog.discordapp.com/": {
     "xpath": "article"
   },
@@ -16689,9 +16677,6 @@
     "xpath": "main",
     "engine": "chromium"
   },
-  "//softantenna.com/": {
-    "xpath": "div[@class='post_content']"
-  },
   "//techblog.tebiki.co.jp/": {
     "xpath": "main"
   },
@@ -17958,5 +17943,42 @@
     "cleanup": [
       "div[@id='gsm_above_SnsUtilityArea' or contains(@class,'notPrint')]"
     ]
+  },
+  "//chuokoron.jp/": {
+    "xpath": "div[@class='article-main']/article",
+    "next_page": "div[@class='article-pager']",
+    "cleanup": [
+      "header",
+      "div[@class='article-c-ad' or @class='page-link' or @class='article-pager']"
+    ]
+  },
+  "//jaf.or.jp/": {
+    "xpath": "main/div[@class='l-article']"
+  },
+  "//ln-news.com/": {
+    "xpath": "div[@class='mce-content-body']"
+  },
+  "//railsatscale.com/": {
+    "xpath": "article/div[contains(@class,'post-content')]"
+  },
+  "//full-count.jp/": {
+    "xpath": "div[@class='c-wp-post']",
+    "next_page": "nav[@class='c-pagination']",
+    "cleanup": [
+      "*[contains(@class,'s-entry-ads')]"
+    ]
+  },
+  "//softantenna.com/": {
+    "xpath": "div[@class='post_content']"
+  },
+  "//www.dailyshincho.jp/": {
+    "xpath": "article/div[@class='p-block']",
+    "cleanup": [
+      "div[contains(@class,'c-box-ad')]",
+      "p[@class='c-text-next' or @class='p-pagination' or @class='c-text-page']"
+    ],
+    "next_page": "p[@class='p-pagination']",
+    "rep_pattern": "/^(.*:\\/\\/www\\.dailyshincho\\.jp\\/article\\/[0-9]{4}\\/[0-9]*\\/)$/",
+    "rep_replacement": "${1}?all=1"
   }
 }
