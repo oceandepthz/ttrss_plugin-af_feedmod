@@ -258,6 +258,10 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->change_attribute_value($doc, $xpath, $entry, "id", "container", "container_chg");
                 $this->change_attribute_value($doc, $xpath, $entry, "id", "main", "main_chg");
 
+                // bunshun.ismcdn.jp
+                // assets.shueisha.online
+                $this->update_img_proxy($xpath);
+
                 $article['content'] = str_replace(["<html><body>","</body></html>"],"",$doc->saveXML($entry));
             }
 
@@ -1640,6 +1644,22 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         foreach($entries as $entry){
             $this->append_iframe_tag($doc, $entry, $entry->getAttribute('data-src'));
+        }
+    }
+
+    function update_img_proxy(DOMXPath $xpath): void {
+        $entries = $xpath->query("//img[contains(@src,'//bunshun.ismcdn.jp/') and (contains(@src, '.jpg') or contains(@src, '.png'))]");
+        foreach($entries as $entry){
+            $src = $entry->getAttribute('src');
+            $replaced_src = str_replace('https://bunshun.ismcdn.jp/', 'https://app.kozono.org/imgproxy/bunshunismcdn/', $src);
+            $entry->setAttribute('src', $replaced_src);
+        }
+
+        $entries = $xpath->query("//img[contains(@src,'//assets.shueisha.online/') and (contains(@src, '.jpg') or contains(@src, '.png'))]");
+        foreach($entries as $entry){
+            $src = $entry->getAttribute('src');
+            $replaced_src = str_replace('https://assets.shueisha.online/', 'https://app.kozono.org/imgproxy/assetsshueisha/', $src);
+            $entry->setAttribute('src', $replaced_src);
         }
     }
 
