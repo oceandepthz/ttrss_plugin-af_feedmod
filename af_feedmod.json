@@ -17393,16 +17393,6 @@
   "//enterprisezine.jp/": {
     "xpath": "div[@class='detailBlock']/*[contains(@class,'c-article_hero') or @class='c-article_summary' or @id='c-article_content']"
   },
-  "//dot.asahi.com/": {
-    "xpath": "div[@class='article-body' or @class='article-auther']",
-    "next_page": "div[contains(@class,'m-pagination')]",
-    "cleanup": [
-      "div[contains(@class,'a-ad')]",
-      "aside"
-    ],
-    "rep_pattern": "/^(.*:\\/\\/dot\\.asahi\\.com\\/.*)$/",
-    "rep_replacement": "${1}?page=1"
-  },
   "//azukiazusa.dev/blog/": {
     "xpath": "main/div/div/article"
   },
@@ -18009,5 +17999,15 @@
     "cleanup": [
       "div[@class='fan-letter-button-wrapper']"
     ]
+  },
+  "//dot.asahi.com/": {
+    "xpath": "div[@class='article-body' or @class='article-auther']",
+    "next_page": "div[contains(@class,'m-pagination')]",
+    "cleanup": [
+      "div[contains(@class,'a-ad')]",
+      "aside"
+    ],
+    "rep_pattern": "/^(.*:\\/\\/dot\\.asahi\\.com\\/.*\\/[0-9]+)$/",
+    "rep_replacement": "${1}?page=1"
   }
 }
