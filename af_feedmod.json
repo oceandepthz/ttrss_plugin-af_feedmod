@@ -13971,12 +13971,6 @@
       "nav[contains(@class,'pagenation')]"
     ]
   },
-  "//www.helentech.net/": {
-    "xpath": "header/div[@class='eye-catch-wrap']|//article/div[contains(@class,'entry-content')]",
-    "cleanup": [
-      "div[contains(@class,'ad-area')]"
-    ]
-  },
   "//www.nichepcgamer.com/": {
     "xpath": "div[@id='mainEntity']",
     "cleanup": [
@@ -14704,31 +14698,6 @@
     "cleanup": [
       "section[@class='sdcec-entry__bottom']"
     ]
-  },
-  "//www3.nhk.or.jp/kansai-news/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/news/web_tokushu/": {
-    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
-  },
-  "//www3.nhk.or.jp/news/html/": {
-    "xpath": "figure[contains(@class,'content--video') or contains(@class,'content--thumb')]|//div[@class='content--detail-body']",
-    "engine": "chromium",
-    "cleanup": [
-      "nav"
-    ]
-  },
-  "//www3.nhk.or.jp/lnews/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/shutoken-news/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/news/business_tokushu/": {
-    "xpath": "main[@id='main']/article"
-  },
-  "//www3.nhk.or.jp/news/special/": {
-    "xpath": "main[@id='main']|//div[@class='c-container__main']/div/article"
   },
   "//r7kamura.com/": {
     "xpath": "article"
@@ -17045,9 +17014,6 @@
   "//simonwillison.net/": {
     "xpath": "div[@id='primary']"
   },
-  "//www3.nhk.or.jp/news/contents/ohabiz/": {
-    "xpath": "div[@class='a-header__mv' or @class='a-body__contents']"
-  },
   "//www.tsr-net.co.jp/data/detail/": {
     "xpath": "div[@class='entry']/p"
   },
@@ -18009,5 +17975,42 @@
     ],
     "rep_pattern": "/^(.*:\\/\\/dot\\.asahi\\.com\\/.*\\/[0-9]+)$/",
     "rep_replacement": "${1}?page=1"
+  },
+  "//www3.nhk.or.jp/kansai-news/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/news/web_tokushu/": {
+    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
+  },
+  "//www3.nhk.or.jp/news/html/": {
+    "xpath": "figure[contains(@class,'content--video') or contains(@class,'content--thumb')]|//div[@class='content--detail-body']",
+    "cleanup": [
+      "nav",
+      "div[@class='module--share']"
+    ]
+  },
+  "//www3.nhk.or.jp/lnews/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/shutoken-news/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/news/business_tokushu/": {
+    "xpath": "main[@id='main']/article"
+  },
+  "//www3.nhk.or.jp/news/special/": {
+    "xpath": "main[@id='main']|//div[@class='c-container__main']/div/article"
+  },
+  "//www3.nhk.or.jp/news/contents/ohabiz/": {
+    "xpath": "div[@class='a-header__mv' or @class='a-body__contents']"
+  },
+  "//contents.nii.ac.jp/": {
+    "xpath": "section//div[contains(@class,'field--name-body')]"
+  },
+  "//www.helentech.net/": {
+    "xpath": "header/div[@class='eye-catch-wrap']|//div[@itemprop='mainEntityOfPage']",
+    "cleanup": [
+      "div[contains(@class,'ad-area')]"
+    ]
   }
 }
