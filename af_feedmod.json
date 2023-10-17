@@ -529,13 +529,6 @@
   "blog.kazuhooku.com": {
     "xpath": "div[starts-with(@id, 'post-body-')]"
   },
-  "www.natureasia.com": {
-    "xpath": "article/p|//article/figure|//article/h2|//header/p",
-    "cleanup": [
-      "h2[@class='keywords']",
-      "h2[@class='related']"
-    ]
-  },
   "jp.techtimes.com": {
     "xpath": "div[@class='at-body']",
     "cleanup": [
@@ -18011,6 +18004,29 @@
     "xpath": "header/div[@class='eye-catch-wrap']|//div[@itemprop='mainEntityOfPage']",
     "cleanup": [
       "div[contains(@class,'ad-area')]"
+    ]
+  },
+  "//www.natureasia.com/": {
+    "xpath": "main/div/div/figure|//main/div/div/div[@class='c-article-teaser-text']|//main/div/div/div/div[contains(@class,'c-content-below-picture')]"
+  },
+  "//kibidango.com/": {
+    "xpath": "div[@id='projectBody']",
+    "cleanup": [
+      "a[contains(@class,'btn')]",
+      "div[contains(@class,'g-social-group')]"
+    ]
+  },
+  "//media.rakuten-sec.net/": {
+    "xpath": "div[@id='main-column']/div/div[@class='heading' or @class='summary']|//article/div[@class='article-body']",
+    "cleanup": [
+      "div[contains(@class,'sns-btns') or @class='ad-rectangle']"
+    ]
+  },
+  "//weel.co.jp/": {
+    "xpath": "main/article/*[@class='p-articleThumb' or @class='post_content']",
+    "cleanup": [
+      "p[@class='is-style-big_icon_memo']",
+      "div[contains(@class,'top_bannar')]"
     ]
   }
 }
