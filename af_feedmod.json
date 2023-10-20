@@ -16471,9 +16471,6 @@
   "//techplay.jp/column/": {
     "xpath": "header//div[@class='column-image' or @class='column-header-lead']|//section[contains(@class,'column-detail')]"
   },
-  "//tokuhain.arukikata.co.jp/": {
-    "xpath": "div[@id='2column_main']/div[@class='title_l' or @class='article' or @class='article_link']"
-  },
   "//www.libro-koseisha.co.jp/": {
     "xpath": "main/div/div[contains(@class,'books_main') or contains(@class,'post_main')]",
     "cleanup": [
@@ -16482,12 +16479,6 @@
   },
   "//www.pixiv.net/info.php": {
     "xpath": "div[contains(@class,'area_article ')]"
-  },
-  "//news.arukikata.co.jp/": {
-    "xpath": "div[@class='article_txt']",
-    "cleanup": [
-      "div[@class='ad' or @class='article_count']"
-    ]
   },
   "//snyk.io/blog/": {
     "xpath": "div[@class='snyk-content']"
@@ -18027,6 +18018,12 @@
     "cleanup": [
       "p[@class='is-style-big_icon_memo']",
       "div[contains(@class,'top_bannar')]"
+    ]
+  },
+  "//www.arukikata.co.jp/web/": {
+    "xpath": "article/div/div[@class='ar-articleHeader__image']|//article/div[@class='sec-body']|//article/a[contains(@class,'ar-profile')]",
+    "cleanup": [
+      "aside[@class='ar-ad']"
     ]
   }
 }
