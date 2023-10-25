@@ -18025,5 +18025,11 @@
     "cleanup": [
       "aside[@class='ar-ad']"
     ]
+  },
+  "//engineering.mercari.com/": {
+    "xpath": "main/div/div/img[contains(@class,'_post__thumbnail_')]|//div[contains(@class,'page-content')]"
+  },
+  "//0115765.com/": {
+    "xpath": "section/div[@class='image-wrapper' or contains(@class,'main')]"
   }
 }
