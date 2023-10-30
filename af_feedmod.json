@@ -8981,9 +8981,6 @@
     "xpath": "body",
     "no_fetch": true
   },
-  "//shonenjumpplus.com/episode/": {
-    "xpath": "section[@class='series-information']/div[contains(@class,'series-header') or @class='series-contents']"
-  },
   "//blog.cntlog.net/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -18031,5 +18028,11 @@
   },
   "//0115765.com/": {
     "xpath": "section/div[@class='image-wrapper' or contains(@class,'main')]"
+  },
+  "//shonenjumpplus.com/episode/": {
+    "xpath": "section/div[contains(@class,'series-header')]",
+    "cleanup": [
+      "div[@class='fan-letter-button-wrapper']"
+    ]
   }
 }
