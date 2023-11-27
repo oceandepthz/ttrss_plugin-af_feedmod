@@ -18040,5 +18040,11 @@
     "cleanup": [
       "div[@class='fan-letter-button-wrapper']"
     ]
+  },
+  "//techblog.lycorp.co.jp/": {
+    "xpath": "footer[@class='written_by']|//main//div[@class='content']"
+  },
+  "//sizu.me/": {
+    "xpath": "header/div/div/div|//article"
   }
 }
