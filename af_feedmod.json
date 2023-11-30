@@ -10388,9 +10388,6 @@
       "iframe[contains(@src,'//parusoku.com/')]"
     ]
   },
-  "//www.mdn.co.jp/": {
-    "xpath": "article"
-  },
   "*//kakuyomu.jp/works/*/episodes/*": {
     "match_type": "fnmatch",
     "xpath": "div[@id='contentMain-inner']"
@@ -18046,5 +18043,32 @@
   },
   "//sizu.me/": {
     "xpath": "header/div/div/div|//article"
+  },
+  "//www.mdn.co.jp/": {
+    "xpath": "main/div/div[@class='secDetailBody']"
+  },
+  "//www.corocoro.jp/episode/": {
+    "xpath": "section/div[contains(@class,'series-header')]",
+    "cleanup": [
+      "div[@class='fan-letter-button-wrapper']"
+    ]
+  },
+  "//kuragebunch.com/episode/": {
+    "xpath": "section/div[contains(@class,'series-header')]",
+    "cleanup": [
+      "div[@class='fan-letter-button-wrapper']"
+    ]
+  },
+  "//comic-days.com/episode/": {
+    "xpath": "section/div[contains(@class,'series-header')]",
+    "cleanup": [
+      "div[@class='fan-letter-button-wrapper']"
+    ]
+  },
+  "//labo-code.com/": {
+    "xpath": "header/p[@class='post-thumbnail']|//article/section[@class='entry-content']",
+    "cleanup": [
+      "div[contains(@class,'is-layout-constrained')]"
+    ]
   }
 }
