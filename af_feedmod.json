@@ -2465,11 +2465,6 @@
   "www.misoca.jp/mlist": {
     "xpath": "div[@class='art_main']"
   },
-  "markezine.jp": {
-    "xpath": "div[starts-with(@class,'topSection') or @class='article']",
-    "next_page": "div[@class='pager']",
-    "next_page_cleanup": "li[@class='current']"
-  },
   "blog.glidenote.com": {
     "xpath": "div[@class='entry-content']"
   },
@@ -17119,13 +17114,6 @@
     "rep_pattern": "/^(.*:\\/\\/newsdig\\.tbs\\.co\\.jp\\/articles\\/.*\\/[0-9]*)$/",
     "rep_replacement": "${1}?display=1"
   },
-  "//www.zakzak.co.jp/": {
-    "xpath": "article/div[contains(@class,'article-body')]",
-    "cleanup": [
-      "div[contains(@class,'inline-gptAd')]"
-    ],
-    "next_page": "ul[contains(@class,'page-list')]"
-  },
   "//scan.netsecurity.ne.jp/": {
     "xpath": "p[@class='arti-summary']|//main/div/div/figure|//div[@class='mms-unauth-content']|//span[contains(@class,'writer-name')]"
   },
@@ -18070,5 +18058,20 @@
     "cleanup": [
       "div[contains(@class,'is-layout-constrained')]"
     ]
+  },
+  "//www.zakzak.co.jp/": {
+    "xpath": "div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[contains(@class,'inline-gptAd')]"
+    ],
+    "next_page": "ul[contains(@class,'page-list')]"
+  },
+  "//markezine.jp/": {
+    "xpath": "article/div/div[@class='detailBlock']/*[contains(@class,'c-article_hero') or @class='c-article_summary' or @id='c-article_content']",
+    "cleanup": [
+      "div[@class='c-article_wall']"
+    ],
+    "next_page": "div[@class='pager']",
+    "next_page_cleanup": "li[@class='current']"
   }
 }
