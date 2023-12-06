@@ -1173,6 +1173,37 @@ class Af_Feedmod extends Plugin implements IHandler
         }
     }
 
+    function update_video_twimg_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $url) : void {
+        if(!$basenode){
+            return;
+        }
+        $items = [
+            "//a[contains(text(),'//video.twimg.com/ext_tw_video/')]",
+        ];
+        foreach ($items as $item){
+            $node_list = $xpath->query($item, $basenode);
+            if(!$node_list || $node_list->length === 0){
+                continue;
+            }
+            foreach ($node_list as $node){
+                if(!$node){
+                    continue;
+                }
+                $link = $xpath->evaluate('string()', $node);
+                $this->append_video_twimg_com($doc, $node, $link);
+            }
+        }
+    }
+    function append_video_twimg_com(DOMDocument $doc, DOMElement $node, string $link) : void {
+        $video = $doc->createElement('video','');
+        $video->setAttribute('controls','');
+        $video->setAttribute('style','max-width:720px');
+        $source = $doc->createElement('source', '');
+        $source->setAttribute('src', $link);
+        $video->appendChild($source);
+        $node->parentNode->insertBefore($video, $node->nextSibling);
+    }
+
     function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $url) : void {
         if(!$basenode){
             return;
@@ -1711,8 +1742,11 @@ class Af_Feedmod extends Plugin implements IHandler
 		if(!$h){
 		    continue;
 		}
+        $nitter = 'https://nitter.kozono.org/';
 		$h = str_replace('href="/', 'href="https://nitter.kozono.org/', $h);
 		$h = str_replace('src="/', 'src="https://nitter.kozono.org/', $h);
+		$h = str_replace('poster="/', 'poster="https://nitter.kozono.org/', $h);
+		$h = str_replace('data-url="/', 'data-url="https://nitter.kozono.org/', $h);
 
 		$h = mb_convert_encoding($h, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
 		$sdom = new DOMDocument();

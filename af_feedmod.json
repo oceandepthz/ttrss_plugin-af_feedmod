@@ -18026,9 +18026,6 @@
       "div[@class='fan-letter-button-wrapper']"
     ]
   },
-  "//techblog.lycorp.co.jp/": {
-    "xpath": "footer[@class='written_by']|//main//div[@class='content']"
-  },
   "//sizu.me/": {
     "xpath": "header/div/div/div|//article"
   },
@@ -18073,5 +18070,9 @@
     ],
     "next_page": "div[@class='pager']",
     "next_page_cleanup": "li[@class='current']"
+  },
+  "//techblog.lycorp.co.jp/": {
+    "xpath": "footer[@class='written_by']|//main//div[@class='content']",
+    "engine": "chromium"
   }
 }
