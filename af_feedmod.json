@@ -12040,12 +12040,6 @@
   "//www.infoq.com/": {
     "xpath": "div[@class='article__data']"
   },
-  "//smhn.info/": {
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "u[contains(text(),'Sponsored')]"
-    ]
-  },
   "//ufcpp.net/study/": {
     "xpath": "article/*[contains(@class,'toc') or @class='content']",
     "cleanup": [
@@ -18074,5 +18068,11 @@
   "//techblog.lycorp.co.jp/": {
     "xpath": "footer[@class='written_by']|//main//div[@class='content']",
     "engine": "chromium"
+  },
+  "//smhn.info/": {
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "aside"
+    ]
   }
 }
