@@ -5,7 +5,7 @@ class PicTwitterImageUrls
     private string $url;
     public function __construct($url)
     {
-	$this->url = $url;
+	    $this->url = $url;
     }
 
     private string $user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0';
@@ -14,40 +14,56 @@ class PicTwitterImageUrls
     {
         $url = $this->getNormalizationUrl();
 
-	// twitter url
-	$location_url = $this->getHeaderLocation($url);
+	    // twitter url
+    	$location_url = $this->getHeaderLocation($url);
         if(!$location_url)
-	{
-	    return [];
-	}
+	    {
+	        return [];
+	    }
 
-	// nitter url (nitter.kozono.org)
+    	// nitter url (nitter.kozono.org)
         $nitter_url = $this->convertNitterUrl($location_url);
         if(!$nitter_url)
-	{
-	    return [];
-	}
+	    {
+	        return [];
+	    }
 
-	// get nitter content
-	$doc = $this->getContentsDomdoc($nitter_url);
-	$xpath = new DOMXPath($doc);
+    	// get nitter content
+	    $doc = $this->getContentsDomdoc($nitter_url);
+    	$xpath = new DOMXPath($doc);
 
-	// get nitter image url
-        $urls = $this->getImageContents($doc, $xpath);
+	    // get nitter image url
+        $img_urls = $this->getImageContents($doc, $xpath);
 
-	return $urls;
+        // get nitter video url
+        $video_urls = $this->getVideoContents($doc, $xpath);
+
+    	return array_merge($img_urls, $video_urls); 
     }
-    private function getImageContents(DOMDocument $doc, DOMXPath $xpath) : array {
+    private function getVideoContents(DOMDocument $doc, DOMXPath $xpath) : array
+    {
         $urls = [];
-	$query = "(//div[contains(@class,'attachment') and contains(@class,'image')]/a/img)";
+        $query = "(//div[@id='m']//div[contains(@class,'attachment') and contains(@class,'video-container')]/video)";
         $entries = $xpath->query($query);
-	foreach($entries as $entry){
-	    $path = $entry->getAttribute('src');
-	    $urls[] = "https://nitter.kozono.org".$path;
-	}
-	return $urls;
+        foreach($entries as $entry){
+            $path = $entry->getAttribute('data-url');
+            $urls[] = "https://nitter.kozono.org".$path;
+        }
+        return $urls;
     }
-    private function getContentsDomdoc(string $url) : DOMDocument {
+    private function getImageContents(DOMDocument $doc, DOMXPath $xpath) : array
+    {
+        $urls = [];
+    	$query = "(//div[@id='m']//div[contains(@class,'attachment') and contains(@class,'image')]/a/img)";
+        $entries = $xpath->query($query);
+	    foreach($entries as $entry){
+	        $path = $entry->getAttribute('src');
+    	    $urls[] = "https://nitter.kozono.org".$path;
+	    }
+    	return $urls;
+    }
+    private function getContentsDomdoc(string $url) : DOMDocument
+    {
         require_once('FmUtils.php');
         $u = new FmUtils();
         $html = $u->url_file_get_contents($url);
@@ -62,8 +78,8 @@ class PicTwitterImageUrls
     {
         $pattern = '/^https:\/\/twitter\.com\/(.*\/status\/[0-9]*).*$/';
         preg_match($pattern, $url, $match);
-	if(count($match) != 2)
-	{
+	    if(count($match) != 2)
+	    {
             return "";
         }
         $match_value = $match[1];
@@ -80,35 +96,35 @@ class PicTwitterImageUrls
             )
         );
         stream_context_get_default($default_opts);
-	$headers = get_headers($url, True);
-	if(!$headers){
+        $headers = get_headers($url, True);
+        if(!$headers){
             return "";
-	}
-	if(!array_key_exists('location', $headers))
-	{
+        }
+        if(!array_key_exists('location', $headers))
+        {
             return "";
-	}
-	$location = $headers['location'];
-	if(is_string($location)){
+        }
+        $location = $headers['location'];
+        if(is_string($location)){
             return $location;
-	}
-	if(is_array($location)){
+    	}
+    	if(is_array($location)){
             return $location[0];
-	}
+    	}
         return "";
     }
 
     private function getNormalizationUrl() : string
     {
-	$url = $this->url;
-	if($this->startsWith($url, 'pic.twitter.com'))
-	{
+        $url = $this->url;
+        if($this->startsWith($url, 'pic.twitter.com'))
+        {
             return "https://${url}";
         }
         return $url;
     }
 
-    private function startsWith($haystack, $needle)
+    private function startsWith($haystack, $needle) : bool
     {
       return (strpos($haystack, $needle) === 0);
     }

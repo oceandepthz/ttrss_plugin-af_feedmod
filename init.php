@@ -1178,7 +1178,7 @@ class Af_Feedmod extends Plugin implements IHandler
             return;
         }
         $items = [
-            "//a[contains(text(),'//video.twimg.com/ext_tw_video/')]",
+            "//a[contains(text(),'//video.twimg.com/') and contains(text(),'.mp4')]",
         ];
         foreach ($items as $item){
             $node_list = $xpath->query($item, $basenode);
@@ -1216,65 +1216,60 @@ class Af_Feedmod extends Plugin implements IHandler
             }
         }
 
-	$items = [
-		"//a[contains(text(),'pic.twitter.com/')]",
-	];
-        foreach ($items as $item){
-	    $node_list = $xpath->query($item, $basenode);
+	    $items = [
+		    "//a[contains(text(),'pic.twitter.com/')]",
+        ];
+        foreach ($items as $item)
+        {
+	        $node_list = $xpath->query($item, $basenode);
             //$this->__debug("pic.twitter.com count : ${url} : " . $node_list->length);
-            if(!$node_list || $node_list->length === 0){
+            if(!$node_list || $node_list->length === 0)
+            {
                 continue;
-	    }
-            foreach ($node_list as $node){
-                if(!$node){
+	        }
+            foreach ($node_list as $node)
+            {
+                if(!$node)
+                {
                     continue;
-		}
-		$link = $xpath->evaluate('string()', $node);
-		//$this->__debug("pic.twitter.com url : ${url} :${link}");
+		        }
+        		$link = $xpath->evaluate('string()', $node);
+		        //$this->__debug("pic.twitter.com url : ${url} :${link}");
                 require_once('classes/PicTwitterImageUrls.php');
-	        $p = new PicTwitterImageUrls($link);
-		$urls = $p->getImageUrls();
-		//$this->__debug_tm($urls);
-                foreach(array_reverse($urls) as $url){
-                    $this->append_img_tag($doc, $node, $url);
+    	        $p = new PicTwitterImageUrls($link);
+	        	$urls = $p->getImageUrls();
+        		//$this->__debug_tm($urls);
+                foreach(array_reverse($urls) as $url)
+                {
+                    if(substr($url, -4) === 'webp')
+                    {
+                        $this->append_img_tag($doc, $node, $url);
+                    }
+                    if(substr($url, -3) === 'mp4')
+                    {
+                        $this->append_pic_twitter_com_video($doc, $node, $url);
+                    }
                 }
             }
-	}
+        }
 /*
         $items = ["//a[contains(text(),'pic.twitter.com/') or contains(@href,'pic.twitter.com/')]", "//a[contains(@href,'//twitter.com/') and ((contains(@href,'/photo/') or contains(@href,'/video/')))]"];
-        foreach ($items as $item){
-            $node_list = $xpath->query($item, $basenode);
-            if(!$node_list || $node_list->length === 0){
-                continue;
-            }
-            foreach ($node_list as $node){
-                if(!$node){
-                    continue;
-                }
-                $link = $xpath->evaluate('string(@href)', $node);
-                $urls = [];
-                if($link){
-                    $urls = $this->get_pic_links($link);
-                }
-                if(!$urls){
-                    $link = $xpath->evaluate('string()', $node);
-                    $pos = strpos($link, 'pic.twitter.com/');
-                    if($pos !== false && $pos  === 0){
-                        $link = 'https://' . $link;
-                    }
-                    if($link){
-                        $urls = $this->get_pic_links($link);
-                    }
-                }
-                if(!$urls){
-                    continue;
-                }
-                foreach(array_reverse($urls) as $url){
-                    $this->append_img_tag($doc, $node, $url);
-                }
-            } 
-	}
  */
+    }
+
+    function append_pic_twitter_com_video(DOMDocument $doc, DOMElement $node, string $url) : void
+    {
+        $n = $doc->createElement('div','');
+        $n->appendChild($this->create_pic_twitter_com_video_tag($doc, $url));
+        $node->parentNode->insertBefore($n, $node->nextSibling);
+    }
+
+    function create_pic_twitter_com_video_tag(DOMDocument $doc, string $url) : DOMElement
+    {
+        $v = $doc->createElement('video','');
+        $v->setAttribute('src', $url);
+        $v->setAttribute('controls', '');
+        return $v;
     }
 
     function append_iframe_tag(DOMDocument $doc, DOMElement $node, string $url) : void {
@@ -1611,6 +1606,9 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         foreach($list as $node){
             $src = $node->getAttribute($attr);
+            if(!$src){
+                continue;
+            }
             $url_item = parse_url($link);
             $scheme = $url_item['scheme'];
             if(!$scheme){
