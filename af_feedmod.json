@@ -9014,13 +9014,6 @@
     "xpath": "body",
     "no_fetch": true
   },
-  "//www.rakumachi.jp/news/column/": {
-    "xpath": "article/div[@class='postContent']",
-    "cleanup": [
-      "div[@class='postContent__next']"
-    ],
-    "next_page": "section/div[contains(@class,'pager')]"
-  },
   "//www.nintendo.co.jp/corporate/release/": {
     "xpath": "div[@id='single_frame']"
   },
@@ -14784,11 +14777,6 @@
     ],
     "next_page": "div[@class='Pagination']"
   },
-  "//nazology.net/": {
-    "xpath": "div[@class='post-body']",
-    "head_xpath": "div[@class='post-head__meta' or @class='post-lead']",
-    "next_page": "div[@class='post-pagination']"
-  },
   "//sorae.info/": {
     "xpath": "article/section[@class='single-post-main']/div[contains(@class,'content')]",
     "cleanup": [
@@ -16169,9 +16157,6 @@
   "//www.e-aidem.com/ch/listen/": {
     "xpath": "div[@class='entry-content']"
   },
-  "//www.e-aidem.com/ch/jimocoro/": {
-    "xpath": "div[@class='box_first']/div[@class='txt' or @class='img_ogp']|//div[@id='article']/div[@class='article']"
-  },
   "//photoshopvip.net/": {
     "xpath": "img[contains(@class,'flipboard-image')]|//article/div/div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -16370,12 +16355,6 @@
     ],
     "append_css": [
       "span > div.embed-responsive { padding-bottom:0!important; }"
-    ]
-  },
-  "//dev.classmethod.jp/": {
-    "xpath": "div[contains(@class,'single_article_contents')]|//div[@class='main']/div[@class='content']",
-    "append_css": [
-      "div.content > span > div.embed-responsive { padding-bottom:0!important; }"
     ]
   },
   "//blog.livedoor.jp/rock1963roll/": {
@@ -16968,9 +16947,6 @@
   },
   "//simonwillison.net/": {
     "xpath": "div[@id='primary']"
-  },
-  "//www.tsr-net.co.jp/data/detail/": {
-    "xpath": "div[@class='entry']/p"
   },
   "//freelance.levtech.jp/guide/": {
     "xpath": "div[@class='article__lead' or @class='article__profile' or @class='article__content']",
@@ -17921,12 +17897,6 @@
   "//contents.nii.ac.jp/": {
     "xpath": "section//div[contains(@class,'field--name-body')]"
   },
-  "//www.helentech.net/": {
-    "xpath": "header/div[@class='eye-catch-wrap']|//div[@itemprop='mainEntityOfPage']",
-    "cleanup": [
-      "div[contains(@class,'ad-area')]"
-    ]
-  },
   "//www.natureasia.com/": {
     "xpath": "main/div/div/figure|//main/div/div/div[@class='c-article-teaser-text']|//main/div/div/div/div[contains(@class,'c-content-below-picture')]"
   },
@@ -18074,5 +18044,32 @@
     "cleanup": [
       "aside"
     ]
+  },
+  "//dev.classmethod.jp/": {
+    "xpath": "div[@class='main']/div/div[@class='eyecatch' or @class='desc']|//div[contains(@class,'single_article_contents')]|//div[@class='main']/div[@class='content']",
+    "append_css": [
+      "div.content > span > div.embed-responsive { padding-bottom:0!important; }"
+    ]
+  },
+  "//www.tsr-net.co.jp/data/detail/": {
+    "xpath": "div[@class='entry']/p"
+  },
+  "//www.e-aidem.com/ch/jimocoro/": {
+    "xpath": "div[@class='kiji-header']/div[@class='image' or @class='details']|//div[@class='article-inner']/div[@class='article-body' or @class='relation-entry' or @class='writer-info']"
+  },
+  "//www.helentech.net/": {
+    "xpath": "article/figure[@class='p-articleThumb']|//div[@class='bialty-container']"
+  },
+  "//www.rakumachi.jp/news/column/": {
+    "xpath": "article/div[contains(@class,'postContent')]",
+    "cleanup": [
+      "span[@class='bg_next']"
+    ],
+    "next_page": "section/div[contains(@class,'pager')]"
+  },
+  "//nazology.net/": {
+    "xpath": "div[@class='post-body__contents']",
+    "head_xpath": "div[@class='post-eyecatch__canvas']/figure/a/img|//div[@class='post-head__detail']/div[@class='post-lead' or @class='post-head__premise' or @class='post-head__author']",
+    "next_page": "div[@class='post-pagination__nav']"
   }
 }
