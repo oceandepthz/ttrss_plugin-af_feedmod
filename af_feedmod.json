@@ -15515,9 +15515,6 @@
   "//www.bunkanews.jp/": {
     "xpath": "div[contains(@class,'single-content')]"
   },
-  "//373news.com/": {
-    "xpath": "div[@id='bt_body']"
-  },
   "//smbiz.asahi.com/": {
     "xpath": "main/div/div/div[@class='article-main-image' or @class='article-summary']|//main/div/div[@class='article-body']"
   },
@@ -16328,9 +16325,6 @@
   },
   "//artexhibition.jp/": {
     "xpath": "article[@class='main-content']/*[@class='eyecatch' or @class='news-detail']"
-  },
-  "//blog.recruit.co.jp/": {
-    "xpath": "main/div/div[@class='entry-content']"
   },
   "//blog.w0s.jp/": {
     "xpath": "main"
@@ -18071,5 +18065,20 @@
     "xpath": "div[@class='post-body__contents']",
     "head_xpath": "div[@class='post-eyecatch__canvas']/figure/a/img|//div[@class='post-head__detail']/div[@class='post-lead' or @class='post-head__premise' or @class='post-head__author']",
     "next_page": "div[@class='post-pagination__nav']"
+  },
+  "//sakatsuku-rtw.sega.com/webview/info/detail/": {
+    "xpath": "div[@class='newsDetailItemBottom']"
+  },
+  "//blog.recruit.co.jp/": {
+    "xpath": "article/div[@class='article-content']"
+  },
+  "//373news.com/": {
+    "xpath": "div[@id='bt_body']|//div[@class='limited_article']/div[@class='itemBody']"
+  },
+  "//comic-ogyaaa.com/episode/": {
+    "xpath": "section/div[contains(@class,'series-header')]",
+    "cleanup": [
+      "div[@class='fan-letter-button-wrapper']"
+    ]
   }
 }
