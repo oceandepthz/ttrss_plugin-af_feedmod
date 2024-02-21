@@ -10034,9 +10034,6 @@
       "div[@class='socialmediabottan']"
     ]
   },
-  "//web.gekisaka.jp/news/detail/": {
-    "xpath": "div[@class='geki_contentitem']"
-  },
   "//webexpert-draft.jp/": {
     "xpath": "div[@class='p-article']"
   },
@@ -16041,9 +16038,6 @@
       ".articleFirstImage {background-position: center center;background-size: cover;height: 375px;min-width: 1020px;position: relative;width: 100%;}"
     ]
   },
-  "//news.ntv.co.jp/": {
-    "xpath": "div[@class='mainContents']/*[@class='player-contents' or @class='player-text']"
-  },
   "//engineering.linecorp.com/": {
     "xpath": "article/section[@class='post_content_wrap']"
   },
@@ -17643,9 +17637,6 @@
   "//taisy0.com/": {
     "xpath": "article/div[@class='post_content']"
   },
-  "//gazlog.com/": {
-    "xpath": "main/article/div/div[@class='post_content']"
-  },
   "//logmi.jp/": {
     "xpath": "header[@class='hero']|//div[@class='l-article-grid-main' or @class='event-block' or @class='article-lead-sentence' or @class='article-credit' or contains(@class,'speaker-list')]",
     "cleanup": [
@@ -17960,12 +17951,6 @@
   "//www3.nhk.or.jp/news/contents/ohabiz/": {
     "xpath": "div[@class='a-header__mv' or @class='a-body__contents']"
   },
-  "//prtimes.jp/story/": {
-    "xpath": "div[@id='js-post-info']"
-  },
-  "//prtimes.jp/": {
-    "xpath": "div[@class='rbody']"
-  },
   "//miyearnzzlabo.com/": {
     "xpath": "header/div/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -18080,5 +18065,33 @@
     "cleanup": [
       "div[@class='fan-letter-button-wrapper']"
     ]
+  },
+  "//news.ntv.co.jp/": {
+    "xpath": "article[contains(@class,'yt-lite')]|//article/div[@class='player-detail']"
+  },
+  "//prtimes.jp/story/": {
+    "xpath": "div[@id='js-post-info']"
+  },
+  "//prtimes.jp/": {
+    "xpath": "article/div[not(@class)]"
+  },
+  "//mangacross.jp/comics/": {
+    "xpath": "div[@class='comic-area-inner']|//li[contains(@class,'backnumber-list__item--current')]/a",
+    "engine": "chromium"
+  },
+  "//gazlog.net/": {
+    "xpath": "main//figure[@class='p-articleThumb']|//main/article/div[@class='post_content']"
+  },
+  "//kultur.jp/": {
+    "xpath": "header//figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//web.gekisaka.jp/news/": {
+    "xpath": "div[@class='geki_contentitem']"
+  },
+  "//www.hanmoto.com/bd/isbn/": {
+    "xpath": "article/section[contains(@class,'book-images-cover-section') or contains(@class,'book-title-block-section') or contains(@class,'book-authors-section') or contains(@class,'book-publishers-section') or contains(@class,'book-productform-section') or contains(@class,'book-price-section') or contains(@class,'book-dates-section ') or contains(@class,'book-kaisetsu-section') or contains(@class,'book-toc-section')]"
+  },
+  "//www.hanmoto.com/": {
+    "xpath": "article"
   }
 }
