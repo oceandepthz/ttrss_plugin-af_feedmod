@@ -18014,10 +18014,6 @@
     "next_page": "div[@class='pager']",
     "next_page_cleanup": "li[@class='current']"
   },
-  "//techblog.lycorp.co.jp/": {
-    "xpath": "footer[@class='written_by']|//main//div[@class='content']",
-    "engine": "chromium"
-  },
   "//smhn.info/": {
     "xpath": "article/div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -18093,5 +18089,9 @@
   },
   "//www.hanmoto.com/": {
     "xpath": "article"
+  },
+  "//techblog.lycorp.co.jp/": {
+    "xpath": "div[@class='content']",
+    "engine": "chromium"
   }
 }
