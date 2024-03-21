@@ -43,11 +43,11 @@ class PicTwitterImageUrls
     private function getVideoContents(DOMDocument $doc, DOMXPath $xpath) : array
     {
         $urls = [];
-        $query = "(//div[@id='m']//div[contains(@class,'attachment') and contains(@class,'video-container')]/video)";
+        $query = "(//div[@id='m']//div[contains(@class,'attachment') and contains(@class,'video-container')]/video/source)";
         $entries = $xpath->query($query);
         foreach($entries as $entry){
-            $path = $entry->getAttribute('data-url');
-            $urls[] = "https://nitter.kozono.org".$path;
+            $path = $entry->getAttribute('src');
+            $urls[] = $path;
         }
         return $urls;
     }

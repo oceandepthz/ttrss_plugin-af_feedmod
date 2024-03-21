@@ -1245,7 +1245,7 @@ class Af_Feedmod extends Plugin implements IHandler
                     {
                         $this->append_img_tag($doc, $node, $url);
                     }
-                    if(substr($url, -3) === 'mp4')
+                    if(strpos($url, '//video.twimg.com/') !== false && strpos($url, '.mp4') !== false)
                     {
                         $this->append_pic_twitter_com_video($doc, $node, $url);
                     }
@@ -1269,6 +1269,7 @@ class Af_Feedmod extends Plugin implements IHandler
         $v = $doc->createElement('video','');
         $v->setAttribute('src', $url);
         $v->setAttribute('controls', '');
+        $v->setAttribute('type', 'video/mp4');
         return $v;
     }
 
