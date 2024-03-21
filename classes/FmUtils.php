@@ -12,7 +12,6 @@ class FmUtils {
         'method' => "GET",
         'timeout' => 10,
         'header' => "Accept-language: ja,en-US;q=0.7,en;q=0.3\r\n".
-                    "Accept-Encoding: gzip, deflate, br\r\n".
                     "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134\r\n"
       ],
       'ssl' => [
@@ -20,6 +19,8 @@ class FmUtils {
         'verify_peer_name' => false,
       ]
     ];
+
+                    //"Accept-Encoding: gzip, deflate, br\r\n".
 
     // config 確認。
 
