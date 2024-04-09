@@ -10303,14 +10303,6 @@
   "//dosports.yahoo.co.jp/column/": {
     "xpath": "div[@id='modColumnPhoto' or @id='detail' or @class='sn-columnDetail__headPhoto']"
   },
-  "//www.soccerdigestweb.com/news/detail/": {
-    "xpath": "div[@class='content_detail']",
-    "next_page": "div[@class='pager']",
-    "cleanup": [
-      "iframe[contains(@src,'//secure.spox.com/')]",
-      "a[contains(@href,'//prf.hn/click/')]"
-    ]
-  },
   "//jvns.ca/blog/": {
     "xpath": "article",
     "cleanup": [
@@ -18060,9 +18052,6 @@
     "xpath": "article",
     "next_page": "ul[contains(@class,'pagination')]"
   },
-  "//www.helentech.net/": {
-    "xpath": "article/*[@class='p-articleThumb' or @class='post_content']"
-  },
   "//www.footballchannel.jp/": {
     "xpath": "div[@class='entry_body']",
     "cleanup": [
@@ -18110,5 +18099,15 @@
   "//note.morisawa.co.jp/n/": {
     "engine": "note_mu",
     "xpath": "body"
+  },
+  "//www.soccerdigestweb.com/news/detail/": {
+    "xpath": "div[@class='content_detail']",
+    "next_page": "div[@class='pager']",
+    "cleanup": [
+      "div[contains(@class,'towcolumnBan_area')]"
+    ]
+  },
+  "//helentech.jp/": {
+    "xpath": "article/*[@class='p-articleThumb' or @class='post_content']"
   }
 }
