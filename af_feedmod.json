@@ -2379,12 +2379,6 @@
   "blog.willnet.in": {
     "xpath": "div[@class='entry-content']"
   },
-  "stocker.jp": {
-    "xpath": "div[@class='entry-content']",
-    "cleanup": [
-      "aside[@id='mail_request']"
-    ]
-  },
   "neuropsychology.seesaa.net": {
     "xpath": "div[@class='blogbody']/div[@class='text']",
     "cleanup": [
@@ -9976,10 +9970,6 @@
   "//edmm.jp/": {
     "xpath": "div[@id='WP_contents']|//main/div/div[@class='cassette_inner']"
   },
-  "//www.sbbit.jp/": {
-    "xpath": "div[@class='ar-title-sentence__sentence' or @class='ar-serialize-title__inner']",
-    "next_page": "div[@class='ar-pager']"
-  },
   "//www.jleague.jp/release/": {
     "xpath": "article",
     "cleanup": [
@@ -12332,9 +12322,6 @@
   "//kazune-lab.net/diary/": {
     "xpath": "section[@class='page__content']"
   },
-  "//jp.yna.co.kr/": {
-    "xpath": "div[@class='article-story']"
-  },
   "//jipsti.jst.go.jp/johokanri/sti_updates/": {
     "xpath": "div[@class='entry']"
   },
@@ -13185,12 +13172,6 @@
       "div.image-wrap div.column span.caption {display: block;float: none;clear: both;margin: 4px 0 0;padding: 0 2px;padding-top:4px;font-size: 75%;text-align: left;line-height: 1.3;}",
       ".hdg-03 {float: none;clear: both;margin: 0 0 7px;padding: 0 5px 7px 0;border-bottom: 1px solid #dadada;font-size: 100%;font-weight: bold;line-height: 1.4;}",
       ".hdg-03 span {border-left-color: #36f;display: block;padding: 1px 0 2px 9px;border-style: solid;border-width: 0;border-left-width: 5px;}"
-    ]
-  },
-  "//ez-oz.net/": {
-    "xpath": "div[@id='the-content']",
-    "cleanup": [
-      "div[contains(@class,'wpulike-robeen')]"
     ]
   },
   "//blog.cloudflare.com/": {
@@ -17190,13 +17171,6 @@
       "div[contains(@class,'-content-ad')]"
     ]
   },
-  "//automaton-media.com/": {
-    "xpath": "div[@class='td-post-featured-image' or @class='td-post-content']",
-    "cleanup": [
-      "div[contains(@class,'ai-viewport') or contains(@id, '_inArticle_adBox_') or contains(@class,'td-g-rec')]"
-    ],
-    "append_css": "img.size-full {width: 500px!important;}"
-  },
   "//www.1101.com/": {
     "xpath": "h1|//section[@id='yodogawa' or @id='talk_wrap']"
   },
@@ -17348,13 +17322,6 @@
   },
   "//www.theheadline.jp/": {
     "xpath": "div[contains(@class,'hl-article-banner')]|//div[@id='free-content']"
-  },
-  "//camphack.nap-camp.com/": {
-    "xpath": "section[@class='heading-eyecatch']|//section[@class='heading-article']/*[@class='heading-article__lead' or @class='heading-article__author']|//main/div[@class='content']",
-    "next_page": "div[@class='paging-article']",
-    "cleanup": [
-      "div[@class='nextpage__btn' or contains(@id,'affiliate_')]"
-    ]
   },
   "//chienomi.org/": {
     "xpath": "article",
@@ -17961,9 +17928,6 @@
     "xpath": "div[@class='comic-area-inner']|//li[contains(@class,'backnumber-list__item--current')]/a",
     "engine": "chromium"
   },
-  "//gazlog.net/": {
-    "xpath": "main//figure[@class='p-articleThumb']|//main/article/div[@class='post_content']"
-  },
   "//kultur.jp/": {
     "xpath": "header//figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
   },
@@ -18100,6 +18064,28 @@
     "engine": "note_mu",
     "xpath": "body"
   },
+  "//helentech.jp/": {
+    "xpath": "article/*[@class='p-articleThumb' or @class='post_content']"
+  },
+  "//gazlog.jp/": {
+    "xpath": "main//figure[@class='p-articleThumb']|//main/article/div[@class='post_content']"
+  },
+  "//stocker.jp/": {
+    "xpath": "main/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "aside[@id='mail_request']"
+    ]
+  },
+  "//jp.yna.co.kr/": {
+    "xpath": "article[@class='story-news']"
+  },
+  "//automaton-media.com/": {
+    "xpath": "div[@class='td-post-content']",
+    "cleanup": [
+      "div[contains(@class,'ai-viewport') or contains(@class,'td-g-rec') or contains(@class,'heateor_sss_sharing_container')]"
+    ],
+    "append_css": "img.size-full {width: 500px!important;}"
+  },
   "//www.soccerdigestweb.com/news/detail/": {
     "xpath": "div[@class='content_detail']",
     "next_page": "div[@class='pager']",
@@ -18107,7 +18093,49 @@
       "div[contains(@class,'towcolumnBan_area')]"
     ]
   },
-  "//helentech.jp/": {
-    "xpath": "article/*[@class='p-articleThumb' or @class='post_content']"
+  "//www.sbbit.jp/": {
+    "xpath": "div[@class='ar-cont_box']",
+    "next_page": "div[@class='pgr_inner']",
+    "cleanup": [
+      "div[contains(@class,'ar-serialize-title__btns') or @class='cont1_banner' or @class='pgr' or contains(@class,'ar-detail-sns') or @id='anc-ar_tagwrds' or @class='ar-relational-tag__list']",
+      "a[@class='ar-next-page-link']"
+    ]
+  },
+  "//ez-oz.net/": {
+    "xpath": "article/div[contains(@class,'entry-content')]",
+    "cleanup": [
+      "div[contains(@class,'wpulike')]"
+    ]
+  },
+  "//camphack.nap-camp.com/": {
+    "xpath": "section[@class='heading-eyecatch']|//section[@class='heading-article']/*[@class='heading-article__lead' or @class='heading-article__author']|//main/div[@class='content']",
+    "next_page": "div[@class='paging-article']",
+    "cleanup": [
+      "div[@class='nextpage__btn' or contains(@id,'affiliate_')]"
+    ]
+  },
+  "//android4front.jp/": {
+    "xpath": "article/header/div/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]"
+  },
+  "//viewer.heros-web.com/episode/": {
+    "xpath": "div[@class='episode-header-title-wrapper']|//section[contains(@class,'series-information')]/div[contains(@class,'series-header')]",
+    "cleanup": [
+      "div[@class='fan-letter-button-wrapper']"
+    ]
+  },
+  "//happyhackingkb.com/": {
+    "xpath": "main/div/article/div[@class='container']|//main/div/article/div/div[@class='article_content']",
+    "cleanup": [
+      "div[@class='sns']"
+    ]
+  },
+  "//www.tak-dcxi.com/": {
+    "xpath": "header/div[@class='thumbnail']|//article/div[contains(@class,'c-prose')]"
+  },
+  "//www.kadokawa.co.jp/topics/": {
+    "xpath": "section/div/div[contains(@class,'topics-result-lists')]"
+  },
+  "//www.kadokawa.co.jp/product/": {
+    "xpath": "section/div[@class='book-details']"
   }
 }
