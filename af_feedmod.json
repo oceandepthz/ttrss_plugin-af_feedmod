@@ -12301,18 +12301,6 @@
   "//nihonsoukou.com/": {
     "xpath": "section[@class='post-content']"
   },
-  "//www.famitsu.com/matome/": {
-    "xpath": "div[@id='contentsMatome']/div[contains(@class,'textBox01')]"
-  },
-  "//www.famitsu.com/": {
-    "xpath": "div[@class='article-body']",
-    "cleanup": [
-      "div[@class='article-body__contents-pr-primary']"
-    ]
-  },
-  "//app.famitsu.com/": {
-    "xpath": "div[@id='entry-body']"
-  },
   "//www.thinkwithgoogle.com/": {
     "xpath": "article/div[contains(@class,'page-content')]"
   },
@@ -18137,5 +18125,30 @@
   },
   "//www.kadokawa.co.jp/product/": {
     "xpath": "section/div[@class='book-details']"
+  },
+  "//www.famitsu.com/matome/": {
+    "xpath": "div[@id='contentsMatome']/div[contains(@class,'textBox01')]"
+  },
+  "//www.famitsu.com/": {
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@class='article-body__contents-pr-primary']"
+    ]
+  },
+  "//app.famitsu.com/": {
+    "xpath": "div[@id='entry-body']"
+  },
+  "//s.famitsu.com/": {
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@class='article-body__contents-pr-primary']"
+    ]
+  },
+  "//lp.p.pia.jp/": {
+    "xpath": "div[@class='md-mainTitleArea__content' or @class='md-mainVisual__link']",
+    "next_page": "div[@class='md-mainTitleArea__content']/div[contains(@class,'pageNationWrapper')]",
+    "cleanup": [
+      "div[contains(@class,'pageNationWrapper') or contains(@class,'advert__wrapper') or @class='recommend_block' or contains(@class,'snsShareButtonArea') or @class='snsShareWrapper' or @class='pageCountWrapper']"
+    ]
   }
 }
