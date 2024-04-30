@@ -17458,9 +17458,6 @@
   "//www.kyobun.co.jp/": {
     "xpath": "article/div/div/div/div/div/div"
   },
-  "//shueisha.online/": {
-    "xpath": "header/div[@class='el-PostHeader_Title' or @class='el-PostHeader_Description' or contains(@class,'el-PostHeader_Lead')]|//div[@id='post-defult-okra-elements']/div/div/div[contains(@class,'post-heading-element') or contains(@class,'post-text-element') or contains(@class,'post-media-element')]"
-  },
   "//hokanko-alt.com/": {
     "xpath": "div[@class='article-body-inner']"
   },
@@ -18149,6 +18146,17 @@
     "next_page": "div[@class='md-mainTitleArea__content']/div[contains(@class,'pageNationWrapper')]",
     "cleanup": [
       "div[contains(@class,'pageNationWrapper') or contains(@class,'advert__wrapper') or @class='recommend_block' or contains(@class,'snsShareButtonArea') or @class='snsShareWrapper' or @class='pageCountWrapper']"
+    ]
+  },
+  "//shueisha.online/": {
+    "xpath": "div[@class='article-body']",
+    "next_page": "div[@class='m-pagination']",
+    "head_xpath": "div[@class='article-lead' or @class='article-header-authors']"
+  },
+  "//comic-action.com/episode/": {
+    "xpath": "section[contains(@class,'series-information')]/div[contains(@class,'series-header')]|//div[@class='series-profile-details']",
+    "cleanup": [
+      "div[@class='fan-letter-button-wrapper']"
     ]
   }
 }
