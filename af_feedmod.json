@@ -3909,9 +3909,6 @@
   "//eigyo-labo.com/": {
     "xpath": "section[@class='post-content']"
   },
-  "//www.okinawatimes.co.jp/": {
-    "xpath": "div[@class='article-body']//div[@class='photo']//img|//div[@class='article-body']/p"
-  },
   "//www.wildhawkfield.com/": {
     "xpath": "div[contains(@id,'post-body-')]",
     "cleanup": [
@@ -15831,11 +15828,6 @@
   "//data-campus.ai/announcements/": {
     "xpath": "article/section/div/div[@id='editor']"
   },
-  "//hochi.news/": {
-    "xpath": "div[@class='article__area']",
-    "rep_pattern": "/^(.*:\\/\\/hochi\\.news\\/.*html)$/",
-    "rep_replacement": "${1}?page=1"
-  },
   "//times.abema.tv/": {
     "xpath": "article/div[contains(@class,'article-body')]",
     "engine": "chromium",
@@ -18157,6 +18149,20 @@
     "xpath": "section[contains(@class,'series-information')]/div[contains(@class,'series-header')]|//div[@class='series-profile-details']",
     "cleanup": [
       "div[@class='fan-letter-button-wrapper']"
+    ]
+  },
+  "//www.okinawatimes.co.jp/": {
+    "xpath": "header/*[contains(@class,'article-header__image') or contains(@class,'article-header__caption') or contains(@class,'article-header__comment') or @class='u-mt-l']|//article/div[contains(@class,'article-body')]",
+    "cleanup": [
+      "div[@id='pc_article_inarticle_ad']"
+    ]
+  },
+  "//hochi.news/": {
+    "xpath": "div[@class='article__content']",
+    "rep_pattern": "/^(.*:\\/\\/hochi\\.news\\/.*html)$/",
+    "rep_replacement": "${1}?page=1",
+    "cleanup": [
+      "div[@class='ad']"
     ]
   }
 }
