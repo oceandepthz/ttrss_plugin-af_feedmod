@@ -16259,13 +16259,6 @@
       "span > div.embed-responsive { padding-bottom:0!important; }"
     ]
   },
-  "//blog.livedoor.jp/rock1963roll/": {
-    "xpath": "div[@class='article-body-inner']",
-    "cleanup": [
-      "script",
-      "table"
-    ]
-  },
   "//weekly.ascii.jp/": {
     "xpath": "div[@class='article']|//div[@id='contents_detail']",
     "cleanup": [
@@ -17111,32 +17104,6 @@
     "xpath": "div[@id='content']",
     "cleanup": [
       "div[@class='social-area' or @class='article-bottom']"
-    ]
-  },
-  "//nitter.kozono.org/": {
-    "xpath": "div[@class='main-thread']",
-    "append_css": [
-      ".icon-container {display: inline;}",
-      ".icon-comment:before {content: '\\e802';}",
-      ".icon-retweet:before {content: '\\e80d';}",
-      ".icon-quote:before {content: '\\275e';}",
-      ".icon-heart:before {content: '\\2665';}",
-      ".icon-play:before {content: '\\e804';}",
-      ".tweet-avatar img {width: 48px;height: 48px;}",
-      ".avatar {border-radius: 50%;}"
-    ]
-  },
-  "//twitter.com/": {
-    "xpath": "div[@class='main-thread']",
-    "append_css": [
-      ".icon-container {display: inline;}",
-      ".icon-comment:before {content: '\\e802';}",
-      ".icon-retweet:before {content: '\\e80d';}",
-      ".icon-quote:before {content: '\\275e';}",
-      ".icon-heart:before {content: '\\2665';}",
-      ".icon-play:before {content: '\\e804';}",
-      ".tweet-avatar img {width: 48px;height: 48px;}",
-      ".avatar {border-radius: 50%;}"
     ]
   },
   "//www.anycolor.co.jp/": {
@@ -18164,5 +18131,65 @@
     "cleanup": [
       "div[@class='ad']"
     ]
+  },
+  "//nitter.kozono.org/": {
+    "xpath": "div[@class='main-thread']",
+    "append_css": [
+      ".icon-container {display: inline;}",
+      ".icon-comment:before {content: '\\e802';}",
+      ".icon-retweet:before {content: '\\e80d';}",
+      ".icon-quote:before {content: '\\275e';}",
+      ".icon-heart:before {content: '\\2665';}",
+      ".icon-play:before {content: '\\e804';}",
+      ".tweet-avatar img {width: 48px;height: 48px;}",
+      ".avatar {border-radius: 50%;}"
+    ]
+  },
+  "//twitter.com/": {
+    "xpath": "div[@class='main-thread']",
+    "append_css": [
+      ".icon-container {display: inline;}",
+      ".icon-comment:before {content: '\\e802';}",
+      ".icon-retweet:before {content: '\\e80d';}",
+      ".icon-quote:before {content: '\\275e';}",
+      ".icon-heart:before {content: '\\2665';}",
+      ".icon-play:before {content: '\\e804';}",
+      ".tweet-avatar img {width: 48px;height: 48px;}",
+      ".avatar {border-radius: 50%;}"
+    ],
+    "rep_pattern": "/^.*:\\/\\/twitter\\.com\\/(.*)$/",
+    "rep_replacement": "https://nitter.kozono.org/${1}"
+  },
+  "//x.com/": {
+    "xpath": "div[@class='main-thread']",
+    "append_css": [
+      ".icon-container {display: inline;}",
+      ".icon-comment:before {content: '\\e802';}",
+      ".icon-retweet:before {content: '\\e80d';}",
+      ".icon-quote:before {content: '\\275e';}",
+      ".icon-heart:before {content: '\\2665';}",
+      ".icon-play:before {content: '\\e804';}",
+      ".tweet-avatar img {width: 48px;height: 48px;}",
+      ".avatar {border-radius: 50%;}"
+    ],
+    "rep_pattern": "/^.*:\\/\\/x\\.com\\/(.*)$/",
+    "rep_replacement": "https://nitter.kozono.org/${1}"
+  },
+  "//blog.livedoor.jp/rock1963roll/": {
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "script",
+      "table"
+    ]
+  },
+  "//rock1963roll.livedoor.blog/": {
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "script",
+      "table"
+    ]
+  },
+  "//nikkeimatome.com/": {
+    "xpath": "header/div[contains(@class,'eye-catch-wrap')]|//article/div[contains(@class,'entry-content')]"
   }
 }
