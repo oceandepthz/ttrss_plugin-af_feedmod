@@ -15801,14 +15801,7 @@
     ]
   },
   "//togetter.com/kiji/": {
-    "xpath": "article/div[@class='kiji_body']",
-    "head_xpath": "header/div/div[contains(@class,'description_box')]",
-    "foot_xpath": "footer/div[@class='kiji_writer_box']",
-    "next_page": "div[@class='pagenation']",
-    "next_page_cleanup": "a[@class='current']",
-    "cleanup": [
-      "div[@class='pagenation']"
-    ]
+    "xpath": "article/header/div/h1|//article/header/div/div[contains(@class,'description_box') or contains(@class,'tag_box')]|//article[@class='kiji_body']"
   },
   "//hajimete-sangokushi.com/": {
     "xpath": "div[@class='entry-content']",
@@ -18189,7 +18182,22 @@
       "table"
     ]
   },
+  "//nanjpride.blog.jp/": {
+    "xpath": "div[@class='article-body-inner']",
+    "cleanup": [
+      "script",
+      "table"
+    ]
+  },
   "//nikkeimatome.com/": {
     "xpath": "header/div[contains(@class,'eye-catch-wrap')]|//article/div[contains(@class,'entry-content')]"
+  },
+  "//www.yamakei-online.com/yama-ya/": {
+    "xpath": "div[@id='yamaya_cts']",
+    "head_xpath": "div[contains(@class,'article-single-body')]/div/figure[@class='article-single-img__item']|//div[contains(@class,'article-single-body')]/p[contains(@class,'article-single-lead') or contains(@class,'article-single-credit')]",
+    "next_page": "div[@class='pager']",
+    "cleanup": [
+      "a[contains(@class,'basic-button')]"
+    ]
   }
 }
