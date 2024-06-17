@@ -1,7 +1,7 @@
 <?php
 class UrlUtils {
     static public function is_shortcur_url(string $url) : bool {
-        $target = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/', '//feedproxy.google.com/', '//rss.rssad.jp/'];
+        $target = ['//ift.tt/', '//goo.gl/', '//bit.ly/', '//t.co/', '//tinyurl.com/', '//ow.ly/', '//amzn.to/', '//sqex.to/', '//sports.yahoo.co.jp/column/', '//feedproxy.google.com/', '//rss.rssad.jp/', '//search.app/'];
         return self::strposa($url, $target);
     }
     static public function get_original_url(string $url) : string {
