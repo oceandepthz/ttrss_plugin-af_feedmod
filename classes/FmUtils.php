@@ -28,7 +28,7 @@ class FmUtils {
 
     $context = stream_context_create($opts);
     $http_response_header = null;
-    $data = file_get_contents($url, false, $context);
+    $data = @file_get_contents($url, false, $context);
     if($data === false){
       return "";
     }
