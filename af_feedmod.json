@@ -16030,10 +16030,6 @@
   "//www.jomo-news.co.jp/": {
     "xpath": "div[@class='article-body']"
   },
-  "*//www.nhk.jp/p/*/ts/*/blog/bl/*/bp/*/": {
-    "match_type": "fnmatch",
-    "xpath": "article[@class='blogposting-article']"
-  },
   "//www.nishinippon.co.jp/": {
     "xpath": "div[@class='articleDetail-body__content']/div[@class='articleDetail-body-images' or @class='articleDetail-body-detail']",
     "cleanup": [
@@ -16457,10 +16453,6 @@
   },
   "//circleci.com/ja/blog/": {
     "xpath": "header/div/div/div/div[@class='post-hero']|//article/div/div/div[contains(@class,'post-content')]"
-  },
-  "//jp.reuters.com/": {
-    "xpath": "figure/div/button/figure/div/div/div[1]|//figure/div[contains(@class,'WithCaption-caption-container-')]|//div[@class='ArticleBodyWrapper']/p[contains(@class,'ArticleBody-para-')]",
-    "engine": "chromium"
   },
   "//www.reuters.com/": {
     "xpath": "div[contains(@class,'article-body__container__')]",
@@ -17716,34 +17708,6 @@
       "div[@class='fan-letter-button-wrapper']"
     ]
   },
-  "//www3.nhk.or.jp/kansai-news/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/news/web_tokushu/": {
-    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
-  },
-  "//www3.nhk.or.jp/news/html/": {
-    "xpath": "figure[contains(@class,'content--video') or contains(@class,'content--thumb')]|//div[@class='content--detail-body']|//section[@class='detail-no-js']/section[@class='module--content']",
-    "cleanup": [
-      "nav",
-      "div[@class='module--share']"
-    ]
-  },
-  "//www3.nhk.or.jp/lnews/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/shutoken-news/": {
-    "xpath": "section[@class='content--detail-main']"
-  },
-  "//www3.nhk.or.jp/news/business_tokushu/": {
-    "xpath": "main[@id='main']/article"
-  },
-  "//www3.nhk.or.jp/news/special/": {
-    "xpath": "main[@id='main']|//div[@class='c-container__main']/div/article"
-  },
-  "//www3.nhk.or.jp/news/contents/ohabiz/": {
-    "xpath": "div[@class='a-header__mv' or @class='a-body__contents']"
-  },
   "//miyearnzzlabo.com/": {
     "xpath": "header/div/figure[@class='eye-catch']|//article/div[contains(@class,'entry-content')]",
     "cleanup": [
@@ -17813,12 +17777,6 @@
       "aside"
     ]
   },
-  "//dev.classmethod.jp/": {
-    "xpath": "div[@class='main']/div/div[@class='eyecatch' or @class='desc']|//div[contains(@class,'single_article_contents')]|//div[@class='main']/div[@class='content']",
-    "append_css": [
-      "div.content > span > div.embed-responsive { padding-bottom:0!important; }"
-    ]
-  },
   "//www.tsr-net.co.jp/data/detail/": {
     "xpath": "div[@class='entry']/p"
   },
@@ -17877,41 +17835,37 @@
   "//www.hanmoto.com/": {
     "xpath": "article"
   },
-  "//techblog.lycorp.co.jp/": {
-    "xpath": "div[@class='content']",
-    "engine": "chromium"
-  },
   "//natalie.mu/music/pp/": {
-    "xpath": "article/div[@class='PP_main']",
-    "next_page": "nav[@class='PP_pager_wrapper']",
-    "head_xpath": "article/div[@class='PP_header']",
+    "xpath": "div[@class='PP_main']",
+    "next_page": "nav[@class='PP_pager_wrapper']|//div[contains(@class,'PP_pager')]",
+    "head_xpath": "div[@class='PP_header' or @class='PP_lead']",
     "cleanup": [
       "nav",
       "div[@class='PP_share' or contains(@class,'PP_nextpage')]"
     ]
   },
   "//natalie.mu/comic/pp/": {
-    "xpath": "article/div[@class='PP_main']",
-    "next_page": "nav[@class='PP_pager_wrapper']",
-    "head_xpath": "article/div[@class='PP_header']",
+    "xpath": "div[@class='PP_main']",
+    "next_page": "nav[@class='PP_pager_wrapper']|//div[contains(@class,'PP_pager')]",
+    "head_xpath": "div[@class='PP_header' or @class='PP_lead']",
     "cleanup": [
       "nav",
       "div[@class='PP_share' or contains(@class,'PP_nextpage')]"
     ]
   },
   "//natalie.mu/eiga/pp/": {
-    "xpath": "article/div[@class='PP_main']",
-    "next_page": "nav[@class='PP_pager_wrapper']",
-    "head_xpath": "article/div[@class='PP_header']",
+    "xpath": "div[@class='PP_main']",
+    "next_page": "nav[@class='PP_pager_wrapper']|//div[contains(@class,'PP_pager')]",
+    "head_xpath": "div[@class='PP_header' or @class='PP_lead']",
     "cleanup": [
       "nav",
       "div[@class='PP_share' or contains(@class,'PP_nextpage')]"
     ]
   },
   "//natalie.mu/owarai/pp/": {
-    "xpath": "article/div[@class='PP_main']",
-    "next_page": "nav[@class='PP_pager_wrapper']",
-    "head_xpath": "article/div[@class='PP_header']",
+    "xpath": "div[@class='PP_main']",
+    "next_page": "nav[@class='PP_pager_wrapper']|//div[contains(@class,'PP_pager')]",
+    "head_xpath": "div[@class='PP_header' or @class='PP_lead']",
     "cleanup": [
       "nav",
       "div[@class='PP_share' or contains(@class,'PP_nextpage')]"
@@ -18199,5 +18153,67 @@
     "cleanup": [
       "a[contains(@class,'basic-button')]"
     ]
+  },
+  "*//www.nhk.jp/p/*/ts/*/blog/bl/*/bp/*/": {
+    "match_type": "fnmatch",
+    "xpath": "article[@class='blogposting-article']"
+  },
+  "*//www.nhk.jp/p/ts/*/episode/te/*/": {
+    "match_type": "fnmatch",
+    "xpath": "section[@class='episode2-detail-page']/div[@class='media-contents']|//div[@class='episode-detail-article-contents']/article",
+    "cleanup": [
+      "div[contains(@class,'gc-article-more-button')]"
+    ],
+    "engine": "chromium"
+  },
+  "//www3.nhk.or.jp/kansai-news/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/news/web_tokushu/": {
+    "xpath": "section[@class='content--detail-main' or @class='module--tmpl']"
+  },
+  "//www3.nhk.or.jp/news/html/": {
+    "xpath": "figure[contains(@class,'content--video') or contains(@class,'content--thumb')]|//div[@class='content--detail-body']|//section[@class='detail-no-js']/section[@class='module--content']",
+    "cleanup": [
+      "nav",
+      "div[@class='module--share']"
+    ]
+  },
+  "//www3.nhk.or.jp/lnews/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/shutoken-news/": {
+    "xpath": "section[@class='content--detail-main']"
+  },
+  "//www3.nhk.or.jp/news/business_tokushu/": {
+    "xpath": "main[@id='main']/article"
+  },
+  "//www3.nhk.or.jp/news/special/": {
+    "xpath": "main[@id='main']|//div[@class='c-container__main']/div/article"
+  },
+  "//www3.nhk.or.jp/news/contents/ohabiz/": {
+    "xpath": "div[@class='article__mainVisual']/div/figure[@class='content--thumb']|//section[@class='article']/div/div[@class='article__body']"
+  },
+  "//dev.classmethod.jp/": {
+    "xpath": "header//div[@class='meta' or @class='author' or contains(@class,'aspect')]|//article/div/div[@class='znc']"
+  },
+  "//jp.reuters.com/": {
+    "xpath": "div[contains(@class,'article-body__primary-asset__')]|//div[contains(@class,'article-body__content__')]"
+  },
+  "//techblog.lycorp.co.jp/": {
+    "xpath": "div[@class='content']",
+    "engine": "chromium"
+  },
+  "//hirakawazoo.jp/staffblog/": {
+    "xpath": "div[@class='entry-content']"
+  },
+  "//jetstream.blog/": {
+    "xpath": "figure[@class='wp-block-post-featured-image']|//div[contains(@class,'entry-content')]"
+  },
+  "//findy-tools.io/": {
+    "xpath": "main/div/div/div/div/div/img|//div[@class='content']"
+  },
+  "//bigcomics.jp/episodes/": {
+    "xpath": "div[@class='article-title-section']/div[@class='article-section']|//div[@class='series-h']"
   }
 }
