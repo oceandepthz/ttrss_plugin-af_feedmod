@@ -1,6 +1,13 @@
 <?php
 class Togetter {
-    function get_html(string $url) : string {
+    protected string $url;
+
+    function __construct($url) {
+        $this->url = $url;
+    }
+
+    function get_html() : string {
+        $url = $this->url;
         $doc = $this->get_contents_domdoc($url);
         $xpath = new DOMXPath($doc);
 
@@ -8,7 +15,7 @@ class Togetter {
         $html .= $this->get_first_page_main($doc, $xpath);
 //        $html .= $this->get_first_page_remain($doc, $xpath);
         $html .= $this->get_next_page_contents($url, $html);
-        $html .= $this->get_comment($doc, $xpath);
+//        $html .= $this->get_comment($doc, $xpath);
 
         return "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>${html}</body></html>";
     }
@@ -26,7 +33,7 @@ class Togetter {
     function get_first_page_main(DOMDocument $doc, DOMXPath $xpath) : string {
         $html = '';
 
-        $query = "(//article/header/div[contains(@class,'info_box') or @class='info_status_box']|//article/div[contains(@class,'tweet_box')])";
+        $query = "(//article/header/div[contains(@class,'info_box') or @class='info_status_box']|//article/section[contains(@class,'tweet_box')])";
 
         $entries = $xpath->query($query);
         foreach($entries as $entry){
@@ -117,7 +124,7 @@ class Togetter {
     function get_second_page_main(DOMDocument $doc, DOMXPath $xpath) : string {
         $html = '';
 
-        $entries = $xpath->query("(//article/div[contains(@class,'tweet_box')])");
+        $entries = $xpath->query("(//article/section[contains(@class,'tweet_box')])");
         foreach($entries as $entry){
             $html .= $doc->saveHTML($entry);
         }

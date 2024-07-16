@@ -424,8 +424,8 @@ class Af_Feedmod extends Plugin implements IHandler
     function get_html_togetter(string $url) : string {
         file_put_contents(dirname(__FILE__).'/logs/af_feed_togetter.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
         require_once('classes/Togetter.php');
-        $to = new Togetter();
-        return $to->get_html($url);
+        $to = new Togetter($url);
+        return $to->get_html();
     }
     function get_html_note_mu(string $url) : string {
         file_put_contents(dirname(__FILE__).'/logs/af_feed_note_mu.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
