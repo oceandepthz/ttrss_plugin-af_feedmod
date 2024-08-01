@@ -1632,7 +1632,7 @@ class Af_Feedmod extends Plugin implements IHandler
         $url = '';
         $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-srcset', 'data-img-path', 
 		'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original', 'data-orig-file', 'data-delay',
-	        'data-litespeed-src' ];
+	        'data-litespeed-src', 'data-s' ];
         foreach($attr_list as $attr){
             if(!$node->hasAttribute($attr)){
                 continue;
