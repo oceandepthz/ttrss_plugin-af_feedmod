@@ -14539,33 +14539,6 @@
       "div[@class='google-user-ad']"
     ]
   },
-  "//www.newsweekjapan.jp/worldvoice/": {
-    "xpath": "div[@class='wv-entry-body']",
-    "foot_xpath": "div[@class='wv-profile']",
-    "next_page": "div[contains(@class,'wv-pager')]"
-  },
-  "//www.newsweekjapan.jp/press_release/": {
-    "xpath": "div[@class='entryDetailBodyCopy']"
-  },
-  "//www.newsweekjapan.jp/mook/": {
-    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
-    "cleanup": [
-      "div[@class='sell-link']"
-    ]
-  },
-  "//www.newsweekjapan.jp/e-book/": {
-    "xpath": "div[@id='magHeadLine']"
-  },
-  "//www.newsweekjapan.jp/": {
-    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
-    "cleanup": [
-      "div[@class='entryPagenate' or contains(@class,'annotation')]"
-    ],
-    "next_page": "div[@class='entryPagenate']/ul",
-    "next_page_cleanup": [
-      "li[@class='cont']"
-    ]
-  },
   "//www.ginbee-blog.info/blog/": {
     "xpath": "div[@class='entry-body']"
   },
@@ -17450,27 +17423,6 @@
   "//www.jftc.go.jp/houdou/pressrelease/": {
     "xpath": "div[@class='p_title' or @class='content']"
   },
-  "//www.asahi.com/special/news/": {
-    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
-  },
-  "//www.asahi.com/corporate/info/": {
-    "xpath": "main"
-  },
-  "//www.asahi.com/and_M/": {
-    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
-  },
-  "//www.asahi.com/and_w/": {
-    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
-  },
-  "//www.asahi.com/": {
-    "xpath": "main[@id='main']",
-    "cleanup": [
-      "div[contains(@class,'notPrint')]"
-    ],
-    "append_css": [
-      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
-    ]
-  },
   "//www.agrinews.co.jp/": {
     "xpath": "div[@id='ev-viewport' or contains(@class,'hk-article-body')]|//div[contains(@class,'hk-container')]/p[contains(@class,'hk-article-body-p')]"
   },
@@ -18134,10 +18086,6 @@
   "//jp.reuters.com/": {
     "xpath": "div[contains(@class,'article-body__primary-asset__')]|//div[contains(@class,'article-body__content__')]"
   },
-  "//techblog.lycorp.co.jp/": {
-    "xpath": "div[@class='content']",
-    "engine": "chromium"
-  },
   "//hirakawazoo.jp/staffblog/": {
     "xpath": "div[@class='entry-content']"
   },
@@ -18188,6 +18136,78 @@
     "xpath": "div[@id='left_col']/div[contains(@class,'post')]",
     "cleanup": [
       "div[contains(@class,'wpulike') or contains(@class,'addtoany_share_save_container')]"
+    ]
+  },
+  "//www.newsweekjapan.jp/worldvoice/": {
+    "xpath": "div[@class='wv-entry-body']",
+    "foot_xpath": "div[@class='wv-profile']",
+    "next_page": "div[contains(@class,'wv-pager')]"
+  },
+  "//www.newsweekjapan.jp/press_release/": {
+    "xpath": "div[@class='entryDetailBodyCopy']"
+  },
+  "//www.newsweekjapan.jp/mook/": {
+    "xpath": "div[@class='magazinePanelWrap']/div[@id='magHeadLine' or contains(@class,'magContnetTwoColumn')]",
+    "cleanup": [
+      "div[@class='sell-link']"
+    ]
+  },
+  "//www.newsweekjapan.jp/e-book/": {
+    "xpath": "div[@id='magHeadLine']"
+  },
+  "//www.newsweekjapan.jp/": {
+    "xpath": "div[@id='content']/div[contains(@class,'contentPanel')]/div[contains(@class,'entryDetail')]/div/div[@class='entryImage' or contains(@class,'entryDetailBodyCopy')]",
+    "cleanup": [
+      "div[@class='entryPagenate' or contains(@class,'annotation') or @class='ad-teads-nw-box']"
+    ],
+    "next_page": "div[@class='entryPagenate']/ul",
+    "next_page_cleanup": [
+      "li[@class='cont']"
+    ]
+  },
+  "//techblog.lycorp.co.jp/": {
+    "xpath": "div[@class='content']",
+    "engine": "chromium"
+  },
+  "//crd.ndl.go.jp/reference/": {
+    "xpath": "main/div/section"
+  },
+  "//www.asahi.com/special/news/": {
+    "xpath": "table[@class='ThmbColTb']|//div[@class='BodyTxt']"
+  },
+  "//www.asahi.com/corporate/info/": {
+    "xpath": "main"
+  },
+  "//www.asahi.com/and_M/": {
+    "xpath": "div[contains(@class,'l-article__content')]/div[@class='l-article__image' or @class='l-article__wysiwyg']"
+  },
+  "//www.asahi.com/and_w/": {
+    "xpath": "div[@class='ArticleTxt' or @class='PhotoLargeBlock']"
+  },
+  "//www.asahi.com/": {
+    "xpath": "main[@id='main']",
+    "cleanup": [
+      "div[contains(@class,'notPrint')]"
+    ],
+    "append_css": [
+      "li a .Image {flex: 0 0 auto;height: 75px;overflow: hidden;position: relative;width: 100px;}"
+    ]
+  },
+  "//younganimal.com/episodes/": {
+    "xpath": "div[@class='article-title-section']/div[@class='article-section']|//div[@class='series-h']"
+  },
+  "//www.webcartop.jp/": {
+    "xpath": "article/div[@id='post-top-thumbnail']|//div[@class='entry-content']/div[contains(@class,'cp-hide-content')]",
+    "cleanup": [
+      "aside"
+    ],
+    "next_page": "div[@class='nextpage-wrapper']"
+  },
+  "//dwango.co.jp/news/": {
+    "xpath": "main/div[contains(@class,'bl_article')]",
+    "cleanup": [
+      "aside",
+      "div[contains(@class,'bl_pagerSingle')]"
     ]
   }
 }
