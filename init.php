@@ -127,9 +127,9 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
             // note.com or note.mu
-			if(array_key_exists('engine', $config) && $config['engine'] === 'note_mu'){
-                $config['xpath'] = "figure[@class='o-noteEyecatch']|//div[@class='note-common-styles__textnote-body']";
-            }
+//			if(array_key_exists('engine', $config) && $config['engine'] === 'note_mu'){
+//                $config['xpath'] = "figure[@class='o-noteEyecatch']|//div[@class='note-common-styles__textnote-body']";
+//            }
 
             $this->write_url($article['link'], $urlpart);
 
@@ -192,7 +192,7 @@ class Af_Feedmod extends Plugin implements IHandler
         if($is_execute){
             $article['content'] = $article['content']."<div style='font-size:8px;'>xpath:".$urlpart."</div>";
         } else {
-            // hatena content
+            // hatena/note content
             $content = $this->get_routine_content($article['link']);
             if(strlen($content) > 0){
                 $article['content'] = $content;
@@ -356,6 +356,19 @@ class Af_Feedmod extends Plugin implements IHandler
                     $entrysXML .= $doc->saveXML($entry);
                 }
                 return $entrysXML."<style type='text/css'>div.entry-content > div.embed-responsive { padding-bottom:0!important; }</style><div style='font-size:8px;'>hatena</div>";
+            }
+        }
+
+        // note
+        $entries = $xpath->query("(//head/meta[@property='og:site_name'])");
+        if ($entries->length > 0){
+            $entries = $xpath->query("(//figure[@class='o-noteEyecatch']|//div[@data-name='body'])");
+            if ($entries->length > 0){
+                $entrysXML = '';
+                foreach ($entries as $entry) {
+                    $entrysXML .= $doc->saveXML($entry);
+                }
+                return $entrysXML."<style type='text/css'>div.entry-content > div.embed-responsive { padding-bottom:0!important; }</style><div style='font-size:8px;'>note</div>";
             }
         }
 
