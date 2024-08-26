@@ -5378,14 +5378,6 @@
       "iframe[contains(@src,'api.unthem.com/cast')]"
     ]
   },
-  "//karapaia.com/": {
-    "xpath": "div[starts-with(@class,'entry-body')]",
-    "cleanup": [
-      "script[contains(@src, 'scripts/smartphone.js') or contains(text(), 'rakuten_affiliateId') or contains(@src, 'rakuten_widget.js')]",
-      "iframe[contains(@src, 'm.twitter.com/widgets/tweet_button.') or contains(@src, 'w.facebook.com/plugins/like.php')]",
-      "div[@class='ads-label']"
-    ]
-  },
   "//www.pixiv.co.jp/press-release/": {
     "xpath": "div[@class='archive-content']|//header[@class='archive-header']"
   },
@@ -17756,13 +17748,6 @@
   "//jp.yna.co.kr/": {
     "xpath": "article[@class='story-news']"
   },
-  "//automaton-media.com/": {
-    "xpath": "div[@class='td-post-content']",
-    "cleanup": [
-      "div[contains(@class,'ai-viewport') or contains(@class,'td-g-rec') or contains(@class,'heateor_sss_sharing_container')]"
-    ],
-    "append_css": "img.size-full {width: 500px!important;}"
-  },
   "//www.soccerdigestweb.com/news/detail/": {
     "xpath": "div[@class='content_detail']",
     "next_page": "div[@class='pager']",
@@ -17814,24 +17799,6 @@
   },
   "//www.kadokawa.co.jp/product/": {
     "xpath": "section/div[@class='book-details']"
-  },
-  "//www.famitsu.com/matome/": {
-    "xpath": "div[@id='contentsMatome']/div[contains(@class,'textBox01')]"
-  },
-  "//www.famitsu.com/": {
-    "xpath": "div[@class='article-body']",
-    "cleanup": [
-      "div[@class='article-body__contents-pr-primary']"
-    ]
-  },
-  "//app.famitsu.com/": {
-    "xpath": "div[@id='entry-body']"
-  },
-  "//s.famitsu.com/": {
-    "xpath": "div[@class='article-body']",
-    "cleanup": [
-      "div[@class='article-body__contents-pr-primary']"
-    ]
   },
   "//lp.p.pia.jp/": {
     "xpath": "div[@class='md-mainTitleArea__content' or @class='md-mainVisual__link']",
@@ -18108,6 +18075,41 @@
     "cleanup": [
       "aside",
       "div[contains(@class,'bl_pagerSingle')]"
+    ]
+  },
+  "//automaton-media.com/": {
+    "xpath": "article/div[contains(@class,'td-post-content')]",
+    "cleanup": [
+      "div[contains(@class,'ai-viewport') or contains(@class,'td-g-rec') or contains(@class,'heateor_sss_sharing_container')]"
+    ],
+    "append_css": "img.size-full {width: 500px!important;}"
+  },
+  "//karapaia.com/": {
+    "xpath": "div[@id='content']|//ol[@class='comment-list']",
+    "cleanup": [
+      "div[contains(@id,'wordp-')]",
+      "aside",
+      "ul[@class='post-tags']",
+      "ul[@class='comment-actions']"
+    ]
+  },
+  "//www.famitsu.com/matome/": {
+    "xpath": "div[@id='contentsMatome']/div[contains(@class,'textBox01')]"
+  },
+  "//www.famitsu.com/": {
+    "xpath": "div[contains(@class,'ArticleDetailBody_articleBody__')]",
+    "cleanup": [
+      "div[contains(@class,'ArticleDetailBanner_container___')]",
+      "a[contains(@class,'ArticleDetailBody_buttonForEC')]"
+    ]
+  },
+  "//app.famitsu.com/": {
+    "xpath": "div[@id='entry-body']"
+  },
+  "//s.famitsu.com/": {
+    "xpath": "div[@class='article-body']",
+    "cleanup": [
+      "div[@class='article-body__contents-pr-primary']"
     ]
   }
 }
