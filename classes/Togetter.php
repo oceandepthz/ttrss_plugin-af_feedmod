@@ -33,6 +33,9 @@ class Togetter {
     function get_first_page_main(DOMDocument $doc, DOMXPath $xpath) : string {
         $html = '';
 
+        $usedImages = $this->getUsedImages($doc, $xpath);
+        $this->replaceLzpkImg($doc, $xpath, $usedImages);
+
         $query = "(//article/header/div[contains(@class,'info_box') or @class='info_status_box']|//article/section[contains(@class,'tweet_box')])";
 
         $entries = $xpath->query($query);
@@ -41,6 +44,49 @@ class Togetter {
         }
         return $html;
     }
+
+    // <img class="lzpk " data-s="2"  を置き換える。
+    function replaceLzpkImg(DOMDocument $doc, DOMXPath $xpath, array $usedImages) : void {
+        $query = "(//img[contains(@class,'lzpk')])";
+        $entries = $xpath->query($query);
+        foreach($entries as $entry){
+            if (!$entry->hasAttribute('data-s')) {
+                continue;
+            }
+            $imageNumber = intval($entry->getAttribute('data-s'));
+            $entry->setAttribute('src', $usedImages[$imageNumber]);
+            $entry->removeAttribute('data-s');
+        }
+    }
+
+    function getUsedImages(DOMDocument $doc, DOMXPath $xpath) : array {
+        $usedImages = [];
+        $query = "(//script[contains(text(),'var usedImages')])";
+        $entries = $xpath->query($query);
+        if($entries->length !== 1) {
+            var_dump("length:{$entries->length}");
+            return $usedImages;
+        }
+        eval("\$usedImages = " . str_replace('var usedImages = ','', trim($entries[0]->textContent)));
+        $usedImages = array_map([$this, 'normalizationUsedImage'], $usedImages); 
+        return $usedImages;
+    }
+    function normalizationUsedImage(string $value) : string {
+        if(strlen($value) === 0){
+            return "";
+        }
+        $unescapedValue = stripslashes($value);
+        if (strpos($unescapedValue, 'http') === 0) {
+            return $unescapedValue;
+        }
+        if(strpos($unescapedValue, 'p') === 0) {
+            $validValue = substr($unescapedValue, 1);
+            return "https://pbs.twimg.com/profile_images/".$validValue;
+        }
+        return $unescapedValue;
+    }
+
+/*
     function get_first_page_remain(DOMDocument $doc, DOMXPath $xpath) : string {
         $html = '';
         $entries = $xpath->query("//script[contains(text(),'moreTweetContent')]");
@@ -66,6 +112,7 @@ class Togetter {
     function unicode_encode_callback(array $matches) : string {
         return mb_convert_encoding(pack("H*", $matches[1]), "UTF-8", "UTF-16");
     }
+*/
 
     function get_next_page_contents(string $url, string $html) : string {
         $html = mb_convert_encoding("<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>${html}</body></html>", 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
@@ -124,12 +171,16 @@ class Togetter {
     function get_second_page_main(DOMDocument $doc, DOMXPath $xpath) : string {
         $html = '';
 
+        $usedImages = $this->getUsedImages($doc, $xpath);
+        $this->replaceLzpkImg($doc, $xpath, $usedImages);
+
         $entries = $xpath->query("(//article/section[contains(@class,'tweet_box')])");
         foreach($entries as $entry){
             $html .= $doc->saveHTML($entry);
         }
         return $html;
     }
+/*
     function get_comment(DOMDocument $doc, DOMXPath $xpath) : string {
         $html = '';
         $entries = $xpath->query("(//div[@id='comment_box'])");
@@ -138,4 +189,5 @@ class Togetter {
         }
         return $html;
     }
+*/
 }
