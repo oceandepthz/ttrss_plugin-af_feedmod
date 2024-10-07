@@ -10981,13 +10981,6 @@
   "//www.cyclesports.jp/": {
     "xpath": "div[@class='news__detail__article' or @class='cyspo-topics__detail__article' or contains(@class,'cyspo-topics__detail__summary ')]"
   },
-  "//ncode.syosetu.com/": {
-    "xpath": "div[@id='novel_color']",
-    "append_css": [
-      "#novel_p {margin: 0px auto 30px auto; padding: 20px 20px 30px 20px; border-bottom: 3px double #999999;}",
-      "#novel_a {margin: 40px auto 30px auto;padding: 20px 20px 30px 20px;border-top: 3px double #999999;}"
-    ]
-  },
   "//dekiru.net/": {
     "xpath": "div[@class='module-individual-article-summary' or contains(@class,'article-body')]"
   },
@@ -16090,9 +16083,6 @@
       "div[@class='socialbuttons']"
     ]
   },
-  "//www.theverge.com/": {
-    "xpath": "main/article"
-  },
   "//gamemakers.jp/": {
     "xpath": "div[contains(@class,'l-home-colums-inner')]/*[contains(@class,'l-article-body-inner-section') or contains(@class,'l-article-body-inner')]"
   },
@@ -16197,9 +16187,6 @@
   "//www.agile-studio.jp/": {
     "xpath": "main",
     "engine": "chromium"
-  },
-  "//techblog.tebiki.co.jp/": {
-    "xpath": "main"
   },
   "//www.ukrinform.jp/": {
     "xpath": "article/div[@class='newsPicture' or @class='newsText']"
@@ -17572,11 +17559,6 @@
     ],
     "next_page": "section/div[contains(@class,'pager')]"
   },
-  "//nazology.net/": {
-    "xpath": "div[@class='post-body__contents']",
-    "head_xpath": "div[@class='post-eyecatch__canvas']/figure/a/img|//div[@class='post-head__detail']/div[@class='post-lead' or @class='post-head__premise' or @class='post-head__author']",
-    "next_page": "div[@class='post-pagination__nav']"
-  },
   "//sakatsuku-rtw.sega.com/webview/info/detail/": {
     "xpath": "div[@class='newsDetailItemBottom']"
   },
@@ -17899,14 +17881,6 @@
   "//nikkeimatome.com/": {
     "xpath": "header/div[contains(@class,'eye-catch-wrap')]|//article/div[contains(@class,'entry-content')]"
   },
-  "//www.yamakei-online.com/yama-ya/": {
-    "xpath": "div[@id='yamaya_cts']",
-    "head_xpath": "div[contains(@class,'article-single-body')]/div/figure[@class='article-single-img__item']|//div[contains(@class,'article-single-body')]/p[contains(@class,'article-single-lead') or contains(@class,'article-single-credit')]",
-    "next_page": "div[@class='pager']",
-    "cleanup": [
-      "a[contains(@class,'basic-button')]"
-    ]
-  },
   "*//www.nhk.jp/p/*/ts/*/blog/bl/*/bp/*/": {
     "match_type": "fnmatch",
     "xpath": "article[@class='blogposting-article']"
@@ -18110,6 +18084,51 @@
     "xpath": "div[@class='article-body']",
     "cleanup": [
       "div[@class='article-body__contents-pr-primary']"
+    ]
+  },
+  "//nazology.kusuguru.co.jp/": {
+    "xpath": "div[@class='post-body__contents']",
+    "head_xpath": "div[@class='post-eyecatch__canvas']/figure/a/img|//div[@class='post-head__detail']/div[@class='post-lead' or @class='post-head__premise' or @class='post-head__author']",
+    "next_page": "div[@class='post-pagination__nav']"
+  },
+  "//www.globalmacroresearch.org/": {
+    "xpath": "div[@class='entry-content']",
+    "cleanup": [
+      "ins[@class='adsbygoogle']"
+    ]
+  },
+  "//www.yamakei-online.com/yama-ya/": {
+    "xpath": "div[@id='yamaya_cts']",
+    "head_xpath": "div[contains(@class,'article-single-body')]/div/figure[@class='article-single-img__item']|//div[contains(@class,'article-single-body')]/p[contains(@class,'article-single-lead') or contains(@class,'article-single-credit')]",
+    "next_page": "div[@class='pager']",
+    "cleanup": [
+      "a[contains(@class,'basic-button')]"
+    ]
+  },
+  "//techblog.tebiki.co.jp/": {
+    "xpath": "article/div/div/section"
+  },
+  "//ncode.syosetu.com/": {
+    "xpath": "div[@class='p-novel__body']"
+  },
+  "//www.theverge.com/": {
+    "xpath": "article//div[contains(@class,'duet--article--article-body-component-container') or contains(@class,'duet--article--date-and-comments')]|//article//p[contains(@class,'duet--article--article-byline')]|//article//figure[contains(@class,'duet--article--lede-image')]",
+    "cleanup": [
+      "button[contains(@class,'duet--article--comments-button')]",
+      "noscript",
+      "div[contains(@class,'duet--recirculation--related-list')]"
+    ]
+  },
+  "//wccftech.com/": {
+    "xpath": "main/div[@class='content']/figure|//main/div[@class='content']/div[@class='post']",
+    "cleanup": [
+      "div[@class='story-share' or @class='wccf_video_tag' or @class='content-ad' or @class='story-share-bottom']"
+    ]
+  },
+  "//videocardz.com/": {
+    "xpath": "article[@id='videocardz-article']",
+    "cleanup": [
+      "div[contains(@class,'socialbar')]"
     ]
   }
 }
