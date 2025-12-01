@@ -69,6 +69,17 @@ class Af_Feedmod extends Plugin implements IHandler
         $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
         file_put_contents(dirname(__FILE__).'/logs/site.txt', "[${dt}] ${url} ${urlpart}\n", FILE_APPEND|LOCK_EX);
     }
+    function write_chrome_url(string $url) : void {
+        $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
+        file_put_contents(dirname(__FILE__).'/logs/site_chrome.txt', "[${dt}] ${url}\n", FILE_APPEND|LOCK_EX);
+    }
+
+    function write_url_containsJapanese(string $url, bool $containsJapanese, string $str) : void {
+        $cjs = json_encode($containsJapanese);
+        $s = $containsJapanese ? '' : $str;
+        $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
+        file_put_contents(dirname(__FILE__).'/logs/site_containsJapanese.txt', "[${dt}] ${url} ${cjs} ${s} \n", FILE_APPEND|LOCK_EX);
+    }
 
     function hook_article_filter($article)
     {
@@ -215,6 +226,16 @@ class Af_Feedmod extends Plugin implements IHandler
 
 	if($is_execute){
             $link = $this->replace_link(trim($article['link']),$config);
+
+            // 日本語以外コンテンツの翻訳
+            require_once('classes/TranslateJapaneseGemini.php');
+            $tj = new TranslateJapaneseGemini("<h2>".$article["title"]."</h2>".$article['content'], $link);
+            $cj = $tj->isTranslate();
+            if($cj){
+                $this->write_url_containsJapanese($article['link'], $cj, str_replace(array("\r", "\n"), '', mb_strcut($article['content'], 0, 100)));
+                $article['content'] = $tj->translateString()."<hr>".$article['content'];
+            }
+
             $content = mb_convert_encoding("<div>".$article['content']."</div>", 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
             $doc = new DOMDocument();
             @$doc->loadHTML($content);
@@ -557,6 +578,7 @@ class Af_Feedmod extends Plugin implements IHandler
         return $g->get_content($url);
     }
     function get_chrome_content(string $url) : string {
+        $this->write_chrome_url($url);
         require_once('classes/ChromeContent.php');
 	$t = new ChromeContent($url);
 	$c = $t->get_content();
@@ -639,6 +661,35 @@ class Af_Feedmod extends Plugin implements IHandler
 	if($this->is_twiiter_event($url)){
 	    return $this->get_chrome_content($url);
 	}
+
+        // nhk
+        require_once('classes/NhkContextFetcher.php');
+        if(NhkContextFetcher::IsNhkContext($url))
+        {
+            $nhk = new NhkContextFetcher($url);
+            return $nhk->Fetch();
+        }
+
+        // x.com / twitter.com / nitter.com
+        require_once('classes/NitterContents.php');
+        $nitter = new NitterContents($url);
+        if($nitter->isNitter()){
+            return $nitter->getContent();
+        } 
+
+        // posfie.com
+        require_once('classes/PosfieCom.php');
+        $posfiecom = new PosfieCom($url);
+        if($posfiecom->is_posfie()){
+            return $posfiecom->get_html();
+        }
+
+        // Zenn
+        require_once('classes/Zenn.php');
+        $zenn = new Zenn($url);
+        if($zenn->is_target()){
+            return $zenn->get_html();
+        }
 
         $user_agent = "";
         $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD];
@@ -741,9 +792,9 @@ class Af_Feedmod extends Plugin implements IHandler
         if(strpos($link, '//www.newsweekjapan.jp/') !== false){
             return $this->get_np_www_newsweekjapan_jp($xpath, $doc, $link);
         }
-        if(strpos($link, '//sportiva.shueisha.co.jp/') !== false){
-            return $this->get_np_sportiva_shueisha_co_jp($link);
-        }
+//        if(strpos($link, '//sportiva.shueisha.co.jp/') !== false){
+//            return $this->get_np_sportiva_shueisha_co_jp($link);
+//        }
 
         if(!array_key_exists('next_page', $config) || !$config['next_page']){
             return [];
@@ -1258,7 +1309,7 @@ class Af_Feedmod extends Plugin implements IHandler
                     {
                         $this->append_img_tag($doc, $node, $url);
                     }
-                    if(strpos($url, '//video.twimg.com/') !== false && strpos($url, '.mp4') !== false)
+                    if(strpos($url, '/video/') !== false)
                     {
                         $this->append_pic_twitter_com_video($doc, $node, $url);
                     }

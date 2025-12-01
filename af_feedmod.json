@@ -15860,25 +15860,6 @@
       "div[contains(@id,'vip-') or contains(@class,'block-da')]"
     ]
   },
-  "*//zenn.dev/*/scraps/*": {
-    "match_type": "fnmatch",
-    "xpath": "div[contains(@class,'ScrapThread_item__')]",
-    "cleanup": [
-      "footer[contains(@class,'ThreadItem_footer__')]"
-    ]
-  },
-  "*//zenn.dev/*/articles/*": {
-    "match_type": "fnmatch",
-    "xpath": "aside[contains(@class,'View_authorInfo__')]|//div[contains(@class,'BodyContent_anchorToHeadings__')]"
-  },
-  "*//zenn.dev/*/books/*/viewer/*": {
-    "match_type": "fnmatch",
-    "xpath": "div[@id='viewer-toc']"
-  },
-  "*//zenn.dev/*/books/*": {
-    "match_type": "fnmatch",
-    "xpath": "section[starts-with(@class,'View_mainColumn__')]"
-  },
   "//backspace.fm/": {
     "xpath": "div[@id='content-area']"
   },
@@ -18146,5 +18127,27 @@
     "cleanup": [
       "div[@class='pochipp-box' or starts-with(@id,'xenos-')]"
     ]
+  },
+  "//news.web.nhk/newsweb/na/": {
+    "xpath": "body"
+  },
+  "*//zenn.dev/*/scraps/*": {
+    "match_type": "fnmatch",
+    "xpath": "div[contains(@class,'ScrapThread_item__')]",
+    "cleanup": [
+      "footer[contains(@class,'ThreadItem_footer__')]"
+    ]
+  },
+  "*//zenn.dev/*/books/*/viewer/*": {
+    "match_type": "fnmatch",
+    "xpath": "div[@id='viewer-toc']"
+  },
+  "*//zenn.dev/*/books/*": {
+    "match_type": "fnmatch",
+    "xpath": "section[starts-with(@class,'View_mainColumn__')]"
+  },
+  "*//zenn.dev/*/articles/*": {
+    "match_type": "fnmatch",
+    "xpath": "body"
   }
 }

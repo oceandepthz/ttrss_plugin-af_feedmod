@@ -9,8 +9,12 @@ class ChromeContent {
 		$this->url = $url;
 	}
 	function get_content() : string {
+        return "";
                 $browserFactory = new BrowserFactory('google-chrome');
                 $browser = $browserFactory->createBrowser([
+                        'headless' => true,
+                        'noSandbox' => true,
+                        'startupTimeout' => 180,
                         'windowSize'      => [1280, 1080],
                 ]);
 		$page = $browser->createPage();

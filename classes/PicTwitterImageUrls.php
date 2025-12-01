@@ -8,14 +8,14 @@ class PicTwitterImageUrls
 	    $this->url = $url;
     }
 
-    private string $user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:95.0) Gecko/20100101 Firefox/95.0';
+    private string $user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:142.0) Gecko/20100101 Firefox/142.0';
 
     public function getImageUrls() : array
     {
         $url = $this->getNormalizationUrl();
-
 	    // twitter url
     	$location_url = $this->getHeaderLocation($url);
+//var_dump($location_url);
         if(!$location_url)
 	    {
 	        return [];
@@ -23,6 +23,7 @@ class PicTwitterImageUrls
 
     	// nitter url (nitter.kozono.org)
         $nitter_url = $this->convertNitterUrl($location_url);
+//var_dump($nitter_url);
         if(!$nitter_url)
 	    {
 	        return [];
@@ -37,17 +38,17 @@ class PicTwitterImageUrls
 
         // get nitter video url
         $video_urls = $this->getVideoContents($doc, $xpath);
-
+//var_dump($video_urls);
     	return array_merge($img_urls, $video_urls); 
     }
     private function getVideoContents(DOMDocument $doc, DOMXPath $xpath) : array
     {
         $urls = [];
-        $query = "(//div[@id='m']//div[contains(@class,'attachment') and contains(@class,'video-container')]/video/source)";
+        $query = "(//div[@class='main-thread']//video)";
         $entries = $xpath->query($query);
         foreach($entries as $entry){
-            $path = $entry->getAttribute('src');
-            $urls[] = $path;
+            $path = $entry->getAttribute('data-url');
+            $urls[] = "https://nitter.kozono.org".$path;
         }
         return $urls;
     }
@@ -89,28 +90,11 @@ class PicTwitterImageUrls
     }
     private function getHeaderLocation($url) : string
     {
-        $default_opts = array(
-            'http' => array(
-                'method'=>"GET",
-                'header'=>"User-Agent: ${user_agent}\n",
-            )
-        );
-        stream_context_get_default($default_opts);
-        $headers = get_headers($url, True);
-        if(!$headers){
-            return "";
+        $doc = $this->getContentsDomdoc($url);
+        $title_tags = $doc->getElementsByTagName('title');
+        if ($title_tags->length > 0) {
+            return $title_tags->item(0)->nodeValue;
         }
-        if(!array_key_exists('location', $headers))
-        {
-            return "";
-        }
-        $location = $headers['location'];
-        if(is_string($location)){
-            return $location;
-    	}
-    	if(is_array($location)){
-            return $location[0];
-    	}
         return "";
     }
 

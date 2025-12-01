@@ -1,0 +1,33 @@
+<div class="main-thread"><div id="m" class="main-tweet"><div class="timeline-item "><div class="tweet-body">
+                <div><div class="tweet-header">
+                    <a class="tweet-avatar" href="https://nitter.kozono.org/github" rel="noopener noreferrer" target="_blank"><img class="avatar round" src="https://nitter.kozono.org/pic/profile_images%2F1633247750010830848%2F8zfRrYjA_bigger.png" alt="" loading="lazy" referrerpolicy="no-referrer"></a>
+                    <div class="tweet-name-row">
+                      <div class="fullname-and-username">
+                        <a class="fullname" href="https://nitter.kozono.org/github" title="GitHub" rel="noopener noreferrer" target="_blank">GitHub<div class="icon-container"><span class="icon-ok verified-icon business" title="Verified business account"></span></div></a>
+                        <a class="username" href="https://nitter.kozono.org/github" title="@github" rel="noopener noreferrer" target="_blank">@github</a>
+                      </div>
+                      <span class="tweet-date"><a href="https://nitter.kozono.org/github/status/1912551942376600041#m" title="Apr 16, 2025 · 5:01 PM UTC" rel="noopener noreferrer" target="_blank">30m</a></span>
+                    </div>
+                  </div></div>
+                <div class="tweet-content media-body" dir="auto">📣 <a href="https://nitter.kozono.org/OpenAI" title="OpenAI" rel="noopener noreferrer" target="_blank">@OpenAI</a> o3 and o4-mini are now available in GitHub Copilot!
+
+o3 is designed for deep coding workflows and complex technical problem solving while o4-mini focuses on efficiency.
+
+Try them out ⬇️
+<a href="https://github.blog/changelog/2025-04-16-openai-o3-and-o4-mini-are-now-available-in-public-preview-for-github-copilot-and-github-models/" rel="noopener noreferrer" target="_blank">github.blog/changelog/2025-0…</a></div>
+                <div class="card large"><a class="card-container" href="https://github.blog/changelog/2025-04-16-openai-o3-and-o4-mini-are-now-available-in-public-preview-for-github-copilot-and-github-models/" rel="noopener noreferrer" target="_blank">
+                    <div class="card-image-container"><div class="card-image"><img src="https://nitter.kozono.org/pic/card_img%2F1912551869706084352%2F1RDKGNAX%3Fformat%3Djpg%26name%3D800x419" alt="" loading="lazy" referrerpolicy="no-referrer"></div></div>
+                    <div class="card-content-container"><div class="card-content">
+                        <h2 class="card-title">OpenAI o3 and o4-mini are now available in public preview for GitHub Copilot and GitHub Models ·...</h2>
+                        <p class="card-description">OpenAI’s latest reasoning models, o3 and o4-mini, are now available in GitHub Copilot and GitHub Models bringing next-generation problem-solving, structured reasoning, and coding intelligence...</p>
+                        <span class="card-destination">github.blog</span>
+                      </div></div>
+                  </a></div>
+                <p class="tweet-published">Apr 16, 2025 · 5:01 PM UTC</p>
+                <div class="tweet-stats">
+                  <span class="tweet-stat"><div class="icon-container"><span class="icon-comment" title=""></span> 6</div></span>
+                  <span class="tweet-stat"><div class="icon-container"><span class="icon-retweet" title=""></span> 58</div></span>
+                  <span class="tweet-stat"><div class="icon-container"><span class="icon-quote" title=""></span> 17</div></span>
+                  <span class="tweet-stat"><div class="icon-container"><span class="icon-heart" title=""></span> 269</div></span>
+                </div>
+              </div></div></div></div>
