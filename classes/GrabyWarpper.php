@@ -14,7 +14,7 @@ class GrabyWarpper {
             if($result['status'] === 200){
                 return $result['html'];
             }
-	} catch (InvalidArgumentException $e) {
+	} catch (Exception $e) {
 	}
         return "";
     }

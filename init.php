@@ -266,6 +266,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_sqex_to($doc, $xpath, $entry, $link);
                 $this->update_twitter_tweet($doc, $xpath, $entry);
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
+                $this->update_iframe_youtube($doc, $xpath, $entry);
                 $this->update_peing_net($doc, $xpath, $entry, $link);
                 $this->update_img_link($doc, $xpath, $entry, $link);
                 $this->update_instagram($doc, $xpath, $entry, $link);
@@ -1266,6 +1267,12 @@ class Af_Feedmod extends Plugin implements IHandler
         $source->setAttribute('src', $link);
         $video->appendChild($source);
         $node->parentNode->insertBefore($video, $node->nextSibling);
+    }
+
+    function update_iframe_youtube(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode) : void 
+    {
+        require_once('classes/UpdateYoutubeEmbed.php');
+        UpdateYoutubeEmbed::Update($doc, $xpath, $basenode);
     }
 
     function update_pic_twitter_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $url) : void {
