@@ -1,6 +1,6 @@
 <?php
 
-class TranslateJapaneseGemini
+class TranslateJapaneseGemma
 {
     protected string $value;
     protected string $url;
@@ -39,18 +39,11 @@ class TranslateJapaneseGemini
         $pattern = '/[\x{3040}-\x{30FF}]/u';
 
         $scanValue = $this->getTextContains();
-        if(is_null($scanValue)){
+        if(is_null($scanValue) || strlen($scanValue) < 50){
             return false;
         }
-        $cleanScanText = trim(preg_replace('/\s+/', ' ', $scanValue));
-        $thresholdLength = 100;
-        if(strpos($this->url, '//nitter.kozono.org/') !== false){
-            $thresholdLength = 150;
-        }
-        if(strlen($cleanScanText) < $thresholdLength){
-            return false;
-        }
-        $firstScanValue = mb_strcut($cleanScanText, 0, 1000);
+        $firstScanValue = mb_strcut($scanValue, 0, 1000);
+        $firstScanValue = str_replace(array("\r", "\n"), '', $firstScanValue);
         return preg_match($pattern, $firstScanValue) === 0;
     }
 
@@ -73,44 +66,30 @@ class TranslateJapaneseGemini
         $keys = getenv('GEMINI_API_KEYS');
         $gemini_api_keys = array_map('trim', explode(',', $keys ?: ''));
 
-        $models = 'gemini-2.5-flash,gemini-2.5-flash-lite,gemini-3-flash-preview';
-        $gemini_models = array_map('trim', explode(',', $models ?: ''));
+        $gemma_model = "gemma-3-27b-it";
         $system_prompt = $this->getSystemPrompt(); 
-
-        //$value = str_replace(array("\r", "\n"), '', $this->value);
         $value = htmlspecialchars($this->value);
+
+        $user_prompt = "${system_prompt}\n# htmlコード\n```\n${value}\n```";
+
         $data = [
-            'systemInstruction' => [ 
-                'parts' => [
-                    [
-                        'text' => $system_prompt
-                    ]
-                ]
-            ],
             'contents' => [
                 [
+                    'role' => 'user',
                     'parts' => [ 
                         [
-                            'text' => $value
+                            'text' => $user_prompt
                         ]
                     ]
                 ]
-            ],
-            'generationConfig' => [
-                'temperature' => 0.6,
-                'thinkingConfig' => [
-                    'thinkingBudget' => -1,
-                ],
-            ],
+            ]
         ];
-        $MAX_COUNT = 5;
+        $MAX_COUNT = 2;
         for ($i = 0; $i < $MAX_COUNT; $i++) {
             $key = array_rand($gemini_api_keys);
             $gemini_api_key = $gemini_api_keys[$key];
-            $key = array_rand($gemini_models);
-            $gemini_model = $gemini_models[$key];
-            $url = "https://generativelanguage.googleapis.com/v1beta/models/$gemini_model:generateContent?key=$gemini_api_key";
-
+            $url = "https://generativelanguage.googleapis.com/v1beta/models/$gemma_model:generateContent?key=$gemini_api_key";
+echo "url: $url\n";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
             curl_setopt($ch, CURLOPT_TIMEOUT, 600);
@@ -120,20 +99,22 @@ class TranslateJapaneseGemini
             curl_setopt($ch, CURLOPT_AUTOREFERER, true);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data)); // 送信するデータを設定
+var_dump(json_encode($data));
+
             $response = curl_exec($ch);
             if($response === false) {
-                //echo "responce false\n";
-                $sleep_time = ($i + 1) * 5;
+                echo "responce false\n";
+                $sleep_time = ($i + 1) * 8;
                 sleep($sleep_time);
                 continue;
             }
-            //var_dump($response);
+            var_dump($response);
             $response_data = json_decode($response, true);
             $generated_text = $response_data['candidates'][0]['content']['parts'][0]['text'];
             curl_close($ch);
             if(!$generated_text)
             {
-                //echo "empty text\n";
+                echo "empty text\n";
                 $sleep_time = ($i + 1) * 8;
                 sleep($sleep_time);
                 continue;

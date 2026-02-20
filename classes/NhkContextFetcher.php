@@ -53,24 +53,8 @@ class NhkContextFetcher
     }
   protected function buildContext($context)
   {
-    $cookie_file = "/pub/fetch_nhk_id/nhk_cookie.txt";
-    $cookie_header_string = '';
-    $cookies = [];
-    if (file_exists($cookie_file) && is_readable($cookie_file)) {
-        $lines = file($cookie_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-        foreach ($lines as $line) {
-            if (strpos(trim($line), '#') === 0 || empty(trim($line))) {
-                continue;
-            }
-            $parts = explode("\t", $line);
-            if (count($parts) === 7) {
-                $name = $parts[5];
-                $value = $parts[6];
-                $cookies[] = $name . '=' . $value;
-            }
-        }
-        $cookie_header_string = implode('; ', $cookies);
-    }
+    $cookie_header_string = $this->getCookieHeaderFromRedis();
+
     if (empty($cookie_header_string)) {
         return $context;
     }
@@ -82,6 +66,37 @@ class NhkContextFetcher
     stream_context_set_option($context, 'http', 'header', $new_headers);
 
     return $context;
+  }
+
+  protected function getCookieHeaderFromRedis(): string
+  {
+    $cookie_header_string = '';
+    $cookies = [];
+    try {
+        $redis = new Redis();
+        if ($redis->connect('127.0.0.1', 6379)) {
+            $encoded_cookies = $redis->get('cookies:nhk');
+            if ($encoded_cookies) {
+                $cookie_data = base64_decode($encoded_cookies);
+                $lines = explode("\n", str_replace("\r\n", "\n", $cookie_data));
+                foreach ($lines as $line) {
+                    if (strpos(trim($line), '#') === 0 || empty(trim($line))) {
+                        continue;
+                    }
+                    $parts = explode("\t", $line);
+                    if (count($parts) === 7) {
+                        $name = $parts[5];
+                        $value = $parts[6];
+                        $cookies[] = $name . '=' . $value;
+                    }
+                }
+                $cookie_header_string = implode('; ', $cookies);
+            }
+        }
+    } catch (Exception $e) {
+        // Redis connection or execution error - proceed without cookies
+    }
+    return $cookie_header_string;
   }
 
 

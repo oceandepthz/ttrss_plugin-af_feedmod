@@ -80,6 +80,10 @@ class Af_Feedmod extends Plugin implements IHandler
         $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
         file_put_contents(dirname(__FILE__).'/logs/site_containsJapanese.txt', "[${dt}] ${url} ${cjs} ${s} \n", FILE_APPEND|LOCK_EX);
     }
+    function write_url_log(string $url, string $str) : void {
+        $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
+        file_put_contents(dirname(__FILE__).'/logs/url_log.txt', "[${dt}] ${url} ${str}\n", FILE_APPEND|LOCK_EX);
+    }
 
     function hook_article_filter($article)
     {
@@ -667,8 +671,18 @@ class Af_Feedmod extends Plugin implements IHandler
         require_once('classes/NhkContextFetcher.php');
         if(NhkContextFetcher::IsNhkContext($url))
         {
+            $this->write_url_log($url, 'NhkContext');
             $nhk = new NhkContextFetcher($url);
             return $nhk->Fetch();
+        }
+
+        // Qiita
+        require_once('classes/QiitaContextFetcher.php');
+        if(QiitaContextFetcher::IsQiitaContext($url))
+        {
+            $this->write_url_log($url, 'QiitaContext');
+            $qiita = new QiitaContextFetcher($url);
+            return $qiita->Fetch();
         }
 
         // x.com / twitter.com / nitter.com
@@ -1288,7 +1302,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
 	    $items = [
-		    "//a[contains(text(),'pic.twitter.com/')]",
+		    "//a[contains(.,'pic.twitter.com/')]",
         ];
         foreach ($items as $item)
         {
@@ -1312,11 +1326,11 @@ class Af_Feedmod extends Plugin implements IHandler
         		//$this->__debug_tm($urls);
                 foreach(array_reverse($urls) as $url)
                 {
-                    if(substr($url, -4) === 'webp')
+                    if(strpos($url, '/pic/enc/') !== false)
                     {
                         $this->append_img_tag($doc, $node, $url);
                     }
-                    if(strpos($url, '/video/') !== false)
+                    if(strpos($url, '/video/enc/') !== false)
                     {
                         $this->append_pic_twitter_com_video($doc, $node, $url);
                     }

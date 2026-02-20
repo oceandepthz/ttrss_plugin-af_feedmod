@@ -226,6 +226,10 @@ class PosfieComFirstPage
             $validValue = substr($unescapedValue, 1);
             return "https://pbs.twimg.com/profile_images/".$validValue;
         }
+        if(strpos($unescapedValue, 'm') === 0) {
+            $validValue = substr($unescapedValue, 1);
+            return "https://pbs.twimg.com/media/".$validValue;
+        }
         return $unescapedValue;
     }
 
