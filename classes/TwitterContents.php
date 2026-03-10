@@ -19,43 +19,17 @@ class TwitterContents
 	{
 	    return "";
 	}
-
-	// get nitter content
-	$doc = $this->getContentsDomdoc($nitter_url);
-	$xpath = new DOMXPath($doc);
-
-	// get nitter contents
-        $contents = $this->getArticle($doc, $xpath);
-
-        // cleanup
-	//$contents = str_replace("middot", "#183", $contents);
-	//$contents = str_replace("・", "&#183;", $contents);
-
-	return $contents;
-    }
-    private function getArticle(DOMDocument $doc, DOMXPath $xpath) : string {
-        $query = "(//div[@class='main-tweet'])";
-        $entries = $xpath->query($query);
-        if($entries->length > 0){
-            $entry = $entries[0];
-            return $doc->saveXML($entry);
-	}	
-	return "";
-    }
-    private function getContentsDomdoc(string $url) : DOMDocument {
-        require_once('FmUtils.php');
-        $u = new FmUtils();
-        $html = $u->url_file_get_contents($url);
-
-        $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
-
-        $doc = new DOMDocument();
-        @$doc->loadHTML($html);
-        return $doc;
+        require_once('NitterContents.php');
+        $n = new NitterContents($nitter_url);
+        if($n->isNitter())
+        {
+            return $n->getContent();
+        }
+        return "";
     }
     private function convertNitterUrl($url) : string
     {
-        $pattern = '/^https:\/\/twitter\.com\/(.*\/status\/[0-9]*).*$/';
+        $pattern = '/^https:\/\/(?:twitter|x)\.com\/(.*\/status\/[0-9]*).*$/';
         preg_match($pattern, $url, $match);
 	if(count($match) != 2)
 	{

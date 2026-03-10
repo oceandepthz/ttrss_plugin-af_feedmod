@@ -87,6 +87,10 @@ class NitterContents
             $nodes[] = $entry;
         }
         foreach($nodes as $entry){
+            $class = $entry->getAttribute('class');
+            if($class == 'gif'){
+                continue;
+            }
             $path = $entry->getAttribute('data-url');
             $fullpath = "https://nitter.kozono.org".$path;
 
@@ -105,7 +109,7 @@ class NitterContents
     {
         $v = $doc->createElement('video','');
         $v->setAttribute('controls', '');
-        $v->setAttribute('style', 'width:100%;max-width:960px;height: auto;');
+        $v->setAttribute('style', 'width:100%;max-width:1024px;height: auto;max-height:1024px;');
 
         $s = $doc->createElement('source');
         $s->setAttribute('src', $url);

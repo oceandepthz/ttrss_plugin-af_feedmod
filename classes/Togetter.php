@@ -17,7 +17,44 @@ class Togetter {
         $html .= $this->get_next_page_contents($url, $html);
 //        $html .= $this->get_comment($doc, $xpath);
 
+        $html = $this->replaceVideoWrap($html);
+
         return "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>${html}</body></html>";
+    }
+    function replaceVideoWrap(string $html) : string {
+        if (!$html) return "";
+        $doc = new DOMDocument();
+        @$doc->loadHTML('<?xml encoding="UTF-8"><html><body>' . $html . '</body></html>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $xpath = new DOMXPath($doc);
+
+        $entries = $xpath->query("//a[contains(@class,'video_wrap')]");
+        foreach($entries as $entry){
+            $src = $entry->getAttribute('data-src');
+            $width = $entry->getAttribute('data-width');
+            $height = $entry->getAttribute('data-height');
+
+            $video = $doc->createElement('video');
+            $video->setAttribute('controls', 'controls');
+            $style = [];
+            if ($width) $style[] = "width:{$width}";
+            if ($height) $style[] = "height:{$height}";
+            if ($style) $video->setAttribute('style', implode(';', $style));
+
+            $source = $doc->createElement('source');
+            $source->setAttribute('src', $src);
+            $video->appendChild($source);
+
+            $entry->parentNode->replaceChild($video, $entry);
+        }
+
+        $body = $doc->getElementsByTagName('body')->item(0);
+        $new_html = '';
+        if ($body) {
+            foreach ($body->childNodes as $node) {
+                $new_html .= $doc->saveHTML($node);
+            }
+        }
+        return $new_html;
     }
     function get_contents_domdoc(string $url) : DOMDocument {
         require_once('FmUtils.php');

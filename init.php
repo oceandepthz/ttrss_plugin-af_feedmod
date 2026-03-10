@@ -269,6 +269,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->sanitize_amazon($doc, $xpath, $entry, $link);
                 $this->update_sqex_to($doc, $xpath, $entry, $link);
                 $this->update_twitter_tweet($doc, $xpath, $entry);
+                $this->update_video_twimg_com($doc, $xpath, $entry);
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
                 $this->update_iframe_youtube($doc, $xpath, $entry);
                 $this->update_peing_net($doc, $xpath, $entry, $link);
@@ -308,6 +309,9 @@ class Af_Feedmod extends Plugin implements IHandler
         if(HatebuUtils::is_hatebu($article['feed']['fetch_url'])){
             $article['content'] .= HatebuUtils::get_hatebu_content($article['link']);
         }
+
+        // clean up content
+
  
         return $article;
     }
@@ -1252,7 +1256,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
     }
 
-    function update_video_twimg_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode, string $url) : void {
+    function update_video_twimg_com(DOMDocument $doc, DOMXPath $xpath, DOMElement $basenode) : void {
         if(!$basenode){
             return;
         }
@@ -1279,6 +1283,7 @@ class Af_Feedmod extends Plugin implements IHandler
         $video->setAttribute('style','max-width:720px');
         $source = $doc->createElement('source', '');
         $source->setAttribute('src', $link);
+        $source->setAttribute('type', 'video/mp4');
         $video->appendChild($source);
         $node->parentNode->insertBefore($video, $node->nextSibling);
     }

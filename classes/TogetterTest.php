@@ -1,7 +1,8 @@
 <?php
 
 //$url = 'https://togetter.com/li/2420778';
-$url = 'https://togetter.com/li/2622249';
+//$url = 'https://togetter.com/li/2622249';
+$url = 'https://togetter.com/li/2670933';
 
         require_once('Togetter.php');
         $to = new Togetter($url);
