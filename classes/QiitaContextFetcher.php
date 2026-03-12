@@ -153,7 +153,7 @@ class QiitaContextFetcher
                         '<img alt="" src="%s" height="110" width="220">' .
                         '</a>' .
                         '</div>',
-                        htmlspecialchars($dataContent),
+                        htmlspecialchars(urldecode($dataContent)),
                         htmlspecialchars($title),
                         htmlspecialchars($displayUrl),
                         htmlspecialchars($image)
