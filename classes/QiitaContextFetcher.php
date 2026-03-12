@@ -36,71 +36,82 @@ class QiitaContextFetcher
         if ($sections->length > 0) {
             $section = $sections->item(0);
             $style = $doc->createElement('style');
-            $style->nodeValue = "
-/* --- カード全体の外枠 --- */
+            $css = "
+.custom-link-card {
+  height: 112px;
+  width: 100%;
+  max-width: 720px;
+  margin: 1.5em 0;
+}
+
 .custom-link-card a {
   display: flex;
+  height: 100%;
   border: 1px solid #e1e4e8;
   border-radius: 6px;
   text-decoration: none;
   background-color: #fff;
   overflow: hidden;
-  margin: 1.5em 0;
   transition: background-color 0.2s;
 }
 
-/* マウスを乗せたとき、少しだけ背景をグレーにする */
 .custom-link-card a:hover {
   background-color: #f9f9f9;
 }
 
-/* --- 左側のテキストエリア --- */
-.custom-link-card a > div {
-  padding: 16px 20px;
+.custom-link-card a div {
+  padding: 12px 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
+  min-width: 0;
 }
 
-/* タイトル部分 */
-.custom-link-card a > div > div {
-  font-size: 16px;
+.custom-link-card a div div {
+  font-size: 15px;
   font-weight: 600;
   color: #333;
-  line-height: 1.5;
-  margin-bottom: 8px;
+  line-height: 1.3;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* URL部分 */
-.custom-link-card a > div > span {
-  font-size: 13px;
+.custom-link-card a div span {
+  font-size: 12px;
   color: #6a737d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* --- 右側の画像エリア --- */
-.custom-link-card a > img {
-  width: 250px;
-  height: auto;
-  min-height: 120px;
+.custom-link-card a img {
+  width: 224px;
+  height: 112px;
   object-fit: cover;
   margin: 0;
   display: block;
 }
 
-/* --- スマホ表示時の調整（画面幅600px以下） --- */
 @media (max-width: 600px) {
-  .custom-link-card a > img {
-    width: 110px;
+  .custom-link-card {
+    height: 90px;
   }
-  .custom-link-card a > div {
-    padding: 12px;
+  .custom-link-card a img {
+    width: 120px;
+    height: 90px;
   }
-  .custom-link-card a > div > div {
-    font-size: 14px;
+  .custom-link-card a div {
+    padding: 8px 12px;
+  }
+  .custom-link-card a div div {
+    font-size: 13px;
   }
 }
 ";
+            $style->appendChild($doc->createTextNode($css));
             if ($section->firstChild) {
                 $section->insertBefore($style, $section->firstChild);
             } else {

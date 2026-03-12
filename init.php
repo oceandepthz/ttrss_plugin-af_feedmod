@@ -311,7 +311,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // clean up content
-
+        $article['content'] = $this->fix_style_tags($article['content']);
  
         return $article;
     }
@@ -1912,6 +1912,12 @@ function save()
     //$this->host->set($this, 'json_conf', base64_encode(gzcompress($json_conf,1)));
     $this->host->set($this, 'json_conf', $json_conf);
     echo __("Configuration saved.");
+}
+
+function fix_style_tags(string $content) : string {
+    $content = str_replace('<style><![CDATA[<![CDATA[', '<style>', $content);
+    $content = str_replace(']]]]><![CDATA[>]]></style>', '</style>', $content);
+    return $content;
 }
 
 function jq_format($json) {
