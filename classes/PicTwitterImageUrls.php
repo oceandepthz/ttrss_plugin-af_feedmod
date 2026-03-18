@@ -55,7 +55,7 @@ class PicTwitterImageUrls
     private function getImageContents(DOMDocument $doc, DOMXPath $xpath) : array
     {
         $urls = [];
-    	$query = "(//div[@id='m']//div[contains(@class,'attachment') and contains(@class,'image')]/a/img)";
+    	$query = "(//div[@id='m']//div[contains(@class,'attachment')]/a/img)";
         $entries = $xpath->query($query);
 	    foreach($entries as $entry){
 	        $path = $entry->getAttribute('src');

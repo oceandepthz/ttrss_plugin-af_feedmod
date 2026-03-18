@@ -2,7 +2,7 @@
 require_once('QiitaContextFetcher.php');
 
 // 実際のQiita記事URL
-$url = "https://qiita.com/emi_ndk/items/02d8a4ef8541ad43d6c6";
+$url = "https://qiita.com/Katayama_Studio/items/07825ca1b1fe4b2b2fe1";
 
 echo "Checking URL: $url\n";
 var_dump(QiitaContextFetcher::IsQiitaContext($url));

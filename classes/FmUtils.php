@@ -12,7 +12,7 @@ class FmUtils {
         'method' => "GET",
         'timeout' => 10,
         'header' => "Accept-language: ja,en-US;q=0.7,en;q=0.3\r\n".
-                    "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/17.17134\r\n"
+                    "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0\r\n"
       ],
       'ssl' => [
         'verify_peer' => false,
