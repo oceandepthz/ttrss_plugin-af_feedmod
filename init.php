@@ -310,7 +310,10 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // clean up content
-        $article['content'] = $this->fix_style_tags($article['content']);
+        if(!empty($article['content']))
+        {
+            $article['content'] = $this->fix_style_tags($article['content']);
+        }
  
         return $article;
     }
@@ -1271,7 +1274,7 @@ class Af_Feedmod extends Plugin implements IHandler
                 if(!$node){
                     continue;
                 }
-                $link = $xpath->evaluate('string()', $node);
+                $link = trim($xpath->evaluate('string()', $node));
                 $this->append_video_twimg_com($doc, $node, $link);
             }
         }

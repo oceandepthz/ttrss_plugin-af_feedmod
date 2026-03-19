@@ -28,6 +28,11 @@ class NhkContextFetcher
     $doc = new DOMDocument();
     @$doc->loadHTML($html);
     $xpath = new DOMXPath($doc);
+
+    foreach($xpath->query("//img[contains(@src, '//news.web.nhk/news/html/') and contains(@src, '.jpg')]") as $img){
+        $img->setAttribute('src', "https://app.kozono.org/mp/?url=" . urlencode($img->getAttribute('src')));
+    }
+
     $query_selector = "/html/body/div/div/div/div/div/div/div/div/div/div/div/figure|/html/body/div/div/div/div/div/div/div/div/div/div/div/div/iframe|/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/time|/html/body/div/div/div/div/div/div/div/div/div/p|/html/body/div/div/div/div/div/div/div/div/div/h3|/html/body/div/div/div/div/div/div/div/div/div/figure|/html/body/div/div/div/div/div/div/div/div/div/p/../div";
     $html = "";
     foreach($xpath->query($query_selector) as $node){
