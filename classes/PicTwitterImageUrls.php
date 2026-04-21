@@ -15,7 +15,7 @@ class PicTwitterImageUrls
         $url = $this->getNormalizationUrl();
 	    // twitter url
     	$location_url = $this->getHeaderLocation($url);
-//var_dump($location_url);
+var_dump($location_url);
         if(!$location_url)
 	    {
 	        return [];
@@ -23,7 +23,7 @@ class PicTwitterImageUrls
 
     	// nitter url (nitter.kozono.org)
         $nitter_url = $this->convertNitterUrl($location_url);
-//var_dump($nitter_url);
+var_dump($nitter_url);
         if(!$nitter_url)
 	    {
 	        return [];
@@ -46,6 +46,7 @@ class PicTwitterImageUrls
         $urls = [];
         $query = "(//div[@class='main-thread']//video)";
         $entries = $xpath->query($query);
+        var_dump($entries->length);
         foreach($entries as $entry){
             $path = $entry->getAttribute('data-url');
             $urls[] = "https://nitter.kozono.org".$path;
@@ -77,19 +78,30 @@ class PicTwitterImageUrls
     }
     private function convertNitterUrl($url) : string
     {
-        $pattern = '/^https:\/\/twitter\.com\/(.*\/status\/[0-9]*).*$/';
+        $pattern = '/^https:\/\/(?:twitter|x)\.com\/(.*\/status\/[0-9]*).*$/';
         preg_match($pattern, $url, $match);
 	    if(count($match) != 2)
 	    {
             return "";
         }
         $match_value = $match[1];
-
         $nitter_url = "https://nitter.kozono.org/${match_value}";
         return $nitter_url;
     }
+
     private function getHeaderLocation($url) : string
     {
+        $headers = get_headers($url, true);
+        if(isset($headers['location']))
+        {
+            $urls = $headers['location'];
+            if(is_array($urls))
+            {
+                return $urls[0];
+            }
+            return $urls;
+        }
+
         $doc = $this->getContentsDomdoc($url);
         $title_tags = $doc->getElementsByTagName('title');
         if ($title_tags->length > 0) {

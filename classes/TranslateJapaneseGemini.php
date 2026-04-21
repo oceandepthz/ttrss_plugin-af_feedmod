@@ -104,7 +104,7 @@ class TranslateJapaneseGemini
                 ],
             ],
         ];
-        $MAX_COUNT = 5;
+        $MAX_COUNT = 3;
         for ($i = 0; $i < $MAX_COUNT; $i++) {
             $key = array_rand($gemini_api_keys);
             $gemini_api_key = $gemini_api_keys[$key];

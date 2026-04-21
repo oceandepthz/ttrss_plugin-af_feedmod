@@ -75,7 +75,8 @@ class Af_Feedmod extends Plugin implements IHandler
 
     function write_url_containsJapanese(string $url, bool $containsJapanese, string $str) : void {
         $cjs = json_encode($containsJapanese);
-        $s = $containsJapanese ? '' : $str;
+        //$s = $containsJapanese ? '' : $str;
+        $s = $str;
         $dt = date("Y-m-d H:i:s") . "." . substr(explode(".", (microtime(true) . ""))[1], 0, 3);
         file_put_contents(dirname(__FILE__).'/logs/site_containsJapanese.txt', "[${dt}] ${url} ${cjs} ${s} \n", FILE_APPEND|LOCK_EX);
     }
@@ -231,12 +232,28 @@ class Af_Feedmod extends Plugin implements IHandler
             $link = $this->replace_link(trim($article['link']),$config);
 
             // 日本語以外コンテンツの翻訳
-            require_once('classes/TranslateJapaneseGemini.php');
-            $tj = new TranslateJapaneseGemini("<h2>".$article["title"]."</h2>".$article['content'], $link);
+            $translateString = '';
+
+            require_once('classes/TranslateJapaneseGemma.php');
+            $tj = new TranslateJapaneseGemma("<h2>".$article["title"]."</h2>".$article['content'], $link);
             $cj = $tj->isTranslate();
             if($cj){
-                $this->write_url_containsJapanese($article['link'], $cj, str_replace(array("\r", "\n"), '', mb_strcut($article['content'], 0, 100)));
-                $article['content'] = $tj->translateString()."<hr>".$article['content'];
+                $this->write_url_containsJapanese($article['link'], $cj, 'gemma start');
+                $translateString = $tj->translateString();
+                $article['content'] = $translateString."<hr>".$article['content'];
+                $this->write_url_containsJapanese($link, $cj, 'gemma length:'.strlen($translateString));
+            }
+            if(!$translateString)
+            {
+                require_once('classes/TranslateJapaneseGemini.php');
+                $tj = new TranslateJapaneseGemini("<h2>".$article["title"]."</h2>".$article['content'], $link);
+                $cj = $tj->isTranslate();
+                if($cj){
+                    $this->write_url_containsJapanese($article['link'], $cj, 'gemini start');
+                    $translateString = $tj->translateString();
+                    $article['content'] = $translateString."<hr>".$article['content'];
+                    $this->write_url_containsJapanese($link, $cj, 'gemini length:'.strlen($translateString));
+                }
             }
 
             $content = mb_convert_encoding("<div>".$article['content']."</div>", 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
@@ -1326,11 +1343,17 @@ class Af_Feedmod extends Plugin implements IHandler
                     continue;
 		        }
         		$link = $xpath->evaluate('string()', $node);
-		        //$this->__debug("pic.twitter.com url : ${url} :${link}");
                 require_once('classes/PicTwitterImageUrls.php');
     	        $p = new PicTwitterImageUrls($link);
 	        	$urls = $p->getImageUrls();
-        		//$this->__debug_tm($urls);
+
+                if (empty($urls))
+                {
+                    $link = $xpath->evaluate('string(@href)', $node);
+                    $p = new PicTwitterImageUrls($link);
+                    $urls = $p->getImageUrls();
+                }
+
                 foreach(array_reverse($urls) as $url)
                 {
                     if(strpos($url, '/pic/enc/') !== false)
@@ -1724,7 +1747,7 @@ class Af_Feedmod extends Plugin implements IHandler
         $url = '';
         $attr_list = ['data-original', 'data-lazy-src', 'data-src', 'data-srcset', 'data-img-path', 
 		'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original', 'data-orig-file', 'data-delay',
-	        'data-litespeed-src', 'data-s' ];
+	        'data-litespeed-src', 'data-s', 'data-sco-src'];
         foreach($attr_list as $attr){
             if(!$node->hasAttribute($attr)){
                 continue;
