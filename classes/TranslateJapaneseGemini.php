@@ -74,7 +74,7 @@ class TranslateJapaneseGemini
         $gemini_api_keys = array_map('trim', explode(',', $keys ?: ''));
 
         //$models = 'gemini-2.5-flash,gemini-2.5-flash-lite,gemini-3-flash-preview,gemini-3.1-flash-lite-preview,gemini-3.1-flash-lite-preview,gemini-3.1-flash-lite-preview';
-        $models = 'gemini-3.1-flash-lite-preview';
+        $models = 'gemini-3.1-flash-lite';
         $gemini_models = array_map('trim', explode(',', $models ?: ''));
         $system_prompt = $this->getSystemPrompt(); 
 
@@ -104,7 +104,7 @@ class TranslateJapaneseGemini
                 ],
             ],
         ];
-        $MAX_COUNT = 3;
+        $MAX_COUNT = 2;
         for ($i = 0; $i < $MAX_COUNT; $i++) {
             $key = array_rand($gemini_api_keys);
             $gemini_api_key = $gemini_api_keys[$key];
@@ -114,7 +114,7 @@ class TranslateJapaneseGemini
 
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 600);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 180);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // レスポンスを文字列として取得
             curl_setopt($ch, CURLOPT_HTTPHEADER, [ 'Content-Type: application/json' ]);
             curl_setopt($ch, CURLOPT_POST, true); // POSTリクエストを指定

@@ -99,14 +99,14 @@ class TranslateJapaneseGemma
             ]
         ];
 
-        $MAX_COUNT = 3;
+        $MAX_COUNT = 2;
         for ($i = 0; $i < $MAX_COUNT; $i++) {
             $key = array_rand($gemini_api_keys);
             $gemini_api_key = $gemini_api_keys[$key];
             $url = "https://generativelanguage.googleapis.com/v1beta/models/$gemma_model:generateContent?key=$gemini_api_key";
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 600);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 180);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // レスポンスを文字列として取得
             curl_setopt($ch, CURLOPT_HTTPHEADER, [ 'Content-Type: application/json' ]);
             curl_setopt($ch, CURLOPT_POST, true); // POSTリクエストを指定

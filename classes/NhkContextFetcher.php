@@ -33,7 +33,7 @@ class NhkContextFetcher
         $img->setAttribute('src', "https://app.kozono.org/mp/?url=" . urlencode($img->getAttribute('src')));
     }
 
-    $query_selector = "/html/body/div/div/div/div/div/div/div/div/div/div/div/figure|/html/body/div/div/div/div/div/div/div/div/div/div/div/div/iframe|/html/body/div/div/div/div/div/div/div/div/div/div/div/div/div/div/div/time|/html/body/div/div/div/div/div/div/div/div/div/p|/html/body/div/div/div/div/div/div/div/div/div/h3|/html/body/div/div/div/div/div/div/div/div/div/figure|/html/body/div/div/div/div/div/div/div/div/div/p/../div";
+    $query_selector = "//main/div/div/div/div/div/div[1]";
     $html = "";
     foreach($xpath->query($query_selector) as $node){
         $html .= $doc->saveHTML($node);

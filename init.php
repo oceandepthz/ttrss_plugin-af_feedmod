@@ -233,26 +233,25 @@ class Af_Feedmod extends Plugin implements IHandler
 
             // 日本語以外コンテンツの翻訳
             $translateString = '';
-
-            require_once('classes/TranslateJapaneseGemma.php');
-            $tj = new TranslateJapaneseGemma("<h2>".$article["title"]."</h2>".$article['content'], $link);
+            require_once('classes/TranslateJapaneseGemini.php');
+            $tj = new TranslateJapaneseGemini("<h2>".$article["title"]."</h2>".$article['content'], $link);
             $cj = $tj->isTranslate();
             if($cj){
-                $this->write_url_containsJapanese($article['link'], $cj, 'gemma start');
+                $this->write_url_containsJapanese($article['link'], $cj, 'gemini start');
                 $translateString = $tj->translateString();
                 $article['content'] = $translateString."<hr>".$article['content'];
-                $this->write_url_containsJapanese($link, $cj, 'gemma length:'.strlen($translateString));
+                $this->write_url_containsJapanese($link, $cj, 'gemini length:'.strlen($translateString));
             }
             if(!$translateString)
             {
-                require_once('classes/TranslateJapaneseGemini.php');
-                $tj = new TranslateJapaneseGemini("<h2>".$article["title"]."</h2>".$article['content'], $link);
+                require_once('classes/TranslateJapaneseGemma.php');
+                $tj = new TranslateJapaneseGemma("<h2>".$article["title"]."</h2>".$article['content'], $link);
                 $cj = $tj->isTranslate();
                 if($cj){
-                    $this->write_url_containsJapanese($article['link'], $cj, 'gemini start');
+                    $this->write_url_containsJapanese($article['link'], $cj, 'gemma start');
                     $translateString = $tj->translateString();
                     $article['content'] = $translateString."<hr>".$article['content'];
-                    $this->write_url_containsJapanese($link, $cj, 'gemini length:'.strlen($translateString));
+                    $this->write_url_containsJapanese($link, $cj, 'gemma length:'.strlen($translateString));
                 }
             }
 
@@ -723,11 +722,11 @@ class Af_Feedmod extends Plugin implements IHandler
         }
 
         // Zenn
-        require_once('classes/Zenn.php');
-        $zenn = new Zenn($url);
-        if($zenn->is_target()){
-            return $zenn->get_html();
-        }
+        //require_once('classes/Zenn.php');
+        //$zenn = new Zenn($url);
+        //if($zenn->is_target()){
+        //    return $zenn->get_html();
+        //}
 
         $user_agent = "";
         $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD];
