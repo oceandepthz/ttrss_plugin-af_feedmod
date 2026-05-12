@@ -27,6 +27,9 @@ class TranslateJapaneseGemini
 
     function isTranslate() : bool
     {
+        if (preg_match('/\.pdf(\?.*)?$/i', $this->url)) {
+            return false;
+        }
         if($this->containsSpecificDomain())
         {
             return false;

@@ -8,16 +8,24 @@ class Togetter {
 
     function get_html() : string {
         $url = $this->url;
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/../logs/togetter_log.txt', "[${dt}] START ${url}\n", FILE_APPEND|LOCK_EX);
+
         $doc = $this->get_contents_domdoc($url);
         $xpath = new DOMXPath($doc);
 
         $html = '';
         $html .= $this->get_first_page_main($doc, $xpath);
-//        $html .= $this->get_first_page_remain($doc, $xpath);
+        file_put_contents(dirname(__FILE__).'/../logs/togetter_log.txt', "[${dt}] FIRST_PAGE_DONE\n", FILE_APPEND|LOCK_EX);
+
         $html .= $this->get_next_page_contents($url, $html);
-//        $html .= $this->get_comment($doc, $xpath);
+        file_put_contents(dirname(__FILE__).'/../logs/togetter_log.txt', "[${dt}] NEXT_PAGES_DONE\n", FILE_APPEND|LOCK_EX);
 
         $html = $this->replaceVideoWrap($html);
+        file_put_contents(dirname(__FILE__).'/../logs/togetter_log.txt', "[${dt}] VIDEO_WRAP_DONE\n", FILE_APPEND|LOCK_EX);
+
+        $dt_end = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/../logs/togetter_log.txt', "[${dt_end}] END ${url}\n", FILE_APPEND|LOCK_EX);
 
         return "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>${html}</body></html>";
     }

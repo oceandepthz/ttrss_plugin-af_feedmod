@@ -15,7 +15,7 @@ class PicTwitterImageUrls
         $url = $this->getNormalizationUrl();
 	    // twitter url
     	$location_url = $this->getHeaderLocation($url);
-var_dump($location_url);
+//var_dump($location_url);
         if(!$location_url)
 	    {
 	        return [];
@@ -23,7 +23,7 @@ var_dump($location_url);
 
     	// nitter url (nitter.kozono.org)
         $nitter_url = $this->convertNitterUrl($location_url);
-var_dump($nitter_url);
+//var_dump($nitter_url);
         if(!$nitter_url)
 	    {
 	        return [];
@@ -46,7 +46,7 @@ var_dump($nitter_url);
         $urls = [];
         $query = "(//div[@class='main-thread']//video)";
         $entries = $xpath->query($query);
-        var_dump($entries->length);
+//        var_dump($entries->length);
         foreach($entries as $entry){
             $path = $entry->getAttribute('data-url');
             $urls[] = "https://nitter.kozono.org".$path;
@@ -91,7 +91,14 @@ var_dump($nitter_url);
 
     private function getHeaderLocation($url) : string
     {
-        $headers = get_headers($url, true);
+        $opts = [
+            'http' => [
+                'method' => 'GET',
+                'timeout' => 5,
+            ]
+        ];
+        $context = stream_context_create($opts);
+        $headers = @get_headers($url, true, $context);
         if(isset($headers['location']))
         {
             $urls = $headers['location'];

@@ -87,6 +87,9 @@ class Af_Feedmod extends Plugin implements IHandler
 
     function hook_article_filter($article)
     {
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/logs/article_filter_log.txt', "[{$dt}] START {$article['link']} (Feed: {$article['feed']['fetch_url']})\n", FILE_APPEND|LOCK_EX);
+
         global $fetch_last_content_type;
 
         $json_conf = $this->get_json_conf();
@@ -110,13 +113,12 @@ class Af_Feedmod extends Plugin implements IHandler
         require_once("classes/UrlUtils.php");
         $article['link'] = UrlUtils::get_original_url($article['link']);
 
-        foreach ($data as $urlpart=>$config) {
-            if(fnmatch('*//*/*.pdf', $article['link'])){
-                $is_hit_link = true;
-                $is_execute = true;
-                break;
-            }
+        // PDF guard
+        if (preg_match('/\.pdf(\?.*)?$/i', $article['link'])) {
+            return $article;
+        }
 
+        foreach ($data as $urlpart=>$config) {
             $match_type = 'default';
             if(array_key_exists('match_type', $config) && $config['match_type'] === 'fnmatch'){
                 $match_type = 'fnmatch';
@@ -233,15 +235,33 @@ class Af_Feedmod extends Plugin implements IHandler
 
             // 日本語以外コンテンツの翻訳
             $translateString = '';
-            require_once('classes/TranslateJapaneseGemini.php');
-            $tj = new TranslateJapaneseGemini("<h2>".$article["title"]."</h2>".$article['content'], $link);
+
+            // OpenCode Zen
+            require_once('classes/TranslateJapaneseOpenCodeZen.php');
+            $tj = new TranslateJapaneseOpenCodeZen("<h2>".$article["title"]."</h2>".$article['content'], $link);
             $cj = $tj->isTranslate();
             if($cj){
-                $this->write_url_containsJapanese($article['link'], $cj, 'gemini start');
+                $this->write_url_containsJapanese($article['link'], $cj, 'opencodezen start');
                 $translateString = $tj->translateString();
                 $article['content'] = $translateString."<hr>".$article['content'];
-                $this->write_url_containsJapanese($link, $cj, 'gemini length:'.strlen($translateString));
+                $this->write_url_containsJapanese($link, $cj, 'opencodezen length:'.strlen($translateString));
             }
+
+            // Gemini
+            if(!$translateString)
+            {
+                require_once('classes/TranslateJapaneseGemini.php');
+                $tj = new TranslateJapaneseGemini("<h2>".$article["title"]."</h2>".$article['content'], $link);
+                $cj = $tj->isTranslate();
+                if($cj){
+                    $this->write_url_containsJapanese($article['link'], $cj, 'gemini start');
+                    $translateString = $tj->translateString();
+                    $article['content'] = $translateString."<hr>".$article['content'];
+                   $this->write_url_containsJapanese($link, $cj, 'gemini length:'.strlen($translateString));
+                }
+            }
+
+            // Gemma
             if(!$translateString)
             {
                 require_once('classes/TranslateJapaneseGemma.php');
@@ -279,16 +299,24 @@ class Af_Feedmod extends Plugin implements IHandler
                 $this->update_remote_file($entry, $link, "video", "data-url");
                 $this->update_remote_file($entry, $link, "video", "src");
 
+                $dt = date("Y-m-d H:i:s");
+                file_put_contents(dirname(__FILE__).'/logs/phase_log.txt', "[${dt}] update_t_co START\n", FILE_APPEND|LOCK_EX);
                 $this->update_t_co($doc, $xpath, $entry, $link);
+                
+                file_put_contents(dirname(__FILE__).'/logs/phase_log.txt', "[${dt}] update_amzn_to START\n", FILE_APPEND|LOCK_EX);
                 $this->update_amzn_to($doc, $xpath, $entry, $link);
                 $this->sanitize_amazon($doc, $xpath, $entry, $link);
                 $this->update_sqex_to($doc, $xpath, $entry, $link);
                 $this->update_twitter_tweet($doc, $xpath, $entry);
                 $this->update_video_twimg_com($doc, $xpath, $entry);
+                
+                file_put_contents(dirname(__FILE__).'/logs/phase_log.txt', "[${dt}] update_pic_twitter_com START\n", FILE_APPEND|LOCK_EX);
                 $this->update_pic_twitter_com($doc, $xpath, $entry, $link);
                 $this->update_iframe_youtube($doc, $xpath, $entry);
                 $this->update_peing_net($doc, $xpath, $entry, $link);
                 $this->update_img_link($doc, $xpath, $entry, $link);
+                
+                file_put_contents(dirname(__FILE__).'/logs/phase_log.txt', "[${dt}] update_instagram START\n", FILE_APPEND|LOCK_EX);
                 $this->update_instagram($doc, $xpath, $entry, $link);
 		if(strpos($link, '//jp.reuters.com/article/') !== false){
                     $this->update_jp_reuters_com($doc, $xpath, $entry);
@@ -331,6 +359,9 @@ class Af_Feedmod extends Plugin implements IHandler
             $article['content'] = $this->fix_style_tags($article['content']);
         }
  
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/logs/article_filter_log.txt', "[{$dt}] END {$article['link']}\n", FILE_APPEND|LOCK_EX);
+
         return $article;
     }
 
@@ -350,13 +381,26 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function get_redirect_url(string $url): string {
-        $header = @get_headers($url, true);
-        if(array_key_exists('Location', $header)){
-            $org_url = $header['Location'];
-            if(is_array($org_url)){
-                $org_url = end($org_url);
-            }
-            return $org_url;
+        require_once('classes/FmUtils.php');
+        $u = new FmUtils();
+        
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_NOBODY, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_USERAGENT, USER_AGENT_FEEDMOD);
+        $header_data = curl_exec($ch);
+        $redirect_url = curl_getinfo($ch, CURLINFO_REDIRECT_URL);
+        curl_close($ch);
+
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/logs/phase_log.txt', "[{$dt}] get_redirect_url {$url} -> {$redirect_url}\n", FILE_APPEND|LOCK_EX);
+        
+        if($redirect_url){
+            return $redirect_url;
         }
         return $url;
     }
@@ -460,9 +504,43 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function get_html_graby(string $url) : string {
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/logs/url_fetch.txt', "[{$dt}] get_html_graby START {$url}\n", FILE_APPEND|LOCK_EX);
+
+        // 最終ガード: CURLによるHEADリクエストでContent-Typeとサイズを確認
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_NOBODY, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+        curl_setopt($ch, CURLOPT_USERAGENT, USER_AGENT_FEEDMOD);
+        $header_data = curl_exec($ch);
+        $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $content_type = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+        $content_length = curl_getinfo($ch, CURLINFO_CONTENT_LENGTH_DOWNLOAD);
+        curl_close($ch);
+
+        if ($header_data === false || $http_code >= 400) {
+            $dt = date("Y-m-d H:i:s");
+            file_put_contents(dirname(__FILE__).'/logs/url_fetch.txt', "[{$dt}] get_html_graby SKIP (FAIL_OR_TIMEOUT, Code:{$http_code}) {$url}\n", FILE_APPEND|LOCK_EX);
+            return "";
+        }
+
+        if (stripos($content_type, 'application/pdf') !== false || (int)$content_length > 10 * 1024 * 1024) {
+            $dt = date("Y-m-d H:i:s");
+            file_put_contents(dirname(__FILE__).'/logs/url_fetch.txt', "[{$dt}] get_html_graby SKIP (Type:{$content_type}, Len:{$content_length}) {$url}\n", FILE_APPEND|LOCK_EX);
+            return "";
+        }
+
         require_once('classes/GrabyWarpper.php');
         $graby = new GrabyWarpper();
-        return $graby->get_html($url);
+        $res = $graby->get_html($url);
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/logs/url_fetch.txt', "[{$dt}] get_html_graby END {$url}\n", FILE_APPEND|LOCK_EX);
+        return $res;
     }
     function get_html_pjs(string $url) : string {
         file_put_contents(dirname(__FILE__).'/logs/af_feed_phantomjs.txt', date("Y-m-d H:i:s")."\t".$url."\n", FILE_APPEND|LOCK_EX);
@@ -666,6 +744,12 @@ class Af_Feedmod extends Plugin implements IHandler
     }
 
     function get_contents(string $url, array $config) : string {
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/logs/url_fetch.txt', "[{$dt}] get_contents START {$url}\n", FILE_APPEND|LOCK_EX);
+
+        if (preg_match('/\.pdf(\?.*)?$/i', $url)) {
+            return "";
+        }
         if($this->is_googleblog_com($url)) {
             return $this->get_googleblog_com($url);
         } 
@@ -729,7 +813,7 @@ class Af_Feedmod extends Plugin implements IHandler
         //}
 
         $user_agent = "";
-        $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD];
+        $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD, "timeout" => 15];
         if(array_key_exists('user_agent', $config)){
             $user_agent = $config['user_agent'];
         }
@@ -742,6 +826,8 @@ class Af_Feedmod extends Plugin implements IHandler
 
 //        $r = fetch_file_contents($options);
         $r = UrlHelper::fetch($options);
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/logs/url_fetch.txt', "[{$dt}] get_contents END {$url}\n", FILE_APPEND|LOCK_EX);
 /*
             require_once('classes/FmUtils.php');
             $u = new FmUtils();
@@ -750,6 +836,8 @@ class Af_Feedmod extends Plugin implements IHandler
         return $r ? $r : "";
     }
     function get_html(string $url, array $config) : string {
+        $dt = date("Y-m-d H:i:s");
+        file_put_contents(dirname(__FILE__).'/logs/url_fetch.txt', "[{$dt}] get_html START {$url}\n", FILE_APPEND|LOCK_EX);
         $html = $this->get_contents($url, $config);
 /*
         if(!$html || $html == ''){
@@ -1251,19 +1339,20 @@ class Af_Feedmod extends Plugin implements IHandler
             }
 
 
-	    $header = @get_headers($href, true);
-	    if(!$header){
-                continue;
-	    }
-            $url = '';
-            if(array_key_exists('location', $header)){
-                $url = $header['location'];
-                if(is_array($url)){
-                    $url = end($url);
-                }
-            }
+            $ch = curl_init($href);
+            curl_setopt($ch, CURLOPT_NOBODY, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HEADER, true);
+            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+            curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
+            curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 5);
+            curl_setopt($ch, CURLOPT_USERAGENT, USER_AGENT_FEEDMOD);
+            $header_data = curl_exec($ch);
+            $url = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+            curl_close($ch);
 
-            if(!$url) {
+            if($header_data === false || !$url) {
                 continue;
 	    }
 	    $url = htmlspecialchars($url);
