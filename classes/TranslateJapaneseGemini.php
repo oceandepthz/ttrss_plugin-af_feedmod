@@ -59,9 +59,11 @@ class TranslateJapaneseGemini
 
     function getTextContains() : string
     {
+        libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $html = "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>".$this->value."</body></html>";
         @$dom->loadHTML($html);
+        libxml_clear_errors();
         $text = $dom->textContent;
         return $text;        
     }

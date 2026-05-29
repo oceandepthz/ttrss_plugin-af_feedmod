@@ -23,8 +23,10 @@ class Zenn {
 
 // 組み立て
         $html = '<!doctype html><html class="no-js" lang="ja"><body>'.$main_contents.'</body></html>';
+        libxml_use_internal_errors(true);
         $output_doc = new DOMDocument();
         @$output_doc->loadHTML($html);
+        libxml_clear_errors();
         return $output_doc->saveHTML();
     }
 
@@ -34,10 +36,16 @@ class Zenn {
         $u = new FmUtils();
         $html = $u->url_file_get_contents($url);
 
+        if (!$html || trim($html) === '') {
+            return new DOMDocument();
+        }
+
         $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
 
+        libxml_use_internal_errors(true);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
+        libxml_clear_errors();
         return $doc;
     }
     function build_main_contents(DOMDocument $doc, DOMXPath $xpath) : string

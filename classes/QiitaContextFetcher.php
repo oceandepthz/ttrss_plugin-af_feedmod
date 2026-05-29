@@ -28,8 +28,10 @@ class QiitaContextFetcher
 
     private function appendCustomStyles(string $html) : string
     {
+        libxml_use_internal_errors(true);
         $doc = new DOMDocument();
         @$doc->loadHTML('<?xml encoding="utf-8" ?>' . $html);
+        libxml_clear_errors();
         $xpath = new DOMXPath($doc);
         $sections = $xpath->query("//section[@class='it-MdContent']");
 
@@ -124,8 +126,10 @@ class QiitaContextFetcher
 
     private function replaceIframesWithLinkCards(string $qiitaHtml) : string
     {
+        libxml_use_internal_errors(true);
         $doc = new DOMDocument();
         @$doc->loadHTML($qiitaHtml);
+        libxml_clear_errors();
         $xpath = new DOMXPath($doc);
         $iframes = $xpath->query("//iframe[starts-with(@id,'qiita-embed-content__')]");
 
@@ -158,9 +162,10 @@ class QiitaContextFetcher
                         htmlspecialchars($displayUrl),
                         htmlspecialchars($image)
                     );
-                    
+                    libxml_use_internal_errors(true);
                     $newDoc = new DOMDocument();
                     @$newDoc->loadHTML('<?xml encoding="utf-8" ?>' . $newHtml);
+                    libxml_clear_errors();
                     $newNode = $doc->importNode($newDoc->getElementsByTagName('div')->item(0), true);
                     $iframe->parentNode->replaceChild($newNode, $iframe);
                 }
@@ -177,8 +182,10 @@ class QiitaContextFetcher
             return "";
         }
         $html = mb_convert_encoding($contents, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+        libxml_use_internal_errors(true);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
+        libxml_clear_errors();
         $xpath = new DOMXPath($doc);
         $query_selector = "(//section[@class='it-MdContent'])";
         $nodeList = $xpath->query($query_selector);

@@ -25,8 +25,10 @@ class NhkContextFetcher
         return "";
     }
     $html = mb_convert_encoding($contents, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+    libxml_use_internal_errors(true);
     $doc = new DOMDocument();
     @$doc->loadHTML($html);
+    libxml_clear_errors();
     $xpath = new DOMXPath($doc);
 
     foreach($xpath->query("//img[contains(@src, '//news.web.nhk/news/html/') and contains(@src, '.jpg')]") as $img){

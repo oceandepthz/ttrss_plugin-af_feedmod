@@ -1,6 +1,6 @@
 <?php
 
-class TranslateJapaneseOpenCodeZen
+class TranslateJapaneseCloudFlare
 {
     protected string $value;
     protected string $url;
@@ -76,18 +76,18 @@ class TranslateJapaneseOpenCodeZen
 
     function translateString() : string
     {
-        $keys = getenv('OPENCODEZEN_API_KEYS');
-        $opencodezen_api_keys = array_map('trim', explode(',', $keys ?: ''));
+        $account_id = getenv('CLOUDFLARE_ACCOUNT_ID');
+        $auth_token = getenv('CLOUDFLARE_AUTH_TOKEN');
 
-        //$model = 'minimax-m2.5-free';
-        //$model = 'deepseek-v4-flash-free';
-        //$model = 'big-pickle';
-        $model = 'nemotron-3-super-free';
+        if (!$account_id || !$auth_token) {
+            return "";
+        }
+
+        $model = "@cf/google/gemma-4-26b-a4b-it";
         $system_prompt = $this->getSystemPrompt(); 
         $value = htmlspecialchars($this->value);
 
         $data = [
-            'model' => $model,
             'messages' => [
                 [
                     'role' => 'system',
@@ -97,23 +97,20 @@ class TranslateJapaneseOpenCodeZen
                     'role' => 'user',
                     'content' => $value
                 ]
-            ],
-            'temperature' => 0.6
+            ]
         ];
+
+        $url = "https://api.cloudflare.com/client/v4/accounts/$account_id/ai/run/$model";
 
         $MAX_COUNT = 2;
         for ($i = 0; $i < $MAX_COUNT; $i++) {
-            $key_index = array_rand($opencodezen_api_keys);
-            $api_key = $opencodezen_api_keys[$key_index];
-            $url = "https://opencode.ai/zen/v1/chat/completions";
-
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
             curl_setopt($ch, CURLOPT_TIMEOUT, 300);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, [ 
-                'Content-Type: application/json',
-                'Authorization: Bearer ' . $api_key
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                "Authorization: Bearer $auth_token",
+                'Content-Type: application/json'
             ]);
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_AUTOREFERER, true);
@@ -122,14 +119,22 @@ class TranslateJapaneseOpenCodeZen
             
             $response = curl_exec($ch);
             if($response === false) {
+                curl_close($ch);
                 $sleep_time = ($i + 1) * 5;
                 sleep($sleep_time);
                 continue;
             }
 
             $response_data = json_decode($response, true);
-            $generated_text = $response_data['choices'][0]['message']['content'] ?? null;
             curl_close($ch);
+
+            if (!isset($response_data['success']) || !$response_data['success']) {
+                $sleep_time = ($i + 1) * 5;
+                sleep($sleep_time);
+                continue;
+            }
+
+            $generated_text = $response_data['result']['choices'][0]['message']['content'] ?? null;
 
             if(!$generated_text)
             {
@@ -140,7 +145,7 @@ class TranslateJapaneseOpenCodeZen
 
             $cleaned_text = preg_replace('/^```html\s*/', '', trim($generated_text));
             $cleaned_text = preg_replace('/```$/', '', $cleaned_text);
-            $cleaned_text .= "<p style='font-size:8px;'>model: ${model} (OpenCodeZen)</p>";
+            $cleaned_text .= "<p style='font-size:8px;'>model: ${model} (Cloudflare)</p>";
             return htmlspecialchars_decode($cleaned_text);
         }
         return "";

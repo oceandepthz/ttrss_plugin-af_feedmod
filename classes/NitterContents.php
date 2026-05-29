@@ -28,8 +28,10 @@ class NitterContents
             }
 
             $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+            libxml_use_internal_errors(true);
             $doc = new DOMDocument();
             @$doc->loadHTML($html);
+            libxml_clear_errors();
 
             $this->replaceVideoTags($doc);
             $this->replaceYoutubeLinks($doc);

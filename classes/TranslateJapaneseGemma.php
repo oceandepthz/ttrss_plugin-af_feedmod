@@ -42,19 +42,28 @@ class TranslateJapaneseGemma
         $pattern = '/[\x{3040}-\x{30FF}]/u';
 
         $scanValue = $this->getTextContains();
-        if(is_null($scanValue) || strlen($scanValue) < 50){
+        if(is_null($scanValue)){
             return false;
         }
-        $firstScanValue = mb_strcut($scanValue, 0, 1000);
-        $firstScanValue = str_replace(array("\r", "\n"), '', $firstScanValue);
+        $cleanScanText = trim(preg_replace('/\s+/', ' ', $scanValue));
+        $thresholdLength = 100;
+        if(strpos($this->url, '//nitter.kozono.org/') !== false){
+            $thresholdLength = 150;
+        }
+        if(strlen($cleanScanText) < $thresholdLength){
+            return false;
+        }
+        $firstScanValue = mb_strcut($cleanScanText, 0, 1000);
         return preg_match($pattern, $firstScanValue) === 0;
     }
 
     function getTextContains() : string
     {
+        libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $html = "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>".$this->value."</body></html>";
         @$dom->loadHTML($html);
+        libxml_clear_errors();
         $text = $dom->textContent;
         return $text;        
     }

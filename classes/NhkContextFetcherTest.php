@@ -7,7 +7,8 @@ require_once('NhkContextFetcher.php');
 //$url = "https://www3.nhk.or.jp/news/html/20250723/k10014872321000.html";
 //$url = "https://news.web.nhk/newsweb/na/na-k10015029971000";
 //$url = "https://news.web.nhk/newsweb/na/na-k10015035791000";
-$url="https://news.web.nhk/newsweb/na/na-k10015104291000";
+//$url="https://news.web.nhk/newsweb/na/na-k10015104291000";
+$url="https://news.web.nhk/newsweb/na/na-k10015119001000";
 var_dump(NhkContextFetcher::IsNhkContext($url));
 
 $n = new NhkContextFetcher($url);

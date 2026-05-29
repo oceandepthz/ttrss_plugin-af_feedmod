@@ -47,10 +47,16 @@ class Bibliogram {
         $u = new FmUtils();
         $html = $u->url_file_get_contents($this->bibliogram_url);
 
+        if (!$html || trim($html) === '') {
+            return new DOMDocument();
+        }
+
         $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
 
+        libxml_use_internal_errors(true);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
+        libxml_clear_errors();
         return $doc;
     }
 

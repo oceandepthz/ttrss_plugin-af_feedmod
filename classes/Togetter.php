@@ -31,8 +31,10 @@ class Togetter {
     }
     function replaceVideoWrap(string $html) : string {
         if (!$html) return "";
+        libxml_use_internal_errors(true);
         $doc = new DOMDocument();
         @$doc->loadHTML('<?xml encoding="UTF-8"><html><body>' . $html . '</body></html>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        libxml_clear_errors();
         $xpath = new DOMXPath($doc);
 
         $entries = $xpath->query("//a[contains(@class,'video_wrap')]");
@@ -43,13 +45,15 @@ class Togetter {
 
             $video = $doc->createElement('video');
             $video->setAttribute('controls', 'controls');
+            $video->setAttribute('playsinline', 'playsinline');
             $style = [];
-            if ($width) $style[] = "width:{$width}";
-            if ($height) $style[] = "height:{$height}";
+            if ($width) $style[] = "width:{$width}px";
+            if ($height) $style[] = "height:{$height}px";
             if ($style) $video->setAttribute('style', implode(';', $style));
 
             $source = $doc->createElement('source');
             $source->setAttribute('src', $src);
+            $source->setAttribute('type', 'video/mp4');
             $video->appendChild($source);
 
             $entry->parentNode->replaceChild($video, $entry);
@@ -69,10 +73,16 @@ class Togetter {
         $u = new FmUtils();
         $html = $u->url_file_get_contents($url);
 
+        if (!$html || trim($html) === '') {
+            return new DOMDocument();
+        }
+
         $html = mb_convert_encoding($html, 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
 
+        libxml_use_internal_errors(true);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
+        libxml_clear_errors();
         return $doc;
     }
     function get_first_page_main(DOMDocument $doc, DOMXPath $xpath) : string {
@@ -165,8 +175,10 @@ class Togetter {
 
     function get_next_page_contents(string $url, string $html) : string {
         $html = mb_convert_encoding("<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>${html}</body></html>", 'HTML-ENTITIES', 'ASCII, JIS, UTF-8, EUC-JP, SJIS');
+        libxml_use_internal_errors(true);
         $doc = new DOMDocument();
         @$doc->loadHTML($html);
+        libxml_clear_errors();
         $xpath = new DOMXPath($doc);
 
         $entries = $xpath->query("(//div[@class='pagenation']//a)");

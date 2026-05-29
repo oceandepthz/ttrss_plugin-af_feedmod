@@ -20,8 +20,10 @@ class UpdateYoutubeEmbed
             $original_src = $entry->getAttribute('src');
             $html = UpdateYoutubeEmbed::CreateIframeHtml($original_src);
 
+            libxml_use_internal_errors(true);
             $tempDoc = new DOMDocument();
             @$tempDoc->loadHTML('<?xml encoding="utf-8" ?>' . $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+            libxml_clear_errors();
             $importedNode = $doc->importNode($tempDoc->documentElement, true);
             $entry->parentNode->replaceChild($importedNode, $entry);
         }
