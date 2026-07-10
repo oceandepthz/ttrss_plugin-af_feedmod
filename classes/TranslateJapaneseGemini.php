@@ -1,79 +1,8 @@
 <?php
 
-class TranslateJapaneseGemini
+class TranslateJapaneseGemini extends AbstractTranslateJapanese
 {
-    protected string $value;
-    protected string $url;
-
-    function __construct(string $value, string $url) {
-        $this->value = $value;
-        $this->url = $url;
-    }
-
-    function containsSpecificDomain(): bool
-    {
-        $domains_to_check = [
-            '//www.nhk.jp/',
-        ];
-
-        foreach ($domains_to_check as $domain_pattern) {
-            if (strpos($this->url, $domain_pattern) !== false) {
-                return true;
-            }
-        }
-
-       return false;
-    }
-
-    function isTranslate() : bool
-    {
-        if (preg_match('/\.pdf(\?.*)?$/i', $this->url)) {
-            return false;
-        }
-        if($this->containsSpecificDomain())
-        {
-            return false;
-        }
-        if(!$this->value)
-        {
-            return false;
-        }
-
-        $pattern = '/[\x{3040}-\x{30FF}]/u';
-
-        $scanValue = $this->getTextContains();
-        if(is_null($scanValue)){
-            return false;
-        }
-        $cleanScanText = trim(preg_replace('/\s+/', ' ', $scanValue));
-        $thresholdLength = 100;
-        if(strpos($this->url, '//nitter.kozono.org/') !== false){
-            $thresholdLength = 150;
-        }
-        if(strlen($cleanScanText) < $thresholdLength){
-            return false;
-        }
-        $firstScanValue = mb_strcut($cleanScanText, 0, 1000);
-        return preg_match($pattern, $firstScanValue) === 0;
-    }
-
-    function getTextContains() : string
-    {
-        libxml_use_internal_errors(true);
-        $dom = new DOMDocument();
-        $html = "<!DOCTYPE html><html><head><meta charset='utf-8'></head><body>".$this->value."</body></html>";
-        @$dom->loadHTML($html);
-        libxml_clear_errors();
-        $text = $dom->textContent;
-        return $text;        
-    }
-    function getSystemPrompt() : string
-    {
-        $path = dirname(__FILE__)."/system_prompt.txt";
-        return file_get_contents($path);
-    }
-
-    function translateString() : string
+    public function translateString() : string
     {
         $keys = getenv('GEMINI_API_KEYS');
         $gemini_api_keys = array_map('trim', explode(',', $keys ?: ''));
@@ -152,4 +81,3 @@ class TranslateJapaneseGemini
         return "";
     }
 }
-

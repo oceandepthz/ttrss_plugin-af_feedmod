@@ -2,6 +2,8 @@
 $s = file_get_contents('TranslateJapaneseGeminiTestHtml.txt'); 
 $u = "https://www.example.com/";
 
+require_once('TranslateJapaneseInterface.php');
+require_once('AbstractTranslateJapanese.php');
 require_once('TranslateJapaneseCloudFlare.php');
 $tj = new TranslateJapaneseCloudFlare($s, $u);
 

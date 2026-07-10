@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . "/../vendor/autoload.php";
+require_once __DIR__ . '/FeedModHttp.php';
 use HeaderParser\Parser;
 
 class FmUtils {
@@ -14,7 +15,7 @@ class FmUtils {
         'ignore_errors' => true,
         'method' => "GET",
         'timeout' => 30,
-        'header' => "Accept-language: ja,en-US;q=0.7,en;q=0.3\r\n".
+        'header' => 'Accept-Language: ' . FeedModHttp::ACCEPT_LANGUAGE . "\r\n".
                     "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0\r\n"
       ],
       'ssl' => [

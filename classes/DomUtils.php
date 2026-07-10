@@ -61,10 +61,64 @@ class DomUtils {
         return rtrim(dirname($base_url), '/') . '/' . ltrim($rel_url, './');
     }
 
-    public static function append_img_tag(DOMDocument $doc, DOMElement $node, string $url): void {
+    public static function get_replace_src(DOMElement $node): string {
+        $url = '';
+        $attr_list = [
+            'data-original', 'data-lazy-src', 'data-src', 'data-srcset', 'data-img-path',
+            'ng-src', 'rel:bf_image_src', 'ajax', 'data-lazy-original', 'data-orig-file', 'data-delay',
+            'data-litespeed-src', 'data-s', 'data-sco-src', 'data-src-2x',
+        ];
+        foreach ($attr_list as $attr) {
+            if (!$node->hasAttribute($attr)) {
+                continue;
+            }
+            if ($attr === 'srcset') {
+                $parts = explode(',', $node->getAttribute('srcset'));
+                $url = explode(' ', trim($parts[0]))[0];
+            } else {
+                $url = $node->getAttribute($attr);
+            }
+            if (strpos($url, 'data:image/') === 0) {
+                $url = '';
+                continue;
+            }
+            $url = str_replace([':large', ':medium', ':small'], '', $url);
+            if ($url) {
+                break;
+            }
+        }
+        return $url;
+    }
+
+    public static function append_img_tag(DOMDocument $doc, DOMElement $node, string $url, ?array $opt = null): void {
         $img = $doc->createElement('img', '');
         $img->setAttribute('src', $url);
+        if ($opt) {
+            foreach ($opt as $k => $v) {
+                $img->setAttribute($k, $v);
+            }
+        }
         $node->parentNode->insertBefore($img, $node->nextSibling);
+    }
+
+    public static function append_iframe_tag(DOMDocument $doc, DOMElement $node, string $url): void {
+        $if = $doc->createElement('iframe', '');
+        $if->setAttribute('src', $url);
+        $if->setAttribute('width', '640');
+        $if->setAttribute('height', '480');
+        $if->setAttribute('sandbox', 'allow-scripts');
+        $node->parentNode->insertBefore($if, $node->nextSibling);
+    }
+
+    public static function array_to_css_style(array $style): string {
+        $s = '';
+        foreach ($style as $k => $v) {
+            if (!$v) {
+                continue;
+            }
+            $s .= "${k}:${v};";
+        }
+        return $s;
     }
 
     public static function fix_style_tags(string $content): string {

@@ -4,6 +4,8 @@ $s = file_get_contents('TranslateJapaneseGeminiTestHtml.txt');
 // テスト用のURL
 $u = "https://www.example.com/";
 
+require_once('TranslateJapaneseInterface.php');
+require_once('AbstractTranslateJapanese.php');
 require_once('TranslateJapaneseOpenCodeZen.php');
 
 echo "--- TranslateJapaneseOpenCodeZen Test Start ---\n";

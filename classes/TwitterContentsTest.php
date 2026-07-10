@@ -14,7 +14,9 @@ require_once('TwitterContents.php');
 //$url = "https://twitter.com/BaseballkingJP/status/1578287602771558400?t=iYKAIrEaDzPupNDjrWuI9A&amp;s=19";
 //$url = "https://twitter.com/DAZN_JPN/status/1731316836715655178?t=orW97Yv4jyS9PnClXHWo_g&amp;s=19";
 
-$url = "https://x.com/MLB/status/2026002727008891146";
+//$url = "https://x.com/MLB/status/2026002727008891146";
+$url = "https://twitter.com/asahi/status/2058676428414263778";
+
 $p = new TwitterContents($url);
 
 $a = $p->getContents();

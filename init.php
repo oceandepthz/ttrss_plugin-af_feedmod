@@ -16,6 +16,9 @@ class Af_Feedmod extends Plugin implements IHandler
     /** @var PluginHost */
     private $host;
 
+    /** @var bool */
+    public $fm_site_head_info_css = false;
+
     function about()
     {
         return [1.0, 'Replace feed contents by contents from the linked page', 'mbirth'];
@@ -83,6 +86,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
     function hook_article_filter($article)
     {
+        $this->fm_site_head_info_css = false;
         $dt = date("Y-m-d H:i:s");
         @file_put_contents(__DIR__.'/logs/article_filter_log.txt', "[{$dt}] START {$article['link']} (Feed: {$article['feed']['fetch_url']})\n", FILE_APPEND|LOCK_EX);
 
@@ -225,11 +229,12 @@ class Af_Feedmod extends Plugin implements IHandler
                 $handler->update_instagram($doc, $xpath, $entry, $link);
                 if(strpos($link, '//jp.reuters.com/article/') !== false) $handler->update_jp_reuters_com($doc, $xpath, $entry);
                 $handler->update_html_style($xpath, $entry, $link);
-                $handler->update_tag($doc, $xpath, $entry);
-                $handler->update_tag_lazy_image($doc, $xpath, $entry);
+                $handler->update_tag($doc, $xpath, $entry, $link);
+                $handler->update_tag_lazy_image($doc, $xpath, $entry, $link);
                 $handler->change_attribute_value($doc, $xpath, $entry, "id", "container", "container_chg");
                 $handler->change_attribute_value($doc, $xpath, $entry, "id", "main", "main_chg");
-                $handler->update_img_proxy($xpath, $entry);
+                $handler->update_img_proxy($xpath);
+                $handler->update_site_head_info($doc, $xpath, $entry);
 
                 $article['content'] = str_replace(["<html><body>","</body></html>"], "", $doc->saveHTML($entry));
             }
@@ -237,6 +242,10 @@ class Af_Feedmod extends Plugin implements IHandler
             if(isset($current_config['append_css'])){
                 $css = is_array($current_config['append_css']) ? implode($current_config['append_css']) : $current_config['append_css'];
                 $article['content'] .= "<style type='text/css'>${css}</style>";
+            }
+
+            if ($this->fm_site_head_info_css && class_exists('SiteHeadInfoHtml')) {
+                $article['content'] .= (new SiteHeadInfoHtml())->getStylesheet();
             }
 
             if (isset($method_label)) {
@@ -258,12 +267,12 @@ class Af_Feedmod extends Plugin implements IHandler
 
     private function process_translations($article, $link) {
         $translateString = '';
-        $tjClasses = ['TranslateJapaneseGemini'];
+        $tjClasses = ['TranslateJapaneseGemini','TranslateJapaneseCloudFlare','TranslateJapaneseOpenRouter','TranslateJapaneseGemma'];
         foreach($tjClasses as $tjClass) {
             if ($translateString) break;
             if (class_exists($tjClass)) {
                 $tj = new $tjClass("<h2>".$article["title"]."</h2>".$article['content'], $link);
-                if($tj->isTranslate()){
+                if($tj instanceof TranslateJapaneseInterface && $tj->isTranslate()){
                     $this->write_url_containsJapanese($article['link'], true, $tjClass . ' start');
                     $this->write_url_log($link, $tjClass . ' start');
                     $translateString = $tj->translateString();

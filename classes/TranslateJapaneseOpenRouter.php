@@ -1,39 +1,50 @@
 <?php
 
-class TranslateJapaneseOpenCodeZen extends AbstractTranslateJapanese
+class TranslateJapaneseOpenRouter extends AbstractTranslateJapanese
 {
+    /**
+     * OpenRouter APIを使用して文字列を翻訳します。
+     */
     public function translateString() : string
     {
-        $keys = getenv('OPENCODEZEN_API_KEYS');
-        $opencodezen_api_keys = array_map('trim', explode(',', $keys ?: ''));
+        // 環境変数からAPIキーを取得。複数ある場合はカンマ区切りに対応。
+        $keys = getenv('OPENROUTER_API_KEYS') ?: getenv('OPENROUTER_API_KEY');
+        if (!$keys) {
+            return "";
+        }
+        $openrouter_api_keys = array_map('trim', explode(',', $keys));
 
-        //$model = 'minimax-m2.5-free';
-        //$model = 'deepseek-v4-flash-free';
-        //$model = 'big-pickle';
-        $model = 'nemotron-3-super-free';
+        // 環境変数からモデル名を取得。ない場合はデフォルトのモデルを使用。
+        $models = 'tencent/hy3:free';
+        $openrouter_models = array_map('trim', explode(',', $models));
+        
         $system_prompt = $this->getSystemPrompt(); 
         $value = htmlspecialchars($this->value);
 
-        $data = [
-            'model' => $model,
-            'messages' => [
-                [
-                    'role' => 'system',
-                    'content' => $system_prompt
-                ],
-                [
-                    'role' => 'user',
-                    'content' => $value
-                ]
-            ],
-            'temperature' => 0.6
-        ];
-
         $MAX_COUNT = 2;
         for ($i = 0; $i < $MAX_COUNT; $i++) {
-            $key_index = array_rand($opencodezen_api_keys);
-            $api_key = $opencodezen_api_keys[$key_index];
-            $url = "https://opencode.ai/zen/v1/chat/completions";
+            $key_index = array_rand($openrouter_api_keys);
+            $api_key = $openrouter_api_keys[$key_index];
+            
+            $model_index = array_rand($openrouter_models);
+            $model = $openrouter_models[$model_index];
+
+            $url = "https://openrouter.ai/api/v1/chat/completions";
+
+            $data = [
+                'model' => $model,
+                'messages' => [
+                    [
+                        'role' => 'system',
+                        'content' => $system_prompt
+                    ],
+                    [
+                        'role' => 'user',
+                        'content' => $value
+                    ]
+                ],
+                'temperature' => 0.6
+            ];
 
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
@@ -66,9 +77,10 @@ class TranslateJapaneseOpenCodeZen extends AbstractTranslateJapanese
                 continue;
             }
 
+            // ```html の囲みがあれば除去
             $cleaned_text = preg_replace('/^```html\s*/', '', trim($generated_text));
             $cleaned_text = preg_replace('/```$/', '', $cleaned_text);
-            $cleaned_text .= "<p style='font-size:8px;'>model: ${model} (OpenCodeZen)</p>";
+            $cleaned_text .= "<p style='font-size:8px;'>model: ${model} (OpenRouter)</p>";
             return htmlspecialchars_decode($cleaned_text);
         }
         return "";
