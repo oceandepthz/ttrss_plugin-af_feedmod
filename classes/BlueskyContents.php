@@ -507,16 +507,16 @@ HTML;
 }
 
 .bsky-post__avatar-img {
-  width: 48px;
-  height: 48px;
+  width: 48px!important;
+  height: 48px!important;
   border-radius: 50%;
   object-fit: cover;
   display: block;
 }
 
 .bsky-post__avatar-placeholder {
-  width: 48px;
-  height: 48px;
+  width: 48px!important;
+  height: 48px!important;
   border-radius: 50%;
   background-color: #cbd5e1;
 }
