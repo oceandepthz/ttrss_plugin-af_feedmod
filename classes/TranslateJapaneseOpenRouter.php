@@ -15,7 +15,7 @@ class TranslateJapaneseOpenRouter extends AbstractTranslateJapanese
         $openrouter_api_keys = array_map('trim', explode(',', $keys));
 
         // 環境変数からモデル名を取得。ない場合はデフォルトのモデルを使用。
-        $models = 'tencent/hy3:free';
+        $models = 'nvidia/nemotron-3.5-lightning:free';
         $openrouter_models = array_map('trim', explode(',', $models));
         
         $system_prompt = $this->getSystemPrompt(); 

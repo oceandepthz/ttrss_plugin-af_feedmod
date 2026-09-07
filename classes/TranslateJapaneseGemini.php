@@ -8,7 +8,7 @@ class TranslateJapaneseGemini extends AbstractTranslateJapanese
         $gemini_api_keys = array_map('trim', explode(',', $keys ?: ''));
 
         //$models = 'gemini-2.5-flash,gemini-2.5-flash-lite,gemini-3-flash-preview,gemini-3.1-flash-lite-preview,gemini-3.1-flash-lite-preview,gemini-3.1-flash-lite-preview';
-        $models = 'gemini-3.1-flash-lite';
+        $models = 'gemini-3.1-flash-lite,gemini-3.5-flash-lite';
         $gemini_models = array_map('trim', explode(',', $models ?: ''));
         $system_prompt = $this->getSystemPrompt(); 
 
@@ -32,7 +32,6 @@ class TranslateJapaneseGemini extends AbstractTranslateJapanese
                 ]
             ],
             'generationConfig' => [
-                'temperature' => 0.6,
                 'thinkingConfig' => [
                     'thinkingBudget' => -1,
                 ],

@@ -267,7 +267,7 @@ class Af_Feedmod extends Plugin implements IHandler
 
     private function process_translations($article, $link) {
         $translateString = '';
-        $tjClasses = ['TranslateJapaneseGemini','TranslateJapaneseCloudFlare','TranslateJapaneseOpenRouter','TranslateJapaneseGemma'];
+        $tjClasses = ['TranslateJapaneseGemini','TranslateJapaneseCloudFlare','TranslateJapaneseGemma'];
         foreach($tjClasses as $tjClass) {
             if ($translateString) break;
             if (class_exists($tjClass)) {
@@ -333,6 +333,10 @@ class Af_Feedmod extends Plugin implements IHandler
         if(class_exists('PosfieCom')) {
             $posfie = new PosfieCom($url);
             if($posfie->is_posfie()) return $posfie->get_html();
+        }
+        if(class_exists('BlueskyContents') && BlueskyContents::isBlueskyUrl($url)) {
+            $this->write_url_log($url, 'BlueskyContents');
+            return (new BlueskyContents($url))->getContents();
         }
 
         $options = ["url"=>$url, "useragent" => USER_AGENT_FEEDMOD, "timeout" => 15];
@@ -415,6 +419,7 @@ class Af_Feedmod extends Plugin implements IHandler
         }
         if(strpos($url, 'togetter.com') !== false) return (new Togetter($url))->get_html();
         if(strpos($url, 'twitter.com') !== false || strpos($url, 'x.com') !== false) return (new TwitterContents($url))->getContents();
+        if(strpos($url, 'bsky.app') !== false && class_exists('BlueskyContents')) return (new BlueskyContents($url))->getContents();
         return "";
     }
 
